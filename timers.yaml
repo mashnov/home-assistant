@@ -1,0 +1,16 @@
+kitchen_top_light_timer:
+    duration: '00:00:10'
+kitchen_night_light_timer:
+    duration: '00:00:10'
+toilet_door_timer:
+    duration: '00:00:15'
+toilet_ventilation_timer:
+    duration: '00:00:30'
+bath_top_light_timer:
+    duration: '00:00:10'
+bath_night_light_timer:
+    duration: '00:00:10'
+hall_top_light_timer:
+    duration: '00:00:10'
+hall_night_light_timer:
+    duration: '00:00:10'

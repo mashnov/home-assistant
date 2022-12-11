@@ -1,0 +1,4 @@
+  - platform: edge_tts
+    service_name: sveta_say
+    language: ru-RU-SvetlanaNeural
+    cache: false

@@ -1,0 +1,559 @@
+title: 'Освещение'
+icon: 'mdi:light-recessed'
+cards:
+
+### Кухня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_is_morning_time
+      icon: 'mdi:clock-time-nine-outline'
+    - entity: binary_sensor.night_is_day_time
+      icon: 'mdi:clock-time-twelve-outline'
+    - entity: binary_sensor.night_is_evening_time
+      icon: 'mdi:clock-time-eleven-outline'
+    - entity: binary_sensor.night_is_night_time
+      icon: 'mdi:clock-time-one-outline'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_kitchen_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.sun_kitchen_toplight_is_dark
+      icon: 'mdi:brightness-6'
+    - entity: binary_sensor.night_kitchen_is_night
+      icon: 'mdi:weather-night'
+    - entity: binary_sensor.toplight_kitchen_light_is_on
+      icon: 'mdi:light-recessed'
+    - entity: switch.kitchen_switch_left
+      icon: 'mdi:light-switch-off'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_kitchen_use_sensors
+        state: 'on'
+      row: 
+        entity: timer.toplight_kitchen_timer
+        name: 'Таймер выключения:'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_kitchen_use_sensors
+        state: 'off'
+      - entity: switch.kitchen_switch_left
+        state: 'on'
+      row: 
+        entity: light.toplight_kitchen_lights
+        icon: 'mdi:light-recessed'
+        name: 'Освещение'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_kitchen_use_sensors
+        state: 'off'
+      - entity: switch.kitchen_switch_left
+        state: 'off'
+      row: 
+        entity: switch.kitchen_switch_left 
+        name: 'Выключатель'
+    - type: section
+    - entity: input_boolean.toplight_kitchen_use_sensors
+      name: 'Автоматический режим'
+    - entity: input_boolean.toplight_kitchen_use_smart_brightness
+      name: 'Автоматическая яркость'
+    - entity: input_boolean.toplight_kitchen_use_smart_temperature
+      name: 'Автоматическая температура'
+    - entity: input_boolean.toplight_kitchen_use_illuminance
+      name: 'Использовать яркость солнца'
+    - entity: input_boolean.toplight_kitchen_use_in_morning
+      name: 'Включать утром'
+    - entity: input_boolean.toplight_kitchen_use_in_day
+      name: 'Включать днем'
+    - entity: input_boolean.toplight_kitchen_use_in_evening
+      name: 'Включать вечером'
+    - entity: input_boolean.toplight_kitchen_use_in_night
+      name: 'Включать ночью'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_kitchen_automation_is_partly
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_kitchen_use_smart_brightness
+        state: 'off'
+      row: 
+        entity: input_number.toplight_kitchen_light_brightness
+        name: 'Яркость'
+        icon: 'mdi:radiobox-marked'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_kitchen_use_smart_temperature
+        state: 'off'
+      row: 
+        entity: input_number.toplight_kitchen_light_temperature
+        name: 'Температура'
+        icon: 'mdi:radiobox-marked'
+    - type: section
+    - entity: input_number.toplight_kitchen_sensor_delay_day
+      name: 'Таймер (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.toplight_kitchen_sensor_delay_night
+      name: 'Таймер (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_is_morning_time
+      icon: 'mdi:clock-time-nine-outline'
+    - entity: binary_sensor.night_is_day_time
+      icon: 'mdi:clock-time-twelve-outline'
+    - entity: binary_sensor.night_is_evening_time
+      icon: 'mdi:clock-time-eleven-outline'
+    - entity: binary_sensor.night_is_night_time
+      icon: 'mdi:clock-time-one-outline'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_hall_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.sun_hall_toplight_is_dark
+      icon: 'mdi:brightness-6'
+    - entity: binary_sensor.night_hall_is_night
+      icon: 'mdi:weather-night'
+    - entity: binary_sensor.toplight_hall_light_is_on
+      icon: 'mdi:light-recessed'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_hall_use_sensors
+        state: 'on'
+      row: 
+        entity: timer.toplight_hall_timer
+        name: 'Таймер выключения:'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_hall_use_sensors
+        state: 'off'
+      - entity: switch.hall_switch
+        state: 'on'
+      row: 
+        entity: light.toplight_hall_lights
+        icon: 'mdi:light-recessed'
+        name: 'Освещение'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_hall_use_sensors
+        state: 'off'
+      - entity: switch.hall_switch
+        state: 'off'
+      row: 
+        entity: switch.hall_switch 
+        name: 'Выключатель'
+    - type: section
+    - entity: input_boolean.toplight_hall_use_sensors
+      name: 'Автоматический режим'
+    - entity: input_boolean.toplight_hall_use_smart_brightness
+      name: 'Автоматическая яркость'
+    - entity: input_boolean.toplight_hall_use_smart_temperature
+      name: 'Автоматическая температура'
+    - entity: input_boolean.toplight_hall_use_illuminance
+      name: 'Использовать яркость солнца'
+    - entity: input_boolean.toplight_hall_use_in_morning
+      name: 'Включать утром'
+    - entity: input_boolean.toplight_hall_use_in_day
+      name: 'Включать днем'
+    - entity: input_boolean.toplight_hall_use_in_evening
+      name: 'Включать вечером'
+    - entity: input_boolean.toplight_hall_use_in_night
+      name: 'Включать ночью'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_hall_automation_is_partly
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_hall_use_smart_brightness
+        state: 'off'
+      row: 
+        entity: input_number.toplight_hall_light_brightness
+        name: 'Яркость'
+        icon: 'mdi:radiobox-marked'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_hall_use_smart_temperature
+        state: 'off'
+      row: 
+        entity: input_number.toplight_hall_light_temperature
+        name: 'Температура'
+        icon: 'mdi:radiobox-marked'
+    - type: section
+    - entity: input_number.toplight_hall_sensor_delay_day
+      name: 'Таймер (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.toplight_hall_sensor_delay_night
+      name: 'Таймер (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_is_morning_time
+      icon: 'mdi:clock-time-nine-outline'
+    - entity: binary_sensor.night_is_day_time
+      icon: 'mdi:clock-time-twelve-outline'
+    - entity: binary_sensor.night_is_evening_time
+      icon: 'mdi:clock-time-eleven-outline'
+    - entity: binary_sensor.night_is_night_time
+      icon: 'mdi:clock-time-one-outline'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_bath_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.night_bath_is_night
+      icon: 'mdi:weather-night'
+    - entity: binary_sensor.toplight_bath_light_is_on
+      icon: 'mdi:wall-sconce-flat'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_bath_use_sensors
+        state: 'on'
+      row: 
+        entity: timer.toplight_bath_timer
+        name: 'Таймер выключения:'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_bath_use_sensors
+        state: 'off'
+      row: 
+        entity: light.toplight_bath 
+        name: 'Освещение'
+    - type: section
+    - entity: input_boolean.toplight_bath_use_sensors
+      name: 'Автоматический режим'
+    - entity: input_boolean.toplight_bath_use_in_morning
+      name: 'Включать утром'
+    - entity: input_boolean.toplight_bath_use_in_day
+      name: 'Включать днем'
+    - entity: input_boolean.toplight_bath_use_in_evening
+      name: 'Включать вечером'
+    - entity: input_boolean.toplight_bath_use_in_night
+      name: 'Включать ночью'
+    - type: section
+    - entity: input_number.toplight_bath_sensor_delay_day
+      name: 'Таймер (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.toplight_bath_sensor_delay_night
+      name: 'Таймер (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Туалет
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Туалет'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_is_morning_time
+      icon: 'mdi:clock-time-nine-outline'
+    - entity: binary_sensor.night_is_day_time
+      icon: 'mdi:clock-time-twelve-outline'
+    - entity: binary_sensor.night_is_evening_time
+      icon: 'mdi:clock-time-eleven-outline'
+    - entity: binary_sensor.night_is_night_time
+      icon: 'mdi:clock-time-one-outline'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_toilet_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.night_toilet_is_night
+      icon: 'mdi:weather-night'
+    - entity: binary_sensor.toplight_toilet_light_is_on
+      icon: 'mdi:wall-sconce-flat'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_toilet_use_sensors
+        state: 'off'
+      row: 
+        entity: light.toplight_toilet 
+        name: 'Освещение'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.toplight_toilet_use_sensors
+        state: 'off'
+      row: 
+        type: section    
+    - entity: input_boolean.toplight_toilet_use_sensors
+      name: 'Автоматический режим'
+    - entity: input_boolean.toplight_toilet_use_in_morning
+      name: 'Включать утром'
+    - entity: input_boolean.toplight_toilet_use_in_day
+      name: 'Включать днем'
+    - entity: input_boolean.toplight_toilet_use_in_evening
+      name: 'Включать вечером'
+    - entity: input_boolean.toplight_toilet_use_in_night
+      name: 'Включать ночью'
+
+### Спальня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: switch.bedroom_switch_left
+      icon: 'mdi:light-switch-off'
+    - entity: switch.bedroom_switch_right
+      icon: 'mdi:light-switch-off'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'off'
+      row: 
+        entity: switch.bedroom_switch_left 
+        name: 'Выключатель левый'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'off'
+      row: 
+        entity: switch.bedroom_switch_right 
+        name: 'Выключатель правый'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      row: 
+        entity: light.toplight_bedroom_lights 
+        icon: 'mdi:light-recessed'
+        name: 'Освещение'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      row: 
+        entity: input_boolean.toplight_bedroom_use_smart_brightness
+        name: 'Автоматическая яркость'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      row: 
+        entity: input_boolean.toplight_bedroom_use_smart_temperature
+        name: 'Автоматическая температура'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_automation_is_partly
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      - entity: input_boolean.toplight_bedroom_use_smart_brightness
+        state: 'off'
+      row: 
+        entity: input_number.toplight_bedroom_light_brightness
+        name: 'Яркость'
+        icon: 'mdi:radiobox-marked'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_bedroom_switch_is_on
+        state: 'on'
+      - entity: input_boolean.toplight_bedroom_use_smart_temperature
+        state: 'off'
+      row: 
+        entity: input_number.toplight_bedroom_light_temperature
+        name: 'Температура'
+        icon: 'mdi:radiobox-marked'
+
+### Гостиная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: switch.living_switch_left
+      icon: 'mdi:light-switch-off'
+    - entity: switch.living_switch_right
+      icon: 'mdi:light-switch-off'
+
+  - type: entities
+    entities:
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'off'
+      row: 
+        entity: switch.living_switch_left 
+        name: 'Выключатель левый'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'off'
+      row: 
+        entity: switch.living_switch_right 
+        name: 'Выключатель правый'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      row: 
+        entity: light.toplight_living_lights 
+        icon: 'mdi:light-recessed'
+        name: 'Освещение'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      row: 
+        entity: input_boolean.toplight_living_use_smart_brightness
+        name: 'Автоматическая яркость'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      row: 
+        entity: input_boolean.toplight_living_use_smart_temperature
+        name: 'Автоматическая температура'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      - entity: binary_sensor.toplight_living_automation_is_partly
+        state: 'on'
+      row: 
+        type: section
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      - entity: input_boolean.toplight_living_use_smart_brightness
+        state: 'off'
+      row: 
+        entity: input_number.toplight_living_light_brightness
+        name: 'Яркость'
+        icon: 'mdi:radiobox-marked'
+    - type: conditional
+      conditions:
+      - entity: binary_sensor.toplight_living_switch_is_on
+        state: 'on'
+      - entity: input_boolean.toplight_living_use_smart_temperature
+        state: 'off'
+      row: 
+        entity: input_number.toplight_living_light_temperature
+        name: 'Температура'
+        icon: 'mdi:radiobox-marked'
+
+### Настройки
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Настройки'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_is_morning_time
+      icon: 'mdi:clock-time-nine-outline'
+    - entity: binary_sensor.night_is_day_time
+      icon: 'mdi:clock-time-twelve-outline'
+    - entity: binary_sensor.night_is_evening_time
+      icon: 'mdi:clock-time-eleven-outline'
+    - entity: binary_sensor.night_is_night_time
+      icon: 'mdi:clock-time-one-outline'
+
+  - type: entities
+    entities:
+    - entity: sensor.sun_illuminance_virtual
+      name: 'Уровень яркости'
+    - entity: sensor.toplight_brightness
+      name: 'Яркость света'
+    - entity: sensor.toplight_temperature
+      name: 'Температура света'
+    - type: section
+    - entity: input_number.toplight_color_temperature_max_illuminance
+      name: 'Предел яркости'
+      icon: 'mdi:brightness-7'
+    - type: section
+    - entity: input_number.toplight_color_morning_brightness
+      name: 'Яркость утром'
+      icon: 'mdi:lightbulb-variant-outline'
+    - entity: input_number.toplight_color_day_brightness
+      name: 'Яркость днем'
+      icon: 'mdi:lightbulb-variant-outline'
+    - entity: input_number.toplight_color_evening_brightness
+      name: 'Яркость вечером'
+      icon: 'mdi:lightbulb-variant-outline'
+    - entity: input_number.toplight_color_night_brightness
+      name: 'Яркость ночью'
+      icon: 'mdi:lightbulb-variant-outline'

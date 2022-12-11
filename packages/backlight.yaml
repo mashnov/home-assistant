@@ -1,0 +1,898 @@
+backlight:
+  light:
+  - name: backlight_bedroom_lights
+    platform: group
+    entities:
+    - light.bedroom_back_light
+    - light.bedroom_wall_light
+
+  timer:
+    backlight_kitchen_timer:
+      duration: '00:00:10'
+
+  input_number:
+    # kitchen
+    backlight_kitchen_sensor_delay_night:
+      max: 240
+      min: 0
+      step: 1
+    backlight_kitchen_sensor_delay_day:
+      max: 240
+      min: 0
+      step: 1
+
+  input_boolean:
+    # kitchen
+    backlight_kitchen_use_sensors:
+      icon: 'mdi:lightbulb-auto'
+    backlight_kitchen_use_illuminance:
+      icon: 'mdi:brightness-4'
+    backlight_kitchen_use_in_morning:
+      icon: 'mdi:clock-time-nine-outline'
+    backlight_kitchen_use_in_day:
+      icon: 'mdi:clock-time-twelve-outline'
+    backlight_kitchen_use_in_evening:
+      icon: 'mdi:clock-time-eleven-outline'
+    backlight_kitchen_use_in_night:
+      icon: 'mdi:clock-time-one-outline'
+    # hall
+    backlight_hall_use_sensors:
+      icon: 'mdi:lightbulb-auto'
+    backlight_hall_use_illuminance:
+      icon: 'mdi:brightness-6'
+    backlight_hall_use_in_morning:
+      icon: 'mdi:clock-time-nine-outline'
+    backlight_hall_use_in_day:
+      icon: 'mdi:clock-time-twelve-outline'
+    backlight_hall_use_in_evening:
+      icon: 'mdi:clock-time-eleven-outline'
+    backlight_hall_use_in_night:
+      icon: 'mdi:clock-time-one-outline'
+    # bedroom
+    backlight_bedroom_use_sensors:
+      icon: 'mdi:lightbulb-auto'
+    backlight_bedroom_use_illuminance:
+      icon: 'mdi:brightness-6'
+    backlight_bedroom_use_in_morning:
+      icon: 'mdi:clock-time-nine-outline'
+    backlight_bedroom_use_in_day:
+      icon: 'mdi:clock-time-twelve-outline'
+    backlight_bedroom_use_in_evening:
+      icon: 'mdi:clock-time-eleven-outline'
+    backlight_bedroom_use_in_night:
+      icon: 'mdi:clock-time-one-outline'
+    # living
+    backlight_living_use_sensors:
+      icon: 'mdi:lightbulb-auto'
+    backlight_living_use_illuminance:
+      icon: 'mdi:brightness-6'
+    backlight_living_use_in_morning:
+      icon: 'mdi:clock-time-nine-outline'
+    backlight_living_use_in_day:
+      icon: 'mdi:clock-time-twelve-outline'
+    backlight_living_use_in_evening:
+      icon: 'mdi:clock-time-eleven-outline'
+    backlight_living_use_in_night:
+      icon: 'mdi:clock-time-one-outline'
+
+  template:
+  - sensor: 
+    # kitchen
+    - name: 'backlight_kitchen_sensor_delay_day'
+      device_class: duration
+      state: "{{ states('input_number.backlight_kitchen_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'backlight_kitchen_sensor_delay_night'
+      device_class: duration
+      state: "{{ states('input_number.backlight_kitchen_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'backlight_kitchen_sensor_delay'
+      device_class: duration
+      state: >
+        {% set dayValue = states('sensor.backlight_kitchen_sensor_delay_day') %}
+        {% set nightValue = states('sensor.backlight_kitchen_sensor_delay_night') %}
+        {% set isNight = is_state('binary_sensor.night_kitchen_is_night', 'on') %}
+        {{ iif(isNight, nightValue, dayValue) }}
+
+  - binary_sensor:
+    # kitchen
+    - name: 'backlight_kitchen_switch_is_on'
+      state: "{{ is_state('switch.kitchen_switch_right', 'on') }}"
+    - name: 'backlight_kitchen_light_is_on'
+      state: "{{ is_state('light.backlight_kitchen', 'on') }}"
+    - name: 'backlight_kitchen_timer_is_on'
+      state: "{{ is_state('timer.backlight_kitchen_timer', 'active') }}"
+    # hall
+    - name: 'backlight_hall_is_on'
+      state: "{{ is_state('light.backlight_hall', 'on') }}"
+    # bedroom
+    - name: 'backlight_bedroom_is_on'
+      state: >
+        {% set backLightIsOn = is_state('light.bedroom_back_light', 'on') %}
+        {% set wallLightIsOn = is_state('light.bedroom_wall_light', 'on') %}
+        {{ backLightIsOn and wallLightIsOn }}
+    # living
+    - name: 'backlight_living_is_on'
+      state: "{{ is_state('light.backlight_living', 'on') }}"
+
+  automation:
+  # kitchen
+  - alias: 'backlight_kitchen_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - binary_sensor.backlight_kitchen_switch_is_on
+      - binary_sensor.backlight_kitchen_light_is_on
+      - input_boolean.backlight_kitchen_use_sensors
+      - binary_sensor.occupation_kitchen_is_occupancy
+      - input_boolean.backlight_kitchen_use_illuminance
+      - binary_sensor.sun_kitchen_backlight_is_dark
+      - input_boolean.backlight_kitchen_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_kitchen_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_kitchen_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_kitchen_use_in_night
+      - binary_sensor.night_kitchen_is_night
+    action:
+    - choose:
+      # switch on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_switch_is_on
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_light_is_on
+            state: 'off'
+          - condition: state
+            entity_id: input_boolean.backlight_kitchen_use_sensors
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.backlight_kitchen_use_illuminance
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_kitchen_backlight_is_dark
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_morning
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_day
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_evening
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_night
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'on'
+        sequence:
+        - service: switch.turn_on
+          entity_id: 'switch.kitchen_switch_right'
+      # light on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_switch_is_on
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_light_is_on
+            state: 'off'
+          - condition: state
+            entity_id: input_boolean.backlight_kitchen_use_sensors
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.backlight_kitchen_use_illuminance
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_kitchen_backlight_is_dark
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_morning
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_day
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_evening
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_night
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_on
+          entity_id: 'light.backlight_kitchen'
+      # timer start
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_kitchen_use_sensors
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_light_is_on
+            state: 'on'
+        sequence:
+        - service: timer.start
+          entity_id: 'timer.backlight_kitchen_timer'
+          data_template:
+            duration: "{{ states('sensor.backlight_kitchen_sensor_delay') }}"
+      # timer cancel
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_kitchen_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: binary_sensor.occupation_kitchen_is_occupancy
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.backlight_kitchen_light_is_on
+              state: 'off'
+        sequence:
+        - service: timer.cancel
+          entity_id: 'timer.backlight_kitchen_timer'
+
+  - alias: 'backlight_kitchen_light_off'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_kitchen_use_sensors
+      - input_boolean.backlight_kitchen_use_illuminance
+      - binary_sensor.sun_kitchen_backlight_is_dark
+      - input_boolean.backlight_kitchen_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_kitchen_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_kitchen_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_kitchen_use_in_night
+      - binary_sensor.night_kitchen_is_night
+    action:
+    - choose:
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_kitchen_use_sensors
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.backlight_kitchen_light_is_on
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_kitchen_backlight_is_dark
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_morning
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_day
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_evening
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_kitchen_use_in_night
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_kitchen_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_off
+          entity_id: 'light.backlight_kitchen'
+
+  - alias: 'backlight_kitchen_light_off_by_timer'
+    initial_state: true
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.backlight_kitchen_timer
+    action:
+    - service: light.turn_off
+      entity_id: 'light.backlight_kitchen'
+
+  # hall
+  - alias: 'backlight_hall_light_on'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_hall_use_sensors
+      - input_boolean.backlight_hall_use_illuminance
+      - binary_sensor.sun_hall_backlight_is_dark
+      - input_boolean.backlight_hall_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_hall_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_hall_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_hall_use_in_night
+      - binary_sensor.night_hall_is_night
+    action:
+    - choose:
+      # switch on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_hall_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.backlight_hall_use_illuminance
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_hall_backlight_is_dark
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_morning
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_day
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_evening
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_night
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_on
+          entity_id: 'light.backlight_hall'
+
+  - alias: 'backlight_hall_light_off'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_hall_use_sensors
+      - input_boolean.backlight_hall_use_illuminance
+      - binary_sensor.sun_hall_backlight_is_dark
+      - input_boolean.backlight_hall_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_hall_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_hall_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_hall_use_in_night
+      - binary_sensor.night_hall_is_night
+    action:
+    - choose:
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_hall_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_hall_backlight_is_dark
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_morning
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_day
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_evening
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_hall_use_in_night
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_off
+          entity_id: 'light.backlight_hall'
+
+  - alias: 'backlight_hall_switch_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.hall_switch_restroom_action
+      to: 'single_both'
+    action:
+    - service: tts.sveta_say
+      data:
+        entity_id: media_player.homepod
+        message: "свет выключается"
+        cache: false
+
+  # bedroom
+  - alias: 'backlight_bedroom_light_on'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_bedroom_use_sensors
+      - input_boolean.backlight_bedroom_use_illuminance
+      - binary_sensor.sun_bedroom_backlight_is_dark
+      - input_boolean.backlight_bedroom_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_bedroom_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_bedroom_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_bedroom_use_in_night
+      - binary_sensor.night_bedroom_is_night
+    action:
+    - choose:
+      # switch on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_bedroom_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.backlight_bedroom_use_illuminance
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_bedroom_backlight_is_dark
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_morning
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_day
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_evening
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_night
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_on
+          entity_id: 'light.backlight_bedroom_lights'
+
+  - alias: 'backlight_bedroom_light_off'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_bedroom_use_sensors
+      - input_boolean.backlight_bedroom_use_illuminance
+      - binary_sensor.sun_bedroom_backlight_is_dark
+      - input_boolean.backlight_bedroom_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_bedroom_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_bedroom_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_bedroom_use_in_night
+      - binary_sensor.night_bedroom_is_night
+    action:
+    - choose:
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_bedroom_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_bedroom_backlight_is_dark
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_morning
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_day
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_evening
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_bedroom_use_in_night
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_off
+          entity_id: 'light.backlight_bedroom_lights'
+
+  # living
+  - alias: 'backlight_living_light_on'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_living_use_sensors
+      - input_boolean.backlight_living_use_illuminance
+      - binary_sensor.sun_living_backlight_is_dark
+      - input_boolean.backlight_living_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_living_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_living_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_living_use_in_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      # switch on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_living_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.backlight_living_use_illuminance
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_living_backlight_is_dark
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_morning
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_day
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_evening
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_night
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_on
+          entity_id: 'light.backlight_living'
+
+  - alias: 'backlight_living_light_off'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.backlight_living_use_sensors
+      - input_boolean.backlight_living_use_illuminance
+      - binary_sensor.sun_living_backlight_is_dark
+      - input_boolean.backlight_living_use_in_morning
+      - binary_sensor.night_is_morning_time
+      - input_boolean.backlight_living_use_in_day
+      - binary_sensor.night_is_day_time
+      - input_boolean.backlight_living_use_in_evening
+      - binary_sensor.night_is_evening_time
+      - input_boolean.backlight_living_use_in_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.backlight_living_use_sensors
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_illuminance
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.sun_living_backlight_is_dark
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_morning
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_day
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_day_time
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_evening
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_evening_time
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.backlight_living_use_in_night
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: light.turn_off
+          entity_id: 'light.backlight_living'

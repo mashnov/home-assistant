@@ -1,0 +1,149 @@
+ventilation:
+  input_number:
+    # kitchen
+    ventilation_kitchen_sensor_delay:
+      max: 10
+      min: 0
+      step: 1
+    # hall
+    ventilation_hall_sensor_delay:
+      max: 20
+      min: 0
+      step: 1
+    # bedroom
+    ventilation_bedroom_sensor_delay:
+      max: 10
+      min: 0
+      step: 1
+    # living
+    ventilation_living_sensor_delay:
+      max: 10
+      min: 0
+      step: 1
+
+  input_boolean:
+    # hall
+    ventilation_hall_use_kitchen_sensor:
+      icon: 'mdi:microwave'
+    ventilation_hall_use_hall_sensor:
+      icon: 'mdi:door-sliding'
+    ventilation_hall_use_bedroom_sensor:
+      icon: 'mdi:bed-king-outline'
+    ventilation_hall_use_living_sensor:
+      icon: 'mdi:sofa-single-outline'
+    ventilation_hall_ignore_closed_rooms:
+      icon: 'mdi:door'
+ 
+  template:
+  - sensor: 
+    # kitchen
+    - name: 'ventilation_kitchen_sensor_delay'
+      device_class: duration
+      state: "{{ states('input_number.ventilation_kitchen_sensor_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # hall
+    - name: 'ventilation_hall_sensor_delay'
+      device_class: duration
+      state: "{{ states('input_number.ventilation_hall_sensor_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # bedroom
+    - name: 'ventilation_bedroom_sensor_delay'
+      device_class: duration
+      state: "{{ states('input_number.ventilation_bedroom_sensor_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # living
+    - name: 'ventilation_living_sensor_delay'
+      device_class: duration
+      state: "{{ states('input_number.ventilation_living_sensor_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - binary_sensor:
+    # kitchen
+    - name: 'ventilation_kitchen_left_window_virtual'
+      device_class: window
+      state: "{{ states('binary_sensor.kitchen_window_left') }}"
+    - name: 'ventilation_kitchen_right_window_virtual'
+      device_class: window
+      state: "{{ states('binary_sensor.kitchen_window_right') }}"
+    - name: 'ventilation_kitchen_left_window_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_kitchen_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_kitchen_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_kitchen_left_window_virtual', 'on') }}"
+    - name: 'ventilation_kitchen_right_window_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_kitchen_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_kitchen_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_kitchen_right_window_virtual', 'on') }}"
+    - name: 'ventilation_kitchen_is_ventilation'
+      state: >
+        {% set sensorValueLeft = is_state('binary_sensor.ventilation_kitchen_left_window_is_open_delayed', 'on') %}
+        {% set sensorValueRight = is_state('binary_sensor.ventilation_kitchen_right_window_is_open_delayed', 'on') %}
+        {{ sensorValueLeft or sensorValueRight }}
+    # hall
+    - name: 'ventilation_hall_entry_door_virtual'
+      device_class: door
+      state: "{{ states('binary_sensor.hall_door') }}"
+    - name: 'ventilation_hall_door_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_hall_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_hall_entry_door_virtual', 'on') }}"
+    - name: 'ventilation_hall_is_ventilation'
+      state: >
+        {% set excludeClosedDoord = is_state('input_boolean.ventilation_hall_ignore_closed_rooms', 'on') %}
+        {% set bedroomDoorIsClosed = is_state('binary_sensor.bedroom_door', 'off') %}
+        {% set livingDoorIsClosed = is_state('binary_sensor.living_door', 'off') %}
+        {% set bedroomIsExcluded = excludeClosedDoord and bedroomDoorIsClosed %}
+        {% set livingIsExcluded = excludeClosedDoord and livingDoorIsClosed %}
+        {% set useKitchenSensor = is_state('input_boolean.ventilation_hall_use_kitchen_sensor', 'on') %}
+        {% set useHallSensor = is_state('input_boolean.ventilation_hall_use_hall_sensor', 'on') %}
+        {% set useBedroomSensor = is_state('input_boolean.ventilation_hall_use_bedroom_sensor', 'on') %}
+        {% set useLivingSensor = is_state('input_boolean.ventilation_hall_use_living_sensor', 'on') %}
+        {% set kitchenSensorValue = is_state('binary_sensor.ventilation_kitchen_is_ventilation', 'on') %}
+        {% set hallSensorValue = is_state('binary_sensor.ventilation_hall_door_is_open_delayed', 'on') %}
+        {% set bedroomSensorValue = is_state('binary_sensor.ventilation_bedroom_is_ventilation', 'on') %}
+        {% set livingSensorValue = is_state('binary_sensor.ventilation_living_is_ventilation', 'on') %}
+        {% set kitchenIsVentilation = useKitchenSensor and kitchenSensorValue %}
+        {% set hallIsVentilation = useHallSensor and hallSensorValue %}
+        {% set bedroomIsVentilation = not(bedroomIsExcluded) and useBedroomSensor and bedroomSensorValue %}
+        {% set livingIsVentilation = not(livingIsExcluded) and useLivingSensor and livingSensorValue %}
+        {{ kitchenIsVentilation or hallIsVentilation or bedroomIsVentilation or livingIsVentilation }}
+    # bedroom
+    - name: 'ventilation_bedroom_left_window_virtual'
+      device_class: window
+      state: "{{ states('binary_sensor.bedroom_window_left') }}"
+    - name: 'ventilation_bedroom_right_window_virtual'
+      device_class: window
+      state: "{{ states('binary_sensor.bedroom_window_right') }}"
+    - name: 'ventilation_bedroom_entry_door_virtual'
+      device_class: door
+      state: "{{ states('binary_sensor.bedroom_door') }}"
+    - name: 'ventilation_bedroom_left_window_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_bedroom_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_bedroom_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_bedroom_left_window_virtual', 'on') }}"
+    - name: 'ventilation_bedroom_right_window_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_bedroom_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_bedroom_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_bedroom_right_window_virtual', 'on') }}"
+    - name: 'ventilation_bedroom_is_ventilation'
+      state: >
+        {% set sensorValueLeft = is_state('binary_sensor.ventilation_bedroom_left_window_is_open_delayed', 'on') %}
+        {% set sensorValueRight = is_state('binary_sensor.ventilation_bedroom_right_window_is_open_delayed', 'on') %}
+        {{ sensorValueLeft or sensorValueRight }}
+    # living
+    - name: 'ventilation_living_balcony_window_virtual'
+      device_class: window
+      state: "{{ states('binary_sensor.living_top_window') }}"
+    - name: 'ventilation_living_balcony_door_virtual'
+      device_class: door
+      state: "{{ states('binary_sensor.living_bottom_window') }}"
+    - name: 'ventilation_living_entry_door_virtual'
+      device_class: door
+      state: "{{ states('binary_sensor.living_door') }}"
+    - name: 'ventilation_living_balcony_window_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_living_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_living_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_living_balcony_window_virtual', 'on') }}"
+    - name: 'ventilation_living_balcony_door_is_open_delayed'
+      delay_on: "{{ states('sensor.ventilation_living_sensor_delay') }}"
+      delay_off: "{{ states('sensor.ventilation_living_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_living_balcony_door_virtual', 'on') }}"
+    - name: 'ventilation_living_is_ventilation'
+      state: >
+        {% set sensorBalconyWindow = is_state('binary_sensor.ventilation_living_balcony_window_is_open_delayed', 'on') %}
+        {% set sensorBalconyDoor = is_state('binary_sensor.ventilation_living_balcony_door_is_open_delayed', 'on') %}
+        {{ sensorBalconyWindow or sensorBalconyDoor }}

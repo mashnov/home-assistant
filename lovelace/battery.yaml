@@ -1,0 +1,104 @@
+title: 'Питание'
+icon: 'mdi:battery-charging'
+cards:
+
+### Кухня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: entities
+    entities:
+    - entity: sensor.curtain_kitchen_battery
+      name: 'Мотор штор'
+    - entity: sensor.kitchen_window_left_battery
+      name: 'Окно левое'
+    - entity: sensor.kitchen_window_right_battery
+      name: 'Окно правое'
+    - entity: sensor.kitchen_motion_battery
+      name: 'Датчик движения'
+    - entity: sensor.kitchen_thermometer_battery
+      name: 'Датчик температуры'
+
+### Коридор
+  - type: markdown
+    content: 'Коридор'
+
+  - type: entities
+    entities:
+    - entity: sensor.hall_door_battery
+      name: 'Входная дверь'
+    - entity: sensor.hall_motion_battery
+      name: 'Датчик движения'
+    - entity: sensor.hall_thermometer_battery
+      name: 'Датчик температуры'
+    - entity: sensor.ipad_aleksandr_battery_level
+      name: 'Батарея iPad'
+
+### Спальня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: entities
+    entities:
+    - entity: sensor.curtain_bedroom_battery
+      name: 'Мотор штор'
+    - entity: sensor.bedroom_window_left_battery
+      name: 'Окно левое'
+    - entity: sensor.bedroom_window_right_battery
+      name: 'Окно правое'
+    - entity: sensor.bedroom_door_battery
+      name: 'Входная дверь'
+    - entity: sensor.bedroom_thermometer_battery
+      name: 'Датчик температуры'
+
+### Гостиная
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: entities
+    entities:
+    - entity: sensor.curtain_living_battery
+      name: 'Мотор штор'
+    - entity: sensor.living_top_window_battery
+      name: 'Окно'
+    - entity: sensor.living_bottom_window_battery
+      name: 'Дверь на балкон'
+    - entity: sensor.living_door_battery
+      name: 'Входная дверь'
+    - entity: sensor.living_thermometer_battery
+      name: 'Датчик температуры'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: entities
+    entities:
+    - entity: sensor.bath_motion_battery
+      name: 'Датчик движения'
+    - entity: sensor.bath_thermometer_battery
+      name: 'Датчик температуры'
+
+### Туалет
+  - type: markdown
+    content: 'Туалет'
+
+  - type: entities
+    entities:
+    - entity: sensor.toilet_door_battery
+      name: 'Входная дверь'
+
+### Балкон
+  - type: markdown
+    content: 'Балкон'
+
+  - type: entities
+    entities:
+    - entity: sensor.balcony_illuminance_battery
+      name: 'Датчик освещенности'

@@ -1,0 +1,41 @@
+balcony:
+  automation:
+  - alias: 'balcony_bottom_light_toggle'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: 'single'
+    action:
+    - service: switch.toggle
+      entity_id: switch.balcony_light_relay_l1_2
+
+  - alias: 'balcony_top_light_toggle'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: 'double'
+    action:
+    - service: switch.toggle
+      entity_id: switch.balcony_light_relay_l2_2
+
+  - alias: 'balcony_fountain_toggle'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: 'hold'
+    action:
+    - service: fan.toggle
+      entity_id: fan.balcony_fountain
+
+  - alias: 'balcony_socket_toggle'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: 'shake'
+    action:
+    - service: switch.toggle
+      entity_id: switch.balcony_socket

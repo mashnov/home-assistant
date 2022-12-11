@@ -1,0 +1,686 @@
+hydration:
+  timer:
+    # bath
+    hydration_bath_toilet_timer:
+      duration: '00:00:10'
+
+  input_text:
+    # hall
+    hydration_hall_empty_humidifier_text:
+      initial: 'Коридор. Закончилась вода в увлажнителе'
+    # bedroom
+    hydration_bedroom_empty_humidifier_text:
+      initial: 'Спальня. Закончилась вода в увлажнителе'
+    # living
+    hydration_living_empty_humidifier_text:
+      initial: 'Гостиная. Закончилась вода в увлажнителе'
+
+  input_number:
+    # hall
+    hydration_hall_energy_backlight_min:
+      max: 22
+      min: 0
+      step: 1
+    hydration_hall_power_delay:
+      max: 10
+      min: 0
+      step: 1
+    # bedroom
+    hydration_bedroom_energy_backlight_min:
+      max: 22
+      min: 0
+      step: 1
+    hydration_bedroom_power_delay:
+      max: 10
+      min: 0
+      step: 1
+    # living
+    hydration_living_energy_backlight_min:
+      max: 22
+      min: 0
+      step: 1
+    hydration_living_power_delay:
+      max: 10
+      min: 0
+      step: 1
+    # bath
+    hydration_toilet_day_duration:
+      max: 90
+      min: 0
+      step: 1
+    hydration_toilet_night_duration:
+      max: 60
+      min: 0
+      step: 1
+
+  input_boolean:
+    # hall
+    hydration_hall_automation:
+      icon: 'mdi:thermostat-auto'
+    hydration_hall_use_sensor:
+      icon: 'mdi:water-circle'
+    hydration_hall_use_night_mode:
+      icon: 'mdi:weather-night'
+    hydration_hall_use_ventilation:
+      icon: 'mdi:tailwind'
+    hydration_hall_use_tts:
+      icon: 'mdi:microphone-message'
+    # bedroom
+    hydration_bedroom_automation:
+      icon: 'mdi:thermostat-auto'
+    hydration_bedroom_use_sensor:
+      icon: 'mdi:water-circle'
+    hydration_bedroom_use_night_mode:
+      icon: 'mdi:weather-night'
+    hydration_bedroom_use_ventilation:
+      icon: 'mdi:tailwind'
+    hydration_bedroom_use_tts:
+      icon: 'mdi:microphone-message'
+    # living
+    hydration_living_automation:
+      icon: 'mdi:thermostat-auto'
+    hydration_living_use_sensor:
+      icon: 'mdi:water-circle'
+    hydration_living_use_night_mode:
+      icon: 'mdi:weather-night'
+    hydration_living_use_ventilation:
+      icon: 'mdi:tailwind'
+    hydration_living_use_tts:
+      icon: 'mdi:microphone-message'
+    # bath
+    hydration_bath_use_sensor:
+      icon: 'mdi:shower'
+    # toilet
+    hydration_toilet_use_sensor:
+      icon: 'mdi:toilet'
+
+  template:
+  - sensor: 
+    # hall
+    - name: 'hydration_hall_relay_power_virtual'
+      unit_of_measurement: W
+      device_class: power
+      state: >
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_hall_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = (humidifierMinPower + backlightMinPower) | int(0) %}
+        {% set sensorValue = states('sensor.hall_relay_power') | int(relayMinPower) %}
+        {{ sensorValue | round(0) }}
+    - name: 'hydration_hall_power_delay'
+      device_class: duration
+      state: "{{ states('input_number.hydration_hall_power_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # bedroom
+    - name: 'hydration_bedroom_relay_power_virtual'
+      unit_of_measurement: W
+      device_class: power
+      state: >
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_bedroom_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = (humidifierMinPower + backlightMinPower) | int(0) %}
+        {% set sensorValue = states('sensor.bedroom_relay_power') | int(relayMinPower) %}
+        {{ sensorValue | round(0) }}
+    - name: 'hydration_bedroom_power_delay'
+      device_class: duration
+      state: "{{ states('input_number.hydration_bedroom_power_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # living
+    - name: 'hydration_living_relay_power_virtual'
+      unit_of_measurement: W
+      device_class: power
+      state: >
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_living_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = (humidifierMinPower + backlightMinPower) | int(0) %}
+        {% set sensorValue = states('sensor.living_relay_power') | int(relayMinPower) %}
+        {{ sensorValue | round(0) }}
+    - name: 'hydration_living_power_delay'
+      device_class: duration
+      state: "{{ states('input_number.hydration_living_power_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    # toilet
+    - name: 'hydration_toilet_sensor_day_delay'
+      device_class: duration
+      state: "{{ states('input_number.hydration_toilet_day_duration') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'hydration_toilet_sensor_night_delay'
+      device_class: duration
+      state: "{{ states('input_number.hydration_toilet_night_duration') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'hydration_toilet_sensor_delay'
+      device_class: duration
+      state: >
+        {% set dayValue = states('sensor.hydration_toilet_sensor_day_delay') %}
+        {% set nightValue = states('sensor.hydration_toilet_sensor_night_delay') %}
+        {% set isNight = is_state('binary_sensor.night_bath_is_night', 'on') %}
+        {{ iif(isNight, nightValue, dayValue) }}
+
+  - binary_sensor:
+    # bath
+    - name: 'hydration_bath_humidifier_is_on'
+      state: "{{ is_state('fan.hydration_toilet_fan', 'on') }}"
+    # hall
+    - name: 'hydration_hall_humidifier_is_on'
+      state: "{{ is_state('fan.hydration_hall_humidifier', 'on') }}"
+    - name: 'hydration_hall_humidifier_is_empty'
+      delay_on: "{{ states('sensor.hydration_hall_power_delay') }}"
+      state: >
+        {% set backlightIsOn = is_state('binary_sensor.backlight_hall_is_on', 'on') %}
+        {% set humidifierIsOn = is_state('binary_sensor.hydration_hall_humidifier_is_on', 'on') %}
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_hall_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = backlightMinPower + humidifierMinPower %}
+        {% set sensorValue = states('sensor.hall_relay_power') | int(relayMinPower) %}
+        {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
+        {{ humidifierIsOn and (sensorValue <= expectedValue) }}
+    # bedroom
+    - name: 'hydration_bedroom_humidifier_is_on'
+      state: "{{ is_state('fan.hydration_bedroom_humidifier', 'on') }}"
+    - name: 'hydration_bedroom_humidifier_is_empty'
+      delay_on: "{{ states('sensor.hydration_bedroom_power_delay') }}"
+      state: >
+        {% set backlightIsOn = is_state('binary_sensor.backlight_bedroom_is_on', 'on') %}
+        {% set humidifierIsOn = is_state('binary_sensor.hydration_bedroom_humidifier_is_on', 'on') %}
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_bedroom_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = backlightMinPower + humidifierMinPower %}
+        {% set sensorValue = states('sensor.bedroom_relay_power') | int(relayMinPower) %}
+        {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
+        {{ humidifierIsOn and (sensorValue <= expectedValue) }}
+    # living
+    - name: 'hydration_living_humidifier_is_on'
+      state: "{{ is_state('fan.hydration_living_humidifier', 'on') }}"
+    - name: 'hydration_living_humidifier_is_empty'
+      delay_on: "{{ states('sensor.hydration_living_power_delay') }}"
+      state: >
+        {% set backlightIsOn = is_state('binary_sensor.backlight_living_is_on', 'on') %}
+        {% set humidifierIsOn = is_state('binary_sensor.hydration_living_humidifier_is_on', 'on') %}
+        {% set humidifierMinPower = 1 %}
+        {% set backlightMinPower = states('input_number.hydration_living_energy_backlight_min') | int(0) %}
+        {% set relayMinPower = backlightMinPower + humidifierMinPower %}
+        {% set sensorValue = states('sensor.living_relay_power') | int(relayMinPower) %}
+        {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
+        {{ humidifierIsOn and (sensorValue <= expectedValue) }}
+
+  automation:
+  # hall
+  - alias: 'hydration_hall_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.hydration_hall_automation
+      - binary_sensor.hydration_hall_humidifier_is_on
+      - input_boolean.hydration_hall_use_sensor
+      - binary_sensor.humidity_hall_air_is_wet
+      - binary_sensor.humidity_hall_air_is_dry
+      - input_boolean.hydration_hall_use_ventilation
+      - binary_sensor.ventilation_hall_is_ventilation
+      - input_boolean.hydration_hall_use_night_mode
+      - binary_sensor.night_hall_is_night
+      - input_boolean.hydration_hall_use_tts
+      - binary_sensor.hydration_hall_humidifier_is_empty
+    action:
+    - choose:
+      # empty alert
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_hall_use_tts
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_hall_humidifier_is_empty
+            state: 'on'
+        sequence:
+        - service: tts.sveta_say
+          data:
+            entity_id: media_player.homepod
+            message: "{{ states('input_text.hydration_hall_empty_humidifier_text') }}"
+            cache: false
+      # turn_off humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_hall_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_hall_humidifier_is_on
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_hall_use_sensor
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.humidity_hall_air_is_wet
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_hall_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_hall_is_ventilation
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_hall_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'on'
+        sequence:
+        - service: fan.turn_off
+          entity_id: 'fan.hydration_hall_humidifier'
+      # turn_on humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_hall_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_hall_humidifier_is_on
+            state: 'off'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_hall_use_sensor
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.humidity_hall_air_is_dry
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_hall_use_ventilation
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_hall_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_hall_is_ventilation
+                state: 'off'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_hall_use_night_mode
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_hall_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_hall_is_night
+                state: 'off'
+        sequence:
+        - service: fan.turn_on
+          entity_id: 'fan.hydration_hall_humidifier'
+
+  # bedroom
+  - alias: 'hydration_bedroom_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.hydration_bedroom_automation
+      - binary_sensor.hydration_bedroom_humidifier_is_on
+      - input_boolean.hydration_bedroom_use_sensor
+      - binary_sensor.humidity_bedroom_air_is_wet
+      - binary_sensor.humidity_bedroom_air_is_dry
+      - input_boolean.hydration_bedroom_use_ventilation
+      - binary_sensor.ventilation_bedroom_is_ventilation
+      - input_boolean.hydration_bedroom_use_night_mode
+      - binary_sensor.night_bedroom_is_night
+      - input_boolean.hydration_bedroom_use_tts
+      - binary_sensor.hydration_bedroom_humidifier_is_empty
+    action:
+    - choose:
+      # empty alert
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_bedroom_use_tts
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_bedroom_humidifier_is_empty
+            state: 'on'
+        sequence:
+        - service: tts.sveta_say
+          data:
+            entity_id: media_player.homepod
+            message: "{{ states('input_text.hydration_bedroom_empty_humidifier_text') }}"
+            cache: false
+      # turn_off humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_bedroom_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_bedroom_humidifier_is_on
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_bedroom_use_sensor
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.humidity_bedroom_air_is_wet
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_bedroom_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_bedroom_is_ventilation
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_bedroom_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+        sequence:
+        - service: fan.turn_off
+          entity_id: 'fan.hydration_bedroom_humidifier'
+      # turn_on humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_bedroom_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_bedroom_humidifier_is_on
+            state: 'off'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_bedroom_use_sensor
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.humidity_bedroom_air_is_dry
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_bedroom_use_ventilation
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_bedroom_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_bedroom_is_ventilation
+                state: 'off'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_bedroom_use_night_mode
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_bedroom_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+        sequence:
+        - service: fan.turn_on
+          entity_id: 'fan.hydration_bedroom_humidifier'
+
+  # living
+  - alias: 'hydration_living_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.hydration_living_automation
+      - binary_sensor.hydration_living_humidifier_is_on
+      - input_boolean.hydration_living_use_sensor
+      - binary_sensor.humidity_living_air_is_wet
+      - binary_sensor.humidity_living_air_is_dry
+      - input_boolean.hydration_living_use_ventilation
+      - binary_sensor.ventilation_living_is_ventilation
+      - input_boolean.hydration_living_use_night_mode
+      - binary_sensor.night_living_is_night
+      - input_boolean.hydration_living_use_tts
+      - binary_sensor.hydration_living_humidifier_is_empty
+    action:
+    - choose:
+      # empty alert
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_living_use_tts
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_living_humidifier_is_empty
+            state: 'on'
+        sequence:
+        - service: tts.sveta_say
+          data:
+            entity_id: media_player.homepod
+            message: "{{ states('input_text.hydration_living_empty_humidifier_text') }}"
+            cache: false
+      # turn_off humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_living_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_living_humidifier_is_on
+            state: 'on'
+          - condition: or
+            conditions:
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_living_use_sensor
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.humidity_living_air_is_wet
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_living_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_living_is_ventilation
+                state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_living_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: fan.turn_off
+          entity_id: 'fan.hydration_living_humidifier'
+
+      # turn_on humidifier
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_living_automation
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_living_humidifier_is_on
+            state: 'off'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_living_use_sensor
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.humidity_living_air_is_dry
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_living_use_ventilation
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_living_use_ventilation
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.ventilation_living_is_ventilation
+                state: 'off'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_living_use_night_mode
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.hydration_living_use_night_mode
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+        sequence:
+        - service: fan.turn_on
+          entity_id: 'fan.hydration_living_humidifier'
+
+  # bath
+  - alias: 'hydration_bath_fan_start'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - binary_sensor.humidity_bath_air_is_wet
+      - binary_sensor.occupation_toilet_is_occupancy
+    action:
+    - choose:
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_bath_use_sensor
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.humidity_bath_air_is_wet
+              state: 'on'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.hydration_toilet_use_sensor
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.occupation_toilet_is_occupancy
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.humidity_bath_air_is_wet
+              state: 'off'
+        sequence:
+        - service: fan.turn_on
+          entity_id: 'fan.hydration_toilet_fan'
+
+  - alias: 'hydration_bath_fan_stopt'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.hydration_bath_use_sensor
+      - binary_sensor.humidity_bath_air_is_wet
+    action:
+    - choose:
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.hydration_bath_use_sensor
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.hydration_bath_humidifier_is_on
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.humidity_bath_air_is_wet
+            state: 'off'
+        sequence:
+        - service: fan.turn_off
+          entity_id: 'fan.hydration_toilet_fan'
+
+  - alias: 'hydration_bath_start_timer'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - binary_sensor.hydration_bath_humidifier_is_on
+    action:
+    - choose:
+     # timer start
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.hydration_bath_humidifier_is_on
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.humidity_bath_air_is_wet
+            state: 'off'
+        sequence:
+        - service: timer.start
+          entity_id: 'timer.hydration_bath_toilet_timer'
+          data_template:
+            duration: "{{ states('sensor.hydration_toilet_sensor_delay') }}"
+
+  - alias: 'hydration_bath_stop_timer'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - binary_sensor.hydration_bath_humidifier_is_on
+      - binary_sensor.humidity_bath_air_is_wet
+    action:
+    - choose:
+     # timer start
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.hydration_bath_humidifier_is_on
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.humidity_bath_air_is_wet
+            state: 'on'
+        sequence:
+        - service: timer.cancel
+          entity_id: 'timer.hydration_bath_toilet_timer'
+
+  - alias: 'hydration_bath_fan_stop_by_timer'
+    initial_state: true
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.hydration_bath_toilet_timer
+    action:
+    - service: fan.turn_off
+      entity_id: 'fan.hydration_toilet_fan'
+

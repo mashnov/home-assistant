@@ -1,0 +1,117 @@
+title: 'occupation'
+icon: 'mdi:human-greeting-variant'
+cards:
+
+### Кухня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_kitchen_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.night_kitchen_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: binary_sensor.occupation_kitchen_occupancy_virtual 
+      name: 'Движение'
+    - type: section
+    - entity: input_boolean.occupation_kitchen_use_night_mode
+      name: 'Использовать ночной режим'
+    - type: section
+    - entity: input_number.occupation_kitchen_sensor_day_delay
+      name: 'Задержка (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.occupation_kitchen_sensor_night_delay
+      name: 'Задержка (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_hall_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.night_hall_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: binary_sensor.occupation_hall_occupancy_virtual 
+      name: 'Движение'
+    - type: section
+    - entity: input_boolean.occupation_hall_use_night_mode
+      name: 'Использовать ночной режим'
+    - type: section
+    - entity: input_number.occupation_hall_sensor_day_delay
+      name: 'Задержка (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.occupation_hall_sensor_night_delay
+      name: 'Задержка (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_bath_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.night_bath_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: binary_sensor.occupation_bath_occupancy_virtual 
+      name: 'Движение'
+    - type: section
+    - entity: input_boolean.occupation_bath_use_night_mode
+      name: 'Использовать ночной режим'
+    - type: section
+    - entity: input_number.occupation_bath_sensor_day_delay
+      name: 'Задержка (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.occupation_bath_sensor_night_delay
+      name: 'Задержка (ночь)'
+      icon: 'mdi:camera-timer'
+
+### Туалет
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Туалет'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.occupation_toilet_is_occupancy
+      icon: 'mdi:human-greeting-variant'
+    - entity: binary_sensor.occupation_toilet_door_virtual
+      icon: 'mdi:door'
+
+  - type: entities
+    entities:
+    - entity: timer.occupation_toilet_door_timer
+      name: 'Таймер отмены'
+    - type: section
+    - entity: input_number.occupation_toilet_door_delay
+      name: 'Таймер'
+      icon: 'mdi:camera-timer'

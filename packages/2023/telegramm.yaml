@@ -1,0 +1,1254 @@
+telegramm:
+  automation:
+# ============== TELEGRAMM
+
+  - alias: telegram_remove_callback_handler'
+    initial_state: true
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+    action:
+    - service: script.delete_telegramm_message
+      data_template:
+        message_id: '{{ trigger.event.data.message.message_id }}'
+        chat_id: '{{ trigger.event.data.chat_id }}'
+
+  - alias: telegram_message_handler'
+    initial_state: true
+    trigger:
+    - platform: event
+      event_type: telegram_command
+    - platform: event
+      event_type: telegram_callback
+    action:
+    - service: script.handle_telegramm_event
+      data_template:
+        option: '{{ trigger.event.data.command }}'
+
+# ============== SYSTEM
+
+  - alias: send_system_start_message
+    initial_state: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/systemStart']
+
+# ============== HOME
+
+  - alias: send_home_temperature_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.temperature_home_virtual
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/homeTemperature', '/kitchenTemperature', '/hallTemperature', '/bedroomTemperature', '/livingTemperature']
+
+  - alias: send_home_humidity_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.humidity_home_virtual
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/homeHumidity', '/kitchenHumidity', '/hallHumidity', '/bedroomHumidity', '/livingHumidity']
+
+  - alias: send_home_pressure_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.pressure_home_virtual
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/homePressure', '/kitchenPressure', '/bathPressure', '/hallPressure', '/bedroomPressure', '/livingPressure']
+
+# ============== KITCHEN
+
+  - alias: send_kitchen_motion_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupation_kitchen_occupancy_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenMotion']
+
+  - alias: send_kitchen_left_window_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_kitchen_left_window_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_kitchen_left_window_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenLeftWindow']
+
+  - alias: send_kitchen_right_window_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_kitchen_right_window_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_kitchen_right_window_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenRightWindow']
+
+  - alias: send_kitchen_left_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.kitchen_switch_left
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenLeftSwitch']
+
+  - alias: send_kitchen_right_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.kitchen_switch_right
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenRightSwitch']
+
+  - alias: send_kitchen_curtain_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.curtain_kitchen_position
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/kitchenCurtainPosition']
+
+# ============== BATH
+
+  - alias: send_bath_motion_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupation_bath_occupancy_virtual
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bathMotion']
+
+# ============== TOILET
+
+  - alias: send_toilet_motion_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupation_toilet_is_occupancy
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/toiletMotion']
+
+  - alias: send_toilet_fan_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: fan.hydration_toilet_fan
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: fan.hydration_toilet_fan
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/toiletFan']
+
+# ============== HALL
+
+  - alias: send_hall_motion_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupation_hall_occupancy_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallMotion']
+
+  - alias: send_hall_door_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_door
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallDoor']
+
+  - alias: send_hall_entry_door_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hall_door
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hall_door
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallDoor']
+
+  - alias: send_hall_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.hall_switch
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallSwitch']
+
+  - alias: send_hall_hudration_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.humidity_hall_air_is_normal
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallHumidity', '/hallHudration']
+
+  - alias: send_hall_hydration_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: fan.hydration_hall_humidifier
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: fan.hydration_hall_humidifier
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hydration_hall_humidifier_is_empty
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallHudration', '/hallWaterStatus', '/hallVentilation']
+
+  - alias: send_hall_backlight_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.backlight_hall_is_on
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.backlight_hall_is_on
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/hallBacklight']
+
+# ============== BEDROOM
+
+  - alias: send_bedroom_left_window_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_left_window_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_left_window_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomLeftWindow']
+
+  - alias: send_bedroom_right_window_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_right_window_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_right_window_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomRightWindow']
+
+  - alias: send_bedroom_door_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_entry_door_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_bedroom_entry_door_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomDoor']
+
+  - alias: send_bedroom_left_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.bedroom_switch_left
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomLeftSwitch']
+
+  - alias: send_bedroom_right_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.bedroom_switch_right
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomRightSwitch']
+
+  - alias: send_bedroom_hudration_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.humidity_bedroom_air_is_normal
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomHumidity', '/bedroomHudration']
+
+  - alias: send_bedroom_hydration_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: fan.hydration_bedroom_humidifier
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: fan.hydration_bedroom_humidifier
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hydration_bedroom_humidifier_is_empty
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomHudration', '/bedroomWaterStatus', '/bedroomVentilation']
+
+  - alias: send_bedroom_backlight_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.backlight_bedroom_is_on
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.backlight_bedroom_is_on
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomBacklight']
+
+  - alias: send_bedroom_curtain_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.curtain_bedroom_position
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/bedroomCurtainPosition']
+
+# ============== LIVING
+
+  - alias: send_living_window_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_balcony_window_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_balcony_window_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingWindow']
+
+  - alias: send_living_door_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_entry_door_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_entry_door_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingDoor']
+
+  - alias: send_living_left_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.living_switch_left
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingSwitchLeft']
+
+  - alias: send_living_right_switch_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.living_switch_right
+      to: 'off'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingSwitchRight']
+
+  - alias: send_living_hudration_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.humidity_living_air_is_normal
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingHumidity', '/livingHudration']
+
+  - alias: send_living_hydration_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: fan.hydration_living_humidifier
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: fan.hydration_living_humidifier
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hydration_living_humidifier_is_empty
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingHudration', '/livingWaterStatus', '/livingVentilation']
+
+  - alias: send_living_backlight_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.backlight_living_is_on
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.backlight_living_is_on
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingBacklight']
+
+  - alias: send_living_curtain_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.curtain_living_position
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/livingCurtainPosition']
+
+# ============== BALCONY
+
+  - alias: send_balcony_temperature_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: sensor.temperature_balcony_virtual
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconyTemperature', '/balconyHumidity']
+
+  - alias: send_balcony_entry_door_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_balcony_door_virtual
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ventilation_living_balcony_door_virtual
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconyEntryDoor']
+
+  - alias: send_balcony_toplight_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: light.balcony_light_relay_l2
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.balcony_light_relay_l2
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconyToplight']
+
+  - alias: send_balcony_backlight_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: light.balcony_bottom_light
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.balcony_bottom_light
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconyBacklight']
+
+  - alias: send_balcony_fountain_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: fan.balcony_fountain
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: fan.balcony_fountain
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconyFountain']
+
+  - alias: send_balcony_socket_status_message
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: switch.balcony_socket
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: switch.balcony_socket
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegram_create_message_test 
+      data_template:
+        options: ['/balconySocket']
+
+  script:
+# ============== SYSTEM
+    system_restart_handler:
+      sequence:
+      - service: script.telegram_create_message_test 
+        data_template:
+          options: ['/systemReStart']
+      - service: homeassistant.restart
+
+# ============== TELEGRAMM MESSAGES
+    send_telegramm_message:
+      sequence:
+      - service: telegram_bot.send_message
+        data:
+          message: '{{ message }}'
+
+    delete_telegramm_message:
+      sequence:
+      - service: telegram_bot.delete_message
+        data_template:
+          message_id: '{{ message_id }}'
+          chat_id: '{{ chat_id }}' 
+
+# ============== TELEGRAMM ACTIONS
+    handle_telegramm_event:
+      sequence:
+      - service: script.turn_on
+        data_template:
+          variables:
+            options: '[{{ option }}]'
+          entity_id: >
+            {%- if option == '/restart' -%}
+                {{ 'script.system_restart_handler' }}
+            {%- elif option == '/menu' -%}
+                {{ 'script.show_telegramm_home_menu' }}
+            {%- elif option == '/kitchen' -%}
+                {{ 'script.show_telegramm_kitchen_menu' }}
+            {%- elif option == '/bath' -%}
+                {{ 'script.show_telegramm_bath_menu' }}
+            {%- elif option == '/toilet' -%}
+                {{ 'script.show_telegramm_toilet_menu' }}
+            {%- elif option == '/hall' -%}
+                {{ 'script.show_telegramm_hall_menu' }}
+            {%- elif option == '/bedroom' -%}
+                {{ 'script.show_telegramm_bedroom_menu' }}
+            {%- elif option == '/living' -%}
+                {{ 'script.show_telegramm_living_menu' }}
+            {%- elif option == '/balcony' -%}
+                {{ 'script.show_telegramm_balcony_menu' }}
+            {%- elif option == '/status' -%}
+                {{ 'script.show_telegramm_status_menu' }}
+            {%- elif option != '/hideMenu' -%}
+                {{ 'script.telegram_create_message_test' }}
+            {%- endif -%}
+
+    show_telegramm_home_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🏡 Главное меню
+
+            🔵 Температура ........... {{ states('sensor.temperature_home_virtual') }} °C
+            🔵 Влажность ............... {{ states('sensor.humidity_home_virtual') }} %
+            🔵 Давление ................. {{ states('sensor.pressure_home_virtual') }} мм
+          data:
+            inline_keyboard: 
+            - 'Кухня:/kitchen, Ванная:/bath'
+            - 'Туалет:/toilet, Коридор:/hall'
+            - 'Спальня:/bedroom, Гостиная:/living'
+            - 'Балкон:/balcony,  Отчет:/status'
+            - 'Закрыть:/hideMenu'
+
+    show_telegramm_kitchen_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🥣 Кухня
+
+            {{ iif(is_state('binary_sensor.temperature_kitchen_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................ {{ states('sensor.temperature_kitchen_virtual') }} °C
+            {{ iif(is_state('binary_sensor.humidity_kitchen_air_is_normal', 'on'), '🟢', '🔴') }} Влажность .................... {{ states('sensor.humidity_kitchen_virtual') }} %
+            {{ iif(is_state('binary_sensor.pressure_kitchen_is_normal', 'on'), '🟢', '🟠') }} Давление ...................... {{ states('sensor.pressure_kitchen_virtual') }} мм
+            🔵 Положение шторы ....... {{ states('sensor.curtain_kitchen_position') }} %
+
+            {{ iif(is_state('binary_sensor.ventilation_kitchen_left_window_virtual', 'on'), '🟠 Левое окно ................... Открыто', '🟢 Левое окно ................... Закрыто') }}
+            {{ iif(is_state('binary_sensor.ventilation_kitchen_right_window_virtual', 'on'), '🟠 Правое окно ................. Открыто', '🟢 Правое окно ................. Закрыто') }}
+
+            {{ iif(is_state('binary_sensor.toplight_kitchen_light_is_on', 'on'), '🟠 Освещение ................... Включено', '🟢 Освещение ................... Выключено') }}
+            {{ iif(is_state('binary_sensor.backlight_kitchen_light_is_on', 'on'), '🟠 Подсветка ..................... Включена', '🟢 Подсветка ..................... Выключена') }}
+            {{ iif(is_state('binary_sensor.nightlight_kitchen_light_is_on', 'on'), '🟠 Ночник .......................... Включен', '🟢 Ночник .......................... Выключен') }}
+
+            {{ iif(is_state('binary_sensor.solar_kitchen_sun_is_hit', 'on'), '🟠 Солнце .......................... Светит в окна', '🟢 Солнце ......................... Не попадает в окна') }}
+
+            {{ iif(is_state('switch.kitchen_switch_right', 'on'), '🟢 Левый выключатель ..... Включен', '🔴 Левый выключатель ..... Выключен') }}
+            {{ iif(is_state('switch.kitchen_switch_left', 'on'), '🟢 Правый выключатель ... Включен', '🔴 Правый выключатель ... Выключен') }}
+
+
+            {{ iif(is_state('binary_sensor.occupation_kitchen_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_bath_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🛁 Ванная
+
+            {{ iif(is_state('binary_sensor.temperature_bath_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_bath_virtual') }} °C
+            {{ iif(is_state('binary_sensor.humidity_bath_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_bath_virtual') }} %
+            {{ iif(is_state('binary_sensor.pressure_bath_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_bath_virtual') }} мм
+            
+            {{ iif(is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on'), '🟠 Движение .................... Обнаружено', '🟢 Движение .................... Не обнаружено') }}
+
+            {{ iif(is_state('binary_sensor.toplight_bath_light_is_on', 'on'), '🟠 Освещение .................. Включено', '🟢 Освещение .................. Выключено') }}
+            {{ iif(is_state('binary_sensor.nightlight_bath_light_is_on', 'on'), '🟠 Ночник ......................... Включен', '🟢 Ночник ......................... Выключен') }}
+            {{ iif(is_state('fan.hydration_toilet_fan', 'on'), '🟠 Вытяжка ....................... Включена', '🟢 Вытяжка ....................... Выключена') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_toilet_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🚽 Туалет 
+
+            🔵 Температура ........... {{ states('sensor.temperature_home_virtual') }} °C
+            🔵 Влажность ............... {{ states('sensor.humidity_home_virtual') }} %
+            🔵 Давление ................. {{ states('sensor.pressure_home_virtual') }} мм
+            
+            {{ iif(is_state('binary_sensor.occupation_toilet_is_occupancy', 'on'), '🔴 Состояние ............... Занято', '🟢 Состояние ............... Свободно') }}
+            {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Дверь ....................... Открыта', '🟢 Дверь ....................... Закрыта') }}
+
+            {{ iif(is_state('binary_sensor.toplight_toilet_light_is_on', 'on'), '🟠 Освещение .............. Включено', '🟢 Освещение .............. Выключено') }}
+            {{ iif(is_state('binary_sensor.nightlight_toilet_light_is_on', 'on'), '🟠 Ночник ..................... Включен', '🟢 Ночник ..................... Выключен') }}
+            {{ iif(is_state('fan.hydration_toilet_fan', 'on'), '🟠 Вытяжка ................... Включена', '🟢 Вытяжка ................... Выключена') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_hall_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🧥 Коридор
+
+            {{ iif(is_state('binary_sensor.temperature_hall_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_hall_virtual') }} °C
+            {{ iif(is_state('binary_sensor.humidity_hall_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_hall_virtual') }} %
+            {{ iif(is_state('binary_sensor.pressure_hall_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_hall_virtual') }} мм
+            
+            {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Входная дверь ............. Открыта', '🟢 Входная дверь ............. Закрыта') }}
+            {{ iif(is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
+            
+            {{ iif(is_state('fan.hydration_hall_humidifier', 'on'), '🟢 Увлажнитель ................ Включен', '🟠 Увлажнитель:................ Выключен') }}
+            {{ iif(is_state('binary_sensor.hydration_hall_humidifier_is_empty', 'on'), '🔴 Вода в увлажнителе .... Закончилась', '🔵 Вода в увлажнителе .... Недоступно') }}
+            
+            {{ iif(is_state('switch.hall_switch', 'on'), '🟢 Выключатель ............... Включен', '🔴 Выключатель ............... Выключен') }}
+            
+            {{ iif(is_state('binary_sensor.toplight_hall_light_is_on', 'on'), '🟠 Освещение .................. Включено', '🟢 Освещение .................. Выключено') }}
+            {{ iif(is_state('binary_sensor.backlight_hall_light_is_on', 'on'), '🟢 Подсветка .................... Включена', '🟠 Подсветка .................... Выключена') }}
+            {{ iif(is_state('binary_sensor.nightlight_hall_light_is_on', 'on'), '🟠 Ночник ......................... Включен', '🟢 Ночник ......................... Выключен') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_bedroom_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            🛌 Спальня
+
+            {{ iif(is_state('binary_sensor.temperature_bedroom_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................. {{ states('sensor.temperature_bedroom_virtual') }} °C
+            {{ iif(is_state('binary_sensor.humidity_bedroom_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ..................... {{ states('sensor.humidity_bedroom_virtual') }} %
+            {{ iif(is_state('binary_sensor.pressure_bedroom_is_normal', 'on'), '🟢', '🟠') }} Давление ....................... {{ states('sensor.pressure_bedroom_virtual') }} мм
+            {{ iif(is_state('binary_sensor.solar_bedroom_sun_is_hit', 'on'), '🟠 Солнце ........................... Светит в окна', '🟢 Солнце ........................... Не попадает в окна') }}
+            🔵 Положение шторы ........ {{ states('sensor.curtain_bedroom_position') }} %
+            
+            {{ iif(is_state('binary_sensor.ventilation_bedroom_left_window_virtual', 'on'), '🟠 Левое окно .................... Открыто', '🟢 Левое окно .................... Закрыто') }}
+            {{ iif(is_state('binary_sensor.ventilation_bedroom_right_window_virtual', 'on'), '🟠 Правое окно .................. Открыто', '🟢 Правое окно .................. Закрыто') }}
+            {{ iif(is_state('binary_sensor.ventilation_bedroom_entry_door_virtual', 'on'), '🔵 Дверь в комнату ........... Открыта', '🔵 Дверь в комнату ........... Закрыта') }}
+
+            {{ iif(is_state('fan.hydration_bedroom_humidifier', 'on'), '🟢 Увлажнитель .................. Включен', '🟠 Увлажнитель .................. Выключен') }}
+            {{ iif(is_state('binary_sensor.hydration_bedroom_humidifier_is_empty', 'on'), '🔴 Вода в увлажнителе ...... Закончилась', '🔵 Вода в увлажнителе ...... Недоступно') }}
+
+            {{ iif(is_state('switch.bedroom_switch_right', 'on'), '🟢 Левый выключатель ...... Включен', '🔴 Левый выключатель ...... Выключен') }}
+            {{ iif(is_state('switch.bedroom_switch_left', 'on'), '🟢 Правый выключатель .... Включен', '🔴 Правый выключатель .... Выключен') }}
+
+            {{ iif(is_state('binary_sensor.toplight_bedroom_light_is_on', 'on'), '🟠 Освещение .................... Включено', '🟢 Освещение .................... Выключено') }}
+            {{ iif(is_state('binary_sensor.backlight_bedroom_light_is_on', 'on'), '🟢 Подсветка ...................... Включена', '🟠 Подсветка ...................... Выключена') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_living_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: | 
+            📚 Гостиная
+
+            {{ iif(is_state('binary_sensor.temperature_living_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_living_virtual') }} °C
+            {{ iif(is_state('binary_sensor.humidity_living_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_living_virtual') }} %
+            {{ iif(is_state('binary_sensor.pressure_living_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_living_virtual') }} мм
+            {{ iif(is_state('binary_sensor.solar_living_sun_is_hit', 'on'), '🟠 Солнце ......................... Светит в окна', '🟢 Солнце ......................... Не попадает в окна') }}
+            🔵 Положение шторы ...... {{ states('sensor.curtain_living_position') }} %
+
+            {{ iif(is_state('binary_sensor.ventilation_living_balcony_window_virtual', 'on'), '🟠 Окно ............................. Открыто', '🟢 Окно ............................. Закрыто') }}
+            {{ iif(is_state('binary_sensor.ventilation_living_entry_door_virtual', 'on'), '🔵 Дверь в комнату .......... Открыта', '🔵 Дверь в комнату .......... Закрыта') }}
+
+            {{ iif(is_state('switch.living_switch_right', 'on'), '🟢 Левый выключатель .... Включен', '🔴 Левый выключатель .... Выключен') }}
+            {{ iif(is_state('switch.living_switch_left', 'on'), '🟢 Правый выключатель .. Включен', '🔴 Правый выключатель .. Выключен') }}
+
+            {{ iif(is_state('fan.hydration_living_humidifier', 'on'), '🟢 Увлажнитель ................ Включен', '🟠 Увлажнитель ................ Выключен') }}
+            {{ iif(is_state('binary_sensor.hydration_living_humidifier_is_empty', 'on'), '🔴 Вода в увлажнителе .... Закончилась', '🔵 Вода в увлажнителе .... Недоступно') }}
+
+            {{ iif(is_state('binary_sensor.toplight_living_light_is_on', 'on'), '🟠 Освещение .................. Включено', '🟢 Освещение .................. Выключено') }}
+            {{ iif(is_state('binary_sensor.backlight_living_light_is_on', 'on'), '🟢 Подсветка .................... Включена', '🟠 Подсветка .................... Выключена') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/menu, Закрыть:/hideMenu'
+
+    show_telegramm_balcony_menu: 
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message:  | 
+            {{ now().strftime('%H:%M %d-%m-%Y') }}
+            🪴 Балкон
+
+            🔵 Температура ........... {{ states('sensor.temperature_balcony_virtual') }} °C
+            🔵 Влажность ............... {{ states('sensor.humidity_balcony_virtual') }} %
+            🔵 Освещенность ......... {{ states('sensor.sun_illuminance_virtual') }} Lx
+
+            {{ iif(is_state('switch.ventilation_living_balcony_door_virtual', 'on'), '🟠 Дверь на балкон ...... Открыта', '🟢 Дверь на балкон ...... Закрыта') }}
+
+            {{ iif(is_state('switch.balcony_socket', 'on'), '🟠 Розетка ..................... Включена', '🟢 Розетка ..................... Выключена') }}
+            {{ iif(is_state('fan.balcony_fountain', 'on'), '🟠 Фонтан ...................... Включен', '🟢 Фонтан ...................... Выключен') }}
+
+            {{ iif(is_state('light.balcony_light_relay_l2', 'on'), '🟠 Освещение ............... Включено', '🟢 Освещение ............... Выключено') }}
+            {{ iif(is_state('light.balcony_bottom_light', 'on'), '🟠 Подсветка ................. Включена', '🟢 Подсветка ................. Выключена') }}
+          data:
+            inline_keyboard: 
+            - 'Назад:/home, Закрыть:/hideMenu'
+
+# ============== MESSAGES
+
+    telegram_create_message_test:
+      sequence:
+      - service: notify.telegram_home_group_id
+        data:
+          message: |
+            {%- if '/systemStart' in options %}
+                {%- set formattedDate = now().strftime('%d-%m-%Y %H:%M:%S') %}
+            🚀 Хозяин! Я включился. {{ formattedDate }}
+            {%- endif %}
+            {%- if '/systemReStart' in options %}
+                {%- set formattedDate = now().strftime('%d-%m-%Y %H:%M:%S') %}
+            🚀 Хозяин! Я перезагружаюсь. {{ formattedDate }}
+            {%- endif %}
+            {%- if '/homeTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_home_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_home_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🏡 - Температура - {{ states('sensor.temperature_home_virtual') }} °C
+            {%- endif %}
+            {%- if '/homeHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_home_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_home_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 🏡 - Влажность - {{ states('sensor.humidity_home_virtual') }} %
+            {%- endif %}
+            {%- if '/homePressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_home_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_home_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 🏡 - Давление - {{ states('sensor.pressure_home_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/kitchenTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_kitchen_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_kitchen_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🥣 - Температура - {{ states('sensor.temperature_kitchen_virtual') }} °C
+            {%- endif %}
+            {%- if '/kitchenHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_kitchen_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_kitchen_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 🥣 - Влажность - {{ states('sensor.humidity_kitchen_virtual') }} %
+            {%- endif %}
+            {%- if '/kitchenPressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_kitchen_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_kitchen_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 🥣 - Давление - {{ states('sensor.pressure_kitchen_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/kitchenVentilation' in options %}
+                {%- set isVentilation = is_state('binary_sensor.ventilation_kitchen_is_ventilation', 'on') %}
+                {%- set statusIcon = iif(isVentilation, '🟢', '🟠') %}
+                {%- set statusText = iif(isVentilation, 'Проветривание', 'Окна закрыты') %}
+            {{ statusIcon }} - 🥣 - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenMotion' in options %}
+                {%- set isMotion = is_state('binary_sensor.occupation_kitchen_occupancy_virtual', 'on') %}
+                {%- set statusIcon = iif(isMotion, '🟠', '🟢') %}
+                {%- set statusText = iif(isMotion, 'обнаружено', 'не обнаружено') %}
+            {{ statusIcon }} - 🥣 - Движение - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenLeftWindow' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_kitchen_left_window_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыто', 'закрыто') %}
+            {{ statusIcon }} - 🥣 - Левое окно - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenRightWindow' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_kitchen_right_window_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыто', 'закрыто') %}
+            {{ statusIcon }} - 🥣 - Правое окно - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenLeftSwitch' in options %}
+                {%- set isEnable = is_state('switch.kitchen_switch_left', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🥣 - Левый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenRightSwitch' in options %}
+                {%- set isEnable = is_state('switch.kitchen_switch_right', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🥣 - Правый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/kitchenCurtainPosition' in options %}
+            🥣 Кухня. Уровень шторы {{ states('sensor.curtain_kitchen_position') }} %
+            {%- endif %}
+            {%- if '/bathTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_bath_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_bath_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🛁 - Температура - {{ states('sensor.temperature_bath_virtual') }} °C
+            {%- endif %}
+            {%- if '/bathHumidity' in options %}
+                {%- set isWet = is_state('binary_sensor.humidity_bath_air_is_wet', 'on') %}
+                {%- set statusIcon = iif(isWet, '🟠', '🟢') %}
+            {{ statusIcon }} - 🛁 - Влажность - {{ states('sensor.humidity_bath_virtual') }} %
+            {%- endif %}
+            {%- if '/bathPressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_bath_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_bath_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 🛁 - Давление - {{ states('sensor.pressure_bath_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/bathMotion' in options %}
+                {%- set isVentilation = is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on') %}
+                {%- set statusIcon = iif(isVentilation, '🟠', '🟢') %}
+                {%- set statusText = iif(isVentilation, 'обнаружено', 'не обнаружено') %}
+            {{ statusIcon }} - 🛁 - Движение - {{ statusText }}
+            {%- endif %}
+            {%- if '/toiletFan' in options %}
+                {%- set isEnable = is_state('fan.hydration_toilet_fan', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟠', '🟢') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 🚽 - Вытяжка - {{ statusText }}
+            {%- endif %}
+            {%- if '/toiletMotion' in options %}
+                {%- set isMotion = is_state('binary_sensor.occupation_toilet_is_occupancy', 'on') %}
+                {%- set statusIcon = iif(isMotion, '🔴', '🟢') %}
+                {%- set statusText = iif(isMotion, 'Занято', 'Свободно') %}
+            {{ statusIcon }} - 🚽 - {{ statusText }}
+            {%- endif %}
+            {%- if '/toiletDoor' in options %}
+                {%- set isOpen = is_state('binary_sensor.occupation_toilet_door_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
+            {{ statusIcon }} - 🚽 - Дверь - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_hall_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_hall_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🧥 - Температура - {{ states('sensor.temperature_hall_virtual') }} °C
+            {%- endif %}
+            {%- if '/hallHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_hall_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_hall_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 🧥 - Влажность - {{ states('sensor.humidity_hall_virtual') }} %
+            {%- endif %}
+            {%- if '/hallPressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_hall_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_hall_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 🧥 - Давление - {{ states('sensor.pressure_hall_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/hallVentilation' in options %}
+                {%- set isVentilation = is_state('binary_sensor.ventilation_hall_is_ventilation', 'on') %}
+                {%- set statusIcon = iif(isVentilation, '🟢', '🟠') %}
+                {%- set statusText = iif(isVentilation, 'Проветривание', 'Окна и дверь закрыты') %}
+            {{ statusIcon }} - 🧥 - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallMotion' in options %}
+                {%- set isMotion = is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on') %}
+                {%- set statusIcon = iif(isMotion, '🟠', '🟢') %}
+                {%- set statusText = iif(isMotion, 'обнаружено', 'не обнаружено') %}
+            {{ statusIcon }} - 🧥 - Движение - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallDoor' in options %}
+                {%- set isOpen = is_state('binary_sensor.hall_door', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
+            {{ statusIcon }} - 🧥 - Дверь - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallSwitch' in options %}
+                {%- set isEnable = is_state('switch.hall_switch', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🧥 - Выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallBacklight' in options %}
+                {%- set isEnable = is_state('binary_sensor.backlight_hall_is_on', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 🧥 - Подсветка - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallHudration' in options %}
+                {%- set isEnable = is_state('fan.hydration_hall_humidifier', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🧥 - Увлажнитель - {{ statusText }}
+            {%- endif %}
+            {%- if '/hallWaterStatus' in options %}
+                {%- set isEmpty = is_state('binary_sensor.hydration_hall_humidifier_is_empty', 'on') %}
+                {%- set statusIcon = iif(isEmpty, '🔴', '🟢') %}
+                {%- set statusText = iif(isEmpty, 'Закончилась вода в увлажнителе', 'Уровень воды неизвестен') %}
+            {{ statusIcon }} - 🧥 - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_bedroom_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_bedroom_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🛌 - Температура - {{ states('sensor.temperature_bedroom_virtual') }} °C
+            {%- endif %}
+            {%- if '/bedroomHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_bedroom_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_bedroom_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 🛌 - Влажность - {{ states('sensor.humidity_bedroom_virtual') }} %
+            {%- endif %}
+            {%- if '/bedroomPressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_bedroom_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_bedroom_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 🛌 - Давление - {{ states('sensor.pressure_bedroom_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/bedroomVentilation' in options %}
+                {%- set isVentilation = is_state('binary_sensor.ventilation_bedroom_is_ventilation', 'on') %}
+                {%- set statusIcon = iif(isVentilation, '🟢', '🟠') %}
+                {%- set statusText = iif(isVentilation, 'Проветривание', 'Окна закрыты') %}
+            {{ statusIcon }} - 🛌 - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomDoor' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_bedroom_entry_door_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
+            {{ statusIcon }} - 🛌 - Дверь - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomLeftWindow' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_bedroom_left_window_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isMotion, 'открыто', 'закрыто') %}
+            {{ statusIcon }} - 🛌 Правое окно - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomRightWindow' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_bedroom_right_window_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isMotion, 'открыто', 'закрыто') %}
+            {{ statusIcon }} - 🛌 Правое окно - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomLeftSwitch' in options %}
+                {%- set isEnable = is_state('switch.bedroom_switch_left', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🛌 - Левый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomRightSwitch' in options %}
+                {%- set isEnable = is_state('switch.bedroom_switch_right', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🛌 - Правый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomBacklight' in options %}
+                {%- set isEnable = is_state('binary_sensor.backlight_bedroom_is_on', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 🛌 - Подсветка - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomHudration' in options %}
+                {%- set isEnable = is_state('fan.hydration_bedroom_humidifier', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🛌 - Увлажнитель - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomWaterStatus' in options %}
+                {%- set isEmpty = is_state('binary_sensor.hydration_bedroom_humidifier_is_empty', 'on') %}
+                {%- set statusIcon = iif(isEmpty, '🔴', '🟢') %}
+                {%- set statusText = iif(isEmpty, 'Закончилась вода в увлажнителе', 'Уровень воды неизвестен') %}
+            {{ statusIcon }} - 🛌 - {{ statusText }}
+            {%- endif %}
+            {%- if '/bedroomCurtainPosition' in options %}
+            🛌 Спальня. Уровень шторы {{ states('sensor.curtain_bedroom_position') }} %
+            {%- endif %}
+            {%- if '/livingTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_living_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_living_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 📚 - Температура - {{ states('sensor.temperature_living_virtual') }} °C
+            {%- endif %}
+            {%- if '/livingHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_living_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_living_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 📚 - Влажность - {{ states('sensor.humidity_living_virtual') }} %
+            {%- endif %}
+            {%- if '/livingPressure' in options %}
+                {%- set isNormal = is_state('binary_sensor.pressure_living_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.pressure_living_is_low', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
+            {{ statusIcon }} - 📚 - Давление - {{ states('sensor.pressure_living_virtual') }} мм рт ст
+            {%- endif %}
+            {%- if '/livingVentilation' in options %}
+                {%- set isVentilation = is_state('binary_sensor.ventilation_living_is_ventilation', 'on') %}
+                {%- set statusIcon = iif(isVentilation, '🟢', '🟠') %}
+                {%- set statusText = iif(isVentilation, 'Проветривание', 'Окна закрыты') %}
+            {{ statusIcon }} - 📚 - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingDoor' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_living_entry_door_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
+            {{ statusIcon }} - 📚 - Дверь - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingWindow' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_living_balcony_window_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isMotion, 'открыто', 'закрыто') %}
+            {{ statusIcon }} - 📚 Окно - {{ statusText }}
+            {%- endif %} 
+            {%- if '/livingSwitchLeft' in options %}
+                {%- set isEnable = is_state('switch.living_switch_left', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 📚 - Левый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingSwitchRight' in options %}
+                {%- set isEnable = is_state('switch.living_switch_right', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🔴') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 📚 - Правый выключатель - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingBacklight' in options %}
+                {%- set isEnable = is_state('binary_sensor.backlight_living_is_on', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 📚 - Подсветка - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingHudration' in options %}
+                {%- set isEnable = is_state('fan.hydration_living_humidifier', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟢', '🟠') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 📚 - Увлажнитель - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingWaterStatus' in options %}
+                {%- set isEmpty = is_state('binary_sensor.hydration_living_humidifier_is_empty', 'on') %}
+                {%- set statusIcon = iif(isEmpty, '🔴', '🟢') %}
+                {%- set statusText = iif(isEmpty, 'Закончилась вода в увлажнителе', 'Уровень воды неизвестен') %}
+            {{ statusIcon }} - 📚 - {{ statusText }}
+            {%- endif %}
+            {%- if '/livingCurtainPosition' in options %}
+            📚 Гостиная. Уровень шторы {{ states('sensor.curtain_living_position') }} %
+            {%- endif %}
+            {%- if '/balconyTemperature' in options %}
+                {%- set isNormal = is_state('binary_sensor.temperature_balcony_air_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.temperature_balcony_air_is_cold', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
+            {{ statusIcon }} - 🪴 - Температура - {{ states('sensor.temperature_balcony_virtual') }} °C
+            {%- endif %}
+            {%- if '/balconyHumidity' in options %}
+                {%- set isNormal = is_state('binary_sensor.humidity_balcony_air_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.humidity_balcony_air_is_dry', 'on') %}
+                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
+            {{ statusIcon }} - 🪴 - Влажность - {{ states('sensor.humidity_balcony_virtual') }} %
+            {%- endif %}
+            {%- if '/balconyDoor' in options %}
+                {%- set isOpen = is_state('binary_sensor.ventilation_living_balcony_door_virtual', 'on') %}
+                {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
+                {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
+            {{ statusIcon }} - 🪴 - Дверь - {{ statusText }}
+            {%- endif %}
+            {%- if '/balconyToplight' in options %}
+                {%- set isEnable = is_state('light.balcony_light_relay_l2', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟠', '🟢') %}
+                {%- set statusText = iif(isEnable, 'включено', 'выключено') %}
+            {{ statusIcon }} - 🪴 - Освещение - {{ statusText }}
+            {%- endif %}
+            {%- if '/balconyBacklight' in options %}
+                {%- set isEnable = is_state('light.balcony_bottom_light', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟠', '🟢') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 🪴 - Подсветка - {{ statusText }}
+            {%- endif %}
+            {%- if '/balconyFountain' in options %}
+                {%- set isEnable = is_state('fan.balcony_fountain', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟠', '🟢') %}
+                {%- set statusText = iif(isEnable, 'включен', 'выключен') %}
+            {{ statusIcon }} - 🪴 - Фонтан - {{ statusText }}
+            {%- endif %}
+            {%- if '/balconySocket' in options %}
+                {%- set isEnable = is_state('switch.balcony_socket', 'on') %}
+                {%- set statusIcon = iif(isEnable, '🟠', '🟢') %}
+                {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
+            {{ statusIcon }} - 🪴 - Розетка - {{ statusText }}
+            {%- endif %}
+
+
+
+
+
+
+

@@ -1,0 +1,195 @@
+title: 'Влажность'
+icon: 'mdi:water-outline'
+cards:
+
+### Дом
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Дом'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_home_air_is_dry
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.humidity_home_air_is_normal
+      icon: 'mdi:water-opacity'
+    - entity: binary_sensor.humidity_home_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_home_virtual
+      name: 'Средняя влажность'
+    - type: section
+    - entity: input_number.humidity_home_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.humidity_home_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Кухня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_kitchen_air_is_dry
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.humidity_kitchen_air_is_normal
+      icon: 'mdi:water-opacity'
+    - entity: binary_sensor.humidity_kitchen_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_kitchen_virtual
+      name: 'Относительная влажность'
+    - type: section
+    - entity: input_number.humidity_kitchen_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.humidity_kitchen_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_hall_air_is_dry
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.humidity_hall_air_is_normal
+      icon: 'mdi:water-opacity'
+    - entity: binary_sensor.humidity_hall_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_hall_virtual
+      name: 'Относительная влажность'
+    - type: section
+    - entity: input_number.humidity_hall_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.humidity_hall_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Спальня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_bedroom_air_is_dry
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.humidity_bedroom_air_is_normal
+      icon: 'mdi:water-opacity'
+    - entity: binary_sensor.humidity_bedroom_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_bedroom_virtual
+      name: 'Относительная влажность'
+    - type: section
+    - entity: input_number.humidity_bedroom_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.humidity_bedroom_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Гостиная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_living_air_is_dry
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.humidity_living_air_is_normal
+      icon: 'mdi:water-opacity'
+    - entity: binary_sensor.humidity_living_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_living_virtual
+      name: 'Относительная влажность'
+    - type: section
+    - entity: input_number.humidity_living_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.humidity_living_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_bath_air_is_wet
+      icon: 'mdi:water'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_bath_virtual
+      name: 'Относительная влажность'
+    - type: section
+    - entity: input_number.humidity_bath_sensor_max 
+      icon: 'mdi:water'
+      name: 'Максимум'
+
+### Статистика
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Статистика'
+
+  - type: entities
+    entities:
+    - entity: sensor.humidity_balcony_virtual
+      name: 'Уличная влажность'
+
+  - type: history-graph
+    hours_to_show: 6
+    entities:
+    - entity: sensor.humidity_home_virtual
+      name: 'Средняя'
+    - entity: sensor.humidity_kitchen_virtual
+      name: 'Кухня'
+    - entity: sensor.humidity_hall_virtual
+      name: 'Коридор'
+    - entity: sensor.humidity_bedroom_virtual
+      name: 'Спальня'
+    - entity: sensor.humidity_living_virtual
+      name: 'Гостиная'

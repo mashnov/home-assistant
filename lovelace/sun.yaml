@@ -1,0 +1,194 @@
+title: 'Солнце'
+icon: 'mdi:weather-partly-cloudy'
+cards:
+
+### kitchen
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.sun_kitchen_is_cloudly
+      icon: 'mdi:cloud'
+    - entity: binary_sensor.sun_kitchen_curtain_is_bright
+      icon: 'mdi:curtains'
+    - entity: binary_sensor.sun_kitchen_backlight_is_dark
+      icon: 'mdi:led-strip-variant'
+    - entity: binary_sensor.sun_kitchen_toplight_is_dark
+      icon: 'mdi:light-recessed'
+
+  - type: entities
+    entities:
+    - entity: sensor.sun_illuminance_virtual
+      name: 'Уровень яркости'
+    - entity: sensor.sun_cloud_level_virtual
+      name: 'Уровень облачности'
+    - type: section
+    - entity: input_number.sun_kitchen_cloud_level_min
+      name: 'Минимум'
+      icon: 'mdi:cloud'
+    - type: section
+    - entity: input_number.sun_kitchen_curtain_sunni_min 
+      name: 'Ясно'
+      icon: 'mdi:curtains'
+    - entity: input_number.sun_kitchen_curtain_cloudly_min 
+      name: 'Облачно'
+      icon: 'mdi:curtains'
+    - type: section
+    - entity: input_number.sun_kitchen_backlight_sunni_max 
+      name: 'Ясно'
+      icon: 'mdi:led-strip-variant'
+    - entity: input_number.sun_kitchen_backlight_cloudly_max 
+      name: 'Облачно'
+      icon: 'mdi:led-strip-variant'
+    - type: section
+    - entity: input_number.sun_kitchen_toplight_sunni_max 
+      name: 'Ясно'
+      icon: 'mdi:light-recessed'
+    - entity: input_number.sun_kitchen_toplight_cloudly_max 
+      name: 'Облачно'
+      icon: 'mdi:light-recessed'
+    - type: section
+    - entity: input_number.sun_kitchen_sensor_delay_on 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.sun_kitchen_sensor_delay_off 
+      name: 'Задержка (выкл)'
+      icon: 'mdi:camera-timer'
+
+### bedroom
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.sun_bedroom_is_cloudly
+      icon: 'mdi:cloud'
+    - entity: binary_sensor.sun_bedroom_curtain_is_bright
+      icon: 'mdi:curtains'
+    - entity: binary_sensor.sun_bedroom_backlight_is_dark
+      icon: 'mdi:led-strip-variant'
+
+  - type: entities
+    entities:
+    - entity: sensor.sun_illuminance_virtual
+      name: 'Уровень яркости'
+    - entity: sensor.sun_cloud_level_virtual
+      name: 'Уровень облачности'
+    - type: section
+    - entity: input_number.sun_bedroom_cloud_level_min
+      name: 'Минимум'
+      icon: 'mdi:cloud'
+    - type: section
+    - entity: input_number.sun_bedroom_curtain_sunni_min 
+      name: 'Ясно'
+      icon: 'mdi:curtains'
+    - entity: input_number.sun_bedroom_curtain_cloudly_min 
+      name: 'Облачно'
+      icon: 'mdi:curtains'
+    - type: section
+    - entity: input_number.sun_bedroom_backlight_sunni_max 
+      name: 'Ясно'
+      icon: 'mdi:led-strip-variant'
+    - entity: input_number.sun_bedroom_backlight_cloudly_max 
+      name: 'Облачно'
+      icon: 'mdi:led-strip-variant'
+    - type: section
+    - entity: input_number.sun_bedroom_sensor_delay_on 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.sun_bedroom_sensor_delay_off 
+      name: 'Задержка (выкл)'
+      icon: 'mdi:camera-timer'
+
+### living
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.sun_living_is_cloudly
+      icon: 'mdi:cloud'
+    - entity: binary_sensor.sun_living_curtain_is_bright
+      icon: 'mdi:curtains'
+    - entity: binary_sensor.sun_living_backlight_is_dark
+      icon: 'mdi:led-strip-variant'
+
+  - type: entities
+    entities:
+    - entity: sensor.sun_illuminance_virtual
+      name: 'Уровень яркости'
+    - entity: sensor.sun_cloud_level_virtual
+      name: 'Уровень облачности'
+    - type: section
+    - entity: input_number.sun_living_cloud_level_min
+      name: 'Минимум'
+      icon: 'mdi:cloud'
+    - type: section
+    - entity: input_number.sun_living_curtain_sunni_min 
+      name: 'Ясно'
+      icon: 'mdi:curtains'
+    - entity: input_number.sun_living_curtain_cloudly_min 
+      name: 'Облачно'
+      icon: 'mdi:curtains'
+    - type: section
+    - entity: input_number.sun_living_backlight_sunni_max 
+      name: 'Ясно'
+      icon: 'mdi:led-strip-variant'
+    - entity: input_number.sun_living_backlight_cloudly_max 
+      name: 'Облачно'
+      icon: 'mdi:led-strip-variant'
+    - type: section
+    - entity: input_number.sun_living_sensor_delay_on 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.sun_living_sensor_delay_off 
+      name: 'Задержка (выкл)'
+      icon: 'mdi:camera-timer'
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.sun_hall_backlight_is_dark
+      icon: 'mdi:led-strip-variant'
+    - entity: binary_sensor.sun_hall_toplight_is_dark
+      icon: 'mdi:light-recessed'
+
+  - type: entities
+    entities:
+    - entity: sensor.sun_illuminance_virtual
+      name: 'Уровень яркости'
+    - type: section
+    - entity: input_number.sun_hall_backlight_max 
+      name: 'Ясно'
+      icon: 'mdi:led-strip-variant'
+    - type: section
+    - entity: input_number.sun_hall_toplight_max 
+      name: 'Ясно'
+      icon: 'mdi:light-recessed'
+    - type: section
+    - entity: input_number.sun_hall_sensor_delay_on 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.sun_hall_sensor_delay_off 
+      name: 'Задержка (выкл)'
+      icon: 'mdi:camera-timer'

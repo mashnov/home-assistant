@@ -1,0 +1,200 @@
+title: 'Давление'
+icon: 'mdi:gauge'
+cards:
+
+### Дом
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Дом'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_home_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_home_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_home_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_home_virtual
+      name: 'Средннее давление'
+    - type: section
+    - entity: input_number.pressure_home_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_home_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Кухня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Кухня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_kitchen_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_kitchen_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_kitchen_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_kitchen_virtual
+      name: 'Атмосферное давление'
+    - type: section
+    - entity: input_number.pressure_kitchen_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_kitchen_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_hall_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_hall_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_hall_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_hall_virtual
+      name: 'Атмосферное давление'
+    - type: section
+    - entity: input_number.pressure_hall_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_hall_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_bath_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_bath_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_bath_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_bath_virtual
+      name: 'Атмосферное давление'
+    - type: section
+    - entity: input_number.pressure_bath_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_bath_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Спальня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_bedroom_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_bedroom_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_bedroom_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_bedroom_virtual
+      name: 'Атмосферное давление'
+    - type: section
+    - entity: input_number.pressure_bedroom_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_bedroom_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Гостиная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_living_is_low
+      icon: 'mdi:gauge-empty'
+    - entity: binary_sensor.pressure_living_is_normal
+      icon: 'mdi:gauge-low'
+    - entity: binary_sensor.pressure_living_is_hight
+      icon: 'mdi:gauge-full'
+
+  - type: entities
+    entities:
+    - entity: sensor.pressure_living_virtual
+      name: 'Атмосферное давление'
+    - type: section
+    - entity: input_number.pressure_living_sensor_min 
+      name: 'Минимум'
+      icon: 'mdi:water-outline'
+    - entity: input_number.pressure_living_sensor_max 
+      name: 'Максимум'
+      icon: 'mdi:water'
+
+### Статистика
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Статистика'
+
+  - type: history-graph
+    hours_to_show: 6
+    entities:
+    - entity: sensor.pressure_home_virtual
+      name: 'Среднее'
+    - entity: sensor.pressure_kitchen_virtual
+      name: 'Кухня'
+    - entity: sensor.pressure_bath_virtual
+      name: 'Ванная'
+    - entity: sensor.pressure_hall_virtual
+      name: 'Коридор'
+    - entity: sensor.pressure_bedroom_virtual
+      name: 'Спальня'
+    - entity: sensor.pressure_living_virtual
+      name: 'Гостиная'
+

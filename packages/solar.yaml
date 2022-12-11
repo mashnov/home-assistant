@@ -1,0 +1,120 @@
+solar:
+  input_number:
+    # kitchen
+    solar_kitchen_azimuth_min:
+      max: 360
+      min: 0
+      step: 1
+    solar_kitchen_azimuth_max:
+      max: 360
+      min: 0
+      step: 1
+    solar_kitchen_elevation_min:
+      max: 90
+      min: 0
+      step: 1
+    solar_kitchen_elevation_max:
+      max: 90
+      min: 0
+      step: 1
+    # bedroom
+    solar_bedroom_azimuth_min:
+      max: 360
+      min: 0
+      step: 1
+    solar_bedroom_azimuth_max:
+      max: 360
+      min: 0
+      step: 1
+    solar_bedroom_elevation_min:
+      max: 90
+      min: 0
+      step: 1
+    solar_bedroom_elevation_max:
+      max: 90
+      min: 0
+      step: 1
+    # living
+    solar_living_azimuth_min:
+      max: 360
+      min: 0
+      step: 1
+    solar_living_azimuth_max:
+      max: 360
+      min: 0
+      step: 1
+    solar_living_elevation_min:
+      max: 90
+      min: 0
+      step: 1
+    solar_living_elevation_max:
+      max: 90
+      min: 0
+      step: 1
+
+  template:
+  - sensor: 
+    - name: 'solar_azimuth_virtual'
+      icon: 'mdi:axis-z-rotate-clockwise'
+      unit_of_measurement: '°'
+      state: "{{ state_attr('sun.sun', 'azimuth') | int(0) | round(0) }}"
+    - name: 'solar_elevation_virtual'
+      unit_of_measurement: '°'
+      icon: 'mdi:angle-acute'
+      state: "{{ state_attr('sun.sun', 'elevation') | int(0) | round(0) }}"
+
+  - binary_sensor:
+    # kitchen
+    - name: 'solar_kitchen_is_azimuth_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_azimuth_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_kitchen_azimuth_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_kitchen_azimuth_max') | int(0) %}
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_kitchen_is_elevation_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_elevation_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_kitchen_elevation_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_kitchen_elevation_max') | int(0) %}
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_kitchen_sun_is_hit'
+      state: >
+        {% set azimuthValue = is_state('binary_sensor.solar_kitchen_is_azimuth_hit', 'on') %}
+        {% set elevationValue = is_state('binary_sensor.solar_kitchen_is_elevation_hit', 'on') %}
+        {{ azimuthValue and elevationValue }}
+    # bedroom
+    - name: 'solar_bedroom_is_azimuth_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_azimuth_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_bedroom_azimuth_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_bedroom_azimuth_max') | int(0) %}
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_bedroom_is_elevation_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_elevation_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_bedroom_elevation_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_bedroom_elevation_max') | int(0) %}
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_bedroom_sun_is_hit'
+      state: >
+        {% set azimuthValue = is_state('binary_sensor.solar_bedroom_is_azimuth_hit', 'on') %}
+        {% set elevationValue = is_state('binary_sensor.solar_bedroom_is_elevation_hit', 'on') %}
+        {{ azimuthValue and elevationValue }}
+    # living
+    - name: 'solar_living_is_azimuth_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_azimuth_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_living_azimuth_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_living_azimuth_max') | int(0) %}        
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_living_is_elevation_hit'
+      state: >
+        {% set sensorValue = states('sensor.solar_elevation_virtual') | float(0) %}
+        {% set minValue = states('input_number.solar_living_elevation_min') | int(0) %}
+        {% set maxValue = states('input_number.solar_living_elevation_max') | int(0) %}
+        {{ (minValue < sensorValue) and (maxValue > sensorValue) }}
+    - name: 'solar_living_sun_is_hit'
+      state: >
+        {% set azimuthValue = is_state('binary_sensor.solar_living_is_azimuth_hit', 'on') %}
+        {% set elevationValue = is_state('binary_sensor.solar_living_is_elevation_hit', 'on') %}
+        {{ azimuthValue and elevationValue }}

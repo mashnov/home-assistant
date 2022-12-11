@@ -1,0 +1,196 @@
+occupation:
+  timer:
+    # toilet
+    occupation_toilet_door_timer:
+      duration: '00:00:10'
+
+  input_number:
+    # kitchen
+    occupation_kitchen_sensor_day_delay:
+      max: 360
+      min: 120
+      step: 1
+    occupation_kitchen_sensor_night_delay:
+      max: 360
+      min: 120
+      step: 1
+    # hall
+    occupation_hall_sensor_day_delay:
+      max: 360
+      min: 120
+      step: 1
+    occupation_hall_sensor_night_delay:
+      max: 360
+      min: 120
+      step: 1
+    # bath
+    occupation_bath_sensor_day_delay:
+      max: 360
+      min: 120
+      step: 1
+    occupation_bath_sensor_night_delay:
+      max: 360
+      min: 120
+      step: 1
+    # toilet
+    occupation_toilet_door_delay:
+      max: 60
+      min: 0
+      step: 1
+
+  input_boolean:
+    # kitchen
+    occupation_kitchen_use_night_mode:
+      icon: 'mdi:weather-night'
+    # hall
+    occupation_hall_use_night_mode:
+      icon: 'mdi:weather-night'
+    # bath
+    occupation_bath_use_night_mode:
+      icon: 'mdi:weather-night'
+    # toilet
+    occupation_toilet_is_busy:
+      icon: 'mdi:human-male'
+
+  template:
+  - sensor: 
+    # kitchen
+    - name: 'occupation_kitchen_sensor_day_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_kitchen_sensor_day_delay')  | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_kitchen_sensor_night_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_kitchen_sensor_night_delay')  | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_kitchen_sensor_delay'
+      device_class: duration
+      state: >
+        {% set dayValue = states('sensor.occupation_kitchen_sensor_day_delay') %}
+        {% set nightValue = states('sensor.occupation_kitchen_sensor_night_delay') %}
+        {% set isNight = is_state('binary_sensor.night_kitchen_is_night', 'on') %}
+        {{ iif(isNight, nightValue, dayValue) }}
+    # hall
+    - name: 'occupation_hall_sensor_day_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_hall_sensor_day_delay') | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_hall_sensor_night_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_hall_sensor_night_delay') | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_hall_sensor_delay'
+      device_class: duration
+      state: >
+        {% set dayValue = states('sensor.occupation_hall_sensor_day_delay') %}
+        {% set nightValue = states('sensor.occupation_hall_sensor_night_delay') %}
+        {% set isNight = is_state('binary_sensor.night_hall_is_night', 'on') %}
+        {{ iif(isNight, nightValue, dayValue) }}
+    # bath
+    - name: 'occupation_bath_sensor_day_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_bath_sensor_day_delay') | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_bath_sensor_night_delay'
+      device_class: duration
+      state: "{{ ((states('input_number.occupation_bath_sensor_night_delay') | int(0) ) - 120) | timestamp_custom('%H:%M:%S', false) }}"
+    - name: 'occupation_bath_sensor_delay'
+      device_class: duration
+      state: >
+        {% set dayValue = states('sensor.occupation_bath_sensor_day_delay') %}
+        {% set nightValue = states('sensor.occupation_bath_sensor_night_delay') %}
+        {% set isNight = is_state('binary_sensor.night_bath_is_night', 'on') %}
+        {{ iif(isNight, nightValue, dayValue) }}
+    # toilet
+    - name: 'toplight_toilet_sensor_delay'
+      device_class: duration
+      state: "{{ states('input_number.occupation_toilet_door_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - binary_sensor:
+    # kitchen
+    - name: 'occupation_kitchen_occupancy_virtual'
+      device_class: motion
+      state: "{{ states('binary_sensor.kitchen_motion') }}"
+    - name: 'occupation_kitchen_is_occupancy'
+      delay_off: "{{ states('sensor.occupation_kitchen_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.occupation_kitchen_occupancy_virtual', 'on') }}"
+    # hall
+    - name: 'occupation_hall_occupancy_virtual'
+      device_class: motion
+      state: "{{ states('binary_sensor.hall_motion') }}"
+    - name: 'occupation_hall_is_occupancy'
+      delay_off: "{{ states('sensor.occupation_hall_sensor_delay') }}"
+      state: "{{ is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on') }}"
+    # bath
+    - name: 'occupation_bath_occupancy_virtual'
+      device_class: motion
+      state: "{{ states('binary_sensor.bath_motion') }}"
+    - name: 'occupation_bath_is_occupancy'
+      delay_off: "{{ states('sensor.occupation_bath_sensor_day_delay') }}"
+      state: "{{ is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on') }}"
+    # toilet
+    - name: 'occupation_toilet_door_virtual'
+      device_class: door
+      state: "{{ states('binary_sensor.toilet_door') }}"
+    - name: 'occupation_toilet_door_is_open'
+      state: "{{ is_state('binary_sensor.occupation_toilet_door_virtual', 'on') }}"
+    - name: 'occupation_toilet_is_occupancy'
+      state: "{{ is_state('input_boolean.occupation_toilet_is_busy', 'on') }}"
+    - name: 'occupation_toilet_timer_is_on'
+      state: "{{ is_state('timer.occupation_toilet_door_timer', 'active') }}"
+
+  automation:
+  # toilet
+  - alias: 'occupation_toilet_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.occupation_toilet_is_busy
+      - binary_sensor.occupation_toilet_door_is_open
+    action:
+    - choose:
+      # start timer & turn sensor on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.occupation_toilet_is_busy
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.occupation_toilet_door_is_open
+            state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.occupation_toilet_is_busy'
+        - service: timer.start
+          entity_id: 'timer.occupation_toilet_door_timer'
+          data_template:
+            duration: "{{ states('sensor.toplight_toilet_sensor_delay') }}"
+      # turn sensor off
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.occupation_toilet_is_busy
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.occupation_toilet_door_is_open
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.occupation_toilet_timer_is_on
+            state: 'off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.occupation_toilet_is_busy'
+      # cancel timer
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: input_boolean.occupation_toilet_is_busy
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.occupation_toilet_door_is_open
+            state: 'off'
+          - condition: state
+            entity_id: binary_sensor.occupation_toilet_timer_is_on
+            state: 'on'
+        sequence:
+        - service: timer.cancel
+          entity_id: 'timer.occupation_toilet_door_timer'

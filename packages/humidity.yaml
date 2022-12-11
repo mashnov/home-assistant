@@ -1,0 +1,212 @@
+humidity:
+  input_number:
+    # kitchen
+    humidity_home_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_home_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # kitchen
+    humidity_kitchen_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_kitchen_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # bedroom
+    humidity_bedroom_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_bedroom_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # living
+    humidity_living_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_living_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # balcony
+    humidity_balcony_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_balcony_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # bath
+    humidity_bath_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+    # hall
+    humidity_hall_sensor_min:
+      max: 100
+      min: 25
+      step: 1
+    humidity_hall_sensor_max:
+      max: 100
+      min: 25
+      step: 1
+
+  template:
+  - sensor: 
+    # home
+    - name: 'humidity_home_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set kitchenValue = states('sensor.humidity_kitchen_virtual') | int(minValue) %}
+        {% set hallValue = states('sensor.humidity_hall_virtual') | int(minValue) %}
+        {% set bedroomValue = states('sensor.humidity_bedroom_virtual') | int(minValue) %}
+        {% set livingValue = states('sensor.humidity_living_virtual') | int(minValue) %}
+        {% set sensorValue = kitchenValue + hallValue + bedroomValue + livingValue %}
+        {{ (sensorValue / 4 )| round(0) }}
+    # kitchen
+    - name: 'humidity_kitchen_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set minValue = states('input_number.humidity_kitchen_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.kitchen_humidity') | int(minValue) %}
+        {{ sensorValue | round(0) }}
+    # hall 
+    - name: 'humidity_hall_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set minValue = states('input_number.humidity_hall_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.hall_humidity') | int(minValue) %}
+        {{ sensorValue | round(0) }}
+    # bath
+    - name: 'humidity_bath_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set hallValue = states('sensor.humidity_hall_virtual') | int(0) %}
+        {% set sensorValue = states('sensor.bath_humidity') | int(hallValue) %}
+        {{ sensorValue | round(0) }}
+    # bedroom
+    - name: 'humidity_bedroom_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set minValue = states('input_number.humidity_bedroom_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.bedroom_humidity') | int(minValue) %}
+        {{ sensorValue | round(0) }}
+    # living
+    - name: 'humidity_living_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set minValue = states('input_number.humidity_living_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.living_humidity') | int(minValue) %}
+        {{ sensorValue | round(0) }}
+    # balcony
+    - name: 'humidity_balcony_virtual'
+      device_class: 'humidity'
+      unit_of_measurement: '%'
+      state: >
+        {% set minValue = states('input_number.humidity_balcony_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.balcony_humidity') | int(minValue) %}
+        {{ sensorValue | round(0) }}
+
+  - binary_sensor:
+    # home
+    - name: 'humidity_home_air_is_dry'
+      state: >
+        {% set minValue = states('input_number.humidity_home_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_home_virtual') | float(maxValue) %}
+        {{ sensorValue < minValue }}
+    - name: 'humidity_home_air_is_wet'
+      state: >
+        {% set maxValue = states('input_number.humidity_home_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_home_virtual') | float(maxValue) %}
+        {{ sensorValue > maxValue }}
+    - name: 'humidity_home_air_is_normal'
+      state: >
+        {% set minValue = states('input_number.humidity_home_sensor_min') | int(0) %}
+        {% set maxValue = states('input_number.humidity_home_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_home_virtual') | float(maxValue) %}
+        {{ (sensorValue >= minValue) and (sensorValue <= maxValue) }}
+    # kitchen
+    - name: 'humidity_kitchen_air_is_dry'
+      state: >
+        {% set minValue = states('input_number.humidity_kitchen_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_kitchen_virtual') | float(minValue) %}
+        {{ sensorValue < minValue }}
+    - name: 'humidity_kitchen_air_is_wet'
+      state: >
+        {% set maxValue = states('input_number.humidity_kitchen_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_kitchen_virtual') | float(maxValue) %}
+        {{ sensorValue > maxValue }}
+    - name: 'humidity_kitchen_air_is_normal'
+      state: >
+        {% set airIsDry = is_state('binary_sensor.humidity_kitchen_air_is_dry', 'on') %}
+        {% set airIsWet = is_state('binary_sensor.humidity_kitchen_air_is_wet', 'on') %}
+        {{ not(airIsDry) and not(airIsWet) }}
+    # hall 
+    - name: 'humidity_hall_air_is_dry'
+      state: >
+        {% set minValue = states('input_number.humidity_hall_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_hall_virtual') | float(minValue) %}
+        {{ sensorValue < minValue }}
+    - name: 'humidity_hall_air_is_wet'
+      state: >
+        {% set maxValue = states('input_number.humidity_hall_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_hall_virtual') | float(maxValue) %}
+        {{ sensorValue > maxValue }}
+    - name: 'humidity_hall_air_is_normal'
+      state: >
+        {% set airIsDry = is_state('binary_sensor.humidity_hall_air_is_dry', 'on') %}
+        {% set airIsWet = is_state('binary_sensor.humidity_hall_air_is_wet', 'on') %}
+        {{ not(airIsDry) and not(airIsWet) }}
+    # bedroom
+    - name: 'humidity_bedroom_air_is_dry'
+      state: >
+        {% set minValue = states('input_number.humidity_bedroom_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_bedroom_virtual') | float(minValue) %}
+        {{ sensorValue < minValue }}
+    - name: 'humidity_bedroom_air_is_wet'
+      state: >
+        {% set maxValue = states('input_number.humidity_bedroom_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_bedroom_virtual') | float(maxValue) %}
+        {{ sensorValue > maxValue }}
+    - name: 'humidity_bedroom_air_is_normal'
+      state: >
+        {% set airIsDry = is_state('binary_sensor.humidity_bedroom_air_is_dry', 'on') %}
+        {% set airIsWet = is_state('binary_sensor.humidity_bedroom_air_is_wet', 'on') %}
+        {{ not(airIsDry) and not(airIsWet) }}
+    # living
+    - name: 'humidity_living_air_is_dry'
+      state: >
+        {% set minValue = states('input_number.humidity_living_sensor_min') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_living_virtual') | float(minValue) %}
+        {{ sensorValue < minValue }}
+    - name: 'humidity_living_air_is_wet'
+      state: >
+        {% set maxValue = states('input_number.humidity_living_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_living_virtual') | float(maxValue) %}
+        {{ sensorValue > maxValue }}
+    - name: 'humidity_living_air_is_normal'
+      state: >
+        {% set airIsDry = is_state('binary_sensor.humidity_living_air_is_dry', 'on') %}
+        {% set airIsWet = is_state('binary_sensor.humidity_living_air_is_wet', 'on') %}
+        {{ not(airIsDry) and not(airIsWet) }}
+    # bath
+    - name: 'humidity_bath_air_is_wet'
+      state: >
+        {% set bathMaxValue = states('input_number.humidity_bath_sensor_max') | int(0) %}
+        {% set sensorValue = states('sensor.humidity_bath_virtual') | int(bathMaxValue) %}
+        {{ sensorValue > bathMaxValue }}

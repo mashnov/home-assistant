@@ -1,0 +1,622 @@
+night:
+  input_datetime:
+    night_morning_start:
+      has_date: false
+      has_time: true
+    night_day_start:
+      has_date: false
+      has_time: true
+    night_evening_start:
+      has_date: false
+      has_time: true
+    night_night_start:
+      has_date: false
+      has_time: true
+
+  input_number:
+    night_door_delay:
+      max: 180
+      min: 0
+      step: 1
+
+  input_boolean:
+    # kitchen
+    night_kitchen_is_night:
+      icon: 'mdi:weather-night'
+    night_kitchen_start_by_bedroom:
+      icon: 'mdi:bed-queen'
+    night_kitchen_start_by_living:
+      icon: 'mdi:sofa-single'
+    # hall
+    night_hall_is_night:
+      icon: 'mdi:weather-night'
+    night_hall_start_by_bedroom:
+      icon: 'mdi:bed-queen'
+    night_hall_start_by_living:
+      icon: 'mdi:sofa-single'
+    # bath
+    night_bath_is_night:
+      icon: 'mdi:weather-night'
+    night_bath_start_by_bedroom:
+      icon: 'mdi:bed-queen'
+    night_bath_start_by_living:
+     icon: 'mdi:sofa-single'
+    # toilet
+    night_toilet_is_night:
+      icon: 'mdi:weather-night'
+    night_toilet_start_by_bedroom:
+      icon: 'mdi:bed-queen'
+    night_toilet_start_by_living:
+      icon: 'mdi:sofa-single'
+    # bedroom
+    night_bedroom_is_night:
+      icon: 'mdi:weather-night'
+    night_bedroom_start_by_door:
+      icon: 'mdi:door'
+    # living
+    night_living_is_night:
+      icon: 'mdi:weather-night'
+    night_living_start_by_door:
+      icon: 'mdi:door'
+    night_living_start_by_bedroom:
+      icon: 'mdi:bed-king-outline'
+
+  template:
+  - sensor: 
+    - name: 'night_door_delay'
+      device_class: duration
+      state: "{{ states('input_number.night_door_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - binary_sensor:
+    - name: 'night_is_morning_time'
+      state: >
+        {% set timeNow = now().time() %}
+        {% set timeFrom = strptime(states('input_datetime.night_morning_start'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.night_day_start'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+    - name: 'night_is_day_time'
+      state: >
+        {% set timeNow = now().time() %}
+        {% set timeFrom = strptime(states('input_datetime.night_day_start'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.night_evening_start'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+    - name: 'night_is_evening_time'
+      state: >
+        {% set timeNow = now().time() %}
+        {% set timeFrom = strptime(states('input_datetime.night_evening_start'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.night_night_start'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+    - name: 'night_is_night_time'
+      state: >
+        {% set timeNow = now().time() %}
+        {% set timeFrom = strptime(states('input_datetime.night_night_start'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.night_morning_start'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+    # kitchen
+    - name: "night_kitchen_is_night"
+      state: "{{ is_state('input_boolean.night_kitchen_is_night', 'on') }}"
+    # hall
+    - name: "night_hall_is_night"
+      state: "{{ is_state('input_boolean.night_hall_is_night', 'on') }}"
+    # bath
+    - name: "night_bath_is_night"
+      state: "{{ is_state('input_boolean.night_bath_is_night', 'on') }}"
+    # toilet
+    - name: "night_toilet_is_night"
+      state: "{{ is_state('input_boolean.night_toilet_is_night', 'on') }}"
+    # bedroom
+    - name: 'night_bedroom_door_is_closed'
+      delay_on: "{{ states('sensor.night_door_delay') }}"
+      delay_off: "{{ states('sensor.night_door_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_bedroom_entry_door_virtual', 'off') }}"
+    - name: 'night_bedroom_is_night'
+      state: "{{ is_state('input_boolean.night_bedroom_is_night', 'on') }}"
+    # living
+    - name: 'night_living_door_is_closed'
+      delay_on: "{{ states('sensor.night_door_delay') }}"
+      delay_off: "{{ states('sensor.night_door_delay') }}"
+      state: "{{ is_state('binary_sensor.ventilation_living_entry_door_virtual', 'off') }}"
+    - name: 'night_living_is_night'
+      state: "{{ is_state('input_boolean.night_living_is_night', 'on') }}"
+
+  automation:
+  # kitchen
+  - alias: 'night_kitchen_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_kitchen_start_by_bedroom
+      - input_boolean.night_kitchen_start_by_living
+      - binary_sensor.night_bedroom_is_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_living
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_kitchen_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_kitchen_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_kitchen_is_night'
+      # night_time_off
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_kitchen_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: state
+              entity_id: input_boolean.night_kitchen_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_kitchen_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_kitchen_is_night'
+
+  # hall
+  - alias: 'night_hall_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_hall_start_by_bedroom
+      - input_boolean.night_hall_start_by_living
+      - binary_sensor.night_bedroom_is_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_living
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_hall_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_hall_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_hall_is_night'
+      # night_time_off
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_hall_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: state
+              entity_id: input_boolean.night_hall_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_hall_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_hall_is_night'
+
+  # bath  
+  - alias: 'night_bath_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_bath_start_by_bedroom
+      - input_boolean.night_bath_start_by_living
+      - binary_sensor.night_bedroom_is_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_living
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_bath_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_bath_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_bath_is_night'
+      # night_time_off
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_bath_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: state
+              entity_id: input_boolean.night_bath_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_bath_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_bath_is_night'
+
+  # toilet
+  - alias: 'night_toilet_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_toilet_start_by_bedroom
+      - input_boolean.night_toilet_start_by_living
+      - binary_sensor.night_bedroom_is_night
+      - binary_sensor.night_living_is_night
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_living
+              state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_toilet_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'on'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_toilet_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_toilet_is_night'
+      # night_time_off
+      - conditions:
+        - condition: and
+          conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_bedroom
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_toilet_start_by_bedroom
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_bedroom_is_night
+                state: 'off'
+            - condition: state
+              entity_id: input_boolean.night_toilet_start_by_living
+              state: 'off'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_toilet_start_by_living
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_is_night
+                state: 'off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_toilet_is_night'
+
+  # bedroom
+  - alias: 'night_bedroom_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_bedroom_start_by_door
+      - binary_sensor.night_bedroom_door_is_closed
+      - binary_sensor.night_is_morning_time
+      - binary_sensor.night_is_day_time
+      - binary_sensor.night_is_evening_time
+      - binary_sensor.night_is_night_time
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.night_is_night_time
+            state: 'on'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bedroom_start_by_door
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.night_bedroom_door_is_closed
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.night_is_evening_time
+              state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_bedroom_is_night'
+      # night_time_off
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.night_is_day_time
+            state: 'on'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_bedroom_start_by_door
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.night_bedroom_door_is_closed
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.night_is_morning_time
+              state: 'on'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_bedroom_is_night'
+
+  # living
+  - alias: 'night_living_actions'
+    initial_state: true
+    trigger:
+    - platform: state
+      entity_id: 
+      - input_boolean.night_living_start_by_door
+      - binary_sensor.night_living_door_is_closed
+      - input_boolean.night_living_start_by_bedroom
+      - binary_sensor.night_bedroom_is_night
+      - binary_sensor.night_is_morning_time
+      - binary_sensor.night_is_day_time
+      - binary_sensor.night_is_evening_time
+      - binary_sensor.night_is_night_time
+    action:
+    - choose:
+      # night_time_on
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_living_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.night_bedroom_is_night
+              state: 'on'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_living_start_by_bedroom
+              state: 'off'
+            - condition: or
+              conditions:
+              - condition: state
+                entity_id: binary_sensor.night_is_night_time
+                state: 'on'
+              - condition: and
+                conditions:
+                - condition: state
+                  entity_id: input_boolean.night_living_start_by_door
+                  state: 'on'
+                - condition: state
+                  entity_id: binary_sensor.night_living_door_is_closed
+                  state: 'on'
+                - condition: state
+                  entity_id: binary_sensor.night_is_evening_time
+                  state: 'on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: 'input_boolean.night_living_is_night'
+      # night_time_off
+      - conditions:
+        - condition: or
+          conditions:
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_living_start_by_bedroom
+              state: 'on'
+            - condition: state
+              entity_id: binary_sensor.night_bedroom_is_night
+              state: 'off'
+          - condition: and
+            conditions:
+            - condition: state
+              entity_id: input_boolean.night_living_start_by_bedroom
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.night_is_day_time
+              state: 'on'
+            - condition: and
+              conditions:
+              - condition: state
+                entity_id: input_boolean.night_living_start_by_door
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.night_living_door_is_closed
+                state: 'off'
+              - condition: state
+                entity_id: binary_sensor.night_is_morning_time
+                state: 'on'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: 'input_boolean.night_living_is_night'
+
