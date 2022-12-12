@@ -1,0 +1,11 @@
+v_s_solar:
+  template:
+  - sensor: 
+    - name: 'v_s_azimuth'
+      icon: 'mdi:axis-z-rotate-clockwise'
+      unit_of_measurement: '°'
+      state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
+    - name: 'v_s_elevation'
+      unit_of_measurement: '°'
+      icon: 'mdi:angle-acute'
+      state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"

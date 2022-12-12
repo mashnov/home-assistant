@@ -1,0 +1,7 @@
+v_s_cloud:
+  template:
+  - sensor: 
+    - name: 'v_cloud'
+      icon: 'mdi:cloud-percent'
+      unit_of_measurement: '%'
+      state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
