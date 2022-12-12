@@ -1,18 +1,15 @@
-v_b_door:
-  template:
-  - binary_sensor:
-    - name: 'd_toilet'
-      device_class: door
-      state: "{{ states('binary_sensor.toilet_door') }}"
-    - name: 'd_hall'
-      device_class: door
-      state: "{{ states('binary_sensor.hall_door') }}"
-    - name: 'd_bedroom'
-      device_class: door
-      state: "{{ states('binary_sensor.bedroom_door') }}"
-    - name: 'd_living'
-      device_class: door
-      state: "{{ states('binary_sensor.living_door') }}"
-    - name: 'd_balcony'
-      device_class: door
-      state: "{{ states('binary_sensor.living_bottom_window') }}"
+- name: 'd_toilet'
+  device_class: door
+  state: "{{ states('binary_sensor.toilet_door') }}"
+- name: 'd_hall'
+  device_class: door
+  state: "{{ states('binary_sensor.hall_door') }}"
+- name: 'd_bedroom'
+  device_class: door
+  state: "{{ states('binary_sensor.bedroom_door') }}"
+- name: 'd_living'
+  device_class: door
+  state: "{{ states('binary_sensor.living_door') }}"
+- name: 'd_balcony'
+  device_class: door
+  state: "{{ states('binary_sensor.living_bottom_window') }}"
