@@ -1,7 +1,0 @@
-v_s_illuminance:
-  template:
-  - sensor: 
-    - name: 'v_illuminance'
-      icon: 'mdi:white-balance-sunny'
-      unit_of_measurement: 'lx'
-      state: "{{ states('sensor.balcony_illuminance') | int(0) }}"
