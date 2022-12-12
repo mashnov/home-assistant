@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- sensor:
   - name: 'i_kitchen'
     icon: 'mdi:white-balance-sunny'
     unit_of_measurement: 'lx'

@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- sensor:
   - name: 'h_kitchen'
     device_class: 'humidity'
     unit_of_measurement: '%'

@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- binary_sensor:
   - name: 'm_kitchen'
     device_class: motion
     state: "{{ states('binary_sensor.kitchen_motion') }}"

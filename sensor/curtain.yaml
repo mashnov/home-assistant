@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- sensor:
   - name: 'c_kitchen'
     device_class: 'power_factor'
     unit_of_measurement: '%'

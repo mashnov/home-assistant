@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- sensor:
   - name: 's_azimuth'
     icon: 'mdi:axis-z-rotate-clockwise'
     unit_of_measurement: '°'

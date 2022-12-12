@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- sensor:
   - name: 'p_kitchen'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'

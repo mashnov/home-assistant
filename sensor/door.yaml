@@ -1,5 +1,4 @@
-- platform: template
-  sensors:
+- binary_sensor:
   - name: 'd_toilet'
     device_class: door
     state: "{{ states('binary_sensor.toilet_door') }}"
