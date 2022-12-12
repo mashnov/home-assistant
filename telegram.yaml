@@ -1,5 +1,0 @@
-- platform: polling
-  api_key: !secret telegram_bot_api_key
-  allowed_chat_ids:
-    - !secret telegram_home_group_id
-    - !secret telegram_own_id
