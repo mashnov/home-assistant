@@ -87,7 +87,6 @@ v_t_light:
     model: philips.light.downlight
     host: !secret bedroom_lamp_6_host
     token: !secret bedroom_lamp_6_token
-  - name: toplight_bedroom_lights
 
   - name: v_t_light_living_1
     platform: xiaomi_miio_philipslight
@@ -119,4 +118,4 @@ v_t_light:
     model: philips.light.downlight
     host: !secret living_lamp_6_host
     token: !secret living_lamp_6_token
-  - name: toplight_living_lights
+
