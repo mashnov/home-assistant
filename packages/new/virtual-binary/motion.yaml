@@ -2,14 +2,11 @@ v_b_motion:
   template:
   - binary_sensor:
     - name: 'v_m_kitchen'
-      friendly_name: 'Кухня'
       device_class: motion
       state: "{{ states('binary_sensor.kitchen_motion') }}"
     - name: 'v_m_bath'
-      friendly_name: 'Ванная'
       device_class: motion
       state: "{{ states('binary_sensor.bath_motion') }}"
     - name: 'v_m_hall'
-      friendly_name: 'Коридор'
       device_class: motion
       state: "{{ states('binary_sensor.hall_motion') }}"

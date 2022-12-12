@@ -2,17 +2,14 @@ v_s_curtain:
   template:
   - sensor: 
     - name: 'v_c_kitchen'
-      friendly_name: 'Кухня'
       device_class: 'power_factor'
       unit_of_measurement: '%'
       state: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"
     - name: 'v_c_bedroom'
-      friendly_name: 'Спальня'
       device_class: 'power_factor'
       unit_of_measurement: '%'
       state: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}"
     - name: 'v_c_living'
-      friendly_name: 'Гостиная'
       device_class: 'power_factor'
       unit_of_measurement: '%'
       state: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"

@@ -2,32 +2,26 @@ v_s_humidity:
   template:
   - sensor: 
     - name: 'v_h_kitchen'
-      friendly_name: 'Кухня'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.kitchen_humidity') | float(0) | round(2) }}"
     - name: 'v_h_bath'
-      friendly_name: 'Ванная'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.bath_humidity') | float(0) | round(2) }}"
     - name: 'v_h_hall'
-      friendly_name: 'Коридор'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.hall_humidity') | float(0) | round(2) }}"
     - name: 'v_h_bedroom'
-      friendly_name: 'Спальня'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.bedroom_humidity') | float(0) | round(2) }}"
     - name: 'v_h_living'
-      friendly_name: 'Гостиная'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.living_humidity') | float(0) | round(2) }}"
     - name: 'v_h_balcony'
-      friendly_name: 'Балкон'
       device_class: 'humidity'
       unit_of_measurement: '%'
       state: "{{ states('sensor.balcony_humidity') | float(0) | round(2) }}"

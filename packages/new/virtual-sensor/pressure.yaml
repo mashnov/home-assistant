@@ -2,27 +2,22 @@ v_s_pressure:
   template:
   - sensor: 
     - name: 'v_p_kitchen'
-      friendly_name: 'Кухня'
       device_class: 'pressure'
       unit_of_measurement: 'mmHg'
       state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"
     - name: 'v_p_bath'
-      friendly_name: 'Ванная'
       device_class: 'pressure'
       unit_of_measurement: 'mmHg'
       state: "{{ states('sensor.bath_pressure') | float(0) | round(2) }}"
     - name: 'v_p_hall'
-      friendly_name: 'Коридор'
       device_class: 'pressure'
       unit_of_measurement: 'mmHg'
       state: "{{ states('sensor.hall_pressure') | float(0) | round(2) }}"
     - name: 'v_p_bedroom'
-      friendly_name: 'Спальня'
       device_class: 'pressure'
       unit_of_measurement: 'mmHg'
       state: "{{ states('sensor.bedroom_pressure') | float(0) | round(2) }}"
     - name: 'v_p_living'
-      friendly_name: 'Гостиная'
       device_class: 'pressure'
       unit_of_measurement: 'mmHg'
       state: "{{ states('sensor.living_pressure') | float(0) | round(2) }}"

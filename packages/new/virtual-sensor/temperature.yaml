@@ -2,32 +2,26 @@ v_s_temperature:
   template:
   - sensor: 
     - name: 'v_t_kitchen'
-      friendly_name: 'Кухня'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.kitchen_temperature') | float(0) | round(2) }}"
     - name: 'v_t_bath'
-      friendly_name: 'Ванная'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.bath_temperature') | float(0) | round(2) }}"
     - name: 'v_t_hall'
-      friendly_name: 'Коридор'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.hall_temperature') | float(0) | round(2) }}"
     - name: 'v_t_bedroom'
-      friendly_name: 'Спальня'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.bedroom_temperature') | float(0) | round(2) }}"
     - name: 'v_t_living'
-      friendly_name: 'Гостиная'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.living_temperature') | float(0) | round(2) }}"
     - name: 'v_t_balcony'
-      friendly_name: 'Балкон'
       device_class: 'temperature'
       unit_of_measurement: '°C'
       state: "{{ states('sensor.balcony_temperature') | float(0) | round(2) }}"
