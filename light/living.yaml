@@ -1,0 +1,30 @@
+- name: l_living_1
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_1_host
+  token: !secret living_lamp_1_token
+- name: l_living_2
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_2_host
+  token: !secret living_lamp_2_token
+- name: l_living_3
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_3_host
+  token: !secret living_lamp_3_token
+- name: l_living_4
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_4_host
+  token: !secret living_lamp_4_token
+- name: l_living_5
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_5_host
+  token: !secret living_lamp_5_token
+- name: l_living_6
+  platform: xiaomi_miio_philipslight
+  model: philips.light.downlight
+  host: !secret living_lamp_6_host
+  token: !secret living_lamp_6_token
