@@ -2,17 +2,22 @@ v_b_door:
   template:
   - binary_sensor:
     - name: 'v_d_toilet'
+      friendly_name: 'Туалет'
       device_class: door
       state: "{{ states('binary_sensor.toilet_door') }}"
     - name: 'v_d_hall'
+      friendly_name: 'Коридор'
       device_class: door
       state: "{{ states('binary_sensor.hall_door') }}"
     - name: 'v_d_bedroom'
+      friendly_name: 'Спальня'
       device_class: door
       state: "{{ states('binary_sensor.bedroom_door') }}"
     - name: 'v_d_living'
+      friendly_name: 'Гостиная'
       device_class: door
       state: "{{ states('binary_sensor.living_door') }}"
     - name: 'v_d_balcony'
+      friendly_name: 'Балкон'
       device_class: door
       state: "{{ states('binary_sensor.living_bottom_window') }}"

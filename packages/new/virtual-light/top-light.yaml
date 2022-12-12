@@ -1,119 +1,142 @@
 v_t_light:
   light:
   - name: v_t_light_kitchen_1
+    friendly_name: 'Кухня 1'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret kitchen_lamp_1_host
     token: !secret kitchen_lamp_1_token
   - name: v_t_light_kitchen_2
+    friendly_name: 'Кухня 2'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret kitchen_lamp_2_host
     token: !secret kitchen_lamp_2_token
   - name: v_t_light_kitchen_3
+    friendly_name: 'Кухня 3'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret kitchen_lamp_3_host
     token: !secret kitchen_lamp_3_token
   - name: v_t_light_kitchen_4
+    friendly_name: 'Кухня 4'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret kitchen_lamp_4_host
     token: !secret kitchen_lamp_4_token
   - name: v_t_light_kitchen_5
+    friendly_name: 'Кухня 5'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret kitchen_lamp_5_host
     token: !secret kitchen_lamp_5_token
 
   - name: v_t_light_hall_1
+    friendly_name: 'Коридор 1'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_1_host
     token: !secret hall_lamp_1_token
   - name: v_t_light_hall_2
+    friendly_name: 'Коридор 2'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_2_host
     token: !secret hall_lamp_2_token
   - name: v_t_light_hall_3
+    friendly_name: 'Коридор 3'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_3_host
     token: !secret hall_lamp_3_token
   - name: v_t_light_hall_4
+    friendly_name: 'Коридор 4'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_4_host
     token: !secret hall_lamp_4_token
   - name: v_t_light_hall_5
+    friendly_name: 'Коридор 5'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_5_host
     token: !secret hall_lamp_5_token
   - name: v_t_light_hall_6
+    friendly_name: 'Коридор 6'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret hall_lamp_6_host
     token: !secret hall_lamp_6_token
 
   - name: v_t_light_bedroom_1
+    friendly_name: 'Спальня 1'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_1_host
     token: !secret bedroom_lamp_1_token
   - name: v_t_light_bedroom_2
+    friendly_name: 'Спальня 2'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_2_host
     token: !secret bedroom_lamp_2_token
   - name: v_t_light_bedroom_3
+    friendly_name: 'Спальня 3'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_3_host
     token: !secret bedroom_lamp_3_token
   - name: v_t_light_bedroom_4
+    friendly_name: 'Спальня 4'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_4_host
     token: !secret bedroom_lamp_4_token
   - name: v_t_light_bedroom_5
+    friendly_name: 'Спальня 5'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_5_host
     token: !secret bedroom_lamp_5_token
   - name: v_t_light_bedroom_6
+    friendly_name: 'Спальня 6'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret bedroom_lamp_6_host
     token: !secret bedroom_lamp_6_token
 
   - name: v_t_light_living_1
+    friendly_name: 'Гостиная 1'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_1_host
     token: !secret living_lamp_1_token
   - name: v_t_light_living_2
+    friendly_name: 'Гостиная 2'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_2_host
     token: !secret living_lamp_2_token
   - name: v_t_light_living_3
+    friendly_name: 'Гостиная 3'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_3_host
     token: !secret living_lamp_3_token
   - name: v_t_light_living_4
+    friendly_name: 'Гостиная 4'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_4_host
     token: !secret living_lamp_4_token
   - name: v_t_light_living_5
+    friendly_name: 'Гостиная 5'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_5_host
     token: !secret living_lamp_5_token
   - name: v_t_light_living_6
+    friendly_name: 'Гостиная 6'
     platform: xiaomi_miio_philipslight
     model: philips.light.downlight
     host: !secret living_lamp_6_host

@@ -2,21 +2,22 @@ v_b_window:
   template:
   - binary_sensor:
     - name: 'v_w_kitchen_left'
+      friendly_name: 'Кухня левое'
       device_class: window
       state: "{{ states('binary_sensor.kitchen_window_left') }}"
-
     - name: 'v_w_kitchen_right'
+      friendly_name: 'Кухня правое'
       device_class: window
       state: "{{ states('binary_sensor.kitchen_window_right') }}"
-
     - name: 'v_w_bedroom_left'
+      friendly_name: 'Спальня левое'
       device_class: window
       state: "{{ states('binary_sensor.bedroom_window_left') }}"
-
     - name: 'v_w_bedroom_right'
+      friendly_name: 'Спальня правое'
       device_class: window
       state: "{{ states('binary_sensor.bedroom_window_right') }}"
-
     - name: 'v_w_living'
+      friendly_name: 'Гостиная'
       device_class: window
       state: "{{ states('binary_sensor.living_top_window') }}"
