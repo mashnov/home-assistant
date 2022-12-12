@@ -1,15 +1,17 @@
-- name: 'w_kitchen_left'
-  device_class: window
-  state: "{{ states('binary_sensor.kitchen_window_left') }}"
-- name: 'w_kitchen_right'
-  device_class: window
-  state: "{{ states('binary_sensor.kitchen_window_right') }}"
-- name: 'w_bedroom_left'
-  device_class: window
-  state: "{{ states('binary_sensor.bedroom_window_left') }}"
-- name: 'w_bedroom_right'
-  device_class: window
-  state: "{{ states('binary_sensor.bedroom_window_right') }}"
-- name: 'w_living'
-  device_class: window
-  state: "{{ states('binary_sensor.living_top_window') }}"
+- platform: template
+  sensors:
+  - name: 'w_kitchen_left'
+    device_class: window
+    state: "{{ states('binary_sensor.kitchen_window_left') }}"
+  - name: 'w_kitchen_right'
+    device_class: window
+    state: "{{ states('binary_sensor.kitchen_window_right') }}"
+  - name: 'w_bedroom_left'
+    device_class: window
+    state: "{{ states('binary_sensor.bedroom_window_left') }}"
+  - name: 'w_bedroom_right'
+    device_class: window
+    state: "{{ states('binary_sensor.bedroom_window_right') }}"
+  - name: 'w_living'
+    device_class: window
+    state: "{{ states('binary_sensor.living_top_window') }}"

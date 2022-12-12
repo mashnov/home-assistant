@@ -1,9 +1,11 @@
-- name: 'm_kitchen'
-  device_class: motion
-  state: "{{ states('binary_sensor.kitchen_motion') }}"
-- name: 'm_bath'
-  device_class: motion
-  state: "{{ states('binary_sensor.bath_motion') }}"
-- name: 'm_hall'
-  device_class: motion
-  state: "{{ states('binary_sensor.hall_motion') }}"
+- platform: template
+  sensors:
+  - name: 'm_kitchen'
+    device_class: motion
+    state: "{{ states('binary_sensor.kitchen_motion') }}"
+  - name: 'm_bath'
+    device_class: motion
+    state: "{{ states('binary_sensor.bath_motion') }}"
+  - name: 'm_hall'
+    device_class: motion
+    state: "{{ states('binary_sensor.hall_motion') }}"

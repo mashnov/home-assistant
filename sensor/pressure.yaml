@@ -1,20 +1,22 @@
-- name: 'p_kitchen'
-  device_class: 'pressure'
-  unit_of_measurement: 'mmHg'
-  state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"
-- name: 'p_bath'
-  device_class: 'pressure'
-  unit_of_measurement: 'mmHg'
-  state: "{{ states('sensor.bath_pressure') | float(0) | round(2) }}"
-- name: 'p_hall'
-  device_class: 'pressure'
-  unit_of_measurement: 'mmHg'
-  state: "{{ states('sensor.hall_pressure') | float(0) | round(2) }}"
-- name: 'p_bedroom'
-  device_class: 'pressure'
-  unit_of_measurement: 'mmHg'
-  state: "{{ states('sensor.bedroom_pressure') | float(0) | round(2) }}"
-- name: 'p_living'
-  device_class: 'pressure'
-  unit_of_measurement: 'mmHg'
-  state: "{{ states('sensor.living_pressure') | float(0) | round(2) }}"
+- platform: template
+  sensors:
+  - name: 'p_kitchen'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"
+  - name: 'p_bath'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.bath_pressure') | float(0) | round(2) }}"
+  - name: 'p_hall'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.hall_pressure') | float(0) | round(2) }}"
+  - name: 'p_bedroom'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.bedroom_pressure') | float(0) | round(2) }}"
+  - name: 'p_living'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.living_pressure') | float(0) | round(2) }}"
