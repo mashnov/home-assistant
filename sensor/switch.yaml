@@ -1,0 +1,3 @@
+- sensor:
+  - name: 's_kitchen_left_is_on'
+    state: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
