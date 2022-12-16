@@ -1,13 +1,13 @@
 - sensor:
   - name: 's_azimuth'
     unit_of_measurement: '°'
-    state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
     icon: 'mdi:axis-z-rotate-clockwise'
+    state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
   - name: 's_elevation'
     unit_of_measurement: '°'
-    state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
     icon: 'mdi:angle-acute'
+    state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
   - name: 's_cloud'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
     icon: 'mdi:cloud-percent'
+    state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
