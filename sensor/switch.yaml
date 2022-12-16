@@ -1,4 +1,7 @@
 - sensor:
-  - name: 's_kitchen_left_is_on'
+  - name: 's_kitchen_toplight'
     state: "{{ states('switch.kitchen_switch_left') }}"
-    icon: "{{ iif(is_state('binary_sensor.s_kitchen_left_is_on', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    icon: "{{ iif(is_state('sensor.s_kitchen_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_kitchen_backlight'
+    state: "{{ states('switch.kitchen_switch_right') }}"
+    icon: "{{ iif(is_state('sensor.s_kitchen_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
