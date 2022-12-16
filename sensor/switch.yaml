@@ -5,3 +5,29 @@
   - name: 's_kitchen_backlight'
     state: "{{ states('switch.kitchen_switch_right') }}"
     icon: "{{ iif(is_state('sensor.s_kitchen_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+
+  - name: 's_bath_toplight'
+    state: "{{ states('switch.hall_switch_restroom_right') }}"
+    icon: "{{ iif(is_state('sensor.s_bath_toplight', 'on'), 'mdi:lightbulb-variant', 'mdi:lightbulb-variant-outline') }}"
+
+  - name: 's_toilet_toplight'
+    state: "{{ states('switch.hall_switch_restroom_left') }}"
+    icon: "{{ iif(is_state('sensor.s_toilet_toplight', 'on'), 'mdi:lightbulb-variant', 'mdi:lightbulb-variant-outline') }}"
+
+  - name: 's_hall_backlight'
+    state: "{{ states('switch.hall_switch') }}"
+    icon: "{{ iif(is_state('sensor.s_hall_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+
+  - name: 's_bedroom_left_toplight'
+    state: "{{ states('switch.bedroom_switch_left') }}"
+    icon: "{{ iif(is_state('sensor.s_bedroom_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_bedroom_right_toplight'
+    state: "{{ states('switch.bedroom_switch_right') }}"
+    icon: "{{ iif(is_state('sensor.s_bedroom_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+
+  - name: 's_living_left_toplight'
+    state: "{{ states('switch.living_switch_left') }}"
+    icon: "{{ iif(is_state('sensor.s_living_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_living_right_toplight'
+    state: "{{ states('switch.living_switch_right') }}"
+    icon: "{{ iif(is_state('sensor.s_living_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
