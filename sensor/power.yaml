@@ -1,29 +1,29 @@
 - sensor:
-  - name: 'p_relay'
+  - name: 'pw_relay'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.kitchen_relay_power') | float(0) | round(1) }}"
-  - name: 'p_bath'
+  - name: 'pw_bath'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.bath_relay_power') | float(0) | round(1) }}"
-  - name: 'p_toilet'
+  - name: 'pw_toilet'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.toilet_relay_power') | float(0) | round(1) }}"
-  - name: 'p_hall'
+  - name: 'pw_hall'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.hall_relay_power') | float(0) | round(1) }}"
-  - name: 'p_bedroom'
+  - name: 'pw_bedroom'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.bedroom_relay_power') | float(0) | round(1) }}"
-  - name: 'p_living'
+  - name: 'pw_living'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ states('sensor.living_relay_power') | float(0) | round(1) }}"
-  - name: 'p_balcony'
+  - name: 'pw_balcony'
     unit_of_measurement: 'W'
     device_class: 'power'
     state: "{{ ((states('sensor.balcony_socket_relay_power') | int(0)) + (states('sensor.balcony_light_relay_power_2') | int(0))) | round(1) }}"
