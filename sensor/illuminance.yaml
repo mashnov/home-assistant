@@ -1,13 +1,16 @@
 - sensor:
   - name: 'i_kitchen'
-    icon: 'mdi:white-balance-sunny'
     unit_of_measurement: 'lx'
+    device_class: 'illuminance'
+    icon: 'mdi:white-balance-sunny'
     state: "{{ states('sensor.kitchen_motion_illuminance_lux') | int(0) }}"
   - name: 'i_hall'
-    icon: 'mdi:white-balance-sunny'
     unit_of_measurement: 'lx'
+    device_class: 'illuminance'
+    icon: 'mdi:white-balance-sunny'
     state: "{{ states('sensor.hall_motion_illuminance') | int(0) }}"
   - name: 'i_balcony'
-    icon: 'mdi:white-balance-sunny'
     unit_of_measurement: 'lx'
+    device_class: 'illuminance'
+    icon: 'mdi:white-balance-sunny'
     state: "{{ states('sensor.balcony_illuminance') | int(0) }}"

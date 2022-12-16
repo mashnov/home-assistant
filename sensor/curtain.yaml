@@ -1,13 +1,13 @@
 - sensor:
   - name: 'c_kitchen'
-    device_class: 'power_factor'
     unit_of_measurement: '%'
+    device_class: 'power_factor'
     state: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"
   - name: 'c_bedroom'
-    device_class: 'power_factor'
     unit_of_measurement: '%'
+    device_class: 'power_factor'
     state: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}"
   - name: 'c_living'
-    device_class: 'power_factor'
     unit_of_measurement: '%'
+    device_class: 'power_factor'
     state: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"

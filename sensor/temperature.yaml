@@ -1,25 +1,25 @@
 - sensor:
   - name: 't_kitchen'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.kitchen_temperature') | float(0) | round(2) }}"
   - name: 't_bath'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.bath_temperature') | float(0) | round(2) }}"
   - name: 't_hall'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.hall_temperature') | float(0) | round(2) }}"
   - name: 't_bedroom'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.bedroom_temperature') | float(0) | round(2) }}"
   - name: 't_living'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.living_temperature') | float(0) | round(2) }}"
   - name: 't_balcony'
-    device_class: 'temperature'
     unit_of_measurement: '°C'
+    device_class: 'temperature'
     state: "{{ states('sensor.balcony_temperature') | float(0) | round(2) }}"

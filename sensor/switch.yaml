@@ -1,76 +1,107 @@
 - sensor:
   - name: 's_kitchen_toplight'
-    state: "{{ states('switch.kitchen_switch_left') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_kitchen_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.kitchen_switch_left') }}"
   - name: 's_kitchen_backlight'
-    state: "{{ states('switch.kitchen_switch_right') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_kitchen_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.kitchen_switch_right') }}"
+  - name: 's_kitchen_backlight_top'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.s_kitchen_backlight_top', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.kitchen_relay_l2') }}"
+  - name: 's_kitchen_backlight_bottom'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.s_kitchen_backlight_bottom', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.kitchen_relay_l1') }}"
 
   - name: 's_bath_toplight'
-    state: "{{ states('switch.hall_switch_restroom_right') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bath_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_switch_restroom_right') }}"
   - name: 's_bath_backlight'
-    state: "{{ states('switch.bath_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bath_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bath_relay_l1') }}"
 
   - name: 's_toilet_toplight'
-    state: "{{ states('switch.hall_switch_restroom_left') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_toilet_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_switch_restroom_left') }}"
   - name: 's_toilet_backlight'
-    state: "{{ states('switch.toilet_relay_l2') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_toilet_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.toilet_relay_l2') }}"
   - name: 's_toilet_fan'
-    state: "{{ states('switch.toilet_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_toilet_fan', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.toilet_relay_l1') }}"
 
   - name: 's_hall_toplight'
-    state: "{{ states('switch.hall_switch') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_hall_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_switch') }}"
   - name: 's_hall_backlight'
-    state: "{{ states('switch.hall_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_hall_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_relay_l1') }}"
   - name: 's_hall_humidifier'
-    state: "{{ states('switch.hall_relay_l2') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_hall_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_relay_l2') }}"
 
   - name: 's_bedroom_left_toplight'
-    state: "{{ states('switch.bedroom_switch_left') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bedroom_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_switch_left') }}"
   - name: 's_bedroom_right_toplight'
-    state: "{{ states('switch.bedroom_switch_right') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bedroom_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_switch_right') }}"
   - name: 's_bedroom_wall_backlight'
-    state: "{{ states('switch.bedroom_wall_switch') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bedroom_wall_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_wall_switch') }}"
   - name: 's_bedroom_backlight'
-    state: "{{ states('switch.bedroom_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bedroom_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_relay_l1') }}"
   - name: 's_bedroom_humidifier'
-    state: "{{ states('switch.bedroom_relay_l2') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_bedroom_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_relay_l2') }}"
 
   - name: 's_living_left_toplight'
-    state: "{{ states('switch.living_switch_left') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_living_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_switch_left') }}"
   - name: 's_living_right_toplight'
-    state: "{{ states('switch.living_switch_right') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_living_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_switch_right') }}"
   - name: 's_living_backlight'
-    state: "{{ states('switch.living_relay_l2') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_living_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_relay_l2') }}"
   - name: 's_living_humidifier'
-    state: "{{ states('switch.living_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_living_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_relay_l1') }}"
 
   - name: 's_balcony_toplight'
-    state: "{{ states('switch.balcony_light_relay_l1_2') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_balcony_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
-  - name: 's_balcony_backlight'
     state: "{{ states('switch.balcony_light_relay_l1_2') }}"
+  - name: 's_balcony_backlight'
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_balcony_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.balcony_light_relay_l1_2') }}"
   - name: 's_balcony_socket'
-    state: "{{ states('switch.balcony_socket') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_balcony_socket', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.balcony_socket') }}"
   - name: 's_balcony_fan'
-    state: "{{ states('switch.balcony_socket_relay_l1') }}"
+    device_class: 'power'
     icon: "{{ iif(is_state('sensor.s_balcony_fan', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.balcony_socket_relay_l1') }}"
