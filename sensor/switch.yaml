@@ -61,3 +61,16 @@
   - name: 's_living_humidifier'
     state: "{{ states('switch.living_relay_l1') }}"
     icon: "{{ iif(is_state('sensor.s_living_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+
+  - name: 's_balcony_toplight'
+    state: "{{ states('switch.balcony_light_relay_l1_2') }}"
+    icon: "{{ iif(is_state('sensor.s_balcony_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_balcony_backlight'
+    state: "{{ states('switch.balcony_light_relay_l1_2') }}"
+    icon: "{{ iif(is_state('sensor.s_balcony_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_balcony_socket'
+    state: "{{ states('switch.balcony_socket') }}"
+    icon: "{{ iif(is_state('sensor.s_balcony_socket', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+  - name: 's_balcony_fan'
+    state: "{{ states('switch.balcony_socket_relay_l1') }}"
+    icon: "{{ iif(is_state('sensor.s_balcony_fan', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
