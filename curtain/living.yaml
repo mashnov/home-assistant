@@ -2,8 +2,8 @@
   covers:
     living:
       device_class: 'curtain'
-      value_template: '{{ states("sensor.c_kitchen") | int > 0 }}'
-      position_template: '{{ state_attr("cover.curtain_kitchen", "position") | int(0) }}'
+      value_template: '{{ state_attr("cover.living", "current_position") | int(0) > 0 }}'
+      position_template: '{{ state_attr("cover.living", "current_position") | int(0) }}'
       open_cover:
       - service: cover.set_cover_position
         entity_id: cover.curtain_kitchen
