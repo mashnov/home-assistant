@@ -2,20 +2,20 @@
   covers:
     living:
       device_class: 'curtain'
-      value_template: '{{ states("sensor.c_living") | int(0) > states("input_number.curtain_kitchen_position_open") | int(0) }}'
+      value_template: '{{ states("sensor.c_living") | int(0) > states("input_number.curtain_living_position_open") | int(0) }}'
       position_template: '{{ states("sensor.c_living") }}'
       open_cover:
       - service: cover.set_cover_position
-        entity_id: cover.curtain_kitchen
+        entity_id: cover.curtain_living
         data_template:
-          position: '{{ states("input_number.curtain_kitchen_position_open") }}'
+          position: '{{ states("input_number.curtain_living_position_open") }}'
       close_cover:
       - service: cover.set_cover_position
-        entity_id: cover.curtain_kitchen
+        entity_id: cover.curtain_living
         data_template:
-          position: '{{ states("input_number.curtain_kitchen_position_night") }}'
+          position: '{{ states("input_number.curtain_living_position_night") }}'
       set_cover_position:
       - service: cover.set_cover_position
-        entity_id: cover.curtain_kitchen
+        entity_id: cover.curtain_living
         data_template:
           position: '{{ position }}'
