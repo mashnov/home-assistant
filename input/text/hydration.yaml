@@ -1,0 +1,6 @@
+it_hall_empyty_humidifier:
+  initial: 'Коридор. Закончилась вода в увлажнителе'
+it_bedroom_empyty_humidifier:
+  initial: 'Спальня. Закончилась вода в увлажнителе'
+it_living_empyty_humidifier:
+  initial: 'Гостиная. Закончилась вода в увлажнителе'
