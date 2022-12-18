@@ -3,6 +3,7 @@ in_hall_power_min:
   max: 30
   min: 0
   step: 1
+
 in_hall_power_delay:
   initial: 4
   max: 10

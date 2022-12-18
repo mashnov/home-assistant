@@ -3,6 +3,7 @@ in_toilet_day_delay:
   max: 90
   min: 0
   step: 1
+
 in_toilet_night_delay:
   initial: 22
   max: 90
