@@ -4,3 +4,9 @@
       device_class: 'curtain'
       friendly_name: 'Шторы на кухне'
       value_template: "{{ states('sensor.c_kitchen') | int > 0 }}"
+      open_cover:
+        service: script.open_kitchen_curtain
+      close_cover:
+        service: script.close_kitchen_curtain
+      stop_cover:
+        service: script.stop_kitchen_curtain
