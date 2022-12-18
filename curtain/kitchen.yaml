@@ -1,0 +1,6 @@
+- platform: template
+  covers:
+    kitchen:
+      device_class: 'curtain'
+      friendly_name: 'Шторы на кухне'
+      value_template: "{{ states('sensor.c_kitchen') | int > 0 }}"
