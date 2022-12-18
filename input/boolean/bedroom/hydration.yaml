@@ -1,0 +1,10 @@
+ib_bedroom_hydration_automations:
+  icon: 'mdi:thermostat-auto'
+ib_bedroom_hydration_sensors:
+  icon: 'mdi:water-circle'
+ib_bedroom_hydration_night:
+  icon: 'mdi:weather-night'
+ib_bedroom_hydration_ventilation:
+  icon: 'mdi:tailwind'
+ib_bedroom_hydration_tts:
+  icon: 'mdi:microphone-message'

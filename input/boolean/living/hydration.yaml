@@ -1,0 +1,10 @@
+ib_living_hydration_automations:
+  icon: 'mdi:thermostat-auto'
+ib_living_hydration_sensors:
+  icon: 'mdi:water-circle'
+ib_living_hydration_night:
+  icon: 'mdi:weather-night'
+ib_living_hydration_ventilation:
+  icon: 'mdi:tailwind'
+ib_living_hydration_tts:
+  icon: 'mdi:microphone-message'

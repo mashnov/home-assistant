@@ -1,0 +1,10 @@
+ib_hall_hydration_automations:
+  icon: 'mdi:thermostat-auto'
+ib_hall_hydration_sensors:
+  icon: 'mdi:water-circle'
+ib_hall_hydration_night:
+  icon: 'mdi:weather-night'
+ib_hall_hydration_ventilation:
+  icon: 'mdi:tailwind'
+ib_hall_hydration_tts:
+  icon: 'mdi:microphone-message'

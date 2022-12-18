@@ -1,0 +1,10 @@
+in_living_power_min:
+  initial: 12
+  max: 30
+  min: 0
+  step: 1
+in_living_power_delay:
+  initial: 4
+  max: 10
+  min: 0
+  step: 1
