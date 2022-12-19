@@ -1,2 +1,6 @@
-it_bedroom_empyty_humidifier:
+it_bedroom_empyty_humidifier_1:
   initial: 'Хозяин! В спальне нужно добавить воды в увлажнитель'
+it_bedroom_empyty_humidifier_2:
+  initial: 'Хозяин! В спальне закончилась вода в увлажнителе'
+it_bedroom_empyty_humidifier_3:
+  initial: 'Спальня. Закончилась вода в увлажнителе'

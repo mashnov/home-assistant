@@ -1,2 +1,6 @@
-it_living_empyty_humidifier:
-  initial: 'Хозяин! В гостиной нужно добавить воды в увлажнитель'
+it_living_empyty_humidifier_1:
+  initial: 'Хозяин! В гостинов нужно добавить воды в увлажнитель'
+it_living_empyty_humidifier_2:
+  initial: 'Хозяин! В гостиной закончилась вода в увлажнителе'
+it_living_empyty_humidifier_3:
+  initial: 'Гостиная. Закончилась вода в увлажнителе'
