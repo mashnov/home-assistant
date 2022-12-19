@@ -1,0 +1,3 @@
+- sensor:
+  - name: 'm_bedroom_hydration'
+    state: '{{ states("input_text.it_bedroom_empyty_humidifier_" + range(1, 3) | random | string) }}'

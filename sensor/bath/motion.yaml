@@ -1,0 +1,4 @@
+- binary_sensor:
+  - name: 'm_bath'
+    device_class: motion
+    state: "{{ states('binary_sensor.bath_motion') }}"

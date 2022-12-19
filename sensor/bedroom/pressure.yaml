@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'p_bedroom'
+    unit_of_measurement: 'mmHg'
+    device_class: 'pressure'
+    state: "{{ states('sensor.bedroom_pressure') | float(0) | round(2) }}"

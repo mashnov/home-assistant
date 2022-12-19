@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'c_kitchen'
+    unit_of_measurement: '%'
+    device_class: 'power_factor'
+    state: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"

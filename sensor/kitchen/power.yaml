@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'pw_kitchen'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    state: "{{ states('sensor.kitchen_relay_power') | float(0) | round(1) }}"

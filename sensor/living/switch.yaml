@@ -1,0 +1,17 @@
+- sensor:
+  - name: 'sw_living_left_toplight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_living_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_switch_left') }}"
+  - name: 'sw_living_right_toplight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_living_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_switch_right') }}"
+  - name: 'sw_living_backlight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_living_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_relay_l2') }}"
+  - name: 'sw_living_humidifier'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_living_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.living_relay_l1') }}"

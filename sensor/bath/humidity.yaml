@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'h_bath'
+    unit_of_measurement: '%'
+    device_class: 'humidity'
+    state: "{{ states('sensor.bath_humidity') | float(0) | round(2) }}"

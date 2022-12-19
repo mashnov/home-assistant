@@ -1,0 +1,21 @@
+- sensor:
+  - name: 'sw_bedroom_left_toplight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_bedroom_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_switch_left') }}"
+  - name: 'sw_bedroom_right_toplight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_bedroom_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_switch_right') }}"
+  - name: 'sw_bedroom_wall_backlight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_bedroom_wall_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_wall_switch') }}"
+  - name: 'sw_bedroom_backlight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_bedroom_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_relay_l1') }}"
+  - name: 'sw_bedroom_humidifier'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_bedroom_humidifier', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.bedroom_relay_l2') }}"

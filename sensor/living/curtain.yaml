@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'c_living'
+    unit_of_measurement: '%'
+    device_class: 'power_factor'
+    state: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"

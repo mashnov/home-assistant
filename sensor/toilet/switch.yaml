@@ -1,0 +1,13 @@
+- sensor:
+  - name: 'sw_toilet_toplight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_toilet_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.hall_switch_restroom_left') }}"
+  - name: 'sw_toilet_backlight'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_toilet_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.toilet_relay_l2') }}"
+  - name: 'sw_toilet_fan'
+    device_class: 'power'
+    icon: "{{ iif(is_state('sensor.sw_toilet_fan', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
+    state: "{{ states('switch.toilet_relay_l1') }}"

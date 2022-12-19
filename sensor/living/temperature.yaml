@@ -1,0 +1,5 @@
+- sensor:
+  - name: 't_living'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    state: "{{ states('sensor.living_temperature') | float(0) | round(2) }}"

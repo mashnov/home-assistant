@@ -1,0 +1,5 @@
+- sensor:
+  - name: 't_bath'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    state: "{{ states('sensor.bath_temperature') | float(0) | round(2) }}"

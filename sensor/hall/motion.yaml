@@ -1,0 +1,4 @@
+- binary_sensor:
+  - name: 'm_hall'
+    device_class: motion
+    state: "{{ states('binary_sensor.hall_motion') }}"

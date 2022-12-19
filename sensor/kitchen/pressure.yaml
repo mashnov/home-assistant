@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'p_kitchen'
+    unit_of_measurement: 'mmHg'
+    device_class: 'pressure'
+    state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"

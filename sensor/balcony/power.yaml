@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'pw_balcony'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    state: "{{ ((states('sensor.balcony_socket_relay_power') | int(0)) + (states('sensor.balcony_light_relay_power_2') | int(0))) | round(1) }}"

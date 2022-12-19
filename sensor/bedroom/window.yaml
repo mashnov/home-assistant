@@ -1,0 +1,7 @@
+- binary_sensor:
+  - name: 'w_bedroom_left'
+    device_class: window
+    state: "{{ states('binary_sensor.bedroom_window_left') }}"
+  - name: 'w_bedroom_right'
+    device_class: window
+    state: "{{ states('binary_sensor.bedroom_window_right') }}"

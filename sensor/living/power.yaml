@@ -1,0 +1,5 @@
+- sensor:
+  - name: 'pw_living'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    state: "{{ states('sensor.living_relay_power') | float(0) | round(1) }}"
