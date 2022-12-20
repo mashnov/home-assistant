@@ -23,3 +23,11 @@
   model: philips.light.downlight
   host: !secret kitchen_lamp_5_host
   token: !secret kitchen_lamp_5_token
+- platform: group
+  name: lg_kitchen
+  entities:
+  - light.l_kitchen_1
+  - light.l_kitchen_2
+  - light.l_kitchen_3
+  - light.l_kitchen_4
+  - light.l_kitchen_5

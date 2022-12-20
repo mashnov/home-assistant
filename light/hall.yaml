@@ -28,3 +28,12 @@
   model: philips.light.downlight
   host: !secret hall_lamp_6_host
   token: !secret hall_lamp_6_token
+- platform: group
+  name: lg_hall
+  entities:
+  - light.l_hall_1
+  - light.l_hall_2
+  - light.l_hall_3
+  - light.l_hall_4
+  - light.l_hall_5
+  - light.l_hall_6

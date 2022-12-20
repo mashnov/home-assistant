@@ -28,3 +28,12 @@
   model: philips.light.downlight
   host: !secret living_lamp_6_host
   token: !secret living_lamp_6_token
+- platform: group
+  name: lg_living
+  entities:
+  - light.l_living_1
+  - light.l_living_2
+  - light.l_living_3
+  - light.l_living_4
+  - light.l_living_5
+  - light.l_living_6
