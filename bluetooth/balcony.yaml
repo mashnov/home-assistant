@@ -1,4 +1,3 @@
-devices:
 - mac: 'A4:C1:38:9F:B2:98'
   name: 'balcony_thermometer'
   temperature_unit: C
