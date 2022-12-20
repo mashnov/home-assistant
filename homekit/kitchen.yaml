@@ -9,3 +9,8 @@
 - switch.kitchen_switch_right
 - switch.kitchen_relay_l2
 - switch.kitchen_relay_l1
+- light.l_kitchen_1
+- light.l_kitchen_2
+- light.l_kitchen_3
+- light.l_kitchen_4
+- light.l_kitchen_5

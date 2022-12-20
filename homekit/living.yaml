@@ -7,3 +7,9 @@
 - switch.living_switch_right
 - switch.living_relay_l2
 - switch.living_relay_l1
+- light.l_living_1
+- light.l_living_2
+- light.l_living_3
+- light.l_living_4
+- light.l_living_5
+- light.l_living_6
