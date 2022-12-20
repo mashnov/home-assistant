@@ -1,0 +1,10 @@
+- name: hall
+  humidifier: switch.hall_relay_l2
+  target_sensor: sensor.h_hall
+  away_humidity: 45
+  target_humidity: 50
+  dry_tolerance: 3
+  wet_tolerance: 3
+  device_class: 'humidifier'
+  initial_state: false
+  sensor_stale_duration: 00:15:00
