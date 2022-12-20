@@ -1,0 +1,8 @@
+- switch.hall_switch
+- switch.hall_relay_l1
+- switch.hall_relay_l2
+- sensor.d_hall
+- sensor.h_hall
+- sensor.i_hall
+- sensor.m_hall
+- sensor.t_hall

@@ -1,0 +1,9 @@
+- cover.curtain_living
+- sensor.d_living
+- sensor.h_living
+- sensor.t_living
+- sensor.w_living
+- switch.living_switch_left
+- switch.living_switch_right
+- switch.living_relay_l2
+- switch.living_relay_l1

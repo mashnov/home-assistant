@@ -1,0 +1,5 @@
+- switch.hall_switch_restroom_right
+- switch.sw_bath_backlight
+- sensor.t_bath
+- sensor.h_bath
+- sensor.m_bath
