@@ -1,0 +1,5 @@
+- platform: group
+  name: sg_living
+  entities:
+  - switch.living_switch_left
+  - switch.living_switch_right

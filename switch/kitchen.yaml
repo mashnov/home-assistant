@@ -1,0 +1,5 @@
+- platform: group
+  name: sg_kitchen
+  entities:
+  - switch.kitchen_switch_left
+  - switch.kitchen_switch_right
