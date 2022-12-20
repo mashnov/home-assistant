@@ -1,0 +1,5 @@
+- sensor.d_toilet
+- sensor.pw_toilet
+- sensor.sw_toilet_toplight
+- sensor.sw_toilet_backlight
+- sensor.sw_toilet_fan

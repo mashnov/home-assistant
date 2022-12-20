@@ -1,0 +1,9 @@
+- sensor.d_balcony
+- sensor.h_balcony
+- sensor.i_balcony
+- sensor.pw_balcony
+- sensor.sw_balcony_toplight
+- sensor.sw_balcony_backlight
+- sensor.sw_balcony_socket
+- sensor.sw_balcony_fan
+- sensor.t_balcony

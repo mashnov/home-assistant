@@ -1,0 +1,18 @@
+- sensor.c_living
+- sensor.d_living
+- sensor.h_living
+- sensor.pw_living
+- sensor.p_living
+- sensor.sw_living_left_toplight
+- sensor.sw_living_right_toplight
+- sensor.sw_living_backlight
+- sensor.sw_living_humidifier
+- sensor.t_living
+- sensor.w_living
+
+- light.l_living_1
+- light.l_living_2
+- light.l_living_3
+- light.l_living_4
+- light.l_living_5
+- light.l_living_6
