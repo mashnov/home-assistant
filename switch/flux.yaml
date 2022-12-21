@@ -1,0 +1,12 @@
+- platform: flux
+  name: fluxer
+  mode: xy
+  interval: 30
+  lights:
+    - light.l_living_1
+    - light.l_living_2
+    - light.l_living_3
+    - light.l_living_4
+    - light.l_living_5
+    - light.l_living_6
+
