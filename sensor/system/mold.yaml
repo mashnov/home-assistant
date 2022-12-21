@@ -1,5 +1,7 @@
-- platform: mold_indicator
-  indoor_temp_sensor: sensor.t_average
-  indoor_humidity_sensor: sensor.h_average
-  outdoor_temp_sensor: sensor.t_balcony
-  calibration_factor: 2.0
+- sensor:
+  - name: 'm_average'
+    platform: mold_indicator
+    indoor_temp_sensor: sensor.t_average
+    indoor_humidity_sensor: sensor.h_average
+    outdoor_temp_sensor: sensor.t_balcony
+    calibration_factor: 2.0
