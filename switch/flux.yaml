@@ -1,6 +1,6 @@
 - platform: flux
   name: fluxer
-  mode: xy
+  mode: mired
   interval: 30
   lights:
     - light.l_living_1
