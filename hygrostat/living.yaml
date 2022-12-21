@@ -1,10 +1,9 @@
 - name: living
-  humidifier: switch.living_relay_l1
+  initial_state: false
+  device_class: 'humidifier'
+  sensor_stale_duration: 00:15:00
   target_sensor: sensor.h_living
-  away_humidity: 45
+  humidifier: switch.living_relay_l1
   target_humidity: 50
   dry_tolerance: 3
   wet_tolerance: 3
-  device_class: 'humidifier'
-  initial_state: false
-  sensor_stale_duration: 00:15:00
