@@ -1,0 +1,10 @@
+- sensor:
+  - name: 'p_average'
+    unit_of_measurement: '%'
+    device_class: 'humidity'
+    state: >
+      {% set kitchen = states('sensor.p_bath') | float(0) %}
+      {% set hall = states('sensor.p_bath') | float(0) %}
+      {% set bedroom = states('sensor.p_bath') | float(0) %}
+      {% set living = states('sensor.p_bath') | float(0) %}
+      {{ (kitchen + hall + bedroom + living) / 4 }}
