@@ -43,7 +43,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: sensor.temperature_home_virtual
+      entity_id: sensor.t_average
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -53,7 +53,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: sensor.humidity_home_virtual
+      entity_id: sensor.h_average
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -63,7 +63,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: sensor.pressure_home_virtual
+      entity_id: sensor.p_average
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -245,7 +245,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.humidity_hall_air_is_normal
+      entity_id: binary_sensor.h_hall_is_normal
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -364,7 +364,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.humidity_bedroom_air_is_normal
+      entity_id: binary_sensor.h_bedroom_is_normal
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -475,7 +475,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.humidity_living_air_is_normal
+      entity_id: binary_sensor.h_living_is_normal
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -532,7 +532,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: sensor.temperature_balcony_virtual
+      entity_id: sensor.t_balcony
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -680,9 +680,9 @@ telegramm:
           message: | 
             🏡 Главное меню
 
-            🔵 Температура ........... {{ states('sensor.temperature_home_virtual') }} °C
-            🔵 Влажность ............... {{ states('sensor.humidity_home_virtual') }} %
-            🔵 Давление ................. {{ states('sensor.pressure_home_virtual') }} мм
+            🔵 Температура ........... {{ states('sensor.t_average') }} °C
+            🔵 Влажность ............... {{ states('sensor.h_average') }} %
+            🔵 Давление ................. {{ states('sensor.p_average') }} мм
           data:
             inline_keyboard: 
             - 'Кухня:/kitchen, Ванная:/bath'
@@ -698,9 +698,9 @@ telegramm:
           message: | 
             🥣 Кухня
 
-            {{ iif(is_state('binary_sensor.temperature_kitchen_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................ {{ states('sensor.temperature_kitchen_virtual') }} °C
-            {{ iif(is_state('binary_sensor.humidity_kitchen_air_is_normal', 'on'), '🟢', '🔴') }} Влажность .................... {{ states('sensor.humidity_kitchen_virtual') }} %
-            {{ iif(is_state('binary_sensor.pressure_kitchen_is_normal', 'on'), '🟢', '🟠') }} Давление ...................... {{ states('sensor.pressure_kitchen_virtual') }} мм
+            {{ iif(is_state('binary_sensor.t_kitchen_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................ {{ states('sensor.t_kitchen') }} °C
+            {{ iif(is_state('binary_sensor.h_kitchen_is_normal', 'on'), '🟢', '🔴') }} Влажность .................... {{ states('sensor.h_kitchen') }} %
+            {{ iif(is_state('binary_sensor.p_kitchen_is_normal', 'on'), '🟢', '🟠') }} Давление ...................... {{ states('sensor.p_kitchen') }} мм
             🔵 Положение шторы ....... {{ states('sensor.curtain_kitchen_position') }} %
 
             {{ iif(is_state('binary_sensor.ventilation_kitchen_left_window_virtual', 'on'), '🟠 Левое окно ................... Открыто', '🟢 Левое окно ................... Закрыто') }}
@@ -728,9 +728,9 @@ telegramm:
           message: | 
             🛁 Ванная
 
-            {{ iif(is_state('binary_sensor.temperature_bath_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_bath_virtual') }} °C
-            {{ iif(is_state('binary_sensor.humidity_bath_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_bath_virtual') }} %
-            {{ iif(is_state('binary_sensor.pressure_bath_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_bath_virtual') }} мм
+            {{ iif(is_state('binary_sensor.t_bath_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.t_bath') }} °C
+            {{ iif(is_state('binary_sensor.h_bath_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.h_bath') }} %
+            {{ iif(is_state('binary_sensor.p_bath_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.p_bath') }} мм
             
             {{ iif(is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on'), '🟠 Движение .................... Обнаружено', '🟢 Движение .................... Не обнаружено') }}
 
@@ -748,9 +748,9 @@ telegramm:
           message: | 
             🚽 Туалет 
 
-            🔵 Температура ........... {{ states('sensor.temperature_home_virtual') }} °C
-            🔵 Влажность ............... {{ states('sensor.humidity_home_virtual') }} %
-            🔵 Давление ................. {{ states('sensor.pressure_home_virtual') }} мм
+            🔵 Температура ........... {{ states('sensor.t_average') }} °C
+            🔵 Влажность ............... {{ states('sensor.h_average') }} %
+            🔵 Давление ................. {{ states('sensor.p_average') }} мм
             
             {{ iif(is_state('binary_sensor.occupation_toilet_is_occupancy', 'on'), '🔴 Состояние ............... Занято', '🟢 Состояние ............... Свободно') }}
             {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Дверь ....................... Открыта', '🟢 Дверь ....................... Закрыта') }}
@@ -769,9 +769,9 @@ telegramm:
           message: | 
             🧥 Коридор
 
-            {{ iif(is_state('binary_sensor.temperature_hall_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_hall_virtual') }} °C
-            {{ iif(is_state('binary_sensor.humidity_hall_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_hall_virtual') }} %
-            {{ iif(is_state('binary_sensor.pressure_hall_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_hall_virtual') }} мм
+            {{ iif(is_state('binary_sensor.t_hall_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.t_hall') }} °C
+            {{ iif(is_state('binary_sensor.h_hall_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.h_hall') }} %
+            {{ iif(is_state('binary_sensor.p_hall_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.p_hall') }} мм
             
             {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Входная дверь ............. Открыта', '🟢 Входная дверь ............. Закрыта') }}
             {{ iif(is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
@@ -795,9 +795,9 @@ telegramm:
           message: | 
             🛌 Спальня
 
-            {{ iif(is_state('binary_sensor.temperature_bedroom_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................. {{ states('sensor.temperature_bedroom_virtual') }} °C
-            {{ iif(is_state('binary_sensor.humidity_bedroom_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ..................... {{ states('sensor.humidity_bedroom_virtual') }} %
-            {{ iif(is_state('binary_sensor.pressure_bedroom_is_normal', 'on'), '🟢', '🟠') }} Давление ....................... {{ states('sensor.pressure_bedroom_virtual') }} мм
+            {{ iif(is_state('binary_sensor.t_bedroom_air_is_normal', 'on'), '🟢', '🔴') }} Температура ................. {{ states('sensor.t_bedroom') }} °C
+            {{ iif(is_state('binary_sensor.h_bedroom_is_normal', 'on'), '🟢', '🔴') }} Влажность ..................... {{ states('sensor.h_bedroom') }} %
+            {{ iif(is_state('binary_sensor.p_living_is_normal', 'on'), '🟢', '🟠') }} Давление ....................... {{ states('sensor.p_bedroom') }} мм
             {{ iif(is_state('binary_sensor.solar_bedroom_sun_is_hit', 'on'), '🟠 Солнце ........................... Светит в окна', '🟢 Солнце ........................... Не попадает в окна') }}
             🔵 Положение шторы ........ {{ states('sensor.curtain_bedroom_position') }} %
             
@@ -824,9 +824,9 @@ telegramm:
           message: | 
             📚 Гостиная
 
-            {{ iif(is_state('binary_sensor.temperature_living_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.temperature_living_virtual') }} °C
-            {{ iif(is_state('binary_sensor.humidity_living_air_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.humidity_living_virtual') }} %
-            {{ iif(is_state('binary_sensor.pressure_living_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.pressure_living_virtual') }} мм
+            {{ iif(is_state('binary_sensor.t_living_air_is_normal', 'on'), '🟢', '🔴') }} Температура ............... {{ states('sensor.t_living') }} °C
+            {{ iif(is_state('binary_sensor.h_living_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.h_living') }} %
+            {{ iif(is_state('binary_sensor.p_living_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.p_living') }} мм
             {{ iif(is_state('binary_sensor.solar_living_sun_is_hit', 'on'), '🟠 Солнце ......................... Светит в окна', '🟢 Солнце ......................... Не попадает в окна') }}
             🔵 Положение шторы ...... {{ states('sensor.curtain_living_position') }} %
 
@@ -853,8 +853,8 @@ telegramm:
             {{ now().strftime('%H:%M %d-%m-%Y') }}
             🪴 Балкон
 
-            🔵 Температура ........... {{ states('sensor.temperature_balcony_virtual') }} °C
-            🔵 Влажность ............... {{ states('sensor.humidity_balcony_virtual') }} %
+            🔵 Температура ........... {{ states('sensor.t_balcony') }} °C
+            🔵 Влажность ............... {{ states('sensor.h_balcony') }} %
             🔵 Освещенность ......... {{ states('sensor.sun_illuminance_virtual') }} Lx
 
             {{ iif(is_state('switch.ventilation_living_balcony_door_virtual', 'on'), '🟠 Дверь на балкон ...... Открыта', '🟢 Дверь на балкон ...... Закрыта') }}
@@ -884,40 +884,40 @@ telegramm:
             🚀 Хозяин! Я перезагружаюсь. {{ formattedDate }}
             {%- endif %}
             {%- if '/homeTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_home_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_home_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_average_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_average_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🏡 - Температура - {{ states('sensor.temperature_home_virtual') }} °C
+            {{ statusIcon }} - 🏡 - Температура - {{ states('sensor.t_average') }} °C
             {%- endif %}
             {%- if '/homeHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_home_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_home_air_is_dry', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.h_average_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.h_average_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 🏡 - Влажность - {{ states('sensor.humidity_home_virtual') }} %
+            {{ statusIcon }} - 🏡 - Влажность - {{ states('sensor.h_average') }} %
             {%- endif %}
             {%- if '/homePressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_home_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_home_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_average_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_average_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 🏡 - Давление - {{ states('sensor.pressure_home_virtual') }} мм рт ст
+            {{ statusIcon }} - 🏡 - Давление - {{ states('sensor.p_average') }} мм рт ст
             {%- endif %}
             {%- if '/kitchenTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_kitchen_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_kitchen_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_kitchen_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_kitchen_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🥣 - Температура - {{ states('sensor.temperature_kitchen_virtual') }} °C
+            {{ statusIcon }} - 🥣 - Температура - {{ states('sensor.t_kitchen') }} °C
             {%- endif %}
             {%- if '/kitchenHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_kitchen_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_kitchen_air_is_dry', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.h_kitchen_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.h_kitchen_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 🥣 - Влажность - {{ states('sensor.humidity_kitchen_virtual') }} %
+            {{ statusIcon }} - 🥣 - Влажность - {{ states('sensor.h_kitchen') }} %
             {%- endif %}
             {%- if '/kitchenPressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_kitchen_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_kitchen_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_kitchen_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_kitchen_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 🥣 - Давление - {{ states('sensor.pressure_kitchen_virtual') }} мм рт ст
+            {{ statusIcon }} - 🥣 - Давление - {{ states('sensor.p_kitchen') }} мм рт ст
             {%- endif %}
             {%- if '/kitchenVentilation' in options %}
                 {%- set isVentilation = is_state('binary_sensor.ventilation_kitchen_is_ventilation', 'on') %}
@@ -959,21 +959,21 @@ telegramm:
             🥣 Кухня. Уровень шторы {{ states('sensor.curtain_kitchen_position') }} %
             {%- endif %}
             {%- if '/bathTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_bath_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_bath_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_bath_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_bath_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🛁 - Температура - {{ states('sensor.temperature_bath_virtual') }} °C
+            {{ statusIcon }} - 🛁 - Температура - {{ states('sensor.t_bath') }} °C
             {%- endif %}
             {%- if '/bathHumidity' in options %}
-                {%- set isWet = is_state('binary_sensor.humidity_bath_air_is_wet', 'on') %}
+                {%- set isWet = is_state('binary_sensor.h_bath_is_hight', 'on') %}
                 {%- set statusIcon = iif(isWet, '🟠', '🟢') %}
-            {{ statusIcon }} - 🛁 - Влажность - {{ states('sensor.humidity_bath_virtual') }} %
+            {{ statusIcon }} - 🛁 - Влажность - {{ states('sensor.h_bath') }} %
             {%- endif %}
             {%- if '/bathPressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_bath_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_bath_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_bath_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_bath_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 🛁 - Давление - {{ states('sensor.pressure_bath_virtual') }} мм рт ст
+            {{ statusIcon }} - 🛁 - Давление - {{ states('sensor.p_bath') }} мм рт ст
             {%- endif %}
             {%- if '/bathMotion' in options %}
                 {%- set isVentilation = is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on') %}
@@ -1000,22 +1000,22 @@ telegramm:
             {{ statusIcon }} - 🚽 - Дверь - {{ statusText }}
             {%- endif %}
             {%- if '/hallTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_hall_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_hall_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_hall_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_hall_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🧥 - Температура - {{ states('sensor.temperature_hall_virtual') }} °C
+            {{ statusIcon }} - 🧥 - Температура - {{ states('sensor.t_hall') }} °C
             {%- endif %}
             {%- if '/hallHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_hall_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_hall_air_is_dry', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.h_hall_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.h_hall_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 🧥 - Влажность - {{ states('sensor.humidity_hall_virtual') }} %
+            {{ statusIcon }} - 🧥 - Влажность - {{ states('sensor.h_hall') }} %
             {%- endif %}
             {%- if '/hallPressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_hall_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_hall_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_hall_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_hall_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 🧥 - Давление - {{ states('sensor.pressure_hall_virtual') }} мм рт ст
+            {{ statusIcon }} - 🧥 - Давление - {{ states('sensor.p_hall') }} мм рт ст
             {%- endif %}
             {%- if '/hallVentilation' in options %}
                 {%- set isVentilation = is_state('binary_sensor.ventilation_hall_is_ventilation', 'on') %}
@@ -1060,22 +1060,22 @@ telegramm:
             {{ statusIcon }} - 🧥 - {{ statusText }}
             {%- endif %}
             {%- if '/bedroomTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_bedroom_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_bedroom_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_bedroom_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_bedroom_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🛌 - Температура - {{ states('sensor.temperature_bedroom_virtual') }} °C
+            {{ statusIcon }} - 🛌 - Температура - {{ states('sensor.t_bedroom') }} °C
             {%- endif %}
             {%- if '/bedroomHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_bedroom_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_bedroom_air_is_dry', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.h_bedroom_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.h_bedroom_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 🛌 - Влажность - {{ states('sensor.humidity_bedroom_virtual') }} %
+            {{ statusIcon }} - 🛌 - Влажность - {{ states('sensor.h_bedroom') }} %
             {%- endif %}
             {%- if '/bedroomPressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_bedroom_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_bedroom_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_bedroom_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_bedroom_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 🛌 - Давление - {{ states('sensor.pressure_bedroom_virtual') }} мм рт ст
+            {{ statusIcon }} - 🛌 - Давление - {{ states('sensor.p_bedroom') }} мм рт ст
             {%- endif %}
             {%- if '/bedroomVentilation' in options %}
                 {%- set isVentilation = is_state('binary_sensor.ventilation_bedroom_is_ventilation', 'on') %}
@@ -1135,22 +1135,22 @@ telegramm:
             🛌 Спальня. Уровень шторы {{ states('sensor.curtain_bedroom_position') }} %
             {%- endif %}
             {%- if '/livingTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_living_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_living_air_is_cold', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.t_living_is_normal', 'on') %}
+                {%- set isCold = is_state('binary_sensor.t_living_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 📚 - Температура - {{ states('sensor.temperature_living_virtual') }} °C
+            {{ statusIcon }} - 📚 - Температура - {{ states('sensor.t_living') }} °C
             {%- endif %}
             {%- if '/livingHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_living_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_living_air_is_dry', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.h_living_is_normal', 'on') %}
+                {%- set isDry = is_state('binary_sensor.h_living_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 📚 - Влажность - {{ states('sensor.humidity_living_virtual') }} %
+            {{ statusIcon }} - 📚 - Влажность - {{ states('sensor.h_living') }} %
             {%- endif %}
             {%- if '/livingPressure' in options %}
-                {%- set isNormal = is_state('binary_sensor.pressure_living_is_normal', 'on') %}
-                {%- set isLow = is_state('binary_sensor.pressure_living_is_low', 'on') %}
+                {%- set isNormal = is_state('binary_sensor.p_living_is_normal', 'on') %}
+                {%- set isLow = is_state('binary_sensor.p_living_is_low', 'on') %}
                 {%- set statusIcon = iif(isNormal, '🟢', iif(isLow, '🟠', '🔴')) %}
-            {{ statusIcon }} - 📚 - Давление - {{ states('sensor.pressure_living_virtual') }} мм рт ст
+            {{ statusIcon }} - 📚 - Давление - {{ states('sensor.p_living') }} мм рт ст
             {%- endif %}
             {%- if '/livingVentilation' in options %}
                 {%- set isVentilation = is_state('binary_sensor.ventilation_living_is_ventilation', 'on') %}
@@ -1204,16 +1204,10 @@ telegramm:
             📚 Гостиная. Уровень шторы {{ states('sensor.curtain_living_position') }} %
             {%- endif %}
             {%- if '/balconyTemperature' in options %}
-                {%- set isNormal = is_state('binary_sensor.temperature_balcony_air_is_normal', 'on') %}
-                {%- set isCold = is_state('binary_sensor.temperature_balcony_air_is_cold', 'on') %}
-                {%- set statusIcon = iif(isNormal, '🟢', iif(isCold, '🔵', '🟠')) %}
-            {{ statusIcon }} - 🪴 - Температура - {{ states('sensor.temperature_balcony_virtual') }} °C
+            🟢 - 🪴 - Температура - {{ states('sensor.t_balcony') }} °C
             {%- endif %}
             {%- if '/balconyHumidity' in options %}
-                {%- set isNormal = is_state('binary_sensor.humidity_balcony_air_is_normal', 'on') %}
-                {%- set isDry = is_state('binary_sensor.humidity_balcony_air_is_dry', 'on') %}
-                {%- set statusIcon = iif(isNormal, '🟢', iif(isDry, '🔴', '🟠')) %}
-            {{ statusIcon }} - 🪴 - Влажность - {{ states('sensor.humidity_balcony_virtual') }} %
+            🟢 - 🪴 - Влажность - {{ states('sensor.h_balcony') }} %
             {%- endif %}
             {%- if '/balconyDoor' in options %}
                 {%- set isOpen = is_state('binary_sensor.ventilation_living_balcony_door_virtual', 'on') %}
@@ -1245,10 +1239,3 @@ telegramm:
                 {%- set statusText = iif(isEnable, 'включена', 'выключена') %}
             {{ statusIcon }} - 🪴 - Розетка - {{ statusText }}
             {%- endif %}
-
-
-
-
-
-
-

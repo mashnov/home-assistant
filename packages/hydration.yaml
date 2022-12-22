@@ -207,8 +207,8 @@ hydration:
       - input_boolean.hydration_hall_automation
       - binary_sensor.hydration_hall_humidifier_is_on
       - input_boolean.hydration_hall_use_sensor
-      - binary_sensor.humidity_hall_air_is_wet
-      - binary_sensor.humidity_hall_air_is_dry
+      - binary_sensor.h_hall_is_hight
+      - binary_sensor.h_hall_is_low
       - input_boolean.hydration_hall_use_ventilation
       - binary_sensor.ventilation_hall_is_ventilation
       - input_boolean.hydration_hall_use_night_mode
@@ -251,7 +251,7 @@ hydration:
                 entity_id: input_boolean.hydration_hall_use_sensor
                 state: 'on'
               - condition: state
-                entity_id: binary_sensor.humidity_hall_air_is_wet
+                entity_id: binary_sensor.h_hall_is_hight
                 state: 'on'
             - condition: and
               conditions:
@@ -288,7 +288,7 @@ hydration:
               entity_id: input_boolean.hydration_hall_use_sensor
               state: 'on'
             - condition: state
-              entity_id: binary_sensor.humidity_hall_air_is_dry
+              entity_id: binary_sensor.h_hall_is_low
               state: 'on'
           - condition: or
             conditions:
@@ -329,8 +329,8 @@ hydration:
       - input_boolean.hydration_bedroom_automation
       - binary_sensor.hydration_bedroom_humidifier_is_on
       - input_boolean.hydration_bedroom_use_sensor
-      - binary_sensor.humidity_bedroom_air_is_wet
-      - binary_sensor.humidity_bedroom_air_is_dry
+      - binary_sensor.h_bedroom_is_hight
+      - binary_sensor.h_bedrom_is_low
       - input_boolean.hydration_bedroom_use_ventilation
       - binary_sensor.ventilation_bedroom_is_ventilation
       - input_boolean.hydration_bedroom_use_night_mode
@@ -373,7 +373,7 @@ hydration:
                 entity_id: input_boolean.hydration_bedroom_use_sensor
                 state: 'on'
               - condition: state
-                entity_id: binary_sensor.humidity_bedroom_air_is_wet
+                entity_id: binary_sensor.h_bedroom_is_hight
                 state: 'on'
             - condition: and
               conditions:
@@ -410,7 +410,7 @@ hydration:
               entity_id: input_boolean.hydration_bedroom_use_sensor
               state: 'on'
             - condition: state
-              entity_id: binary_sensor.humidity_bedroom_air_is_dry
+              entity_id: binary_sensor.h_bedrom_is_low
               state: 'on'
           - condition: or
             conditions:
@@ -451,8 +451,8 @@ hydration:
       - input_boolean.hydration_living_automation
       - binary_sensor.hydration_living_humidifier_is_on
       - input_boolean.hydration_living_use_sensor
-      - binary_sensor.humidity_living_air_is_wet
-      - binary_sensor.humidity_living_air_is_dry
+      - binary_sensor.h_living_is_hight
+      - binary_sensor.h_living_is_low
       - input_boolean.hydration_living_use_ventilation
       - binary_sensor.ventilation_living_is_ventilation
       - input_boolean.hydration_living_use_night_mode
@@ -495,7 +495,7 @@ hydration:
                 entity_id: input_boolean.hydration_living_use_sensor
                 state: 'on'
               - condition: state
-                entity_id: binary_sensor.humidity_living_air_is_wet
+                entity_id: binary_sensor.h_living_is_hight
                 state: 'on'
             - condition: and
               conditions:
@@ -533,7 +533,7 @@ hydration:
               entity_id: input_boolean.hydration_living_use_sensor
               state: 'on'
             - condition: state
-              entity_id: binary_sensor.humidity_living_air_is_dry
+              entity_id: binary_sensor.h_living_is_low
               state: 'on'
           - condition: or
             conditions:
@@ -571,7 +571,7 @@ hydration:
     trigger:
     - platform: state
       entity_id: 
-      - binary_sensor.humidity_bath_air_is_wet
+      - binary_sensor.h_bath_is_hight
       - binary_sensor.occupation_toilet_is_occupancy
     action:
     - choose:
@@ -584,7 +584,7 @@ hydration:
               entity_id: input_boolean.hydration_bath_use_sensor
               state: 'on'
             - condition: state
-              entity_id: binary_sensor.humidity_bath_air_is_wet
+              entity_id: binary_sensor.h_bath_is_hight
               state: 'on'
           - condition: and
             conditions:
@@ -595,7 +595,7 @@ hydration:
               entity_id: binary_sensor.occupation_toilet_is_occupancy
               state: 'off'
             - condition: state
-              entity_id: binary_sensor.humidity_bath_air_is_wet
+              entity_id: binary_sensor.h_bath_is_hight
               state: 'off'
         sequence:
         - service: fan.turn_on
@@ -607,7 +607,7 @@ hydration:
     - platform: state
       entity_id: 
       - input_boolean.hydration_bath_use_sensor
-      - binary_sensor.humidity_bath_air_is_wet
+      - binary_sensor.h_bath_is_hight
     action:
     - choose:
       - conditions:
@@ -620,7 +620,7 @@ hydration:
             entity_id: binary_sensor.hydration_bath_humidifier_is_on
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.humidity_bath_air_is_wet
+            entity_id: binary_sensor.h_bath_is_hight
             state: 'off'
         sequence:
         - service: fan.turn_off
@@ -642,7 +642,7 @@ hydration:
             entity_id: binary_sensor.hydration_bath_humidifier_is_on
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.humidity_bath_air_is_wet
+            entity_id: binary_sensor.h_bath_is_hight
             state: 'off'
         sequence:
         - service: timer.start
@@ -656,7 +656,7 @@ hydration:
     - platform: state
       entity_id: 
       - binary_sensor.hydration_bath_humidifier_is_on
-      - binary_sensor.humidity_bath_air_is_wet
+      - binary_sensor.h_bath_is_hight
     action:
     - choose:
      # timer start
@@ -667,7 +667,7 @@ hydration:
             entity_id: binary_sensor.hydration_bath_humidifier_is_on
             state: 'off'
           - condition: state
-            entity_id: binary_sensor.humidity_bath_air_is_wet
+            entity_id: binary_sensor.h_bath_is_hight
             state: 'on'
         sequence:
         - service: timer.cancel

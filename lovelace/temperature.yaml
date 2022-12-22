@@ -12,16 +12,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_home_air_is_cold
+    - entity: binary_sensor.t_average_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_home_air_is_normal
+    - entity: binary_sensor.t_average_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_home_air_is_hot
+    - entity: binary_sensor.t_average_air_is_hight
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_home_virtual
+    - entity: sensor.t_average
       name: 'Средняя температура'
     - type: section
     - entity: input_number.temperature_home_sensor_min 
@@ -41,16 +41,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_kitchen_air_is_cold
+    - entity: binary_sensor.t_kitchen_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_kitchen_air_is_normal
+    - entity: binary_sensor.t_kitchen_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_kitchen_air_is_hot
+    - entity: binary_sensor.t_kitchen_air_is_hight
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_kitchen_virtual
+    - entity: sensor.t_kitchen
       name: 'Температура в комнате'
     - type: section
     - entity: input_number.temperature_kitchen_sensor_min 
@@ -70,16 +70,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_hall_air_is_cold
+    - entity: binary_sensor.t_hall_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_hall_air_is_normal
+    - entity: binary_sensor.t_hall_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_hall_air_is_hot
+    - entity: binary_sensor.t_hall_air_is_hight
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_hall_virtual
+    - entity: sensor.t_hall
       name: 'Температура в комнате'
     - type: section
     - entity: input_number.temperature_hall_sensor_min 
@@ -99,16 +99,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_bath_air_is_cold
+    - entity: binary_sensor.t_bath_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_bath_air_is_normal
+    - entity: binary_sensor.t_bath_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_bath_air_is_hot
+    - entity: binary_sensor.t_bath_air_is_hight
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_bath_virtual
+    - entity: sensor.t_bath
       name: 'Температура в комнате'
     - type: section
     - entity: input_number.temperature_bath_sensor_min 
@@ -128,16 +128,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_bedroom_air_is_cold
+    - entity: binary_sensor.t_bedroom_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_bedroom_air_is_normal
+    - entity: binary_sensor.t_bedroom_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_bedroom_air_is_hot
+    - entity: binary_sensor.t_bedroom_air_is_higth
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_bedroom_virtual
+    - entity: sensor.t_bedroom
       name: 'Температура в комнате'
     - type: section
     - entity: input_number.temperature_bedroom_sensor_min 
@@ -157,16 +157,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.temperature_living_air_is_cold
+    - entity: binary_sensor.t_living_air_is_low
       icon: 'mdi:snowflake'
-    - entity: binary_sensor.temperature_living_air_is_normal
+    - entity: binary_sensor.t_living_air_is_normal
       icon: 'mdi:check-decagram-outline'
-    - entity: binary_sensor.temperature_living_air_is_hot
+    - entity: binary_sensor.t_living_air_is_hight
       icon: 'mdi:fire'
 
   - type: entities
     entities:
-    - entity: sensor.temperature_living_virtual
+    - entity: sensor.t_living
       name: 'Температура в комнате'
     - type: section
     - entity: input_number.temperature_living_sensor_min 
@@ -184,20 +184,20 @@ cards:
 
   - type: entities
     entities:
-    - entity: sensor.temperature_balcony_virtual
+    - entity: sensor.t_balcony
       name: 'Уличная температура'
 
   - type: history-graph
     hours_to_show: 6
     entities:
-    - entity: sensor.temperature_kitchen_virtual
+    - entity: sensor.t_kitchen
       name: 'Средняя'
-    - entity: sensor.temperature_kitchen_virtual
+    - entity: sensor.t_kitchen
       name: 'Кухня'
-    - entity: sensor.temperature_hall_virtual
+    - entity: sensor.t_hall
       name: 'Коридор'
-    - entity: sensor.temperature_bedroom_virtual
+    - entity: sensor.t_bedroom
       name: 'Спальня'
-    - entity: sensor.temperature_living_virtual
+    - entity: sensor.t_living
       name: 'Гостиная'
 

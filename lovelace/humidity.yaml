@@ -12,16 +12,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_home_air_is_dry
+    - entity: binary_sensor.h_average_is_low
       icon: 'mdi:water-outline'
-    - entity: binary_sensor.humidity_home_air_is_normal
+    - entity: binary_sensor.h_average_is_normal
       icon: 'mdi:water-opacity'
-    - entity: binary_sensor.humidity_home_air_is_wet
+    - entity: binary_sensor.h_average_is_hight
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_home_virtual
+    - entity: sensor.h_average
       name: 'Средняя влажность'
     - type: section
     - entity: input_number.humidity_home_sensor_min 
@@ -41,16 +41,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_kitchen_air_is_dry
+    - entity: binary_sensor.h_living_is_low
       icon: 'mdi:water-outline'
-    - entity: binary_sensor.humidity_kitchen_air_is_normal
+    - entity: binary_sensor.h_kitchen_is_normal
       icon: 'mdi:water-opacity'
-    - entity: binary_sensor.humidity_kitchen_air_is_wet
+    - entity: binary_sensor.h_kitchen_is_wet
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_kitchen_virtual
+    - entity: sensor.h_kitchen
       name: 'Относительная влажность'
     - type: section
     - entity: input_number.humidity_kitchen_sensor_min 
@@ -70,16 +70,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_hall_air_is_dry
+    - entity: binary_sensor.h_hall_is_low
       icon: 'mdi:water-outline'
-    - entity: binary_sensor.humidity_hall_air_is_normal
+    - entity: binary_sensor.h_hall_is_normal
       icon: 'mdi:water-opacity'
-    - entity: binary_sensor.humidity_hall_air_is_wet
+    - entity: binary_sensor.h_hall_is_hight
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_hall_virtual
+    - entity: sensor.h_hall
       name: 'Относительная влажность'
     - type: section
     - entity: input_number.humidity_hall_sensor_min 
@@ -99,16 +99,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_bedroom_air_is_dry
+    - entity: binary_sensor.h_bedrom_is_low
       icon: 'mdi:water-outline'
-    - entity: binary_sensor.humidity_bedroom_air_is_normal
+    - entity: binary_sensor.h_bedroom_is_normal
       icon: 'mdi:water-opacity'
-    - entity: binary_sensor.humidity_bedroom_air_is_wet
+    - entity: binary_sensor.h_bedroom_is_hight
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_bedroom_virtual
+    - entity: sensor.h_bedroom
       name: 'Относительная влажность'
     - type: section
     - entity: input_number.humidity_bedroom_sensor_min 
@@ -128,16 +128,16 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_living_air_is_dry
+    - entity: binary_sensor.h_living_is_low
       icon: 'mdi:water-outline'
-    - entity: binary_sensor.humidity_living_air_is_normal
+    - entity: binary_sensor.h_living_is_normal
       icon: 'mdi:water-opacity'
-    - entity: binary_sensor.humidity_living_air_is_wet
+    - entity: binary_sensor.h_living_is_hight
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_living_virtual
+    - entity: sensor.h_living
       name: 'Относительная влажность'
     - type: section
     - entity: input_number.humidity_living_sensor_min 
@@ -157,12 +157,12 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidity_bath_air_is_wet
+    - entity: binary_sensor.h_bath_is_hight
       icon: 'mdi:water'
 
   - type: entities
     entities:
-    - entity: sensor.humidity_bath_virtual
+    - entity: sensor.h_bath
       name: 'Относительная влажность'
     - type: section
     - entity: input_number.humidity_bath_sensor_max 
@@ -177,19 +177,19 @@ cards:
 
   - type: entities
     entities:
-    - entity: sensor.humidity_balcony_virtual
+    - entity: sensor.h_balcony
       name: 'Уличная влажность'
 
   - type: history-graph
     hours_to_show: 6
     entities:
-    - entity: sensor.humidity_home_virtual
+    - entity: sensor.h_average
       name: 'Средняя'
-    - entity: sensor.humidity_kitchen_virtual
+    - entity: sensor.h_kitchen
       name: 'Кухня'
-    - entity: sensor.humidity_hall_virtual
+    - entity: sensor.h_hall
       name: 'Коридор'
-    - entity: sensor.humidity_bedroom_virtual
+    - entity: sensor.h_bedroom
       name: 'Спальня'
-    - entity: sensor.humidity_living_virtual
+    - entity: sensor.h_living
       name: 'Гостиная'
