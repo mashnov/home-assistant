@@ -1,10 +1,10 @@
 - switch.hall_switch
 - switch.hall_relay_l1
 - switch.hall_relay_l2
-- sensor.d_hall
+- binary_sensor.d_hall
 - sensor.h_hall
 - sensor.i_hall
-- sensor.m_hall
+- binary_sensor.m_hall
 - sensor.t_hall
 - light.l_hall_1
 - light.l_hall_2

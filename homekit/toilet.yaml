@@ -1,4 +1,4 @@
-- sensor.d_toilet
+- binary_sensor.d_toilet
 - switch.hall_switch_restroom_left
 - switch.toilet_relay_l2
 - switch.toilet_relay_l1

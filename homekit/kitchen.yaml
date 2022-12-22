@@ -1,10 +1,10 @@
 - cover.curtain_kitchen
 - sensor.h_kitchen
 - sensor.i_kitchen
-- sensor.m_kitchen
+- binary_sensor.m_kitchen
 - sensor.t_kitchen
-- sensor.w_kitchen_left
-- sensor.w_kitchen_right
+- binary_sensor.w_kitchen_left
+- binary_sensor.w_kitchen_right
 - switch.kitchen_switch_left
 - switch.kitchen_switch_right
 - switch.kitchen_relay_l2

@@ -4,9 +4,9 @@
 - switch.bedroom_wall_switch
 - switch.bedroom_relay_l1
 - switch.bedroom_relay_l2
-- sensor.w_bedroom_left
-- sensor.w_bedroom_right
-- sensor.d_bedroom
+- binary_sensor.w_bedroom_left
+- binary_sensor.w_bedroom_right
+- binary_sensor.d_bedroom
 - sensor.h_bedroom
 - sensor.t_bedroom
 - light.l_bedroom_1
