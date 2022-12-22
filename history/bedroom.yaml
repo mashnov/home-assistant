@@ -1,16 +1,16 @@
 - sensor.c_bedroom
-- sensor.d_bedroom
+- binary_sensor.d_bedroom
 - sensor.h_bedroom
 - sensor.pw_bedroom
 - sensor.p_bedroom
-- sensor.sw_bedroom_left_toplight
-- sensor.sw_bedroom_right_toplight
-- sensor.sw_bedroom_wall_backlight
-- sensor.sw_bedroom_backlight
-- sensor.sw_bedroom_humidifier
+- binary_sensor.sw_bedroom_left_toplight
+- binary_sensor.sw_bedroom_right_toplight
+- binary_sensor.sw_bedroom_wall_backlight
+- binary_sensor.sw_bedroom_backlight
+- binary_sensor.sw_bedroom_humidifier
 - sensor.t_bedroom
-- sensor.w_bedroom_left
-- sensor.w_bedroom_right
+- binary_sensor.w_bedroom_left
+- binary_sensor.w_bedroom_right
 
 - light.l_bedroom_1
 - light.l_bedroom_2

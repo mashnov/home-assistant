@@ -1,13 +1,13 @@
-- sensor.d_hall
+- binary_sensor.d_hall
 - sensor.h_hall
 - sensor.i_hall
-- sensor.m_hall
+- binary_sensor.m_hall
 - sensor.pw_hall
 - sensor.p_hall
 - sensor.t_hall
-- sensor.sw_hall_toplight
-- sensor.sw_hall_backlight
-- sensor.sw_hall_humidifier
+- binary_sensor.sw_hall_toplight
+- binary_sensor.sw_hall_backlight
+- binary_sensor.sw_hall_humidifier
 
 - light.l_hall_1
 - light.l_hall_2

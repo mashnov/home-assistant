@@ -1,5 +1,5 @@
-- sensor.d_toilet
+- binary_sensor.d_toilet
 - sensor.pw_toilet
-- sensor.sw_toilet_toplight
-- sensor.sw_toilet_backlight
-- sensor.sw_toilet_fan
+- binary_sensor.sw_toilet_toplight
+- binary_sensor.sw_toilet_backlight
+- binary_sensor.sw_toilet_fan

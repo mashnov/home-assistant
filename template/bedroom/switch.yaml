@@ -1,4 +1,4 @@
-- sensor:
+- binary_sensor:
   - name: 'sw_bedroom_left_toplight'
     device_class: 'power'
     icon: "{{ iif(is_state('sensor.sw_bedroom_left_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"

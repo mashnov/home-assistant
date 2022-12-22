@@ -1,7 +1,7 @@
 - sensor.h_bath
-- sensor.m_bath
+- binary_sensor.m_bath
 - sensor.pw_bath
 - sensor.p_bath
-- sensor.sw_bath_toplight
-- sensor.sw_bath_backlight
+- binary_sensor.sw_bath_toplight
+- binary_sensor.sw_bath_backlight
 - sensor.t_bath
