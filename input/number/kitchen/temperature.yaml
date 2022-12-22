@@ -1,0 +1,5 @@
+in_t_kitchen:
+  min: 16
+  max: 32
+  step: 1
+  initial: 22
