@@ -1,3 +1,9 @@
+in_p_general:
+  min: 740
+  max: 770
+  step: 1
+  initial: 756
+
 in_p_offset:
   min: 1
   max: 10

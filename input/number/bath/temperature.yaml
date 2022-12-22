@@ -1,5 +1,0 @@
-in_t_bath:
-  min: 16
-  max: 32
-  step: 1
-  initial: 22
