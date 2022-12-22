@@ -3,3 +3,24 @@
     unit_of_measurement: 'mmHg'
     device_class: 'pressure'
     state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"
+
+- binary_sensor:
+  - name: 'p_kitchen_is_normal'
+    device_class: window
+    state: "{{ is_state('binary_sensor.p_kitchen_is_low', 'off') and is_state('binary_sensor.p_kitchen_is_hight', 'off') }}"
+
+  - name: 'p_kitchen_is_low'
+    state: >
+      {% set sensorValue = states('sensor.p_kitchen') | float %}
+      {% set normalValue = states('input_number.in_p_kitchen') | int %}
+      {% set offsetValue = states('input_number.in_p_offset') | int %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'p_kitchen_is_hight'
+    state: >
+      {% set sensorValue = states('sensor.p_kitchen') | float %}
+      {% set normalValue = states('input_number.in_p_kitchen') | int %}
+      {% set offsetValue = states('input_number.in_p_offset') | int %}
+      {% set targetValue = normalValue + offsetValue %}
+      {{ sensorValue > targetValue }}
