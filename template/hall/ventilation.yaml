@@ -1,0 +1,4 @@
+- binary_sensor:
+  - name: 'v_hall'
+    device_class: window
+    state: "{{ is_state('binary_sensor.p_average_is_low', 'off') and is_state('binary_sensor.p_average_is_hight', 'off') }}"

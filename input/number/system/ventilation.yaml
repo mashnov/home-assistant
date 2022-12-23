@@ -1,7 +1,7 @@
-in_p_delay:
+in_v_offset:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
-  initial: 4
+  min: 1
   max: 10
-  min: 0
   step: 1
+  initial: 3
