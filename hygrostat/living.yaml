@@ -4,9 +4,6 @@
   sensor_stale_duration: 00:15:00
   target_sensor: sensor.h_living
   humidifier: switch.living_relay_l1
-  target_humidity: > 
-    {{ states('input_number.in_h_general') }}
-  dry_tolerance: >
-    {{ states('input_number.in_h_offset') }}
-  wet_tolerance: >
-    {{ states('input_number.in_h_offset') }}
+  target_humidity: 50
+  dry_tolerance: 3
+  wet_tolerance: 3
