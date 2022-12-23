@@ -2,11 +2,6 @@ title: 'Климат'
 icon: 'mdi:home-thermometer-outline'
 cards:
 
-- type: grid
-  columns: 3
-  square: true
-  cards:
-
   - type: entities
     entities:
     - entity: sensor.t_average
