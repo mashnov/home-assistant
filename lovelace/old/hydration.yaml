@@ -1,0 +1,238 @@
+title: 'Увлажнение'
+icon: 'mdi:air-humidifier'
+cards:
+
+### Коридор
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Коридор'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: fan.hydration_hall_humidifier
+      icon: 'mdi:air-humidifier'
+    - entity: binary_sensor.hydration_hall_humidifier_is_empty
+      icon: 'mdi:air-humidifier-off'
+    - entity: binary_sensor.h_hall_is_low
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.ventilation_hall_is_ventilation
+      icon: 'mdi:tailwind'
+    - entity: binary_sensor.night_hall_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: sensor.hydration_hall_relay_power_virtual
+      name: 'Потребление энергии'
+    - type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_hall_automation
+        state: 'off'
+      row: 
+        entity: fan.hydration_hall_humidifier 
+        name: 'Увлажнитель'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_hall_automation
+        state: 'off'
+      row: 
+        type: section
+    - entity: input_boolean.hydration_hall_automation 
+      name: 'Автоматический режим'
+    - entity: input_boolean.hydration_hall_use_sensor 
+      name: 'Вкючать для увлажнения'
+    - entity: input_boolean.hydration_hall_use_ventilation 
+      name: 'Выключать на проветривание'
+    - entity: input_boolean.hydration_hall_use_night_mode 
+      name: 'Выключать на ночь'
+    - entity: input_boolean.hydration_hall_use_tts
+      name: 'Озвучивать уведомления'
+    - type: section
+    - entity: input_number.hydration_hall_energy_backlight_min 
+      name: 'Мощность подсветки'
+      icon: 'mdi:lightning-bolt'
+    - entity: input_number.hydration_hall_power_delay 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:lightning-bolt-outline'
+    - type: section
+    - entity: input_text.hydration_hall_empty_humidifier_text 
+      icon: mdi:message-processing
+      name: 'Сообщение'
+
+### Спальня
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Спальня'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: fan.hydration_bedroom_humidifier
+      icon: 'mdi:air-humidifier'
+    - entity: binary_sensor.hydration_bedroom_humidifier_is_empty
+      icon: 'mdi:air-humidifier-off'
+    - entity: binary_sensor.h_bedrom_is_low
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.ventilation_bedroom_is_ventilation
+      icon: 'mdi:tailwind'
+    - entity: binary_sensor.night_bedroom_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: sensor.hydration_bedroom_relay_power_virtual
+      name: 'Потребление энергии'
+    - type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_bedroom_automation
+        state: 'off'
+      row: 
+        entity: fan.hydration_bedroom_humidifier 
+        name: 'Увлажнитель'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_bedroom_automation
+        state: 'off'
+      row: 
+        type: section
+    - entity: input_boolean.hydration_bedroom_automation 
+      name: 'Автоматический режим'
+    - entity: input_boolean.hydration_bedroom_use_sensor 
+      name: 'Вкючать для увлажнения'
+    - entity: input_boolean.hydration_bedroom_use_ventilation 
+      name: 'Выключать на проветривание'
+    - entity: input_boolean.hydration_bedroom_use_night_mode 
+      name: 'Выключать на ночь'
+    - entity: input_boolean.hydration_bedroom_use_tts
+      name: 'Озвучивать уведомления'
+    - type: section
+    - entity: input_number.hydration_bedroom_energy_backlight_min 
+      name: 'Мощность подсветки'
+      icon: 'mdi:lightning-bolt'
+    - entity: input_number.hydration_bedroom_power_delay 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:lightning-bolt-outline'
+    - type: section
+    - entity: input_text.hydration_bedroom_empty_humidifier_text 
+      icon: mdi:message-processing
+      name: 'Сообщение'
+
+### Гостиная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: fan.hydration_living_humidifier
+      icon: 'mdi:air-humidifier'
+    - entity: binary_sensor.hydration_living_humidifier_is_empty
+      icon: 'mdi:air-humidifier-off'
+    - entity: binary_sensor.h_living_is_low
+      icon: 'mdi:water-outline'
+    - entity: binary_sensor.ventilation_living_is_ventilation
+      icon: 'mdi:tailwind'
+    - entity: binary_sensor.night_living_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: sensor.hydration_living_relay_power_virtual
+      name: 'Потребление энергии'
+    - type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_living_automation
+        state: 'off'
+      row: 
+        entity: fan.hydration_living_humidifier 
+        name: 'Увлажнитель'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_living_automation
+        state: 'off'
+      row: 
+        type: section
+    - entity: input_boolean.hydration_living_automation 
+      name: 'Автоматический режим'
+    - entity: input_boolean.hydration_living_use_sensor 
+      name: 'Вкючать для увлажнения'
+    - entity: input_boolean.hydration_living_use_ventilation 
+      name: 'Выключать на проветривание'
+    - entity: input_boolean.hydration_living_use_night_mode 
+      name: 'Выключать на ночь'
+    - entity: input_boolean.hydration_living_use_tts
+      name: 'Озвучивать уведомления'
+    - type: section
+    - entity: input_number.hydration_living_energy_backlight_min 
+      name: 'Мощность подсветки'
+      icon: 'mdi:lightning-bolt'
+    - entity: input_number.hydration_living_power_delay 
+      name: 'Задержка (вкл)'
+      icon: 'mdi:lightning-bolt-outline'
+    - type: section
+    - entity: input_text.hydration_living_empty_humidifier_text 
+      icon: mdi:message-processing
+      name: 'Сообщение'
+
+### Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.h_bath_is_hight
+      icon: 'mdi:water'
+    - entity: binary_sensor.occupation_toilet_is_occupancy
+      icon: 'mdi:toilet'
+    - entity: binary_sensor.night_bath_is_night
+      icon: 'mdi:weather-night'
+
+  - type: entities
+    entities:
+    - entity: timer.hydration_bath_toilet_timer 
+      name: 'Таймер отключения'
+    - type: section
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_bath_use_sensor
+        state: 'off'
+      - entity: input_boolean.hydration_toilet_use_sensor
+        state: 'off'
+      row: 
+        entity: fan.hydration_toilet_fan
+        name: 'Вытяжка'
+    - type: conditional
+      conditions:
+      - entity: input_boolean.hydration_bath_use_sensor
+        state: 'off'
+      - entity: input_boolean.hydration_toilet_use_sensor
+        state: 'off'
+      row: 
+        type: section
+    - entity: input_boolean.hydration_bath_use_sensor 
+      name: 'Вытяжка в ванной'
+    - entity: input_boolean.hydration_toilet_use_sensor 
+      name: 'Вытяжка в туалете'
+    - type: section
+    - entity: input_number.hydration_toilet_day_duration
+      name: 'Длительность (день)'
+      icon: 'mdi:camera-timer'
+    - entity: input_number.hydration_toilet_night_duration
+      name: 'Длительность (ночь)'
+      icon: 'mdi:camera-timer'
+
