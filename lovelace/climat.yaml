@@ -25,6 +25,9 @@ cards:
     - entity: sensor.t_balcony
       name: 'Балкон'
     - type: divider
+      style: 
+        margin-top: 20px
+        margin-bottom: 40px
     - entity: input_number.in_t_general
       name: 'Комфорт'
     - entity: input_number.in_t_offset
@@ -62,11 +65,13 @@ cards:
     - entity: sensor.h_balcony
       name: 'Балкон'
     - type: divider
+      style: 
+        margin-top: 20px
+        margin-bottom: 40px
     - entity: input_number.in_h_general
       name: 'Комфорт'
     - entity: input_number.in_h_offset
       name: 'Погрешность'
-
     - type: divider
       style: 
         margin-top: 20px
@@ -97,6 +102,9 @@ cards:
     - entity: sensor.p_living
       name: 'Гостиная'
     - type: divider
+      style: 
+        margin-top: 76px
+        margin-bottom: 40px
     - entity: input_number.in_p_general
       name: 'Комфорт'
     - entity: input_number.in_p_offset
