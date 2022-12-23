@@ -1,3 +1,9 @@
 ib_v_isolate:
   initial: true
   icon: 'mdi:cube-unfolded'
+ib_v_ventilation:
+  initial: true
+  icon: 'mdi:tailwind'
+ib_v_night:
+  initial: true
+  icon: 'mdi:weather-night'

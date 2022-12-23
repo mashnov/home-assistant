@@ -5,7 +5,11 @@ cards:
 - type: vertical-stack
   cards:
 
+  - type: markdown
+    content: 'Проветривание'
+
   - type: entities
+    state_color: true
     entities:
     - entity: binary_sensor.v_kitchen
       name: 'Кухня'
@@ -16,7 +20,11 @@ cards:
     - entity: binary_sensor.v_living
       name: 'Гостиная'
 
+  - type: markdown
+    content: 'Температура'
+
   - type: entities
+    state_color: true
     entities:
     - entity: sensor.t_average
       name: 'Средняя температура'
@@ -54,6 +62,9 @@ cards:
 - type: vertical-stack
   cards:
 
+  - type: markdown
+    content: 'Увлажнители'
+
   - type: entities
     entities:
     - entity: switch.toilet_relay_l1
@@ -68,6 +79,9 @@ cards:
     - entity: switch.living_relay_l1
       icon: 'mdi:air-humidifier'
       name: 'Гостиная'
+
+  - type: markdown
+    content: 'Влажность'
 
   - type: entities
     entities:
@@ -107,16 +121,22 @@ cards:
 - type: vertical-stack
   cards:
 
+  - type: markdown
+    content: 'Параметры'
+
   - type: entities
     entities:
-    - entity: input_number.in_h_general
-      name: 'Комфорт'
-    - entity: input_number.in_h_offset
-      name: 'Погрешность'
     - entity: input_number.in_v_offset
       name: 'Задержка'
     - entity: input_boolean.ib_v_isolate
       name: 'Изолированные комнаты'
+    - entity: input_boolean.ib_v_ventilation
+      name: 'Работа в проветривание'
+    - entity: input_boolean.ib_v_night
+      name: 'Ночной запуск'
+
+  - type: markdown
+    content: 'Давление'
 
   - type: entities
     entities:
