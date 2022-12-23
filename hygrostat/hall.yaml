@@ -4,6 +4,6 @@
   sensor_stale_duration: 00:15:00
   target_sensor: sensor.h_hall
   humidifier: switch.hall_relay_l2
-  target_humidity: input_number.in_h_general
-  dry_tolerance: input_number.in_h_offset
-  wet_tolerance: input_number.in_h_offset
+  target_humidity: {{ states('input_number.in_h_general') }}
+  dry_tolerance: {{ states('input_number.in_h_offset') }}
+  wet_tolerance: {{ states('input_number.in_h_offset') }}
