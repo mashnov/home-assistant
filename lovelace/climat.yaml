@@ -1,5 +1,5 @@
 title: 'Климат'
-icon: 'mdi:home-thermometer'
+icon: 'mdi:home-thermometer-outline'
 cards:
 
 - type: vertical-stack
@@ -131,31 +131,16 @@ cards:
   - type: entities
     entities:
     - entity: input_number.in_t_general
-      name: 'Комфортная'
-    - type: section
+      name: 'Температура'
     - entity: input_number.in_t_offset
-      name: 'Смещение'
-
-  - type: entities
-    entities:
-    - entity: input_number.in_h_kitchen
-      name: 'Кухня'
-    - entity: input_number.in_h_hall
-      name: 'Коридор'
-    - entity: input_number.in_h_bath
-      name: 'Ванная'
-    - entity: input_number.in_h_bedroom
-      name: 'Спальня'
-    - entity: input_number.in_h_living
-      name: 'Гостиная'
+      name: 'Погрешность'
     - type: section
+    - entity: input_number.in_h_general
+      name: 'Влажность'
     - entity: input_number.in_h_offset
-      name: 'Смещение'
-
-  - type: entities
-    entities:
-    - entity: input_number.in_p_general
-      name: 'Комфортное'
+      name: 'Погрешность'
     - type: section
+    - entity: input_number.in_p_general
+      name: 'Давление'
     - entity: input_number.in_p_offset
-      name: 'Смещение'
+      name: 'Погрешность'
