@@ -2,111 +2,239 @@ title: 'Климат'
 icon: 'mdi:home-thermometer-outline'
 cards:
 
-- type: vertical-stack
-  cards:
-  - type: entities
-    entities:
-    - entity: sensor.t_average
-      name: 'Средняя температура'
-    - type: section
-    - entity: sensor.t_kitchen
-      name: 'Кухня'
-    - entity: sensor.t_hall
-      name: 'Коридор'
-    - entity: sensor.t_bath
-      name: 'Ванная'
-    - entity: sensor.t_bedroom
-      name: 'Спальня'
-    - entity: sensor.t_living
-      name: 'Гостиная'
-    - entity: sensor.t_balcony
-      name: 'Балкон'
-    - type: divider
-      style: 
-        margin-top: 20px
-        margin-bottom: 20px
-    - entity: input_number.in_t_general
-      name: 'Комфорт'
-    - entity: input_number.in_t_offset
-      name: 'Погрешность'
-    - type: divider
-      style: 
-        margin-top: 20px
-        margin-bottom: 40px
-    footer:
-      type: graph
-      entity: sensor.t_average
-      hours_to_show: 12
-      detail: 2
 
-- type: vertical-stack
+- type: horizontal-stack
   cards:
-  - type: entities
-    entities:
-    - entity: sensor.h_average
-      name: 'Средняя влажность'
-    - type: section
-    - entity: sensor.h_kitchen
-      name: 'Кухня'
-    - entity: sensor.h_hall
-      name: 'Коридор'
-    - entity: sensor.h_bath
-      name: 'Ванная'
-    - entity: sensor.h_bedroom
-      name: 'Спальня'
-    - entity: sensor.h_living
-      name: 'Гостиная'
-    - entity: sensor.h_balcony
-      name: 'Балкон'
-    - type: divider
-      style: 
-        margin-top: 20px
-        margin-bottom: 20px
-    - entity: input_number.in_h_general
-      name: 'Комфорт'
-    - entity: input_number.in_h_offset
-      name: 'Погрешность'
-    - type: divider
-      style: 
-        margin-top: 20px
-        margin-bottom: 40px
-    footer:
-      type: graph
-      entity: sensor.h_average
-      hours_to_show: 12
-      detail: 2
 
-- type: vertical-stack
+
+  ### Кухня
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: 'Кухня'
+
+    - type: glance
+      show_name: false
+      show_state: false
+      entities:
+      - entity: binary_sensor.ventilation_kitchen_is_ventilation
+        icon: 'mdi:tailwind'
+
+    - type: entities
+      entities:
+      - entity: binary_sensor.ventilation_kitchen_left_window_virtual
+        name: 'Левое окно'
+      - entity: binary_sensor.ventilation_kitchen_right_window_virtual
+        name: 'Правое окно'
+      - type: section
+      - entity: input_number.ventilation_kitchen_sensor_delay 
+        name: 'Задержка'
+        icon: 'mdi:camera-timer'
+
+  ### Коридор
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: 'Коридор'
+
+    - type: glance
+      show_name: false
+      show_state: false
+      entities:
+      - entity: binary_sensor.ventilation_hall_is_ventilation
+        icon: 'mdi:tailwind'
+
+    - type: entities
+      entities:
+      - entity: binary_sensor.hall_door
+        name: 'Входная дверь'
+      - type: section
+      - entity: input_boolean.ventilation_hall_use_kitchen_sensor
+        name: 'Кухня'
+      - entity: input_boolean.ventilation_hall_use_bedroom_sensor
+        name: 'Спальня'
+      - entity: input_boolean.ventilation_hall_use_living_sensor
+        name: 'Гостиная'
+      - entity: input_boolean.ventilation_hall_ignore_closed_rooms
+        name: 'Игнорировать закрытые комнаты'
+      - type: section
+      - entity: input_number.ventilation_hall_sensor_delay 
+        name: 'Задержка'
+        icon: 'mdi:camera-timer'
+
+  ### Спальня
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: 'Спальня'
+
+    - type: glance
+      show_name: false
+      show_state: false
+      entities:
+      - entity: binary_sensor.ventilation_bedroom_is_ventilation
+        icon: 'mdi:tailwind'
+
+    - type: entities
+      entities:
+      - entity: binary_sensor.ventilation_bedroom_left_window_virtual
+        name: 'Левое окно'
+      - entity: binary_sensor.ventilation_bedroom_right_window_virtual
+        name: 'Правое окно'
+      - entity: binary_sensor.ventilation_bedroom_entry_door_virtual
+        name: 'Входная дверь'
+      - type: section
+      - entity: input_number.ventilation_bedroom_sensor_delay 
+        name: 'Задержка'
+        icon: 'mdi:camera-timer'
+
+  ### Гостиная
+  - type: vertical-stack
+    cards:
+    - type: markdown
+      content: 'Гостиная'
+
+    - type: glance
+      show_name: false
+      show_state: false
+      entities:
+      - entity: binary_sensor.ventilation_living_is_ventilation
+        icon: 'mdi:tailwind'
+
+    - type: entities
+      entities:
+      - entity: binary_sensor.ventilation_living_balcony_window_virtual
+        name: 'Окно на балкон'
+      - entity: binary_sensor.ventilation_living_balcony_door_virtual
+        name: 'Дверь на балкон'
+      - entity: binary_sensor.ventilation_living_entry_door_virtual
+        name: 'Входная дверь'
+      - type: section
+      - entity: input_number.ventilation_living_sensor_delay 
+        name: 'Задержка'
+        icon: 'mdi:camera-timer'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- type: horizontal-stack
   cards:
-  - type: entities
-    entities:
-    - entity: sensor.p_average
-      name: 'Среднее давление'
-    - type: section
-    - entity: sensor.p_kitchen
-      name: 'Кухня'
-    - entity: sensor.p_hall
-      name: 'Коридор'
-    - entity: sensor.p_bath
-      name: 'Ванная'
-    - entity: sensor.p_bedroom
-      name: 'Спальня'
-    - entity: sensor.p_living
-      name: 'Гостиная'
-    - type: divider
-      style: 
-        margin-top: 68px
-        margin-bottom: 20px
-    - entity: input_number.in_p_general
-      name: 'Комфорт'
-    - entity: input_number.in_p_offset
-      name: 'Погрешность'
-    - type: divider
-      style: 
-        margin-top: 20px
-        margin-bottom: 40px
-    footer:
-      type: graph
-      entity: sensor.p_average
-      hours_to_show: 12
-      detail: 2
+  - type: vertical-stack
+    cards:
+    - type: entities
+      entities:
+      - entity: sensor.t_average
+        name: 'Средняя температура'
+      - type: section
+      - entity: sensor.t_kitchen
+        name: 'Кухня'
+      - entity: sensor.t_hall
+        name: 'Коридор'
+      - entity: sensor.t_bath
+        name: 'Ванная'
+      - entity: sensor.t_bedroom
+        name: 'Спальня'
+      - entity: sensor.t_living
+        name: 'Гостиная'
+      - entity: sensor.t_balcony
+        name: 'Балкон'
+      - type: divider
+        style: 
+          margin-top: 20px
+          margin-bottom: 20px
+      - entity: input_number.in_t_general
+        name: 'Комфорт'
+      - entity: input_number.in_t_offset
+        name: 'Погрешность'
+      - type: divider
+        style: 
+          margin-top: 20px
+          margin-bottom: 40px
+      footer:
+        type: graph
+        entity: sensor.t_average
+        hours_to_show: 12
+        detail: 2
+
+  - type: vertical-stack
+    cards:
+    - type: entities
+      entities:
+      - entity: sensor.h_average
+        name: 'Средняя влажность'
+      - type: section
+      - entity: sensor.h_kitchen
+        name: 'Кухня'
+      - entity: sensor.h_hall
+        name: 'Коридор'
+      - entity: sensor.h_bath
+        name: 'Ванная'
+      - entity: sensor.h_bedroom
+        name: 'Спальня'
+      - entity: sensor.h_living
+        name: 'Гостиная'
+      - entity: sensor.h_balcony
+        name: 'Балкон'
+      - type: divider
+        style: 
+          margin-top: 20px
+          margin-bottom: 20px
+      - entity: input_number.in_h_general
+        name: 'Комфорт'
+      - entity: input_number.in_h_offset
+        name: 'Погрешность'
+      - type: divider
+        style: 
+          margin-top: 20px
+          margin-bottom: 40px
+      footer:
+        type: graph
+        entity: sensor.h_average
+        hours_to_show: 12
+        detail: 2
+
+  - type: vertical-stack
+    cards:
+    - type: entities
+      entities:
+      - entity: sensor.p_average
+        name: 'Среднее давление'
+      - type: section
+      - entity: sensor.p_kitchen
+        name: 'Кухня'
+      - entity: sensor.p_hall
+        name: 'Коридор'
+      - entity: sensor.p_bath
+        name: 'Ванная'
+      - entity: sensor.p_bedroom
+        name: 'Спальня'
+      - entity: sensor.p_living
+        name: 'Гостиная'
+      - type: divider
+        style: 
+          margin-top: 68px
+          margin-bottom: 20px
+      - entity: input_number.in_p_general
+        name: 'Комфорт'
+      - entity: input_number.in_p_offset
+        name: 'Погрешность'
+      - type: divider
+        style: 
+          margin-top: 20px
+          margin-bottom: 40px
+      footer:
+        type: graph
+        entity: sensor.p_average
+        hours_to_show: 12
+        detail: 2
