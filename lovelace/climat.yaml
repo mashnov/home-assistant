@@ -22,27 +22,13 @@ cards:
       name: 'Спальня'
     - entity: sensor.t_living
       name: 'Гостиная'
-    - type: section
     - entity: sensor.t_balcony
       name: 'Балкон'
-
-  - type: history-graph
-    hours_to_show: 6
-    entities:
-    - entity: sensor.t_average
-      name: 'Среднее'
-    - entity: sensor.t_kitchen
-      name: 'Кухня'
-    - entity: sensor.t_hall
-      name: 'Ванная'
-    - entity: sensor.t_bath
-      name: 'Коридор'
-    - entity: sensor.t_bedroom
-      name: 'Спальня'
-    - entity: sensor.t_living
-      name: 'Гостиная'
-    - entity: sensor.t_balcony
-      name: 'Балкон'
+    footer:
+      type: graph
+      entity: sensor.t_average
+      hours_to_show: 6
+      detail: 2
 
 - type: vertical-stack
   cards:
@@ -67,24 +53,11 @@ cards:
     - type: section
     - entity: sensor.h_balcony
       name: 'Балкон'
-
-  - type: history-graph
-    hours_to_show: 6
-    entities:
-    - entity: sensor.h_average
-      name: 'Среднее'
-    - entity: sensor.h_kitchen
-      name: 'Кухня'
-    - entity: sensor.h_hall
-      name: 'Ванная'
-    - entity: sensor.h_bath
-      name: 'Коридор'
-    - entity: sensor.h_bedroom
-      name: 'Спальня'
-    - entity: sensor.h_living
-      name: 'Гостиная'
-    - entity: sensor.h_balcony
-      name: 'Балкон'
+    footer:
+      type: graph
+      entity: sensor.h_average
+      hours_to_show: 6
+      detail: 2
 
 - type: vertical-stack
   cards:
@@ -106,22 +79,11 @@ cards:
       name: 'Спальня'
     - entity: sensor.p_living
       name: 'Гостиная'
-
-  - type: history-graph
-    hours_to_show: 6
-    entities:
-    - entity: sensor.p_average
-      name: 'Среднее'
-    - entity: sensor.p_kitchen
-      name: 'Кухня'
-    - entity: sensor.p_hall
-      name: 'Ванная'
-    - entity: sensor.p_bath
-      name: 'Коридор'
-    - entity: sensor.p_bedroom
-      name: 'Спальня'
-    - entity: sensor.p_living
-      name: 'Гостиная'
+    footer:
+      type: graph
+      entity: sensor.p_average
+      hours_to_show: 6
+      detail: 2
 
 - type: vertical-stack
   cards:
