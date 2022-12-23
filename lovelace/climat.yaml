@@ -4,9 +4,6 @@ cards:
 
 - type: vertical-stack
   cards:
-  - type: markdown
-    content: 'Температура'
-
   - type: entities
     entities:
     - entity: sensor.t_average
@@ -44,9 +41,6 @@ cards:
 
 - type: vertical-stack
   cards:
-  - type: markdown
-    content: 'Влажность'
-
   - type: entities
     entities:
     - entity: sensor.h_average
@@ -84,8 +78,6 @@ cards:
 
 - type: vertical-stack
   cards:
-  - type: markdown
-    content: 'Давление'
   - type: entities
     entities:
     - entity: sensor.p_average
