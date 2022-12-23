@@ -4,7 +4,18 @@ cards:
 
   - type: entities
     entities:
-    - humidifier.hall
-    - humidifier.bedroom
-    - humidifier.living
-    - humidifier.bath
+    - entity: humidifier.bath
+      name: 'Ванная'
+    - entity: humidifier.hall
+      name: 'Коридор'
+    - entity: humidifier.bedroom
+      name: 'Спальня'
+    - entity: humidifier.living
+      name: 'Гостиная'
+
+  - type: entities
+    entities:
+    - entity: input_number.in_h_general
+      name: 'Комфорт'
+    - entity: input_number.in_h_offset
+      name: 'Погрешность'
