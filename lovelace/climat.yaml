@@ -26,7 +26,8 @@ cards:
       name: 'Балкон'
     - type: divider
       style: 
-        margin-bottom: 20px
+        margin-top: 20px
+        margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.t_average
@@ -57,7 +58,8 @@ cards:
       name: 'Балкон'
     - type: divider
       style: 
-        margin-bottom: 20px
+        margin-top: 20px
+        margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.h_average
@@ -85,7 +87,8 @@ cards:
       name: 'Гостиная'
     - type: divider
       style: 
-        margin-bottom: 20px
+        margin-top: 20px
+        margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.p_average
