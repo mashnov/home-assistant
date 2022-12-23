@@ -1,10 +1,16 @@
 in_p_general:
-  min: 740
+  unit_of_measurement: 'mmHg'
+  icon: 'mdi:gauge-low'
+  mode: 'box'
+  min: 740  
   max: 770
   step: 1
   initial: 756
 
 in_p_offset:
+  unit_of_measurement: 'mmHg'
+  icon: 'mdi:gauge-low'
+  mode: 'box'
   min: 1
   max: 10
   step: 1

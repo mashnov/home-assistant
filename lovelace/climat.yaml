@@ -131,10 +131,10 @@ cards:
   - type: entities
     entities:
     - entity: input_number.in_t_general
-      name: 'Комфортная температура'
+      name: 'Комфортная'
     - type: section
     - entity: input_number.in_t_offset
-      name: 'Смещение температуры'
+      name: 'Смещение'
 
   - type: entities
     entities:
@@ -150,12 +150,12 @@ cards:
       name: 'Гостиная'
     - type: section
     - entity: input_number.in_h_offset
-      name: 'Смещение влажноси'
+      name: 'Смещение'
 
   - type: entities
     entities:
     - entity: input_number.in_p_general
-      name: 'Комфортное давление'
+      name: 'Комфортное'
     - type: section
     - entity: input_number.in_p_offset
-      name: 'Смещение температуры'
+      name: 'Смещение'

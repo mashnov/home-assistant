@@ -1,10 +1,16 @@
 in_toilet_day_delay:
+  unit_of_measurement: 's'
+  icon: 'mdi:camera-timer'
+  mode: 'box'
   initial: 45
   max: 90
   min: 0
   step: 1
 
 in_toilet_night_delay:
+  unit_of_measurement: 's'
+  icon: 'mdi:camera-timer'
+  mode: 'box'
   initial: 22
   max: 90
   min: 0
