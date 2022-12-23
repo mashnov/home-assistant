@@ -27,7 +27,7 @@ cards:
     - type: divider
       style: 
         margin-top: 20px
-        margin-bottom: 40px
+        margin-bottom: 20px
     - entity: input_number.in_t_general
       name: 'Комфорт'
     - entity: input_number.in_t_offset
@@ -67,7 +67,7 @@ cards:
     - type: divider
       style: 
         margin-top: 20px
-        margin-bottom: 40px
+        margin-bottom: 20px
     - entity: input_number.in_h_general
       name: 'Комфорт'
     - entity: input_number.in_h_offset
@@ -103,8 +103,8 @@ cards:
       name: 'Гостиная'
     - type: divider
       style: 
-        margin-top: 76px
-        margin-bottom: 40px
+        margin-top: 68px
+        margin-bottom: 20px
     - entity: input_number.in_p_general
       name: 'Комфорт'
     - entity: input_number.in_p_offset
