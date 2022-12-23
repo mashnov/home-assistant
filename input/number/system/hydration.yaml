@@ -1,6 +1,7 @@
 in_h_offset:
   unit_of_measurement: '%'
   icon: 'mdi:water-circle'
+  mode: 'box'
   min: 1
   max: 10
   step: 1
