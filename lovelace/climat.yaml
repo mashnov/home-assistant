@@ -4,6 +4,7 @@ cards:
 
 - type: grid
   columns: 3
+  square: true
   cards:
 
   - type: entities
