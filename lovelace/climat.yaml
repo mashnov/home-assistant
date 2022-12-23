@@ -25,14 +25,19 @@ cards:
     - entity: sensor.t_balcony
       name: 'Балкон'
     - type: divider
+    - entity: input_number.in_t_general
+      name: 'Комфорт'
+    - entity: input_number.in_t_offset
+      name: 'Погрешность'
+    - type: divider
       style: 
         margin-top: 20px
         margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.t_average
-      hours_to_show: 6
-      detail: 2
+      hours_to_show: 12
+      detail: 1
 
 - type: vertical-stack
   cards:
@@ -57,14 +62,20 @@ cards:
     - entity: sensor.h_balcony
       name: 'Балкон'
     - type: divider
+    - entity: input_number.in_h_general
+      name: 'Комфорт'
+    - entity: input_number.in_h_offset
+      name: 'Погрешность'
+
+    - type: divider
       style: 
         margin-top: 20px
         margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.h_average
-      hours_to_show: 6
-      detail: 2
+      hours_to_show: 12
+      detail: 1
 
 - type: vertical-stack
   cards:
@@ -86,33 +97,16 @@ cards:
     - entity: sensor.p_living
       name: 'Гостиная'
     - type: divider
+    - entity: input_number.in_p_general
+      name: 'Комфорт'
+    - entity: input_number.in_p_offset
+      name: 'Погрешность'
+    - type: divider
       style: 
         margin-top: 20px
         margin-bottom: 40px
     footer:
       type: graph
       entity: sensor.p_average
-      hours_to_show: 6
-      detail: 2
-
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Настройки'
-
-  - type: entities
-    entities:
-    - entity: input_number.in_t_general
-      name: 'Температура'
-    - entity: input_number.in_t_offset
-      name: 'Погрешность'
-    - type: section
-    - entity: input_number.in_h_general
-      name: 'Влажность'
-    - entity: input_number.in_h_offset
-      name: 'Погрешность'
-    - type: section
-    - entity: input_number.in_p_general
-      name: 'Давление'
-    - entity: input_number.in_p_offset
-      name: 'Погрешность'
+      hours_to_show: 12
+      detail: 1
