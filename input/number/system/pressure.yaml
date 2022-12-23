@@ -1,5 +1,5 @@
 in_p_general:
-  unit_of_measurement: 'mmHg'
+  unit_of_measurement: 'mm'
   icon: 'mdi:gauge-low'
   min: 740  
   max: 770
@@ -7,7 +7,7 @@ in_p_general:
   initial: 756
 
 in_p_offset:
-  unit_of_measurement: 'mmHg'
+  unit_of_measurement: 'mm'
   icon: 'mdi:gauge-low'
   min: 1
   max: 10
