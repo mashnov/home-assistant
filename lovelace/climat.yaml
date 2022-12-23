@@ -9,6 +9,9 @@ cards:
 
   - type: entities
     entities:
+    - entity: sensor.t_average
+      name: 'Средняя температура'
+    - type: section
     - entity: sensor.t_kitchen
       name: 'Кухня'
     - entity: sensor.t_hall
@@ -22,8 +25,8 @@ cards:
     - entity: sensor.t_balcony
       name: 'Балкон'
     - type: divider
-    - entity: sensor.t_average
-      name: 'Средняя температура'
+      style: 
+        margin-bottom: 20px
     footer:
       type: graph
       entity: sensor.t_average
@@ -37,6 +40,9 @@ cards:
 
   - type: entities
     entities:
+    - entity: sensor.h_average
+      name: 'Средняя влажность'
+    - type: section
     - entity: sensor.h_kitchen
       name: 'Кухня'
     - entity: sensor.h_hall
@@ -50,8 +56,8 @@ cards:
     - entity: sensor.h_balcony
       name: 'Балкон'
     - type: divider
-    - entity: sensor.h_average
-      name: 'Средняя влажность'
+      style: 
+        margin-bottom: 20px
     footer:
       type: graph
       entity: sensor.h_average
@@ -62,9 +68,11 @@ cards:
   cards:
   - type: markdown
     content: 'Давление'
-
   - type: entities
     entities:
+    - entity: sensor.p_average
+      name: 'Среднее давление'
+    - type: section
     - entity: sensor.p_kitchen
       name: 'Кухня'
     - entity: sensor.p_hall
@@ -76,8 +84,8 @@ cards:
     - entity: sensor.p_living
       name: 'Гостиная'
     - type: divider
-    - entity: sensor.p_average
-      name: 'Среднее давление'
+      style: 
+        margin-bottom: 20px
     footer:
       type: graph
       entity: sensor.p_average
