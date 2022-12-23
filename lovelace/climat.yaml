@@ -37,7 +37,7 @@ cards:
       type: graph
       entity: sensor.t_average
       hours_to_show: 12
-      detail: 1
+      detail: 2
 
 - type: vertical-stack
   cards:
@@ -75,7 +75,7 @@ cards:
       type: graph
       entity: sensor.h_average
       hours_to_show: 12
-      detail: 1
+      detail: 2
 
 - type: vertical-stack
   cards:
@@ -109,4 +109,4 @@ cards:
       type: graph
       entity: sensor.p_average
       hours_to_show: 12
-      detail: 1
+      detail: 2
