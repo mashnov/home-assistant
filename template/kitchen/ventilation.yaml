@@ -1,4 +1,4 @@
 - binary_sensor:
   - name: 'v_kitchen'
     icon: 'mdi:tailwind'
-    state: true"
+    state: true
