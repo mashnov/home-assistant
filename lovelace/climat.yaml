@@ -1,0 +1,161 @@
+title: 'Климат'
+icon: 'mdi:home-thermometer'
+cards:
+
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Температура'
+
+  - type: entities
+    entities:
+    - entity: sensor.t_average
+      name: 'Средняя температура'
+    - type: section
+    - entity: sensor.t_kitchen
+      name: 'Кухня'
+    - entity: sensor.t_hall
+      name: 'Коридор'
+    - entity: sensor.t_bath
+      name: 'Ванная'
+    - entity: sensor.t_bedroom
+      name: 'Спальня'
+    - entity: sensor.t_living
+      name: 'Гостиная'
+    - type: section
+    - entity: sensor.t_balcony
+      name: 'Балкон'
+
+  - type: history-graph
+    hours_to_show: 6
+    entities:
+    - entity: sensor.t_average
+      name: 'Среднее'
+    - entity: sensor.t_kitchen
+      name: 'Кухня'
+    - entity: sensor.t_hall
+      name: 'Ванная'
+    - entity: sensor.t_bath
+      name: 'Коридор'
+    - entity: sensor.t_bedroom
+      name: 'Спальня'
+    - entity: sensor.t_living
+      name: 'Гостиная'
+    - entity: sensor.t_balcony
+      name: 'Балкон'
+
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Влажность'
+
+  - type: entities
+    entities:
+    - entity: sensor.h_average
+      name: 'Средняя влажность'
+    - type: section
+    - entity: sensor.h_kitchen
+      name: 'Кухня'
+    - entity: sensor.h_hall
+      name: 'Коридор'
+    - entity: sensor.h_bath
+      name: 'Ванная'
+    - entity: sensor.h_bedroom
+      name: 'Спальня'
+    - entity: sensor.h_living
+      name: 'Гостиная'
+    - type: section
+    - entity: sensor.h_balcony
+      name: 'Балкон'
+
+  - type: history-graph
+    hours_to_show: 6
+    entities:
+    - entity: sensor.h_average
+      name: 'Среднее'
+    - entity: sensor.h_kitchen
+      name: 'Кухня'
+    - entity: sensor.h_hall
+      name: 'Ванная'
+    - entity: sensor.h_bath
+      name: 'Коридор'
+    - entity: sensor.h_bedroom
+      name: 'Спальня'
+    - entity: sensor.h_living
+      name: 'Гостиная'
+    - entity: sensor.h_balcony
+      name: 'Балкон'
+
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Давление'
+
+  - type: entities
+    entities:
+    - entity: sensor.p_average
+      name: 'Среднее давление'
+    - type: section
+    - entity: sensor.p_kitchen
+      name: 'Кухня'
+    - entity: sensor.p_hall
+      name: 'Коридор'
+    - entity: sensor.p_bath
+      name: 'Ванная'
+    - entity: sensor.p_bedroom
+      name: 'Спальня'
+    - entity: sensor.p_living
+      name: 'Гостиная'
+
+  - type: history-graph
+    hours_to_show: 6
+    entities:
+    - entity: sensor.p_average
+      name: 'Среднее'
+    - entity: sensor.p_kitchen
+      name: 'Кухня'
+    - entity: sensor.p_hall
+      name: 'Ванная'
+    - entity: sensor.p_bath
+      name: 'Коридор'
+    - entity: sensor.p_bedroom
+      name: 'Спальня'
+    - entity: sensor.p_living
+      name: 'Гостиная'
+
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Настройки'
+
+  - type: entities
+    entities:
+    - entity: input_number.in_t_general
+      name: 'Комфортная температура'
+    - type: section
+    - entity: input_number.in_t_offset
+      name: 'Смещение температуры'
+
+  - type: entities
+    entities:
+    - entity: input_number.in_h_kitchen
+      name: 'Кухня'
+    - entity: input_number.in_h_hall
+      name: 'Коридор'
+    - entity: input_number.in_h_bath
+      name: 'Ванная'
+    - entity: input_number.in_h_bedroom
+      name: 'Спальня'
+    - entity: input_number.in_h_living
+      name: 'Гостиная'
+    - type: section
+    - entity: input_number.in_h_offset
+      name: 'Смещение влажноси'
+
+  - type: entities
+    entities:
+    - entity: input_number.in_p_general
+      name: 'Комфортное давление'
+    - type: section
+    - entity: input_number.in_p_offset
+      name: 'Смещение температуры'
