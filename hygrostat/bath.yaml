@@ -1,9 +1,0 @@
-- name: bath
-  initial_state: false
-  device_class: 'dehumidifier'
-  sensor_stale_duration: 00:15:00
-  target_sensor: sensor.h_bath
-  humidifier: switch.toilet_relay_l1
-  target_humidity: 65
-  dry_tolerance: 3
-  wet_tolerance: 3

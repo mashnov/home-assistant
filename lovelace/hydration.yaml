@@ -2,20 +2,24 @@ title: 'Увлажнение'
 icon: 'mdi:air-humidifier'
 cards:
 
-  - type: entities
-    entities:
-    - entity: humidifier.bath
-      name: 'Ванная'
-    - entity: humidifier.hall
-      name: 'Коридор'
-    - entity: humidifier.bedroom
-      name: 'Спальня'
-    - entity: humidifier.living
-      name: 'Гостиная'
+- type: entities
+  entities:
+  - entity: switch.toilet_relay_l1
+    icon: 'mdi:air-humidifier'
+    name: 'Ванная'
+  - entity: switch.hall_relay_l2
+    icon: 'mdi:air-humidifier'
+    name: 'Коридор'
+  - entity: switch.bedroom_relay_l2
+    icon: 'mdi:air-humidifier'
+    name: 'Спальня'
+  - entity: switch.living_relay_l1
+    icon: 'mdi:air-humidifier'
+    name: 'Гостиная'
 
-  - type: entities
-    entities:
-    - entity: input_number.in_h_general
-      name: 'Комфорт'
-    - entity: input_number.in_h_offset
-      name: 'Погрешность'
+- type: entities
+  entities:
+  - entity: input_number.in_h_general
+    name: 'Комфорт'
+  - entity: input_number.in_h_offset
+    name: 'Погрешность'
