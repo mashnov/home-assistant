@@ -2,6 +2,13 @@
   - name: 'h_bath'
     unit_of_measurement: '%'
     device_class: 'humidity'
+    icon: >
+      {% set lIcon = 'mdi:water-outline' %}
+      {% set nIcon = 'mdi:water-opacity' %}
+      {% set hIcon = 'mdi:water' %}
+      {% set isHight = is_state('binary_sensor.h_bath_is_hight', 'on') %}
+      {% set isNormal = is_state('binary_sensor.h_bath_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isHight, hIcon, lIcon)) }}
     state: "{{ states('sensor.bath_humidity') | float(0) | round(2) }}"
 
 - binary_sensor:

@@ -2,6 +2,13 @@
   - name: 't_living'
     unit_of_measurement: '°C'
     device_class: 'temperature'
+    icon: >
+      {% set lIcon = 'mdi:snowflake' %}
+      {% set nIcon = 'mdi:check-decagram-outline' %}
+      {% set hIcon = 'mdi:fire' %}
+      {% set isLow = is_state('binary_sensor.t_living_is_low', 'on') %}
+      {% set isNormal = is_state('binary_sensor.t_living_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: "{{ states('sensor.living_temperature') | float(0) | round(2) }}"
 
 - binary_sensor:

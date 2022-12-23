@@ -2,6 +2,13 @@
   - name: 'p_kitchen'
     unit_of_measurement: 'mmHg'
     device_class: 'pressure'
+    icon: >
+      {% set lIcon = 'mdi:gauge-empty' %}
+      {% set nIcon = 'mdi:gauge-low' %}
+      {% set hIcon = 'mdi:gauge-full' %}
+      {% set isLow = is_state('binary_sensor.p_kitchen_is_low', 'on') %}
+      {% set isNormal = is_state('binary_sensor.p_kitchen_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: "{{ states('sensor.kitchen_pressure') | float(0) | round(2) }}"
 
 - binary_sensor:

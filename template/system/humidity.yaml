@@ -2,6 +2,7 @@
   - name: 'h_average'
     unit_of_measurement: '%'
     device_class: 'humidity'
+    icon: 'mdi:water-opacity'
     state: >
       {% set kitchen = states('sensor.h_bath') | float(0) %}
       {% set hall = states('sensor.h_bath') | float(0) %}

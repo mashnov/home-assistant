@@ -1,7 +1,14 @@
 - sensor:
   - name: 'p_average'
-    unit_of_measurement: '%'
-    device_class: 'humidity'
+    unit_of_measurement: 'mmHg'
+    device_class: 'pressure'
+    icon: >
+      {% set lIcon = 'mdi:gauge-empty' %}
+      {% set nIcon = 'mdi:gauge-low' %}
+      {% set hIcon = 'mdi:gauge-full' %}
+      {% set isLow = is_state('binary_sensor.p_average_is_low', 'on') %}
+      {% set isNormal = is_state('binary_sensor.p_average_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
       {% set kitchen = states('sensor.p_bath') | float(0) %}
       {% set hall = states('sensor.p_bath') | float(0) %}
