@@ -77,7 +77,7 @@ cards:
       icon: 'mdi:air-humidifier'
       name: 'Спальня'
     - entity: switch.living_relay_l1
-      icon: iif(binary_sensor.hydration_bedroom_humidifier_is_empty, 'mdi:water-alert-outline', 'mdi:air-humidifier')
+      icon: "iif(is_state('binary_sensor.hydration_bedroom_humidifier_is_empty'), 'mdi:water-alert-outline', 'mdi:air-humidifier')"
       name: 'Гостиная'
 
   - type: markdown
