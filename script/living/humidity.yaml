@@ -4,13 +4,13 @@ h_living_on:
   - service: switch.turn_on
     entity_id: 'switch.living_relay_l1'
 
-h_hliving_off:
+h_living_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.living_relay_l1'
 
-h_living_toggle:
+h_living_togglr:
   mode: 'queued'
   sequence:
   - service: switch.toggle
