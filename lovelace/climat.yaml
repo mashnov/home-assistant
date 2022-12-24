@@ -24,7 +24,6 @@ cards:
     content: 'Температура'
 
   - type: entities
-    state_color: true
     entities:
     - entity: sensor.t_average
       name: 'Средняя температура'
@@ -66,6 +65,7 @@ cards:
     content: 'Увлажнители'
 
   - type: entities
+    state_color: true
     entities:
     - entity: switch.h_toilet
       name: 'Ванная'
