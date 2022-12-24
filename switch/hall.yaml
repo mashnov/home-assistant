@@ -3,6 +3,9 @@
     h_hall:
       value_template: '{{ is_state("binary_sensor.sw_hall_humidifier", "on") }}'
       icon_template: '{{ iif(is_state("binary_sensor.hydration_hall_humidifier_is_empty", "off"), "mdi:air-humidifier", "mdi:water-alert-outline") }}'
-      toggle: script.h_hall_toggle
-      turn_off: script.h_hall_off
-      turn_on: script.h_hall_on
+      toggle: 
+        service: script.h_hall_toggle
+      turn_off: 
+        service: script.h_hall_off
+      turn_on: 
+        service: script.h_hall_on

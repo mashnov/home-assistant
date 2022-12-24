@@ -9,6 +9,9 @@
     h_bedroom:
       value_template: '{{ is_state("binary_sensor.sw_bedroom_humidifier", "on") }}'
       icon_template: '{{ iif(is_state("binary_sensor.hydration_bedroom_humidifier_is_empty", "off"), "mdi:air-humidifier", "mdi:water-alert-outline") }}'
-      toggle: script.h_bedroom_toggle
-      turn_off: script.h_bedroom_off
-      turn_on: script.h_bedroom_on
+      toggle: 
+        service: script.h_bedroom_toggle
+      turn_off: 
+        service: script.h_bedroom_off
+      turn_on: 
+        service: script.h_bedroom_on
