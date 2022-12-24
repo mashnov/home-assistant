@@ -1,0 +1,17 @@
+h_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.bedroom_relay_l2'
+
+h_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.bedroom_relay_l2'
+
+h_hall_toggle:
+  mode: 'queued'
+  sequence:
+  - service: switch.toggle
+    entity_id: 'switch.bedroom_relay_l2'
