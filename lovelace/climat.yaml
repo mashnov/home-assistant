@@ -121,6 +121,7 @@ cards:
     content: 'Параметры'
 
   - type: entities
+    state_color: true
     entities:
     - entity: input_number.in_v_offset
       name: 'Задержка'
