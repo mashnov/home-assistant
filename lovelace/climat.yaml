@@ -128,9 +128,9 @@ cards:
     - entity: input_boolean.ib_v_isolate
       name: 'Изолированные комнаты'
     - entity: input_boolean.ib_v_ventilation
-      name: 'Работа в проветривание'
+      name: 'Режим проветривания'
     - entity: input_boolean.ib_v_night
-      name: 'Ночной запуск'
+      name: 'Ночной режим'
 
   - type: markdown
     content: 'Давление'
