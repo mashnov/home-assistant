@@ -67,8 +67,7 @@ cards:
 
   - type: entities
     entities:
-    - entity: switch.toilet_relay_l1
-      icon: 'mdi:air-humidifier'
+    - entity: switch.h_toilet
       name: 'Ванная'
     - entity: switch.h_hall
       name: 'Коридор'
