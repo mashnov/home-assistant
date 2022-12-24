@@ -70,54 +70,12 @@ cards:
     - entity: switch.toilet_relay_l1
       icon: 'mdi:air-humidifier'
       name: 'Ванная'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_hall_humidifier_is_empty
-        state: 'off'
-      row: 
-        entity: switch.hall_relay_l2
-        icon: 'mdi:air-humidifier'
-        name: 'Коридор'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_hall_humidifier_is_empty
-        state: 'on'
-      row: 
-        entity: switch.hall_relay_l2
-        icon: 'mdi:water-alert-outline'
-        name: 'Коридор'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_bedroom_humidifier_is_empty
-        state: 'off'
-      row: 
-        entity: switch.bedroom_relay_l2
-        icon: 'mdi:air-humidifier'
-        name: 'Спальня'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_bedroom_humidifier_is_empty
-        state: 'on'
-      row: 
-        entity: switch.bedroom_relay_l2
-        icon: 'mdi:water-alert-outline'
-        name: 'Спальня'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_living_humidifier_is_empty
-        state: 'off'
-      row: 
-        entity: switch.living_relay_l1
-        icon: 'mdi:air-humidifier'
-        name: 'Гостиная'
-    - type: conditional
-      conditions:
-      - entity: binary_sensor.hydration_living_humidifier_is_empty
-        state: 'on'
-      row: 
-        entity: switch.living_relay_l1
-        icon: 'mdi:water-alert-outline'
-        name: 'Гостиная'
+    - entity: switch.h_hall
+      name: 'Коридор'
+    - entity: switch.h_bedroom
+      name: 'Спальня'
+    - entity: switch.h_living
+      name: 'Гостиная'
 
   - type: markdown
     content: 'Влажность'
