@@ -21,6 +21,17 @@ cards:
       name: 'Гостиная'
 
   - type: markdown
+    content: 'Коридор'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: input_number.in_l_hall
+      name: 'Минимальная мощность'
+    - entity: input_text.it_hall_empyty_humidifier
+      name: 'Сообщение'
+
+  - type: markdown
     content: 'Температура'
 
   - type: entities
@@ -77,6 +88,17 @@ cards:
       name: 'Гостиная'
 
   - type: markdown
+    content: 'Спальня'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: input_number.in_l_bedroom
+      name: 'Минимальная мощность'
+    - entity: input_text.it_bedroom_empyty_humidifier
+      name: 'Сообщение'
+
+  - type: markdown
     content: 'Влажность'
 
   - type: entities
@@ -127,10 +149,21 @@ cards:
       name: 'Задержка'
     - entity: input_boolean.ib_v_isolate
       name: 'Изолированные комнаты'
-    - entity: input_boolean.ib_v_ventilation
-      name: 'Режим проветривания'
+    - entity: input_boolean.ib_v_auto
+      name: 'Автоматический режим'
     - entity: input_boolean.ib_v_night
       name: 'Ночной режим'
+
+  - type: markdown
+    content: 'Гостиная'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: input_number.in_l_living
+      name: 'Минимальная мощность'
+    - entity: input_text.it_living_empyty_humidifier
+      name: 'Сообщение'
 
   - type: markdown
     content: 'Давление'
