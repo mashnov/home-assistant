@@ -40,8 +40,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 20px
-
+        margin-bottom: 39px
 
   - type: markdown
     content: 'Температура'
@@ -102,7 +101,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 57px
+        margin-bottom: 48px
 
   - type: markdown
     content: 'Текст сообщения'
@@ -119,7 +118,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 20px
+        margin-bottom: 9px
 
   - type: markdown
     content: 'Влажность'
