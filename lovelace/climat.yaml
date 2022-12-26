@@ -57,7 +57,7 @@ cards:
       style: 
         margin-top: 20px
         margin-bottom: 20px
-    - entity: input_number.t_general
+    - entity: input_number.t_target
       name: 'Комфорт'
     - entity: input_number.t_offset
       name: 'Погрешность'
@@ -131,7 +131,7 @@ cards:
       style: 
         margin-top: 20px
         margin-bottom: 20px
-    - entity: input_number.h_general
+    - entity: input_number.h_target
       name: 'Комфорт'
     - entity: input_number.h_offset
       name: 'Погрешность'
@@ -201,7 +201,7 @@ cards:
       style: 
         margin-top: 68px
         margin-bottom: 20px
-    - entity: input_number.p_general
+    - entity: input_number.p_target
       name: 'Комфорт'
     - entity: input_number.p_offset
       name: 'Погрешность'
