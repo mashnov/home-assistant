@@ -37,6 +37,11 @@ cards:
     - type: divider
     - entity: input_number.in_l_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 20px
+
 
   - type: markdown
     content: 'Температура'
@@ -85,15 +90,15 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: switch.d_bath
-      name: 'Ванная'
-    - type: divider
     - entity: switch.h_hall
       name: 'Коридор'
     - entity: switch.h_bedroom
       name: 'Спальня'
     - entity: switch.h_living
       name: 'Гостиная'
+    - type: divider
+    - entity: switch.d_bath
+      name: 'Ванная'
     - type: divider
       style: 
         height: 0
@@ -111,6 +116,10 @@ cards:
       name: 'Спальня'
     - entity: input_text.h_empty_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 20px
 
   - type: markdown
     content: 'Влажность'
@@ -167,7 +176,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 57px
+        margin-bottom: 144px
 
   - type: markdown
     content: 'Параметры увлажнения'
@@ -184,10 +193,6 @@ cards:
     - type: divider
     - entity: input_number.pw_delay
       name: 'Задержка питания'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 96px
 
   - type: markdown
     content: 'Давление'
