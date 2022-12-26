@@ -1,5 +1,5 @@
 v_toilet_delay_day:
-  unit_of_measurement: 's'
+  unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   initial: 45
   max: 90
@@ -7,7 +7,7 @@ v_toilet_delay_day:
   step: 1
 
 v_toilet_delay_night:
-  unit_of_measurement: 's'
+  unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   initial: 22
   max: 90

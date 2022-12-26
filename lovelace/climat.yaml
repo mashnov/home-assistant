@@ -98,8 +98,6 @@ cards:
     - entity: binary_sensor.v_living
       name: 'Гостиная'
     - type: divider
-    - entity: input_number.v_offset
-      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Текст сообщения'
@@ -169,6 +167,9 @@ cards:
       name: 'Изолированные комнаты'
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
+    - type: divider
+    - entity: input_number.v_offset
+      name: 'Задержка сенсоров'
     - type: divider
     - entity: input_number.v_toilet_delay_day
       name: 'Длительность вытяжки'
