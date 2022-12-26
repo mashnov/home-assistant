@@ -19,7 +19,7 @@
   - name: 't_hall_is_low'
     state: >
       {% set sensorValue = states('sensor.t_hall') | float %}
-      {% set normalValue = states('input_number.t_terget') | int %}
+      {% set normalValue = states('input_number.t_target') | int %}
       {% set offsetValue = states('input_number.t_offset') | int %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}
@@ -27,7 +27,7 @@
   - name: 't_hall_is_hight'
     state: >
       {% set sensorValue = states('sensor.t_hall') | float %}
-      {% set normalValue = states('input_number.t_terget') | int %}
+      {% set normalValue = states('input_number.t_target') | int %}
       {% set offsetValue = states('input_number.t_offset') | int %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}

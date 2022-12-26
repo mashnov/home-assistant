@@ -20,10 +20,12 @@ cards:
     - type: divider
     - entity: switch.d_bath
       name: 'Ванная'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 57px
+      footer:
+      - type: entities
+        entities:
+        - entity: binary_sensor.h_hall_is_normal
+        - entity: binary_sensor.h_bedroom_is_normal
+        - entity: binary_sensor.h_living_is_normal
 
   - type: markdown
     content: 'Мощность реле'
