@@ -1,6 +1,7 @@
 h_target:
   unit_of_measurement: '%'
   icon: 'mdi:water-circle'
+  mode: 'box'
   min: 1
   max: 100
   step: 1
@@ -9,6 +10,7 @@ h_target:
 h_offset:
   unit_of_measurement: '%'
   icon: 'mdi:water-circle'
+  mode: 'box'
   min: 1
   max: 10
   step: 1
