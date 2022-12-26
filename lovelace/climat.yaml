@@ -23,18 +23,15 @@ cards:
     - entity: input_number.v_offset
       name: 'Задержка сенсоров'
 
-  - type: markdown
-    content: 'Коридор'
-
   - type: entities
     state_color: true
     entities:
-    - entity: input_text.h_empty_bedroom
-      name: 'Сообщение'
-    - entity: input_text.h_empty_living
-      name: 'Сообщение'
     - entity: input_text.h_empty_hall
-      name: 'Сообщение'
+      name: 'Коридор'
+    - entity: input_text.h_empty_bedroom
+      name: 'Спальня'
+    - entity: input_text.h_empty_living
+      name: 'Гостиная'
 
   - type: markdown
     content: 'Температура'
@@ -91,6 +88,9 @@ cards:
       name: 'Спальня'
     - entity: switch.h_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        margin-bottom: 20px
 
   - type: entities
     state_color: true
@@ -101,6 +101,9 @@ cards:
       name: 'Минимальная мощность'
     - entity: input_number.in_l_bedroom
       name: 'Минимальная мощность'
+    - type: divider
+      style: 
+        margin-bottom: 20px
 
   - type: markdown
     content: 'Влажность'
@@ -157,15 +160,22 @@ cards:
       name: 'Автоматическое увлажнение'
     - entity: input_boolean.h_night
       name: 'Ночное увлажнение'
+    - type: divider
+      style: 
+        margin-bottom: 20px
+
 
   - type: entities
     state_color: true
     entities:
     - entity: input_boolean.h_tts
       name: 'Уведомления'
-    - type: divider
     - entity: input_number.pw_delay
       name: 'Задержка питания'
+    - type: divider
+      style: 
+        margin-bottom: 20px
+
 
   - type: markdown
     content: 'Давление'
