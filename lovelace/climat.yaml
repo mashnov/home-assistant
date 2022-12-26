@@ -23,14 +23,19 @@ cards:
     - entity: input_number.v_offset
       name: 'Задержка сенсоров'
 
+  - type: markdown
+    content: 'Мощность реле'
+
   - type: entities
     state_color: true
     entities:
-    - entity: input_text.h_empty_hall
+    - entity: input_number.in_l_hall
       name: 'Коридор'
-    - entity: input_text.h_empty_bedroom
+    - type: divider
+    - entity: input_number.in_l_bedroom
       name: 'Спальня'
-    - entity: input_text.h_empty_living
+    - type: divider
+    - entity: input_number.in_l_living
       name: 'Гостиная'
 
   - type: markdown
@@ -93,17 +98,18 @@ cards:
         height: 0
         margin-bottom: 57px
 
+  - type: markdown
+    content: 'Текст сообщения'
+
   - type: entities
     state_color: true
     entities:
-    - entity: input_number.in_l_hall
-      name: 'Минимальная мощность'
-    - type: divider
-    - entity: input_number.in_l_living
-      name: 'Минимальная мощность'
-    - type: divider
-    - entity: input_number.in_l_bedroom
-      name: 'Минимальная мощность'
+    - entity: input_text.h_empty_hall
+      name: 'Коридор'
+    - entity: input_text.h_empty_bedroom
+      name: 'Спальня'
+    - entity: input_text.h_empty_living
+      name: 'Гостиная'
 
   - type: markdown
     content: 'Влажность'
@@ -156,20 +162,23 @@ cards:
       name: 'Изолированные комнаты'
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
-    - entity: input_boolean.h_auto
-      name: 'Автоматическое увлажнение'
-    - entity: input_boolean.h_night
-      name: 'Ночное увлажнение'
     - type: divider
       style: 
         height: 0
         margin-bottom: 57px
+
+  - type: markdown
+    content: 'Параметры'
 
   - type: entities
     state_color: true
     entities:
     - entity: input_boolean.h_tts
       name: 'Уведомления'
+    - entity: input_boolean.h_auto
+      name: 'Автоматическое увлажнение'
+    - entity: input_boolean.h_night
+      name: 'Ночное увлажнение'
     - type: divider
     - entity: input_number.pw_delay
       name: 'Задержка питания'
