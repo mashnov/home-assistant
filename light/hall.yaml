@@ -29,7 +29,7 @@
   host: !secret hall_lamp_6_host
   token: !secret hall_lamp_6_token
 - platform: group
-  name: lg_hall
+  name: l_hall
   entities:
   - light.l_hall_1
   - light.l_hall_2

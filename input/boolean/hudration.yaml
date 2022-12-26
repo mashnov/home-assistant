@@ -1,0 +1,9 @@
+h_auto:
+  initial: true
+  icon: 'mdi:thermostat-auto'
+h_night:
+  initial: true
+  icon: 'mdi:weather-night'
+h_tts:
+  initial: true
+  icon: 'mdi:microphone-message'

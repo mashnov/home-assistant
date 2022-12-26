@@ -28,7 +28,7 @@ cards:
     entities:
     - entity: input_number.in_l_hall
       name: 'Минимальная мощность'
-    - entity: input_text.it_hall_empyty_humidifier
+    - entity: input_text.h_empty_hall
       name: 'Сообщение'
 
   - type: markdown
@@ -95,7 +95,7 @@ cards:
     entities:
     - entity: input_number.in_l_bedroom
       name: 'Минимальная мощность'
-    - entity: input_text.it_bedroom_empyty_humidifier
+    - entity: input_text.h_empty_bedroom
       name: 'Сообщение'
 
   - type: markdown
@@ -147,12 +147,16 @@ cards:
     entities:
     - entity: input_number.in_v_offset
       name: 'Задержка'
-    - entity: input_boolean.ib_v_isolate
+    - entity: input_boolean.v_isolate
       name: 'Изолированные комнаты'
-    - entity: input_boolean.ib_v_auto
-      name: 'Автоматический режим'
-    - entity: input_boolean.ib_v_night
-      name: 'Ночной режим'
+    - entity: input_boolean.d_auto
+      name: 'Осушение ванной'
+    - entity: input_boolean.h_auto
+      name: 'Автоматическое увлажнение'
+    - entity: input_boolean.h_night
+      name: 'Ночное увлажнение'
+    - entity: input_boolean.h_tts
+      name: 'Уведомления'
 
   - type: markdown
     content: 'Гостиная'
@@ -162,7 +166,7 @@ cards:
     entities:
     - entity: input_number.in_l_living
       name: 'Минимальная мощность'
-    - entity: input_text.it_living_empyty_humidifier
+    - entity: input_text.h_empty_living
       name: 'Сообщение'
 
   - type: markdown

@@ -29,7 +29,7 @@
   host: !secret bedroom_lamp_6_host
   token: !secret bedroom_lamp_6_token
 - platform: group
-  name: lg_bedroom
+  name: l_bedroom
   entities:
   - light.l_bedroom_1
   - light.l_bedroom_2

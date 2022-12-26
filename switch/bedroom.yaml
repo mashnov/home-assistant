@@ -1,5 +1,5 @@
 - platform: group
-  name: sg_bedroom
+  name: s_bedroom
   entities:
   - switch.bedroom_switch_left
   - switch.bedroom_switch_right

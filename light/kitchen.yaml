@@ -24,7 +24,7 @@
   host: !secret kitchen_lamp_5_host
   token: !secret kitchen_lamp_5_token
 - platform: group
-  name: lg_kitchen
+  name: l_kitchen
   entities:
   - light.l_kitchen_1
   - light.l_kitchen_2
