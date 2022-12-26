@@ -78,7 +78,7 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: switch.h_toilet
+    - entity: switch.d_bath
       name: 'Ванная'
     - entity: switch.h_hall
       name: 'Коридор'
@@ -86,6 +86,11 @@ cards:
       name: 'Спальня'
     - entity: switch.h_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        margin-top: 20px
+        margin-bottom: 20px
+
 
   - type: markdown
     content: 'Спальня'
