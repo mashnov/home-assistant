@@ -23,7 +23,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 48px
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Мощность реле'
@@ -98,6 +98,10 @@ cards:
     - entity: binary_sensor.v_living
       name: 'Гостиная'
     - type: divider
+      style: 
+        height: 0
+        margin-bottom: 9px
+
 
   - type: markdown
     content: 'Текст сообщения'
