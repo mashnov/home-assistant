@@ -40,7 +40,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 39px
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Температура'
