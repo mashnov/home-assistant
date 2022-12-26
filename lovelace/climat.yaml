@@ -29,8 +29,10 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_number.in_l_hall
-      name: 'Минимальная мощность'
+    - entity: input_text.h_empty_bedroom
+      name: 'Сообщение'
+    - entity: input_text.h_empty_living
+      name: 'Сообщение'
     - entity: input_text.h_empty_hall
       name: 'Сообщение'
 
@@ -90,16 +92,15 @@ cards:
     - entity: switch.h_living
       name: 'Гостиная'
 
-  - type: markdown
-    content: 'Спальня'
-
   - type: entities
     state_color: true
     entities:
+    - entity: input_number.in_l_hall
+      name: 'Минимальная мощность'
+    - entity: input_number.in_l_living
+      name: 'Минимальная мощность'
     - entity: input_number.in_l_bedroom
       name: 'Минимальная мощность'
-    - entity: input_text.h_empty_bedroom
-      name: 'Сообщение'
 
   - type: markdown
     content: 'Влажность'
@@ -156,22 +157,15 @@ cards:
       name: 'Автоматическое увлажнение'
     - entity: input_boolean.h_night
       name: 'Ночное увлажнение'
+
+  - type: entities
+    state_color: true
+    entities:
     - entity: input_boolean.h_tts
       name: 'Уведомления'
     - type: divider
     - entity: input_number.pw_delay
       name: 'Задержка питания'
-
-  - type: markdown
-    content: 'Гостиная'
-
-  - type: entities
-    state_color: true
-    entities:
-    - entity: input_number.in_l_living
-      name: 'Минимальная мощность'
-    - entity: input_text.h_empty_living
-      name: 'Сообщение'
 
   - type: markdown
     content: 'Давление'
