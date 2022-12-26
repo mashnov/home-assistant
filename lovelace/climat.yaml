@@ -169,13 +169,17 @@ cards:
     entities:
     - entity: input_boolean.v_isolate
       name: 'Изолированные комнаты'
-    - type: divider
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
+    - entity: input_number.v_toilet_delay_day
+      name: 'Длительность вытяжки'
+    - entity: input_number.v_toilet_delay_night
+      name: 'Длительность вытяжки'
+    - type: divider
       style: 
         height: 0
-        margin-bottom: 144px
+        margin-bottom: 24px
 
   - type: markdown
     content: 'Параметры увлажнения'
