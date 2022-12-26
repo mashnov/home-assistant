@@ -90,7 +90,8 @@ cards:
       name: 'Гостиная'
     - type: divider
       style: 
-        margin-bottom: 20px
+        height: 0
+        margin-bottom: 57px
 
   - type: entities
     state_color: true
@@ -103,7 +104,8 @@ cards:
       name: 'Минимальная мощность'
     - type: divider
       style: 
-        margin-bottom: 20px
+        height: 0
+        margin-bottom: 48px
 
   - type: markdown
     content: 'Влажность'
@@ -162,8 +164,8 @@ cards:
       name: 'Ночное увлажнение'
     - type: divider
       style: 
-        margin-bottom: 20px
-
+        height: 0
+        margin-bottom: 57px
 
   - type: entities
     state_color: true
@@ -174,8 +176,8 @@ cards:
       name: 'Задержка питания'
     - type: divider
       style: 
-        margin-bottom: 20px
-
+        height: 0
+        margin-bottom: 96px
 
   - type: markdown
     content: 'Давление'
