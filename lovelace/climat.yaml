@@ -87,6 +87,7 @@ cards:
     entities:
     - entity: switch.d_bath
       name: 'Ванная'
+    - type: divider
     - entity: switch.h_hall
       name: 'Коридор'
     - entity: switch.h_bedroom
@@ -153,13 +154,14 @@ cards:
   cards:
 
   - type: markdown
-    content: 'Параметры'
+    content: 'Параметры проветривания'
 
   - type: entities
     state_color: true
     entities:
     - entity: input_boolean.v_isolate
       name: 'Изолированные комнаты'
+    - type: divider
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
@@ -168,7 +170,7 @@ cards:
         margin-bottom: 57px
 
   - type: markdown
-    content: 'Параметры'
+    content: 'Параметры увлажнения'
 
   - type: entities
     state_color: true
