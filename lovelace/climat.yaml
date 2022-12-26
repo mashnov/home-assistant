@@ -19,6 +19,11 @@ cards:
       name: 'Спальня'
     - entity: binary_sensor.v_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 96px
+
 
   - type: markdown
     content: 'Коридор'
@@ -88,9 +93,8 @@ cards:
       name: 'Гостиная'
     - type: divider
       style: 
-        margin-top: 20px
-        margin-bottom: 20px
-
+        height: 0
+        margin-bottom: 96px
 
   - type: markdown
     content: 'Спальня'
