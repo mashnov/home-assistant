@@ -175,10 +175,6 @@ cards:
       name: 'Длительность вытяжки'
     - entity: input_number.v_toilet_delay_night
       name: 'Длительность вытяжки'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 48px
 
   - type: markdown
     content: 'Параметры увлажнения'
