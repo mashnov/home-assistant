@@ -1,4 +1,4 @@
-in_v_offset:
+v_offset:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   min: 1

@@ -1,4 +1,4 @@
-in_h_general:
+h_target:
   unit_of_measurement: '%'
   icon: 'mdi:water-circle'
   min: 1
@@ -6,7 +6,7 @@ in_h_general:
   step: 1
   initial: 50
 
-in_h_offset:
+h_offset:
   unit_of_measurement: '%'
   icon: 'mdi:water-circle'
   min: 1

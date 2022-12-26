@@ -1,4 +1,4 @@
-in_t_general:
+t_target:
   unit_of_measurement: '°C'
   icon: 'mdi:thermostat'
   min: 16
@@ -6,7 +6,7 @@ in_t_general:
   step: 1
   initial: 22
 
-in_t_offset:
+t_offset:
   unit_of_measurement: '°C'
   icon: 'mdi:thermostat'
   min: 1

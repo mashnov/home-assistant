@@ -12,17 +12,23 @@
 - s - solar
 - pw - power
 - sw - switch
+- dt - date-time
 
 ## switch
- - h - humidifier
- - d - dehumidifier
- - s - switch group
+- h - humidifier
+- d - dehumidifier
+- s - switch group
 
  ## input booleab
- - v - ventilation
- - h - hudration
- - d - dehudration
+- v - ventilation
+- h - hudration
+- d - dehudration
 
-  ## input text
- - v - ventilation
- 
+## input text
+- v - ventilation
+
+## input number
+- v - ventilation
+- t - temperature
+- h - humidity
+- pw - power

@@ -13,17 +13,19 @@ cards:
     entities:
     - entity: binary_sensor.v_kitchen
       name: 'Кухня'
+    - type: divider
     - entity: binary_sensor.v_hall
       name: 'Коридор'
+    - type: divider
     - entity: binary_sensor.v_bedroom
       name: 'Спальня'
+    - type: divider
     - entity: binary_sensor.v_living
       name: 'Гостиная'
     - type: divider
       style: 
         height: 0
         margin-bottom: 96px
-
 
   - type: markdown
     content: 'Коридор'
@@ -60,9 +62,9 @@ cards:
       style: 
         margin-top: 20px
         margin-bottom: 20px
-    - entity: input_number.in_t_general
+    - entity: input_number.t_general
       name: 'Комфорт'
-    - entity: input_number.in_t_offset
+    - entity: input_number.t_offset
       name: 'Погрешность'
     - type: divider
       style: 
@@ -85,10 +87,13 @@ cards:
     entities:
     - entity: switch.d_bath
       name: 'Ванная'
+    - type: divider
     - entity: switch.h_hall
       name: 'Коридор'
+    - type: divider
     - entity: switch.h_bedroom
       name: 'Спальня'
+    - type: divider
     - entity: switch.h_living
       name: 'Гостиная'
     - type: divider
@@ -131,9 +136,9 @@ cards:
       style: 
         margin-top: 20px
         margin-bottom: 20px
-    - entity: input_number.in_h_general
+    - entity: input_number.h_general
       name: 'Комфорт'
-    - entity: input_number.in_h_offset
+    - entity: input_number.h_offset
       name: 'Погрешность'
     - type: divider
       style: 
@@ -154,8 +159,6 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_number.in_v_offset
-      name: 'Задержка'
     - entity: input_boolean.v_isolate
       name: 'Изолированные комнаты'
     - entity: input_boolean.d_auto
@@ -166,6 +169,11 @@ cards:
       name: 'Ночное увлажнение'
     - entity: input_boolean.h_tts
       name: 'Уведомления'
+    - type: divider
+    - entity: input_number.in_v_offset
+      name: 'Задержка сенсоров'
+    - entity: input_number.p_delay
+      name: 'Задержка питания'
 
   - type: markdown
     content: 'Гостиная'
@@ -200,9 +208,9 @@ cards:
       style: 
         margin-top: 68px
         margin-bottom: 20px
-    - entity: input_number.in_p_general
+    - entity: input_number.p_general
       name: 'Комфорт'
-    - entity: input_number.in_p_offset
+    - entity: input_number.p_offset
       name: 'Погрешность'
     - type: divider
       style: 

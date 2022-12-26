@@ -9,3 +9,24 @@
       {% set bedroom = states('sensor.h_bath') | float(0) %}
       {% set living = states('sensor.h_bath') | float(0) %}
       {{ (kitchen + hall + bedroom + living) / 4 }}
+
+- binary_sensor:
+  - name: 'h_average_is_normal'
+    device_class: window
+    state: "{{ is_state('binary_sensor.p_average_is_low', 'off') and is_state('binary_sensor.p_average_is_hight', 'off') }}"
+
+  - name: 'h_average_is_low'
+    state: >
+      {% set sensorValue = states('sensor.h_average') | float %}
+      {% set normalValue = states('input_number.h_target') | int %}
+      {% set offsetValue = states('input_number.h_offset') | int %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_average_is_hight'
+    state: >
+      {% set sensorValue = states('sensor.h_average') | float %}
+      {% set normalValue = states('input_number.h_target') | int %}
+      {% set offsetValue = states('input_number.h_offset') | int %}
+      {% set targetValue = normalValue + offsetValue %}
+      {{ sensorValue > targetValue }}

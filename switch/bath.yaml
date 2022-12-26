@@ -4,6 +4,6 @@
       value_template: '{{ is_state("binary_sensor.sw_toilet_fan", "on") }}'
       icon_template: '{{ iif(is_state("binary_sensor.sw_toilet_fan", "on"), "mdi:fan-alert", "mdi:fan") }}'
       turn_off: 
-        service: script.h_toilet_off
+        service: script.h_bath_off
       turn_on: 
-        service: script.h_toilet_on
+        service: script.h_bath_on

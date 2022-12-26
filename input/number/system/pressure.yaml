@@ -1,4 +1,4 @@
-in_p_general:
+p_target:
   unit_of_measurement: 'mmHg'
   icon: 'mdi:gauge-low'
   min: 740  
@@ -6,7 +6,7 @@ in_p_general:
   step: 1
   initial: 756
 
-in_p_offset:
+p_offset:
   unit_of_measurement: 'mmHg'
   icon: 'mdi:gauge-low'
   min: 1

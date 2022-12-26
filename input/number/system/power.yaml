@@ -1,4 +1,4 @@
-in_p_delay:
+pw_delay:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   initial: 4

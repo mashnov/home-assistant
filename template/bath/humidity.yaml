@@ -6,20 +6,28 @@
       {% set lIcon = 'mdi:water-outline' %}
       {% set nIcon = 'mdi:water-opacity' %}
       {% set hIcon = 'mdi:water' %}
-      {% set isHight = is_state('binary_sensor.h_bath_is_hight', 'on') %}
-      {% set isNormal = is_state('binary_sensor.h_bath_is_normal', 'on') %}
-      {{ iif(isNormal, nIcon, iif(isHight, hIcon, lIcon)) }}
+      {% set isLow = is_state('binary_sensor.h_bath_is_low', 'on') %}
+      {% set isNormal = is_state('binary_sensor.h_kitchen_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: "{{ states('sensor.bath_humidity') | float(0) | round(2) }}"
 
 - binary_sensor:
   - name: 'h_bath_is_normal'
     device_class: window
-    state: "{{ is_state('binary_sensor.h_bath_is_hight', 'off') }}"
+    state: "{{ is_state('binary_sensor.h_bath_is_low', 'off') and is_state('binary_sensor.h_bath_is_hight', 'off') }}"
+
+  - name: 'h_bath_is_low'
+    state: >
+      {% set sensorValue = states('sensor.h_bath') | float %}
+      {% set normalValue = states('input_number.htargetl') | int %}
+      {% set offsetValue = states('input_number.h_offset') | int %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
 
   - name: 'h_bath_is_hight'
     state: >
       {% set sensorValue = states('sensor.h_bath') | float %}
-      {% set normalValue = states('input_number.in_h_bath') | int %}
-      {% set offsetValue = states('input_number.in_h_offset') | int %}
+      {% set normalValue = states('input_number.h_target') | int %}
+      {% set offsetValue = states('input_number.h_offset') | int %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}
