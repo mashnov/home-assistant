@@ -38,9 +38,8 @@ cards:
     - entity: input_number.h_offset_living
       name: 'Гостиная'
     - type: divider
-      style:
-        height: 0
-        margin-bottom: 9px
+    - entity: input_number.pw_delay
+      name: 'Задержка питания'
 
   - type: markdown
     content: 'Температура'
@@ -192,8 +191,9 @@ cards:
     - entity: input_boolean.h_night
       name: 'Ночное увлажнение'
     - type: divider
-    - entity: input_number.pw_delay
-      name: 'Задержка питания'
+      style: 
+        height: 0
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Давление'
