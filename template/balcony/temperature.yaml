@@ -2,4 +2,4 @@
   - name: 't_balcony'
     unit_of_measurement: '°C'
     device_class: 'temperature'
-    state: "{{ states('sensor.balcony_temperature') | float(0) | round(2) }}"
+    state: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
