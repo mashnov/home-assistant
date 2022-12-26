@@ -31,16 +31,16 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_number.in_l_hall
+    - entity: input_number.h_offset_hall
       name: 'Коридор'
-    - entity: input_number.in_l_bedroom
+    - entity: input_number.h_offset_bedroom
       name: 'Спальня'
-    - entity: input_number.in_l_living
+    - entity: input_number.h_offset_living
       name: 'Гостиная'
     - type: divider
-      style: 
+      style:
         height: 0
-        margin-bottom: 57px
+        margin-bottom: 9px
 
   - type: markdown
     content: 'Температура'
@@ -100,8 +100,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 9px
-
+        margin-bottom: 66px
 
   - type: markdown
     content: 'Текст сообщения'
