@@ -170,7 +170,7 @@ cards:
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
-    - entity: input_number.v_offset
+    - entity: input_number.v_duration
       name: 'Задержка сенсоров'
     - type: divider
       style: 
