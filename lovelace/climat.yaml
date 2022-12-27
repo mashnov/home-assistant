@@ -36,6 +36,10 @@ cards:
     - type: divider
     - entity: input_number.pw_delay
       name: 'Задержка питания'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Температура'
@@ -112,7 +116,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 9px
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Влажность'
@@ -171,8 +175,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 9px
-
+        margin-bottom: 48px
 
   - type: markdown
     content: 'Параметры увлажнения'
