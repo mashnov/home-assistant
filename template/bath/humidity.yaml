@@ -19,7 +19,7 @@
   - name: 'h_bath_is_low'
     state: >
       {% set sensorValue = states('sensor.h_bath') | float %}
-      {% set normalValue = states('input_number.h_targetl') | int %}
+      {% set normalValue = states('input_number.h_target') | int %}
       {% set offsetValue = states('input_number.h_offset') | int %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}

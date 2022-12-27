@@ -1,12 +1,12 @@
 - sensor:
   - name: dt_date-time
     icon: "mdi:calendar-clock"
-    state: '{{ as_timestamp(states("sensor.date_time_iso")) | timestamp_custom("%d %m %Y %H:%M") }}'
+    state: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
 
   - name: dt_date
     icon: "mdi:calendar-clock"
-    state: '{{ as_timestamp(states("sensor.date_time_iso")) | timestamp_custom("%d %m %Y") }}'
+    state: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y") }}'
 
   - name: dt_time
     icon: "mdi:calendar-clock"
-    state: '{{ as_timestamp(states("sensor.date_time_iso")) | timestamp_custom("%H:%M") }}'
+    state: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
