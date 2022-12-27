@@ -174,10 +174,6 @@ cards:
     - type: divider
     - entity: input_number.v_duration
       name: 'Задержка сенсоров'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 48px
 
   - type: markdown
     content: 'Параметры увлажнения'
