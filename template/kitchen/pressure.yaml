@@ -13,7 +13,6 @@
 
 - binary_sensor:
   - name: 'p_kitchen_is_normal'
-    device_class: window
     state: "{{ is_state('binary_sensor.p_kitchen_is_low', 'off') and is_state('binary_sensor.p_kitchen_is_hight', 'off') }}"
 
   - name: 'p_kitchen_is_low'

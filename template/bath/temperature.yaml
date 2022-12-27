@@ -13,10 +13,10 @@
 
 - binary_sensor:
   - name: 't_bath_is_normal'
-    device_class: window
     state: "{{ is_state('binary_sensor.t_bath_is_low', 'off') and is_state('binary_sensor.t_bath_is_hight', 'off') }}"
 
   - name: 't_bath_is_low'
+    device_class: cold
     state: >
       {% set sensorValue = states('sensor.t_bath') | float %}
       {% set normalValue = states('input_number.t_target') | int %}
@@ -25,6 +25,7 @@
       {{ sensorValue < targetValue }}
 
   - name: 't_bath_is_hight'
+    device_class: heat
     state: >
       {% set sensorValue = states('sensor.t_bath') | float %}
       {% set normalValue = states('input_number.t_target') | int %}

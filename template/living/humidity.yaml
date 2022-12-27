@@ -13,7 +13,6 @@
 
 - binary_sensor:
   - name: 'h_living_is_normal'
-    device_class: window
     state: "{{ is_state('binary_sensor.h_living_is_low', 'off') and is_state('binary_sensor.h_living_is_hight', 'off') }}"
 
   - name: 'h_living_is_low'
@@ -25,6 +24,7 @@
       {{ sensorValue < targetValue }}
 
   - name: 'h_living_is_hight'
+    device_class: moisture
     state: >
       {% set sensorValue = states('sensor.h_living') | float %}
       {% set normalValue = states('input_number.h_target') | int %}

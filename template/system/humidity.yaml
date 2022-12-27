@@ -18,7 +18,6 @@
 
 - binary_sensor:
   - name: 'h_average_is_normal'
-    device_class: window
     state: "{{ is_state('binary_sensor.p_average_is_low', 'off') and is_state('binary_sensor.p_average_is_hight', 'off') }}"
 
   - name: 'h_average_is_low'
@@ -30,6 +29,7 @@
       {{ sensorValue < targetValue }}
 
   - name: 'h_average_is_hight'
+    device_class: moisture
     state: >
       {% set sensorValue = states('sensor.h_average') | float %}
       {% set normalValue = states('input_number.h_target') | int %}

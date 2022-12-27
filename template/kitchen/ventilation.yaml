@@ -1,5 +1,6 @@
 - binary_sensor:
   - name: 'v_kitchen'
+    device_class: window
     icon: "{{ iif(is_state('binary_sensor.v_kitchen', 'on'), 'mdi:weather-windy', 'mdi:tailwind') }}"
     state: "{{ is_state('binary_sensor.v_kitchen_left', 'on') or is_state('binary_sensor.v_kitchen_right', 'on') }}"
 
