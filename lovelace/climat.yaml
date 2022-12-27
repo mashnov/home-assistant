@@ -20,10 +20,6 @@ cards:
     - type: divider
     - entity: switch.d_bath
       name: 'Ванная'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 57px
 
   - type: markdown
     content: 'Мощность реле'
@@ -97,9 +93,8 @@ cards:
     - entity: binary_sensor.v_living
       name: 'Гостиная'
     - type: divider
-      style: 
-        height: 0
-        margin-bottom: 66px
+    - entity: input_number.v_offset
+      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Текст сообщения'
@@ -160,7 +155,7 @@ cards:
   cards:
 
   - type: markdown
-    content: 'Параметры проветривания'
+    content: 'Параметры проветривание'
 
   - type: entities
     state_color: true
@@ -174,9 +169,6 @@ cards:
       name: 'Длительность вытяжки'
     - entity: input_number.v_toilet_delay_night
       name: 'Длительность вытяжки'
-    - type: divider
-    - entity: input_number.v_offset
-      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Параметры увлажнения'
