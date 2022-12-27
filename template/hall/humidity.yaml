@@ -7,7 +7,7 @@
       {% set nIcon = 'mdi:water-opacity' %}
       {% set hIcon = 'mdi:water' %}
       {% set isLow = is_state('binary_sensor.h_hall_is_low', 'on') %}
-      {% set isNormal = is_state('binary_sensor.h_hall_is_hight', 'on') %}
+      {% set isNormal = is_state('binary_sensor.h_hall_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: "{{ states('sensor.hall_humidity') | float(0) | round(1) }}"
 
