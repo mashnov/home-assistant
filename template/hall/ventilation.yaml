@@ -6,8 +6,19 @@
       {% set b_isolate = is_state('input_boolean.v_isolate', 'on') %}
       {% set b_entry_door = is_state('input_boolean.v_entry_door', 'on') %}
       {% set v_kitchen = is_state('binary_sensor.v_kitchen', 'on') %}
+      {% set v_hall = is_state('binary_sensor.v_hall_door', 'on') %}
       {% set v_bedroom = is_state('binary_sensor.v_bedroom', 'on') %}
       {% set v_living = is_state('binary_sensor.v_living', 'on') %}
       {% set d_bedroom = is_state('binary_sensor.d_bedroom', 'on') %}
       {% set d_living = is_state('binary_sensor.d_living', 'on') %}
-      {{ true }}
+      {% set kitchen = v_kitchen %}
+      {% set hall = v_hall and b_entry_door %}
+      {% set bedroom = v_bedroom and d_bedroom %}
+      {% set living = v_living and d_living %}
+      {{ iif(b_isolate, hall, kitchen or hall or bedroom or living) }}
+
+  - name: 'v_hall_door'
+    device_class: door
+    delay_on: "{{ states('sensor.v_duration') }}"
+    delay_off: "{{ states('sensor.v_duration') }}"
+    state: "{{ states('binary_sensor.d_hall') }}"
