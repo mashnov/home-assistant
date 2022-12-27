@@ -170,13 +170,13 @@ cards:
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
-    - entity: input_number.v_offset
-      name: 'Задержка сенсоров'
-    - type: divider
     - entity: input_number.v_toilet_delay_day
       name: 'Длительность вытяжки'
     - entity: input_number.v_toilet_delay_night
       name: 'Длительность вытяжки'
+    - type: divider
+    - entity: input_number.v_offset
+      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Параметры увлажнения'

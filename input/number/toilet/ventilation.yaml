@@ -1,6 +1,6 @@
 v_toilet_delay_day:
   unit_of_measurement: 'сек'
-  icon: 'mdi:camera-timer'
+  icon: 'mdi:clock-time-one-outline'
   initial: 45
   max: 90
   min: 0
@@ -8,7 +8,7 @@ v_toilet_delay_day:
 
 v_toilet_delay_night:
   unit_of_measurement: 'сек'
-  icon: 'mdi:camera-timer'
+  icon: 'mdi:clock-time-eleven-outline'
   initial: 22
   max: 90
   min: 0
