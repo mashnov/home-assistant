@@ -1,16 +1,16 @@
 - binary_sensor:
   - name: 'v_kitchen'
-    icon: 'mdi:tailwind'
-    state: "true"
+    icon: "{{ iif(is_state('binary_sensor.v_kitchen', 'on'), 'mdi:weather-windy', 'mdi:tailwind') }}"
+    state: "{{ is_state('binary_sensor.v_kitchen_left', 'on') or is_state('binary_sensor.v_kitchen_right', 'on') }}"
 
   - name: 'v_kitchen_left'
     device_class: window
     delay_on: "{{ states('sensor.v_duration') }}"
     delay_off: "{{ states('sensor.v_duration') }}"
-    state: "{{ is_state('binary_sensor.w_kitchen_left', 'on') }}"
+    state: "{{ states('binary_sensor.w_kitchen_left') }}"
 
   - name: 'v_kitchen_right'
     device_class: window
     delay_on: "{{ states('sensor.v_duration') }}"
     delay_off: "{{ states('sensor.v_duration') }}"
-    state: "{{ is_state('binary_sensor.w_kitchen_right', 'on') }}"
+    state: "{{ states('binary_sensor.w_kitchen_right') }}"
