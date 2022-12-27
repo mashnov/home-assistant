@@ -92,6 +92,10 @@ cards:
       name: 'Спальня'
     - entity: binary_sensor.v_living
       name: 'Гостиная'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 9px
 
   - type: markdown
     content: 'Текст сообщения'
@@ -164,6 +168,11 @@ cards:
     - type: divider
     - entity: input_number.v_offset
       name: 'Задержка сенсоров'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 9px
+
 
   - type: markdown
     content: 'Параметры увлажнения'
