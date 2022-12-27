@@ -1,4 +1,13 @@
 - binary_sensor:
   - name: 'v_hall'
-    icon: 'mdi:tailwind'
-    state: true
+    device_class: window
+    icon: "{{ iif(is_state('binary_sensor.v_hall', 'on'), 'mdi:weather-windy', 'mdi:tailwind') }}"
+    state: >
+      {% set b_isolate = is_state('input_boolean.v_isolate', 'on') %}
+      {% set b_entry_door = is_state('input_boolean.v_entry_door', 'on') %}
+      {% set v_kitchen = is_state('binary_sensor.v_kitchen', 'on') %}
+      {% set v_bedroom = is_state('binary_sensor.v_bedroom', 'on') %}
+      {% set v_living = is_state('binary_sensor.v_living', 'on') %}
+      {% set d_bedroom = is_state('binary_sensor.d_bedroom', 'on') %}
+      {% set d_living = is_state('binary_sensor.d_living', 'on') %}
+      {{ true }}

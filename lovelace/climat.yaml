@@ -167,6 +167,8 @@ cards:
     entities:
     - entity: input_boolean.v_isolate
       name: 'Изолированные комнаты'
+    - entity: input_boolean.v_entry_door
+      name: 'Входная дверь'
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
