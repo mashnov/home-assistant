@@ -92,9 +92,6 @@ cards:
       name: 'Спальня'
     - entity: binary_sensor.v_living
       name: 'Гостиная'
-    - type: divider
-    - entity: input_number.v_offset
-      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Текст сообщения'
@@ -165,10 +162,8 @@ cards:
     - entity: input_boolean.d_auto
       name: 'Осушение ванной'
     - type: divider
-    - entity: input_number.v_toilet_delay_day
-      name: 'Длительность вытяжки'
-    - entity: input_number.v_toilet_delay_night
-      name: 'Длительность вытяжки'
+    - entity: input_number.v_offset
+      name: 'Задержка сенсоров'
 
   - type: markdown
     content: 'Параметры увлажнения'
@@ -176,16 +171,17 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_boolean.h_tts
-      name: 'Уведомления'
     - entity: input_boolean.h_auto
       name: 'Автоматическое увлажнение'
     - entity: input_boolean.h_night
       name: 'Ночное увлажнение'
+    - entity: input_boolean.h_tts
+      name: 'Уведомления'
     - type: divider
-      style: 
-        height: 0
-        margin-bottom: 57px
+    - entity: input_number.v_toilet_delay_day
+      name: 'Длительность вытяжки'
+    - entity: input_number.v_toilet_delay_night
+      name: 'Длительность вытяжки'
 
   - type: markdown
     content: 'Давление'
