@@ -2,7 +2,13 @@
   - name: 'h_average'
     unit_of_measurement: '%'
     device_class: 'humidity'
-    icon: 'mdi:water-opacity'
+    icon: >
+      {% set lIcon = 'mdi:water-outline' %}
+      {% set nIcon = 'mdi:water-opacity' %}
+      {% set hIcon = 'mdi:water' %}
+      {% set isLow = is_state('binary_sensor.h_average_is_low', 'on') %}
+      {% set isNormal = is_state('binary_sensor.h_average_is_normal', 'on') %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
       {% set kitchen = states('sensor.h_bath') | float(0) %}
       {% set hall = states('sensor.h_bath') | float(0) %}
