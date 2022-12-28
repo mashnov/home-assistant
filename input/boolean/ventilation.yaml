@@ -1,4 +1,4 @@
-v_isolate:
+v_shared:
   initial: true
   icon: 'mdi:cube-unfolded'
 

@@ -165,8 +165,8 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_boolean.v_isolate
-      name: 'Изолированные комнаты'
+    - entity: input_boolean.v_shared
+      name: 'Общее пространство'
     - entity: input_boolean.v_entry_door
       name: 'Входная дверь'
     - entity: input_boolean.d_auto
