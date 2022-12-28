@@ -76,7 +76,7 @@ cards:
     footer:
       type: graph
       entity: sensor.t_average
-      hours_to_show: 12
+      hours_to_show: 36
       detail: 2
 
 - type: vertical-stack
@@ -153,7 +153,7 @@ cards:
     footer:
       type: graph
       entity: sensor.h_average
-      hours_to_show: 12
+      hours_to_show: 36
       detail: 2
 
 - type: vertical-stack
@@ -226,5 +226,5 @@ cards:
     footer:
       type: graph
       entity: sensor.p_average
-      hours_to_show: 12
+      hours_to_show: 36
       detail: 2
