@@ -7,7 +7,7 @@
     device_class: 'power'
     icon: "{{ iif(is_state('sensor.sw_bedroom_right_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
     state: "{{ states('switch.bedroom_switch_right') }}"
-  - name: 'sw_bedroom_wall_backlight'
+  - name: 'sw_bedroom_backlight_wall'
     device_class: 'power'
     icon: "{{ iif(is_state('sensor.sw_bedroom_wall_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
     state: "{{ states('switch.bedroom_wall_switch') }}"

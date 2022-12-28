@@ -1,4 +1,4 @@
-h_offset_bedroom:
+pw_offset_bedroom:
   unit_of_measurement: 'W'
   icon: 'mdi:lightning-bolt'
   min: 1

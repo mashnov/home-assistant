@@ -1,0 +1,4 @@
+- sensor: 
+  - name: 'pw_duration'
+    device_class: duration
+    state: "{{ states('input_number.pw_duration') | int(0) | timestamp_custom('%H:%M:%S', false) }}"

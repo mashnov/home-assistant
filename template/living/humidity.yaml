@@ -31,3 +31,15 @@
       {% set offsetValue = states('input_number.h_offset') | int %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}
+
+  - name: 'h_living_is_empty'
+    delay_on: "{{ states('sensor.pw_duration') }}"
+    state: >
+      {% set backlightIsOn = is_state('binary_sensor.sw_living_backlight', 'on') %}
+      {% set humidifierIsOn = is_state('binary_sensor.sw_living_humidifier', 'on') %}
+      {% set humidifierMinPower = 1 %}
+      {% set backlightMinPower = states('input_number.pw_offset_living') | int(0) %}
+      {% set relayMinPower = backlightMinPower + humidifierMinPower %}
+      {% set sensorValue = states('sensor.pw_living') | int(relayMinPower) %}
+      {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
+      {{ humidifierIsOn and (sensorValue <= expectedValue) }}

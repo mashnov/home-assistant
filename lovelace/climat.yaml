@@ -27,14 +27,14 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_number.h_offset_hall
+    - entity: input_number.pw_offset_hall
       name: 'Коридор'
-    - entity: input_number.h_offset_bedroom
+    - entity: input_number.pw_offset_bedroom
       name: 'Спальня'
-    - entity: input_number.h_offset_living
+    - entity: input_number.pw_offset_living
       name: 'Гостиная'
     - type: divider
-    - entity: input_number.pw_delay
+    - entity: input_number.pw_duration
       name: 'Задержка питания'
     - type: divider
       style: 
