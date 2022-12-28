@@ -18,7 +18,7 @@
 
 - binary_sensor:
   - name: 'h_average_is_normal'
-    state: "{{ is_state('binary_sensor.p_average_is_low', 'off') and is_state('binary_sensor.p_average_is_hight', 'off') }}"
+    state: "{{ is_state('binary_sensor.h_average_is_low', 'off') and is_state('binary_sensor.h_average_is_hight', 'off') }}"
 
   - name: 'h_average_is_low'
     state: >
