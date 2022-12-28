@@ -9,7 +9,9 @@
       {% set isLow = is_state('binary_sensor.h_bath_is_low', 'on') %}
       {% set isNormal = is_state('binary_sensor.h_bath_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
-    state: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
+    state: >
+      {% set targetValue = states('input_number.h_target') | int %}
+      {{ states('sensor.bath_humidity') | float(targetValue) | round(1) }}
 
 - binary_sensor:
   - name: 'h_bath_is_normal'

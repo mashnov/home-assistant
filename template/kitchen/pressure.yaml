@@ -9,7 +9,9 @@
       {% set isLow = is_state('binary_sensor.p_kitchen_is_low', 'on') %}
       {% set isNormal = is_state('binary_sensor.p_kitchen_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
-    state: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set targetValue = states('input_number.p_target') | int %}
+      {{ states('sensor.kitchen_pressure') | float(targetValue) | round(1) }}
 
 - binary_sensor:
   - name: 'p_kitchen_is_normal'
