@@ -210,12 +210,19 @@ cards:
       name: 'Азимут'
     - entity: input_number.s_azimuth_offset
       name: 'Офсет'
+    - type: divider
     - entity: input_number.s_elevation_target
       name: 'Подъем'
     - entity: input_number.s_elevation_offset
       name: 'Офсет'
+    - type: divider
     - entity: input_number.s_cloud_target
       name: 'Облачность'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 18px
+
 
   - type: markdown
     content: 'Параметры проветривание'
