@@ -10,10 +10,11 @@
       {% set isNormal = is_state('binary_sensor.h_average_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
-      {% set kitchen = states('sensor.h_kitchen') | float(0) %}
-      {% set hall = states('sensor.h_hall') | float(0) %}
-      {% set bedroom = states('sensor.h_bedroom') | float(0) %}
-      {% set living = states('sensor.h_living') | float(0) %}
+      {% set normalValue = states('input_number.h_target') | int %}
+      {% set kitchen = states('sensor.h_kitchen') | float(normalValue) %}
+      {% set hall = states('sensor.h_hall') | float(normalValue) %}
+      {% set bedroom = states('sensor.h_bedroom') | float(normalValue) %}
+      {% set living = states('sensor.h_living') | float(normalValue) %}
       {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
 
 - binary_sensor:
