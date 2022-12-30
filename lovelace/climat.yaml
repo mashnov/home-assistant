@@ -201,15 +201,15 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: input_boolean.s_azimuth_target
+    - entity: input_number.s_azimuth_target
       name: 'Азимут'
-    - entity: input_boolean.s_azimuth_offset
+    - entity: input_number.s_azimuth_offset
       name: 'Офсет'
-    - entity: input_boolean.s_elevation_target
+    - entity: input_number.s_elevation_target
       name: 'Подъем'
-    - entity: input_boolean.s_elevation_offset
+    - entity: input_number.s_elevation_offset
       name: 'Офсет'
-    - entity: input_boolean.s_cloud_target
+    - entity: input_number.s_cloud_target
       name: 'Облачность'
 
   - type: markdown

@@ -30,6 +30,7 @@
     state: "{{ is_state('binary_sensor.s_is_azimuth', 'on') and is_state('binary_sensor.s_is_elevation', 'on') }}"
 
   - name: 's_is_azimuth'
+    icon: 'mdi:axis-z-rotate-clockwise'
     state: >
       {% set sensorValue = states('sensor.s_azimuth') | float %}
       {% set targetValue = states('input_number.s_azimuth_target') | int %}
@@ -39,6 +40,7 @@
       {{ minValue < sensorValue < maxValue }}
 
   - name: 's_is_elevation'
+    icon: 'mdi:angle-acute'
     state: >
       {% set sensorValue = states('sensor.s_elevation') | float %}
       {% set targetValue = states('input_number.s_elevation_target') | int %}
