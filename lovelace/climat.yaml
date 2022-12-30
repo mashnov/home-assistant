@@ -17,6 +17,7 @@ cards:
       name: 'Совпадает азимут'
     - entity: binary_sensor.s_is_elevation
       name: 'Совпадает высота'
+    - type: divider
     - entity: binary_sensor.s_is_cloudly
       name: 'Облачно'
     - type: divider
@@ -116,7 +117,7 @@ cards:
     - type: divider
       style: 
         margin-top: 20px
-        margin-bottom: 40px
+        margin-bottom: 29px
     footer:
       type: graph
       entity: sensor.s_cloud
