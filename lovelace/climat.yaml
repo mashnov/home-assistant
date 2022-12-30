@@ -119,7 +119,7 @@ cards:
         margin-bottom: 40px
     footer:
       type: graph
-      entity: sensor.p_average
+      entity: sensor.s_cloud
       hours_to_show: 36
       detail: 2
 
