@@ -19,6 +19,10 @@ cards:
       name: 'Совпадает высота'
     - entity: binary_sensor.s_is_cloudly
       name: 'Облачно'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Увлажнители'
@@ -109,6 +113,10 @@ cards:
       name: 'Подъем'
     - entity: sensor.s_cloud
       name: 'Облачность'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 57px
 
   - type: markdown
     content: 'Проветривание'
