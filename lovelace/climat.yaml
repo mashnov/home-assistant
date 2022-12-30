@@ -6,6 +6,21 @@ cards:
   cards:
 
   - type: markdown
+    content: 'Солнце'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: binary_sensor.s_is_sunny
+      name: 'Светит в окна'
+    - entity: binary_sensor.s_is_azimuth
+      name: 'Совпадает азимут'
+    - entity: binary_sensor.s_is_elevation
+      name: 'Совпадает высота'
+    - entity: binary_sensor.s_is_cloudly
+      name: 'Облачно'
+
+  - type: markdown
     content: 'Увлажнители'
 
   - type: entities
@@ -68,7 +83,7 @@ cards:
     - entity: input_number.t_target
       name: 'Комфорт'
     - entity: input_number.t_offset
-      name: 'Погрешность'
+      name: 'Офсет'
     - type: divider
       style: 
         margin-top: 20px
@@ -81,6 +96,19 @@ cards:
 
 - type: vertical-stack
   cards:
+
+  - type: markdown
+    content: 'Показания'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.s_azimuth
+      name: 'Азимут'
+    - entity: sensor.s_elevation
+      name: 'Подъем'
+    - entity: sensor.s_cloud
+      name: 'Облачность'
 
   - type: markdown
     content: 'Проветривание'
@@ -145,7 +173,7 @@ cards:
     - entity: input_number.h_target
       name: 'Комфорт'
     - entity: input_number.h_offset
-      name: 'Погрешность'
+      name: 'Офсет'
     - type: divider
       style: 
         margin-top: 20px
@@ -158,6 +186,23 @@ cards:
 
 - type: vertical-stack
   cards:
+
+  - type: markdown
+    content: 'Параметры солнца'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: input_boolean.s_azimuth_target
+      name: 'Азимут'
+    - entity: input_boolean.s_azimuth_offset
+      name: 'Офсет'
+    - entity: input_boolean.s_elevation_target
+      name: 'Подъем'
+    - entity: input_boolean.s_elevation_offset
+      name: 'Офсет'
+    - entity: input_boolean.s_cloud_target
+      name: 'Облачность'
 
   - type: markdown
     content: 'Параметры проветривание'
@@ -218,7 +263,7 @@ cards:
     - entity: input_number.p_target
       name: 'Комфорт'
     - entity: input_number.p_offset
-      name: 'Погрешность'
+      name: 'Офсет'
     - type: divider
       style: 
         margin-top: 20px

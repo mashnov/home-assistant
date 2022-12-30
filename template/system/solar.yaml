@@ -2,12 +2,58 @@
   - name: 's_azimuth'
     unit_of_measurement: '°'
     icon: 'mdi:axis-z-rotate-clockwise'
-    state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
+    state: >
+      {% set normalValue = states('input_number.s_azimuth_target') | int %}
+      {{ state_attr('sun.sun', 'azimuth') | int(normalValue) }}
+
   - name: 's_elevation'
     unit_of_measurement: '°'
     icon: 'mdi:angle-acute'
-    state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
+    state: >
+      {% set normalValue = states('input_number.s_elevation_target') | int %}
+      {{ state_attr('sun.sun', 'elevation') | int(normalValue) }}
+
   - name: 's_cloud'
     unit_of_measurement: '%'
     icon: 'mdi:cloud-percent'
-    state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
+    state: >
+      {% set normalValue = states('input_number.s_cloud_target') | int %}
+      {{ states('sensor.openweathermap_cloud_coverage') | int(normalValue) }}
+
+- binary_sensor:
+  - name: 's_is_sunny'
+    icon: >
+      {% set onIcon = 'mdi:shield-sun' %}
+      {% set offIcon = 'mdi:shield-sun-outline' %}
+      {% set isSunny = is_state('binary_sensor.s_is_sunny', 'on') %}
+      {{ iif(isSunny, onIcon, offIcon) }}
+    state: "{{ is_state('binary_sensor.s_is_azimuth', 'on') and is_state('binary_sensor.s_is_elevation', 'on') }}"
+
+  - name: 's_is_azimuth'
+    state: >
+      {% set sensorValue = states('sensor.s_azimuth') | float %}
+      {% set targetValue = states('input_number.s_azimuth_target') | int %}
+      {% set offsetValue = states('input_number.s_azimuth_offset') | int %}
+      {% set minValue = targetValue - offsetValue %}
+      {% set maxValue = targetValue + offsetValue %}
+      {{ minValue < sensorValue < maxValue }}
+
+  - name: 's_is_elevation'
+    state: >
+      {% set sensorValue = states('sensor.s_elevation') | float %}
+      {% set targetValue = states('input_number.s_elevation_target') | int %}
+      {% set offsetValue = states('input_number.s_elevation_offset') | int %}
+      {% set minValue = targetValue - offsetValue %}
+      {% set maxValue = targetValue + offsetValue %}
+      {{ minValue < sensorValue < maxValue }}
+
+  - name: 's_is_cloudly'
+    icon: >
+      {% set lIcon = 'mdi:weather-sunny' %}
+      {% set hIcon = 'mdi:apple-icloud' %}
+      {% set isHight = is_state('binary_sensor.s_is_cloudly', 'on') %}
+      {{ iif(isHight, hIcon, lIcon) }}
+    state: >
+      {% set sensorValue = states('sensor.s_cloud') | float %}
+      {% set normalValue = states('input_number.s_cloud_target') | int %}
+      {{ sensorValue > normalValue }}
