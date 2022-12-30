@@ -23,7 +23,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 57px
+        margin-bottom: 75px
 
   - type: markdown
     content: 'Увлажнители'
@@ -116,8 +116,7 @@ cards:
       name: 'Облачность'
     - type: divider
       style: 
-        margin-top: 20px
-        margin-bottom: 29px
+        margin-bottom: 41px
     footer:
       type: graph
       entity: sensor.s_cloud
