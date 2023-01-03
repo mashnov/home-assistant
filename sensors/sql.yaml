@@ -1,7 +1,0 @@
-- platform: sql
-  db_url: sqlite:////config/home-assistant_v2.db
-  queries:
-  - name: 't_hall_last'
-    unit_of_measurement: '°C'
-    query: "SELECT * FROM states WHERE entity_id = 'sensor.t_hall' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
-    column: 'state'
