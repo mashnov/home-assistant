@@ -10,3 +10,7 @@
   - name: dt_time
     icon: "mdi:calendar-clock"
     state: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
+
+- binary_sensor:
+  - name: 'dt_is_night'
+    state: "off"

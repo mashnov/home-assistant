@@ -6,6 +6,22 @@ cards:
   cards:
 
   - type: markdown
+    content: 'Движение'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: binary_sensor.m_kitchen_is_occupancy
+      name: 'Кухня'
+    - entity: binary_sensor.m_hall_is_occupancy
+      name: 'Коридор'
+    - entity: binary_sensor.m_bath_is_occupancy
+      name: 'Ванная'
+    - type: divider
+    - entity: binary_sensor.o_toilet
+      name: 'Туалет'
+
+  - type: markdown
     content: 'Солнце'
 
   - type: entities
@@ -101,6 +117,22 @@ cards:
 
 - type: vertical-stack
   cards:
+
+  - type: markdown
+    content: 'Параметры туалета'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: binary_sensor.d_toilet
+      name: 'Входная дверь'
+    - type: divider
+    - entity: input_number.o_toilet_delay
+      name: 'Время отмены'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 9px
 
   - type: markdown
     content: 'Показания'
@@ -201,6 +233,21 @@ cards:
   cards:
 
   - type: markdown
+    content: 'Параметры движение'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: input_number.m_duration_day
+      name: 'Задержка сенсора'
+    - entity: input_number.m_duration_night
+      name: 'Задержка сенсора'
+    - type: divider
+      style: 
+        height: 0
+        margin-bottom: 9px
+
+  - type: markdown
     content: 'Параметры солнца'
 
   - type: entities
@@ -222,7 +269,6 @@ cards:
       style: 
         height: 0
         margin-bottom: 18px
-
 
   - type: markdown
     content: 'Параметры проветривание'

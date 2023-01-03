@@ -1,0 +1,11 @@
+- sensor:
+  - name: 'o_toilet_delay'
+    device_class: duration
+    icon: 'mdi:clock-time-eleven-outline'
+    state: "{{ states('input_number.o_toilet_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+- binary_sensor:
+  - name: 'o_toilet'
+    device_class: motion
+    icon: "{{ iif(is_state('binary_sensor.o_toilet', 'on'), 'mdi:paper-roll', 'mdi:paper-roll-outline') }}"
+    state: "{{ is_state('input_boolean.o_toilet_delay', 'on') }}"
