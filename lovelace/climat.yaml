@@ -18,8 +18,9 @@ cards:
     - entity: binary_sensor.m_bath_is_occupancy
       name: 'Ванная'
     - type: divider
-    - entity: binary_sensor.o_toilet
-      name: 'Туалет'
+      style: 
+        height: 0
+        margin-bottom: 75px
 
   - type: markdown
     content: 'Солнце'
@@ -124,8 +125,8 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: binary_sensor.d_toilet
-      name: 'Входная дверь'
+    - entity: binary_sensor.o_toilet
+      name: 'Туалет'
     - type: divider
     - entity: input_number.o_toilet_delay
       name: 'Время отмены'
