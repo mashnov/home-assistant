@@ -233,7 +233,7 @@ cards:
   cards:
 
   - type: markdown
-    content: 'Параметры движение'
+    content: 'Параметры движения'
 
   - type: entities
     state_color: true
@@ -271,7 +271,7 @@ cards:
         margin-bottom: 18px
 
   - type: markdown
-    content: 'Параметры проветривание'
+    content: 'Параметры проветривания'
 
   - type: entities
     state_color: true
