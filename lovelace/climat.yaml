@@ -119,7 +119,7 @@ cards:
   cards:
 
   - type: markdown
-    content: 'Параметры туалета'
+    content: 'Туалет'
 
   - type: entities
     state_color: true
@@ -245,7 +245,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 105px
+        margin-bottom: 73px
 
   - type: markdown
     content: 'Параметры солнца'
