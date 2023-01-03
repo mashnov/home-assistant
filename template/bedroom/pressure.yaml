@@ -11,7 +11,8 @@
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
       {% set targetValue = states('input_number.p_target') | int %}
-      {{ states('sensor.bedroom_pressure') | float(targetValue) | round(1) }}
+      {% set lastValue = states('sensor.p_bedroom_last') | int(targetValue) %}
+      {{ states('sensor.bedroom_pressure') | float(lastValue) | round(1) }}
 
 - binary_sensor:
   - name: 'p_bedroom_is_normal'

@@ -9,9 +9,10 @@
       {% set isLow = is_state('binary_sensor.h_kitchen_is_low', 'on') %}
       {% set isNormal = is_state('binary_sensor.h_kitchen_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
-    state:  >
+    state: >
       {% set targetValue = states('input_number.h_target') | int %}
-      {{ states('sensor.kitchen_humidity') | float(targetValue) | round(1) }}
+      {% set lastValue = states('sensor.h_kitchen_last') | int(targetValue) %}
+      {{ states('sensor.kitchen_humidity') | float(lastValue) | round(1) }}
 
 - binary_sensor:
   - name: 'h_kitchen_is_normal'

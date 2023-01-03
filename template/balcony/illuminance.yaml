@@ -3,4 +3,6 @@
     unit_of_measurement: 'lx'
     device_class: 'illuminance'
     icon: 'mdi:white-balance-sunny'
-    state: "{{ states('sensor.balcony_illuminance') | int(0) }}"
+    state: >
+      {% set lastValue = states('sensor.i_balcony_last') | int %}
+      {{ states('sensor.balcony_illuminance') | float(lastValue) | round(1) }}
