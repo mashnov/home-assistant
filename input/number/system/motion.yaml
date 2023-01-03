@@ -1,6 +1,7 @@
 m_duration_day:
   unit_of_measurement: 'сек'
   icon: 'mdi:clock-time-one-outline'
+  mode: 'box'
   initial: 120
   max: 240
   min: 0
@@ -9,6 +10,7 @@ m_duration_day:
 m_duration_night:
   unit_of_measurement: 'сек'
   icon: 'mdi:clock-time-eleven-outline'
+  mode: 'box'
   initial: 30
   max: 120
   min: 0

@@ -132,7 +132,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 9px
+        margin-bottom: 96px
 
   - type: markdown
     content: 'Показания'
@@ -245,7 +245,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 9px
+        margin-bottom: 105px
 
   - type: markdown
     content: 'Параметры солнца'
