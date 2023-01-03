@@ -1,7 +1,6 @@
 o_toilet_delay:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
-  mode: 'box'
   initial: 15
   max: 60
   min: 0
