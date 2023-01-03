@@ -17,10 +17,6 @@ cards:
       name: 'Коридор'
     - entity: binary_sensor.m_bath_is_occupancy
       name: 'Ванная'
-    - type: divider
-      style: 
-        height: 0
-        margin-bottom: 75px
 
   - type: markdown
     content: 'Солнце'
