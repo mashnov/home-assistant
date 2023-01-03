@@ -3,5 +3,5 @@
     unit_of_measurement: 'W'
     device_class: 'power'
     state: >
-      {% set lastValue = states('sensor.pw_bedroom_last') | int %}
+      {% set lastValue = states('sensor.pw_bedroom_last') | int(0) %}
       {{ states('sensor.bedroom_relay_power') | float(lastValue) | round(1) }}

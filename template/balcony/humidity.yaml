@@ -3,5 +3,5 @@
     unit_of_measurement: '%'
     device_class: 'humidity'
     state: >
-      {% set lastValue = states('sensor.h_balcony_last') | int %}
+      {% set lastValue = states('sensor.h_balcony_last') | int(0) %}
       {{ states('sensor.balcony_humidity') | float(lastValue) | round(1) }}

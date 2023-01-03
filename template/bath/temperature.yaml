@@ -10,7 +10,7 @@
       {% set isNormal = is_state('binary_sensor.t_bath_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
-      {% set targetValue = states('input_number.t_target') | int %}
+      {% set targetValue = states('input_number.t_target') | int(0) %}
       {% set lastValue = states('sensor.t_bath_last') | int(targetValue) %}
       {{ states('sensor.bath_temperature') | float(lastValue) | round(1) }}
 
@@ -21,17 +21,17 @@
   - name: 't_bath_is_low'
     device_class: cold
     state: >
-      {% set sensorValue = states('sensor.t_bath') | float %}
-      {% set normalValue = states('input_number.t_target') | int %}
-      {% set offsetValue = states('input_number.t_offset') | int %}
+      {% set sensorValue = states('sensor.t_bath') | float(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}
 
   - name: 't_bath_is_hight'
     device_class: heat
     state: >
-      {% set sensorValue = states('sensor.t_bath') | float %}
-      {% set normalValue = states('input_number.t_target') | int %}
-      {% set offsetValue = states('input_number.t_offset') | int %}
+      {% set sensorValue = states('sensor.t_bath') | float(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}

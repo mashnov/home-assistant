@@ -10,7 +10,7 @@
       {% set isNormal = is_state('binary_sensor.p_living_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
-      {% set targetValue = states('input_number.p_target') | int %}
+      {% set targetValue = states('input_number.p_target') | int(0) %}
       {% set lastValue = states('sensor.p_living_last') | int(targetValue) %}
       {{ states('sensor.living_pressure') | float(lastValue) | round(1) }}
 
@@ -20,16 +20,16 @@
 
   - name: 'p_living_is_low'
     state: >
-      {% set sensorValue = states('sensor.p_living') | float %}
-      {% set normalValue = states('input_number.p_target') | int %}
-      {% set offsetValue = states('input_number.p_offset') | int %}
+      {% set sensorValue = states('sensor.p_living') | float(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}
 
   - name: 'p_living_is_hight'
     state: >
-      {% set sensorValue = states('sensor.p_living') | float %}
-      {% set normalValue = states('input_number.p_target') | int %}
-      {% set offsetValue = states('input_number.p_offset') | int %}
+      {% set sensorValue = states('sensor.p_living') | float(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}

@@ -10,7 +10,7 @@
       {% set isNormal = is_state('binary_sensor.t_average_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
-      {% set normalValue = states('input_number.t_target') | int %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
       {% set kitchen = states('sensor.t_kitchen') | float(normalValue) %}
       {% set hall = states('sensor.t_hall') | float(normalValue) %}
       {% set bedroom = states('sensor.t_bedroom') | float(normalValue) %}
@@ -24,17 +24,17 @@
   - name: 't_average_is_low'
     device_class: cold
     state: >
-      {% set sensorValue = states('sensor.t_average') | float %}
-      {% set normalValue = states('input_number.t_target') | int %}
-      {% set offsetValue = states('input_number.t_offset') | int %}
+      {% set sensorValue = states('sensor.t_average') | float(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}
 
   - name: 't_average_is_hight'
     device_class: heat
     state: >
-      {% set sensorValue = states('sensor.t_average') | float %}
-      {% set normalValue = states('input_number.t_target') | int %}
-      {% set offsetValue = states('input_number.t_offset') | int %}
+      {% set sensorValue = states('sensor.t_average') | float(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}

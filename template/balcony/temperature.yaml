@@ -3,5 +3,5 @@
     unit_of_measurement: '°C'
     device_class: 'temperature'
     state: >
-      {% set lastValue = states('sensor.t_balcony_last') | int %}
+      {% set lastValue = states('sensor.t_balcony_last') | int(0) %}
       {{ states('sensor.balcony_temperature') | float(lastValue) | round(1) }}

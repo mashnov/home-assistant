@@ -10,7 +10,7 @@
       {% set isNormal = is_state('binary_sensor.p_average_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
-      {% set normalValue = states('input_number.p_target') | int %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
       {% set kitchen = states('sensor.p_kitchen') | float(normalValue) %}
       {% set hall = states('sensor.p_hall') | float(normalValue) %}
       {% set bedroom = states('sensor.p_bedroom') | float(normalValue) %}
@@ -23,16 +23,16 @@
 
   - name: 'p_average_is_low'
     state: >
-      {% set sensorValue = states('sensor.p_average') | float %}
-      {% set normalValue = states('input_number.p_target') | int %}
-      {% set offsetValue = states('input_number.p_offset') | int %}
+      {% set sensorValue = states('sensor.p_average') | float(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
       {% set targetValue = normalValue - offsetValue %}
       {{ sensorValue < targetValue }}
 
   - name: 'p_average_is_hight'
     state: >
-      {% set sensorValue = states('sensor.p_average') | float %}
-      {% set normalValue = states('input_number.p_target') | int %}
-      {% set offsetValue = states('input_number.p_offset') | int %}
+      {% set sensorValue = states('sensor.p_average') | float(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}
