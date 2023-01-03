@@ -1,4 +1,4 @@
-- platform: random
+- platform: sql
   name: 't_test'
   unit_of_measurement: "°C"
   query: SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.t_hall' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;
