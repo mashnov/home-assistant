@@ -4,7 +4,7 @@
     state: "{{ states('binary_sensor.bath_motion') }}"
 
   - name: 'm_bath_is_occupancy'
-    device_class: door
+    device_class: motion
     delay_off: "{{ states('sensor.m_duration') }}"
     icon: "{{ iif(is_state('binary_sensor.m_bath', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
     state: "{{ states('binary_sensor.m_bath') }}"
