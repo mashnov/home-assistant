@@ -4,30 +4,25 @@
 
   - name: 'p_kitchen_last'
     unit_of_measurement: 'mmHg'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.p_kitchen' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'p_hall_last'
     unit_of_measurement: 'mmHg'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.p_hall' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'p_bath_last'
     unit_of_measurement: 'mmHg'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.p_bath' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'p_bedroom_last'
     unit_of_measurement: 'mmHg'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.p_bedroom' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'p_living_last'
     unit_of_measurement: 'mmHg'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.p_living' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'

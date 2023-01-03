@@ -4,36 +4,30 @@
 
   - name: 'h_kitchen_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_kitchen' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'h_hall_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_hall' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'h_bath_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_bath' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'h_bedroom_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_bedroom' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'h_living_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_living' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'h_balcony_last'
     unit_of_measurement: '%'
-    icon: 'mdi:clipboard-text-clock-outline'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.h_balcony' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
