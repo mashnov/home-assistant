@@ -3,16 +3,16 @@
   queries:
 
   - name: 'pw_hall_last'
-    device_class: 'illuminance'
+    unit_of_measurement: 'W'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.pw_hall' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'pw_bedroom_last'
-    device_class: 'illuminance'
+    unit_of_measurement: 'W'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.pw_bedroom' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
 
   - name: 'pw_living_last'
-    device_class: 'illuminance'
+    unit_of_measurement: 'W'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.pw_living' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'

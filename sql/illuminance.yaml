@@ -3,6 +3,6 @@
   queries:
 
   - name: 'i_balcony_last'
-    device_class: 'illuminance'
+    unit_of_measurement: 'lx'
     query: "SELECT * FROM states WHERE entity_id = 'sensor.i_balcony' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
     column: 'state'
