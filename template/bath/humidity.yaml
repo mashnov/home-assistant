@@ -4,10 +4,14 @@
     device_class: 'humidity'
     state: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
     attributes:
+      s: "{{ states('sensor.h_bath') }}"
+      n: "{{ state_attr('sensor.h_bath', 'isNormal') }}"
+      l: "{{ state_attr('sensor.h_bath', 'isLow') }}"
+      h: "{{ state_attr('sensor.h_bath', 'isHight') }}"
       isNormal: >
         {% set isLow = state_attr('sensor.h_bath', 'isLow') %}
         {% set isHight = state_attr('sensor.h_bath', 'isHight') %}
-        {{ isLow and isHight }}
+        {{ not(isLow) and not(isHight) }}
       isHight: >
         {% set sensorValue = states('sensor.h_bath') | float(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
