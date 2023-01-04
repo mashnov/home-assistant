@@ -4,10 +4,6 @@
     device_class: 'humidity'
     state: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
     attributes:
-      s: "{{ states('sensor.h_bath') }}"
-      n: "{{ state_attr('sensor.h_bath', 'isNormal') }}"
-      l: "{{ state_attr('sensor.h_bath', 'isLow') }}"
-      h: "{{ state_attr('sensor.h_bath', 'isHight') }}"
       isNormal: >
         {% set isLow = state_attr('sensor.h_bath', 'isLow') %}
         {% set isHight = state_attr('sensor.h_bath', 'isHight') %}
@@ -25,9 +21,9 @@
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
     icon: >
+      {% set isNormal = state_attr('sensor.h_bath', 'isNormal') %}
+      {% set isLow = state_attr('sensor.h_bath', 'isLow') %}
       {% set lIcon = 'mdi:water-outline' %}
       {% set nIcon = 'mdi:water-opacity' %}
       {% set hIcon = 'mdi:water' %}
-      {% set isLow = state_attr('sensor.h_bath', 'isLow') %}
-      {% set isNormal = state_attr('sensor.h_bath', 'isNormal') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
