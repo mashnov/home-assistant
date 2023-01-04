@@ -24,19 +24,16 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: binary_sensor.s_is_sunny
-      name: 'Светит в окна'
-    - entity: binary_sensor.s_is_azimuth
-      name: 'Совпадает азимут'
-    - entity: binary_sensor.s_is_elevation
-      name: 'Совпадает высота'
-    - type: divider
-    - entity: binary_sensor.s_is_cloudly
-      name: 'Облачно'
+    - entity: sensor.s_sun
+      name: 'Положение солнца'
     - type: divider
       style: 
-        height: 0
         margin-bottom: 75px
+    footer:
+      type: graph
+      entity: sensor.s_sun
+      hours_to_show: 36
+      detail: 2
 
   - type: markdown
     content: 'Увлажнители'
@@ -137,10 +134,6 @@ cards:
   - type: entities
     state_color: true
     entities:
-    - entity: sensor.s_azimuth
-      name: 'Азимут'
-    - entity: sensor.s_elevation
-      name: 'Подъем'
     - entity: sensor.s_cloud
       name: 'Облачность'
     - type: divider
