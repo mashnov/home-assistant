@@ -2,36 +2,33 @@
   - name: 'p_average'
     unit_of_measurement: 'mmHg'
     device_class: 'pressure'
-    icon: >
-      {% set lIcon = 'mdi:gauge-empty' %}
-      {% set nIcon = 'mdi:gauge-low' %}
-      {% set hIcon = 'mdi:gauge-full' %}
-      {% set isLow = is_state('binary_sensor.p_average_is_low', 'on') %}
-      {% set isNormal = is_state('binary_sensor.p_average_is_normal', 'on') %}
-      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     state: >
       {% set kitchen = states('sensor.p_kitchen') | float(0) %}
       {% set hall = states('sensor.p_hall') | float(0) %}
       {% set bedroom = states('sensor.p_bedroom') | float(0) %}
       {% set living = states('sensor.p_living') | float(0) %}
       {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
-
-- binary_sensor:
-  - name: 'p_average_is_normal'
-    state: "{{ is_state('binary_sensor.p_average_is_low', 'off') and is_state('binary_sensor.p_average_is_hight', 'off') }}"
-
-  - name: 'p_average_is_low'
-    state: >
-      {% set sensorValue = states('sensor.p_average') | float(0) %}
-      {% set normalValue = states('input_number.p_target') | int(0) %}
-      {% set offsetValue = states('input_number.p_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'p_average_is_hight'
-    state: >
-      {% set sensorValue = states('sensor.p_average') | float(0) %}
-      {% set normalValue = states('input_number.p_target') | int(0) %}
-      {% set offsetValue = states('input_number.p_offset') | int(0) %}
-      {% set targetValue = normalValue + offsetValue %}
-      {{ sensorValue > targetValue }}
+    attributes:
+      isNormal: >
+        {% set isLow = state_attr('sensor.p_average', 'isLow') %}
+        {% set isHight = state_attr('sensor.p_average', 'isHight') %}
+        {{ not(isLow) and not(isHight) }}
+      isHight: >
+        {% set sensorValue = states('sensor.p_average') | float(0) %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      isLow: >
+        {% set sensorValue = states('sensor.p_average') | float(0) %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+    icon: >
+      {% set isNormal = state_attr('sensor.p_average', 'isNormal') %}
+      {% set isLow = state_attr('sensor.p_average', 'isLow') %}
+      {% set lIcon = 'mdi:gauge-empty' %}
+      {% set nIcon = 'mdi:gauge-low' %}
+      {% set hIcon = 'mdi:gauge-full' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}

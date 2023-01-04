@@ -2,32 +2,28 @@
   - name: 'h_kitchen'
     unit_of_measurement: '%'
     device_class: 'humidity'
+    state: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
+    attributes:
+      isNormal: >
+        {% set isLow = state_attr('sensor.h_kitchen', 'isLow') %}
+        {% set isHight = state_attr('sensor.h_kitchen', 'isHight') %}
+        {{ not(isLow) and not(isHight) }}
+      isHight: >
+        {% set sensorValue = states('sensor.h_kitchen') | float(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      isLow: >
+        {% set sensorValue = states('sensor.h_kitchen') | float(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
     icon: >
+      {% set isNormal = state_attr('sensor.h_kitchen', 'isNormal') %}
+      {% set isLow = state_attr('sensor.h_kitchen', 'isLow') %}
       {% set lIcon = 'mdi:water-outline' %}
       {% set nIcon = 'mdi:water-opacity' %}
       {% set hIcon = 'mdi:water' %}
-      {% set isLow = is_state('binary_sensor.h_kitchen_is_low', 'on') %}
-      {% set isNormal = is_state('binary_sensor.h_kitchen_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
-    state: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
-
-- binary_sensor:
-  - name: 'h_kitchen_is_normal'
-    state: "{{ is_state('binary_sensor.h_kitchen_is_low', 'off') and is_state('binary_sensor.h_kitchen_is_hight', 'off') }}"
-
-  - name: 'h_kitchen_is_low'
-    state: >
-      {% set sensorValue = states('sensor.h_kitchen') | float(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'h_kitchen_is_hight'
-    device_class: moisture
-    state: >
-      {% set sensorValue = states('sensor.h_kitchen') | float(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue + offsetValue %}
-      {{ sensorValue > targetValue }}

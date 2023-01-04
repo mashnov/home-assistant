@@ -2,33 +2,28 @@
   - name: 't_hall'
     unit_of_measurement: '°C'
     device_class: 'temperature'
+    state: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+    attributes:
+      isNormal: >
+        {% set isLow = state_attr('sensor.t_hall', 'isLow') %}
+        {% set isHight = state_attr('sensor.t_hall', 'isHight') %}
+        {{ not(isLow) and not(isHight) }}
+      isHight: >
+        {% set sensorValue = states('sensor.t_hall') | float(0) %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      isLow: >
+        {% set sensorValue = states('sensor.t_hall') | float(0) %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
     icon: >
+      {% set isNormal = state_attr('sensor.t_hall', 'isNormal') %}
+      {% set isLow = state_attr('sensor.t_hall', 'isLow') %}
       {% set lIcon = 'mdi:snowflake' %}
       {% set nIcon = 'mdi:check-decagram-outline' %}
       {% set hIcon = 'mdi:fire' %}
-      {% set isLow = is_state('binary_sensor.t_hall_is_low', 'on') %}
-      {% set isNormal = is_state('binary_sensor.t_hall_is_normal', 'on') %}
       {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
-    state: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
-
-- binary_sensor:
-  - name: 't_hall_is_normal'
-    state: "{{ is_state('binary_sensor.t_hall_is_low', 'off') and is_state('binary_sensor.t_hall_is_hight', 'off') }}"
-
-  - name: 't_hall_is_low'
-    device_class: cold
-    state: >
-      {% set sensorValue = states('sensor.t_hall') | float(0) %}
-      {% set normalValue = states('input_number.t_target') | int(0) %}
-      {% set offsetValue = states('input_number.t_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 't_hall_is_hight'
-    device_class: heat
-    state: >
-      {% set sensorValue = states('sensor.t_hall') | float(0) %}
-      {% set normalValue = states('input_number.t_target') | int(0) %}
-      {% set offsetValue = states('input_number.t_offset') | int(0) %}
-      {% set targetValue = normalValue + offsetValue %}
-      {{ sensorValue > targetValue }}

@@ -2,6 +2,7 @@
   - name: 'w_kitchen_left'
     device_class: window
     state: "{{ states('binary_sensor.kitchen_window_left') }}"
+
   - name: 'w_kitchen_right'
     device_class: window
     state: "{{ states('binary_sensor.kitchen_window_right') }}"
