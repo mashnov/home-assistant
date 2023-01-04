@@ -1,8 +1,0 @@
-- platform: sql
-  db_url: sqlite:////config/home-assistant_v2.db
-  queries:
-
-  - name: 'i_balcony_last'
-    unit_of_measurement: 'lx'
-    query: "SELECT * FROM states WHERE entity_id = 'sensor.i_balcony' AND state != 'unknown' ORDER BY state_id DESC LIMIT 1"
-    column: 'state'

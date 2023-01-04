@@ -2,6 +2,4 @@
   - name: 'pw_bedroom'
     unit_of_measurement: 'W'
     device_class: 'power'
-    state: >
-      {% set lastValue = states('sensor.pw_bedroom_last') | int(0) %}
-      {{ states('sensor.bedroom_relay_power') | float(lastValue) | round(1) }}
+    state: "{{ states('sensor.bedroom_relay_power') | float(0) | round(1) }}"

@@ -2,6 +2,4 @@
   - name: 'pw_hall'
     unit_of_measurement: 'W'
     device_class: 'power'
-    state: >
-      {% set lastValue = states('sensor.pw_hall_last') | int(0) %}
-      {{ states('sensor.hall_relay_power') | float(lastValue) | round(1) }}
+    state: "{{ states('sensor.hall_relay_power') | float(0) | round(1) }}"
