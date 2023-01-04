@@ -12,14 +12,14 @@
         {% set sensorValue = states('sensor.h_bath') | float(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue }}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
       isLow: >
         {% set sensorValue = states('sensor.h_bath') | float(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
-        {% set targetValue = normalValue + offsetValue %}
-        {{ sensorValue > targetValue }}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
     icon: >
       {% set lIcon = 'mdi:water-outline' %}
       {% set nIcon = 'mdi:water-opacity' %}
