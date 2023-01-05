@@ -33,7 +33,7 @@ cards:
     - type: divider
       style: 
         height: 0
-        margin-bottom: 41px
+        margin-bottom: 89px
     footer:
       type: graph
       entity: sensor.s_cloud
