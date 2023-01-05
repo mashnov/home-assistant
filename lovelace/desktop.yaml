@@ -1,5 +1,4 @@
-title: 'Климат'
-icon: 'mdi:home-thermometer-outline'
+icon: 'mdi:monitor-dashboard'
 cards:
 
 - type: vertical-stack
