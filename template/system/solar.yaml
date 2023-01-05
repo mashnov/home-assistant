@@ -30,14 +30,14 @@
         {% set isElevation = state_attr('sensor.s_sun', 'isElevation') %}
         {{ isAazimuth and isElevation }}
       isAazimuth: >
-        {% set sensorValue = states('sensor.s_sun').split('/')[0] | int(0) %}
+        {% set sensorValue = states('sensor.s_sun').split('|')[0] | int(0) %}
         {% set targetValue = states('input_number.s_azimuth_target') | int(0) %}
         {% set offsetValue = states('input_number.s_azimuth_offset') | int(0) %}
         {% set minValue = targetValue - offsetValue %}
         {% set maxValue = targetValue + offsetValue %}
         {{ minValue < sensorValue < maxValue }}
       isElevation: >
-        {% set sensorValue = states('sensor.s_sun').split('/')[1] | int(0) %}
+        {% set sensorValue = states('sensor.s_sun').split('|')[1] | int(0) %}
         {% set targetValue = states('input_number.s_elevation_target') | int(0) %}
         {% set offsetValue = states('input_number.s_elevation_offset') | int(0) %}
         {% set minValue = targetValue - offsetValue %}
