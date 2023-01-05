@@ -136,6 +136,12 @@ cards:
     entities:
     - entity: sensor.s_sun
       name: 'Положение солнца'
+    - entity: sensor.s_sun
+      attribute: isAazimuth
+      name: 'Совпадение азимута'
+    - entity: sensor.s_sun
+      attribute: isElevation
+      name: 'Совпадение высоты'
     - type: divider
       style: 
         height: 0
