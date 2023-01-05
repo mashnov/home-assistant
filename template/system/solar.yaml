@@ -2,9 +2,9 @@
   - name: 's_cloud'
     unit_of_measurement: '%'
     icon: >
+      {% set isHight = state_attr('sensor.s_cloud', 'isCloudly') %}
       {% set lIcon = 'mdi:weather-sunny' %}
       {% set hIcon = 'mdi:apple-icloud' %}
-      {% set isHight = is_state('binary_sensor.s_is_cloudly', 'on') %}
       {{ iif(isHight, hIcon, lIcon) }}
     state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
     attributes:
@@ -23,7 +23,7 @@
     state: >
       {% set azimuth = state_attr('sun.sun', 'azimuth') | int(0) %}
       {% set elevation = state_attr('sun.sun', 'elevation') | int(0) %}
-      {{ azimuth }} / {{ elevation }}
+      {{ azimuth }} | {{ elevation }}
     attributes:
       isSunny: >
         {% set isAazimuth = state_attr('sensor.s_sun', 'isAazimuth') %}

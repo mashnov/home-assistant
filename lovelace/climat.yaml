@@ -19,19 +19,20 @@ cards:
       name: 'Ванная'
 
   - type: markdown
-    content: 'Солнце'
+    content: 'Облака'
 
   - type: entities
     state_color: true
     entities:
-    - entity: sensor.s_sun
-      name: 'Положение солнца'
+    - entity: sensor.s_cloud
+      name: 'Облачность'
     - type: divider
       style: 
-        margin-bottom: 75px
+        height: 0
+        margin-bottom: 41px
     footer:
       type: graph
-      entity: sensor.s_sun
+      entity: sensor.s_cloud
       hours_to_show: 36
       detail: 2
 
@@ -129,21 +130,17 @@ cards:
         margin-bottom: 39px
 
   - type: markdown
-    content: 'Показания'
+    content: 'Солнце'
 
   - type: entities
     state_color: true
     entities:
-    - entity: sensor.s_cloud
-      name: 'Облачность'
+    - entity: sensor.s_sun
+      name: 'Положение солнца'
     - type: divider
       style: 
-        margin-bottom: 41px
-    footer:
-      type: graph
-      entity: sensor.s_cloud
-      hours_to_show: 36
-      detail: 2
+        height: 0
+        margin-bottom: 75px
 
   - type: markdown
     content: 'Проветривание'
