@@ -18,12 +18,11 @@
         {% set living = state_attr('sensor.temperature', 'living') | float(0) %}
         {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
       averageNormal: >
-        {% set isHight = state_attr('sensor.averageLow', 'isHight') %}
-        {% set isLow = state_attr('sensor.averageHight', 'isLow') %}
+        {% set isHight = state_attr('sensor.temperature', 'averageLow') %}
+        {% set isLow = state_attr('sensor.temperature', 'averageHight') %}
         {{ not(isLow) and not(isHight) }}
       averageHight: >
         {% set sensorValue = state_attr('sensor.temperature', 'average') %}
-        {% set sensorValue = states('sensor.t_average') | float(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
@@ -41,7 +40,6 @@
         {{ not(isLow) and not(isHight) }}
       kitchenHight: >
         {% set sensorValue = state_attr('sensor.temperature', 'kitchen') %}
-        {% set sensorValue = states('sensor.t_average') | float(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
@@ -59,7 +57,6 @@
         {{ not(isLow) and not(isHight) }}
       bathHight: >
         {% set sensorValue = state_attr('sensor.temperature', 'bath') %}
-        {% set sensorValue = states('sensor.t_average') | float(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
@@ -77,7 +74,6 @@
         {{ not(isLow) and not(isHight) }}
       hallHight: >
         {% set sensorValue = state_attr('sensor.temperature', 'hall') %}
-        {% set sensorValue = states('sensor.t_average') | float(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
@@ -95,7 +91,6 @@
         {{ not(isLow) and not(isHight) }}
       bedroomHight: >
         {% set sensorValue = state_attr('sensor.temperature', 'bedroom') %}
-        {% set sensorValue = states('sensor.t_average') | float(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}

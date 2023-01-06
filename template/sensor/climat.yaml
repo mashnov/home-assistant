@@ -5,8 +5,8 @@
     state: '{{ states("sensor.balcony_illuminance") | float(0) | round(1) }}'
     icon: >
       {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
-      {% set sunnyIcon = 'mdi:weather-sunny' %}
       {% set cloudlyIcon = 'mdi:apple-icloud' %}
+      {% set sunnyIcon = 'mdi:weather-sunny' %}
       {{ iif(cloudly, cloudlyIcon, sunnyIcon) }}
     attributes:
       cloudLevel: '{{ states("sensor.openweathermap_cloud_coverage") | int(0) }}'
@@ -29,7 +29,7 @@
         {% set elevation = state_attr('sensor.climat', 'elevation') %}
         {{ aazimuth and elevation }}
       cloudly: >
-        {% set sensorValue = states('sensor.s_cloud') | float(0) %}
+        {% set sensorValue = state_attr('sensor.climat', 'cloudLevel') %}
         {% set normalValue = states('input_number.c_cloud_target') | int(0) %}
         {{ sensorValue > normalValue }}
       kitchenCurtain: > 
