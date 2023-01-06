@@ -28,7 +28,7 @@ c_elevation_offset:
   min: 0
   max: 10
   step: 1
-  initial: 15
+  initial: 5
 
 c_cloud_target:
   unit_of_measurement: 'lx'
