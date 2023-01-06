@@ -3,6 +3,13 @@
     unit_of_measurement: '°C'
     device_class: 'temperature'
     state: '{{ state_attr("sensor.temperature", "average") }}'
+    icon: >
+      {% set isNormal = state_attr('sensor.temperature', 'averageNormal') %}
+      {% set isLow = state_attr('sensor.temperature', 'averageLow') %}
+      {% set lIcon = 'mdi:snowflake' %}
+      {% set nIcon = 'mdi:check-decagram-outline' %}
+      {% set hIcon = 'mdi:fire' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     attributes:
       average: >
         {% set kitchen = state_attr('sensor.temperature', 'kitchen') | float(0) %}
@@ -118,10 +125,3 @@
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
       balcony: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
-    icon: >
-      {% set isNormal = state_attr('sensor.temperature', 'averageNormal') %}
-      {% set isLow = state_attr('sensor.temperature', 'averageLow') %}
-      {% set lIcon = 'mdi:snowflake' %}
-      {% set nIcon = 'mdi:check-decagram-outline' %}
-      {% set hIcon = 'mdi:fire' %}
-      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}

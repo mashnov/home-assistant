@@ -3,6 +3,13 @@
     unit_of_measurement: 'mmHg'
     device_class: 'pressure'
     state: '{{ state_attr("sensor.pressure", "average") }}'
+    icon: >
+      {% set isNormal = state_attr('sensor.pressure', 'averageNormal') %}
+      {% set isLow = state_attr('sensor.pressure', 'averageLow') %}
+      {% set lIcon = 'mdi:snowflake' %}
+      {% set nIcon = 'mdi:check-decagram-outline' %}
+      {% set hIcon = 'mdi:fire' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
     attributes:
       average: >
         {% set kitchen = state_attr('sensor.pressure', 'kitchen') | float(0) %}
@@ -118,10 +125,3 @@
         {% set offsetValue = states('input_number.p_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
-    icon: >
-      {% set isNormal = state_attr('sensor.pressure', 'averageNormal') %}
-      {% set isLow = state_attr('sensor.pressure', 'averageLow') %}
-      {% set lIcon = 'mdi:snowflake' %}
-      {% set nIcon = 'mdi:check-decagram-outline' %}
-      {% set hIcon = 'mdi:fire' %}
-      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}

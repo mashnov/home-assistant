@@ -1,0 +1,98 @@
+- sensor:
+  - name: 'climat'
+    unit_of_measurement: 'lx'
+    device_class: 'illuminance'
+    state: '{{ states("sensor.balcony_illuminance") | float(0) | round(1) }}'
+    icon: >
+      {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+      {% set sunnyIcon = 'mdi:weather-sunny' %}
+      {% set cloudlyIcon = 'mdi:apple-icloud' %}
+      {{ iif(cloudly, cloudlyIcon, sunnyIcon) }}
+    attributes:
+      cloudLevel: '{{ states("sensor.openweathermap_cloud_coverage") | int(0) }}'
+      aazimuth: >
+        {% set sensorValue = state_attr('sun.sun', 'azimuth') | int(0) %}
+        {% set targetValue = states('input_number.c_azimuth_target') | int(0) %}
+        {% set offsetValue = states('input_number.c_azimuth_offset') | int(0) %}
+        {% set minValue = targetValue - offsetValue %}
+        {% set maxValue = targetValue + offsetValue %}
+        {{ minValue < sensorValue < maxValue }}
+      elevation: >
+        {% set sensorValue = state_attr('sun.sun', 'elevation') | int(0) %}
+        {% set targetValue = states('input_number.c_elevation_target') | int(0) %}
+        {% set offsetValue = states('input_number.c_elevation_offset') | int(0) %}
+        {% set minValue = targetValue - offsetValue %}
+        {% set maxValue = targetValue + offsetValue %}
+        {{ minValue < sensorValue < maxValue }}
+      sunny: >
+        {% set aazimuth = state_attr('sensor.climat', 'aazimuth') %}
+        {% set elevation = state_attr('sensor.climat', 'elevation') %}
+        {{ aazimuth and elevation }}
+      cloudly: >
+        {% set sensorValue = states('sensor.s_cloud') | float(0) %}
+        {% set normalValue = states('input_number.c_cloud_target') | int(0) %}
+        {{ sensorValue > normalValue }}
+      kitchenCurtain: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_kitchen_curtain_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_kitchen_curtain_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      kitchenBacklight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_kitchen_backlight_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_kitchen_backlight_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      kitchenLight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_kitchen_light_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_kitchen_light_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      hallBacklight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_hal_backlight_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_hall_backlight_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      hallLight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_hal_light_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_hall_light_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      bedroomCurtain: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_bedroom_curtain_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_bedroom_curtain_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      bedroomBacklight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_bedroom_backlight_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_bedroom_backlight_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      livingCurtain: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_living_curtain_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_living_curtain_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+      livingBacklight: > 
+        {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
+        {% set targetSunnyValue = states('input_number.c_living_backlight_sunny_target') | int(0) %}
+        {% set targetCloudlyValue = states('input_number.c_living_backlight_cloudly_target') | int(0) %}
+        {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
+        {% set sensorValue = states('sensor.climat') | int(0) %}
+        {{ sensorValue < targetValue }}
+
