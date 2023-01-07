@@ -123,6 +123,15 @@ cards:
     - entity: sensor.climat
       name: 'Освещенность'
     - type: divider
+    - entity: sensor.climat
+      type: attribute
+      attribute: kitchen
+      name: 'Кухня'
+    - entity: sensor.climat
+      type: attribute
+      attribute: hall
+      name: 'Коридор'
+    - type: divider
       style: 
         margin-bottom: 30px
     footer:

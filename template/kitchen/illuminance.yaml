@@ -1,6 +1,0 @@
-- sensor:
-  - name: 'i_kitchen'
-    unit_of_measurement: 'lx'
-    device_class: 'illuminance'
-    icon: 'mdi:white-balance-sunny'
-    state: "{{ states('sensor.kitchen_motion_illuminance_lux') | int(0) }}"

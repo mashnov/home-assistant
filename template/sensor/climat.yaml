@@ -2,13 +2,16 @@
   - name: 'climat'
     unit_of_measurement: 'lx'
     device_class: 'illuminance'
-    state: '{{ states("sensor.balcony_illuminance") | float(0) | round(1) }}'
+    state: '{{ state_attr("sensor.climat", "balcony") }}'
     icon: >
       {% set cloudly = state_attr('sensor.climat', 'cloudly') %}
       {% set cloudlyIcon = 'mdi:apple-icloud' %}
       {% set sunnyIcon = 'mdi:weather-sunny' %}
       {{ iif(cloudly, cloudlyIcon, sunnyIcon) }}
     attributes:
+      kitchen: "{{ states('sensor.kitchen_motion_illuminance_lux') | int(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_motion_illuminance') | int(0) | round(1) }}"
+      balcony: '{{ states("sensor.balcony_illuminance") | int(0) | round(1) }}'
       cloudLevel: '{{ states("sensor.openweathermap_cloud_coverage") | int(0) }}'
       aazimuth: >
         {% set sensorValue = state_attr('sun.sun', 'azimuth') | int(0) %}
@@ -95,4 +98,3 @@
         {% set targetValue = iif(cloudly, targetCloudlyValue, targetSunnyValue) %}
         {% set sensorValue = states('sensor.climat') | int(0) %}
         {{ sensorValue < targetValue }}
-

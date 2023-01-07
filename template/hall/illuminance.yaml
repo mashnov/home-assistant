@@ -1,6 +1,0 @@
-- sensor:
-  - name: 'i_hall'
-    unit_of_measurement: 'lx'
-    device_class: 'illuminance'
-    icon: 'mdi:white-balance-sunny'
-    state: "{{ states('sensor.hall_motion_illuminance') | int(0) }}"
