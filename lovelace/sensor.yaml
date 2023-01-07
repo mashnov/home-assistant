@@ -13,21 +13,27 @@ cards:
     - entity: sensor.humidity
       type: attribute
       attribute: kitchen
+      name: 'Кухня'
     - entity: sensor.humidity
       type: attribute
       attribute: hall
+      name: 'Коридор'
     - entity: sensor.humidity
       type: attribute
       attribute: bath
+      name: 'Ванная'
     - entity: sensor.humidity
       type: attribute
       attribute: bedroom
+      name: 'Спальня'
     - entity: sensor.humidity
       type: attribute
       attribute: living
+      name: 'Гостиная'
     - entity: sensor.humidity
       type: attribute
       attribute: balcony
+      name: 'Балкон'
     - type: divider
       style: 
         margin-bottom: 30px
@@ -46,18 +52,23 @@ cards:
     - entity: sensor.pressure
       type: attribute
       attribute: kitchen
+      name: 'Кухня'
     - entity: sensor.pressure
       type: attribute
       attribute: hall
+      name: 'Коридор'
     - entity: sensor.pressure
       type: attribute
       attribute: bath
+      name: 'Ванная'
     - entity: sensor.pressure
       type: attribute
       attribute: bedroom
+      name: 'Спальня'
     - entity: sensor.pressure
       type: attribute
       attribute: living
+      name: 'Гостиная'
     - type: divider
       style: 
         margin-bottom: 30px
@@ -76,21 +87,27 @@ cards:
     - entity: sensor.temperature
       type: attribute
       attribute: kitchen
+      name: 'Кухня'
     - entity: sensor.temperature
       type: attribute
       attribute: hall
+      name: 'Коридор'
     - entity: sensor.temperature
       type: attribute
       attribute: bath
+      name: 'Ванная'
     - entity: sensor.temperature
       type: attribute
       attribute: bedroom
+      name: 'Спальня'
     - entity: sensor.temperature
       type: attribute
       attribute: living
+      name: 'Гостиная'
     - entity: sensor.temperature
       type: attribute
       attribute: balcony
+      name: 'Балкон'
     - type: divider
       style: 
         margin-bottom: 30px
