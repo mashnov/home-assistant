@@ -36,6 +36,7 @@ cards:
       name: 'Балкон'
     - type: divider
       style: 
+        height: 0
         margin-bottom: 30px
     footer:
       type: graph
@@ -71,6 +72,7 @@ cards:
       name: 'Гостиная'
     - type: divider
       style: 
+        height: 0
         margin-bottom: 30px
     footer:
       type: graph
@@ -110,6 +112,7 @@ cards:
       name: 'Балкон'
     - type: divider
       style: 
+        height: 0
         margin-bottom: 30px
     footer:
       type: graph
@@ -133,6 +136,7 @@ cards:
       name: 'Коридор'
     - type: divider
       style: 
+        height: 0
         margin-bottom: 30px
     footer:
       type: graph

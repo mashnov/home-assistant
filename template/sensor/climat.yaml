@@ -11,7 +11,7 @@
     attributes:
       kitchen: "{{ states('sensor.kitchen_motion_illuminance_lux') | int(0) | round(1) }}"
       hall: "{{ states('sensor.hall_motion_illuminance') | int(0) | round(1) }}"
-      balcony: '{{ states("sensor.balcony_illuminance") | int(0) | round(1) }}'
+      balcony: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) | round(1) }}'
       cloudLevel: '{{ states("sensor.openweathermap_cloud_coverage") | int(0) }}'
       aazimuth: >
         {% set sensorValue = state_attr('sun.sun', 'azimuth') | int(0) %}
