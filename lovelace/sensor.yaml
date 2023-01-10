@@ -127,7 +127,7 @@ cards:
       name: 'Освещенность'
     - entity: sensor.climat
       type: attribute
-      attribute: CloudLevel
+      attribute: cloudLevel
       name: 'Облачность'
     - type: divider
     - entity: sensor.climat
