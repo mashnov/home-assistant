@@ -125,6 +125,10 @@ cards:
     entities:
     - entity: sensor.climat
       name: 'Освещенность'
+    - entity: sensor.climat
+      type: attribute
+      attribute: CloudLevel
+      name: 'Облачность'
     - type: divider
     - entity: sensor.climat
       type: attribute
