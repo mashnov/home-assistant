@@ -1,0 +1,11 @@
+ws_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.hall_switch'
+
+ws_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.hall_switch'

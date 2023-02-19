@@ -1,0 +1,47 @@
+c_bedroom_open:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '5'
+
+c_bedroom_close:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '100'
+
+c_bedroom_sun_mode:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '50'
+
+c_bedroom_night_mode:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '75'
+
+c_bedroom_ventilation_mode:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '60'
+
+c_bedroom_set_position:
+  mode: 'queued'
+  sequence:
+  - service: cover.set_cover_position
+    entity_id: 'cover.curtain_bedroom'
+    data_template:
+      position: '{{ position }}'

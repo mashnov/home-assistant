@@ -1,0 +1,17 @@
+nl_bath_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.bath_relay_l1'
+
+nl_bath_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.bath_relay_l1'
+
+nl_bath_toggle:
+  mode: 'queued'
+  sequence:
+  - service: switch.toggle
+    entity_id: 'switch.bath_relay_l1'

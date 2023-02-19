@@ -1,0 +1,15 @@
+ws_living_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 
+    - 'switch.living_switch_left'
+    - 'switch.living_switch_right'
+
+ws_living_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 
+    - 'switch.living_switch_left'
+    - 'switch.living_switch_right'

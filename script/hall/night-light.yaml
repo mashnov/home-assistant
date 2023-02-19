@@ -1,0 +1,33 @@
+nl_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.nightlight_hall'
+
+nl_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.nightlight_hall'
+
+nl_hall_toggle:
+  mode: 'queued'
+  sequence:
+  - service: light.toggle
+    entity_id: 'light.nightlight_hall'
+
+nl_hall_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.nightlight_hall'
+    data_template:
+      brightness: "{{ brightness }}"
+
+nl_hall_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.nightlight_hall'
+    data_template:
+      hs_color: "[{{ hsY }}, {{ hsX }}]"

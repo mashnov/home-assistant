@@ -1,0 +1,17 @@
+bl_living_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.living_relay_l2'
+
+bl_living_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.living_relay_l2'
+
+bl_living_toggle:
+  mode: 'queued'
+  sequence:
+  - service: switch.toggle
+    entity_id: 'switch.living_relay_l2'

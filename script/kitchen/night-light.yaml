@@ -1,0 +1,17 @@
+nl_kitchden_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.kitchen_relay_l1'
+
+nl_kitchden_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.kitchen_relay_l1'
+
+nl_kitchden_toggle:
+  mode: 'queued'
+  sequence:
+  - service: switch.toggle
+    entity_id: 'switch.kitchen_relay_l1'

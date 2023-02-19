@@ -1,39 +1,39 @@
-- name: l_hall_1
+- name: tl_hall_1
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_1_host
   token: !secret hall_lamp_1_token
-- name: l_hall_2
+- name: tl_hall_2
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_2_host
   token: !secret hall_lamp_2_token
-- name: l_hall_3
+- name: tl_hall_3
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_3_host
   token: !secret hall_lamp_3_token
-- name: l_hall_4
+- name: tl_hall_4
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_4_host
   token: !secret hall_lamp_4_token
-- name: l_hall_5
+- name: tl_hall_5
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_5_host
   token: !secret hall_lamp_5_token
-- name: l_hall_6
+- name: tl_hall_6
   platform: xiaomi_miio_philipslight
   model: philips.light.downlight
   host: !secret hall_lamp_6_host
   token: !secret hall_lamp_6_token
 - platform: group
-  name: l_hall
+  name: tl_hall
   entities:
-  - light.l_hall_1
-  - light.l_hall_2
-  - light.l_hall_3
-  - light.l_hall_4
-  - light.l_hall_5
-  - light.l_hall_6
+  - light.tl_hall_1
+  - light.tl_hall_2
+  - light.tl_hall_3
+  - light.tl_hall_4
+  - light.tl_hall_5
+  - light.tl_hall_6

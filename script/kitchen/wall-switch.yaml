@@ -1,0 +1,15 @@
+ws_kitchen_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 
+    - 'switch.kitchen_switch_left'
+    - 'switch.kitchen_switch_right'
+
+ws_kitchen_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 
+    - 'switch.kitchen_switch_left'
+    - 'switch.kitchen_switch_right'
