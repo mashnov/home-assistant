@@ -18,6 +18,8 @@
 - h - humidifier
 - d - dehumidifier
 - s - switch group
+- sc - socket
+- ws - wallswitch
 
  ## input booleab
 - v - ventilation
@@ -32,3 +34,8 @@
 - t - temperature
 - h - humidity
 - pw - power
+
+## light
+- tl - toplight
+- bl - backlight
+- nl - nightlight
