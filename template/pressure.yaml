@@ -1,0 +1,40 @@
+- sensor:
+  - name: 'pressure'
+    unit_of_measurement: 'mmHg'
+    device_class: 'pressure'
+    state: >
+      {% set kitchen = state_attr('sensor.pressure', 'kitchen') | float(0) %}
+      {% set bath = state_attr('sensor.pressure', 'bath') | float(0) %}
+      {% set hall = state_attr('sensor.pressure', 'hall') | float(0) %}
+      {% set bedroom = state_attr('sensor.pressure', 'bedroom') | float(0) %}
+      {% set living = state_attr('sensor.pressure', 'living') | float(0) %}
+      {{ ((kitchen + bath + hall + bedroom + living) / 5) | round(1) }}
+    icon: >
+      {% set isNormal = state_attr('sensor.pressure', 'normal') %}
+      {% set isLow = state_attr('sensor.pressure', 'low') %}
+      {% set lIcon = 'mdi:gauge-empty' %}
+      {% set nIcon = 'mdi:gauge-low' %}
+      {% set hIcon = 'mdi:gauge-full' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
+    attributes:
+      normal: >
+        {% set isHight = state_attr('sensor.pressure', 'low') %}
+        {% set isLow = state_attr('sensor.pressure', 'hight') %}
+        {{ not(isLow) and not(isHight) }}
+      hight: >
+        {% set sensorValue = states('sensor.pressure') %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = states('sensor.pressure') %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      kitchen: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"

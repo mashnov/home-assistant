@@ -1,9 +1,0 @@
-- binary_sensor:
-  - name: 'sw_bath_toplight'
-    device_class: 'power'
-    icon: "{{ iif(is_state('sensor.sw_bath_toplight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
-    state: "{{ states('switch.hall_switch_restroom_right') }}"
-  - name: 'sw_bath_backlight'
-    device_class: 'power'
-    icon: "{{ iif(is_state('sensor.sw_bath_backlight', 'on'), 'mdi:light-switch', 'mdi:light-switch-off') }}"
-    state: "{{ states('switch.bath_relay_l1') }}"

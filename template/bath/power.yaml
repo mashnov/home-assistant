@@ -1,5 +1,0 @@
-- sensor:
-  - name: 'pw_bath'
-    unit_of_measurement: 'W'
-    device_class: 'power'
-    state: "{{ states('sensor.bath_relay_power') | float(0) | round(1) }}"

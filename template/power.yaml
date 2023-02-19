@@ -1,0 +1,25 @@
+- sensor:
+  - name: 'power'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    state: >
+        {% set kitchenValue = state_attr('sensor.power', 'kitchen') | float(0) | round(1) %}
+        {% set bathValue = state_attr('sensor.power', 'bath') | float(0) | round(1) %}
+        {% set toiletValue = state_attr('sensor.power', 'toilet') | float(0) | round(1) %}
+        {% set hallValue = state_attr('sensor.power', 'hall') | float(0) | round(1) %}
+        {% set bedroomValue = state_attr('sensor.power', 'bedroom') | float(0) | round(1) %}
+        {% set livingValue = state_attr('sensor.power', 'living') | float(0) | round(1) %}
+        {% set balconyValue = state_attr('sensor.power', 'balcony') | float(0) | round(1) %}
+        {{ kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balconyValue }}
+    icon: 'mdi:meter-electric-outline'
+    attributes:
+      kitchen: "{{ states('sensor.kitchen_relay_power') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_relay_power') | float(0) | round(1) }}"
+      toilet: "{{ states('sensor.toilet_relay_power') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_relay_power') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_relay_power') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_relay_power') | float(0) | round(1) }}"
+      balcony: >
+        {% set socketValue = states('sensor.balcony_socket_relay_power') | float(0) | round(1) %}
+        {% set lightValue = states('sensor.balcony_light_relay_power_2') | float(0) | round(1) %}
+        {{ socketValue + lightValue }}

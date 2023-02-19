@@ -1,0 +1,16 @@
+- binary_sensor:
+  - name: 'dehumidifier'
+    device_class: 'moisture'
+    state: "{{ state_attr('binary_sensor.dehumidifier', 'bath') }}"
+    icon: >
+      {% set isNormal = is_state('binary_sensor.dehumidifier', 'off') %}
+      {% set nIcon = 'mdi:water-opacity' %}
+      {% set hIcon = 'mdi:water' %}
+      {{ iif(isNormal, nIcon, hIcon) }}
+    attributes:
+      bath: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bath') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}

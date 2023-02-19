@@ -1,0 +1,40 @@
+- sensor:
+  - name: 'temperature'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    state: >
+      {% set kitchen = state_attr('sensor.temperature', 'kitchen') | float(0) %}
+      {% set hall = state_attr('sensor.temperature', 'hall') | float(0) %}
+      {% set bedroom = state_attr('sensor.temperature', 'bedroom') | float(0) %}
+      {% set living = state_attr('sensor.temperature', 'living') | float(0) %}
+      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+    icon: >
+      {% set isNormal = state_attr('sensor.temperature', 'normal') %}
+      {% set isLow = state_attr('sensor.temperature', 'low') %}
+      {% set lIcon = 'mdi:snowflake' %}
+      {% set nIcon = 'mdi:check-decagram-outline' %}
+      {% set hIcon = 'mdi:fire' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
+    attributes:
+      normal: >
+        {% set isHight = state_attr('sensor.temperature', 'low') %}
+        {% set isLow = state_attr('sensor.temperature', 'hight') %}
+        {{ not(isLow) and not(isHight) }}
+      hight: >
+        {% set sensorValue = states('sensor.temperature') %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = states('sensor.temperature') %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      kitchen: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
+      balcony: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"

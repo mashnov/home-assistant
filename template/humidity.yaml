@@ -1,0 +1,40 @@
+- sensor:
+  - name: 'humidity'
+    unit_of_measurement: '%'
+    device_class: 'humidity'
+    state: >
+      {% set kitchen = state_attr('sensor.humidity', 'kitchen') | float(0) %}
+      {% set hall = state_attr('sensor.humidity', 'hall') | float(0) %}
+      {% set bedroom = state_attr('sensor.humidity', 'bedroom') | float(0) %}
+      {% set living = state_attr('sensor.humidity', 'living') | float(0) %}
+      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+    icon: >
+      {% set isNormal = state_attr('sensor.humidity', 'normal') %}
+      {% set isLow = state_attr('sensor.humidity', 'low') %}
+      {% set lIcon = 'mdi:water-outline' %}
+      {% set nIcon = 'mdi:water-opacity' %}
+      {% set hIcon = 'mdi:water' %}
+      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
+    attributes:
+      normal: >
+        {% set isHight = state_attr('sensor.humidity', 'low') %}
+        {% set isLow = state_attr('sensor.humidity', 'hight') %}
+        {{ not(isLow) and not(isHight) }}
+      hight: >
+        {% set sensorValue = states('sensor.humidity') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = states('sensor.humidity') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      kitchen: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_humidity') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_humidity') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_humidity') | float(0) | round(1) }}"
+      balcony: "{{ states('sensor.balcony_humidity') | float(0) | round(1) }}"

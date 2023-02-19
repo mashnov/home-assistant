@@ -1,0 +1,42 @@
+- sensor:
+  - name: 'v_delay'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "{{ states('input_number.v_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+- binary_sensor:
+  - name: 'v_kitchen'
+    device_class: 'window'
+    state: "{{ state_attr('sensor.window', 'kitchen') }}"
+    delay_on: "{{ states('sensor.w_delay') }}"
+    delay_off: "{{ states('sensor.w_delay') }}"
+  - name: 'v_bedroom'
+    device_class: 'window'
+    state: "{{ state_attr('sensor.window', 'bedroom') }}"
+    delay_on: "{{ states('sensor.w_delay') }}"
+    delay_off: "{{ states('sensor.w_delay') }}"
+  - name: 'v_living'
+    device_class: 'window'
+    state: "{{ state_attr('sensor.window', 'living') }}"
+    delay_on: "{{ states('sensor.w_delay') }}"
+    delay_off: "{{ states('sensor.w_delay') }}"
+
+  - name: 'ventilation'
+    device_class: 'opening'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.ventilation', 'kitchen') %}
+      {% set bedroomValue = state_attr('binary_sensor.ventilation', 'bedroom') %}
+      {% set livingValue = state_attr('binary_sensor.ventilation', 'living') %}
+      {% set hallValue = state_attr('binary_sensor.ventilation', 'hall') %}
+      {{ kitchenValue or bedroomValue or livingValue or hallValue }}
+    icon: >
+      {% set isClose = is_state('binary_sensor.ventilation', 'off') %}
+      {% set cIcon = 'mdi:tailwind' %}
+      {% set oIcon = 'mdi:weather-windy' %}
+      {{ iif(isClose, nIcon, hIcon) }}
+    attributes:
+      kitchen: "{{ is_state('binary_sensor.v_kitchen', 'on') }}"
+      bedroom: "{{ is_state('binary_sensor.v_bedroom', 'on') }}"
+      living: "{{ is_state('binary_sensor.v_living', 'on') }}"
+      hall: "{{ is_state('binary_sensor.v_living', 'on') }}"
+

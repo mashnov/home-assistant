@@ -1,4 +1,0 @@
-- binary_sensor:
-  - name: 'd_balcony'
-    device_class: door
-    state: "{{ states('binary_sensor.living_bottom_window') }}"

@@ -1,0 +1,32 @@
+- binary_sensor:
+  - name: 'humidifier'
+    device_class: 'moisture'
+    state: >
+      {% set hallValue = state_attr('binary_sensor.humidifier', 'hall') %}
+      {% set bedroomValue = state_attr('binary_sensor.humidifier', 'bedroom') %}
+      {% set livingValue = state_attr('binary_sensor.humidifier', 'living') %}
+      {{ not(hallValue) and not(bedroomValue) and not(livingValue) }}
+    icon: >
+      {% set isNormal = is_state('binary_sensor.humidifier', 'off') %}
+      {% set nIcon = 'mdi:water-opacity' %}
+      {% set hIcon = 'mdi:water' %}
+      {{ iif(isNormal, nIcon, hIcon) }}
+    attributes:
+      hall: >
+        {% set sensorValue = state_attr('sensor.humidity', 'hall') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      bedroom: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bedroom') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      living: >
+        {% set sensorValue = state_attr('sensor.humidity', 'living') %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}

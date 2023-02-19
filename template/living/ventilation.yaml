@@ -1,7 +1,0 @@
-- binary_sensor:
-  - name: 'v_living'
-    device_class: window
-    icon: "{{ iif(is_state('binary_sensor.v_living', 'on'), 'mdi:weather-windy', 'mdi:tailwind') }}"
-    delay_on: "{{ states('sensor.v_duration') }}"
-    delay_off: "{{ states('sensor.v_duration') }}"
-    state: "{{ is_state('binary_sensor.w_living', 'on') }}"

@@ -1,4 +1,0 @@
-- binary_sensor:
-  - name: 'd_bedroom'
-    device_class: door
-    state: "{{ states('binary_sensor.bedroom_door') }}"
