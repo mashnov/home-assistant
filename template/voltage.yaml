@@ -22,8 +22,8 @@
         {% set bedroomValue = state_attr('sensor.voltage', 'bedroom') | float(0) %}
         {% set livingValue = state_attr('sensor.voltage', 'living') | float(0) %}
         {% set balcony1Value = state_attr('sensor.voltage', 'balcony1') | float(0) %}
-        {% set balcony2Value = state_attr('sensor.power', 'balcony2') | float(0) %}
-        {{ min(kitchenValue, bathValue, toiletValue, hallValue, bedroomValue, livingValue, balcony1Value, balcony2Value) }}
+        {% set balcony2Value = state_attr('sensor.voltage', 'balcony2') | float(0) %}
+        {{ min(kitchenValue, bathValue, hallValue, bedroomValue, livingValue, balcony1Value, balcony2Value) }}
       maximal: >
         {% set kitchenValue = state_attr('sensor.voltage', 'kitchen') | float(0) %}
         {% set bathValue = state_attr('sensor.voltage', 'bath') | float(0) %}
@@ -32,7 +32,7 @@
         {% set livingValue = state_attr('sensor.voltage', 'living') | float(0) %}
         {% set balcony1Value = state_attr('sensor.voltage', 'balcony1') | float(0) %}
         {% set balcony2Value = state_attr('sensor.voltage', 'balcony2') | float(0) %}
-        {{ max(kitchenValue, bathValue, toiletValue, hallValue, bedroomValue, livingValue, balcony1Value, balcony2Value) }}
+        {{ max(kitchenValue, bathValue, hallValue, bedroomValue, livingValue, balcony1Value, balcony2Value) }}
       kitchen: "{{ state_attr('sensor.kitchen_relay_power', 'voltage') }}"
       bath: "{{ state_attr('sensor.bath_relay_power', 'voltage')}}"
       toilet: "{{ state_attr('sensor.toilet_relay_power', 'voltage')}}"
