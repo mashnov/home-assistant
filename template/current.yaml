@@ -3,14 +3,14 @@
     unit_of_measurement: 'A'
     device_class: 'power'
     state: >
-      {% set kitchenValue = state_attr('sensor.power', 'kitchen') | float(0) %}
-      {% set bathValue = state_attr('sensor.power', 'bath') | float(0) %}
-      {% set toiletValue = state_attr('sensor.power', 'toilet') | float(0) %}
-      {% set hallValue = state_attr('sensor.power', 'hall') | float(0) %}
-      {% set bedroomValue = state_attr('sensor.power', 'bedroom') | float(0) %}
-      {% set livingValue = state_attr('sensor.power', 'living') | float(0) %}
-      {% set balcony1Value = state_attr('sensor.power', 'balcony1') | float(0) %}
-      {% set balcony2Value = state_attr('sensor.power', 'balcony2') | float(0) %}
+      {% set kitchenValue = state_attr('sensor.current', 'kitchen') | float(0) %}
+      {% set bathValue = state_attr('sensor.current', 'bath') | float(0) %}
+      {% set toiletValue = state_attr('sensor.current', 'toilet') | float(0) %}
+      {% set hallValue = state_attr('sensor.current', 'hall') | float(0) %}
+      {% set bedroomValue = state_attr('sensor.current', 'bedroom') | float(0) %}
+      {% set livingValue = state_attr('sensor.current', 'living') | float(0) %}
+      {% set balcony1Value = state_attr('sensor.current', 'balcony1') | float(0) %}
+      {% set balcony2Value = state_attr('sensor.current', 'balcony2') | float(0) %}
       {% set average = kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balcony1Value + balcony2Value %}
       {{ average | float(0) | round(1) }}
     icon: 'mdi:meter-electric-outline'
