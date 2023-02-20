@@ -1,0 +1,24 @@
+- binary_sensor:
+  - name: 'wall-switch'
+    state: >
+      {% set kitchenLeftValue = state_attr('binary_sensor.wallSwitch', 'kitchenLeft') %}
+      {% set kitchenRightValue = state_attr('binary_sensor.wallSwitch', 'kitchenRight') %}
+      {% set hallValue = state_attr('binary_sensor.wallSwitch', 'hall') %}
+      {% set bedroomLeftValue = state_attr('binary_sensor.wallSwitch', 'bedroomLeft') %}
+      {% set bedroomRightValue = state_attr('binary_sensor.wallSwitch', 'bedroomRight') %}
+      {% set livingLeftValue = state_attr('binary_sensor.wallSwitch', 'livingLeft') %}
+      {% set livingRightValue = state_attr('binary_sensor.wallSwitch', 'livingRight') %}
+      {{ kitchenLeftValue and kitchenRightValue and hallValue and bedroomLeftValue and bedroomRightValue and livingLeftValue and livingRightValue }}
+    icon: >
+      {% set isOn = is_state('binary_sensor.wallSwitch', 'on') %}
+      {% set cIcon = 'mdi:window-closed-variant' %}
+      {% set oIcon = 'mdi:window-open-variant' %}
+      {{ iif(isOn, nIcon, hIcon) }}
+    attributes:
+      kitchenLeft: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
+      kitchenRight: "{{ is_state('switch.kitchen_switch_right', 'on') }}" 
+      hall: "{{ is_state('switch.hall_switch', 'on') }}"
+      bedroomLeft: "{{ is_state('switch.bedroom_switch_left', 'on') }}"
+      bedroomRight: "{{ is_state('switch.bedroom_switch_right', 'on') }}"
+      livingLeft: "{{ is_state('switch.living_switch_left', 'on') }}"
+      livingRight: "{{ is_state('switch.living_switch_right', 'on') }}"
