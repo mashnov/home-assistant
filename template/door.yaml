@@ -36,9 +36,9 @@
     state: "{{ state_attr('binary_sensor.door', 'hall') }}"
     icon: >
       {% set isClose = is_state('binary_sensor.door', 'off') %}
-      {% set cIcon = 'mdi:door-closed' %}
-      {% set oIcon = 'mdi:door-open' %}
-      {{ iif(isClose, nIcon, hIcon) }}
+      {% set closeIcon = 'mdi:door-closed' %}
+      {% set openIcon = 'mdi:door-open' %}
+      {{ iif(isClose, closeIcon, openIcon) }}
     attributes:
       toilet: "{{ is_state('binary_sensor.d_toilet', 'on') }}"
       hall: "{{ is_state('binary_sensor.d_hall', 'on') }}"
