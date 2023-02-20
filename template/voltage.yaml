@@ -1,0 +1,25 @@
+- sensor:
+  - name: 'voltage'
+    unit_of_measurement: 'V'
+    device_class: 'power'
+    state: >
+      {% set kitchenValue = state_attr('sensor.power', 'kitchen') | float(0) %}
+      {% set bathValue = state_attr('sensor.power', 'bath') | float(0) %}
+      {% set toiletValue = state_attr('sensor.power', 'toilet') | float(0) %}
+      {% set hallValue = state_attr('sensor.power', 'hall') | float(0) %}
+      {% set bedroomValue = state_attr('sensor.power', 'bedroom') | float(0) %}
+      {% set livingValue = state_attr('sensor.power', 'living') | float(0) %}
+      {% set balconyValue1 = state_attr('sensor.power', 'balcony1') | float(0) %}
+      {% set balconyValue2 = state_attr('sensor.power', 'balcony2') | float(0) %}
+      {% set average = (kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balconyValue1 + balconyValue2) / 7 %}
+      {{ average | float(0) | round(1) }}
+    icon: 'mdi:meter-electric-outline'
+    attributes:
+      kitchenV: "{{ state_attr('sensor.kitchen_relay_power', 'voltage') }}"
+      bathV: "{{ state_attr('sensor.bath_relay_power', 'voltage')}}"
+      toiletV: "{{ state_attr('sensor.toilet_relay_power', 'voltage')}}"
+      hallV: "{{ state_attr('sensor.hall_relay_power', 'voltage')}}"
+      bedroomV: "{{ state_attr('sensor.bedroom_relay_power', 'voltage')}}"
+      livingV: "{{ state_attr('sensor.living_relay_power', 'voltage')}}"
+      balcony1V: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage')}}"
+      balcony2V: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage')}}"

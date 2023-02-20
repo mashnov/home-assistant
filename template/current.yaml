@@ -1,6 +1,6 @@
 - sensor:
-  - name: 'power'
-    unit_of_measurement: 'W'
+  - name: 'current'
+    unit_of_measurement: 'A'
     device_class: 'power'
     state: >
       {% set kitchenValue = state_attr('sensor.power', 'kitchen') | float(0) %}
@@ -15,11 +15,11 @@
       {{ average | float(0) | round(1) }}
     icon: 'mdi:meter-electric-outline'
     attributes:
-      kitchen: "{{ states('sensor.kitchen_relay_power')}}"
-      bath: "{{ states('sensor.bath_relay_power')}}"
-      toilet: "{{ states('sensor.toilet_relay_power')}}"
-      hall: "{{ states('sensor.hall_relay_power')}}"
-      bedroom: "{{ states('sensor.bedroom_relay_power')}}"
-      living: "{{ states('sensor.living_relay_power')}}"
-      balcony1: "{{ states('sensor.balcony_socket_relay_power')}}"
-      balcony2: "{{ states('sensor.balcony_light_relay_power_2')}}"
+      kitchen: "{{ state_attr('sensor.kitchen_relay_power', 'current') }}"
+      bath: "{{ state_attr('sensor.bath_relay_power', 'current')}}"
+      toilet: "{{ state_attr('sensor.toilet_relay_power', 'current')}}"
+      hall: "{{ state_attr('sensor.hall_relay_power', 'current')}}"
+      bedroom: "{{ state_attr('sensor.bedroom_relay_power', 'current')}}"
+      living: "{{ state_attr('sensor.living_relay_power', 'current')}}"
+      balcony1: "{{ state_attr('sensor.balcony_socket_relay_power', 'current')}}"
+      balcony2: "{{ state_attr('sensor.balcony_light_relay_power_2', 'current')}}"
