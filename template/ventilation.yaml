@@ -25,10 +25,10 @@
     device_class: 'opening'
     state: >
       {% set kitchenValue = state_attr('binary_sensor.ventilation', 'kitchen') %}
+      {% set hallValue = state_attr('binary_sensor.ventilation', 'hall') %}
       {% set bedroomValue = state_attr('binary_sensor.ventilation', 'bedroom') %}
       {% set livingValue = state_attr('binary_sensor.ventilation', 'living') %}
-      {% set hallValue = state_attr('binary_sensor.ventilation', 'hall') %}
-      {{ kitchenValue or bedroomValue or livingValue or hallValue }}
+      {{ kitchenValue or hallValue or bedroomValue or livingValue }}
     icon: >
       {% set isClose = is_state('binary_sensor.ventilation', 'off') %}
       {% set cIcon = 'mdi:tailwind' %}
@@ -37,6 +37,17 @@
     attributes:
       kitchen: "{{ is_state('binary_sensor.v_kitchen', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.v_bedroom', 'on') }}"
-      living: "{{ is_state('binary_sensor.v_living', 'on') }}"
-      hall: "{{ is_state('binary_sensor.v_living', 'on') }}"
-
+      living: > 
+        {% set livingValue = is_state('binary_sensor.v_living', 'on') %}
+        {% set balconyValue = state_attr('binary_sensor.door', 'balcony') %}
+        {{ livingValue or balconyValue }}
+      hall: >
+        {% set d_hall = state_attr('binary_sensor.door', 'hall') %}
+        {% set d_bedroom = state_attr('binary_sensor.door', 'bedroom') %}
+        {% set d_living = state_attr('binary_sensor.door', 'living') %}
+        {% set v_kitchen = state_attr('binary_sensor.ventilation', 'kitchen') %}
+        {% set v_bedroom = state_attr('binary_sensor.ventilation', 'bedroom') %}
+        {% set v_living = state_attr('binary_sensor.ventilation', 'living') %}
+        {% set bedroomValue = v_bedroom and d_bedroom %}
+        {% set livingValue = v_living and d_living %}
+        {{ v_kitchen or d_hall or bedroomValue or livingValue }}
