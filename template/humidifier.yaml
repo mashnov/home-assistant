@@ -2,9 +2,9 @@
   - name: 'humidifier'
     device_class: 'moisture'
     state: >
-      {% set hallValue = state_attr('binary_sensor.humidifier', 'hall') %}
-      {% set bedroomValue = state_attr('binary_sensor.humidifier', 'bedroom') %}
-      {% set livingValue = state_attr('binary_sensor.humidifier', 'living') %}
+      {% set hallValue = state_attr('binary_sensor.humidifier', 'hallIsDry') %}
+      {% set bedroomValue = state_attr('binary_sensor.humidifier', 'bedroomIsDry') %}
+      {% set livingValue = state_attr('binary_sensor.humidifier', 'livingIsDry') %}
       {{ not(hallValue) and not(bedroomValue) and not(livingValue) }}
     icon: >
       {% set isNormal = is_state('binary_sensor.humidifier', 'off') %}
@@ -12,21 +12,33 @@
       {% set hIcon = 'mdi:water' %}
       {{ iif(isNormal, nIcon, hIcon) }}
     attributes:
-      hall: >
+      hallIsDry: >
         {% set sensorValue = state_attr('sensor.humidity', 'hall') %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
-      bedroom: >
+      hallPermission: >
+        {% set isDry = state_attr('sensor.humidifier', 'hallIsDry') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'hall') %}
+        {{ isDry and not(isVentilation) }}
+      bedroomIsDry: >
         {% set sensorValue = state_attr('sensor.humidity', 'bedroom') %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
-      living: >
+      bedroomPermission: >
+        {% set isDry = state_attr('sensor.humidifier', 'bedroomIsDry') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'bedroom') %}
+        {{ isDry and not(isVentilation) }}
+      livingIsDry: >
         {% set sensorValue = state_attr('sensor.humidity', 'living') %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
+      livingPermission: >
+        {% set isDry = state_attr('sensor.humidifier', 'livingIsDry') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'living') %}
+        {{ isDry and not(isVentilation) }}
