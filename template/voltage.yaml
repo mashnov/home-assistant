@@ -15,11 +15,11 @@
       {{ average | float(0) | round(1) }}
     icon: 'mdi:meter-electric-outline'
     attributes:
-      kitchenV: "{{ state_attr('sensor.kitchen_relay_power', 'voltage') }}"
-      bathV: "{{ state_attr('sensor.bath_relay_power', 'voltage')}}"
-      toiletV: "{{ state_attr('sensor.toilet_relay_power', 'voltage')}}"
-      hallV: "{{ state_attr('sensor.hall_relay_power', 'voltage')}}"
-      bedroomV: "{{ state_attr('sensor.bedroom_relay_power', 'voltage')}}"
-      livingV: "{{ state_attr('sensor.living_relay_power', 'voltage')}}"
-      balcony1V: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage')}}"
-      balcony2V: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage')}}"
+      kitchen: "{{ state_attr('sensor.kitchen_relay_power', 'voltage') }}"
+      bath: "{{ state_attr('sensor.bath_relay_power', 'voltage')}}"
+      toilet: "{{ state_attr('sensor.toilet_relay_power', 'voltage')}}"
+      hall: "{{ state_attr('sensor.hall_relay_power', 'voltage')}}"
+      bedroom: "{{ state_attr('sensor.bedroom_relay_power', 'voltage')}}"
+      living: "{{ state_attr('sensor.living_relay_power', 'voltage')}}"
+      balcony1: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage')}}"
+      balcony2: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage')}}"
