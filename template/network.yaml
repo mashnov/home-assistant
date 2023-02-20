@@ -4,6 +4,6 @@
     state: "{{ state_attr('sensor.network', 'download') }}"
     icon: 'mdi:speedometer'
     attributes:
-      download: "{{ states('sensor.speedtest_download') | float(0) | round(1) }}"
-      upload: "{{ states('sensor.speedtest_upload') | float(0) | round(1) }}"
-      ping: "{{ states('sensor.speedtest_ping') | float(0) | round(1) }}"
+      download: "{{ states('sensor.speedtest_download') }}"
+      upload: "{{ states('sensor.speedtest_upload') }}"
+      ping: "{{ states('sensor.speedtest_ping') }}"

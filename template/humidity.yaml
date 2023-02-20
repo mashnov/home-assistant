@@ -32,9 +32,9 @@
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue }}
-      kitchen: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
-      bath: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
-      hall: "{{ states('sensor.hall_humidity') | float(0) | round(1) }}"
-      bedroom: "{{ states('sensor.bedroom_humidity') | float(0) | round(1) }}"
-      living: "{{ states('sensor.living_humidity') | float(0) | round(1) }}"
-      balcony: "{{ states('sensor.balcony_humidity') | float(0) | round(1) }}"
+      kitchen: "{{ states('sensor.kitchen_humidity') }}"
+      bath: "{{ states('sensor.bath_humidity') }}"
+      hall: "{{ states('sensor.hall_humidity') }}"
+      bedroom: "{{ states('sensor.bedroom_humidity') }}"
+      living: "{{ states('sensor.living_humidity') }}"
+      balcony: "{{ states('sensor.balcony_humidity') }}"
