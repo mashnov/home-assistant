@@ -1,4 +1,9 @@
 - sensor:
+  - name: 'pw_delay'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "{{ states('input_number.pw_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
   - name: 'power'
     unit_of_measurement: 'W'
     device_class: 'power'
@@ -9,8 +14,8 @@
       {% set hallValue = state_attr('sensor.power', 'hall') | float(0) %}
       {% set bedroomValue = state_attr('sensor.power', 'bedroom') | float(0) %}
       {% set livingValue = state_attr('sensor.power', 'living') | float(0) %}
-      {% set balcony1Value = state_attr('sensor.power', 'balcony1') | float(0) %}
-      {% set balcony2Value = state_attr('sensor.power', 'balcony2') | float(0) %}
+      {% set balcony1Value = state_attr('sensor.power', 'balcony_1') | float(0) %}
+      {% set balcony2Value = state_attr('sensor.power', 'balcony_2') | float(0) %}
       {% set average = kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balcony1Value + balcony2Value %}
       {{ average | float(0) | round(1) }}
     icon: 'mdi:meter-electric-outline'
@@ -21,5 +26,5 @@
       hall: "{{ states('sensor.hall_relay_power')}}"
       bedroom: "{{ states('sensor.bedroom_relay_power')}}"
       living: "{{ states('sensor.living_relay_power')}}"
-      balcony1: "{{ states('sensor.balcony_socket_relay_power')}}"
-      balcony2: "{{ states('sensor.balcony_light_relay_power_2')}}"
+      balcony_1: "{{ states('sensor.balcony_socket_relay_power')}}"
+      balcony_2: "{{ states('sensor.balcony_light_relay_power_2')}}"

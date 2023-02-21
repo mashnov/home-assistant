@@ -4,9 +4,9 @@
     state: "{{ state_attr('binary_sensor.dehumidifier', 'bath') }}"
     icon: >
       {% set isNormal = is_state('binary_sensor.dehumidifier', 'off') %}
-      {% set nIcon = 'mdi:water-opacity' %}
-      {% set hIcon = 'mdi:water' %}
-      {{ iif(isNormal, nIcon, hIcon) }}
+      {% set normalIcon = 'mdi:water-opacity' %}
+      {% set hightIcon = 'mdi:water' %}
+      {{ iif(isNormal, normalIcon, hightIcon) }}
     attributes:
       bath: >
         {% set sensorValue = state_attr('sensor.humidity', 'bath') %}

@@ -8,9 +8,9 @@
       {{ kitchenValue or bedroomValue or livingValue }}
     icon: >
       {% set isClose = is_state('binary_sensor.window', 'off') %}
-      {% set cIcon = 'mdi:window-closed-variant' %}
-      {% set oIcon = 'mdi:window-open-variant' %}
-      {{ iif(isClose, nIcon, hIcon) }}
+      {% set closeIcon = 'mdi:window-closed-variant' %}
+      {% set openIcon = 'mdi:window-open-variant' %}
+      {{ iif(isClose, closeIcon, openIcon) }}
     attributes:
       kitchen_left: "{{ is_state('binary_sensor.kitchen_window_left', 'on') }}"
       kitchen_right: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"

@@ -11,10 +11,10 @@
     icon: >
       {% set isNormal = state_attr('sensor.temperature', 'normal') %}
       {% set isLow = state_attr('sensor.temperature', 'low') %}
-      {% set lIcon = 'mdi:snowflake' %}
-      {% set nIcon = 'mdi:check-decagram-outline' %}
-      {% set hIcon = 'mdi:fire' %}
-      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
+      {% set lowIcon = 'mdi:thermometer-chevron-down' %}
+      {% set normalIcon = 'mdi:thermometer-check' %}
+      {% set hightIcon = 'mdi:thermometer-chevron-up' %}
+      {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
     attributes:
       normal: >
         {% set isHight = state_attr('sensor.temperature', 'low') %}

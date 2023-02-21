@@ -11,10 +11,10 @@
     icon: >
       {% set isNormal = state_attr('sensor.humidity', 'normal') %}
       {% set isLow = state_attr('sensor.humidity', 'low') %}
-      {% set lIcon = 'mdi:water-outline' %}
-      {% set nIcon = 'mdi:water-opacity' %}
-      {% set hIcon = 'mdi:water' %}
-      {{ iif(isNormal, nIcon, iif(isLow, lIcon, hIcon)) }}
+      {% set lowIcon = 'mdi:water-outline' %}
+      {% set normalIcon = 'mdi:water-opacity' %}
+      {% set hightIcon = 'mdi:water' %}
+      {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
     attributes:
       normal: >
         {% set isHight = state_attr('sensor.humidity', 'low') %}

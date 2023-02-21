@@ -9,8 +9,8 @@
       {% set hallValue = state_attr('sensor.voltage', 'hall') | float(0) %}
       {% set bedroomValue = state_attr('sensor.voltage', 'bedroom') | float(0) %}
       {% set livingValue = state_attr('sensor.voltage', 'living') | float(0) %}
-      {% set balconyValue1 = state_attr('sensor.voltage', 'balcony1') | float(0) %}
-      {% set balconyValue2 = state_attr('sensor.voltage', 'balcony2') | float(0) %}
+      {% set balconyValue1 = state_attr('sensor.voltage', 'balcony_1') | float(0) %}
+      {% set balconyValue2 = state_attr('sensor.voltage', 'balcony_2') | float(0) %}
       {% set average = (kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balconyValue1 + balconyValue2) / 7 %}
       {{ average | float(0) | round(1) }}
     icon: 'mdi:meter-electric-outline'
@@ -21,5 +21,5 @@
       hall: "{{ state_attr('sensor.hall_relay_power', 'voltage')}}"
       bedroom: "{{ state_attr('sensor.bedroom_relay_power', 'voltage')}}"
       living: "{{ state_attr('sensor.living_relay_power', 'voltage')}}"
-      balcony1: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage')}}"
-      balcony2: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage')}}"
+      balcony_1: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage')}}"
+      balcony_2: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage')}}"
