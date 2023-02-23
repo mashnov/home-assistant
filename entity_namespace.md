@@ -36,6 +36,7 @@
 - pw - power
 
 ## light
-- tl - toplight
-- bl - backlight
-- nl - nightlight
+- tl - top light
+- bl - back light
+- nl - nigh tlight
+- pl - party light
