@@ -1,0 +1,15 @@
+- sensor:
+  - name: 'dl_window'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "{{ states('input_number.dl_window') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - name: 'dl_power'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "{{ states('input_number.dl_power') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - name: 'dl_door'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"

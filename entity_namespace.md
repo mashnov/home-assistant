@@ -1,7 +1,5 @@
 ## sensors: 
 - c - curtain
-- d - door
-- w - window
 - v - ventilastio
 - t - temperature
 - h - humidity
@@ -34,6 +32,13 @@
 - t - temperature
 - h - humidity
 - pw - power
+
+#
+## sensors: 
+- d - door
+- w - window
+- vr - virtual
+- dl - delay
 
 ## light
 - tl - top light

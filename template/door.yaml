@@ -1,36 +1,4 @@
-- sensor:
-  - name: 'd_delay'
-    device_class: duration
-    icon: 'mdi:camera-timer'
-    state: "{{ states('input_number.d_delay') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-
 - binary_sensor:
-  - name: 'd_toilet'
-    device_class: 'door'
-    state: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
-    delay_on: "{{ states('sensor.d_delay') }}"
-    delay_off: "{{ states('sensor.d_delay') }}"
-  - name: 'd_hall'
-    device_class: 'door'
-    state: "{{ is_state('binary_sensor.hall_door', 'on') }}"
-    delay_on: "{{ states('sensor.d_delay') }}"
-    delay_off: "{{ states('sensor.d_delay') }}"
-  - name: 'd_bedroom'
-    device_class: 'door'
-    state: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
-    delay_on: "{{ states('sensor.d_delay') }}"
-    delay_off: "{{ states('sensor.d_delay') }}"
-  - name: 'd_living'
-    device_class: 'door'
-    state: "{{ is_state('binary_sensor.living_door', 'on') }}"
-    delay_on: "{{ states('sensor.d_delay') }}"
-    delay_off: "{{ states('sensor.d_delay') }}"
-  - name: 'd_balcony'
-    device_class: 'door'
-    state: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
-    delay_on: "{{ states('sensor.d_delay') }}"
-    delay_off: "{{ states('sensor.d_delay') }}"
-
   - name: 'door'
     device_class: 'door'
     state: "{{ state_attr('binary_sensor.door', 'hall') }}"
@@ -40,8 +8,8 @@
       {% set openIcon = 'mdi:door-open' %}
       {{ iif(isClose, closeIcon, openIcon) }}
     attributes:
-      toilet: "{{ is_state('binary_sensor.d_toilet', 'on') }}"
-      hall: "{{ is_state('binary_sensor.d_hall', 'on') }}"
-      bedroom: "{{ is_state('binary_sensor.d_bedroom', 'on') }}"
-      living: "{{ is_state('binary_sensor.d_living', 'on') }}"
-      balcony: "{{ is_state('binary_sensor.d_balcony', 'on') }}"
+      toilet: "{{ is_state('binary_sensor.vr_door_toilet', 'on') }}"
+      hall: "{{ is_state('binary_sensor.vr_door_hall', 'on') }}"
+      bedroom: "{{ is_state('binary_sensor.vr_door_bedroom', 'on') }}"
+      living: "{{ is_state('binary_sensor.vr_door_living', 'on') }}"
+      balcony: "{{ is_state('binary_sensor.vr_door_balcony', 'on') }}"

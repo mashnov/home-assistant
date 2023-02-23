@@ -1,40 +1,4 @@
 - binary_sensor:
-  - name: 'h_hall_is_empty'
-    delay_on: "{{ states('sensor.pw_delay') }}"
-    state: >
-      {% set backlightIsOn = is_state('binary_sensor.sw_hall_backlight', 'on') %}
-      {% set humidifierIsOn = is_state('binary_sensor.sw_hall_humidifier', 'on') %}
-      {% set humidifierMinPower = 1 %}
-      {% set backlightMinPower = states('input_number.pw_offset_hall') | int(0) %}
-      {% set relayMinPower = backlightMinPower + humidifierMinPower %}
-      {% set sensorValue = states('sensor.pw_hall') | int(relayMinPower) %}
-      {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
-      {{ humidifierIsOn and (sensorValue <= expectedValue) }}
-
-  - name: 'h_bedroom_is_empty'
-    delay_on: "{{ states('sensor.pw_delay') }}"
-    state: >
-      {% set backlightIsOn = is_state('binary_sensor.sw_bedroom_backlight', 'on') %}
-      {% set humidifierIsOn = is_state('binary_sensor.sw_bedroom_humidifier', 'on') %}
-      {% set humidifierMinPower = 1 %}
-      {% set backlightMinPower = states('input_number.pw_offset_bedroom') | int(0) %}
-      {% set relayMinPower = backlightMinPower + humidifierMinPower %}
-      {% set sensorValue = states('sensor.pw_bedroom') | int(relayMinPower) %}
-      {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
-      {{ humidifierIsOn and (sensorValue <= expectedValue) }}
-
-  - name: 'h_living_is_empty'
-    delay_on: "{{ states('sensor.pw_delay') }}"
-    state: >
-      {% set backlightIsOn = is_state('binary_sensor.sw_living_backlight', 'on') %}
-      {% set humidifierIsOn = is_state('binary_sensor.sw_living_humidifier', 'on') %}
-      {% set humidifierMinPower = 1 %}
-      {% set backlightMinPower = states('input_number.pw_offset_living') | int(0) %}
-      {% set relayMinPower = backlightMinPower + humidifierMinPower %}
-      {% set sensorValue = states('sensor.pw_living') | int(relayMinPower) %}
-      {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
-      {{ humidifierIsOn and (sensorValue <= expectedValue) }}
-
   - name: 'humidifier-empty'
     state: >
       {% set hallValue = state_attr('binary_sensor.humidifier_empty', 'hall') %}
@@ -47,9 +11,9 @@
       {% set hIcon = 'mdi:water' %}
       {{ iif(isNormal, nIcon, hIcon) }}
     attributes:
-      hall: "{{ is_state(binary_sensor.h_hall_is_empty) }}"
-      bedroom: "{{ is_state(binary_sensor.h_bedroom_is_empty) }}"
-      living: "{{ is_state(binary_sensor.h_living_is_empty) }}"
+      hall: "{{ is_state(binary_sensor.vr_humidifier_hall_is_empty) }}"
+      bedroom: "{{ is_state(binary_sensor.vr_humidifier_bedroom_is_empty) }}"
+      living: "{{ is_state(binary_sensor.vr_humidifier_living_is_empty) }}"
 
   - name: 'humidifier-permission'
     state: >
