@@ -1,9 +1,9 @@
 - sensor:
   - name: 'date-time'
     device_class: 'date'
-    state: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
+    state: "{{ state_attr('sensor.date_time', 'date_time') }}"
     icon: "mdi:calendar-clock"
     attributes:
       time: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
       date: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y") }}'
-      date_time: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M:%S") }}'
+      date_time: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
