@@ -1,7 +1,7 @@
 - sensor:
   - name: 'power'
-    unit_of_measurement: 'W'
     device_class: 'power'
+    unit_of_measurement: 'W'
     state: >
       {% set kitchenValue = state_attr('sensor.power', 'kitchen') | float(0) %}
       {% set bathValue = state_attr('sensor.power', 'bath') | float(0) %}
@@ -25,8 +25,8 @@
       balcony_2: "{{ states('sensor.balcony_light_relay_power_2')}}"
 
   - name: 'voltage'
+    device_class: 'voltage'
     unit_of_measurement: 'V'
-    device_class: 'power'
     state: >
       {% set kitchenValue = state_attr('sensor.voltage', 'kitchen') | float(0) %}
       {% set bathValue = state_attr('sensor.voltage', 'bath') | float(0) %}

@@ -1,5 +1,6 @@
 - sensor:
   - name: 'network'
+    device_class: 'data_rate'
     unit_of_measurement: Mbit/s
     state: "{{ state_attr('sensor.network', 'download') }}"
     icon: >

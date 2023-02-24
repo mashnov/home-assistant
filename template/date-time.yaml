@@ -1,5 +1,6 @@
 - sensor:
   - name: 'date-time'
+    device_class: 'date'
     state: "{{ state_attr('sensor.date_time', 'date_time') }}"
     icon: "mdi:calendar-clock"
     attributes:

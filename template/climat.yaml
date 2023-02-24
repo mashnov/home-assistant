@@ -1,7 +1,7 @@
 - sensor:
   - name: 'temperature'
-    unit_of_measurement: '°C'
     device_class: 'temperature'
+    unit_of_measurement: '°C'
     state: >
       {% set kitchen = state_attr('sensor.temperature', 'kitchen') | float(0) %}
       {% set hall = state_attr('sensor.temperature', 'hall') | float(0) %}
@@ -40,8 +40,8 @@
       balcony: "{{ states('sensor.balcony_temperature') }}"
 
   - name: 'humidity'
-    unit_of_measurement: '%'
     device_class: 'humidity'
+    unit_of_measurement: '%'
     state: >
       {% set kitchen = state_attr('sensor.humidity', 'kitchen') | float(0) %}
       {% set hall = state_attr('sensor.humidity', 'hall') | float(0) %}
@@ -81,8 +81,8 @@
 
 
   - name: 'pressure'
-    unit_of_measurement: 'mmHg'
     device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
     state: >
       {% set kitchen = state_attr('sensor.pressure', 'kitchen') | float(0) %}
       {% set bath = state_attr('sensor.pressure', 'bath') | float(0) %}
@@ -119,3 +119,45 @@
       hall: "{{ states('sensor.hall_pressure') }}"
       bedroom: "{{ states('sensor.bedroom_pressure') }}"
       living: "{{ states('sensor.living_pressure') }}"
+
+  - name: 'sun'
+    device_class: 'illuminance'
+    unit_of_measurement: 'lx'
+    state: '{{ state_attr("sensor.sun", "illuminance") }}'
+    icon: >
+      {% set isHight = state_attr('sensor.sun', 'hight') %}
+      {% set hightIcon = 'mdi:sun-wireless' %}
+      {% set lowIcon = 'mdi:weather-sunny' %}
+      {{ iif(isHight, hightIcon, lowIcon) }}
+    attributes:
+      illuminance: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) | round(1) }}'
+      azimuth: '{{ state_attr("sun.sun", "azimuth") }}'
+      elevation: '{{ state_attr("sun.sun", "elevation") }}'
+      hight: >
+        {% set azimuthSensor = state_attr('sun', 'azimuth') | int(0) %}
+        {% set azimuthTarget = states('input_number.c_azimuth_target') | int(0) %}
+        {% set azimuthOffset = states('input_number.c_azimuth_offset') | int(0) %}
+        {% set azimuthMinValue = azimuthTarget - azimuthOffset %}
+        {% set azimuthMaxValue = azimuthTarget + azimuthOffset %}
+        {% set azimuthValue = azimuthMinValue < azimuthSensor < azimuthMaxValue %}
+        {% set elevationSensor = state_attr('sun', 'elevation') | int(0) %}
+        {% set elevationTarget = states('input_number.c_elevation_target') | int(0) %}
+        {% set elevationOffset = states('input_number.c_elevation_offset') | int(0) %}        
+        {% set elevationMinValue = elevationTarget - elevationOffset %}
+        {% set elevationMaxValue = elevationTarget + elevationOffset %}
+        {% set elevationValue = elevationMinValue < elevationSensor < elevationMaxValue %}
+        {{ azimuthValue and elevationValue }}
+
+- binary_sensor:
+  - name: 'cloud'
+    state: >
+      {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
+      {% set targetValue = states('input_number.c_cloud_target') | int(0) %}
+      {{ sensorValue > targetValue }}
+    icon: >
+      {% set isHight = is_state('binary_sensor.cloud', 'on') %}
+      {% set hightIcon = 'mdi:apple-icloud' %}
+      {% set lowIcon = 'mdi:cloud-outline' %}
+      {{ iif(isHight, hightIcon, lowIcon) }}
+    attributes:
+      level: '{{ states("sensor.openweathermap_cloud_coverage") }}'
