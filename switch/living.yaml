@@ -1,8 +1,8 @@
 - platform: template
   switches:
     h_living:
-      value_template: '{{ is_state("binary_sensor.sw_living_humidifier", "on") }}'
-      icon_template: '{{ iif(is_state("binary_sensor.h_living_is_empty", "off"), "mdi:air-humidifier", "mdi:water-alert-outline") }}'
+      value_template: "{{ state_attr('sensor.relay', 'living_1') }}"
+      icon_template: "{{ iif(state_attr('sensor.humidifier_empty', 'living'), 'mdi:air-humidifier', 'mdi:water-alert-outline') }}"
       turn_off: 
         service: script.h_living_off
       turn_on: 
