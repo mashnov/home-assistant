@@ -5,22 +5,11 @@
     state: "{{ state_attr('sensor.network', 'download') }}"
     icon: >
       {% set isNormal = state_attr('sensor.network', 'normal') %}
-      {% set isLow = state_attr('sensor.network', 'low') %}
-      {% set lowIcon = 'mdi:speedometer-slow' %}
       {% set normalIcon = 'mdi:speedometer' %}
-      {% set hightIcon = 'mdi:speedometer-medium' %}
-      {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
+      {% set lowIcon = 'mdi:speedometer-slow' %}
+      {{ iif(isNormal, normalIcon, lowIcon) }}
     attributes:
-      normal: >
-        {% set isHight = state_attr('sensor.network', 'low') %}
-        {% set isLow = state_attr('sensor.network', 'hight') %}
-        {{ not(isLow) and not(isHight) }}
-      hight: >
-        {% set sensorValue = state_attr('sensor.network', 'download') %}
-        {% set normalValue = states('input_number.n_target') | int(0) %}
-        {% set offsetValue = states('input_number.n_offset') | int(0) %}
-        {% set targetValue = normalValue + offsetValue %}
-        {{ sensorValue > targetValue }}
+      normal: "{{ not(state_attr('sensor.network', 'low')) }}"
       low: >
         {% set sensorValue = state_attr('sensor.network', 'download') %}
         {% set normalValue = states('input_number.n_target') | int(0) %}
