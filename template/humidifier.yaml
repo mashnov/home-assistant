@@ -11,9 +11,9 @@
       {% set hIcon = 'mdi:water' %}
       {{ iif(isNormal, nIcon, hIcon) }}
     attributes:
-      hall: "{{ is_state(binary_sensor.vr_humidifier_hall_is_empty) }}"
-      bedroom: "{{ is_state(binary_sensor.vr_humidifier_bedroom_is_empty) }}"
-      living: "{{ is_state(binary_sensor.vr_humidifier_living_is_empty) }}"
+      hall: "{{ is_state('binary_sensor.vr_humidifier_hall_is_empty', 'on') }}"
+      bedroom: "{{ is_state('binary_sensor.vr_humidifier_bedroom_is_empty', 'on') }}"
+      living: "{{ is_state('binary_sensor.vr_humidifier_living_is_empty', 'on') }}"
 
   - name: 'humidifier-permission'
     state: >
