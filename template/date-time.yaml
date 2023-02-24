@@ -7,3 +7,10 @@
       time: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
       date: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y") }}'
       date_time: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
+
+  - name: 'date-time2'
+    device_class: 'date'
+    state: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
+
+  - name: 'date-time3'
+    state: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
