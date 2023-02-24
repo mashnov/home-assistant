@@ -17,8 +17,8 @@
       {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
     attributes:
       normal: >
-        {% set isHight = state_attr('sensor.temperature', 'low') %}
-        {% set isLow = state_attr('sensor.temperature', 'hight') %}
+        {% set isHight = state_attr('sensor.temperature', 'hight') %}
+        {% set isLow = state_attr('sensor.temperature', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
         {% set sensorValue = states('sensor.temperature') %}
@@ -57,8 +57,8 @@
       {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
     attributes:
       normal: >
-        {% set isHight = state_attr('sensor.humidity', 'low') %}
-        {% set isLow = state_attr('sensor.humidity', 'hight') %}
+        {% set isHight = state_attr('sensor.humidity', 'hight') %}
+        {% set isLow = state_attr('sensor.humidity', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
         {% set sensorValue = states('sensor.humidity') %}
@@ -99,8 +99,8 @@
       {{ iif(isNormal, normalIcon, iif(isLow, lowIcon, hightIcon)) }}
     attributes:
       normal: >
-        {% set isHight = state_attr('sensor.pressure', 'low') %}
-        {% set isLow = state_attr('sensor.pressure', 'hight') %}
+        {% set isHight = state_attr('sensor.pressure', 'hight') %}
+        {% set isLow = state_attr('sensor.pressure', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
         {% set sensorValue = states('sensor.pressure') %}
@@ -153,7 +153,7 @@
     state: >
       {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
       {% set targetValue = states('input_number.c_cloud_target') | int(0) %}
-      {{ sensorValue > targetValue }}
+      {{ targetValue > sensorValue }}
     icon: >
       {% set isHight = is_state('binary_sensor.cloud', 'on') %}
       {% set hightIcon = 'mdi:apple-icloud' %}
