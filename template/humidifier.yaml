@@ -7,9 +7,9 @@
       {{ hallValue or bedroomValue or livingValue }}
     icon: >
       {% set isNormal = is_state('binary_sensor.humidifier_empty', 'off') %}
-      {% set nIcon = 'mdi:water-opacity' %}
-      {% set hIcon = 'mdi:water' %}
-      {{ iif(isNormal, nIcon, hIcon) }}
+      {% set normalIcon = 'mdi:water' %}
+      {% set lowIcon = 'mdi:water-opacity' %}
+      {{ iif(isNormal, normalIcon, lowIcon) }}
     attributes:
       hall: "{{ is_state('binary_sensor.vr_humidifier_hall_is_empty', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_humidifier_bedroom_is_empty', 'on') }}"
@@ -20,12 +20,12 @@
       {% set hallValue = state_attr('binary_sensor.humidifier_permission', 'hall') %}
       {% set bedroomValue = state_attr('binary_sensor.humidifier_permission', 'bedroom') %}
       {% set livingValue = state_attr('binary_sensor.humidifier_permission', 'living') %}
-      {{ not(hallValue) and not(bedroomValue) and not(livingValue) }}
+      {{ hallValue or bedroomValue or livingValue }}
     icon: >
-      {% set isNormal = is_state('binary_sensor.humidifier_permission', 'off') %}
-      {% set nIcon = 'mdi:water-opacity' %}
-      {% set hIcon = 'mdi:water' %}
-      {{ iif(isNormal, nIcon, hIcon) }}
+      {% set isEnabled = is_state('binary_sensor.humidifier_permission', 'on') %}
+      {% set disableIcon = 'mdi:light-switch-off' %}
+      {% set enableIcon = 'mdi:light-switch' %}
+      {{ iif(isEnabled, enableIcon, disableIcon) }}
     attributes:
       hall: >
         {% set isVentilation = state_attr('sensor.ventilation', 'hall') %}
