@@ -21,13 +21,13 @@
         {% set isLow = state_attr('sensor.temperature', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
-        {% set sensorValue = states('sensor.temperature') %}
+        {% set sensorValue = states('sensor.temperature') | int(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
         {{ sensorValue > targetValue }}
       low: >
-        {% set sensorValue = states('sensor.temperature') %}
+        {% set sensorValue = states('sensor.temperature') | int(0) %}
         {% set normalValue = states('input_number.t_target') | int(0) %}
         {% set offsetValue = states('input_number.t_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
@@ -61,13 +61,13 @@
         {% set isLow = state_attr('sensor.humidity', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
-        {% set sensorValue = states('sensor.humidity') %}
+        {% set sensorValue = states('sensor.humidity') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
         {{ sensorValue > targetValue }}
       low: >
-        {% set sensorValue = states('sensor.humidity') %}
+        {% set sensorValue = states('sensor.humidity') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
@@ -102,13 +102,13 @@
         {% set isLow = state_attr('sensor.pressure', 'low') %}
         {{ not(isLow) and not(isHight) }}
       hight: >
-        {% set sensorValue = states('sensor.pressure') %}
+        {% set sensorValue = states('sensor.pressure') | int(0) %}
         {% set normalValue = states('input_number.p_target') | int(0) %}
         {% set offsetValue = states('input_number.p_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}
         {{ sensorValue > targetValue }}
       low: >
-        {% set sensorValue = states('sensor.pressure') %}
+        {% set sensorValue = states('sensor.pressure') | int(0) %}
         {% set normalValue = states('input_number.p_target') | int(0) %}
         {% set offsetValue = states('input_number.p_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}

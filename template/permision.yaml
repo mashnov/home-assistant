@@ -36,22 +36,22 @@
       {{ iif(isEnabled, enableIcon, disableIcon) }}
     attributes:
       hall: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'hall') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'hall') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'hall') | int(0) %}
+        {% set sensorValue = state_attr('sensor.humidity', 'hall') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue and not(isVentilation) }}
       bedroom: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'bedroom') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'bedroom') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'bedroom') | int(0) %}
+        {% set sensorValue = state_attr('sensor.humidity', 'bedroom') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
         {{ sensorValue < targetValue and not(isVentilation) }}
       living: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'living') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'living') %}
+        {% set isVentilation = state_attr('sensor.ventilation', 'living') | int(0) %}
+        {% set sensorValue = state_attr('sensor.humidity', 'living') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
@@ -67,7 +67,7 @@
       {{ iif(isNormal, normalIcon, hightIcon) }}
     attributes:
       bath: >
-        {% set sensorValue = state_attr('sensor.humidity', 'bath') %}
+        {% set sensorValue = state_attr('sensor.humidity', 'bath') | int(0) %}
         {% set normalValue = states('input_number.h_target') | int(0) %}
         {% set offsetValue = states('input_number.h_offset') | int(0) %}
         {% set targetValue = normalValue + offsetValue %}

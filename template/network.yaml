@@ -11,7 +11,7 @@
     attributes:
       normal: "{{ not(state_attr('sensor.network', 'low')) }}"
       low: >
-        {% set sensorValue = state_attr('sensor.network', 'download') %}
+        {% set sensorValue = state_attr('sensor.network', 'download') | int(0) %}
         {% set normalValue = states('input_number.n_target') | int(0) %}
         {% set offsetValue = states('input_number.n_offset') | int(0) %}
         {% set targetValue = normalValue - offsetValue %}
