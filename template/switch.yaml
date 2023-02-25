@@ -183,6 +183,6 @@
       kitchen: "{{ state_attr('binary_sensor.relay', 'kitchen_1') }}"
       bath: "{{ state_attr('binary_sensor.relay', 'bath_1') }}"
       toilet: "{{ state_attr('binary_sensor.relay', 'toilet_2') }}"
-      hall: "{{ {{ is_state('light.nightlight_hall', 'on') }} }}"
+      hall: "{{ is_state('light.nightlight_hall', 'on') }}"
       bedroom: "{{ state_attr('binary_sensor.wall_switch', 'bedroom_wall') }}"
       balcony: "{{ state_attr('binary_sensor.relay', 'balcony_1') }}"
