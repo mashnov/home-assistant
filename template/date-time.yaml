@@ -1,9 +1,11 @@
 - sensor:
   - name: 'date-time'
-    state: "{{ now() }}"
+    state: "{{ utcnow() }}"
     device_class: 'timestamp'
     icon: "mdi:calendar-clock"
     attributes:
-      date_time: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
-      date: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y") }}'
-      time: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
+      date_time_zone: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M %z", false) }}'
+      date_time: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M", false) }}'
+      date: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y", false) }}'
+      time: '{{ as_timestamp(utcnow()) | timestamp_custom("%H:%M", false) }}'
+      zone: '{{ as_timestamp(utcnow()) | timestamp_custom("%z", false) }}'
