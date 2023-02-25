@@ -4,6 +4,7 @@
     device_class: 'timestamp'
     icon: "mdi:calendar-clock"
     attributes:
+      local_date_time: '{{ as_timestamp(now()) | timestamp_custom("%d %m %Y %H:%M") }}'
       date_time_zone: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M %z", false) }}'
       date_time: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M", false) }}'
       date: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y", false) }}'
