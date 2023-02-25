@@ -14,37 +14,3 @@
       hall: "{{ is_state('binary_sensor.vr_humidifier_hall_is_empty', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_humidifier_bedroom_is_empty', 'on') }}"
       living: "{{ is_state('binary_sensor.vr_humidifier_living_is_empty', 'on') }}"
-
-  - name: 'humidifier-permission'
-    state: >
-      {% set hallValue = state_attr('binary_sensor.humidifier_permission', 'hall') %}
-      {% set bedroomValue = state_attr('binary_sensor.humidifier_permission', 'bedroom') %}
-      {% set livingValue = state_attr('binary_sensor.humidifier_permission', 'living') %}
-      {{ hallValue or bedroomValue or livingValue }}
-    icon: >
-      {% set isEnabled = is_state('binary_sensor.humidifier_permission', 'on') %}
-      {% set disableIcon = 'mdi:light-switch-off' %}
-      {% set enableIcon = 'mdi:light-switch' %}
-      {{ iif(isEnabled, enableIcon, disableIcon) }}
-    attributes:
-      hall: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'hall') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'hall') %}
-        {% set normalValue = states('input_number.h_target') | int(0) %}
-        {% set offsetValue = states('input_number.h_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue and not(isVentilation) }}
-      bedroom: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'bedroom') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'bedroom') %}
-        {% set normalValue = states('input_number.h_target') | int(0) %}
-        {% set offsetValue = states('input_number.h_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue and not(isVentilation) }}
-      living: >
-        {% set isVentilation = state_attr('sensor.ventilation', 'living') %}
-        {% set sensorValue = state_attr('sensor.humidity', 'living') %}
-        {% set normalValue = states('input_number.h_target') | int(0) %}
-        {% set offsetValue = states('input_number.h_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue and not(isVentilation) }}
