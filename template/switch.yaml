@@ -137,6 +137,7 @@
         {% set light4Value = state_attr('binary_sensor.top_light', 'living_4') %}
         {% set light5Value = state_attr('binary_sensor.top_light', 'living_5') %}
         {% set light6Value = state_attr('binary_sensor.top_light', 'living_6') %}
+        {{ light1Value and light2Value and light3Value and light4Value and light5Value and light6Value }}
       living_1: "{{ is_state('light.tl_living_1', 'on') }}"
       living_2: "{{ is_state('light.tl_living_2', 'on') }}"
       living_3: "{{ is_state('light.tl_living_3', 'on') }}"
