@@ -1,0 +1,23 @@
+- binary_sensor:
+  - name: 'curtain'
+    state: >
+      {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen') | int(0) %}
+      {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom') | int(0) %}
+      {% set livingSensorValue = state_attr('binary_sensor.curtain', 'living') | int(0) %}
+      {% set kitchenCloseValue = states('input_number.c_kitcen_close') | int(0) %}
+      {% set bedroomCloseValue = states('input_number.c_bedroom_close') | int(0) %}
+      {% set livingCloseValue = states('input_number.c_living_close') | int(0) %}
+      {% set kitchenValue = kitchenSensorValue > kitchenCloseValue %}
+      {% set bedroomValue = bedroomSensorValue > bedroomCloseValue %}
+      {% set livingValue = livingSensorValue > livingCloseValue %}
+      {{ kitchenValue or bedroomValue oe livingValue }}
+    icon: >
+      {% set isOpen = is_state('binary_sensor.curtain', 'on') %}
+      {% set openIcon = 'mdi:curtains' %}
+      {% set closeIcon = 'mdi:curtains-closed' %}
+      {{ iif(isOpen, openIcon, closeIcon) }}
+    attributes:
+      kitchen: "{{ state_attr('cover.curtain_kitchen', 'position') }}"
+      bedroom: "{{ state_attr('cover.curtain_bedroom', 'position') }}"
+      living: "{{ state_attr('cover.curtain_living', 'position') }}"
+      
