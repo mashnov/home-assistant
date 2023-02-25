@@ -1,5 +1,6 @@
 - binary_sensor:
   - name: 'curtain'
+    device_class: 'opening'
     state: >
       {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen') | int(0) %}
       {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom') | int(0) %}

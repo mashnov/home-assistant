@@ -1,5 +1,6 @@
 - binary_sensor:
   - name: 'humidifier-empty'
+    device_class: 'problem'
     state: >
       {% set hallValue = state_attr('binary_sensor.humidifier_empty', 'hall') %}
       {% set bedroomValue = state_attr('binary_sensor.humidifier_empty', 'bedroom') %}

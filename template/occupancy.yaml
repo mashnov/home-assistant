@@ -1,5 +1,6 @@
 - binary_sensor:
   - name: 'occupancy'
+    device_class: 'occupancy'
     state: >
       {% set kitchenValue = state_attr('binary_sensor.occupancy', 'kitchen') %}
       {% set hallValue = state_attr('binary_sensor.occupancy', 'hall') %}

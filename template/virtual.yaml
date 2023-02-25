@@ -1,71 +1,59 @@
 - binary_sensor:
   - name: 'vr_ventilation_kitchen'
-    device_class: 'window'
     state: "{{ state_attr('sensor.window', 'kitchen') }}"
     delay_on: "{{ state_attr('sensor.delay', 'window') }}"
     delay_off: "{{ state_attr('sensor.delay', 'window') }}"
   
   - name: 'vr_ventilation_bedroom'
-    device_class: 'window'
     state: "{{ state_attr('sensor.window', 'bedroom') }}"
     delay_on: "{{ state_attr('sensor.delay', 'window') }}"
     delay_off: "{{ state_attr('sensor.delay', 'window') }}" 
  
   - name: 'vr_ventilation_living'
-    device_class: 'window'
     state: "{{ state_attr('sensor.window', 'living') }}"
     delay_on: "{{ state_attr('sensor.delay', 'window') }}"
     delay_off: "{{ state_attr('sensor.delay', 'window') }}"
   
   - name: 'vr_door_toilet'
-    device_class: 'door'
     state: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
   
   - name: 'vr_door_hall'
-    device_class: 'door'
     state: "{{ is_state('binary_sensor.hall_door', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
   
   - name: 'vr_door_bedroom'
-    device_class: 'door'
     state: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
   
   - name: 'vr_door_living'
-    device_class: 'door'
     state: "{{ is_state('binary_sensor.living_door', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
   
   - name: 'vr_door_balcony'
-    device_class: 'door'
     state: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
 
   - name: 'vr_occupancy_toilet'
-    device_class: motion
     icon: "{{ iif(is_state('binary_sensor.o_toilet', 'on'), 'mdi:paper-roll', 'mdi:paper-roll-outline') }}"
     state: "{{ is_state('input_boolean.o_toilet_delay', 'on') }}"
 
   - name: 'vr_occupancy_kitchen'
-    device_class: motion
     delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
     icon: "{{ iif(is_state('binary_sensor.m_kitchen', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
     state: "m_kitchen"
 
   - name: 'vr_occupancy_hall'
-    device_class: motion
     delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
     icon: "{{ iif(is_state('binary_sensor.m_hall', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
     state: "{{ states('binary_sensor.hall_motion') }}"
 
   - name: 'vr_occupancy_bath'
-    device_class: motion
     delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
     icon: "{{ iif(is_state('binary_sensor.m_bath', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
     state: "{{ states('binary_sensor.bath_motion') }}"

@@ -1,5 +1,6 @@
 - binary_sensor:
   - name: 'wall-switch'
+    device_class: 'plug'
     state: >
       {% set kitchenLeftValue = state_attr('binary_sensor.wall_switch', 'kitchen_left') %}
       {% set kitchenRightValue = state_attr('binary_sensor.wall_switch', 'kitchen_right') %}
@@ -24,6 +25,7 @@
       living_right: "{{ is_state('switch.living_switch_right', 'on') }}"
 
   - name: 'relay'
+    device_class: 'plug'
     state: >
       {% set kitchen1Value = state_attr('binary_sensor.relay', 'kitchen_1') %}
       {% set kitchen2Value = state_attr('binary_sensor.relay', 'kitchen_2') %}
