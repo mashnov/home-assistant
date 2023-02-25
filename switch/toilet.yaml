@@ -1,9 +1,0 @@
-- platform: template
-  switches:
-    d_toilet:
-      value_template: "{{ state_attr('sensor.relay', 'toilet_1') }}"
-      icon_template: "{{ iif(is_state(state_attr('sensor.relay', 'toilet_1')), 'mdi:fan-alert', 'mdi:fan') }}"
-      turn_off: 
-        service: script.d_toilet_off
-      turn_on: 
-        service: script.d_toilet_on

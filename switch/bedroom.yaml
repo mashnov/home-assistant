@@ -1,9 +1,0 @@
-- platform: template
-  switches:
-    h_bedroom:
-      value_template: "{{ state_attr('sensor.relay', 'bedroom_2') }}"
-      icon_template: "{{ iif(state_attr('sensor.humidifier_empty', 'bedroom'), 'mdi:air-humidifier', 'mdi:water-alert-outline') }}"
-      turn_off: 
-        service: script.h_bedroom_off
-      turn_on: 
-        service: script.h_bedroom_on

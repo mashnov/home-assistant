@@ -1,9 +1,0 @@
-- platform: template
-  switches:
-    h_hall:
-      value_template: "{{ state_attr('sensor.relay', 'hall_2') }}"
-      icon_template: "{{ iif(state_attr('sensor.humidifier_empty', 'hall'), 'mdi:air-humidifier', 'mdi:water-alert-outline') }}"
-      turn_off: 
-        service: script.h_hall_off
-      turn_on: 
-        service: script.h_hall_on
