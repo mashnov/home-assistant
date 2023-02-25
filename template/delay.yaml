@@ -13,3 +13,18 @@
     device_class: duration
     icon: 'mdi:camera-timer'
     state: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - name: 'dl_toilet'
+    device_class: duration
+    icon: 'mdi:clock-time-eleven-outline'
+    state: "{{ states('input_number.dl_toilet') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - name: 'dl_motion'
+    device_class: duration
+    icon: 'mdi:clock-time-eleven-outline'
+    state: >
+      {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
+      {% set durationNight = states('sensor.dl_motion_night') %}
+      {% set durationDay = states('sensor.dl_motion_day') %}
+      {% set duration = iif(isNight, durationNight, durationDay) %}
+      {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}

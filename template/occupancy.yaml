@@ -1,0 +1,19 @@
+- binary_sensor:
+  - name: 'occupancy'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.occupancy', 'kitchen') %}
+      {% set hallValue = state_attr('binary_sensor.occupancy', 'hall') %}
+      {% set bathValue = state_attr('binary_sensor.occupancy', 'bath') %}
+      {% set toiletValue = state_attr('binary_sensor.occupancy', 'toilet') %}
+      {{ kitchenValue or hallValue or bathValue or toiletValue }}
+    icon: >
+      {% set isEnabled = is_state('binary_sensor.occupancy', 'on') %}
+      {% set disableIcon = 'mdi:human-male' %}
+      {% set enableIcon = 'mdi:human-greeting-variant' %}
+      {{ iif(isEnabled, enableIcon, disableIcon) }}
+    attributes:
+      kitchen: "{{ is_state('binary_sensor.vr_occupancy_kitchen', 'on') }}"
+      hall: "{{ is_state('binary_sensor.vr_occupancy_hall', 'on') }}"
+      bath: "{{ is_state('binary_sensor.vr_occupancy_bath', 'on') }}"
+      toilet: "{{ is_state('binary_sensor.vr_occupancy_toilet', 'on') }}"
+      

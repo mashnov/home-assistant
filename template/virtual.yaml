@@ -47,6 +47,29 @@
     delay_on: "{{ states('sensor.dl_door') }}"
     delay_off: "{{ states('sensor.dl_door') }}"
 
+  - name: 'vr_occupancy_toilet'
+    device_class: motion
+    icon: "{{ iif(is_state('binary_sensor.o_toilet', 'on'), 'mdi:paper-roll', 'mdi:paper-roll-outline') }}"
+    state: "{{ is_state('input_boolean.o_toilet_delay', 'on') }}"
+
+  - name: 'vr_occupancy_kitchen'
+    device_class: motion
+    delay_off: "{{ states('sensor.dl_motion') }}"
+    icon: "{{ iif(is_state('binary_sensor.m_kitchen', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
+    state: "m_kitchen"
+
+  - name: 'vr_occupancy_hall'
+    device_class: motion
+    delay_off: "{{ states('sensor.dl_motion') }}"
+    icon: "{{ iif(is_state('binary_sensor.m_hall', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
+    state: "{{ states('binary_sensor.hall_motion') }}"
+
+  - name: 'vr_occupancy_bath'
+    device_class: motion
+    delay_off: "{{ states('sensor.dl_motion') }}"
+    icon: "{{ iif(is_state('binary_sensor.m_bath', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
+    state: "{{ states('binary_sensor.bath_motion') }}"
+
   - name: 'vr_humidifier_hall_is_empty'
     delay_on: "{{ states('sensor.dl_power') }}"
     state: >

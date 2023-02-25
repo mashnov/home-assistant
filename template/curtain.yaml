@@ -10,7 +10,7 @@
       {% set kitchenValue = kitchenSensorValue > kitchenCloseValue %}
       {% set bedroomValue = bedroomSensorValue > bedroomCloseValue %}
       {% set livingValue = livingSensorValue > livingCloseValue %}
-      {{ kitchenValue or bedroomValue oe livingValue }}
+      {{ kitchenValue or bedroomValue or livingValue }}
     icon: >
       {% set isOpen = is_state('binary_sensor.curtain', 'on') %}
       {% set openIcon = 'mdi:curtains' %}
