@@ -1,6 +1,0 @@
-- sensor:
-  - name: 'i_balcony'
-    unit_of_measurement: 'lx'
-    device_class: 'illuminance'
-    icon: 'mdi:white-balance-sunny'
-    state: "{{ states('sensor.balcony_illuminance') | float(0) | round(1) }}"
