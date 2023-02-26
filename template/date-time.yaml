@@ -21,7 +21,6 @@
       hm_local: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
       z_local: '{{ as_timestamp(now()) | timestamp_custom("%z") }}'
 
-- binary_sensor:
   - name: 'day-time'
     device_class: 'timestamp'
     state: "{{ now() }}"
