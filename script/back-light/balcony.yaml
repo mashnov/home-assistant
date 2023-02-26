@@ -1,16 +1,16 @@
-tl_balcony_on:
+bl_balcony_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.balcony_light_relay_l2_2'
 
-tl_balcony_off:
+bl_balcony_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.balcony_light_relay_l2_2'
 
-tl_balcony_toggle:
+bl_balcony_toggle:
   mode: 'queued'
   sequence:
   - service: switch.toggle
