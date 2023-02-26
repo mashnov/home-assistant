@@ -5,7 +5,7 @@
       {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen') | int(0) %}
       {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom') | int(0) %}
       {% set livingSensorValue = state_attr('binary_sensor.curtain', 'living') | int(0) %}
-      {% set kitchenCloseValue = states('input_number.c_kitcen_close') | int(0) %}
+      {% set kitchenCloseValue = states('input_number.c_kitchen_close') | int(0) %}
       {% set bedroomCloseValue = states('input_number.c_bedroom_close') | int(0) %}
       {% set livingCloseValue = states('input_number.c_living_close') | int(0) %}
       {% set kitchenValue = kitchenSensorValue > kitchenCloseValue %}

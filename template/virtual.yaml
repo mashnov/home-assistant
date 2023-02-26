@@ -41,7 +41,7 @@
 
   - name: 'vr_occupancy_toilet'
     icon: "{{ iif(is_state('binary_sensor.o_toilet', 'on'), 'mdi:paper-roll', 'mdi:paper-roll-outline') }}"
-    state: "{{ is_state('input_boolean.o_toilet_delay', 'on') }}"
+    state: "{{ is_state('input_boolean.o_toilet', 'on') }}"
 
   - name: 'vr_occupancy_kitchen'
     delay_off: "{{ state_attr('sensor.delay', 'motion') }}"

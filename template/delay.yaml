@@ -10,7 +10,8 @@
       toilet: "{{ states('input_number.dl_toilet') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
       motion: >
         {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
-        {% set durationNight = states('sensor.dl_motion_night') %}
-        {% set durationDay = states('sensor.dl_motion_day') %}
+        {% set durationNight = states('input_number.dl_motion_night') %}
+        {% set durationDay = states('input_number.dl_motion_day') %}
         {% set duration = iif(isNight, durationNight, durationDay) %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+

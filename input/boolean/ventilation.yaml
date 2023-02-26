@@ -1,7 +1,0 @@
-v_shared:
-  initial: true
-  icon: 'mdi:cube-unfolded'
-
-v_entry_door:
-  initial: true
-  icon: 'mdi:door-open'
