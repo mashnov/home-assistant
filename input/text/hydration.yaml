@@ -1,9 +1,11 @@
 h_empty_hall:
   icon: mdi:message-processing
   initial: 'Коридор. Закончилась вода в увлажнителе'
+
 h_empty_bedroom:
   icon: mdi:message-processing
   initial: 'Спальня. Закончилась вода в увлажнителе'
+
 h_empty_living:
   icon: mdi:message-processing
   initial: 'Гостиная. Закончилась вода в увлажнителе'

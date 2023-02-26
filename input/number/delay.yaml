@@ -1,0 +1,47 @@
+dl_power:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 10
+  min: 0
+  step: 1
+  initial: 4
+
+dl_window:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 20
+  min: 0
+  step: 1
+  initial: 10
+
+dl_door:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 15
+  min: 0
+  step: 1
+  initial: 4
+
+dl_toilet:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 60
+  min: 0
+  step: 1
+  initial: 15
+
+dl_motion_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 360
+  min: 0
+  step: 10
+  initial: 120
+
+dl_motion_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 60
+  min: 0
+  step: 5
+  initial: 30

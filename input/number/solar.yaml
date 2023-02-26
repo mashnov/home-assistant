@@ -1,0 +1,31 @@
+s_azimuth_target:
+  unit_of_measurement: '°'
+  icon: 'mdi:axis-z-rotate-clockwise'
+  max: 360
+  min: 0
+  step: 1
+  initial: 160
+
+s_azimuth_offset:
+  unit_of_measurement: '°'
+  icon: 'mdi:axis-z-rotate-clockwise'
+  max: 50
+  min: 0
+  step: 1
+  initial: 15
+
+s_elevation_target:
+  unit_of_measurement: '°'
+  icon: 'mdi:angle-acute'
+  max: 90
+  min: 0
+  step: 1
+  initial: 30
+
+s_elevation_offset:
+  unit_of_measurement: '°'
+  icon: 'mdi:angle-acute'
+  max: 10
+  min: 0
+  step: 1
+  initial: 5

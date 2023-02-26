@@ -1,0 +1,15 @@
+d_target:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 50
+
+d_offset:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-plus'
+  min: 0
+  max: 10
+  step: 1
+  initial: 3

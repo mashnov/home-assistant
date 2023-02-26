@@ -119,12 +119,12 @@
       bedroom: "{{ states('sensor.bedroom_pressure') }}"
       living: "{{ states('sensor.living_pressure') }}"
 
-  - name: 'sun'
+  - name: 'solar'
     device_class: 'illuminance'
     unit_of_measurement: 'lx'
-    state: '{{ state_attr("sensor.sun", "illuminance") }}'
+    state: '{{ state_attr("sensor.solar", "illuminance") }}'
     icon: >
-      {% set isHight = state_attr('sensor.sun', 'hight') %}
+      {% set isHight = state_attr('sensor.solar', 'hight') %}
       {% set hightIcon = 'mdi:sun-wireless' %}
       {% set lowIcon = 'mdi:weather-sunny' %}
       {{ iif(isHight, hightIcon, lowIcon) }}
@@ -133,13 +133,13 @@
       azimuth: '{{ state_attr("sun.sun", "azimuth") }}'
       elevation: '{{ state_attr("sun.sun", "elevation") }}'
       hight: >
-        {% set azimuthSensor = state_attr('sun', 'azimuth') | int(0) %}
+        {% set azimuthSensor = state_attr('solar', 'azimuth') | int(0) %}
         {% set azimuthTarget = states('input_number.s_azimuth_target') | int(0) %}
         {% set azimuthOffset = states('input_number.s_azimuth_offset') | int(0) %}
         {% set azimuthMinValue = azimuthTarget - azimuthOffset %}
         {% set azimuthMaxValue = azimuthTarget + azimuthOffset %}
         {% set azimuthValue = azimuthMinValue < azimuthSensor < azimuthMaxValue %}
-        {% set elevationSensor = state_attr('sun', 'elevation') | int(0) %}
+        {% set elevationSensor = state_attr('solar', 'elevation') | int(0) %}
         {% set elevationTarget = states('input_number.s_elevation_target') | int(0) %}
         {% set elevationOffset = states('input_number.s_elevation_offset') | int(0) %}        
         {% set elevationMinValue = elevationTarget - elevationOffset %}
