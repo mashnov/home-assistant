@@ -14,3 +14,18 @@
       local_time: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
       zone: '{{ as_timestamp(utcnow()) | timestamp_custom("%z", false) }}'
       local_zone: '{{ as_timestamp(now()) | timestamp_custom("%z") }}'
+
+- binary_sensor:
+  - name: 'day-time'
+    device_class: 'door'
+    state: "{{ state_attr('binary_sensor.door', 'hall') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door', 'off') %}
+      {% set closeIcon = 'mdi:door-closed' %}
+      {% set openIcon = 'mdi:door-open' %}
+      {{ iif(isClose, closeIcon, openIcon) }}
+    attributes:
+      night: "{{ is_state('binary_sensor.vr_door_toilet', 'on') }}"
+      morning: "{{ is_state('binary_sensor.vr_door_hall', 'on') }}"
+      day: "{{ is_state('binary_sensor.vr_door_bedroom', 'on') }}"
+      evening: "{{ is_state('binary_sensor.vr_door_living', 'on') }}"
