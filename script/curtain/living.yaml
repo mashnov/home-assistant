@@ -4,7 +4,7 @@ c_living_open:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_living'
     data_template:
-      position: '10'
+      position: '{{ states("input_number.c_living_open") }}'
 
 c_living_close:
   mode: 'queued'
@@ -12,7 +12,7 @@ c_living_close:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_living'
     data_template:
-      position: '100'
+      position: '{{ states("input_number.c_living_close") }}'
 
 c_living_sun_mode:
   mode: 'queued'
@@ -20,7 +20,7 @@ c_living_sun_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_living'
     data_template:
-      position: '35'
+      position: '{{ states("input_number.c_living_sun") }}'
 
 c_living_night_mode:
   mode: 'queued'
@@ -28,7 +28,7 @@ c_living_night_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_living'
     data_template:
-      position: '85'
+      position: '{{ states("input_number.c_living_night") }}'
 
 c_living_ventilation_mode:
   mode: 'queued'
@@ -36,7 +36,7 @@ c_living_ventilation_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_living'
     data_template:
-      position: '30'
+      position: '{{ states("input_number.c_living_ventilation") }}'
 
 c_living_set_position:
   mode: 'queued'
@@ -45,4 +45,3 @@ c_living_set_position:
     entity_id: 'cover.curtain_living'
     data_template:
       position: '{{ position }}'
-      # position2: '{{ states("input_number.curtain_living_position_open") }}'

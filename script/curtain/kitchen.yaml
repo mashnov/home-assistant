@@ -4,7 +4,7 @@ c_kitchen_open:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_kitchen'
     data_template:
-      position: '5'
+      position: '{{ states("input_number.c_kitchen_open") }}'
 
 c_kitchen_close:
   mode: 'queued'
@@ -12,7 +12,7 @@ c_kitchen_close:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_kitchen'
     data_template:
-      position: '100'
+      position: '{{ states("input_number.c_kitchen_close") }}'
 
 c_kitchen_sun_mode:
   mode: 'queued'
@@ -20,7 +20,7 @@ c_kitchen_sun_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_kitchen'
     data_template:
-      position: '35'
+      position: '{{ states("input_number.c_kitchen_sun") }}'
 
 c_kitchen_night_mode:
   mode: 'queued'
@@ -28,7 +28,7 @@ c_kitchen_night_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_kitchen'
     data_template:
-      position: '70'
+      position: '{{ states("input_number.c_kitchen_night") }}'
 
 c_kitchen_ventilation_mode:
   mode: 'queued'
@@ -36,7 +36,8 @@ c_kitchen_ventilation_mode:
   - service: cover.set_cover_position
     entity_id: 'cover.curtain_kitchen'
     data_template:
-      position: '40'
+      position: '{{ states("input_number.c_kitchen_ventilation") }}'
+
 
 c_kitchen_set_position:
   mode: 'queued'
