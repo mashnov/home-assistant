@@ -1,9 +1,0 @@
-- binary_sensor.d_balcony
-- sensor.h_balcony
-- sensor.i_balcony
-- sensor.pw_balcony
-- binary_sensor.sw_balcony_toplight
-- binary_sensor.sw_balcony_backlight
-- binary_sensor.sw_balcony_socket
-- binary_sensor.sw_balcony_fan
-- sensor.t_balcony

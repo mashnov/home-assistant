@@ -1,8 +1,0 @@
-- switch.balcony_light_relay_l1_2
-- switch.balcony_light_relay_l1_2
-- switch.balcony_socket
-- switch.balcony_socket_relay_l1
-- binary_sensor.d_balcony
-- sensor.t_balcony
-- sensor.h_balcony
-- sensor.i_balcony
