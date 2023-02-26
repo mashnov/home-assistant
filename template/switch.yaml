@@ -174,7 +174,7 @@
       {% set bedroomValue = state_attr('binary_sensor.night_light', 'bedroom') %}
       {% set livingValue = state_attr('binary_sensor.night_light', 'living') %}
       {% set balconyValue = state_attr('binary_sensor.night_light', 'balcony') %}
-      {{ kitchenValue or hallValue or bedroomValue or livingValue or balcony }}
+      {{ kitchenValue or hallValue or bedroomValue or livingValue or balconyValue }}
     icon: >
       {% set isEnabled = is_state('binary_sensor.top_light', 'on') %}
       {% set disableIcon = 'mdi:light-switch-off' %}
