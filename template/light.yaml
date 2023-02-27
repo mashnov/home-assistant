@@ -1,0 +1,28 @@
+- sensor:
+  - name: 'light-persent'
+    unit_of_measurement: '%'
+    state: >
+      {% set targetValue = 5000 %}
+      {% set illuminanceValue = states('sensor.solar') | int(0) %}
+      {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
+      {{ (sensorValue / targetValue) * 100 }}
+    icon: "mdi:cog"
+    attributes:
+      brightness: '0 - 100'
+      color_temp: >
+        {% set temperatureMinValue = 175 %}
+        {% set temperatureMaxValue = 333 %}
+        {% set sensorValue = states('sensor.light_persent') | int(0) %}
+        {% set percentValue = 100 - sensorValue %}
+        {% set temperatureDelta = temperatureMaxValue - temperatureMinValue %}
+        {% set temperatureDeltaValue = temperatureDelta / 100 * percentValue %}
+        {% set temperatureValue = temperatureDeltaValue + temperatureMinValue %}
+        {{ temperatureValue | round }}
+      hs_color: >
+        {% set hsMinValue = 95 %}
+        {% set hsMaxValue = 100 %}
+        {% set sensorValue = states('sensor.light_persent') | int(0) %}
+        {% set hsDelta = hsMaxValue - hsMinValue %}
+        {% set hsDeltaValue = hsDelta / 100 * sensorValuePercent %}
+        {% set hsValue = hsDeltaValue + hsMinValue %}
+        {{ hsValue | round }}

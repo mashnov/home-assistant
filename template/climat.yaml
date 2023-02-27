@@ -152,7 +152,7 @@
     state: >
       {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
       {% set targetValue = states('input_number.cl_target') | int(0) %}
-      {{ targetValue > sensorValue }}
+      {{ sensorValue > targetValue }}
     icon: >
       {% set isHight = is_state('binary_sensor.cloud', 'on') %}
       {% set hightIcon = 'mdi:apple-icloud' %}
