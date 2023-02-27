@@ -7,10 +7,9 @@
       {% set livingValue = state_attr('binary_sensor.humidifier_empty', 'living') %}
       {{ hallValue or bedroomValue or livingValue }}
     icon: >
-      {% set isNormal = is_state('binary_sensor.humidifier_empty', 'off') %}
-      {% set normalIcon = 'mdi:water' %}
-      {% set lowIcon = 'mdi:water-opacity' %}
-      {{ iif(isNormal, normalIcon, lowIcon) }}
+      {% set isLowIcon = is_state('binary_sensor.humidifier_empty', 'on') and 'mdi:water-opacity' %}
+      {% set isNormalIcon = is_state('binary_sensor.humidifier_empty', 'off') and 'mdi:water' %}
+      {{ isLowIcon or isNormalIcon }}
     attributes:
       hall: "{{ is_state('binary_sensor.vr_humidifier_hall_is_empty', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_humidifier_bedroom_is_empty', 'on') }}"

@@ -1,0 +1,12 @@
+- binary_sensor:
+  - name: 'cloud'
+    state: >
+      {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
+      {% set targetValue = states('input_number.cl_target') | int(0) %}
+      {{ sensorValue > targetValue }}
+    icon: >
+      {% set isHightIcon = is_state('binary_sensor.cloud', 'on') and 'mdi:apple-icloud' %}
+      {% set isLowIcon = is_state('binary_sensor.cloud', 'off') and 'mdi:cloud-outline' %}
+      {{ isHightIcon or isLowIcon }}
+    attributes:
+      level: '{{ states("sensor.openweathermap_cloud_coverage") }}'

@@ -4,10 +4,9 @@
     unit_of_measurement: Mbit/s
     state: "{{ state_attr('sensor.network', 'download') }}"
     icon: >
-      {% set isNormal = state_attr('sensor.network', 'normal') %}
-      {% set normalIcon = 'mdi:speedometer' %}
-      {% set lowIcon = 'mdi:speedometer-slow' %}
-      {{ iif(isNormal, normalIcon, lowIcon) }}
+      {% set isNormalIcon = state_attr('sensor.network', 'normal') and 'mdi:speedometer' %}
+      {% set isLowIcon = state_attr('sensor.network', 'low') and 'mdi:speedometer-slow' %}
+      {{ isNormalIcon or isLowIcon }}
     attributes:
       normal: "{{ not(state_attr('sensor.network', 'low')) }}"
       low: >

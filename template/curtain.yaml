@@ -13,10 +13,9 @@
       {% set livingValue = livingSensorValue > livingCloseValue %}
       {{ kitchenValue or bedroomValue or livingValue }}
     icon: >
-      {% set isOpen = is_state('binary_sensor.curtain', 'on') %}
-      {% set openIcon = 'mdi:curtains' %}
-      {% set closeIcon = 'mdi:curtains-closed' %}
-      {{ iif(isOpen, openIcon, closeIcon) }}
+      {% set isOpenIcon = is_state('binary_sensor.curtain', 'on') and 'mdi:curtains' %}
+      {% set isCloseIcon = is_state('binary_sensor.curtain', 'off') and 'mdi:curtains-closed' %}
+      {{ isOpenIcon or isCloseIcon }}
     attributes:
       kitchen: "{{ state_attr('cover.curtain_kitchen', 'position') }}"
       bedroom: "{{ state_attr('cover.curtain_bedroom', 'position') }}"

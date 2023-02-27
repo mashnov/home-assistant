@@ -1,0 +1,49 @@
+- binary_sensor:
+  - name: 'relay'
+    device_class: 'plug'
+    state: >
+      {% set kitchen1Value = state_attr('binary_sensor.relay', 'kitchen_1') %}
+      {% set kitchen2Value = state_attr('binary_sensor.relay', 'kitchen_2') %}
+      {% set bath1Value = state_attr('binary_sensor.relay', 'bath_1') %}
+      {% set bath2Value = state_attr('binary_sensor.relay', 'bath_2') %}
+      {% set toilet1Value = state_attr('binary_sensor.relay', 'toilet_1') %}
+      {% set toilet2Value = state_attr('binary_sensor.relay', 'toilet_2') %}
+      {% set hall1Value = state_attr('binary_sensor.relay', 'hall_1') %}
+      {% set hall2Value = state_attr('binary_sensor.relay', 'hall_2') %}
+      {% set bedroom1Value = state_attr('binary_sensor.relay', 'bedroom_1') %}
+      {% set bedroom2Value = state_attr('binary_sensor.relay', 'bedroom_2') %}
+      {% set living1Value = state_attr('binary_sensor.relay', 'living_1') %}
+      {% set living2Value = state_attr('binary_sensor.relay', 'living_2') %}
+      {% set balcony1Value = state_attr('binary_sensor.relay', 'balcony_1') %}
+      {% set balcony2Value = state_attr('binary_sensor.relay', 'balcony_2') %}
+      {% set balcony3Value = state_attr('binary_sensor.relay', 'balcony_3') %}
+      {% set balcony4Value = state_attr('binary_sensor.relay', 'balcony_4') %}
+      {% set kitchenValue = kitchen1Value or kitchen2Value %}
+      {% set bathValue = bath1Value or bath2Value %}
+      {% set toiletValue = toilet1Value or toilet2Value %}
+      {% set hallValue = hall1Value or hall2Value %}
+      {% set bedroomValue = bedroom1Value or bedroom2Value %}
+      {% set livingValue = living1Value or living2Value %}
+      {% set balconyValue = balcony1Value or balcony2Value or balcony3Value or balcony4Value %}
+      {{ kitchenValue or bathValue or toiletValue or hallValue or bedroomValue or livingValue or balconyValue }}
+    icon: >
+      {% set isEnabledIcon = is_state('binary_sensor.relay', 'on') and 'mdi:light-switch'%}
+      {% set isDisabledIcon = is_state('binary_sensor.relay', 'off') and 'mdi:light-switch-off' %}
+      {{ isEnabledIcon or isDisabledIcon }}
+    attributes:
+      kitchen_1: "{{ is_state('switch.kitchen_relay_l1', 'on') }}"
+      kitchen_2: "{{ is_state('switch.kitchen_relay_l2', 'on') }}" 
+      bath_1: "{{ is_state('switch.bath_relay_l1', 'on') }}"
+      bath_2: "{{ is_state('switch.bath_relay_l2', 'on') }}"
+      toilet_1: "{{ is_state('switch.toilet_relay_l1', 'on') }}"
+      toilet_2: "{{ is_state('switch.toilet_relay_l2', 'on') }}"
+      hall_1: "{{ is_state('switch.hall_relay_l1', 'on') }}"
+      hall_2: "{{ is_state('switch.hall_relay_l2', 'on') }}"
+      bedroom_1: "{{ is_state('switch.bedroom_relay_l1', 'on') }}"
+      bedroom_2: "{{ is_state('switch.bedroom_relay_l2', 'on') }}"
+      living_1: "{{ is_state('switch.living_relay_l1', 'on') }}"
+      living_2: "{{ is_state('switch.living_relay_l2', 'on') }}"
+      balcony_1: "{{ is_state('switch.balcony_light_relay_l1_2', 'on') }}"
+      balcony_2: "{{ is_state('switch.balcony_light_relay_l2_2', 'on') }}"
+      balcony_3: "{{ is_state('switch.balcony_socket_relay_l1', 'on') }}"
+      balcony_4: "{{ is_state('switch.balcony_socket_relay_l2', 'on') }}"

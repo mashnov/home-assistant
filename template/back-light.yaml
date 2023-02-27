@@ -1,0 +1,20 @@
+- binary_sensor:
+  - name: 'back-light'
+    device_class: 'plug'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.back_light', 'kitchen') %}
+      {% set hallValue = state_attr('binary_sensor.back_light', 'hall') %}
+      {% set bedroomValue = state_attr('binary_sensor.back_light', 'bedroom') %}
+      {% set livingValue = state_attr('binary_sensor.back_light', 'living') %}
+      {% set balconyValue = state_attr('binary_sensor.back_light', 'balcony') %}
+      {{ kitchenValue or hallValue or bedroomValue or livingValue or balconyValue }}
+    icon: >
+      {% set isEnabledIcon = is_state('binary_sensor.back_light', 'on') and 'mdi:light-switch'%}
+      {% set isDisabledIcon = is_state('binary_sensor.back_light', 'off') and 'mdi:light-switch-off' %}
+      {{ isEnabledIcon or isDisabledIcon }}
+    attributes:
+      kitchen: "{{ state_attr('binary_sensor.relay', 'kitchen_2') }}"
+      hall: "{{ state_attr('binary_sensor.relay', 'hall_1') }}"
+      bedroom: "{{ state_attr('binary_sensor.relay', 'bedroom_1') }}"
+      living: "{{ state_attr('binary_sensor.relay', 'living_2') }}"
+      balcony: "{{ state_attr('binary_sensor.relay', 'balcony_2') }}"

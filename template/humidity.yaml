@@ -1,0 +1,38 @@
+- sensor:
+  - name: 'humidity'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: >
+      {% set kitchen = state_attr('sensor.humidity', 'kitchen') | float(0) %}
+      {% set hall = state_attr('sensor.humidity', 'hall') | float(0) %}
+      {% set bedroom = state_attr('sensor.humidity', 'bedroom') | float(0) %}
+      {% set living = state_attr('sensor.humidity', 'living') | float(0) %}
+      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+    icon: >
+      {% set isHhghtIcon = state_attr('sensor.humidity', 'hight') and 'mdi:water' %}
+      {% set isNormalIcon = state_attr('sensor.humidity', 'normal') and 'mdi:water-opacity' %}
+      {% set isLowIcon = state_attr('sensor.humidity', 'low') and 'mdi:water-outline' %}
+      {{ isHhghtIcon or isNormalIcon or isLowIcon }}
+    attributes:
+      normal: >
+        {% set isHight = state_attr('sensor.humidity', 'hight') %}
+        {% set isLow = state_attr('sensor.humidity', 'low') %}
+        {{ not(isLow) and not(isHight) }}
+      hight: >
+        {% set sensorValue = states('sensor.humidity') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = states('sensor.humidity') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      kitchen: "{{ states('sensor.kitchen_humidity') }}"
+      bath: "{{ states('sensor.bath_humidity') }}"
+      hall: "{{ states('sensor.hall_humidity') }}"
+      bedroom: "{{ states('sensor.bedroom_humidity') }}"
+      living: "{{ states('sensor.living_humidity') }}"
+      balcony: "{{ states('sensor.balcony_humidity') }}"

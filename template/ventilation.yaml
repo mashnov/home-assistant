@@ -8,10 +8,9 @@
       {% set livingValue = state_attr('binary_sensor.ventilation', 'living') %}
       {{ kitchenValue or hallValue or bedroomValue or livingValue }}
     icon: >
-      {% set isClose = is_state('binary_sensor.ventilation', 'off') %}
-      {% set closeIcon = 'mdi:tailwind' %}
-      {% set openIcon = 'mdi:weather-windy' %}
-      {{ iif(isClose, closeIcon, openIcon) }}
+      {% set isOpenIcon = is_state('binary_sensor.ventilation', 'on') and 'mdi:weather-windy' %}
+      {% set isCloseIcon = is_state('binary_sensor.ventilation', 'off') and 'mdi:tailwind' %}
+      {{ isOpenIcon or isCloseIcon }}
     attributes:
       kitchen: "{{ is_state('binary_sensor.vr_ventilation_kitchen', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_ventilation_bedroom', 'on') }}"

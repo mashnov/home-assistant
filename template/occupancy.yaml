@@ -8,10 +8,9 @@
       {% set toiletValue = state_attr('binary_sensor.occupancy', 'toilet') %}
       {{ kitchenValue or hallValue or bathValue or toiletValue }}
     icon: >
-      {% set isEnabled = is_state('binary_sensor.occupancy', 'on') %}
-      {% set disableIcon = 'mdi:human-male' %}
-      {% set enableIcon = 'mdi:human-greeting-variant' %}
-      {{ iif(isEnabled, enableIcon, disableIcon) }}
+      {% set isOccupancyIcon = is_state('binary_sensor.occupancy', 'on') and 'mdi:human-greeting-variant' %}
+      {% set isVacancyIcon = is_state('binary_sensor.occupancy', 'off') and 'mdi:human-male' %}
+      {{ isOccupancyIcon or isVacancyIcon }}
     attributes:
       kitchen: "{{ is_state('binary_sensor.vr_occupancy_kitchen', 'on') }}"
       hall: "{{ is_state('binary_sensor.vr_occupancy_hall', 'on') }}"
