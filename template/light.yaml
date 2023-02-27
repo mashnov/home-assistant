@@ -1,28 +1,33 @@
 - sensor:
-  - name: 'light-persent'
+  - name: 'light-brightness'
     unit_of_measurement: '%'
     state: >
-      {% set targetValue = 5000 %}
+      {% set targetValue = states('input_number.lb_target') | int(0) %}
       {% set illuminanceValue = states('sensor.solar') | int(0) %}
       {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
       {{ (sensorValue / targetValue) * 100 }}
     icon: "mdi:cog"
     attributes:
-      brightness: '0 - 100'
-      color_temp: >
-        {% set temperatureMinValue = 175 %}
-        {% set temperatureMaxValue = 333 %}
-        {% set sensorValue = states('sensor.light_persent') | int(0) %}
+      brightness: >
+        {% set minValue = 25 %}
+        {% set maxValue = 100 %}
+        {% set isNight = is_state('sensor.day_time', 'night') %}
+        {% set isMorning = is_state('sensor.day_time', 'morning') %}
+        {% set sensorValue = states('sensor.light_brightness') | int(0) %}
         {% set percentValue = 100 - sensorValue %}
-        {% set temperatureDelta = temperatureMaxValue - temperatureMinValue %}
-        {% set temperatureDeltaValue = temperatureDelta / 100 * percentValue %}
-        {% set temperatureValue = temperatureDeltaValue + temperatureMinValue %}
-        {{ temperatureValue | round }}
-      hs_color: >
-        {% set hsMinValue = 95 %}
-        {% set hsMaxValue = 100 %}
-        {% set sensorValue = states('sensor.light_persent') | int(0) %}
-        {% set hsDelta = hsMaxValue - hsMinValue %}
-        {% set hsDeltaValue = hsDelta / 100 * sensorValuePercent %}
-        {% set hsValue = hsDeltaValue + hsMinValue %}
-        {{ hsValue | round }}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {% set dayBrightness = (deltaValue + minValue) | round %}
+        {{ iif(isNight or isMorning, minValue, dayBrightness) }}
+      color_temp: >
+        {% set minValue = 175 %}
+        {% set maxValue = 333 %}
+        {% set sensorValue = states('sensor.light_brightness') | int(0) %}
+        {% set percentValue = 100 - sensorValue %}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {{ (deltaValue + minValue) | round }}
+      hs_saturation: >
+        {% set minValue = 95 %}
+        {% set maxValue = 100 %}
+        {% set percentValue = states('sensor.light_brightness') | int(0) %}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {{ (deltaValue + minValue) | round }}

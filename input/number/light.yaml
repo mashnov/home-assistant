@@ -1,0 +1,21 @@
+lb_target:
+  unit_of_measurement: 'lx'
+  icon: 'mdi:cog'
+  min: 0
+  max: 9000
+  step: 1
+  initial: 4500
+
+lb_hu_hue:
+  icon: 'mdi:cog'
+  min: 0
+  max: 360
+  step: 1
+  initial: 20
+
+lb_hs_saturation:
+  icon: 'mdi:cog'
+  min: 95
+  max: 100
+  step: 1
+  initial: 95

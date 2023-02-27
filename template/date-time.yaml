@@ -69,14 +69,14 @@
         {% endif %}
 
 - binary_sensor:
-  - name: 'night-time'
+  - name: 'night-mode'
     state: >
-      {% set hallValue = state_attr('binary_sensor.night_time', 'hall') %}
-      {% set bedroomValue = state_attr('binary_sensor.night_time', 'bedroom') %}
-      {% set livingValue = state_attr('binary_sensor.night_time', 'living') %}
+      {% set hallValue = state_attr('binary_sensor.night_mode', 'hall') %}
+      {% set bedroomValue = state_attr('binary_sensor.night_mode', 'bedroom') %}
+      {% set livingValue = state_attr('binary_sensor.night_mode', 'living') %}
       {{ hallValue and bedroomValue and livingValue }}
     icon: >
-      {% set isNight = is_state('binary_sensor.night_time', 'on') %}
+      {% set isNight = is_state('binary_sensor.night_mode', 'on') %}
       {% set nightIcon = 'mdi:weather-night' %}
       {% set dayIcon = 'mdi:weather-partly-cloudy' %}
       {{ iif(isNight, nightIcon, dayIcon) }}

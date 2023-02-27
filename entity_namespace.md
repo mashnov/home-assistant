@@ -45,3 +45,4 @@
 - bl - back light
 - nl - nigh tlight
 - pl - party light
+- lb - light brightness
