@@ -1,3 +1,19 @@
 h_tts:
   initial: true
   icon: 'mdi:microphone-message'
+
+h_hall_is_dry:
+  initial: false
+  icon: 'mdi:water-outline'
+
+h_bedroom_is_dry:
+  initial: false
+  icon: 'mdi:water-outline'
+
+h_living_is_dry:
+  initial: false
+  icon: 'mdi:water-outline'
+
+d_bath_is_wet:
+  initial: false
+  icon: 'mdi:water'

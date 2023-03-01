@@ -1,4 +1,4 @@
-c_bedroom_curtain_sunny_target:
+i_living_curtain_sunny_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
@@ -6,7 +6,7 @@ c_bedroom_curtain_sunny_target:
   step: 1
   initial: 3500
 
-c_bedroom_curtain_cloudly_target:
+i_living_curtain_cloudly_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
@@ -14,7 +14,7 @@ c_bedroom_curtain_cloudly_target:
   step: 1
   initial: 4500
 
-c_bedroom_backlight_sunny_target:
+i_living_backlight_sunny_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
@@ -22,7 +22,7 @@ c_bedroom_backlight_sunny_target:
   step: 1
   initial: 4500
 
-c_bedroom_backlight_cloudly_target:
+i_living_backlight_cloudly_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0

@@ -1,5 +1,5 @@
 - sensor:
-  - name: 'delay'
+  - name: 'duration'
     device_class: duration
     icon: 'mdi:camera-timer'
     state: "00:00:00"
@@ -7,11 +7,9 @@
       power: "{{ states('input_number.dl_power') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
       window: "{{ states('input_number.dl_window') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
       door: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      toilet: "{{ states('input_number.dl_toilet_mode') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      motion: >
+      toilet: >
         {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
-        {% set delayNight = states('input_number.dl_motion_night') %}
-        {% set delayDay = states('input_number.dl_motion_day') %}
-        {% set delay = iif(isNight, delayNight, delayDay) %}
-        {{ delay | int(0) | timestamp_custom('%H:%M:%S', false) }}
-
+        {% set durationNight = states('input_number.du_toilet_night') %}
+        {% set durationDay = states('input_number.du_toilet_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}

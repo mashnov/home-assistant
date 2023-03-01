@@ -1,31 +1,31 @@
-c_living_curtain_sunny_target:
+i_hal_back_light_sunny_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
-  max: 9000
+  max: 20000
   step: 1
-  initial: 3500
+  initial: 15000
 
-c_living_curtain_cloudly_target:
+i_hall_back_light_cloudly_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
-  max: 9000
+  max: 20000
   step: 1
-  initial: 4500
+  initial: 15000
 
-c_living_backlight_sunny_target:
+i_hal_top_light_sunny_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
   max: 9000
   step: 1
-  initial: 4500
+  initial: 4000
 
-c_living_backlight_cloudly_target:
+i_hall_top_light_cloudly_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
   max: 9000
   step: 1
-  initial: 5500
+  initial: 4000

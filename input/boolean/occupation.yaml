@@ -1,3 +1,15 @@
 o_toilet:
   initial: true
   icon: 'mdi:paper-roll'
+
+o_kitchen:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+o_hall:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+o_bath:
+  initial: false
+  icon: 'mdi:human-greeting-variant'

@@ -1,31 +1,31 @@
-c_hal_backlight_sunny_target:
-  unit_of_measurement: 'lx'
-  icon: 'mdi:sun-wireless-outline'
-  min: 0
-  max: 20000
-  step: 1
-  initial: 15000
-
-c_hall_backlight_cloudly_target:
-  unit_of_measurement: 'lx'
-  icon: 'mdi:sun-wireless-outline'
-  min: 0
-  max: 20000
-  step: 1
-  initial: 15000
-
-c_hal_light_sunny_target:
+i_bedroom_curtain_sunny_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
   max: 9000
   step: 1
-  initial: 4000
+  initial: 3500
 
-c_hall_light_cloudly_target:
+i_bedroom_curtain_cloudly_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
   max: 9000
   step: 1
-  initial: 4000
+  initial: 4500
+
+i_bedroom_back_light_sunny_target:
+  unit_of_measurement: 'lx'
+  icon: 'mdi:sun-wireless-outline'
+  min: 0
+  max: 9000
+  step: 1
+  initial: 4500
+
+i_bedroom_back_light_cloudly_target:
+  unit_of_measurement: 'lx'
+  icon: 'mdi:sun-wireless-outline'
+  min: 0
+  max: 9000
+  step: 1
+  initial: 5500

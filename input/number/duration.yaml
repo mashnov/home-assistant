@@ -1,0 +1,15 @@
+du_toilet_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 45
+
+du_toilet_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 20

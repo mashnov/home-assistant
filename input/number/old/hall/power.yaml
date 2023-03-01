@@ -1,7 +1,0 @@
-pw_offset_hall:
-  unit_of_measurement: 'W'
-  icon: 'mdi:lightning-bolt'
-  min: 1
-  max: 30
-  step: 1
-  initial: 11

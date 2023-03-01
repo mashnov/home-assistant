@@ -1,0 +1,19 @@
+d_toilet_is_open:
+  initial: false
+  icon: 'mdi:door-open'
+
+d_hall_is_open:
+  initial: true
+  icon: 'mdi:door-open'
+
+d_bedroom_is_open:
+  initial: true
+  icon: 'mdi:door-open'
+
+d_living_is_open:
+  initial: true
+  icon: 'mdi:door-open'
+
+d_balcony_is_open:
+  initial: true
+  icon: 'mdi:door-open'

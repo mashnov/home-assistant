@@ -1,7 +1,0 @@
-v_duration:
-  unit_of_measurement: 'сек'
-  icon: 'mdi:camera-timer'
-  min: 1
-  max: 10
-  step: 1
-  initial: 3

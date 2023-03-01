@@ -1,0 +1,7 @@
+i_hall_top_light_is_dark:
+  initial: true
+  icon: 'mdi:weather-sunny'
+
+i_hall_back_light_is_dark:
+  initial: true
+  icon: 'mdi:weather-sunny'
