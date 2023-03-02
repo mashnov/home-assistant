@@ -5,3 +5,7 @@ nt_bedroom:
 nt_living:
   initial: true
   icon: 'mdi:weather-night'
+
+nt_hall:
+  initial: true
+  icon: 'mdi:weather-night'

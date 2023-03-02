@@ -7,7 +7,7 @@
       {% set isOpenIcon = is_state('binary_sensor.door', 'off') and 'mdi:door-open' %}
       {{ isCloseIcon or isOpenIcon }}
     attributes:
-      toilet: "{{ is_state('binary_sensor.vr_door_toilet', 'on') }}"
+      toilet: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
       hall: "{{ is_state('binary_sensor.vr_door_hall', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_door_bedroom', 'on') }}"
       living: "{{ is_state('binary_sensor.vr_door_living', 'on') }}"

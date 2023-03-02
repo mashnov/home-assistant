@@ -1,0 +1,26 @@
+i_living_back_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_living_curtain_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_kitchen_top_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_kitchen_back_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_kitchen_curtain_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_hall_top_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_hall_back_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_bedroom_back_light_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
+
+i_bedroom_curtain_is_dark:
+  duration: "{{ state_attr('sensor.delay', 'illuminance') }}"

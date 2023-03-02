@@ -30,7 +30,15 @@ dl_toilet_mode:
   step: 1
   initial: 15
 
-dl_motion_day:
+dl_illuminance:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 600
+  min: 0
+  step: 1
+  initial: 30
+
+dl_occupation_day:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 240
@@ -38,7 +46,7 @@ dl_motion_day:
   step: 10
   initial: 120
 
-dl_motion_night:
+dl_occupation_night:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 60

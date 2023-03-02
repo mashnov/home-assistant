@@ -1,0 +1,8 @@
+o_kitchen:
+  duration: "{{ state_attr('sensor.delay', 'occupation') }}"
+
+o_hall:
+  duration: "{{ state_attr('sensor.delay', 'occupation') }}"
+
+o_bath:
+  duration: "{{ state_attr('sensor.delay', 'occupation') }}"

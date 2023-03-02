@@ -1,5 +1,5 @@
 o_toilet:
-  initial: true
+  initial: false
   icon: 'mdi:paper-roll'
 
 o_kitchen:

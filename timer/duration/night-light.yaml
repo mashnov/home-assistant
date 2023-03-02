@@ -1,0 +1,14 @@
+d_kitchen_night_light:
+  duration: "{{ state_attr('sensor.duration', 'night_light') }}"
+
+d_hall_night_light:
+  duration: "{{ state_attr('sensor.duration', 'night_light') }}"
+
+d_bath_night_light:
+  duration: "{{ state_attr('sensor.duration', 'night_light') }}"
+
+d_toilet_night_light:
+  duration: "{{ state_attr('sensor.duration', 'night_light') }}"
+
+d_bedroom_night_light:
+  duration: "{{ state_attr('sensor.duration', 'night_light') }}"

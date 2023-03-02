@@ -1,0 +1,2 @@
+d_toilet_dehumidifier:
+  duration: "{{ state_attr('sensor.duration', 'toilet_dehumidifier') }}"

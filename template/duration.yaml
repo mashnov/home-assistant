@@ -4,12 +4,22 @@
     icon: 'mdi:camera-timer'
     state: "00:00:00"
     attributes:
-      power: "{{ states('input_number.dl_power') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      window: "{{ states('input_number.dl_window') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      door: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      toilet: >
+      toilet_dehumidifier: >
         {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
         {% set durationNight = states('input_number.du_toilet_night') %}
         {% set durationDay = states('input_number.du_toilet_day') %}
         {% set duration = iif(isNight, durationNight, durationDay) %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      top_light: >
+        {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
+        {% set durationNight = states('input_number.du_top_light_night') %}
+        {% set durationDay = states('input_number.du_top_light_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      back_light: >
+        {% set isNight = is_state('binary_sensor.dt_is_night', 'on') %}
+        {% set durationNight = states('input_number.du_back_light_night') %}
+        {% set durationDay = states('input_number.du_back_light_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      night_light: {{ states('input_number.du_night_light') | int(0) | timestamp_custom('%H:%M:%S', false) }}

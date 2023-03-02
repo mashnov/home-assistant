@@ -1,0 +1,15 @@
+d_toilet_mode:
+  duration: "{{ state_attr('sensor.delay', 'toilet_mode') }}"
+
+d_hall_is_open:
+  duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_bedroom_is_open:
+  duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_living_is_open:
+  duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_balcony_is_open:
+  duration: "{{ state_attr('sensor.delay', 'door') }}"
+

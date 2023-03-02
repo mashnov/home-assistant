@@ -13,12 +13,7 @@
     state: "{{ state_attr('sensor.window', 'living') }}"
     delay_on: "{{ state_attr('sensor.delay', 'window') }}"
     delay_off: "{{ state_attr('sensor.delay', 'window') }}"
-  
-  - name: 'vr_door_toilet'
-    state: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
-    delay_on: "{{ state_attr('sensor.delay', 'door') }}"
-    delay_off: "{{ state_attr('sensor.delay', 'door') }}"
-  
+    
   - name: 'vr_door_hall'
     state: "{{ is_state('binary_sensor.hall_door', 'on') }}"
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"

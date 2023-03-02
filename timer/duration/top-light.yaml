@@ -1,0 +1,11 @@
+d_kitchen_top_light:
+  duration: "{{ state_attr('sensor.duration', 'top_light') }}"
+
+d_hall_top_light:
+  duration: "{{ state_attr('sensor.duration', 'top_light') }}"
+
+d_bath_top_light:
+  duration: "{{ state_attr('sensor.duration', 'top_light') }}"
+
+d_toilet_top_light:
+  duration: "{{ state_attr('sensor.duration', 'top_light') }}"
