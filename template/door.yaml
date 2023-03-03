@@ -3,7 +3,7 @@
     device_class: 'door'
     state: "{{ state_attr('binary_sensor.door', 'hall') }}"
     icon: >
-      {% set isCloseIcon = is_state('binary_sensor.door', 'off') and ''mdi:door-closed'' %}
+      {% set isCloseIcon = is_state('binary_sensor.door', 'off') and 'mdi:door-closed' %}
       {% set isOpenIcon = is_state('binary_sensor.door', 'off') and 'mdi:door-open' %}
       {% set defaultIcon = 'mdi:help-circle'%}
       {{ isCloseIcon or isOpenIcon or defaultIcon }}
