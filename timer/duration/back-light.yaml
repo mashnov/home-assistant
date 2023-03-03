@@ -1,11 +1,11 @@
 d_kitchen_back_light:
-  duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+  duration: '00:00:00'
 
 d_hall_back_light:
-  duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+  duration: '00:00:00'
 
 d_bedroom_night_light:
-  duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+  duration: '00:00:00'
 
 d_living_night_light:
-  duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+  duration: '00:00:00'

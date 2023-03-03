@@ -1,0 +1,43 @@
+o_kitchen_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.o_kitchen'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'occupation') }}"
+
+o_kitchen_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.o_kitchen'
+
+
+o_hall_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.o_hall'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'occupation') }}"
+
+o_hall_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.o_hall'
+
+
+o_bath_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.o_bath'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'occupation') }}"
+
+o_bath_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.o_bath'

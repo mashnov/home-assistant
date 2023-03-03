@@ -1,0 +1,58 @@
+d_kitchen_back_light_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_kitchen_back_light'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+
+d_kitchen_back_light_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_kitchen_back_light'
+
+
+d_hall_back_light_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_hall_back_light'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+
+d_hall_back_light_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_hall_back_light'
+
+
+d_bedroom_night_light_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_bedroom_night_light'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+
+d_bedroom_night_light_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_bedroom_night_light'
+
+
+d_living_night_light_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_living_night_light'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'back_light') }}"
+
+d_living_night_light_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_living_night_light'

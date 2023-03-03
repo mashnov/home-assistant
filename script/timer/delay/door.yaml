@@ -1,0 +1,73 @@
+d_toilet_mode_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.dl_toilet_mode'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'toilet_mode') }}"
+
+d_toilet_mode_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.dl_toilet_mode'
+
+
+d_hall_is_opene_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_hall_is_open'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_hall_is_open_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_hall_is_open'
+
+
+d_bedroom_is_open_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_bedroom_is_open'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_bedroom_is_open_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_bedroom_is_open'
+
+
+d_living_is_open_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_living_is_open'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_living_is_open_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_living_is_open'
+
+
+d_balcony_is_open_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_living_is_open'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'door') }}"
+
+d_balcony_is_open_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_living_is_open'

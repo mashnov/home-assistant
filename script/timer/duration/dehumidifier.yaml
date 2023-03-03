@@ -1,0 +1,13 @@
+d_toilet_dehumidifier_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.d_toilet_dehumidifier'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'toilet_dehumidifier') }}"
+
+d_toilet_dehumidifier_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.d_toilet_dehumidifier'
