@@ -9,7 +9,8 @@
     icon: >
       {% set isOpenIcon = is_state('binary_sensor.window', 'on') and 'mdi:window-open-variant' %}
       {% set isCloseIcon = is_state('binary_sensor.window', 'off') and 'mdi:window-closed-variant' %}
-      {{ isOpenIcon or isCloseIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isOpenIcon or isCloseIcon or defaultIcon }}
     attributes:
       kitchen_left: "{{ is_state('binary_sensor.kitchen_window_left', 'on') }}"
       kitchen_right: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"

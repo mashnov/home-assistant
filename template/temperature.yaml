@@ -9,10 +9,11 @@
       {% set living = state_attr('sensor.temperature', 'living') | float(0) %}
       {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
     icon: >
-      {% set isHight = state_attr('sensor.temperature', 'hight') and 'mdi:thermometer-chevron-up' %}
-      {% set isNormal = state_attr('sensor.temperature', 'normal') and 'mdi:thermometer-check' %}
-      {% set isLow = state_attr('sensor.temperature', 'low') and 'mdi:thermometer-chevron-down' %}
-      {{ isHight or isNormal or isLow }}
+      {% set isHightIcon = state_attr('sensor.temperature', 'hight') and 'mdi:thermometer-chevron-up' %}
+      {% set isNormalIcon = state_attr('sensor.temperature', 'normal') and 'mdi:thermometer-check' %}
+      {% set isLowIcon = state_attr('sensor.temperature', 'low') and 'mdi:thermometer-chevron-down' %}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isHightIcon or isNormalIcon or isLowIcon or defaultIcon }}
     attributes:
       normal: >
         {% set isHight = state_attr('sensor.temperature', 'hight') %}

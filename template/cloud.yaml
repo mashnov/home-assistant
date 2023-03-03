@@ -7,6 +7,7 @@
     icon: >
       {% set isHightIcon = is_state('binary_sensor.cloud', 'on') and 'mdi:apple-icloud' %}
       {% set isLowIcon = is_state('binary_sensor.cloud', 'off') and 'mdi:cloud-outline' %}
-      {{ isHightIcon or isLowIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
       level: '{{ states("sensor.openweathermap_cloud_coverage") }}'

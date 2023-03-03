@@ -29,7 +29,8 @@
     icon: >
       {% set isEnabledIcon = is_state('binary_sensor.relay', 'on') and 'mdi:light-switch'%}
       {% set isDisabledIcon = is_state('binary_sensor.relay', 'off') and 'mdi:light-switch-off' %}
-      {{ isEnabledIcon or isDisabledIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isEnabledIcon or isDisabledIcon or defaultIcon }}
     attributes:
       kitchen_1: "{{ is_state('switch.kitchen_relay_l1', 'on') }}"
       kitchen_2: "{{ is_state('switch.kitchen_relay_l2', 'on') }}" 

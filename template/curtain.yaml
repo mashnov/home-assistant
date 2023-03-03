@@ -15,7 +15,8 @@
     icon: >
       {% set isOpenIcon = is_state('binary_sensor.curtain', 'on') and 'mdi:curtains' %}
       {% set isCloseIcon = is_state('binary_sensor.curtain', 'off') and 'mdi:curtains-closed' %}
-      {{ isOpenIcon or isCloseIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isOpenIcon or isCloseIcon or defaultIcon }}
     attributes:
       kitchen: "{{ state_attr('cover.curtain_kitchen', 'position') }}"
       bedroom: "{{ state_attr('cover.curtain_bedroom', 'position') }}"

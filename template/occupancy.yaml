@@ -10,7 +10,8 @@
     icon: >
       {% set isOccupancyIcon = is_state('binary_sensor.occupancy', 'on') and 'mdi:human-greeting-variant' %}
       {% set isVacancyIcon = is_state('binary_sensor.occupancy', 'off') and 'mdi:human-male' %}
-      {{ isOccupancyIcon or isVacancyIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isOccupancyIcon or isVacancyIcon or defaultIcon }}
     attributes:
       kitchen: "{{ is_state('binary_sensor.vr_occupancy_kitchen', 'on') }}"
       hall: "{{ is_state('binary_sensor.vr_occupancy_hall', 'on') }}"

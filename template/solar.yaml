@@ -4,9 +4,11 @@
     unit_of_measurement: 'lx'
     state: '{{ state_attr("sensor.solar", "illuminance") }}'
     icon: >
-      {% set isHightIcon = state_attr('sensor.solar', 'hight') and 'mdi:sun-wireless' %}
+      {% set isHight = state_attr('sensor.solar', 'hight') %}
+      {% set isHightIcon = isHight and 'mdi:sun-wireless' %}
       {% set isLowIcon = not(isHight) and 'mdi:weather-sunny' %}
-      {{ isHightIcon or isLowIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
       illuminance: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) | round(1) }}'
       azimuth: '{{ state_attr("sun.sun", "azimuth") }}'

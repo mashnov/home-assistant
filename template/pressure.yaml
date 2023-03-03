@@ -13,7 +13,8 @@
       {% set isHightIcon = state_attr('sensor.pressure', 'hight') and 'mdi:gauge-full' %}
       {% set isNormalIcon = state_attr('sensor.pressure', 'normal') and 'mdi:gauge-low' %}
       {% set isLowIcon = state_attr('sensor.pressure', 'low') and 'mdi:gauge-empty' %}
-      {{ isHightIcon or isNormalIcon or isLowIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isHightIcon or isNormalIcon or isLowIcon or defaultIcon }}
     attributes:
       normal: >
         {% set isHight = state_attr('sensor.pressure', 'hight') %}

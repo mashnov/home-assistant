@@ -9,9 +9,10 @@
       {% set balconyValue = state_attr('binary_sensor.night_light', 'balcony') %}
       {{ kitchenValue or hallValue or bedroomValue or livingValue or balconyValue }}
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isEnabledIcon = is_state('binary_sensor.night_light', 'on') and 'mdi:light-switch'%}
       {% set isDisabledIcon = is_state('binary_sensor.night_light', 'off') and 'mdi:light-switch-off' %}
-      {{ isEnabledIcon or isDisabledIcon }}
+      {{ isEnabledIcon or isDisabledIcon or defaultIcon }}
     attributes:
       kitchen: "{{ state_attr('binary_sensor.relay', 'kitchen_1') }}"
       bath: "{{ state_attr('binary_sensor.relay', 'bath_1') }}"

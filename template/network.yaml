@@ -6,7 +6,8 @@
     icon: >
       {% set isNormalIcon = state_attr('sensor.network', 'normal') and 'mdi:speedometer' %}
       {% set isLowIcon = state_attr('sensor.network', 'low') and 'mdi:speedometer-slow' %}
-      {{ isNormalIcon or isLowIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isNormalIcon or isLowIcon or defaultIcon }}
     attributes:
       normal: "{{ not(state_attr('sensor.network', 'low')) }}"
       low: >

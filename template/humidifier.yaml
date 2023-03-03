@@ -9,7 +9,8 @@
     icon: >
       {% set isLowIcon = is_state('binary_sensor.humidifier_empty', 'on') and 'mdi:water-opacity' %}
       {% set isNormalIcon = is_state('binary_sensor.humidifier_empty', 'off') and 'mdi:water' %}
-      {{ isLowIcon or isNormalIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isLowIcon or isNormalIcon or defaultIcon }}
     attributes:
       hall: "{{ is_state('binary_sensor.vr_humidifier_hall_is_empty', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_humidifier_bedroom_is_empty', 'on') }}"

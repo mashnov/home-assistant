@@ -1,6 +1,7 @@
 - binary_sensor:
   - name: 'top-light-permission'
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isEnabled = is_state('binary_sensor.top_light_permission', 'on') %}
       {% set disableIcon = 'mdi:light-switch-off' %}
       {% set enableIcon = 'mdi:light-switch' %}
@@ -9,6 +10,7 @@
 
   - name: 'back-light-permission'
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isEnabled = is_state('binary_sensor.back_light_permission', 'on') %}
       {% set disableIcon = 'mdi:light-switch-off' %}
       {% set enableIcon = 'mdi:light-switch' %}
@@ -17,6 +19,7 @@
 
   - name: 'night-light-permission'
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isEnabled = is_state('binary_sensor.night_light_permission', 'on') %}
       {% set disableIcon = 'mdi:light-switch-off' %}
       {% set enableIcon = 'mdi:light-switch' %}
@@ -30,6 +33,7 @@
       {% set livingValue = state_attr('binary_sensor.humidifier_permission', 'living') %}
       {{ hallValue or bedroomValue or livingValue }}
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isEnabled = is_state('binary_sensor.humidifier_permission', 'on') %}
       {% set disableIcon = 'mdi:light-switch-off' %}
       {% set enableIcon = 'mdi:light-switch' %}
@@ -61,6 +65,7 @@
     device_class: 'moisture'
     state: "{{ state_attr('binary_sensor.dehumidifier', 'bath') }}"
     icon: >
+      {% set defaultIcon = 'mdi:help-circle'%}
       {% set isNormal = is_state('binary_sensor.dehumidifier', 'off') %}
       {% set normalIcon = 'mdi:water-opacity' %}
       {% set hightIcon = 'mdi:water' %}

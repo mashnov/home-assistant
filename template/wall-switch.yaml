@@ -13,7 +13,8 @@
     icon: >
       {% set isEnabledIcon = is_state('binary_sensor.wall_switch', 'on') and 'mdi:light-switch' %}
       {% set isDisabledIcon = is_state('binary_sensor.wall_switch', 'off') and 'mdi:light-switch-off' %}
-      {{ isEnabledIcon or isDisabledIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isEnabledIcon or isDisabledIcon  or defaultIcon }}
     attributes:
       kitchen_left: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
       kitchen_right: "{{ is_state('switch.kitchen_switch_right', 'on') }}" 

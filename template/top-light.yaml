@@ -10,7 +10,8 @@
     icon: >
       {% set isEnabledIcon = is_state('binary_sensor.top_light', 'on') and 'mdi:light-switch' %}
       {% set isDisabledIcon = is_state('binary_sensor.top_light', 'off') and 'mdi:light-switch-off' %}
-      {{ isEnabledIcon or isDisabledIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isEnabledIcon or isDisabledIcon or defaultIcon }}
     attributes:
       kitchen: >
         {% set light1Value = state_attr('binary_sensor.top_light', 'kitchen_1') %}

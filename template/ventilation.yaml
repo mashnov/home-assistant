@@ -10,7 +10,8 @@
     icon: >
       {% set isOpenIcon = is_state('binary_sensor.ventilation', 'on') and 'mdi:weather-windy' %}
       {% set isCloseIcon = is_state('binary_sensor.ventilation', 'off') and 'mdi:tailwind' %}
-      {{ isOpenIcon or isCloseIcon }}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isOpenIcon or isCloseIcon or defaultIcon }}
     attributes:
       kitchen: "{{ is_state('binary_sensor.vr_ventilation_kitchen', 'on') }}"
       bedroom: "{{ is_state('binary_sensor.vr_ventilation_bedroom', 'on') }}"
