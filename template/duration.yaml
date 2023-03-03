@@ -22,4 +22,4 @@
         {% set durationDay = states('input_number.du_back_light_day') %}
         {% set duration = iif(isNight, durationNight, durationDay) %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
-      night_light: {{ states('input_number.du_night_light') | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      night_light: "{{ states('input_number.du_night_light') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
