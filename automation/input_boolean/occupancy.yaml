@@ -4,8 +4,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'kitchen')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_kitchen_on
 
@@ -24,8 +24,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'kitchen')
-    from: true
-    to: false
+    from: 'on'
+    to: 'off'
   action:
   - service: script.o_kitchen_start
 
@@ -34,8 +34,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'kitchen')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_kitchen_cancel
 
@@ -45,8 +45,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'hall')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_hall_on
 
@@ -65,8 +65,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'hall')
-    from: true
-    to: false
+    from: 'on'
+    to: 'off'
   action:
   - service: script.o_hall_start
 
@@ -75,8 +75,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'hall')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_hall_cancel
 
@@ -86,8 +86,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'bath')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_bath_on
 
@@ -106,8 +106,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'bath')
-    from: true
-    to: false
+    from: 'on'
+    to: 'off'
   action:
   - service: script.o_bath_start
 
@@ -116,8 +116,8 @@
   trigger:
   - platform: state
     entity_id: state_attr('binary_sensor.motion', 'bath')
-    from: false
-    to: true
+    from: 'off'
+    to: 'on'
   action:
   - service: script.o_bath_cancel
 
