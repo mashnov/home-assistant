@@ -47,6 +47,195 @@
   - service: script.w_kitchen_left_off
 
 ## KITCHEN RIGHT
+- alias: 'w_kitchen_right_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_right'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_right'
+    from: true
+    to: false
+  action:
+  - service: script.w_kitchen_right_cancel
+  - service: script.w_kitchen_right_start
+
+- alias: 'w_kitchen_right_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_kitchen_right
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_right'
+    state: true
+  action:
+  - service: script.w_kitchen_right_on
+
+- alias: 'w_kitchen_right_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_kitchen_right
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_right'
+    state: false
+  action:
+  - service: script.w_kitchen_right_off
+
+
 ## BEDROOM LEFT
+- alias: 'w_bedroom_left_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_left'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_left'
+    from: true
+    to: false
+  action:
+  - service: script.w_bedroom_left_cancel
+  - service: script.w_bedroom_left_start
+
+- alias: 'w_bedroom_left_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_bedroom_left
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_left'
+    state: true
+  action:
+  - service: script.w_bedroom_left_on
+
+- alias: 'w_bedroom_left_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_bedroom_left
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_left'
+    state: false
+  action:
+  - service: script.w_bedroom_left_off
+
 ## BEDROOM RIGHT
-## KITCHEN LIVING
+- alias: 'w_bedroom_right_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_right'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_right'
+    from: true
+    to: false
+  action:
+  - service: script.w_bedroom_right_cancel
+  - service: script.w_bedroom_right_start
+
+- alias: 'w_bedroom_right_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_bedroom_right
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_right'
+    state: true
+  action:
+  - service: script.w_bedroom_right_on
+
+- alias: 'w_bedroom_right_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_bedroom_right
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_right'
+    state: false
+  action:
+  - service: script.w_bedroom_right_off
+
+
+## LIVING
+- alias: 'w_living_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'living'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'living'
+    from: true
+    to: false
+  action:
+  - service: script.w_living_cancel
+  - service: script.w_living_start
+
+- alias: 'w_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_living
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'living'
+    state: true
+  action:
+  - service: script.w_living_on
+
+- alias: 'w_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.w_living
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'living'
+    state: false
+  action:
+  - service: script.w_living_off
