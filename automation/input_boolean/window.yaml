@@ -5,13 +5,13 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_left'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_left'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.w_kitchen_left_cancel
   - service: script.w_kitchen_left_start
@@ -27,7 +27,7 @@
   - condition: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_left'
-    state: 'on'
+    state: true
   action:
   - service: script.w_kitchen_left_on
 
@@ -42,7 +42,7 @@
   - condition: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_left'
-    state: 'off'
+    state: false
   action:
   - service: script.w_kitchen_left_off
 
