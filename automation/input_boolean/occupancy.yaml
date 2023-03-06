@@ -85,7 +85,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: state_attr('binary_sensor.motion', 'bath')
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
     from: 'off'
     to: 'on'
   action:
@@ -105,7 +106,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: state_attr('binary_sensor.motion', 'bath')
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
     from: 'on'
     to: 'off'
   action:
@@ -115,7 +117,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: state_attr('binary_sensor.motion', 'bath')
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
     from: 'off'
     to: 'on'
   action:
