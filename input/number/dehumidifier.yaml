@@ -1,4 +1,4 @@
-d_target:
+de_target:
   unit_of_measurement: '%'
   icon: 'mdi:water-check'
   min: 0
@@ -6,7 +6,7 @@ d_target:
   step: 1
   initial: 50
 
-d_offset:
+de_offset:
   unit_of_measurement: '%'
   icon: 'mdi:water-plus'
   min: 0

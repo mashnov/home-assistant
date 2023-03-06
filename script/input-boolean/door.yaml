@@ -1,0 +1,68 @@
+## HALL
+d_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.d_hall
+
+d_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.d_hall
+
+
+## TOILET
+d_toilet_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.d_toilet
+
+d_toilet_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.d_toilet
+
+
+## BEDROOM
+d_bedroom_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.d_bedroom
+
+d_bedroom_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.d_bedroom
+
+
+## LIVING
+d_living_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.d_living
+
+d_living_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.d_living
+
+
+## BALCONY
+d_balcony_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.d_balcony
+
+d_balcony_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.d_balcony

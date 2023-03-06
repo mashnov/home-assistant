@@ -22,7 +22,7 @@
  ## input booleab
 - v - ventilation
 - h - hudration
-- d - dehudration
+- de - dehudration
 
 ## input text
 - v - ventilation

@@ -1,14 +1,19 @@
-w_kitchen_left_is_open:
+## KITCHEN
+w_kitchen_left:
   duration: '00:00:00'
 
-w_kitchen_right_is_open:
+w_kitchen_right:
   duration: '00:00:00'
 
-w_bedroom_left_is_open:
+
+## BEDROOM
+w_bedroom_left:
   duration: '00:00:00'
 
-w_bedroom_right_is_open:
+w_bedroom_right:
   duration: '00:00:00'
 
-w_living_is_open:
+
+## LIVING
+w_living:
   duration: '00:00:00'

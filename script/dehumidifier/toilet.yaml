@@ -1,16 +1,16 @@
-d_toilet_on:
+de_toilet_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.toilet_relay_l1'
 
-d_toilet_off:
+de_toilet_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.toilet_relay_l1'
 
-d_toilet_toggle:
+de_toilet_toggle:
   mode: 'queued'
   sequence:
   - service: switch.toggle

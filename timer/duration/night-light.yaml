@@ -1,14 +1,23 @@
-d_kitchen_night_light:
+## KICTHEN
+nl_kitchen:
   duration: '00:00:00'
 
-d_hall_night_light:
+
+## HALL
+nl_hall:
   duration: '00:00:00'
 
-d_bath_night_light:
+
+## BATH
+nl_bath:
   duration: '00:00:00'
 
-d_toilet_night_light:
+
+## TOILET
+nl_toilet:
   duration: '00:00:00'
 
-d_bedroom_night_light:
+
+## BEDROOM
+nl_bedroom:
   duration: '00:00:00'

@@ -4,6 +4,6 @@
       value_template: "{{ state_attr('binary_sensor.relay', 'toilet_1') }}"
       icon_template: "{{ iif(state_attr('binary_sensor.relay', 'toilet_1'), 'mdi:fan-alert', 'mdi:fan') }}"
       turn_off: 
-        service: script.d_toilet_off
+        service: script.de_toilet_off
       turn_on: 
-        service: script.d_toilet_on
+        service: script.de_toilet_on

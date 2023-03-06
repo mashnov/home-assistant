@@ -1,0 +1,48 @@
+## KITCHEN LEFT
+- alias: 'w_kitchen_left_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_kitchen_on
+
+- alias: 'w_kitchen_left_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_kitchen
+  action:
+  - service: script.o_kitchen_off
+
+- alias: 'w_kitchen_left_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.o_kitchen_start
+
+- alias: 'w_kitchen_left_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion'
+    attribute: 'bath'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_kitchen_cancel
+
+## KITCHEN RIGHT
+## BEDROOM LEFT
+## BEDROOM RIGHT
+## KITCHEN LIVING

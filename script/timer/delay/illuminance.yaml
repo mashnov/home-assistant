@@ -1,133 +1,138 @@
-i_living_back_light_is_dark_start:
+## KITCHEN
+i_kitchen_top_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_living_back_light_is_dark'
+    entity_id: 'timer.i_kitchen_top_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_living_back_light_is_dark_cancel:
+i_kitchen_top_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_living_back_light_is_dark'
+    entity_id: 'timer.i_kitchen_top_light'
 
 
-i_living_curtain_is_dark_start:
+i_kitchen_back_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_living_curtain_is_dark'
+    entity_id: 'timer.i_kitchen_back_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_living_curtain_is_dark_cancel:
+i_kitchen_back_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_living_curtain_is_dark'
+    entity_id: 'timer.i_kitchen_back_light'
 
 
-i_kitchen_top_light_is_dark_start:
+i_kitchen_curtain_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_kitchen_top_light_is_dark'
+    entity_id: 'timer.i_kitchen_curtain'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_top_light_is_dark_cancel:
+i_kitchen_curtain_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_kitchen_top_light_is_dark'
+    entity_id: 'timer.i_kitchen_curtain'
 
 
-i_kitchen_back_light_is_dark_start:
+## HALL
+i_hall_top_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_kitchen_back_light_is_dark'
+    entity_id: 'timer.i_hall_top_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_back_light_is_dark_cancel:
+i_hall_top_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_kitchen_back_light_is_dark'
+    entity_id: 'timer.i_hall_top_light'
 
 
-i_kitchen_curtain_is_dark_start:
+i_hall_back_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_kitchen_curtain_is_dark'
+    entity_id: 'timer.i_hall_back_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_curtain_is_dark_cancel:
+i_hall_back_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_kitchen_curtain_is_dark'
+    entity_id: 'timer.i_hall_back_light'
 
 
-i_hall_top_light_is_dark_start:
+## BEDROOM
+i_bedroom_back_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_hall_top_light_is_dark'
+    entity_id: 'timer.i_bedroom_back_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_hall_top_light_is_dark_cancel:
+i_bedroom_back_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_hall_top_light_is_dark'
+    entity_id: 'timer.i_bedroom_back_light'
 
 
-i_hall_back_light_is_dark_start:
+i_bedroom_curtain_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_hall_back_light_is_dark'
+    entity_id: 'timer.i_bedroom_curtain'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_hall_back_light_is_dark_cancel:
+i_bedroom_curtain_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_hall_back_light_is_dark'
+    entity_id: 'timer.i_bedroom_curtain'
 
 
-i_bedroom_back_light_is_dark_start:
+## LIVING
+i_living_back_light_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_bedroom_back_light_is_dark'
+    entity_id: 'timer.i_living_back_light'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_bedroom_back_light_is_dark_cancel:
+i_living_back_light_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_bedroom_back_light_is_dark'
+    entity_id: 'timer.i_living_back_light'
 
 
-i_bedroom_curtain_is_dark_start:
+i_living_curtain_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.i_bedroom_curtain_is_dark'
+    entity_id: 'timer.i_living_curtain'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_bedroom_curtain_is_dark_cancel:
+i_living_curtain_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.i_bedroom_curtain_is_dark'
+    entity_id: 'timer.i_living_curtain'
+

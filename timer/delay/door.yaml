@@ -1,15 +1,24 @@
-d_toilet_mode:
+## HALL
+d_hall:
   duration: '00:00:00'
 
-d_hall_is_open:
+
+## TOILET
+d_toilet:
   duration: '00:00:00'
 
-d_bedroom_is_open:
+
+## BEDROOM
+d_bedroom:
   duration: '00:00:00'
 
-d_living_is_open:
+
+## LIVING
+d_living:
   duration: '00:00:00'
 
-d_balcony_is_open:
+
+## BALCONY
+d_balcony:
   duration: '00:00:00'
 

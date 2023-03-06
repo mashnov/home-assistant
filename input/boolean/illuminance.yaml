@@ -1,35 +1,42 @@
-i_living_back_light_is_dark:
+## KITCHEN
+i_kitchen_top_light:
   initial: false
   icon: 'mdi:weather-sunny'
 
-i_living_curtain_is_dark:
+i_kitchen_back_light:
+  initial: false
+  icon: 'mdi:weather-sunny'
+
+i_kitchen_curtain:
   initial: true
   icon: 'mdi:weather-sunny'
 
-i_kitchen_top_light_is_dark:
+
+## HALL
+i_hall_top_light:
   initial: false
   icon: 'mdi:weather-sunny'
 
-i_kitchen_back_light_is_dark:
+i_hall_back_light:
   initial: false
   icon: 'mdi:weather-sunny'
 
-i_kitchen_curtain_is_dark:
+
+## BEDROOM
+i_bedroom_back_light:
+  initial: false
+  icon: 'mdi:weather-sunny'
+
+i_bedroom_curtain:
   initial: true
   icon: 'mdi:weather-sunny'
 
-i_hall_top_light_is_dark:
+
+## LIVING
+i_living_back_light:
   initial: false
   icon: 'mdi:weather-sunny'
 
-i_hall_back_light_is_dark:
-  initial: false
-  icon: 'mdi:weather-sunny'
-
-i_bedroom_back_light_is_dark:
-  initial: false
-  icon: 'mdi:weather-sunny'
-
-i_bedroom_curtain_is_dark:
+i_living_curtain:
   initial: true
   icon: 'mdi:weather-sunny'

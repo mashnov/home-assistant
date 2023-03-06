@@ -1,11 +1,18 @@
-d_kitchen_top_light:
+## KITCHEN
+tl_kitchen:
   duration: '00:00:00'
 
-d_hall_top_light:
+
+## HALL
+tl_hall:
   duration: '00:00:00'
 
-d_bath_top_light:
+
+## BATH
+tl_bath:
   duration: '00:00:00'
 
-d_toilet_top_light:
+
+## TOILET
+tl_toilet:
   duration: '00:00:00'

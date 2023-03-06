@@ -1,11 +1,17 @@
+## HALL
+nt_hall:
+  initial: true
+  icon: 'mdi:weather-night'
+
+
+## BEDROOM
 nt_bedroom:
   initial: true
   icon: 'mdi:weather-night'
 
+
+## LIVING
 nt_living:
   initial: true
   icon: 'mdi:weather-night'
 
-nt_hall:
-  initial: true
-  icon: 'mdi:weather-night'

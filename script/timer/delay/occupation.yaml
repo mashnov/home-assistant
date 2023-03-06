@@ -1,3 +1,4 @@
+## KITCHEN
 o_kitchen_start:
   mode: 'queued'
   sequence:
@@ -12,7 +13,7 @@ o_kitchen_cancel:
   - service: timer.cancel
     entity_id: 'timer.o_kitchen'
 
-
+## HALL
 o_hall_start:
   mode: 'queued'
   sequence:
@@ -28,6 +29,7 @@ o_hall_cancel:
     entity_id: 'timer.o_hall'
 
 
+## BATH
 o_bath_start:
   mode: 'queued'
   sequence:

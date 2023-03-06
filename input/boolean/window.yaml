@@ -1,19 +1,24 @@
-w_kitchen_left_is_open:
+## KITCHEN
+w_kitchen_left:
   initial: false
   icon: 'mdi:window-open-variant'
 
-w_kitchen_right_is_open:
+w_kitchen_right:
   initial: false
   icon: 'mdi:window-open-variant'
 
-w_bedroom_left_is_open:
+
+## BEDROOM
+w_bedroom_left:
   initial: false
   icon: 'mdi:window-open-variant'
 
-w_bedroom_right_is_open:
+w_bedroom_right:
   initial: false
   icon: 'mdi:window-open-variant'
 
-w_living_is_open:
+
+## LIVING
+w_living:
   initial: false
   icon: 'mdi:window-open-variant'

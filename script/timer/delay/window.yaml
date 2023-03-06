@@ -1,73 +1,74 @@
-w_kitchen_left_is_open_start:
+## KITCHEN
+w_kitchen_left_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.w_kitchen_left_is_open'
+    entity_id: 'timer.w_kitchen_left'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_kitchen_left_is_open_cancel:
+w_kitchen_left_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.w_kitchen_left_is_open'
+    entity_id: 'timer.w_kitchen_left'
 
-
-w_kitchen_right_is_open_start:
+w_kitchen_right_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.w_kitchen_right_is_open'
+    entity_id: 'timer.w_kitchen_right'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_kitchen_right_is_open_cancel:
+w_kitchen_right_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.w_kitchen_right_is_open'
+    entity_id: 'timer.w_kitchen_right'
 
 
-w_bedroom_left_is_open_start:
+## BEDROOM
+w_bedroom_left_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.w_bedroom_left_is_open'
+    entity_id: 'timer.w_bedroom_left'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_bedroom_left_is_open_cancel:
+w_bedroom_left_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.w_bedroom_left_is_open'
+    entity_id: 'timer.w_bedroom_left'
 
-
-w_bedroom_right_is_open_start:
+w_bedroom_right_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.w_bedroom_right_is_open'
+    entity_id: 'timer.w_bedroom_right'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_bedroom_right_is_open_cancel:
+w_bedroom_right_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.w_bedroom_right_is_open'
+    entity_id: 'timer.w_bedroom_right'
 
 
-w_living_is_open_start:
+## LIVING
+w_living_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.w_living_is_open'
+    entity_id: 'timer.w_living'
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_living_is_open_cancel:
+w_living_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.w_living_is_open'
+    entity_id: 'timer.w_living'

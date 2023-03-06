@@ -1,11 +1,18 @@
-d_kitchen_back_light:
+## KITCHEN
+bl_kitche:
   duration: '00:00:00'
 
-d_hall_back_light:
+
+## HALL
+bl_hal:
   duration: '00:00:00'
 
-d_bedroom_night_light:
+
+## BEDROOM
+bl_bedroom:
   duration: '00:00:00'
 
-d_living_night_light:
+
+## LIVING
+bl_living:
   duration: '00:00:00'

@@ -1,58 +1,62 @@
-d_kitchen_top_light_start:
+## KITCHEN
+tl_kitchen_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_kitchen_top_light'
+    entity_id: 'timer.tl_kitchen'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'top_light') }}"
 
-d_kitchen_top_light_cancel:
+tl_kitchen_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_kitchen_top_light'
+    entity_id: 'timer.tl_kitchen'
 
 
-d_hall_top_light_start:
+## HALL
+tl_hall_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_hall_top_light'
+    entity_id: 'timer.tl_hall'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'top_light') }}"
 
-d_hall_top_light_cancel:
+tl_hall_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_hall_top_light'
+    entity_id: 'timer.tl_hall'
 
 
-d_bath_top_light_start:
+## BATH
+tl_bath_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_bath_top_light'
+    entity_id: 'timer.tl_bath'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'top_light') }}"
 
-d_bath_top_light_cancel:
+tl_bath_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_bath_top_light'
+    entity_id: 'timer.tl_bath'
 
 
-d_toilet_top_light_start:
+## TOILET
+tl_toilet_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_toilet_top_light'
+    entity_id: 'timer.tl_toilet'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'top_light') }}"
 
-d_toilet_top_light_cancel:
+tl_toilet_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_toilet_top_light'
+    entity_id: 'timer.tl_toilet'

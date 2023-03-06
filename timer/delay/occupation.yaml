@@ -1,8 +1,13 @@
+## KITCHEN
 o_kitchen:
   duration: '00:00:00'
 
+
+## HALL
 o_hall:
   duration: '00:00:00'
 
+
+## BATH
 o_bath:
   duration: '00:00:00'

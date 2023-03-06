@@ -1,73 +1,78 @@
-d_kitchen_night_light_start:
+## KITCHEN
+nl_kitchen_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_kitchen_night_light'
+    entity_id: 'timer.nl_kitchen'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'night_light') }}"
 
-d_kitchen_night_light_cancel:
+nl_kitchen_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_kitchen_night_light'
+    entity_id: 'timer.nl_kitchen'
 
 
-d_hall_night_light_start:
+## HALL
+nl_hall_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_hall_night_light'
+    entity_id: 'timer.nl_hall'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'night_light') }}"
 
-d_hall_night_light_cancel:
+nl_hall_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_hall_night_light'
+    entity_id: 'timer.nl_hall'
 
 
-d_bath_night_light_start:
+## BATH
+nl_bath_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_bath_night_light'
+    entity_id: 'timer.nl_bath'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'night_light') }}"
 
-d_bath_night_light_cancel:
+nl_bath_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_bath_night_light'
+    entity_id: 'timer.nl_bath'
 
 
-d_toilet_night_light_start:
+## TOILET
+nl_toilet_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_toilet_night_light'
+    entity_id: 'timer.nl_toilet'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'night_light') }}"
 
-d_toilet_night_light_cancel:
+nl_toilet_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_toilet_night_light'
+    entity_id: 'timer.nl_toilet'
 
 
-d_bedroom_night_light_start:
+## BEDROOM
+nl_bedroom_start:
   mode: 'queued'
   sequence:
   - service: timer.start
-    entity_id: 'timer.d_bedroom_night_light'
+    entity_id: 'timer.nl_bedroom'
     data_template:
       duration: "{{ state_attr('sensor.duration', 'night_light') }}"
 
-d_bedroom_night_light_cancel:
+nl_bedroom_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
-    entity_id: 'timer.d_bedroom_night_light'
+    entity_id: 'timer.nl_bedroom'
