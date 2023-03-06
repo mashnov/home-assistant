@@ -1,0 +1,17 @@
+- binary_sensor:
+  - name: 'motion'
+    device_class: 'motion'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.motion', 'kitchen') %}
+      {% set hallValue = state_attr('binary_sensor.motion', 'hall') %}
+      {% set bathValue = state_attr('binary_sensor.motion', 'bath') %}
+      {{ kitchenValue or hallValue or bathValue }}
+    icon: >
+      {% set isOccupancyIcon = is_state('binary_sensor.motion', 'on') and 'mdi:human-greeting' %}
+      {% set isVacancyIcon = is_state('binary_sensor.motion', 'off') and 'mdi:human-male' %}
+      {% set defaultIcon = 'mdi:help-circle'%}
+      {{ isOccupancyIcon or isVacancyIcon or defaultIcon }}
+    attributes:
+      kitchen: "{{ states('binary_sensor.kitchen_motion') }}"
+      hall: "{{ states('binary_sensor.hall_motion') }}"
+      bath: "{{ states('binary_sensor.bath_motion') }}"

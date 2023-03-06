@@ -34,25 +34,6 @@
     delay_on: "{{ state_attr('sensor.delay', 'door') }}"
     delay_off: "{{ state_attr('sensor.delay', 'door') }}"
 
-  - name: 'vr_occupancy_toilet'
-    icon: "{{ iif(is_state('binary_sensor.o_toilet', 'on'), 'mdi:paper-roll', 'mdi:paper-roll-outline') }}"
-    state: "{{ is_state('input_boolean.o_toilet', 'on') }}"
-
-  - name: 'vr_occupancy_kitchen'
-    delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
-    icon: "{{ iif(is_state('binary_sensor.m_kitchen', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
-    state: "m_kitchen"
-
-  - name: 'vr_occupancy_hall'
-    delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
-    icon: "{{ iif(is_state('binary_sensor.m_hall', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
-    state: "{{ states('binary_sensor.hall_motion') }}"
-
-  - name: 'vr_occupancy_bath'
-    delay_off: "{{ state_attr('sensor.delay', 'motion') }}"
-    icon: "{{ iif(is_state('binary_sensor.m_bath', 'on'), 'mdi:human-greeting', 'mdi:human-male') }}"
-    state: "{{ states('binary_sensor.bath_motion') }}"
-
   - name: 'vr_humidifier_hall_is_empty'
     delay_on: "{{ state_attr('sensor.delay', 'power') }}"
     state: >

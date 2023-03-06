@@ -1,0 +1,124 @@
+## KITCHEN
+- alias: 'o_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'kitchen')
+    from: false
+    to: true
+  action:
+  - service: script.o_kitchen_on
+
+- alias: 'o_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_kitchen
+  action:
+  - service: script.o_kitchen_off
+
+- alias: 'o_kitchen_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'kitchen')
+    from: true
+    to: false
+  action:
+  - service: script.o_kitchen_start
+
+- alias: 'o_kitchen_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'kitchen')
+    from: false
+    to: true
+  action:
+  - service: script.o_kitchen_cancel
+
+## HALL
+- alias: 'o_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'hall')
+    from: false
+    to: true
+  action:
+  - service: script.o_hall_on
+
+- alias: 'o_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_hall
+  action:
+  - service: script.o_hall_off
+
+- alias: 'o_hall_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'hall')
+    from: true
+    to: false
+  action:
+  - service: script.o_hall_start
+
+- alias: 'o_hall_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'hall')
+    from: false
+    to: true
+  action:
+  - service: script.o_hall_cancel
+
+## BATH
+- alias: 'o_bath_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'bath')
+    from: false
+    to: true
+  action:
+  - service: script.o_bath_on
+
+- alias: 'o_bath_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_bath
+  action:
+  - service: script.o_bath_off
+
+- alias: 'o_bath_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'bath')
+    from: true
+    to: false
+  action:
+  - service: script.o_bath_start
+
+- alias: 'o_bath_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: state_attr('binary_sensor.motion', 'bath')
+    from: false
+    to: true
+  action:
+  - service: script.o_bath_cancel
+
+
