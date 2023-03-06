@@ -51,13 +51,13 @@ w_bedroom_right_off:
 
 
 ## LIVING
-w_living_left_on:
+w_living_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_living
 
-w_living_left_off:
+w_living_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
