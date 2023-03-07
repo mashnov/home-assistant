@@ -1,48 +1,194 @@
-## KITCHEN LEFT
-- alias: 'w_kitchen_left_boolean_on'
+## HALL
+- alias: 'd_toilet_timer_action'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
-    from: 'off'
-    to: 'on'
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: true
+    to: false
   action:
-  - service: script.o_kitchen_on
+  - service: script.d_toilet_cancel
+  - service: script.d_toilet_start
 
-- alias: 'w_kitchen_left_boolean_off'
+- alias: 'd_toilet_boolean_on'
   initial_state: true
   trigger:
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.o_kitchen
+      entity_id: timer.d_toilet
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: true
   action:
-  - service: script.o_kitchen_off
+  - service: script.d_toilet_on
 
-- alias: 'w_kitchen_left_timer_on'
+- alias: 'd_toilet_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_toilet
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: false
+  action:
+  - service: script.d_toilet_off
+
+
+## BEDROOM
+- alias: 'd_bedroom_timer_action'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
-    from: 'on'
-    to: 'off'
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: true
+    to: false
   action:
-  - service: script.o_kitchen_start
+  - service: script.d_bedroom_cancel
+  - service: script.d_bedroom_start
 
-- alias: 'w_kitchen_left_timer_cancel'
+- alias: 'd_bedroom_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_bedroom
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: true
+  action:
+  - service: script.d_bedroom_on
+
+- alias: 'd_bedroom_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_bedroom
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: false
+  action:
+  - service: script.d_bedroom_off
+
+
+## LIVING
+- alias: 'd_living_timer_action'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
-    from: 'off'
-    to: 'on'
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: true
+    to: false
   action:
-  - service: script.o_kitchen_cancel
+  - service: script.d_living_cancel
+  - service: script.d_living_start
 
-## KITCHEN RIGHT
-## BEDROOM LEFT
-## BEDROOM RIGHT
-## KITCHEN LIVING
+- alias: 'd_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_living
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: true
+  action:
+  - service: script.d_living_on
+
+- alias: 'd_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_living
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: false
+  action:
+  - service: script.d_living_off
+
+
+## BALCONY
+- alias: 'd_balciny_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    from: true
+    to: false
+  action:
+  - service: script.d_balciny_cancel
+  - service: script.d_balciny_start
+
+- alias: 'd_balciny_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_balciny
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: true
+  action:
+  - service: script.d_balciny_on
+
+- alias: 'd_balciny_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_balciny
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: false
+  action:
+  - service: script.d_balciny_off
