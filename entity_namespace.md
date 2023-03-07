@@ -37,8 +37,9 @@
 ## sensors: 
 - d - door
 - w - window
-- vr - virtual
+- e - empty
 - dl - delay
+- vr - virtual
 
 ## light
 - tl - top light

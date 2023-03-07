@@ -13,9 +13,8 @@
       {{ isOccupancyIcon or isVacancyIcon or defaultIcon }}
     attributes:
       kitchen: "{{ states('binary_sensor.kitchen_motion') }}"
-      hall: "{{ states('binary_sensor.hall_motion') }}"
-      bath: "{{ states('binary_sensor.bath_motion') }}"
       kitchen_delayed: "{{ is_state('input_boolean.o_kitchen', 'on') }}"
+      hall: "{{ states('binary_sensor.hall_motion') }}"
       hall_delayed: "{{ is_state('input_boolean.o_hall', 'on') }}"
+      bath: "{{ states('binary_sensor.bath_motion') }}"
       bath_delayed: "{{ is_state('input_boolean.o_bath', 'on') }}"
-      toilet_delayed: "{{ is_state('input_boolean.o_toilet', 'on') }}"

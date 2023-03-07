@@ -1,0 +1,13 @@
+## HALL
+e_hall:
+  duration: '00:00:00'
+
+
+## BEDROOM
+e_bedroom:
+  duration: '00:00:00'
+
+
+## LIVING
+e_living:
+  duration: '00:00:00'

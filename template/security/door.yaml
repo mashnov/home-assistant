@@ -9,14 +9,14 @@
       {{ isCloseIcon or isOpenIcon or defaultIcon }}
     attributes:
       toilet: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
-      hall: "{{ is_state('binary_sensor.hall_door', 'on') }}"
-      bedroom: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
-      living: "{{ is_state('binary_sensor.living_door', 'on') }}"
-      balcony: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
       toilet_delayed: "{{ is_state('input_boolean.d_toilet', 'on') }}"
+      hall: "{{ is_state('binary_sensor.hall_door', 'on') }}"
       hall_delayed: "{{ is_state('input_boolean.d_hall', 'on') }}"
+      bedroom: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
       bedroom_delayed: "{{ is_state('input_boolean.d_bedroom', 'on') }}"
+      living: "{{ is_state('binary_sensor.living_door', 'on') }}"
       living_delayed: "{{ is_state('input_boolean.d_living', 'on') }}"
+      balcony: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
       balcony_delayed: "{{ is_state('input_boolean.d_balcony', 'on') }}"
 
       

@@ -1,0 +1,46 @@
+## HALL
+e_hall_timer_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.e_hall'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'power') }}"
+
+e_hall_timer_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.e_hall'
+
+
+## BEDROOM
+e_bedroom_timer_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.e_bedroom'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'power') }}"
+
+e_bedroom_timer_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.e_bedroom'
+
+
+## LIVING
+e_living_timer_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.e_living'
+    data_template:
+      duration: "{{ state_attr('sensor.delay', 'power') }}"
+
+e_living_timer_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.e_living'

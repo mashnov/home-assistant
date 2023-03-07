@@ -15,12 +15,12 @@
       {{ isOpenIcon or isCloseIcon or defaultIcon }}
     attributes:
       kitchen_left: "{{ is_state('binary_sensor.kitchen_window_left', 'on') }}"
-      kitchen_right: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"
-      bedroom_left: "{{ is_state('binary_sensor.bedroom_window_left', 'on') }}"
-      bedroom_right: "{{ is_state('binary_sensor.bedroom_window_right', 'on') }}"
-      living: "{{ is_state('binary_sensor.living_top_window', 'on') }}"
       kitchen_left_delayed: "{{ is_state('input_boolean.w_kitchen_left', 'on') }}"
+      kitchen_right: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"
       kitchen_right_delayed: "{{ is_state('input_boolean.w_kitchen_right', 'on') }}"
+      bedroom_left: "{{ is_state('binary_sensor.bedroom_window_left', 'on') }}"
       bedroom_left_delayed: "{{ is_state('input_boolean.w_bedroom_left', 'on') }}"
+      bedroom_right: "{{ is_state('binary_sensor.bedroom_window_right', 'on') }}"
       bedroom_right_delayed: "{{ is_state('input_boolean.w_bedroom_right', 'on') }}"
+      living: "{{ is_state('binary_sensor.living_top_window', 'on') }}"
       living_delayed: "{{ is_state('input_boolean.w_living', 'on') }}"
