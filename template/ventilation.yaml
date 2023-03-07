@@ -13,12 +13,18 @@
       {% set defaultIcon = 'mdi:help-circle'%}
       {{ isOpenIcon or isCloseIcon or defaultIcon }}
     attributes:
-      kitchen: "{{ is_state('binary_sensor.vr_ventilation_kitchen', 'on') }}"
-      bedroom: "{{ is_state('binary_sensor.vr_ventilation_bedroom', 'on') }}"
+      kitchen: >
+        {% set leftValue = state_attr('binary_sensor.window', 'kitchen_left_delayed') %}
+        {% set rightValue = state_attr('binary_sensor.window', 'kitchen_right_delayed') %}
+        {{ leftValue or rightValue }}
+      bedroom: >
+        {% set leftValue = state_attr('binary_sensor.window', 'bedroom_left_delayed') %}
+        {% set rightValue = state_attr('binary_sensor.window', 'bedroom_right_delayed') %}
+        {{ leftValue or rightValue }}
       living: > 
-        {% set livingValue = is_state('binary_sensor.vr_ventilation_living', 'on') %}
-        {% set balconyValue = state_attr('binary_sensor.door', 'balcony') %}
-        {{ livingValue or balconyValue }}
+        {% set windowValue = state_attr('binary_sensor.window', 'living_delayed') %}
+        {% set doorValue = state_attr('binary_sensor.door', 'balcony_delayed') %}
+        {{ windowValue or doorValue }}
       hall: >
         {% set d_hall = state_attr('binary_sensor.door', 'hall') %}
         {% set d_bedroom = state_attr('binary_sensor.door', 'bedroom') %}
