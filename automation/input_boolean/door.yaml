@@ -1,5 +1,5 @@
 ## HALL
-- alias: 'd_toilet_timer_action'
+- alias: 'd_hall_timer_action'
   initial_state: true
   trigger:
   - platform: state
@@ -10,6 +10,55 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'hall'
+    from: true
+    to: false
+  action:
+  - service: script.d_hall_cancel
+  - service: script.d_hall_start
+
+- alias: 'd_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_hall
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: true
+  action:
+  - service: script.d_hall_on
+
+- alias: 'd_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.d_hall
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall'
+    state: false
+  action:
+  - service: script.d_hall_off
+
+
+## TOILET
+- alias: 'd_toilet_timer_action'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet'
     from: true
     to: false
   action:
@@ -26,7 +75,7 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'toilet'
     state: true
   action:
   - service: script.d_toilet_on
@@ -41,7 +90,7 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'toilet'
     state: false
   action:
   - service: script.d_toilet_off
@@ -53,12 +102,12 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'bedroom'
     from: false
     to: true
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'bedroom'
     from: true
     to: false
   action:
@@ -75,7 +124,7 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'bedroom'
     state: true
   action:
   - service: script.d_bedroom_on
@@ -90,7 +139,7 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'bedroom'
     state: false
   action:
   - service: script.d_bedroom_off
@@ -102,12 +151,12 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'living'
     from: false
     to: true
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'living'
     from: true
     to: false
   action:
@@ -124,7 +173,7 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'living'
     state: true
   action:
   - service: script.d_living_on
@@ -139,56 +188,56 @@
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'living'
     state: false
   action:
   - service: script.d_living_off
 
 
 ## BALCONY
-- alias: 'd_balciny_timer_action'
+- alias: 'd_balcony_timer_action'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'balcony'
     from: false
     to: true
   - platform: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'balcony'
     from: true
     to: false
   action:
-  - service: script.d_balciny_cancel
-  - service: script.d_balciny_start
+  - service: script.d_balcony_cancel
+  - service: script.d_balcony_start
 
-- alias: 'd_balciny_boolean_on'
+- alias: 'd_balcony_boolean_on'
   initial_state: true
   trigger:
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.d_balciny
+      entity_id: timer.d_balcony
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'balcony'
     state: true
   action:
-  - service: script.d_balciny_on
+  - service: script.d_balcony_on
 
-- alias: 'd_balciny_boolean_off'
+- alias: 'd_balcony_boolean_off'
   initial_state: true
   trigger:
   - platform: event
     event_type: timer.finished
     event_data:
-      entity_id: timer.d_balciny
+      entity_id: timer.d_balcony
   condition:
   - condition: state
     entity_id: 'binary_sensor.door'
-    attribute: 'hall'
+    attribute: 'balcony'
     state: false
   action:
-  - service: script.d_balciny_off
+  - service: script.d_balcony_off
