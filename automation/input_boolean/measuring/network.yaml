@@ -1,0 +1,46 @@
+## NORMAL
+- alias: 'n_normal_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.network'
+    attribute: 'normal'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.n_normal_boolean_on
+
+- alias: 'n_normal_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.network'
+    attribute: 'normal'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.n_normal_boolean_off
+
+
+## LOW
+- alias: 'n_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.network'
+    attribute: 'low'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.n_low_boolean_on
+
+- alias: 'n_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.network'
+    attribute: 'low'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.n_low_boolean_off

@@ -1,3 +1,4 @@
+## CLOUDLY
 - alias: 'c_cloudly_boolean_on'
   initial_state: true
   trigger:
@@ -6,7 +7,7 @@
     from: 'off'
     to: 'on'
   action:
-  - service: script.c_cloudly_on
+  - service: script.c_cloudly_boolean_on
 
 - alias: 'c_cloudly_boolean_off'
   initial_state: true
@@ -16,6 +17,4 @@
     from: 'on'
     to: 'off'
   action:
-  - service: script.c_cloudly_off
-
-
+  - service: script.c_cloudly_boolean_off

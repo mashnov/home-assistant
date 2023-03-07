@@ -1,0 +1,16 @@
+## HIGHT
+t_hight:
+  initial: false
+  icon: 'mdi:thermometer-chevron-up'
+
+
+## NORMAL
+t_normal:
+  initial: false
+  icon: 'mdi:thermometer-check'
+
+
+## LOW
+t_low:
+  initial: false
+  icon: 'mdi:thermometer-chevron-down'

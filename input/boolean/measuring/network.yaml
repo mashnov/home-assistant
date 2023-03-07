@@ -1,0 +1,10 @@
+## NORMAL
+n_normal:
+  initial: false
+  icon: 'mdi:speedometer'
+
+
+## LOW
+n_low:
+  initial: false
+  icon: 'mdi:speedometer-slow'

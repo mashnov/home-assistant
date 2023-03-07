@@ -1,5 +1,5 @@
 ## KITCHEN
-o_kitchen_start:
+o_kitchen_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -7,14 +7,14 @@ o_kitchen_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'occupation') }}"
 
-o_kitchen_cancel:
+o_kitchen_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.o_kitchen'
 
 ## HALL
-o_hall_start:
+o_hall_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -22,7 +22,7 @@ o_hall_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'occupation') }}"
 
-o_hall_cancel:
+o_hall_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -30,7 +30,7 @@ o_hall_cancel:
 
 
 ## BATH
-o_bath_start:
+o_bath_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -38,7 +38,7 @@ o_bath_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'occupation') }}"
 
-o_bath_cancel:
+o_bath_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel

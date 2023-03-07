@@ -1,0 +1,70 @@
+## HIGHT
+- alias: 'p_hight_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'hight'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.p_hight_boolean_on
+
+- alias: 'p_hight_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'hight'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.p_hight_boolean_off
+
+
+## NORMAL
+- alias: 'p_normal_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'normal'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.p_normal_boolean_on
+
+- alias: 'p_normal_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'normal'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.p_normal_boolean_off
+
+
+## LOW
+- alias: 'p_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'low'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.p_low_boolean_on
+
+- alias: 'p_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.pressure'
+    attribute: 'low'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.p_low_boolean_off

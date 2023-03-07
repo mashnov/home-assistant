@@ -13,8 +13,8 @@
     from: true
     to: false
   action:
-  - service: script.w_kitchen_left_cancel
-  - service: script.w_kitchen_left_start
+  - service: script.w_kitchen_left_timer_cancel
+  - service: script.w_kitchen_left_timer_start
 
 - alias: 'w_kitchen_left_boolean_on'
   initial_state: true
@@ -29,7 +29,7 @@
     attribute: 'kitchen_left'
     state: true
   action:
-  - service: script.w_kitchen_left_on
+  - service: script.w_kitchen_left_boolean_on
 
 - alias: 'w_kitchen_left_boolean_off'
   initial_state: true
@@ -44,7 +44,8 @@
     attribute: 'kitchen_left'
     state: false
   action:
-  - service: script.w_kitchen_left_off
+  - service: script.w_kitchen_left_boolean_off
+
 
 ## KITCHEN RIGHT
 - alias: 'w_kitchen_right_timer_action'
@@ -61,8 +62,8 @@
     from: true
     to: false
   action:
-  - service: script.w_kitchen_right_cancel
-  - service: script.w_kitchen_right_start
+  - service: script.w_kitchen_right_timer_cancel
+  - service: script.w_kitchen_right_timer_start
 
 - alias: 'w_kitchen_right_boolean_on'
   initial_state: true
@@ -77,7 +78,7 @@
     attribute: 'kitchen_right'
     state: true
   action:
-  - service: script.w_kitchen_right_on
+  - service: script.w_kitchen_right_boolean_on
 
 - alias: 'w_kitchen_right_boolean_off'
   initial_state: true
@@ -92,7 +93,7 @@
     attribute: 'kitchen_right'
     state: false
   action:
-  - service: script.w_kitchen_right_off
+  - service: script.w_kitchen_right_boolean_off
 
 
 ## BEDROOM LEFT
@@ -110,8 +111,8 @@
     from: true
     to: false
   action:
-  - service: script.w_bedroom_left_cancel
-  - service: script.w_bedroom_left_start
+  - service: script.w_bedroom_left_timer_cancel
+  - service: script.w_bedroom_left_timer_start
 
 - alias: 'w_bedroom_left_boolean_on'
   initial_state: true
@@ -126,7 +127,7 @@
     attribute: 'bedroom_left'
     state: true
   action:
-  - service: script.w_bedroom_left_on
+  - service: script.w_bedroom_left_boolean_on
 
 - alias: 'w_bedroom_left_boolean_off'
   initial_state: true
@@ -141,7 +142,8 @@
     attribute: 'bedroom_left'
     state: false
   action:
-  - service: script.w_bedroom_left_off
+  - service: script.w_bedroom_left_boolean_off
+
 
 ## BEDROOM RIGHT
 - alias: 'w_bedroom_right_timer_action'
@@ -158,8 +160,8 @@
     from: true
     to: false
   action:
-  - service: script.w_bedroom_right_cancel
-  - service: script.w_bedroom_right_start
+  - service: script.w_bedroom_right_timer_cancel
+  - service: script.w_bedroom_right_timer_start
 
 - alias: 'w_bedroom_right_boolean_on'
   initial_state: true
@@ -174,7 +176,7 @@
     attribute: 'bedroom_right'
     state: true
   action:
-  - service: script.w_bedroom_right_on
+  - service: script.w_bedroom_right_boolean_on
 
 - alias: 'w_bedroom_right_boolean_off'
   initial_state: true
@@ -189,7 +191,7 @@
     attribute: 'bedroom_right'
     state: false
   action:
-  - service: script.w_bedroom_right_off
+  - service: script.w_bedroom_right_boolean_off
 
 
 ## LIVING
@@ -207,8 +209,8 @@
     from: true
     to: false
   action:
-  - service: script.w_living_cancel
-  - service: script.w_living_start
+  - service: script.w_living_timer_cancel
+  - service: script.w_living_timer_start
 
 - alias: 'w_living_boolean_on'
   initial_state: true
@@ -223,7 +225,7 @@
     attribute: 'living'
     state: true
   action:
-  - service: script.w_living_on
+  - service: script.w_living_boolean_on
 
 - alias: 'w_living_boolean_off'
   initial_state: true
@@ -238,4 +240,4 @@
     attribute: 'living'
     state: false
   action:
-  - service: script.w_living_off
+  - service: script.w_living_boolean_off

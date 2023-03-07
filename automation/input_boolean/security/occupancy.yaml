@@ -4,11 +4,11 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
+    attribute: 'kitchen'
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_kitchen_on
+  - service: script.o_kitchen_boolean_on
 
 - alias: 'o_kitchen_boolean_off'
   initial_state: true
@@ -18,29 +18,30 @@
     event_data:
       entity_id: timer.o_kitchen
   action:
-  - service: script.o_kitchen_off
+  - service: script.o_kitchen_boolean_off
 
 - alias: 'o_kitchen_timer_on'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
+    attribute: 'kitchen'
     from: 'on'
     to: 'off'
   action:
-  - service: script.o_kitchen_start
+  - service: script.o_kitchen_timer_start
 
 - alias: 'o_kitchen_timer_cancel'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion'
-    attribute: 'bath'
+    attribute: 'kitchen'
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_kitchen_cancel
+  - service: script.o_kitchen_timer_cancel
+
 
 ## HALL
 - alias: 'o_hall_boolean_on'
@@ -52,7 +53,7 @@
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_hall_on
+  - service: script.o_hall_boolean_on
 
 - alias: 'o_hall_boolean_off'
   initial_state: true
@@ -62,7 +63,7 @@
     event_data:
       entity_id: timer.o_hall
   action:
-  - service: script.o_hall_off
+  - service: script.o_hall_boolean_off
 
 - alias: 'o_hall_timer_on'
   initial_state: true
@@ -73,7 +74,7 @@
     from: 'on'
     to: 'off'
   action:
-  - service: script.o_hall_start
+  - service: script.o_hall_timer_start
 
 - alias: 'o_hall_timer_cancel'
   initial_state: true
@@ -84,7 +85,8 @@
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_hall_cancel
+  - service: script.o_hall_timer_cancel
+
 
 ## BATH
 - alias: 'o_bath_boolean_on'
@@ -96,7 +98,7 @@
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_bath_on
+  - service: script.o_bath_boolean_on
 
 - alias: 'o_bath_boolean_off'
   initial_state: true
@@ -106,7 +108,7 @@
     event_data:
       entity_id: timer.o_bath
   action:
-  - service: script.o_bath_off
+  - service: script.o_bath_boolean_off
 
 - alias: 'o_bath_timer_on'
   initial_state: true
@@ -117,7 +119,7 @@
     from: 'on'
     to: 'off'
   action:
-  - service: script.o_bath_start
+  - service: script.o_bath_timer_start
 
 - alias: 'o_bath_timer_cancel'
   initial_state: true
@@ -128,6 +130,4 @@
     from: 'off'
     to: 'on'
   action:
-  - service: script.o_bath_cancel
-
-
+  - service: script.o_bath_timer_cancel

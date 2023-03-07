@@ -1,0 +1,70 @@
+## HIGHT
+- alias: 'h_hight_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'hight'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_hight_boolean_on
+
+- alias: 'h_hight_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'hight'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hight_boolean_off
+
+
+## NORMAL
+- alias: 'h_normal_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'normal'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_normal_boolean_on
+
+- alias: 'h_normal_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'normal'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_normal_boolean_off
+
+
+## LOW
+- alias: 'h_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'low'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_low_boolean_on
+
+- alias: 'h_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity'
+    attribute: 'low'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_low_boolean_off

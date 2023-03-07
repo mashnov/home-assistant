@@ -1,23 +1,23 @@
 ## KITCHEN
-w_kitchen_left_on:
+w_kitchen_left_boolean_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_kitchen_left
 
-w_kitchen_left_off:
+w_kitchen_left_boolean_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.w_kitchen_left
 
-w_kitchen_right_on:
+w_kitchen_right_boolean_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_kitchen_right
 
-w_kitchen_right_off:
+w_kitchen_right_boolean_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -25,25 +25,25 @@ w_kitchen_right_off:
 
 
 ## BEDROOM
-w_bedroom_left_on:
+w_bedroom_left_boolean_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_bedroom_left
 
-w_bedroom_left_off:
+w_bedroom_left_boolean_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.w_bedroom_left
 
-w_bedroom_right_on:
+w_bedroom_right_boolean_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_bedroom_right
 
-w_bedroom_right_off:
+w_bedroom_right_boolean_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -51,13 +51,13 @@ w_bedroom_right_off:
 
 
 ## LIVING
-w_living_on:
+w_living_boolean_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.w_living
 
-w_living_off:
+w_living_boolean_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off

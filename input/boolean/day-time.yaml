@@ -1,0 +1,22 @@
+## NIGTH
+dt_night:
+  initial: false
+  icon: 'mdi:clock-time-eleven-outline'
+
+
+## MORNING
+dt_morning:
+  initial: true
+  icon: 'mdi:clock-time-nine'
+
+
+## DAY
+dt_day:
+  initial: true
+  icon: 'mdi:clock-time-eleven'
+
+
+## EVENING
+dt_evening:
+  initial: true
+  icon: 'mdi:clock-time-nine-outline'

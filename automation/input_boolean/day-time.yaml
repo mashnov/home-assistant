@@ -1,0 +1,94 @@
+## NIGHT
+- alias: 'dt_night_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'night'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_night_boolean_on
+
+- alias: 'dt_night_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'night'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_night_boolean_off
+
+
+## MORNING
+- alias: 'dt_morning_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'morning'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_morning_boolean_on
+
+- alias: 'dt_morning_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'morning'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_morning_boolean_off
+
+
+## DAY
+- alias: 'dt_day_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'day'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_day_boolean_on
+
+- alias: 'dt_day_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'day'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_day_boolean_off
+
+
+## EVENING
+- alias: 'dt_evening_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'evening'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_evening_boolean_on
+
+- alias: 'dt_evening_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.day_time'
+    attribute: 'evening'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_evening_boolean_off

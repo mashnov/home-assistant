@@ -1,0 +1,22 @@
+## KICTHEN
+v_kitchen:
+  initial: false
+  icon: 'mdi:tailwind'
+
+
+## HALL
+v_hall:
+  initial: false
+  icon: 'mdi:tailwind'
+
+
+## BEDROOM
+v_bedroom:
+  initial: false
+  icon: 'mdi:tailwind'
+
+
+## LIVING
+v_living:
+  initial: false
+  icon: 'mdi:tailwind'

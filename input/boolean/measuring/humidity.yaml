@@ -1,0 +1,16 @@
+## HIGHT
+h_hight:
+  initial: false
+  icon: 'mdi:water'
+
+
+## NORMAL
+h_normal:
+  initial: false
+  icon: 'mdi:water-opacity'
+
+
+## LOW
+h_low:
+  initial: false
+  icon: 'mdi:water-outline'

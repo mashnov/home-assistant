@@ -1,5 +1,5 @@
 ## HALL
-d_hall_start:
+d_hall_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -7,7 +7,7 @@ d_hall_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'door') }}"
 
-d_hall_cancel:
+d_hall_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -15,7 +15,7 @@ d_hall_cancel:
 
 
 ## TOILET
-d_toilet_start:
+d_toilet_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -23,7 +23,7 @@ d_toilet_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'door') }}"
 
-d_toilet_cancel:
+d_toilet_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -31,7 +31,7 @@ d_toilet_cancel:
 
 
 ## BEDROOM
-d_bedroom_start:
+d_bedroom_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -39,7 +39,7 @@ d_bedroom_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'door') }}"
 
-d_bedroom_cancel:
+d_bedroom_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -47,7 +47,7 @@ d_bedroom_cancel:
 
 
 ## LIVING
-d_living_start:
+d_living_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -55,7 +55,7 @@ d_living_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'door') }}"
 
-d_living_cancel:
+d_living_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -63,7 +63,7 @@ d_living_cancel:
 
 
 ## BALCONY
-d_balcony_start:
+d_balcony_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -71,7 +71,7 @@ d_balcony_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'door') }}"
 
-d_balcony_cancel:
+d_balcony_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel

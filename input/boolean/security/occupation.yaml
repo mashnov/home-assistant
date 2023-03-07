@@ -20,4 +20,3 @@ o_bath:
 o_toilet:
   initial: false
   icon: 'mdi:paper-roll'
-

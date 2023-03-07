@@ -1,0 +1,70 @@
+## HALL
+- alias: 'h_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'hall'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_hall_boolean_on
+
+- alias: 'h_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'hall'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hall_boolean_off
+
+
+## BEDROOM
+- alias: 'h_bedroom_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'bedroom'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_bedroom_boolean_on
+
+- alias: 'h_bedroom_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'bedroom'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bedroom_boolean_off
+
+  
+## LIVING
+- alias: 'h_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'living'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_living_boolean_on
+
+- alias: 'h_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.hudration'
+    attribute: 'living'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_living_boolean_off

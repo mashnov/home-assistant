@@ -1,5 +1,5 @@
 ## KITCHEN
-w_kitchen_left_start:
+w_kitchen_left_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -7,13 +7,13 @@ w_kitchen_left_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_kitchen_left_cancel:
+w_kitchen_left_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.w_kitchen_left'
 
-w_kitchen_right_start:
+w_kitchen_right_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -21,7 +21,7 @@ w_kitchen_right_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_kitchen_right_cancel:
+w_kitchen_right_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -29,7 +29,7 @@ w_kitchen_right_cancel:
 
 
 ## BEDROOM
-w_bedroom_left_start:
+w_bedroom_left_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -37,13 +37,13 @@ w_bedroom_left_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_bedroom_left_cancel:
+w_bedroom_left_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.w_bedroom_left'
 
-w_bedroom_right_start:
+w_bedroom_right_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -51,7 +51,7 @@ w_bedroom_right_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_bedroom_right_cancel:
+w_bedroom_right_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -59,7 +59,7 @@ w_bedroom_right_cancel:
 
 
 ## LIVING
-w_living_start:
+w_living_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -67,7 +67,7 @@ w_living_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'window') }}"
 
-w_living_cancel:
+w_living_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel

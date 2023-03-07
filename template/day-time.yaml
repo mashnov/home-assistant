@@ -3,10 +3,10 @@
     device_class: 'timestamp'
     state: "{{ now() }}"
     icon: >
-      {% set isNightIcon = is_state('sensor.day_time', 'night') and 'mdi:clock-time-eleven-outline' %}
-      {% set isMorningIcon = is_state('sensor.day_time', 'morning') and 'mdi:clock-time-nine' %}
-      {% set isDayIcon = is_state('sensor.day_time', 'day') and 'mdi:clock-time-eleven' %}
-      {% set isEveningIcon = is_state('sensor.day_time', 'evening') and 'mdi:clock-time-nine-outline' %}
+      {% set isNightIcon = state_attr('sensor.day_time', 'night') and 'mdi:clock-time-eleven-outline' %}
+      {% set isMorningIcon = state_attr('sensor.day_time', 'morning') and 'mdi:clock-time-nine' %}
+      {% set isDayIcon = state_attr('sensor.day_time', 'day') and 'mdi:clock-time-eleven' %}
+      {% set isEveningIcon = state_attr('sensor.day_time', 'evening') and 'mdi:clock-time-nine-outline' %}
       {% set defaultIcon = 'mdi:help-circle'%}
       {{ isNightIcon or isMorningIcon or isDayIcon or isEveningIcon or defaultIcon }}
     attributes:

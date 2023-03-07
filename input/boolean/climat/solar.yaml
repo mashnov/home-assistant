@@ -1,0 +1,16 @@
+## AZIMUTH
+s_azimuth:
+  initial: false
+  icon: 'mdi:axis-z-rotate-clockwise'
+
+
+## ELEVATION
+s_elevation:
+  initial: false
+  icon: 'mdi:angle-acute'
+
+
+## HIGHT
+s_hight:
+  initial: false
+  icon: 'mdi:sun-wireless'
