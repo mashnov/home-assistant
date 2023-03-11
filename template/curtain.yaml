@@ -2,13 +2,13 @@
   - name: 'curtain'
     device_class: 'opening'
     state: >
-      {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen_sensor') %}
+      {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen_sensor') | int(0) %}
       {% set kitchenCloseValue = states('input_number.c_kitchen_close') | int(0) %}
       {% set kitchenValue = kitchenSensorValue < kitchenCloseValue %}
-      {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom_sensor') %}
+      {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom_sensor') | int(0) %}
       {% set bedroomCloseValue = states('input_number.c_bedroom_close') | int(0) %}
       {% set bedroomValue = bedroomSensorValue < bedroomCloseValue %}
-      {% set livingSensorValue = state_attr('binary_sensor.curtain', 'living_sensor') %}
+      {% set livingSensorValue = state_attr('binary_sensor.curtain', 'living_sensor') | int(0) %}
       {% set livingCloseValue = states('input_number.c_living_close') | int(0) %}
       {% set livingValue = livingSensorValue < livingCloseValue %}
       {{ kitchenValue or bedroomValue or livingValue }}
