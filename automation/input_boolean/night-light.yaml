@@ -1,0 +1,118 @@
+## KITCHEN
+- alias: 'nl_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'kitchen_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.nl_kitchen_boolean_on
+
+- alias: 'nl_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'kitchen_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.nl_kitchen_boolean_off
+
+
+## HALL
+- alias: 'nl_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'hall_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.nl_hall_boolean_on
+
+- alias: 'nl_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.nl_hall_boolean_off
+
+
+## BATH
+- alias: 'nl_bath_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'bath_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.nl_bath_boolean_on
+
+- alias: 'nl_bath_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'bath_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.nl_bath_boolean_off
+
+
+## TOILET
+- alias: 'nl_toilet_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'toilet_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.nl_toilet_boolean_on
+
+- alias: 'nl_toilet_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'toilet_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.nl_toilet_boolean_off
+
+
+## BALCONY
+- alias: 'nl_balcony_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'balcony_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.nl_balcony_boolean_on
+
+- alias: 'nl_balcony_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light'
+    attribute: 'balcony_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.nl_balcony_boolean_off

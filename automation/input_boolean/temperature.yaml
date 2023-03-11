@@ -1,0 +1,46 @@
+## HIGHT
+- alias: 't_hight_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.temperature'
+    attribute: 'hight_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.t_hight_boolean_on
+
+- alias: 't_hight_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.temperature'
+    attribute: 'hight_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.t_hight_boolean_off
+
+
+## LOW
+- alias: 't_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.temperature'
+    attribute: 'low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.t_low_boolean_on
+
+- alias: 't_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.temperature'
+    attribute: 'low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.t_low_boolean_off

@@ -1,0 +1,22 @@
+## NORMAL
+- alias: 'n_normal_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.network'
+    attribute: 'normal_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.n_normal_boolean_on
+
+- alias: 'n_normal_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.network'
+    attribute: 'normal_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.n_normal_boolean_off

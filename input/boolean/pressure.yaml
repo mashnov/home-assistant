@@ -1,0 +1,10 @@
+## HIGHT
+p_hight:
+  initial: false
+  icon: 'mdi:gauge-full'
+
+
+## LOW
+p_low:
+  initial: false
+  icon: 'mdi:gauge-empty'

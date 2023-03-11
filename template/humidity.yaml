@@ -1,0 +1,60 @@
+- sensor:
+  - name: 'humidity'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ state_attr('sensor.humidity', 'average_sensor') }}"
+    icon: >
+      {% set isHhghtIcon = state_attr('sensor.humidity', 'hight_state') and 'mdi:water' %}
+      {% set isLowIcon = state_attr('sensor.humidity', 'low_state') and 'mdi:water-outline' %}
+      {% set defaultIcon = 'mdi:water-opacity' %}
+      {{ isHhghtIcon or isNormalIcon or isLowIcon or defaultIcon }}
+    attributes:
+      kitchen_sensor: "{{ states('sensor.kitchen_humidity') }}"
+      bath_sensor: "{{ states('sensor.bath_humidity') }}"
+      hall_sensor: "{{ states('sensor.hall_humidity') }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_humidity') }}"
+      living_sensor: "{{ states('sensor.living_humidity') }}"
+      balcony_sensor: "{{ states('sensor.balcony_humidity') }}"
+      average_sensor: >
+        {% set kitchen = state_attr('sensor.humidity', 'kitchen_sensor') | float(0) %}
+        {% set hall = state_attr('sensor.humidity', 'hall_sensor') | float(0) %}
+        {% set bedroom = state_attr('sensor.humidity', 'bedroom_sensor') | float(0) %}
+        {% set living = state_attr('sensor.humidity', 'living_sensor') | float(0) %}
+        {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+
+      bath_low_state: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bath_sensor') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      hall_low_state: >
+        {% set sensorValue = state_attr('sensor.humidity', 'hall_sensor') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      bedroom_low_state: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bedroom_sensor') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      living_low_state: >
+        {% set sensorValue = state_attr('sensor.humidity', 'living_sensor') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      average_low_state: >
+        {% set sensorValue = state_attr('sensor.humidity', 'average_sensor') | int(0) %}
+        {% set normalValue = states('input_number.h_target') | int(0) %}
+        {% set offsetValue = states('input_number.h_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+
+      bath_low_boolean: "{{ is_state('input_boolean.h_bath_low', 'on') }}"
+      hall_low_boolean: "{{ is_state('input_boolean.h_hall_low', 'on') }}"
+      bedroom_low_boolean: "{{ is_state('input_boolean.h_bedroom_low', 'on') }}"
+      living_low_boolean: "{{ is_state('input_boolean.h_living_low', 'on') }}"
+      average_low_boolean: "{{ is_state('input_boolean.h_average_low', 'on') }}"

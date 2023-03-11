@@ -1,17 +1,35 @@
-bl_bedroom_on:
+bl_bedroom_1_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.bedroom_relay_l1'
 
-bl_bedroom_off:
+bl_bedroom_1_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.bedroom_relay_l1'
 
-bl_bedroom_toggle:
+bl_bedroom_1_toggle:
   mode: 'queued'
   sequence:
   - service: switch.toggle
     entity_id: 'switch.bedroom_relay_l1'
+
+bl_bedroom_2_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.bedroom_wall_switch'
+
+bl_bedroom_2_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.bedroom_wall_switch'
+
+bl_bedroom_2_toggle:
+  mode: 'queued'
+  sequence:
+  - service: switch.toggle
+    entity_id: 'switch.bedroom_wall_switch'

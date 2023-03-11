@@ -1,0 +1,33 @@
+- sensor:
+  - name: 'light-brightness'
+    unit_of_measurement: '%'
+    state: >
+      {% set targetValue = states('input_number.lb_target') | int(0) %}
+      {% set illuminanceValue = states('binary_sensor.solar') | int(0) %}
+      {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
+      {{ (sensorValue / targetValue) * 100 }}
+    icon: "mdi:cog"
+    attributes:
+      brightness: >
+        {% set minValue = 25 %}
+        {% set maxValue = 100 %}
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isMorningTime = state_attr('sensor.day_time', 'morning_boolean') %}
+        {% set sensorValue = states('sensor.light_brightness') | int(0) %}
+        {% set percentValue = 100 - sensorValue %}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {% set dayBrightness = (deltaValue + minValue) | round %}
+        {{ iif(isNightTime or isMorningTime, minValue, dayBrightness) }}
+      color_temp: >
+        {% set minValue = 175 %}
+        {% set maxValue = 333 %}
+        {% set sensorValue = states('sensor.light_brightness') | int(0) %}
+        {% set percentValue = 100 - sensorValue %}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {{ (deltaValue + minValue) | round }}
+      hs_saturation: >
+        {% set minValue = 95 %}
+        {% set maxValue = 100 %}
+        {% set percentValue = states('sensor.light_brightness') | int(0) %}
+        {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
+        {{ (deltaValue + minValue) | round }}

@@ -1,0 +1,28 @@
+## KITCHEN
+nl_kitchen:
+  initial: false
+  icon: 'mdi:led-strip'
+
+
+## HALL
+nl_hall:
+  initial: false
+  icon: 'mdi:led-strip'
+
+
+## BATH
+nl_bath:
+  initial: false
+  icon: 'mdi:led-strip'
+
+
+## TOILET
+nl_toilet:
+  initial: false
+  icon: 'mdi:led-strip'
+
+
+## BALCONY
+nl_balcony:
+  initial: false
+  icon: 'mdi:led-strip'

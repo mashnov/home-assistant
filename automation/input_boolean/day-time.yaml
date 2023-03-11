@@ -1,0 +1,98 @@
+## NIGHT
+- alias: 'dt_night_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'night_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_night_boolean_on
+
+- alias: 'dt_night_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'night_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_night_boolean_off
+
+
+## MORNING
+- alias: 'dt_morning_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'morning_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_morning_boolean_on
+
+- alias: 'dt_morning_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'morning_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_morning_boolean_off
+
+
+## DAY
+- alias: 'dt_day_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'day_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_day_boolean_on
+
+- alias: 'dt_day_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'day_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_day_boolean_off
+
+
+## EVENING
+- alias: 'dt_evening_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'evening_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.dt_evening_boolean_on
+
+- alias: 'dt_evening_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.day_time'
+    attribute: 'evening_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dt_evening_boolean_off
+
+
+
+

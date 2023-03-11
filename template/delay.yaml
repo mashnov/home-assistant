@@ -1,0 +1,16 @@
+- sensor:
+  - name: 'delay'
+    device_class: duration
+    icon: 'mdi:camera-timer'
+    state: "00:00:00"
+    attributes:
+      power: "{{ states('input_number.dl_power') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+      window: "{{ states('input_number.dl_window') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+      door: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+      illuminance: "{{ states('input_number.dl_illuminance') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+      occupation: >
+        {% set isNight = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set delayNight = states('input_number.dl_occupation_night') %}
+        {% set delayDay = states('input_number.dl_occupation_day') %}
+        {% set delay = iif(isNight, delayNight, delayDay) %}
+        {{ delay | int(0) | timestamp_custom('%H:%M:%S', false) }}

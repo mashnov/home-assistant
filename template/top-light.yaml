@@ -1,0 +1,69 @@
+- binary_sensor:
+  - name: 'top-light'
+    device_class: 'plug'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.top_light', 'kitchen_group_sensor') %}
+      {% set hallValue = state_attr('binary_sensor.top_light', 'hall_group_sensor') %}
+      {% set bedroomValue = state_attr('binary_sensor.top_light', 'bedroom_group_sensor') %}
+      {% set livingValue = state_attr('binary_sensor.top_light', 'living_group_sensor') %}
+      {{ kitchenValue or hallValue or bedroomValue or livingValue }}
+    icon: >
+      {% set isEnabledIcon = is_state('binary_sensor.top_light', 'on') and 'mdi:light-switch' %}
+      {% set isDisabledIcon = is_state('binary_sensor.top_light', 'off') and 'mdi:light-switch-off' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isEnabledIcon or isDisabledIcon or defaultIcon }}
+    attributes:
+      kitchen_group_sensor: "{{ is_state('light.tl_kitchen_group', 'on') }}"
+      hall_group_sensor: "{{ is_state('light.tl_hall_group', 'on') }}"
+      bedroom_group_sensor: "{{ is_state('light.tl_bedroom_group', 'on') }}"
+      living_group_sensor: "{{ is_state('light.tl_living_group', 'on') }}"
+
+      kitchen_1_sensor: "{{ is_state('light.tl_kitchen_1', 'on') }}"
+      kitchen_2_sensor: "{{ is_state('light.tl_kitchen_2', 'on') }}" 
+      kitchen_3_sensor: "{{ is_state('light.tl_kitchen_3', 'on') }}" 
+      kitchen_4_sensor: "{{ is_state('light.tl_kitchen_4', 'on') }}" 
+      kitchen_5_sensor: "{{ is_state('light.tl_kitchen_5', 'on') }}" 
+      hall_1_sensor: "{{ is_state('light.tl_hall_1', 'on') }}"
+      hall_2_sensor: "{{ is_state('light.tl_hall_2', 'on') }}"
+      hall_3_sensor: "{{ is_state('light.tl_hall_3', 'on') }}"
+      hall_4_sensor: "{{ is_state('light.tl_hall_4', 'on') }}"
+      hall_5_sensor: "{{ is_state('light.tl_hall_5', 'on') }}"
+      hall_6_sensor: "{{ is_state('light.tl_hall_6', 'on') }}"
+      bedroom_1_sensor: "{{ is_state('light.tl_bedroom_1', 'on') }}"
+      bedroom_2_sensor: "{{ is_state('light.tl_bedroom_2', 'on') }}"
+      bedroom_3_sensor: "{{ is_state('light.tl_bedroom_3', 'on') }}"
+      bedroom_4_sensor: "{{ is_state('light.tl_bedroom_4', 'on') }}"
+      bedroom_5_sensor: "{{ is_state('light.tl_bedroom_5', 'on') }}"
+      bedroom_6_sensor: "{{ is_state('light.tl_bedroom_6', 'on') }}"
+      living_1_sensor: "{{ is_state('light.tl_living_1', 'on') }}"
+      living_2_sensor: "{{ is_state('light.tl_living_2', 'on') }}"
+      living_3_sensor: "{{ is_state('light.tl_living_3', 'on') }}"
+      living_4_sensor: "{{ is_state('light.tl_living_4', 'on') }}"
+      living_5_sensor: "{{ is_state('light.tl_living_5', 'on') }}"
+      living_6_sensor: "{{ is_state('light.tl_living_6', 'on') }}"
+      
+      kitchen_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'kitchen_top_light_boolean') %}
+        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'kitchen_boolean') %}
+        {{ not(isNightTime) and isOccupancy and not(isSunBright) }}
+      hall_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'hall_top_light_boolean') %}
+        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'hall_boolean') %}
+        {{ not(isNightTime) and isOccupancy and not(isSunBright) }}
+      bath_state:  >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'bath_boolean') %}
+        {{ not(isNightTime) and isOccupancy }}
+      toilet_state:  >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'toilet_boolean') %}
+        {{ not(isNightTime) and isOccupancy }}
+      bedroom_state: false ### TODO
+      living_state: false ### TODO
+
+      kitchen_boolean: "{{ is_state('input_boolean.tl_kitchen', 'on') }}"
+      hall_boolean: "{{ is_state('input_boolean.tl_hall', 'on') }}"
+      bedroom_boolean: "{{ is_state('input_boolean.tl_bedroom', 'on') }}"
+      living_boolean: "{{ is_state('input_boolean.tl_living', 'on') }}"

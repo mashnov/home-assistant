@@ -1,0 +1,4 @@
+## NORMAL
+n_normal:
+  initial: false
+  icon: 'mdi:speedometer'

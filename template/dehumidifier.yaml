@@ -1,0 +1,16 @@
+- binary_sensor:
+  - name: 'dehumidifier'
+    device_class: 'moisture'
+    state: "{{ state_attr('binary_sensor.dehumidifier', 'bath_state') }}"
+    icon: >
+      {% set isNormalIcon = is_state('binary_sensor.dehumidifier', 'on') and 'mdi:water-opacity' %}
+      {% set isLowIcon = is_state('binary_sensor.dehumidifier', 'off') and 'mdi:water' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isLowIcon or isNormalIcon or defaultIcon }}
+    attributes:
+      bath_state: >
+        {% set isDry = state_attr('sensor.humidity', 'bath_low_boolean') %}
+        {{ not(isDry) }}
+
+      bath_boolean: "{{ is_state('input_boolean.de_bath', 'on') }}"
+      toilet_boolean: "{{ is_state('input_boolean.de_toilet', 'on') }}"

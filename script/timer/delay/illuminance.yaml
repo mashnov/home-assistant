@@ -122,7 +122,7 @@ i_living_back_light_cancel:
     entity_id: 'timer.i_living_back_light'
 
 
-i_living_curtain_start:
+i_living_curtain_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -130,7 +130,7 @@ i_living_curtain_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_living_curtain_cancel:
+i_living_curtain_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel

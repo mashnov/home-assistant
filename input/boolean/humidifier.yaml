@@ -1,0 +1,28 @@
+## HALL
+h_hall:
+  initial: false
+  icon: 'mdi:water-outline'
+
+h_hall_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'
+
+
+## BEDROOM
+h_bedroom:
+  initial: false
+  icon: 'mdi:water-outline'
+
+h_bedroom_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'
+
+
+## LIVING
+h_living:
+  initial: false
+  icon: 'mdi:water-outline'
+
+h_living_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'

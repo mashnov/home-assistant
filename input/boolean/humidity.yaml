@@ -1,0 +1,28 @@
+## BATH
+h_bath_low:
+  initial: false
+  icon: 'mdi:water-outline'
+
+
+## HALL
+h_hall_low:
+  initial: false
+  icon: 'mdi:water-outline'
+
+
+## BEDROOM
+h_bedroom_low:
+  initial: false
+  icon: 'mdi:water-outline'
+
+
+## LIVING
+h_living_low:
+  initial: false
+  icon: 'mdi:water-outline'
+
+
+## AVERAGE
+h_average_low:
+  initial: false
+  icon: 'mdi:water-outline'

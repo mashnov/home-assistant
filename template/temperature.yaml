@@ -1,0 +1,38 @@
+- sensor:
+  - name: 'temperature'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: >
+      {% set kitchen = state_attr('sensor.temperature', 'kitchen_sensor') | float(0) %}
+      {% set hall = state_attr('sensor.temperature', 'hall_sensor') | float(0) %}
+      {% set bedroom = state_attr('sensor.temperature', 'bedroom_sensor') | float(0) %}
+      {% set living = state_attr('sensor.temperature', 'living_sensor') | float(0) %}
+      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+    icon: >
+      {% set isHightIcon = state_attr('sensor.temperature', 'hight_state') and 'mdi:thermometer-chevron-up' %}
+      {% set isLowIcon = state_attr('sensor.temperature', 'low_state') and 'mdi:thermometer-chevron-down' %}
+      {% set defaultIcon = 'mdi:thermometer-check' %}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
+    attributes:
+      kitchen_sensor: "{{ states('sensor.kitchen_temperature') }}"
+      bath_sensor: "{{ states('sensor.bath_temperature') }}"
+      hall_sensor: "{{ states('sensor.hall_temperature') }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_temperature') }}"
+      living_sensor: "{{ states('sensor.living_temperature') }}"
+      balcony_sensor: "{{ states('sensor.balcony_temperature') }}"
+
+      hight_state: >
+        {% set sensorValue = states('sensor.temperature') | int(0) %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low_state: >
+        {% set sensorValue = states('sensor.temperature') | int(0) %}
+        {% set normalValue = states('input_number.t_target') | int(0) %}
+        {% set offsetValue = states('input_number.t_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+
+      hight_boolean: "{{ is_state('input_boolean.t_hight', 'on') }}"
+      low_boolean: "{{ is_state('input_boolean.t_low', 'on') }}"

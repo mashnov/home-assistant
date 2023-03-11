@@ -1,0 +1,36 @@
+- binary_sensor:
+  - name: 'solar'
+    device_class: 'light'
+    state: '{{ state_attr("binary_sensor.solar", "hight_state") }}'
+    icon: >
+      {% set isHight = is_state('binary_sensor.solar', 'on') %}
+      {% set isHightIcon = isHight and 'mdi:sun-wireless' %}
+      {% set isLowIcon = not(isHight) and 'mdi:weather-sunny' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
+    attributes:
+      azimuth_sensor: '{{ state_attr("sun.sun", "azimuth") }}'
+      elevation_sensor: '{{ state_attr("sun.sun", "elevation") }}'
+      
+      azimuth_state: >
+        {% set azimuthSensor = state_attr('solar', 'azimuth_sensor') | int(0) %}
+        {% set azimuthTarget = states('input_number.s_azimuth_target') | int(0) %}
+        {% set azimuthOffset = states('input_number.s_azimuth_offset') | int(0) %}
+        {% set azimuthMinValue = azimuthTarget - azimuthOffset %}
+        {% set azimuthMaxValue = azimuthTarget + azimuthOffset %}
+        {{ azimuthMinValue < azimuthSensor < azimuthMaxValue }}
+      elevation_state: >
+        {% set elevationSensor = state_attr('solar', 'elevation_sensor') | int(0) %}
+        {% set elevationTarget = states('input_number.s_elevation_target') | int(0) %}
+        {% set elevationOffset = states('input_number.s_elevation_offset') | int(0) %}        
+        {% set elevationMinValue = elevationTarget - elevationOffset %}
+        {% set elevationMaxValue = elevationTarget + elevationOffset %}
+        {{ elevationMinValue < elevationSensor < elevationMaxValue }}
+      hight_state: >
+        {% set azimuthValue = state_attr('solar', 'azimuth_state') | int(0) %}
+        {% set elevationValue = state_attr('solar', 'elevation_state') | int(0) %}
+        {{ azimuthValue and elevationValue }}
+
+      azimuth_boolean: "{{ is_state('input_boolean.s_azimuth', 'on') }}"
+      elevation_boolean: "{{ is_state('input_boolean.s_elevation', 'on') }}"
+      hight_boolean: "{{ is_state('input_boolean.s_hight', 'on') }}"

@@ -1,0 +1,22 @@
+## KITCHEN
+- alias: 'pl_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.party_light'
+    attribute: 'kitchen_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.pl_kitchen_boolean_on
+
+- alias: 'pl_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.party_light'
+    attribute: 'kitchen_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.pl_kitchen_boolean_off

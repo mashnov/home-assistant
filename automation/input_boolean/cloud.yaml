@@ -1,0 +1,22 @@
+## CLOUDLY
+- alias: 'c_cloudly_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.cloud'
+    attribute: 'cloud_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.c_cloudly_boolean_on
+
+- alias: 'c_cloudly_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.cloud'
+    attribute: 'cloud_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.c_cloudly_boolean_off

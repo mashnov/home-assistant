@@ -1,0 +1,82 @@
+## KITCHEN
+tl_kitchen_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_kitchen
+
+tl_kitchen_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_kitchen
+
+
+## HALL
+tl_hall_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_hall
+
+tl_hall_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_hall
+
+
+## BATH
+tl_bath_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_bath
+
+tl_bath_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_bath
+
+
+## TOILET
+tl_toilet_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_toilet
+
+tl_toilet_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_toilet
+
+
+## BEDROOM
+tl_bedroom_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_bedroom
+
+tl_bedroom_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_bedroom
+
+
+## LIVING
+tl_living_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.tl_living
+
+tl_living_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tl_living

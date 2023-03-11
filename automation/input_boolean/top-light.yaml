@@ -1,0 +1,142 @@
+## KITCHEN
+- alias: 'tl_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'kitchen_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_kitchen_boolean_on
+
+- alias: 'tl_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'kitchen_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_kitchen_boolean_off
+
+
+## HALL
+- alias: 'tl_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'hall_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_hall_boolean_on
+
+- alias: 'tl_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_hall_boolean_off
+
+
+## TOILET
+- alias: 'tl_toilet_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'toilet_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_toilet_boolean_on
+
+- alias: 'tl_toilet_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'toilet_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_toilet_boolean_off
+
+
+## BATH
+- alias: 'tl_bath_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'bath_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_bath_boolean_on
+
+- alias: 'tl_bath_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'bath_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_bath_boolean_off
+
+
+## BEDROOM
+- alias: 'tl_bedroom_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'bedroom_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_bedroom_boolean_on
+
+- alias: 'tl_bedroom_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'bedroom_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_bedroom_boolean_off
+
+
+## LIVING
+- alias: 'tl_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'living_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.tl_living_boolean_on
+
+- alias: 'tl_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.top_light'
+    attribute: 'living_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.tl_living_boolean_off

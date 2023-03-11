@@ -1,0 +1,26 @@
+## HIGHT
+t_hight_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.t_hight
+
+t_hight_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.t_hight
+
+
+## LOW
+t_low_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.t_low
+
+t_low_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.t_low

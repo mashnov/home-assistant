@@ -29,7 +29,7 @@
   host: !secret living_lamp_6_host
   token: !secret living_lamp_6_token
 - platform: group
-  name: tl_living
+  name: tl_living_group
   entities:
   - light.tl_living_1
   - light.tl_living_2

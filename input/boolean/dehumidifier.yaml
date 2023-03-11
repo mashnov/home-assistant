@@ -1,0 +1,10 @@
+## BATH
+de_bath:
+  initial: false
+  icon: 'mdi:water'
+
+
+## TOILET
+de_toilet:
+  initial: false
+  icon: 'mdi:fan'

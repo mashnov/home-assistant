@@ -1,0 +1,118 @@
+## KITCHEN
+- alias: 'bl_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'kitchen_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.bl_kitchen_boolean_on
+
+- alias: 'bl_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'kitchen_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.bl_kitchen_boolean_off
+
+
+## HALL
+- alias: 'bl_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'hall_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.bl_hall_boolean_on
+
+- alias: 'bl_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.bl_hall_boolean_off
+
+
+## BEDROOM
+- alias: 'bl_bedroom_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'bedroom_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.bl_bedroom_boolean_on
+
+- alias: 'bl_bedroom_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'bedroom_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.bl_bedroom_boolean_off
+
+
+## LIVING
+- alias: 'bl_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'living_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.bl_living_boolean_on
+
+- alias: 'bl_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'living_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.bl_living_boolean_off
+
+
+## BALCONY
+- alias: 'bl_balcony_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'balcony_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.bl_balcony_boolean_on
+
+- alias: 'bl_balcony_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.back_light'
+    attribute: 'balcony_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.bl_balcony_boolean_off

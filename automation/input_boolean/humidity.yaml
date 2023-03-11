@@ -1,0 +1,118 @@
+## BATH
+- alias: 'h_bath_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'bath_low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_bath_low_boolean_on
+
+- alias: 'h_bath_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'bath_low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bath_low_boolean_off
+
+
+## HALL
+- alias: 'h_hall_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'hall_low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_hall_low_boolean_on
+
+- alias: 'h_hall_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'hall_low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hall_low_boolean_off
+
+
+## BEDROOM
+- alias: 'h_bedroom_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'bedroom_low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_bedroom_low_boolean_on
+
+- alias: 'h_bedroom_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'bedroom_low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bedroom_low_boolean_off
+
+
+## LIVING
+- alias: 'h_living_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'living_low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_living_low_boolean_on
+
+- alias: 'h_living_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'living_low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_living_low_boolean_off
+
+
+## AVERAGE
+- alias: 'h_average_low_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'average_low_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_average_low_boolean_on
+
+- alias: 'h_average_low_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.humidity'
+    attribute: 'average_low_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_average_low_boolean_off

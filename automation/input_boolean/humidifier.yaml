@@ -1,0 +1,217 @@
+## HALL EMPTY
+- alias: 'h_hall_empty_timer_start'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'hall_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_hall_empty_timer_start
+
+- alias: 'h_hall_empty_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hall_empty_timer_cancel
+
+- alias: 'h_hall_empty_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.h_hall_empty
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'hall_state'
+    state: true
+  action:
+  - service: script.h_hall_empty_boolean_on
+
+- alias: 'h_hall_empty_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hall_empty_boolean_off
+
+## HALL HUMIDIFIER
+- alias: 'h_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'hall_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_hall_boolean_on
+
+- alias: 'h_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'hall_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_hall_boolean_off
+
+
+## BEDROOM EMPTY
+- alias: 'h_bedroom_empty_timer_start'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'bedroom_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_bedroom_empty_timer_start
+
+- alias: 'h_bedroom_empty_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'bedroom_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bedroom_empty_timer_cancel
+
+- alias: 'h_bedroom_empty_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.h_bedroom_empty
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'bedroom_state'
+    state: true
+  action:
+  - service: script.h_bedroom_empty_boolean_on
+
+- alias: 'h_bedroom_empty_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'bedroom_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bedroom_empty_boolean_off
+
+## BEDROOM HUMIDIFIER
+- alias: 'h_bedroom_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'bedroom_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_bedroom_boolean_on
+
+- alias: 'h_bedroom_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'bedroom_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_bedroom_boolean_off
+
+
+## LIVING EMPTY
+- alias: 'h_living_empty_timer_start'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'living_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_living_empty_timer_start
+
+- alias: 'h_living_empty_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'living_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_living_empty_timer_cancel
+
+- alias: 'h_living_empty_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.h_living_empty
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'living_state'
+    state: true
+  action:
+  - service: script.h_living_empty_boolean_on
+
+- alias: 'h_living_empty_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_empty'
+    attribute: 'living_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_living_empty_boolean_off
+
+## LIVING HUMIDIFIER
+- alias: 'h_living_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'living_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.h_living_boolean_on
+
+- alias: 'h_living_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier'
+    attribute: 'living_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.h_living_boolean_off

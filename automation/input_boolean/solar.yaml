@@ -1,0 +1,70 @@
+## AZIMUTH
+- alias: 's_azimuth_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'azimuth_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.s_azimuth_boolean_on
+
+- alias: 's_azimuth_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'azimuth_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.s_azimuth_boolean_off
+
+
+## ELEVATION
+- alias: 's_elevation_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'elevation_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.s_elevation_boolean_on
+
+- alias: 's_elevation_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'elevation_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.s_elevation_boolean_off
+
+
+## HIGHT
+- alias: 's_hight_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'hight_state'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.s_hight_boolean_on
+
+- alias: 's_hight_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.solar'
+    attribute: 'hight_state'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.s_hight_boolean_off

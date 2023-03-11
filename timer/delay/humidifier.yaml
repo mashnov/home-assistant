@@ -1,19 +1,13 @@
 ## HALL
-d_hall:
+h_hall_empty:
   duration: '00:00:00'
 
 
 ## BEDROOM
-d_bedroom:
+h_bedroom_empty:
   duration: '00:00:00'
 
 
 ## LIVING
-d_living:
+h_living_empty:
   duration: '00:00:00'
-
-
-## BALCONY
-d_balcony:
-  duration: '00:00:00'
-

@@ -1,0 +1,205 @@
+## KITCHEN
+- alias: 'o_kitchen_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'kitchen_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_kitchen_boolean_on
+
+- alias: 'o_kitchen_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_kitchen
+  action:
+  - service: script.o_kitchen_boolean_off
+
+- alias: 'o_kitchen_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'kitchen_sensor'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.o_kitchen_timer_start
+
+- alias: 'o_kitchen_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'kitchen_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_kitchen_timer_cancel
+
+
+## HALL
+- alias: 'o_hall_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_hall_boolean_on
+
+- alias: 'o_hall_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_hall
+  action:
+  - service: script.o_hall_boolean_off
+
+- alias: 'o_hall_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.o_hall_timer_start
+
+- alias: 'o_hall_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_hall_timer_cancel
+
+
+## BATH
+- alias: 'o_bath_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_bath_boolean_on
+
+- alias: 'o_bath_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.o_bath
+  action:
+  - service: script.o_bath_boolean_off
+
+- alias: 'o_bath_timer_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.o_bath_timer_start
+
+- alias: 'o_bath_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath_sensor'
+    from: 'off'
+    to: 'on'
+  action:
+  - service: script.o_bath_timer_cancel
+
+
+## TOILET
+- alias: 'o_toilet_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet_boolean'
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet_boolean'
+    state: false
+  action:
+  - service: script.o_toilet_timer_start
+
+- alias: 'o_toilet_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet_boolean'
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet_boolean'
+    state: true
+  - condition: state
+    entity_id: 'timer.o_toilet'
+    state: 'active'
+  action:
+  - service: script.o_toilet_timer_cancel
+
+- alias: 'o_toilet_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet_boolean'
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet_boolean'
+    state: false
+  action:
+  - service: script.o_toilet_boolean_on
+
+- alias: 'o_toilet_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'toilet_boolean'
+    from: 'on'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet_boolean'
+    state: true
+  - condition: state
+    entity_id: 'timer.o_toilet'
+    state: 'idle'
+  action:
+  - service: script.o_toilet_boolean_off

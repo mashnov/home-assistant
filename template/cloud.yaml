@@ -1,0 +1,16 @@
+- sensor:
+  - name: 'cloud'
+    state: "{{ state_attr('sensor.cloud', 'cloud_sensor') }}"
+    icon: >
+      {% set isHightIcon = state_attr('sensor.cloud', 'cloud_state') and 'mdi:apple-icloud' %}
+      {% set isLowIcon = 'mdi:cloud-outline' %}
+      {{ isHightIcon or isLowIcon }}
+    attributes:
+      cloud_sensor: "{{ states('sensor.openweathermap_cloud_coverage') }}"
+      
+      cloud_state: >
+        {% set sensorValue = state_attr('sensor.cloud', 'cloud_sensor') | int(0) %}
+        {% set targetValue = states('input_number.cl_target') | int(0) %}
+        {{ sensorValue > targetValue }}
+      
+      cloud_boolean: "{{ is_state('input_boolean.d_toilet', 'on') }}"

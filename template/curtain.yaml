@@ -1,0 +1,54 @@
+- binary_sensor:
+  - name: 'curtain'
+    device_class: 'opening'
+    state: >
+      {% set kitchenSensorValue = state_attr('binary_sensor.curtain', 'kitchen_sensor') %}
+      {% set kitchenCloseValue = states('input_number.c_kitchen_close') | int(0) %}
+      {% set kitchenValue = kitchenSensorValue < kitchenCloseValue %}
+      {% set bedroomSensorValue = state_attr('binary_sensor.curtain', 'bedroom_sensor') %}
+      {% set bedroomCloseValue = states('input_number.c_bedroom_close') | int(0) %}
+      {% set bedroomValue = bedroomSensorValue < bedroomCloseValue %}
+      {% set livingSensorValue = state_attr('binary_sensor.curtain', 'living_sensor') %}
+      {% set livingCloseValue = states('input_number.c_living_close') | int(0) %}
+      {% set livingValue = livingSensorValue < livingCloseValue %}
+      {{ kitchenValue or bedroomValue or livingValue }}
+    icon: >
+      {% set isOpenIcon = is_state('binary_sensor.curtain', 'on') and 'mdi:curtains' %}
+      {% set isCloseIcon = is_state('binary_sensor.curtain', 'off') and 'mdi:curtains-closed' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isOpenIcon or isCloseIcon or defaultIcon }}
+    attributes:
+      kitchen_sensor: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"
+      bedroom_sensor: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}"
+      living_sensor: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"      
+      
+      kitchen_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isVentilation = state_attr('binary_sensor.ventilation', 'kitchen_boolean') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'kitchen_curtain_boolean') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.c_kitchen_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.c_kitchen_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.c_kitchen_sun') %}
+        {% set openPosition = states('input_number.c_kitchen_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+      bedroom_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isVentilation = state_attr('binary_sensor.ventilation', 'bedroom_boolean') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'bedroom_curtain_boolean') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.c_bedroom_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.c_bedroom_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.c_bedroom_sun') %}
+        {% set openPosition = states('input_number.c_bedroom_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+      living_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isVentilation = state_attr('binary_sensor.ventilation', 'living_boolean') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'living_curtain_boolean') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.c_living_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.c_living_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.c_living_sun') %}
+        {% set openPosition = states('input_number.c_living_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}

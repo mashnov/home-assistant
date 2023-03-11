@@ -1,0 +1,38 @@
+- sensor:
+  - name: 'pressure'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: >
+      {% set kitchen = state_attr('sensor.pressure', 'kitchen_sensor') | float(0) %}
+      {% set bath = state_attr('sensor.pressure', 'bath_sensor') | float(0) %}
+      {% set hall = state_attr('sensor.pressure', 'hall_sensor') | float(0) %}
+      {% set bedroom = state_attr('sensor.pressure', 'bedroom_sensor') | float(0) %}
+      {% set living = state_attr('sensor.pressure', 'living_sensor') | float(0) %}
+      {{ ((kitchen + bath + hall + bedroom + living) / 5) | round(1) }}
+    icon: >
+      {% set isHightIcon = state_attr('sensor.pressure', 'hight_state') and 'mdi:gauge-full' %}
+      {% set isLowIcon = state_attr('sensor.pressure', 'low_state') and 'mdi:gauge-empty' %}
+      {% set defaultIcon = 'mdi:gauge-low' %}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
+    attributes:
+      kitchen_sensor: "{{ states('sensor.kitchen_pressure') }}"
+      bath_sensor: "{{ states('sensor.bath_pressure') }}"
+      hall_sensor: "{{ states('sensor.hall_pressure') }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_pressure') }}"
+      living_sensor: "{{ states('sensor.living_pressure') }}"
+
+      hight_state: >
+        {% set sensorValue = states('sensor.pressure') | int(0) %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low_state: >
+        {% set sensorValue = states('sensor.pressure') | int(0) %}
+        {% set normalValue = states('input_number.p_target') | int(0) %}
+        {% set offsetValue = states('input_number.p_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+
+      hight_boolean: "{{ is_state('input_boolean.p_hight', 'on') }}"
+      low_boolean: "{{ is_state('input_boolean.p_low', 'on') }}"

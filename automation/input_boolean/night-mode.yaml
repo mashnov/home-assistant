@@ -3,8 +3,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'hall'
+    entity_id: 'input_boolean.dt_night'
     from: 'off'
     to: 'on'
   action:
@@ -14,8 +13,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'hall'
+    entity_id: 'input_boolean.dt_night'
     from: 'on'
     to: 'off'
   action:
@@ -27,8 +25,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'bedroom'
+    entity_id: 'input_boolean.dt_night'
     from: 'off'
     to: 'on'
   action:
@@ -38,8 +35,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'bedroom'
+    entity_id: 'input_boolean.dt_night'
     from: 'on'
     to: 'off'
   action:
@@ -51,8 +47,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'living'
+    entity_id: 'input_boolean.dt_night'
     from: 'off'
     to: 'on'
   action:
@@ -62,8 +57,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.night_mode'
-    attribute: 'living'
+    entity_id: 'input_boolean.dt_night'
     from: 'on'
     to: 'off'
   action:

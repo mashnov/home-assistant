@@ -1,0 +1,68 @@
+## KITCHEN
+bl_kitchen_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bl_kitchen
+
+bl_kitchen_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.bl_kitchen
+
+
+## HALL
+bl_hall_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bl_hall
+
+bl_hall_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.bl_hall
+
+
+## BEDROOM
+bl_bedroom_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bl_bedroom
+
+bl_bedroom_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.bl_bedroom
+
+
+## LIVING
+bl_living_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bl_living
+
+bl_living_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.bl_living
+
+
+## BALCONY
+bl_balcony_boolean_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.bl_balcony
+
+bl_balcony_boolean_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.bl_balcony

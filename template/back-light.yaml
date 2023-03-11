@@ -1,0 +1,49 @@
+- binary_sensor:
+  - name: 'back-light'
+    device_class: 'plug'
+    state: >
+      {% set kitchenValue = state_attr('binary_sensor.back_light', 'kitchen_sensor') %}
+      {% set hallValue = state_attr('binary_sensor.back_light', 'hall_sensor') %}
+      {% set bedroom1Value = state_attr('binary_sensor.back_light', 'bedroom_1_sensor') %}
+      {% set bedroom2Value = state_attr('binary_sensor.back_light', 'bedroom_2_sensor') %}
+      {% set livingValue = state_attr('binary_sensor.back_light', 'living_sensor') %}
+      {% set balconyValue = state_attr('binary_sensor.back_light', 'balcony_sensor') %}
+      {{ kitchenValue or hallValue or bedroom1Value or bedroom2Value or livingValue or balconyValue }}
+    icon: >
+      {% set isEnabledIcon = is_state('binary_sensor.back_light', 'on') and 'mdi:light-switch' %}
+      {% set isDisabledIcon = is_state('binary_sensor.back_light', 'off') and 'mdi:light-switch-off' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isEnabledIcon or isDisabledIcon or defaultIcon }}
+    attributes:
+      kitchen_sensor: "{{ state_attr('binary_sensor.relay', 'kitchen_2') }}"
+      hall_sensor: "{{ state_attr('binary_sensor.relay', 'hall_1') }}"
+      bedroom_1_sensor: "{{ state_attr('binary_sensor.relay', 'bedroom_1') }}"
+      bedroom_2_sensor: "{{ state_attr('binary_sensor.wall_switch', 'bedroom_wall') }}"
+      living_sensor: "{{ state_attr('binary_sensor.relay', 'living_2') }}"
+      balcony_sensor: "{{ state_attr('binary_sensor.relay', 'balcony_2') }}" 
+     
+      kitchen_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'kitchen_back_light_boolean') %}
+        {% set isOccupancy = state_attr('sensor.occupancy', 'kitchen_boolean') %}
+        {{ (not(isNightTime) and isOccupancy and not(isSunBright) }}
+      hall_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'hall_back_light_boolean') %}
+        {% set isOccupancy = state_attr('sensor.occupancy', 'hall_boolean') %}
+        {{ (not(isNightTime) and isOccupancy and not(isSunBright) }}
+      bedroom_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'bedroom_back_light_boolean') %}
+        {{ not(isNightMode) and not(isSunBright) }}
+      living_state: >
+        {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
+        {% set isSunBright = state_attr('sensor.illuminance', 'living_back_light_boolean') %}
+        {{ not(isNightMode) and not(isSunBright) }}
+      balcony_state: false ### TODO
+
+      kitchen_boolean: "{{ is_state('input_boolean.nl_kitchen', 'on') }}"
+      hall_boolean: "{{ is_state('input_boolean.nl_hall', 'on') }}"
+      bedroom_boolean: "{{ is_state('input_boolean.nl_bedroom', 'on') }}"
+      living_boolean: "{{ is_state('input_boolean.nl_living', 'on') }}"
+      balcony_boolean: "{{ is_state('input_boolean.nl_balcony', 'on') }}"
