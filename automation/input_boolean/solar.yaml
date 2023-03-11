@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'azimuth_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.s_azimuth_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'azimuth_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.s_azimuth_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'elevation_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.s_elevation_boolean_on
 
@@ -40,8 +40,8 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'elevation_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.s_elevation_boolean_off
 
@@ -53,8 +53,8 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'hight_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.s_hight_boolean_on
 
@@ -64,7 +64,7 @@
   - platform: state
     entity_id: 'binary_sensor.solar'
     attribute: 'hight_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.s_hight_boolean_off

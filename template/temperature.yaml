@@ -14,12 +14,12 @@
       {% set defaultIcon = 'mdi:thermometer-check' %}
       {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
-      kitchen_sensor: "{{ states('sensor.kitchen_temperature') }}"
-      bath_sensor: "{{ states('sensor.bath_temperature') }}"
-      hall_sensor: "{{ states('sensor.hall_temperature') }}"
-      bedroom_sensor: "{{ states('sensor.bedroom_temperature') }}"
-      living_sensor: "{{ states('sensor.living_temperature') }}"
-      balcony_sensor: "{{ states('sensor.balcony_temperature') }}"
+      kitchen_sensor: "{{ states('sensor.kitchen_temperature') | float(0) }}"
+      bath_sensor: "{{ states('sensor.bath_temperature') | float(0) }}"
+      hall_sensor: "{{ states('sensor.hall_temperature') | float(0) }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_temperature') | float(0) }}"
+      living_sensor: "{{ states('sensor.living_temperature') | float(0) }}"
+      balcony_sensor: "{{ states('sensor.balcony_temperature') | float(0) }}"
 
       hight_state: >
         {% set sensorValue = states('sensor.temperature') | int(0) %}

@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.c_cloudly_boolean_on
 
@@ -16,7 +16,7 @@
   - platform: state
     entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.c_cloudly_boolean_off

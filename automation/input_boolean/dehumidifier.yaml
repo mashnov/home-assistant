@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.dehumidifier'
     attribute: 'bath_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.de_bath_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'binary_sensor.dehumidifier'
     attribute: 'bath_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.de_bath_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'toilet_boolean'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.de_toilet_timer_start
 
@@ -40,8 +40,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'toilet_boolean'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.de_toilet_boolean_on
 

@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'kitchen_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.bl_kitchen_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'kitchen_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.bl_kitchen_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'hall_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.bl_hall_boolean_on
 
@@ -40,8 +40,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'hall_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.bl_hall_boolean_off
 
@@ -53,8 +53,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'bedroom_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.bl_bedroom_boolean_on
 
@@ -64,8 +64,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'bedroom_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.bl_bedroom_boolean_off
 
@@ -77,8 +77,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'living_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.bl_living_boolean_on
 
@@ -88,8 +88,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'living_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.bl_living_boolean_off
 
@@ -101,8 +101,8 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'balcony_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.bl_balcony_boolean_on
 
@@ -112,7 +112,7 @@
   - platform: state
     entity_id: 'binary_sensor.back_light'
     attribute: 'balcony_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.bl_balcony_boolean_off

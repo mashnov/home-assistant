@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'sensor.network'
     attribute: 'normal_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.n_normal_boolean_on
 
@@ -16,7 +16,7 @@
   - platform: state
     entity_id: 'sensor.network'
     attribute: 'normal_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.n_normal_boolean_off

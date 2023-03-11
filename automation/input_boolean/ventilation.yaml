@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'kitchen_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.v_kitchen_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'kitchen_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.v_kitchen_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'hall_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.v_hall_boolean_on
 
@@ -40,8 +40,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'hall_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.v_hall_boolean_off
 
@@ -53,8 +53,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'bedroom_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.v_bedroom_boolean_on
 
@@ -64,8 +64,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'bedroom_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.v_bedroom_boolean_off
 
@@ -77,8 +77,8 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'living_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.v_living_boolean_on
 
@@ -88,7 +88,7 @@
   - platform: state
     entity_id: 'binary_sensor.ventilation'
     attribute: 'living_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.v_living_boolean_off

@@ -9,12 +9,12 @@
       {% set defaultIcon = 'mdi:water-opacity' %}
       {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
-      kitchen_sensor: "{{ states('sensor.kitchen_humidity') }}"
-      bath_sensor: "{{ states('sensor.bath_humidity') }}"
-      hall_sensor: "{{ states('sensor.hall_humidity') }}"
-      bedroom_sensor: "{{ states('sensor.bedroom_humidity') }}"
-      living_sensor: "{{ states('sensor.living_humidity') }}"
-      balcony_sensor: "{{ states('sensor.balcony_humidity') }}"
+      kitchen_sensor: "{{ states('sensor.kitchen_humidity') | float(0) }}"
+      bath_sensor: "{{ states('sensor.bath_humidity') | float(0) }}"
+      hall_sensor: "{{ states('sensor.hall_humidity') | float(0) }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_humidity') | float(0) }}"
+      living_sensor: "{{ states('sensor.living_humidity') | float(0) }}"
+      balcony_sensor: "{{ states('sensor.balcony_humidity') | float(0) }}"
       average_sensor: >
         {% set kitchen = state_attr('sensor.humidity', 'kitchen_sensor') | float(0) %}
         {% set hall = state_attr('sensor.humidity', 'hall_sensor') | float(0) %}

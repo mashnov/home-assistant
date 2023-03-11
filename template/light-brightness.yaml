@@ -25,7 +25,7 @@
         {% set percentValue = 100 - sensorValue %}
         {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
         {{ (deltaValue + minValue) | round }}
-      hs_saturation: >
+      saturation: >
         {% set minValue = 95 %}
         {% set maxValue = 100 %}
         {% set percentValue = states('sensor.light_brightness') | int(0) %}

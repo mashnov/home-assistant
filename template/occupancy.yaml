@@ -12,9 +12,9 @@
       {% set defaultIcon = 'mdi:help-circle' %}
       {{ isOccupancyIcon or isVacancyIcon or defaultIcon }}
     attributes:
-      kitchen_sensor: "{{ states('binary_sensor.kitchen_motion') }}"
-      hall_sensor: "{{ states('binary_sensor.hall_motion') }}"
-      bath_sensor: "{{ states('binary_sensor.bath_motion') }}"
+      kitchen_sensor: "{{ is_state('binary_sensor.kitchen_motion', 'on') }}"
+      hall_sensor: "{{ is_state('binary_sensor.hall_motion', 'on') }}"
+      bath_sensor: "{{ is_state('binary_sensor.bath_motion', 'on') }}"
       
       kitchen_boolean: "{{ is_state('input_boolean.o_kitchen', 'on') }}"
       hall_boolean: "{{ is_state('input_boolean.o_hall', 'on') }}"

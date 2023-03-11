@@ -9,8 +9,8 @@
       {% set defaultIcon = 'mdi:help-circle' %}
       {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
-      azimuth_sensor: '{{ state_attr("sun.sun", "azimuth") }}'
-      elevation_sensor: '{{ state_attr("sun.sun", "elevation") }}'
+      azimuth_sensor: '{{ state_attr("sun.sun", "azimuth")  | float(0)}}'
+      elevation_sensor: '{{ state_attr("sun.sun", "elevation") | float(0) }}'
       
       azimuth_state: >
         {% set azimuthSensor = state_attr('solar', 'azimuth_sensor') | int(0) %}

@@ -15,11 +15,11 @@
       {% set defaultIcon = 'mdi:gauge-low' %}
       {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
-      kitchen_sensor: "{{ states('sensor.kitchen_pressure') }}"
-      bath_sensor: "{{ states('sensor.bath_pressure') }}"
-      hall_sensor: "{{ states('sensor.hall_pressure') }}"
-      bedroom_sensor: "{{ states('sensor.bedroom_pressure') }}"
-      living_sensor: "{{ states('sensor.living_pressure') }}"
+      kitchen_sensor: "{{ states('sensor.kitchen_pressure') | float(0) }}"
+      bath_sensor: "{{ states('sensor.bath_pressure') | float(0) }}"
+      hall_sensor: "{{ states('sensor.hall_pressure') | float(0) }}"
+      bedroom_sensor: "{{ states('sensor.bedroom_pressure') | float(0) }}"
+      living_sensor: "{{ states('sensor.living_pressure') | float(0) }}"
 
       hight_state: >
         {% set sensorValue = states('sensor.pressure') | int(0) %}

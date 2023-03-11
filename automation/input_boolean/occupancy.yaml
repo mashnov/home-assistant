@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'kitchen_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_kitchen_boolean_on
 
@@ -26,8 +26,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'kitchen_sensor'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.o_kitchen_timer_start
 
@@ -37,8 +37,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'kitchen_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_kitchen_timer_cancel
 
@@ -50,8 +50,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_hall_boolean_on
 
@@ -71,8 +71,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.o_hall_timer_start
 
@@ -82,8 +82,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_hall_timer_cancel
 
@@ -95,8 +95,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_bath_boolean_on
 
@@ -116,8 +116,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.o_bath_timer_start
 
@@ -127,8 +127,8 @@
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.o_bath_timer_cancel
 
@@ -140,8 +140,8 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'toilet_boolean'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
@@ -156,8 +156,8 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'toilet_boolean'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
@@ -175,8 +175,8 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'toilet_boolean'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
@@ -191,8 +191,8 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'toilet_boolean'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'

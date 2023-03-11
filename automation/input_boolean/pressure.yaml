@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'sensor.pressure'
     attribute: 'hight_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.p_hight_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'sensor.pressure'
     attribute: 'hight_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.p_hight_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'sensor.pressure'
     attribute: 'low_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.p_low_boolean_on
 
@@ -40,7 +40,7 @@
   - platform: state
     entity_id: 'sensor.pressure'
     attribute: 'low_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.p_low_boolean_off

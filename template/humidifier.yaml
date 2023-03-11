@@ -46,8 +46,8 @@
       {{ isLowIcon or isNormalIcon or defaultIcon }}
     attributes:
       hall_state: >
-        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'hall_2') %}
-        {% set backlightIsOn = state_attr('binary_sensor.relay', 'hall_1') %}
+        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'hall_2_sensor') %}
+        {% set backlightIsOn = state_attr('binary_sensor.relay', 'hall_1_sensor') %}
         {% set humidifierMinPower = 1 %}
         {% set backlightMinPower = states('input_number.pw_offset_hall') | int(0) %}
         {% set relayMinPower = backlightMinPower + humidifierMinPower %}
@@ -55,8 +55,8 @@
         {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
         {{ humidifierIsOn and (sensorValue <= expectedValue) }}
       bedroom_state: >
-        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'bedroom_2') %}
-        {% set backlightIsOn = state_attr('binary_sensor.relay', 'bedroom_1') %}
+        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'bedroom_2_sensor') %}
+        {% set backlightIsOn = state_attr('binary_sensor.relay', 'bedroom_1_sensor') %}
         {% set humidifierMinPower = 1 %}
         {% set backlightMinPower = states('input_number.pw_offset_bedroom') | int(0) %}
         {% set relayMinPower = backlightMinPower + humidifierMinPower %}
@@ -64,8 +64,8 @@
         {% set expectedValue = iif(backlightIsOn, relayMinPower, humidifierMinPower) %}
         {{ humidifierIsOn and (sensorValue <= expectedValue) }}
       living_state: >
-        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'living_1') %}
-        {% set backlightIsOn = state_attr('binary_sensor.relay', 'living_2') %}
+        {% set humidifierIsOn = state_attr('binary_sensor.relay', 'living_1_sensor') %}
+        {% set backlightIsOn = state_attr('binary_sensor.relay', 'living_2_sensor') %}
         {% set humidifierMinPower = 1 %}
         {% set backlightMinPower = states('input_number.pw_offset_living') | int(0) %}
         {% set relayMinPower = backlightMinPower + humidifierMinPower %}

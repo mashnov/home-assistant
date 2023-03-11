@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'night_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.dt_night_boolean_on
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'night_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.dt_night_boolean_off
 
@@ -29,8 +29,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'morning_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.dt_morning_boolean_on
 
@@ -40,8 +40,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'morning_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.dt_morning_boolean_off
 
@@ -53,8 +53,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'day_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.dt_day_boolean_on
 
@@ -64,8 +64,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'day_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.dt_day_boolean_off
 
@@ -77,8 +77,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'evening_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.dt_evening_boolean_on
 
@@ -88,8 +88,8 @@
   - platform: state
     entity_id: 'sensor.day_time'
     attribute: 'evening_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.dt_evening_boolean_off
 

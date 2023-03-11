@@ -2,7 +2,7 @@
   - name: 'illuminance'
     device_class: 'illuminance'
     unit_of_measurement: 'lx'
-    state: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) | round(1) }}'
+    state: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) }}'
     icon: 'mdi:camera-timer'
     attributes:
       kitchen_curtain_state: >

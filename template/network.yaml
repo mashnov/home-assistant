@@ -9,9 +9,9 @@
       {% set defaultIcon = 'mdi:help-circle' %}
       {{ isNormalIcon or isLowIcon or defaultIcon }}
     attributes:
-      ping_sensor: "{{ states('sensor.speedtest_ping') }}"
-      upload_sensor: "{{ states('sensor.speedtest_upload') }}"
-      download_sensor: "{{ states('sensor.speedtest_download') }}"
+      ping_sensor: "{{ states('sensor.speedtest_ping') | int(0) }}"
+      upload_sensor: "{{ states('sensor.speedtest_upload') | float(0) }}"
+      download_sensor: "{{ states('sensor.speedtest_download') | float(0) }}"
       
       normal_state: >
         {% set sensorValue = state_attr('sensor.network', 'download') | int(0) %}

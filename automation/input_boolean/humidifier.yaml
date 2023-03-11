@@ -5,8 +5,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'hall_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_hall_empty_timer_start
 
@@ -16,8 +16,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'hall_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_hall_empty_timer_cancel
 
@@ -42,8 +42,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'hall_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_hall_empty_boolean_off
 
@@ -54,8 +54,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'hall_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_hall_boolean_on
 
@@ -65,8 +65,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'hall_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_hall_boolean_off
 
@@ -78,8 +78,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'bedroom_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_bedroom_empty_timer_start
 
@@ -89,8 +89,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'bedroom_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_bedroom_empty_timer_cancel
 
@@ -115,8 +115,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'bedroom_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_bedroom_empty_boolean_off
 
@@ -127,8 +127,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'bedroom_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_bedroom_boolean_on
 
@@ -138,8 +138,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'bedroom_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_bedroom_boolean_off
 
@@ -151,8 +151,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'living_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_living_empty_timer_start
 
@@ -162,8 +162,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'living_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_living_empty_timer_cancel
 
@@ -188,8 +188,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier_empty'
     attribute: 'living_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_living_empty_boolean_off
 
@@ -200,8 +200,8 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'living_state'
-    from: 'off'
-    to: 'on'
+    from: false
+    to: true
   action:
   - service: script.h_living_boolean_on
 
@@ -211,7 +211,7 @@
   - platform: state
     entity_id: 'binary_sensor.humidifier'
     attribute: 'living_state'
-    from: 'on'
-    to: 'off'
+    from: true
+    to: false
   action:
   - service: script.h_living_boolean_off
