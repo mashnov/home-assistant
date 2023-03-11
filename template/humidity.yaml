@@ -4,10 +4,10 @@
     unit_of_measurement: '%'
     state: "{{ state_attr('sensor.humidity', 'average_sensor') }}"
     icon: >
-      {% set isHhghtIcon = state_attr('sensor.humidity', 'hight_state') and 'mdi:water' %}
+      {% set isHightIcon = state_attr('sensor.humidity', 'hight_state') and 'mdi:water' %}
       {% set isLowIcon = state_attr('sensor.humidity', 'low_state') and 'mdi:water-outline' %}
       {% set defaultIcon = 'mdi:water-opacity' %}
-      {{ isHhghtIcon or isLowIcon or defaultIcon }}
+      {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
       kitchen_sensor: "{{ states('sensor.kitchen_humidity') }}"
       bath_sensor: "{{ states('sensor.bath_humidity') }}"
