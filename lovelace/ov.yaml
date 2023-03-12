@@ -56,9 +56,9 @@ cards:
     - entity: input_boolean.s_azimuth
       name: 'Азимут'
     - type: divider
-    - entity: input_number.s_elevation
+    - entity: input_number.s_elevation_level
       name: 'Показания'
-    - entity: input_boolean.s_elevation_level
+    - entity: input_boolean.s_elevation
       name: 'Подъем'
     - type: divider
     - entity: input_boolean.s_hight
