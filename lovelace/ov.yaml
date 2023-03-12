@@ -55,16 +55,16 @@ cards:
       name: 'Азимут сенсор'
     - entity: input_number.s_azimuth_target
       name: 'Азимут таргет'
+    - entity: input_boolean.s_azimuth
+      name: 'Азимут'
     - type: divider
     - entity: input_number.s_elevation_level
       name: 'Подъем сенсор'
     - entity: input_number.s_elevation_target
       name: 'Подъем таргет'
-    - type: divider
     - entity: input_boolean.s_elevation
       name: 'Подъем'
-    - entity: input_boolean.s_azimuth
-      name: 'Азимут'
+    - type: divider
     - entity: input_boolean.s_hight
       name: 'Попадание'
 
@@ -109,6 +109,11 @@ cards:
       name: 'Гостиная шторы'
     - entity: input_boolean.i_kitchen_top_light
       name: 'Кухня освещение'
+
+    - entity: sensor.illuminance
+      type: attribute
+      attribute: kitchen_top_light_state
+
     - entity: input_boolean.i_hall_top_light
       name: 'Коридор освещение'
     - entity: input_boolean.i_kitchen_back_light
