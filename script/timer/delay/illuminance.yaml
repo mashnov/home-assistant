@@ -1,5 +1,5 @@
 ## KITCHEN
-i_kitchen_top_light_start:
+i_kitchen_top_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -7,14 +7,14 @@ i_kitchen_top_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_top_light_cancel:
+i_kitchen_top_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.i_kitchen_top_light'
 
 
-i_kitchen_back_light_start:
+i_kitchen_back_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -22,14 +22,14 @@ i_kitchen_back_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_back_light_cancel:
+i_kitchen_back_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.i_kitchen_back_light'
 
 
-i_kitchen_curtain_start:
+i_kitchen_curtain_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -37,7 +37,7 @@ i_kitchen_curtain_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_kitchen_curtain_cancel:
+i_kitchen_curtain_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -45,7 +45,7 @@ i_kitchen_curtain_cancel:
 
 
 ## HALL
-i_hall_top_light_start:
+i_hall_top_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -53,14 +53,14 @@ i_hall_top_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_hall_top_light_cancel:
+i_hall_top_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.i_hall_top_light'
 
 
-i_hall_back_light_start:
+i_hall_back_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -68,7 +68,7 @@ i_hall_back_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_hall_back_light_cancel:
+i_hall_back_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -76,7 +76,7 @@ i_hall_back_light_cancel:
 
 
 ## BEDROOM
-i_bedroom_back_light_start:
+i_bedroom_back_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -84,14 +84,14 @@ i_bedroom_back_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_bedroom_back_light_cancel:
+i_bedroom_back_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.i_bedroom_back_light'
 
 
-i_bedroom_curtain_start:
+i_bedroom_curtain_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -99,7 +99,7 @@ i_bedroom_curtain_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_bedroom_curtain_cancel:
+i_bedroom_curtain_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
@@ -107,7 +107,7 @@ i_bedroom_curtain_cancel:
 
 
 ## LIVING
-i_living_back_light_start:
+i_living_back_light_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -115,14 +115,14 @@ i_living_back_light_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_living_back_light_cancel:
+i_living_back_light_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel
     entity_id: 'timer.i_living_back_light'
 
 
-i_living_curtain_timer_start:
+i_living_curtain_timer_timer_start:
   mode: 'queued'
   sequence:
   - service: timer.start
@@ -130,7 +130,7 @@ i_living_curtain_timer_start:
     data_template:
       duration: "{{ state_attr('sensor.delay', 'illuminance') }}"
 
-i_living_curtain_timer_cancel:
+i_living_curtain_timer_timer_cancel:
   mode: 'queued'
   sequence:
   - service: timer.cancel

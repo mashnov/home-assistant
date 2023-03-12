@@ -13,8 +13,8 @@
     from: true
     to: false
   action:
-  - service: script.i_kitchen_top_timer_cancel
-  - service: script.i_kitchen_top_timer_start
+  - service: script.i_kitchen_top_light_timer_cancel
+  - service: script.i_kitchen_top_light_timer_start
 
 - alias: 'i_kitchen_top_boolean_on'
   initial_state: true
@@ -61,8 +61,8 @@
     from: true
     to: false
   action:
-  - service: script.i_kitchen_back_timer_cancel
-  - service: script.i_kitchen_back_timer_start
+  - service: script.i_kitchen_back_light_timer_cancel
+  - service: script.i_kitchen_back_light_timer_start
 
 - alias: 'i_kitchen_back_boolean_on'
   initial_state: true
@@ -158,8 +158,8 @@
     from: true
     to: false
   action:
-  - service: script.i_hall_top_timer_cancel
-  - service: script.i_hall_top_timer_start
+  - service: script.i_hall_top_light_timer_cancel
+  - service: script.i_hall_top_light_timer_start
 
 - alias: 'i_hall_top_boolean_on'
   initial_state: true
@@ -206,8 +206,8 @@
     from: true
     to: false
   action:
-  - service: script.i_hall_back_timer_cancel
-  - service: script.i_hall_back_timer_start
+  - service: script.i_hall_back_light_timer_cancel
+  - service: script.i_hall_back_light_timer_start
 
 - alias: 'i_hall_back_boolean_on'
   initial_state: true
@@ -255,8 +255,8 @@
     from: true
     to: false
   action:
-  - service: script.i_bedroom_back_timer_cancel
-  - service: script.i_bedroom_back_timer_start
+  - service: script.i_bedroom_back_light_timer_cancel
+  - service: script.i_bedroom_back_light_timer_start
 
 - alias: 'i_bedroom_back_boolean_on'
   initial_state: true
@@ -353,8 +353,8 @@
     from: true
     to: false
   action:
-  - service: script.i_living_back_timer_cancel
-  - service: script.i_living_back_timer_start
+  - service: script.i_living_back_light_timer_cancel
+  - service: script.i_living_back_light_timer_start
 
 - alias: 'i_living_back_boolean_on'
   initial_state: true
@@ -401,8 +401,8 @@
     from: true
     to: false
   action:
-  - service: script.i_living_curtain_timer_cancel
-  - service: script.i_living_curtain_timer_start
+  - service: script.i_living_curtain_timer_timer_cancel
+  - service: script.i_living_curtain_timer_timer_start
 
 - alias: 'i_living_curtain_boolean_on'
   initial_state: true
