@@ -51,14 +51,14 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_number.s_azimuth
+    - entity: input_number.s_azimuth_level
       name: 'Показания'
-    - entity: input_boolean.s_azimuth_level
+    - entity: input_boolean.s_azimuth
       name: 'Азимут'
     - type: divider
-    - entity: input_number.s_elevation_level
+    - entity: input_number.s_elevation
       name: 'Показания'
-    - entity: input_boolean.s_elevation
+    - entity: input_boolean.s_elevation_level
       name: 'Подъем'
     - type: divider
     - entity: input_boolean.s_hight
