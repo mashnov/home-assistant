@@ -1,18 +1,8 @@
-- binary_sensor:
+- sensor:
   - name: 'illuminance'
-    device_class: 'light'
-    state: >
-      {% set kitchenCValue = state_attr("sensor.illuminance", "kitchen_curtain_boolean") %}
-      {% set kitchenTlValue = state_attr("sensor.illuminance", "kitchen_top_light_boolean") %}
-      {% set kitchenBlValue = state_attr("sensor.illuminance", "kitchen_back_light_boolean") %}
-      {% set hallTlValue = state_attr("sensor.illuminance", "hall_top_light_boolean") %}
-      {% set hallBlValue = state_attr("sensor.illuminance", "hall_back_light_boolean") %}
-      {% set bedroomCValue = state_attr("sensor.illuminance", "bedroom_curtain_boolean") %}
-      {% set bedroomBlValue = state_attr("sensor.illuminance", "bedroom_back_light_boolean") %}
-      {% set livingCValue = state_attr("sensor.illuminance", "living_curtain_boolean") %}
-      {% set livingBlValue = state_attr("sensor.illuminance", "living_back_light_boolean") %}
-      {{ kitchenCValue or kitchenTlValue or kitchenBlValue or hallTlValue or hallBlValue or bedroomCValue or bedroomBlValue or livingCValue or livingBlValue }}
-
+    device_class: 'illuminance'
+    unit_of_measurement: 'lx'
+    state: '{{ state_attr("sensor.illuminance", "illuminance_sensor") | int(0) }}'
     icon: 'mdi:camera-timer'
     attributes:
       illuminance_sensor: "{{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(0) }}"

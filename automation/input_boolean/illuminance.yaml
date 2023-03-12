@@ -3,8 +3,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_top_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_kitchen_top_light_timer_cancel
   - service: script.i_kitchen_top_light_timer_start
@@ -18,7 +25,7 @@
       entity_id: timer.i_kitchen_top_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
     state: true
   action:
@@ -33,7 +40,7 @@
       entity_id: timer.i_kitchen_top_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
     state: false
   action:
@@ -44,8 +51,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_back_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_back_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_kitchen_back_light_timer_cancel
   - service: script.i_kitchen_back_light_timer_start
@@ -59,7 +73,7 @@
       entity_id: timer.i_kitchen_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_back_light_state'
     state: true
   action:
@@ -74,7 +88,7 @@
       entity_id: timer.i_kitchen_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_back_light_state'
     state: false
   action:
@@ -85,8 +99,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_curtain_state'
+    from: true
+    to: false
   action:
   - service: script.i_kitchen_curtain_timer_cancel
   - service: script.i_kitchen_curtain_timer_start
@@ -100,7 +121,7 @@
       entity_id: timer.i_kitchen_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
     state: true
   action:
@@ -115,7 +136,7 @@
       entity_id: timer.i_kitchen_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
     state: false
   action:
@@ -127,8 +148,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'hall_top_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_hall_top_light_timer_cancel
   - service: script.i_hall_top_light_timer_start
@@ -142,7 +170,7 @@
       entity_id: timer.i_hall_top_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
     state: true
   action:
@@ -157,7 +185,7 @@
       entity_id: timer.i_hall_top_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
     state: false
   action:
@@ -168,8 +196,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_back_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'hall_back_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_hall_back_light_timer_cancel
   - service: script.i_hall_back_light_timer_start
@@ -183,7 +218,7 @@
       entity_id: timer.i_hall_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_back_light_state'
     state: true
   action:
@@ -198,7 +233,7 @@
       entity_id: timer.i_hall_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'hall_back_light_state'
     state: false
   action:
@@ -210,8 +245,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_back_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'bedroom_back_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_bedroom_back_light_timer_cancel
   - service: script.i_bedroom_back_light_timer_start
@@ -225,7 +267,7 @@
       entity_id: timer.i_bedroom_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_back_light_state'
     state: true
   action:
@@ -240,7 +282,7 @@
       entity_id: timer.i_bedroom_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_back_light_state'
     state: false
   action:
@@ -252,8 +294,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_curtain_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'bedroom_curtain_state'
+    from: true
+    to: false
   action:
   - service: script.i_bedroom_curtain_timer_cancel
   - service: script.i_bedroom_curtain_timer_start
@@ -267,7 +316,7 @@
       entity_id: timer.i_bedroom_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_curtain_state'
     state: true
   action:
@@ -282,7 +331,7 @@
       entity_id: timer.i_bedroom_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'bedroom_curtain_state'
     state: false
   action:
@@ -294,8 +343,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_back_light_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'living_back_light_state'
+    from: true
+    to: false
   action:
   - service: script.i_living_back_light_timer_cancel
   - service: script.i_living_back_light_timer_start
@@ -309,7 +365,7 @@
       entity_id: timer.i_living_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_back_light_state'
     state: true
   action:
@@ -324,7 +380,7 @@
       entity_id: timer.i_living_back_light
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_back_light_state'
     state: false
   action:
@@ -335,8 +391,15 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_curtain_state'
+    from: false
+    to: true
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'living_curtain_state'
+    from: true
+    to: false
   action:
   - service: script.i_living_curtain_timer_timer_cancel
   - service: script.i_living_curtain_timer_timer_start
@@ -350,7 +413,7 @@
       entity_id: timer.i_living_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_curtain_state'
     state: true
   action:
@@ -365,7 +428,7 @@
       entity_id: timer.i_living_curtain
   condition:
   - condition: state
-    entity_id: 'binary_sensor.illuminance'
+    entity_id: 'sensor.illuminance'
     attribute: 'living_curtain_state'
     state: false
   action:
