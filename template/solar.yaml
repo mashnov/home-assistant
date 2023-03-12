@@ -9,18 +9,18 @@
       {% set defaultIcon = 'mdi:help-circle' %}
       {{ isHightIcon or isLowIcon or defaultIcon }}
     attributes:
-      azimuth_sensor: '{{ state_attr("sun.sun", "azimuth")  | float(0)}}'
-      elevation_sensor: '{{ state_attr("sun.sun", "elevation") | float(0) }}'
+      azimuth_sensor: '{{ state_attr("sun.sun", "azimuth")  | float(0) | round(1) }}'
+      elevation_sensor: '{{ state_attr("sun.sun", "elevation") | float(0) | round(1) }}'
       
       azimuth_state: >
-        {% set azimuthSensor = state_attr('solar', 'azimuth_sensor') | int(0) %}
+        {% set azimuthSensor = states('input_number.s_azimuth_level') | int(0) %}
         {% set azimuthTarget = states('input_number.s_azimuth_target') | int(0) %}
         {% set azimuthOffset = states('input_number.s_azimuth_offset') | int(0) %}
         {% set azimuthMinValue = azimuthTarget - azimuthOffset %}
         {% set azimuthMaxValue = azimuthTarget + azimuthOffset %}
         {{ azimuthMinValue < azimuthSensor < azimuthMaxValue }}
       elevation_state: >
-        {% set elevationSensor = state_attr('solar', 'elevation_sensor') | int(0) %}
+        {% set elevationSensor = states('input_number.s_elevation_level') | int(0) %}
         {% set elevationTarget = states('input_number.s_elevation_target') | int(0) %}
         {% set elevationOffset = states('input_number.s_elevation_offset') | int(0) %}        
         {% set elevationMinValue = elevationTarget - elevationOffset %}
@@ -34,4 +34,6 @@
       azimuth_boolean: "{{ is_state('input_boolean.s_azimuth', 'on') }}"
       elevation_boolean: "{{ is_state('input_boolean.s_elevation', 'on') }}"
       hight_boolean: "{{ is_state('input_boolean.s_hight', 'on') }}"
+
+
 
