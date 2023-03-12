@@ -110,9 +110,7 @@ cards:
     - entity: input_boolean.i_kitchen_top_light
       name: 'Кухня освещение'
 
-    - entity: sensor.illuminance
-      type: attribute
-      attribute: kitchen_top_light_state
+    - entity: timer.i_kitchen_top_light
 
     - entity: input_boolean.i_hall_top_light
       name: 'Коридор освещение'
