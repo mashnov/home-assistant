@@ -2,9 +2,11 @@
   - name: 'illuminance'
     device_class: 'illuminance'
     unit_of_measurement: 'lx'
-    state: '{{ state_attr("sensor.balcony_illuminance", "illuminance_lux") | int(0) }}'
+    state: '{{ state_attr("sensor.illuminance", "illuminance_sensor") | int(0) }}'
     icon: 'mdi:camera-timer'
     attributes:
+      illuminance_sensor: "{{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(0) }}"
+      
       kitchen_curtain_state: >
         {% set isCloudly = state_attr('sensor.cloud', 'cloud_boolean') %}
         {% set targetCloudly = states('input_number.i_kitchen_curtain_cloudly_target') | int(0) %}
