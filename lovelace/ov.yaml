@@ -76,6 +76,20 @@ cards:
       name: 'Облачно'
 
   - type: entities
+    title: 'Присутствие'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.o_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.o_hall
+      name: 'Коридор'
+    - entity: input_boolean.o_bath
+      name: 'Ванная'
+    - entity: input_boolean.o_toilet
+      name: 'Туалет'
+
+  - type: entities
     title: 'Освещенность'
     state_color: true
     show_header_toggle: false
@@ -156,16 +170,6 @@ cards:
     show_header_toggle: false
     entities:
     - entity: input_boolean.pl_kitchen
-
-  - type: entities
-    title: 'occupancy'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.o_kitchen
-    - entity: input_boolean.o_hall
-    - entity: input_boolean.o_bath
-    - entity: input_boolean.o_toilet
 
   - type: entities
     title: 'dehumidifier'
