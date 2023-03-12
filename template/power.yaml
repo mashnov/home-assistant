@@ -48,3 +48,4 @@
       living_sensor: "{{ state_attr('sensor.living_relay_power', 'voltage') | float(0) }}"
       balcony_1_sensor: "{{ state_attr('sensor.balcony_socket_relay_power', 'voltage') | float(0) }}"
       balcony_2_sensor: "{{ state_attr('sensor.balcony_light_relay_power_2', 'voltage') | float(0) }}"
+

@@ -41,3 +41,4 @@
       bath_boolean: "{{ is_state('input_boolean.nl_bath', 'on') }}"
       toilet_boolean: "{{ is_state('input_boolean.nl_toilet', 'on') }}"
       balcony_boolean: "{{ is_state('input_boolean.nl_balcony', 'on') }}"
+

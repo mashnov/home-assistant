@@ -76,3 +76,4 @@
       hall_boolean: "{{ is_state('input_boolean.h_hall_empty', 'on') }}"
       bedroom_boolean: "{{ is_state('input_boolean.h_bedroom_empty', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.h_living_empty', 'on') }}"
+

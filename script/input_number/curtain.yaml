@@ -1,0 +1,28 @@
+## KITCHEN
+c_kitchen_position_set_number:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.c_kitchen_position
+    data_template:
+      value: "{{ state_attr('binary_sensor.curtain', 'kitchen_state') }}"
+
+
+## BEDROOM
+c_bedroom_position_set_number:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.c_bedroom_position
+    data_template:
+      value: "{{ state_attr('binary_sensor.curtain', 'bedroom_state') }}"
+
+
+## LIVING
+c_living_position_set_number:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.c_living_position
+    data_template:
+      value: "{{ state_attr('binary_sensor.curtain', 'living_state') }}"

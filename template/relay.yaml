@@ -48,3 +48,4 @@
       balcony_2_sensor: "{{ is_state('switch.balcony_light_relay_l2_2', 'on') }}"
       balcony_3_sensor: "{{ is_state('switch.balcony_socket_relay_l1', 'on') }}"
       balcony_4_sensor: "{{ is_state('switch.balcony_socket_relay_l2', 'on') }}"
+

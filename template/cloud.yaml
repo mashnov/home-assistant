@@ -13,4 +13,4 @@
         {% set targetValue = states('input_number.cl_target') | int(0) %}
         {{ sensorValue > targetValue }}
       
-      cloud_boolean: "{{ is_state('input_boolean.d_toilet', 'on') }}"
+      cloud_boolean: "{{ is_state('input_boolean.c_cloudly', 'on') }}"

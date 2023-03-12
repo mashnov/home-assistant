@@ -52,3 +52,4 @@
         {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.c_living_sun') %}
         {% set openPosition = states('input_number.c_living_open') %}
         {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+

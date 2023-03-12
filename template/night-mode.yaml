@@ -18,3 +18,4 @@
       hall_boolean: "{{ is_state('input_boolean.nm_hall', 'on') }}"
       bedroom_boolean: "{{ is_state('input_boolean.nm_bedroom', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.nm_living', 'on') }}"
+

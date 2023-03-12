@@ -25,3 +25,4 @@
       bedroom_left_boolean: "{{ is_state('input_boolean.w_bedroom_left', 'on') }}"
       bedroom_right_boolean: "{{ is_state('input_boolean.w_bedroom_right', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.w_living', 'on') }}"
+

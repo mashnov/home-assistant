@@ -65,5 +65,8 @@
 
       kitchen_boolean: "{{ is_state('input_boolean.tl_kitchen', 'on') }}"
       hall_boolean: "{{ is_state('input_boolean.tl_hall', 'on') }}"
+      bath_boolean: "{{ is_state('input_boolean.tl_bath', 'on') }}"
+      toilet_boolean: "{{ is_state('input_boolean.tl_toilet', 'on') }}"
       bedroom_boolean: "{{ is_state('input_boolean.tl_bedroom', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.tl_living', 'on') }}"
+

@@ -1,0 +1,37 @@
+## KITCHEN
+- alias: 'c_kitchen_position_set_number'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.curtain'
+    attribute: 'kitchen_state'
+    from: false
+    to: true
+  action:
+  - service: script.c_kitchen_position_set_number
+
+
+## BEDROOM
+- alias: 'c_bedroom_position_set_number'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.curtain'
+    attribute: 'bedroom_state'
+    from: false
+    to: true
+  action:
+  - service: script.c_bedroom_position_set_number
+
+
+## LIVING
+- alias: 'c_living_position_set_number'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.curtain'
+    attribute: 'living_state'
+    from: false
+    to: true
+  action:
+  - service: script.c_living_position_set_number

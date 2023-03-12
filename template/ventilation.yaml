@@ -40,3 +40,4 @@
       bedroom_boolean: "{{ is_state('input_boolean.v_bedroom', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.v_living', 'on') }}"
       hall_boolean: "{{ is_state('input_boolean.v_hall', 'on') }}"
+

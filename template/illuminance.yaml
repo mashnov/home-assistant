@@ -70,12 +70,11 @@
         {{ sensorValue > targetValue }}
 
       kitchen_curtain_boolean: "{{ is_state('input_boolean.i_kitchen_curtain', 'on') }}"
-      kitchen_top_light_boolean: "{{ is_state('input_boolean.i_kitchen_top_light', 'on') }}"
-      kitchen_back_light_boolean: "{{ is_state('input_boolean.i_kitchen_back_light', 'on') }}"
-      hall_top_light_boolean: "{{ is_state('input_boolean.i_hall_top_light', 'on') }}"
-      hall_back_light_boolean: "{{ is_state('input_boolean.i_hall_back_light', 'on') }}"
       bedroom_curtain_boolean: "{{ is_state('input_boolean.i_bedroom_curtain', 'on') }}"
-      bedroom_back_light_boolean: "{{ is_state('input_boolean.i_bedroom_back_light', 'on') }}"
-      
       living_curtain_boolean: "{{ is_state('input_boolean.i_living_curtain', 'on') }}"
+      kitchen_top_light_boolean: "{{ is_state('input_boolean.i_kitchen_top_light', 'on') }}"
+      hall_top_light_boolean: "{{ is_state('input_boolean.i_hall_top_light', 'on') }}"
+      kitchen_back_light_boolean: "{{ is_state('input_boolean.i_kitchen_back_light', 'on') }}"
+      hall_back_light_boolean: "{{ is_state('input_boolean.i_hall_back_light', 'on') }}"
+      bedroom_back_light_boolean: "{{ is_state('input_boolean.i_bedroom_back_light', 'on') }}"
       living_back_light_boolean: "{{ is_state('input_boolean.i_living_back_light', 'on') }}"

@@ -14,3 +14,4 @@
         {% set delayDay = states('input_number.dl_occupation_day') %}
         {% set delay = iif(isNight, delayNight, delayDay) %}
         {{ delay | int(0) | timestamp_custom('%H:%M:%S', false) }}
+

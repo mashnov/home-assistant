@@ -42,8 +42,9 @@
         {{ not(isNightTime) and not(isSunBright) }}
       balcony_state: false ### TODO
 
-      kitchen_boolean: "{{ is_state('input_boolean.nl_kitchen', 'on') }}"
-      hall_boolean: "{{ is_state('input_boolean.nl_hall', 'on') }}"
-      bedroom_boolean: "{{ is_state('input_boolean.nl_bedroom', 'on') }}"
-      living_boolean: "{{ is_state('input_boolean.nl_living', 'on') }}"
-      balcony_boolean: "{{ is_state('input_boolean.nl_balcony', 'on') }}"
+      kitchen_boolean: "{{ is_state('input_boolean.bl_kitchen', 'on') }}"
+      hall_boolean: "{{ is_state('input_boolean.bl_hall', 'on') }}"
+      bedroom_boolean: "{{ is_state('input_boolean.bl_bedroom', 'on') }}"
+      living_boolean: "{{ is_state('input_boolean.bl_living', 'on') }}"
+      balcony_boolean: "{{ is_state('input_boolean.bl_balcony', 'on') }}"
+

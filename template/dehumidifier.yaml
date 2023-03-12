@@ -12,3 +12,4 @@
 
       bath_boolean: "{{ is_state('input_boolean.de_bath', 'on') }}"
       toilet_boolean: "{{ is_state('input_boolean.de_toilet', 'on') }}"
+

@@ -20,6 +20,3 @@
       living_boolean: "{{ is_state('input_boolean.d_living', 'on') }}"
       balcony_boolean: "{{ is_state('input_boolean.d_balcony', 'on') }}"
 
-      
-
-

@@ -20,3 +20,4 @@
       hall_boolean: "{{ is_state('input_boolean.o_hall', 'on') }}"
       bath_boolean: "{{ is_state('input_boolean.o_bath', 'on') }}"
       toilet_boolean: "{{ is_state('input_boolean.o_toilet', 'on') }}"
+

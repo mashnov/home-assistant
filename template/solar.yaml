@@ -34,3 +34,4 @@
       azimuth_boolean: "{{ is_state('input_boolean.s_azimuth', 'on') }}"
       elevation_boolean: "{{ is_state('input_boolean.s_elevation', 'on') }}"
       hight_boolean: "{{ is_state('input_boolean.s_hight', 'on') }}"
+

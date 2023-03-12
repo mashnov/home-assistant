@@ -51,3 +51,4 @@
       morning_boolean: "{{ is_state('input_boolean.dt_morning', 'on') }}"
       day_boolean: "{{ is_state('input_boolean.dt_day', 'on') }}"
       evening_boolean: "{{ is_state('input_boolean.dt_evening', 'on') }}"
+

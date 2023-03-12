@@ -39,6 +39,13 @@ c_kitchen_ventilation:
   step: 1
   initial: 40
 
+c_kitchen_position:
+  unit_of_measurement: '%'
+  icon: 'mdi:curtains'
+  min: 0
+  max: 100
+  step: 1
+
 
 ## BEDROOM
 c_bedroom_close:
@@ -81,6 +88,13 @@ c_bedroom_ventilation:
   step: 1
   initial: 60
 
+c_bedroom_position:
+  unit_of_measurement: '%'
+  icon: 'mdi:curtains'
+  min: 0
+  max: 100
+  step: 1
+
 
 ## LIVING
 c_living_close:
@@ -122,3 +136,10 @@ c_living_ventilation:
   max: 100
   step: 1
   initial: 30
+
+c_living_position:
+  unit_of_measurement: '%'
+  icon: 'mdi:curtains'
+  min: 0
+  max: 100
+  step: 1

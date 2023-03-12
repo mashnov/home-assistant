@@ -1,0 +1,411 @@
+icon: 'mdi:monitor-dashboard'
+cards:
+  - type: entities
+    title: 'curtains'
+    state_color: true
+    entities:
+    - entity: input_number.c_kitchen_position
+    - entity: input_number.c_bedroom_position
+    - entity: input_number.c_living_position
+
+  - type: entities
+    title: 'solar'
+    state_color: true
+    entities:
+    - entity: input_number.azimuth_boolean
+    - entity: input_number.elevation_boolean
+    - entity: input_number.hight_boolean
+
+  - type: entities
+    title: 'top light'
+    state_color: true
+    entities:
+    - entity: input_boolean.tl_kitchen
+    - entity: input_boolean.tl_hall
+    - entity: input_boolean.tl_bath
+    - entity: input_boolean.tl_toilet
+    - entity: input_boolean.tl_bedroom
+    - entity: input_boolean.tl_living
+
+  - type: entities
+    title: 'back light'
+    state_color: true
+    entities:
+    - entity: input_boolean.bl_kitchen
+    - entity: input_boolean.bl_hall
+    - entity: input_boolean.bl_bedroom
+    - entity: input_boolean.bl_living
+    - entity: input_boolean.bl_balcony
+
+  - type: entities
+    title: 'night light'
+    state_color: true
+    entities:
+    - entity: input_boolean.nl_kitchen
+    - entity: input_boolean.nl_hall
+    - entity: input_boolean.nl_bath
+    - entity: input_boolean.nl_toilet
+    - entity: input_boolean.nl_balcony
+
+  - type: entities
+    title: 'party light'
+    state_color: true
+    entities:
+    - entity: input_boolean.pl_kitchen
+
+  - type: entities
+    title: 'occupancy'
+    state_color: true
+    entities:
+    - entity: input_boolean.o_kitchen
+    - entity: input_boolean.o_hall
+    - entity: input_boolean.o_bath
+    - entity: input_boolean.o_toilet
+
+  - type: entities
+    title: 'cloud'
+    state_color: true
+    entities:
+    - entity: input_boolean.c_cloudly
+
+  - type: entities
+    title: 'dehumidifier'
+    state_color: true
+    entities:
+    - entity: input_boolean.de_bath
+    - entity: input_boolean.de_toilet
+
+  - type: entities
+    title: 'humidifier empty'
+    state_color: true
+    entities:
+    - entity: input_boolean.h_hall
+    - entity: input_boolean.h_bedroom
+    - entity: input_boolean.h_living
+
+  - type: entities
+    title: 'humidifier empty'
+    state_color: true
+    entities:
+    - entity: input_boolean.h_hall_empty
+    - entity: input_boolean.h_bedroom_empty
+    - entity: input_boolean.h_living_empty
+
+  - type: entities
+    title: 'humidity'
+    state_color: true
+    entities:
+    - entity: input_boolean.h_bath_low
+    - entity: input_boolean.h_hall_low
+    - entity: input_boolean.h_bedroom_low
+    - entity: input_boolean.h_living_low
+    - entity: input_boolean.h_average_low
+
+  - type: entities
+    title: 'ventilation'
+    state_color: true
+    entities:
+    - entity: input_boolean.v_kitchen
+    - entity: input_boolean.v_bedroom
+    - entity: input_boolean.v_living
+    - entity: input_boolean.v_hall
+
+  - type: entities
+    title: 'window'
+    state_color: true
+    entities:
+    - entity: input_boolean.w_kitchen_left
+    - entity: input_boolean.w_kitchen_right
+    - entity: input_boolean.w_bedroom_left
+    - entity: input_boolean.w_bedroom_right
+    - entity: input_boolean.w_living
+
+  - type: entities
+    title: 'door'
+    state_color: true
+    entities:
+    - entity: input_boolean.d_toilet
+    - entity: input_boolean.d_hall
+    - entity: input_boolean.d_bedroom
+    - entity: input_boolean.d_living
+    - entity: input_boolean.d_balcony
+
+  - type: entities
+    title: 'temperature'
+    state_color: true
+    entities:
+    - entity: input_boolean.t_hight
+    - entity: input_boolean.t_low
+
+  - type: entities
+    title: 'pressure'
+    state_color: true
+    entities:
+    - entity: input_boolean.p_hight
+    - entity: input_boolean.p_low
+
+  - type: entities
+    title: 'illuminance'
+    state_color: true
+    entities:
+    - entity: input_boolean.i_kitchen_curtain
+    - entity: input_boolean.i_bedroom_curtain
+    - entity: input_boolean.i_living_curtain
+    - entity: input_boolean.i_kitchen_top_light
+    - entity: input_boolean.i_hall_top_light
+    - entity: input_boolean.i_kitchen_back_light
+    - entity: input_boolean.i_hall_back_light
+    - entity: input_boolean.i_bedroom_back_light
+    - entity: input_boolean.i_living_back_light
+
+  - type: entities
+    title: 'night-mode'
+    state_color: true
+    entities:
+    - entity: input_boolean.nm_hall
+    - entity: input_boolean.nm_bedroom
+    - entity: input_boolean.nm_living
+
+  - type: entities
+    title: 'power'
+    state_color: true
+    entities:
+    - entity: sensor.power
+      type: attribute
+      attribute: kitchen_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: bath_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: toilet_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: hall_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: bedroom_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: living_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: balcony_1_sensor
+    - entity: sensor.power
+      type: attribute
+      attribute: balcony_2_sensor
+
+  - type: entities
+    title: 'voltage'
+    state_color: true
+    entities:
+    - entity: sensor.voltage
+      type: attribute
+      attribute: kitchen_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: bath_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: toilet_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: hall_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: bedroom_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: living_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: balcony_1_sensor
+    - entity: sensor.voltage
+      type: attribute
+      attribute: balcony_2_sensor
+
+  - type: entities
+    title: 'switch'
+    state_color: true
+    entities:
+    - entity: sensor.switch
+      type: attribute
+      attribute: kitchen_left_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: kitchen_right_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: hall_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: bath_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: toilet_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: bedroom_left_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: bedroom_right_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: bedroom_wall_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: living_left_sensor
+    - entity: sensor.switch
+      type: attribute
+      attribute: living_right_sensor
+
+  - type: entities
+    title: 'relay'
+    state_color: true
+    entities:
+    - entity: sensor.relay
+      type: attribute
+      attribute: kitchen_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: kitchen_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: bath_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: bath_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: toilet_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: toilet_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: hall_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: hall_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: bedroom_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: bedroom_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: living_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: living_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: balcony_1_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: balcony_2_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: balcony_3_sensor
+    - entity: sensor.relay
+      type: attribute
+      attribute: balcony_4_sensor
+
+  - type: entities
+    title: 'date-time'
+    state_color: true
+    entities:
+    - entity: input_boolean.night_boolean
+    - entity: input_boolean.morning_boolean
+    - entity: input_boolean.day_boolean
+    - entity: input_boolean.evening_boolean
+    - type: divider
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hms_z
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hm_z
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hms
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hm
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy
+    - entity: sensor.date_time
+      type: attribute
+      attribute: hms
+    - entity: sensor.date_time
+      type: attribute
+      attribute: hm
+    - entity: sensor.date_time
+      type: attribute
+      attribute: z
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hms_z_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hm_z_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hms_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_hm_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: dmy_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: hms_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: hm_local
+    - entity: sensor.date_time
+      type: attribute
+      attribute: z_local
+
+  - type: entities
+    title: 'delay'
+    state_color: true
+    entities:
+    - entity: sensor.delay
+      type: attribute
+      attribute: power
+    - entity: sensor.delay
+      type: attribute
+      attribute: window
+    - entity: sensor.delay
+      type: attribute
+      attribute: door
+    - entity: sensor.delay
+      type: attribute
+      attribute: illuminance
+    - entity: sensor.delay
+      type: attribute
+      attribute: occupation
+
+  - type: entities
+    title: 'duration'
+    state_color: true
+    entities:
+    - entity: sensor.duration
+      type: attribute
+      attribute: toilet_dehumidifier
+    - entity: sensor.duration
+      type: attribute
+      attribute: top_light
+    - entity: sensor.duration
+      type: attribute
+      attribute: back_light
+    - entity: sensor.durationy
+      type: attribute
+      attribute: toilet_mode
+    - entity: sensor.duration
+      type: attribute
+      attribute: night_light

@@ -21,3 +21,4 @@
         {{ sensorValue > targetValue }}
 
       normal_boolean: "{{ is_state('input_boolean.n_normal', 'on') }}"
+

@@ -26,3 +26,4 @@
       bedroom_wall_sensor: "{{ is_state('switch.bedroom_wall_switch', 'on') }}"
       living_left_sensor: "{{ is_state('switch.living_switch_left', 'on') }}"
       living_right_sensor: "{{ is_state('switch.living_switch_right', 'on') }}"
+

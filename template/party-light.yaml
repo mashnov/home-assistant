@@ -15,3 +15,4 @@
       kitchen_state: false ### TODO
 
       kitchen_boolean: "{{ is_state('input_boolean.pl_kitchen', 'on') }}"
+

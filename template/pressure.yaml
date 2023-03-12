@@ -36,3 +36,4 @@
 
       hight_boolean: "{{ is_state('input_boolean.p_hight', 'on') }}"
       low_boolean: "{{ is_state('input_boolean.p_low', 'on') }}"
+

@@ -58,3 +58,4 @@
       bedroom_low_boolean: "{{ is_state('input_boolean.h_bedroom_low', 'on') }}"
       living_low_boolean: "{{ is_state('input_boolean.h_living_low', 'on') }}"
       average_low_boolean: "{{ is_state('input_boolean.h_average_low', 'on') }}"
+
