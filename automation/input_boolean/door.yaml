@@ -5,6 +5,11 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'hall_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'hall_sensor'
+    to: false
   action:
   - service: script.d_hall_timer_cancel
   - service: script.d_hall_timer_start
@@ -71,6 +76,11 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'bedroom_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'bedroom_sensor'
+    to: false
   action:
   - service: script.d_bedroom_timer_cancel
   - service: script.d_bedroom_timer_start
@@ -113,6 +123,11 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'living_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'living_sensor'
+    to: false
   action:
   - service: script.d_living_timer_cancel
   - service: script.d_living_timer_start
@@ -155,6 +170,11 @@
   - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'balcony_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.door'
+    attribute: 'balcony_sensor'
+    to: false
   action:
   - service: script.d_balcony_timer_cancel
   - service: script.d_balcony_timer_start

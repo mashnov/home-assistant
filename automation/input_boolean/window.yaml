@@ -5,6 +5,11 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_left_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_left_sensor'
+    to: false
   action:
   - service: script.w_kitchen_left_timer_cancel
   - service: script.w_kitchen_left_timer_start
@@ -47,6 +52,11 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'kitchen_right_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'kitchen_right_sensor'
+    to: false
   action:
   - service: script.w_kitchen_right_timer_cancel
   - service: script.w_kitchen_right_timer_start
@@ -89,6 +99,11 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'bedroom_left_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_left_sensor'
+    to: false
   action:
   - service: script.w_bedroom_left_timer_cancel
   - service: script.w_bedroom_left_timer_start
@@ -131,6 +146,11 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'bedroom_right_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'bedroom_right_sensor'
+    to: false
   action:
   - service: script.w_bedroom_right_timer_cancel
   - service: script.w_bedroom_right_timer_start
@@ -173,6 +193,11 @@
   - platform: state
     entity_id: 'binary_sensor.window'
     attribute: 'living_sensor'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.window'
+    attribute: 'living_sensor'
+    to: false
   action:
   - service: script.w_living_timer_cancel
   - service: script.w_living_timer_start
