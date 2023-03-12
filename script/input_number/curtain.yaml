@@ -1,5 +1,5 @@
 ## KITCHEN
-c_kitchen_position_set_number:
+c_kitchen_set_number:
   mode: 'queued'
   sequence:
   - service: input_number.set_value
@@ -9,7 +9,7 @@ c_kitchen_position_set_number:
 
 
 ## BEDROOM
-c_bedroom_position_set_number:
+c_bedroom_set_number:
   mode: 'queued'
   sequence:
   - service: input_number.set_value
@@ -19,7 +19,7 @@ c_bedroom_position_set_number:
 
 
 ## LIVING
-c_living_position_set_number:
+c_living_set_number:
   mode: 'queued'
   sequence:
   - service: input_number.set_value

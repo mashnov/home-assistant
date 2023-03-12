@@ -54,6 +54,3 @@
       entity_id: timer.de_toilet
   action:
   - service: script.de_toilet_boolean_off
-
-
-
