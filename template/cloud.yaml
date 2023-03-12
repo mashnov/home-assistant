@@ -9,7 +9,7 @@
       cloud_sensor: "{{ states('sensor.openweathermap_cloud_coverage') }}"
       
       cloud_state: >
-        {% set sensorValue = state_attr('sensor.cloud', 'cloud_sensor') | int(0) %}
+        {% set sensorValue = states('input_number.c_level') | int(0) %}
         {% set targetValue = states('input_number.cl_target') | int(0) %}
         {{ sensorValue > targetValue }}
       

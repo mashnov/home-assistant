@@ -5,3 +5,10 @@ cl_target:
   max: 100
   step: 1
   initial: 66
+
+c_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:cloud-cog'
+  min: 0
+  max: 100
+  step: 1

@@ -1,6 +1,54 @@
 icon: 'mdi:monitor-dashboard'
 cards:
   - type: entities
+    title: 'window'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.w_kitchen_left
+    - entity: input_boolean.w_kitchen_right
+    - entity: input_boolean.w_bedroom_left
+    - entity: input_boolean.w_bedroom_right
+    - entity: input_boolean.w_living
+
+  - type: entities
+    title: 'door'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.d_toilet
+    - entity: input_boolean.d_hall
+    - entity: input_boolean.d_bedroom
+    - entity: input_boolean.d_living
+    - entity: input_boolean.d_balcony
+
+  - type: entities
+    title: 'ventilation'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.v_kitchen
+    - entity: input_boolean.v_bedroom
+    - entity: input_boolean.v_living
+    - entity: input_boolean.v_hall
+
+  - type: entities
+    title: 'cloud'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.c_level
+    - type: divider
+    - entity: input_boolean.c_cloudly
+
+
+
+
+
+
+
+
+  - type: entities
     title: 'curtains'
     state_color: true
     show_header_toggle: false
@@ -70,13 +118,6 @@ cards:
     - entity: input_boolean.o_toilet
 
   - type: entities
-    title: 'cloud'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.c_cloudly
-
-  - type: entities
     title: 'dehumidifier'
     state_color: true
     show_header_toggle: false
@@ -112,38 +153,6 @@ cards:
     - entity: input_boolean.h_bedroom_low
     - entity: input_boolean.h_living_low
     - entity: input_boolean.h_average_low
-
-  - type: entities
-    title: 'ventilation'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.v_kitchen
-    - entity: input_boolean.v_bedroom
-    - entity: input_boolean.v_living
-    - entity: input_boolean.v_hall
-
-  - type: entities
-    title: 'window'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.w_kitchen_left
-    - entity: input_boolean.w_kitchen_right
-    - entity: input_boolean.w_bedroom_left
-    - entity: input_boolean.w_bedroom_right
-    - entity: input_boolean.w_living
-
-  - type: entities
-    title: 'door'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.d_toilet
-    - entity: input_boolean.d_hall
-    - entity: input_boolean.d_bedroom
-    - entity: input_boolean.d_living
-    - entity: input_boolean.d_balcony
 
   - type: entities
     title: 'temperature'
