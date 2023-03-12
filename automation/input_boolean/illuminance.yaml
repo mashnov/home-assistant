@@ -4,12 +4,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_top_light_boolean'
+    attribute: 'kitchen_top_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_top_light_boolean'
+    attribute: 'kitchen_top_light_state'
     from: true
     to: false
   action:
@@ -26,7 +26,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_top_light_boolean'
+    attribute: 'kitchen_top_light_state'
     state: true
   action:
   - service: script.i_kitchen_top_boolean_on
@@ -41,7 +41,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_top_light_boolean'
+    attribute: 'kitchen_top_light_state'
     state: false
   action:
   - service: script.i_kitchen_top_boolean_off
@@ -52,12 +52,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_back_light_boolean'
+    attribute: 'kitchen_back_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_back_light_boolean'
+    attribute: 'kitchen_back_light_state'
     from: true
     to: false
   action:
@@ -74,7 +74,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_back_light_boolean'
+    attribute: 'kitchen_back_light_state'
     state: true
   action:
   - service: script.i_kitchen_back_boolean_on
@@ -89,7 +89,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_back_light_boolean'
+    attribute: 'kitchen_back_light_state'
     state: false
   action:
   - service: script.i_kitchen_back_boolean_off
@@ -100,12 +100,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_curtain_boolean'
+    attribute: 'kitchen_curtain_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_curtain_boolean'
+    attribute: 'kitchen_curtain_state'
     from: true
     to: false
   action:
@@ -122,7 +122,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_curtain_boolean'
+    attribute: 'kitchen_curtain_state'
     state: true
   action:
   - service: script.i_kitchen_curtain_boolean_on
@@ -137,7 +137,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'kitchen_curtain_boolean'
+    attribute: 'kitchen_curtain_state'
     state: false
   action:
   - service: script.i_kitchen_curtain_boolean_off
@@ -149,12 +149,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_top_light_boolean'
+    attribute: 'hall_top_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_top_light_boolean'
+    attribute: 'hall_top_light_state'
     from: true
     to: false
   action:
@@ -171,7 +171,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_top_light_boolean'
+    attribute: 'hall_top_light_state'
     state: true
   action:
   - service: script.i_hall_top_boolean_on
@@ -186,7 +186,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_top_light_boolean'
+    attribute: 'hall_top_light_state'
     state: false
   action:
   - service: script.i_hall_top_boolean_off
@@ -197,12 +197,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_back_light_boolean'
+    attribute: 'hall_back_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_back_light_boolean'
+    attribute: 'hall_back_light_state'
     from: true
     to: false
   action:
@@ -219,7 +219,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_back_light_boolean'
+    attribute: 'hall_back_light_state'
     state: true
   action:
   - service: script.i_hall_back_boolean_on
@@ -234,7 +234,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'hall_back_light_boolean'
+    attribute: 'hall_back_light_state'
     state: false
   action:
   - service: script.i_hall_back_boolean_off
@@ -246,12 +246,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_back_light_boolean'
+    attribute: 'bedroom_back_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_back_light_boolean'
+    attribute: 'bedroom_back_light_state'
     from: true
     to: false
   action:
@@ -268,7 +268,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_back_light_boolean'
+    attribute: 'bedroom_back_light_state'
     state: true
   action:
   - service: script.i_bedroom_back_boolean_on
@@ -283,7 +283,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_back_light_boolean'
+    attribute: 'bedroom_back_light_state'
     state: false
   action:
   - service: script.i_bedroom_back_boolean_off
@@ -295,12 +295,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_curtain_boolean'
+    attribute: 'bedroom_curtain_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_curtain_boolean'
+    attribute: 'bedroom_curtain_state'
     from: true
     to: false
   action:
@@ -317,7 +317,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_curtain_boolean'
+    attribute: 'bedroom_curtain_state'
     state: true
   action:
   - service: script.i_bedroom_curtain_boolean_on
@@ -332,7 +332,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'bedroom_curtain_boolean'
+    attribute: 'bedroom_curtain_state'
     state: false
   action:
   - service: script.i_bedroom_curtain_boolean_off
@@ -344,12 +344,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_back_light_boolean'
+    attribute: 'living_back_light_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_back_light_boolean'
+    attribute: 'living_back_light_state'
     from: true
     to: false
   action:
@@ -366,7 +366,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_back_light_boolean'
+    attribute: 'living_back_light_state'
     state: true
   action:
   - service: script.i_living_back_boolean_on
@@ -381,7 +381,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_back_light_boolean'
+    attribute: 'living_back_light_state'
     state: false
   action:
   - service: script.i_living_back_boolean_off
@@ -392,12 +392,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_curtain_boolean'
+    attribute: 'living_curtain_state'
     from: false
     to: true
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_curtain_boolean'
+    attribute: 'living_curtain_state'
     from: true
     to: false
   action:
@@ -414,7 +414,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_curtain_boolean'
+    attribute: 'living_curtain_state'
     state: true
   action:
   - service: script.i_living_curtain_boolean_on
@@ -429,7 +429,7 @@
   condition:
   - condition: state
     entity_id: 'sensor.illuminance'
-    attribute: 'living_curtain_boolean'
+    attribute: 'living_curtain_state'
     state: false
   action:
   - service: script.i_living_curtain_boolean_off
