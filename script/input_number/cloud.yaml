@@ -1,5 +1,5 @@
 ## CLOUD LEVEL
-c_cloud_level_set_number:
+c_cloud_set_number:
   mode: 'queued'
   sequence:
   - service: input_number.set_value

@@ -1,10 +1,10 @@
 ## CLOUD
-- alias: 'c_cloud_level_set_number'
+- alias: 'c_cloud_set_number'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
     attribute: 'cloud_sensor'
   action:
-  - service: script.c_cloud_level_set_number
+  - service: script.c_cloud_set_number
 

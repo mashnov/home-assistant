@@ -1,0 +1,18 @@
+## ELEVATION LEVEL
+s_elevation_set_number:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.s_elevation_level
+    data_template:
+      value: "{{ state_attr('binary_sensor.solar', 'elevation_sensor') }}"
+
+
+## AZIMUTH LEVEL
+s_azimuth_set_number:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.s_azimuth_level
+    data_template:
+      value: "{{ state_attr('binary_sensor.solar', 'azimuth_sensor') }}"

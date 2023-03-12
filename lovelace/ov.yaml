@@ -47,7 +47,25 @@ cards:
       name: 'Гостиная'
 
   - type: entities
-    title: 'cloud'
+    title: 'Солнце'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.s_azimuth
+      name: 'Показания'
+    - entity: input_boolean.s_azimuth_level
+      name: 'Азимут'
+    - type: divider
+    - entity: input_number.s_elevation_level
+      name: 'Показания'
+    - entity: input_boolean.s_elevation
+      name: 'Подъем'
+    - type: divider
+    - entity: input_boolean.s_hight
+      name: 'Попадание'
+
+  - type: entities
+    title: 'Облачность'
     state_color: true
     show_header_toggle: false
     entities:
@@ -62,8 +80,6 @@ cards:
 
 
 
-
-
   - type: entities
     title: 'curtains'
     state_color: true
@@ -72,15 +88,6 @@ cards:
     - entity: input_number.c_kitchen_position
     - entity: input_number.c_bedroom_position
     - entity: input_number.c_living_position
-
-  - type: entities
-    title: 'solar'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.s_azimuth
-    - entity: input_boolean.s_elevation
-    - entity: input_boolean.s_hight
 
   - type: entities
     title: 'top light'

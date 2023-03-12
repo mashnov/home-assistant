@@ -17,14 +17,6 @@
         {% set leftValue = state_attr('binary_sensor.window', 'kitchen_left_boolean') %}
         {% set rightValue = state_attr('binary_sensor.window', 'kitchen_right_boolean') %}
         {{ leftValue or rightValue }}
-      bedroom_state: >
-        {% set leftValue = state_attr('binary_sensor.window', 'bedroom_left_boolean') %}
-        {% set rightValue = state_attr('binary_sensor.window', 'bedroom_right_boolean') %}
-        {{ leftValue or rightValue }}
-      living_state: > 
-        {% set windowValue = state_attr('binary_sensor.window', 'living_boolean') %}
-        {% set doorValue = state_attr('binary_sensor.door', 'balcony_boolean') %}
-        {{ windowValue or doorValue }}
       hall_state: >
         {% set d_hall = state_attr('binary_sensor.door', 'hall_boolean') %}
         {% set d_bedroom = state_attr('binary_sensor.door', 'bedroom_boolean') %}
@@ -35,9 +27,14 @@
         {% set bedroomValue = v_bedroom and d_bedroom %}
         {% set livingValue = v_living and d_living %}
         {{ v_kitchen or d_hall or bedroomValue or livingValue }}
+      bedroom_state: >
+        {% set leftValue = state_attr('binary_sensor.window', 'bedroom_left_boolean') %}
+        {% set rightValue = state_attr('binary_sensor.window', 'bedroom_right_boolean') %}
+        {{ leftValue or rightValue }}
+      living_state: "{{ state_attr('binary_sensor.window', 'living_boolean') }}"
       
       kitchen_boolean: "{{ is_state('input_boolean.v_kitchen', 'on') }}"
+      hall_boolean: "{{ is_state('input_boolean.v_hall', 'on') }}"
       bedroom_boolean: "{{ is_state('input_boolean.v_bedroom', 'on') }}"
       living_boolean: "{{ is_state('input_boolean.v_living', 'on') }}"
-      hall_boolean: "{{ is_state('input_boolean.v_hall', 'on') }}"
 
