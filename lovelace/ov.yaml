@@ -3,6 +3,7 @@ cards:
   - type: entities
     title: 'curtains'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_number.c_kitchen_position
     - entity: input_number.c_bedroom_position
@@ -11,6 +12,7 @@ cards:
   - type: entities
     title: 'solar'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.s_azimuth
     - entity: input_boolean.s_elevation
@@ -19,6 +21,7 @@ cards:
   - type: entities
     title: 'top light'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.tl_kitchen
     - entity: input_boolean.tl_hall
@@ -30,6 +33,7 @@ cards:
   - type: entities
     title: 'back light'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.bl_kitchen
     - entity: input_boolean.bl_hall
@@ -40,6 +44,7 @@ cards:
   - type: entities
     title: 'night light'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.nl_kitchen
     - entity: input_boolean.nl_hall
@@ -50,12 +55,14 @@ cards:
   - type: entities
     title: 'party light'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.pl_kitchen
 
   - type: entities
     title: 'occupancy'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.o_kitchen
     - entity: input_boolean.o_hall
@@ -65,12 +72,14 @@ cards:
   - type: entities
     title: 'cloud'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.c_cloudly
 
   - type: entities
     title: 'dehumidifier'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.de_bath
     - entity: input_boolean.de_toilet
@@ -78,6 +87,7 @@ cards:
   - type: entities
     title: 'humidifier empty'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.h_hall
     - entity: input_boolean.h_bedroom
@@ -86,6 +96,7 @@ cards:
   - type: entities
     title: 'humidifier empty'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.h_hall_empty
     - entity: input_boolean.h_bedroom_empty
@@ -94,6 +105,7 @@ cards:
   - type: entities
     title: 'humidity'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.h_bath_low
     - entity: input_boolean.h_hall_low
@@ -104,6 +116,7 @@ cards:
   - type: entities
     title: 'ventilation'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.v_kitchen
     - entity: input_boolean.v_bedroom
@@ -113,6 +126,7 @@ cards:
   - type: entities
     title: 'window'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.w_kitchen_left
     - entity: input_boolean.w_kitchen_right
@@ -123,6 +137,7 @@ cards:
   - type: entities
     title: 'door'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.d_toilet
     - entity: input_boolean.d_hall
@@ -133,6 +148,7 @@ cards:
   - type: entities
     title: 'temperature'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.t_hight
     - entity: input_boolean.t_low
@@ -140,6 +156,7 @@ cards:
   - type: entities
     title: 'pressure'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.p_hight
     - entity: input_boolean.p_low
@@ -147,6 +164,7 @@ cards:
   - type: entities
     title: 'illuminance'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.i_kitchen_curtain
     - entity: input_boolean.i_bedroom_curtain
@@ -161,6 +179,7 @@ cards:
   - type: entities
     title: 'night-mode'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.nm_hall
     - entity: input_boolean.nm_bedroom
@@ -169,6 +188,7 @@ cards:
   - type: entities
     title: 'power'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.power
       type: attribute
@@ -206,6 +226,7 @@ cards:
   - type: entities
     title: 'voltage'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.voltage
       type: attribute
@@ -243,6 +264,7 @@ cards:
   - type: entities
     title: 'switch'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: binary_sensor.switch
       type: attribute
@@ -288,6 +310,7 @@ cards:
   - type: entities
     title: 'relay'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: binary_sensor.relay
       type: attribute
@@ -357,6 +380,7 @@ cards:
   - type: entities
     title: 'day-time'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: input_boolean.dt_night
     - entity: input_boolean.dt_morning
@@ -366,6 +390,7 @@ cards:
   - type: entities
     title: 'date-time'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.date_time
       type: attribute
@@ -435,6 +460,7 @@ cards:
   - type: entities
     title: 'delay'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.delay
       type: attribute
@@ -460,6 +486,7 @@ cards:
   - type: entities
     title: 'duration'
     state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.duration
       type: attribute
