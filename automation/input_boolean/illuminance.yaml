@@ -16,7 +16,7 @@
   - service: script.i_kitchen_top_light_timer_cancel
   - service: script.i_kitchen_top_light_timer_start
 
-- alias: 'i_kitchen_top_boolean_on'
+- alias: 'i_kitchen_top_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -29,9 +29,9 @@
     attribute: 'kitchen_top_light_state'
     state: true
   action:
-  - service: script.i_kitchen_top_boolean_on
+  - service: script.i_kitchen_top_light_boolean_on
 
-- alias: 'i_kitchen_top_boolean_off'
+- alias: 'i_kitchen_top_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -44,7 +44,7 @@
     attribute: 'kitchen_top_light_state'
     state: false
   action:
-  - service: script.i_kitchen_top_boolean_off
+  - service: script.i_kitchen_top_light_boolean_off
 
 ## KITCHEN BACK LIGTH
 - alias: 'i_kitchen_back_timer_action'
@@ -64,7 +64,7 @@
   - service: script.i_kitchen_back_light_timer_cancel
   - service: script.i_kitchen_back_light_timer_start
 
-- alias: 'i_kitchen_back_boolean_on'
+- alias: 'i_kitchen_back_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -77,9 +77,9 @@
     attribute: 'kitchen_back_light_state'
     state: true
   action:
-  - service: script.i_kitchen_back_boolean_on
+  - service: script.i_kitchen_back_light_boolean_on
 
-- alias: 'i_kitchen_back_boolean_off'
+- alias: 'i_kitchen_back_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -92,7 +92,7 @@
     attribute: 'kitchen_back_light_state'
     state: false
   action:
-  - service: script.i_kitchen_back_boolean_off
+  - service: script.i_kitchen_back_light_boolean_off
 
 ## KITCHEN CURTAIN
 - alias: 'i_kitchen_curtain_timer_action'
@@ -161,7 +161,7 @@
   - service: script.i_hall_top_light_timer_cancel
   - service: script.i_hall_top_light_timer_start
 
-- alias: 'i_hall_top_boolean_on'
+- alias: 'i_hall_top_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -174,9 +174,9 @@
     attribute: 'hall_top_light_state'
     state: true
   action:
-  - service: script.i_hall_top_boolean_on
+  - service: script.i_hall_top_light_boolean_on
 
-- alias: 'i_hall_top_boolean_off'
+- alias: 'i_hall_top_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -189,7 +189,7 @@
     attribute: 'hall_top_light_state'
     state: false
   action:
-  - service: script.i_hall_top_boolean_off
+  - service: script.i_hall_top_light_boolean_off
 
 ## HALL BACK LIGTH
 - alias: 'i_hall_back_timer_action'
@@ -209,7 +209,7 @@
   - service: script.i_hall_back_light_timer_cancel
   - service: script.i_hall_back_light_timer_start
 
-- alias: 'i_hall_back_boolean_on'
+- alias: 'i_hall_back_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -222,9 +222,9 @@
     attribute: 'hall_back_light_state'
     state: true
   action:
-  - service: script.i_hall_back_boolean_on
+  - service: script.i_hall_back_light_boolean_on
 
-- alias: 'i_hall_back_boolean_off'
+- alias: 'i_hall_back_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -237,7 +237,7 @@
     attribute: 'hall_back_light_state'
     state: false
   action:
-  - service: script.i_hall_back_boolean_off
+  - service: script.i_hall_back_light_boolean_off
 
 
 ## BEDROOM BACK LIGTH
@@ -258,7 +258,7 @@
   - service: script.i_bedroom_back_light_timer_cancel
   - service: script.i_bedroom_back_light_timer_start
 
-- alias: 'i_bedroom_back_boolean_on'
+- alias: 'i_bedroom_back_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -271,9 +271,9 @@
     attribute: 'bedroom_back_light_state'
     state: true
   action:
-  - service: script.i_bedroom_back_boolean_on
+  - service: script.i_bedroom_back_light_boolean_on
 
-- alias: 'i_bedroom_back_boolean_off'
+- alias: 'i_bedroom_back_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -286,7 +286,7 @@
     attribute: 'bedroom_back_light_state'
     state: false
   action:
-  - service: script.i_bedroom_back_boolean_off
+  - service: script.i_bedroom_back_light_boolean_off
 
 
 ## BEDROOM CURTAIN
@@ -356,7 +356,7 @@
   - service: script.i_living_back_light_timer_cancel
   - service: script.i_living_back_light_timer_start
 
-- alias: 'i_living_back_boolean_on'
+- alias: 'i_living_back_light_boolean_on'
   initial_state: true
   trigger:
   - platform: event
@@ -369,9 +369,9 @@
     attribute: 'living_back_light_state'
     state: true
   action:
-  - service: script.i_living_back_boolean_on
+  - service: script.i_living_back_light_boolean_on
 
-- alias: 'i_living_back_boolean_off'
+- alias: 'i_living_back_light_boolean_off'
   initial_state: true
   trigger:
   - platform: event
@@ -384,7 +384,7 @@
     attribute: 'living_back_light_state'
     state: false
   action:
-  - service: script.i_living_back_boolean_off
+  - service: script.i_living_back_light_boolean_off
 
 ## LIVING CURTAIN
 - alias: 'i_living_curtain_timer_action'
