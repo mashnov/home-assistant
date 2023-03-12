@@ -12,9 +12,9 @@ cards:
     title: 'solar'
     state_color: true
     entities:
-    - entity: input_number.azimuth_boolean
-    - entity: input_number.elevation_boolean
-    - entity: input_number.hight_boolean
+    - entity: input_boolean.s_azimuth
+    - entity: input_boolean.s_elevation
+    - entity: input_boolean.s_hight
 
   - type: entities
     title: 'top light'
@@ -172,27 +172,35 @@ cards:
     entities:
     - entity: sensor.power
       type: attribute
+      name: 'kitchen_sensor'
       attribute: kitchen_sensor
     - entity: sensor.power
       type: attribute
+      name: 'bath_sensor'
       attribute: bath_sensor
     - entity: sensor.power
       type: attribute
+      name: 'toilet_sensor'
       attribute: toilet_sensor
     - entity: sensor.power
       type: attribute
+      name: 'hall_sensor'
       attribute: hall_sensor
     - entity: sensor.power
       type: attribute
+      name: 'bedroom_sensor'
       attribute: bedroom_sensor
     - entity: sensor.power
       type: attribute
+      name: 'living_sensor'
       attribute: living_sensor
     - entity: sensor.power
       type: attribute
+      name: 'balcony_1_sensor'
       attribute: balcony_1_sensor
     - entity: sensor.power
       type: attribute
+      name: 'balcony_2_sensor'
       attribute: balcony_2_sensor
 
   - type: entities
@@ -201,173 +209,227 @@ cards:
     entities:
     - entity: sensor.voltage
       type: attribute
+      name: 'kitchen_sensor'
       attribute: kitchen_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'bath_sensor'
       attribute: bath_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'toilet_sensor'
       attribute: toilet_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'hall_sensor'
       attribute: hall_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'bedroom_sensor'
       attribute: bedroom_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'living_sensor'
       attribute: living_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'balcony_1_sensor'
       attribute: balcony_1_sensor
     - entity: sensor.voltage
       type: attribute
+      name: 'balcony_2_sensor'
       attribute: balcony_2_sensor
 
   - type: entities
     title: 'switch'
     state_color: true
     entities:
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'kitchen_left_sensor'
       attribute: kitchen_left_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'kitchen_right_sensor'
       attribute: kitchen_right_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'hall_sensor'
       attribute: hall_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'bath_sensor'
       attribute: bath_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'toilet_sensor'
       attribute: toilet_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'bedroom_left_sensor'
       attribute: bedroom_left_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'bedroom_right_sensor'
       attribute: bedroom_right_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'bedroom_wall_sensor'
       attribute: bedroom_wall_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'living_left_sensor'
       attribute: living_left_sensor
-    - entity: sensor.switch
+    - entity: binary_sensor.switch
       type: attribute
+      name: 'living_right_sensor'
       attribute: living_right_sensor
 
   - type: entities
     title: 'relay'
     state_color: true
     entities:
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'kitchen_1_sensor'
       attribute: kitchen_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'kitchen_2_sensor'
       attribute: kitchen_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'bath_1_sensor'
       attribute: bath_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'bath_2_sensor'
       attribute: bath_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'toilet_1_sensor'
       attribute: toilet_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'toilet_2_sensor'
       attribute: toilet_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'hall_1_sensor'
       attribute: hall_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'hall_2_sensor'
       attribute: hall_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'bedroom_1_sensor'
       attribute: bedroom_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'bedroom_2_sensor'
       attribute: bedroom_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'living_1_sensor'
       attribute: living_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'living_2_sensor'
       attribute: living_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'balcony_1_sensor'
       attribute: balcony_1_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'balcony_2_sensor'
       attribute: balcony_2_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'balcony_3_sensor'
       attribute: balcony_3_sensor
-    - entity: sensor.relay
+    - entity: binary_sensor.relay
       type: attribute
+      name: 'balcony_4_sensor'
       attribute: balcony_4_sensor
+
+  - type: entities
+    title: 'day-time'
+    state_color: true
+    entities:
+    - entity: input_boolean.dt_night
+    - entity: input_boolean.dt_morning
+    - entity: input_boolean.dt_day
+    - entity: input_boolean.dt_evening
 
   - type: entities
     title: 'date-time'
     state_color: true
     entities:
-    - entity: input_boolean.night_boolean
-    - entity: input_boolean.morning_boolean
-    - entity: input_boolean.day_boolean
-    - entity: input_boolean.evening_boolean
-    - type: divider
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hms_z'
       attribute: dmy_hms_z
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hm_z'
       attribute: dmy_hm_z
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hms'
       attribute: dmy_hms
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hm'
       attribute: dmy_hm
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy'
       attribute: dmy
     - entity: sensor.date_time
       type: attribute
+      name: 'hms'
       attribute: hms
     - entity: sensor.date_time
       type: attribute
+      name: 'hm'
       attribute: hm
     - entity: sensor.date_time
       type: attribute
+      name: 'z'
       attribute: z
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hms_z_local'
       attribute: dmy_hms_z_local
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hm_z_local'
       attribute: dmy_hm_z_local
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hms_local'
       attribute: dmy_hms_local
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_hm_local'
       attribute: dmy_hm_local
     - entity: sensor.date_time
       type: attribute
+      name: 'dmy_local'
       attribute: dmy_local
     - entity: sensor.date_time
       type: attribute
+      name: 'hms_local'
       attribute: hms_local
     - entity: sensor.date_time
       type: attribute
+      name: 'hm_local'
       attribute: hm_local
     - entity: sensor.date_time
       type: attribute
+      name: 'z_local'
       attribute: z_local
 
   - type: entities
@@ -376,18 +438,23 @@ cards:
     entities:
     - entity: sensor.delay
       type: attribute
+      name: 'power'
       attribute: power
     - entity: sensor.delay
       type: attribute
+      name: 'window'
       attribute: window
     - entity: sensor.delay
       type: attribute
+      name: 'door'
       attribute: door
     - entity: sensor.delay
       type: attribute
+      name: 'illuminance'
       attribute: illuminance
     - entity: sensor.delay
       type: attribute
+      name: 'occupation'
       attribute: occupation
 
   - type: entities
@@ -396,16 +463,21 @@ cards:
     entities:
     - entity: sensor.duration
       type: attribute
+      name: 'toilet_dehumidifier'
       attribute: toilet_dehumidifier
     - entity: sensor.duration
       type: attribute
+      name: 'top_light'
       attribute: top_light
     - entity: sensor.duration
       type: attribute
+      name: 'back_light'
       attribute: back_light
-    - entity: sensor.durationy
+    - entity: sensor.duration
       type: attribute
+      name: 'toilet_mode'
       attribute: toilet_mode
     - entity: sensor.duration
       type: attribute
+      name: 'night_light'
       attribute: night_light
