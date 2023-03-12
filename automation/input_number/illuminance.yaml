@@ -1,0 +1,10 @@
+## ILLUMINANCE
+- alias: 'i_level_set_number'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+  action:
+  - service: script.i_level_set_number
+
+

@@ -18,5 +18,3 @@
     attribute: 'cloud_sensor'
   action:
   - service: script.s_azimuth_set_number
-
-

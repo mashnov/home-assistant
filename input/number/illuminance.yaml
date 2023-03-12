@@ -141,3 +141,10 @@ i_living_backlight_cloudly_target:
   max: 9000
   step: 1
   initial: 5500
+
+i_level:
+  unit_of_measurement: 'lx'
+  icon: 'mdi:sun-wireless-outline'
+  min: 0
+  max: 50000
+  step: 1

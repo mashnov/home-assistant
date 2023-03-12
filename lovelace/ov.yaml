@@ -75,6 +75,33 @@ cards:
     - entity: input_boolean.c_cloudly
       name: 'Облачно'
 
+  - type: entities
+    title: 'Освещенность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.i_level
+      name: 'Показания'
+    - type: divider
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Кухня шторы'
+    - entity: input_boolean.i_bedroom_curtain
+      name: 'Спальня шторы'
+    - entity: input_boolean.i_living_curtain
+      name: 'Гостиная шторы'
+    - entity: input_boolean.i_kitchen_top_light
+      name: 'Кухня освещение'
+    - entity: input_boolean.i_hall_top_light
+      name: 'Коридор освещение'
+    - entity: input_boolean.i_kitchen_back_light
+      name: 'Кухня подсветка'
+    - entity: input_boolean.i_hall_back_light
+      name: 'Коридор подсветка'
+    - entity: input_boolean.i_bedroom_back_light
+      name: 'Спальня подсветка'
+    - entity: input_boolean.i_living_back_light
+      name: 'Гостиная подсветка'
+
 
 
 
@@ -192,21 +219,6 @@ cards:
     entities:
     - entity: input_boolean.p_hight
     - entity: input_boolean.p_low
-
-  - type: entities
-    title: 'illuminance'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.i_kitchen_curtain
-    - entity: input_boolean.i_bedroom_curtain
-    - entity: input_boolean.i_living_curtain
-    - entity: input_boolean.i_kitchen_top_light
-    - entity: input_boolean.i_hall_top_light
-    - entity: input_boolean.i_kitchen_back_light
-    - entity: input_boolean.i_hall_back_light
-    - entity: input_boolean.i_bedroom_back_light
-    - entity: input_boolean.i_living_back_light
 
   - type: entities
     title: 'night-mode'
