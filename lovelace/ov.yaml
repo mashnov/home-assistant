@@ -1,36 +1,50 @@
 icon: 'mdi:monitor-dashboard'
 cards:
   - type: entities
-    title: 'window'
+    title: 'Окна'
     state_color: true
     show_header_toggle: false
     entities:
     - entity: input_boolean.w_kitchen_left
+      name: 'Кухня левое'
     - entity: input_boolean.w_kitchen_right
+      name: 'Кухня правое'
     - entity: input_boolean.w_bedroom_left
+      name: 'Спальня левое'
     - entity: input_boolean.w_bedroom_right
+      name: 'Спальня правое'
     - entity: input_boolean.w_living
+      name: 'Гостиная'
 
   - type: entities
-    title: 'door'
+    title: 'Двери'
     state_color: true
     show_header_toggle: false
     entities:
     - entity: input_boolean.d_toilet
+      name: 'Туалет'
     - entity: input_boolean.d_hall
+      name: 'Коридор'
     - entity: input_boolean.d_bedroom
+      name: 'Спальня'
     - entity: input_boolean.d_living
+      name: 'Гостиная'
     - entity: input_boolean.d_balcony
+      name: 'Балкон'
 
   - type: entities
-    title: 'ventilation'
+    title: 'Проветривание'
     state_color: true
     show_header_toggle: false
     entities:
     - entity: input_boolean.v_kitchen
-    - entity: input_boolean.v_bedroom
-    - entity: input_boolean.v_living
+      name: 'Кухня'
     - entity: input_boolean.v_hall
+      name: 'Коридор'
+    - entity: input_boolean.v_bedroom
+      name: 'Спальня'
+    - entity: input_boolean.v_living
+      name: 'Гостиная'
 
   - type: entities
     title: 'cloud'
@@ -38,8 +52,10 @@ cards:
     show_header_toggle: false
     entities:
     - entity: input_number.c_level
+      name: 'Показания'
     - type: divider
     - entity: input_boolean.c_cloudly
+      name: 'Облачно'
 
 
 
