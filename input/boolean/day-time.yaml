@@ -6,17 +6,17 @@ dt_night:
 
 ## MORNING
 dt_morning:
-  initial: true
+  initial: false
   icon: 'mdi:clock-time-nine'
 
 
 ## DAY
 dt_day:
-  initial: true
+  initial: false
   icon: 'mdi:clock-time-eleven'
 
 
 ## EVENING
 dt_evening:
-  initial: true
+  initial: false
   icon: 'mdi:clock-time-nine-outline'

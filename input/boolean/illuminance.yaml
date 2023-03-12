@@ -8,7 +8,7 @@ i_kitchen_back_light:
   icon: 'mdi:weather-sunny'
 
 i_kitchen_curtain:
-  initial: true
+  initial: false
   icon: 'mdi:weather-sunny'
 
 
@@ -28,7 +28,7 @@ i_bedroom_back_light:
   icon: 'mdi:weather-sunny'
 
 i_bedroom_curtain:
-  initial: true
+  initial: false
   icon: 'mdi:weather-sunny'
 
 
@@ -38,5 +38,5 @@ i_living_back_light:
   icon: 'mdi:weather-sunny'
 
 i_living_curtain:
-  initial: true
+  initial: false
   icon: 'mdi:weather-sunny'
