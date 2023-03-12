@@ -51,16 +51,20 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_number.s_azimuth_level
-      name: 'Показания'
-    - entity: input_boolean.s_azimuth
-      name: 'Азимут'
+    - entity: input_number.s_azimuth_target
+      name: 'Азимут таргет'
+    - entity: input_number.s_elevation_target
+      name: 'Подъем таргет'
     - type: divider
+    - entity: input_number.s_azimuth_level
+      name: 'Азимут сенсор'
     - entity: input_number.s_elevation_level
-      name: 'Показания'
+      name: 'Подъем сенсор'
+    - type: divider
     - entity: input_boolean.s_elevation
       name: 'Подъем'
-    - type: divider
+    - entity: input_boolean.s_azimuth
+      name: 'Азимут'
     - entity: input_boolean.s_hight
       name: 'Попадание'
 

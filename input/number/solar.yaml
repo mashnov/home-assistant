@@ -16,7 +16,7 @@ s_azimuth_offset:
 
 s_azimuth_level:
   unit_of_measurement: '%'
-  icon: 'mdi:cloud-cog'
+  icon: 'mdi:axis-z-rotate-clockwise'
   min: 0
   max: 360
   step: 1
@@ -39,7 +39,7 @@ s_elevation_offset:
 
 s_elevation_level:
   unit_of_measurement: '%'
-  icon: 'mdi:cloud-cog'
+  icon: 'mdi:angle-acute'
   min: 0
   max: 90
   step: 1
