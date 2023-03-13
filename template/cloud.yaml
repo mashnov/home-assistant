@@ -6,7 +6,7 @@
       {% set isLowIcon = 'mdi:cloud-outline' %}
       {{ isHightIcon or isLowIcon }}
     attributes:
-      cloud_sensor: "{{ states('sensor.openweathermap_cloud_coverage') }}"
+      cloud_sensor: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
       
       cloud_state: >
         {% set sensorValue = states('input_number.c_level') | int(0) %}
