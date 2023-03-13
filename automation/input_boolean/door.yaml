@@ -7,6 +7,7 @@
     attribute: 'hall_sensor'
     from: false
     to: true
+    for: "00:00:05"
   action:
   - service: script.d_hall_boolean_on
 
@@ -18,6 +19,7 @@
     attribute: 'hall_sensor'
     from: true
     to: false
+    for: "00:00:05"
   action:
   - service: script.d_hall_boolean_off
 
