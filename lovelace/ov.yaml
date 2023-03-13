@@ -120,6 +120,56 @@ cards:
     - entity: input_boolean.i_living_back_light
       name: 'Гостиная подсветка'
 
+  - type: entities
+    title: 'Основной свет'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.tl_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.tl_hall
+      name: 'Коридор'
+    - entity: input_boolean.tl_bath
+      name: 'Ванная'
+    - entity: input_boolean.tl_toilet
+      name: 'Туалет'
+    - entity: input_boolean.tl_bedroom
+      name: 'Спальня'
+    - entity: input_boolean.tl_living
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Подсветка'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.bl_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.bl_hall
+      name: 'Коридор'
+    - entity: input_boolean.bl_bedroom
+      name: 'Спальня'
+    - entity: input_boolean.bl_living
+      name: 'Гостиная'
+    - entity: input_boolean.bl_balcony
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Ночное освещение'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.nl_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.nl_hall
+      name: 'Коридор'
+    - entity: input_boolean.nl_bath
+      name: 'Ванная'
+    - entity: input_boolean.nl_toilet
+      name: 'Туалет'
+    - entity: input_boolean.nl_balcony
+      name: 'Балкон'
+
 
 
 
@@ -134,39 +184,9 @@ cards:
     - entity: input_number.c_bedroom_position
     - entity: input_number.c_living_position
 
-  - type: entities
-    title: 'top light'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.tl_kitchen
-    - entity: input_boolean.tl_hall
-    - entity: input_boolean.tl_bath
-    - entity: input_boolean.tl_toilet
-    - entity: input_boolean.tl_bedroom
-    - entity: input_boolean.tl_living
 
-  - type: entities
-    title: 'back light'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.bl_kitchen
-    - entity: input_boolean.bl_hall
-    - entity: input_boolean.bl_bedroom
-    - entity: input_boolean.bl_living
-    - entity: input_boolean.bl_balcony
 
-  - type: entities
-    title: 'night light'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.nl_kitchen
-    - entity: input_boolean.nl_hall
-    - entity: input_boolean.nl_bath
-    - entity: input_boolean.nl_toilet
-    - entity: input_boolean.nl_balcony
+
 
   - type: entities
     title: 'party light'
