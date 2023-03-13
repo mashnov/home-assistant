@@ -7,6 +7,11 @@
     attributes:
       illuminance_sensor: "{{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(0) }}"
       
+      illuminance_state: >
+        {% set maxSensorValue = 10000 %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'illuminance_sensor') | int(0) %}
+        {{ iif(sensorValue > maxSensorValue, maxSensorValue, sensorValue) }}
+      
       kitchen_curtain_state: >
         {% set isCloudly = state_attr('sensor.cloud', 'cloud_boolean') %}
         {% set targetCloudly = states('input_number.i_kitchen_curtain_cloudly_target') | int(0) %}

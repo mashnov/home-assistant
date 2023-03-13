@@ -1,52 +1,5 @@
 ## KITCHEN TOP LIGTH
-# - alias: 'i_kitchen_top_timer_action'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     from: false
-#     to: true
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     from: true
-#     to: false
-#   action:
-#   - service: script.i_kitchen_top_light_timer_cancel
-#   - service: script.i_kitchen_top_light_timer_start
-
-# - alias: 'i_kitchen_top_light_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: event
-#     event_type: timer.finished
-#     event_data:
-#       entity_id: timer.i_kitchen_top_light
-#   condition:
-#   - condition: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     state: true
-#   action:
-#   - service: script.i_kitchen_top_light_boolean_on
-
-# - alias: 'i_kitchen_top_light_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: event
-#     event_type: timer.finished
-#     event_data:
-#       entity_id: timer.i_kitchen_top_light
-#   condition:
-#   - condition: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     state: false
-#   action:
-#   - service: script.i_kitchen_top_light_boolean_off
-
-- alias: 'i_kitchen_top_light_boolean_on'
+- alias: 'i_kitchen_top_timer_action'
   initial_state: true
   trigger:
   - platform: state
@@ -54,20 +7,44 @@
     attribute: 'kitchen_top_light_state'
     from: false
     to: true
-  action:
-  - service: script.i_kitchen_top_light_boolean_on
-
-- alias: 'i_kitchen_top_light_boolean_off'
-  initial_state: true
-  trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
     from: true
     to: false
   action:
-  - service: script.i_kitchen_top_light_boolean_off
+  - service: script.i_kitchen_top_light_timer_cancel
+  - service: script.i_kitchen_top_light_timer_start
 
+- alias: 'i_kitchen_top_light_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.i_kitchen_top_light
+  condition:
+  - condition: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_top_light_state'
+    state: true
+  action:
+  - service: script.i_kitchen_top_light_boolean_on
+
+- alias: 'i_kitchen_top_light_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.i_kitchen_top_light
+  condition:
+  - condition: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_top_light_state'
+    state: false
+  action:
+  - service: script.i_kitchen_top_light_boolean_off
 
 
 ## KITCHEN BACK LIGTH

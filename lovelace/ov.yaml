@@ -109,9 +109,6 @@ cards:
       name: 'Гостиная шторы'
     - entity: input_boolean.i_kitchen_top_light
       name: 'Кухня освещение'
-
-    - entity: timer.i_kitchen_top_light
-
     - entity: input_boolean.i_hall_top_light
       name: 'Коридор освещение'
     - entity: input_boolean.i_kitchen_back_light
