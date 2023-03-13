@@ -7,7 +7,7 @@
     attribute: 'hall_sensor'
     from: false
     to: true
-    for: "00:00:05"
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_hall_boolean_on
 
@@ -19,7 +19,7 @@
     attribute: 'hall_sensor'
     from: true
     to: false
-    for: "00:00:05"
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_hall_boolean_off
 
@@ -49,7 +49,7 @@
 
 
 ## BEDROOM
-- alias: 'd_bedroom_timer_action'
+- alias: 'd_bedroom_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -57,48 +57,25 @@
     attribute: 'bedroom_sensor'
     from: false
     to: true
-  - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'bedroom_sensor'
-    from: true
-    to: false
-  action:
-  - service: script.d_bedroom_timer_cancel
-  - service: script.d_bedroom_timer_start
-
-- alias: 'd_bedroom_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_bedroom
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'bedroom_sensor'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_bedroom_boolean_on
 
 - alias: 'd_bedroom_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_bedroom
-  condition:
-  - condition: state
+  - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'bedroom_sensor'
-    state: false
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_bedroom_boolean_off
 
 
 ## LIVING
-- alias: 'd_living_timer_action'
+- alias: 'd_living_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -106,48 +83,25 @@
     attribute: 'living_sensor'
     from: false
     to: true
-  - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'living_sensor'
-    from: true
-    to: false
-  action:
-  - service: script.d_living_timer_cancel
-  - service: script.d_living_timer_start
-
-- alias: 'd_living_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_living
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'living_sensor'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_living_boolean_on
 
 - alias: 'd_living_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_living
-  condition:
-  - condition: state
+  - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'living_sensor'
-    state: false
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_living_boolean_off
 
 
 ## BALCONY
-- alias: 'd_balcony_timer_action'
+- alias: 'd_balcony_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -155,41 +109,18 @@
     attribute: 'balcony_sensor'
     from: false
     to: true
-  - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'balcony_sensor'
-    from: true
-    to: false
-  action:
-  - service: script.d_balcony_timer_cancel
-  - service: script.d_balcony_timer_start
-
-- alias: 'd_balcony_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_balcony
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'balcony_sensor'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_balcony_boolean_on
 
 - alias: 'd_balcony_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_balcony
-  condition:
-  - condition: state
+  - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'balcony_sensor'
-    state: false
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'door') }}"
   action:
   - service: script.d_balcony_boolean_off

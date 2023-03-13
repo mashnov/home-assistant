@@ -13,34 +13,14 @@
 - alias: 'o_kitchen_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.o_kitchen
-  action:
-  - service: script.o_kitchen_boolean_off
-
-- alias: 'o_kitchen_timer_on'
-  initial_state: true
-  trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'kitchen_sensor'
     from: true
     to: false
+    for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_kitchen_timer_start
-
-- alias: 'o_kitchen_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'kitchen_sensor'
-    from: false
-    to: true
-  action:
-  - service: script.o_kitchen_timer_cancel
+  - service: script.o_kitchen_boolean_off
 
 
 ## HALL
@@ -49,7 +29,7 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
+    attribute: 'hall_sensor'
     from: false
     to: true
   action:
@@ -58,34 +38,14 @@
 - alias: 'o_hall_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.o_hall
-  action:
-  - service: script.o_hall_boolean_off
-
-- alias: 'o_hall_timer_on'
-  initial_state: true
-  trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
+    attribute: 'hall_sensor'
     from: true
     to: false
+    for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_hall_timer_start
-
-- alias: 'o_hall_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
-    from: false
-    to: true
-  action:
-  - service: script.o_hall_timer_cancel
+  - service: script.o_hall_boolean_off
 
 
 ## BATH
@@ -103,34 +63,14 @@
 - alias: 'o_bath_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.o_bath
-  action:
-  - service: script.o_bath_boolean_off
-
-- alias: 'o_bath_timer_on'
-  initial_state: true
-  trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
     attribute: 'bath_sensor'
     from: true
     to: false
+    for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_bath_timer_start
-
-- alias: 'o_bath_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
-    from: false
-    to: true
-  action:
-  - service: script.o_bath_timer_cancel
+  - service: script.o_bath_boolean_off
 
 
 ## TOILET

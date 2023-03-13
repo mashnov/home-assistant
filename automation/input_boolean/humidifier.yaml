@@ -1,5 +1,5 @@
 ## HALL EMPTY
-- alias: 'h_hall_empty_timer_start'
+- alias: 'h_hall_empty_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -7,32 +7,7 @@
     attribute: 'hall_state'
     from: false
     to: true
-  action:
-  - service: script.h_hall_empty_timer_start
-
-- alias: 'h_hall_empty_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'hall_state'
-    from: true
-    to: false
-  action:
-  - service: script.h_hall_empty_timer_cancel
-
-- alias: 'h_hall_empty_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.h_hall_empty
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'hall_state'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'power') }}"
   action:
   - service: script.h_hall_empty_boolean_on
 
@@ -46,6 +21,7 @@
     to: false
   action:
   - service: script.h_hall_empty_boolean_off
+
 
 ## HALL HUMIDIFIER
 - alias: 'h_hall_boolean_on'
@@ -72,7 +48,7 @@
 
 
 ## BEDROOM EMPTY
-- alias: 'h_bedroom_empty_timer_start'
+- alias: 'h_bedroom_empty_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -80,32 +56,7 @@
     attribute: 'bedroom_state'
     from: false
     to: true
-  action:
-  - service: script.h_bedroom_empty_timer_start
-
-- alias: 'h_bedroom_empty_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'bedroom_state'
-    from: true
-    to: false
-  action:
-  - service: script.h_bedroom_empty_timer_cancel
-
-- alias: 'h_bedroom_empty_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.h_bedroom_empty
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'bedroom_state'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'power') }}"
   action:
   - service: script.h_bedroom_empty_boolean_on
 
@@ -119,6 +70,7 @@
     to: false
   action:
   - service: script.h_bedroom_empty_boolean_off
+
 
 ## BEDROOM HUMIDIFIER
 - alias: 'h_bedroom_boolean_on'
@@ -145,7 +97,7 @@
 
 
 ## LIVING EMPTY
-- alias: 'h_living_empty_timer_start'
+- alias: 'h_living_empty_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -153,32 +105,7 @@
     attribute: 'living_state'
     from: false
     to: true
-  action:
-  - service: script.h_living_empty_timer_start
-
-- alias: 'h_living_empty_timer_cancel'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'living_state'
-    from: true
-    to: false
-  action:
-  - service: script.h_living_empty_timer_cancel
-
-- alias: 'h_living_empty_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.h_living_empty
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.humidifier_empty'
-    attribute: 'living_state'
-    state: true
+    for: "{{ state_attr('sensor.delay', 'power') }}"
   action:
   - service: script.h_living_empty_boolean_on
 
