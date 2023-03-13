@@ -1,5 +1,5 @@
 ## HALL
-- alias: 'd_hall_timer_action'
+- alias: 'd_hall_boolean_on'
   initial_state: true
   trigger:
   - platform: state
@@ -7,42 +7,17 @@
     attribute: 'hall_sensor'
     from: false
     to: true
-  - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'hall_sensor'
-    from: true
-    to: false
-  action:
-  - service: script.d_hall_timer_cancel
-  - service: script.d_hall_timer_start
-
-- alias: 'd_hall_boolean_on'
-  initial_state: true
-  trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_hall
-  condition:
-  - condition: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'hall_sensor'
-    state: true
   action:
   - service: script.d_hall_boolean_on
 
 - alias: 'd_hall_boolean_off'
   initial_state: true
   trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.d_hall
-  condition:
-  - condition: state
+  - platform: state
     entity_id: 'binary_sensor.door'
     attribute: 'hall_sensor'
-    state: false
+    from: true
+    to: false
   action:
   - service: script.d_hall_boolean_off
 
