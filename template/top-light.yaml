@@ -44,14 +44,14 @@
       
       kitchen_state: >
         {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
-        {% set isSunBright = state_attr('sensor.illuminance', 'kitchen_top_light_boolean') %}
+        {% set isLowSunBright = state_attr('sensor.illuminance', 'kitchen_top_light_boolean') %}
         {% set isOccupancy = state_attr('binary_sensor.occupancy', 'kitchen_boolean') %}
-        {{ not(isNightTime) and isOccupancy and not(isSunBright) }}
+        {{ not(isNightTime) and isOccupancy and isLowSunBright }}
       hall_state: >
         {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
-        {% set isSunBright = state_attr('sensor.illuminance', 'hall_top_light_boolean') %}
+        {% set isLowSunBright = state_attr('sensor.illuminance', 'hall_top_light_boolean') %}
         {% set isOccupancy = state_attr('binary_sensor.occupancy', 'hall_boolean') %}
-        {{ not(isNightTime) and isOccupancy and not(isSunBright) }}
+        {{ not(isNightTime) and isOccupancy and isLowSunBright }}
       bath_state:  >
         {% set isNightTime = state_attr('sensor.day_time', 'night_boolean') %}
         {% set isOccupancy = state_attr('binary_sensor.occupancy', 'bath_boolean') %}
