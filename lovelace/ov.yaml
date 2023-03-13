@@ -92,6 +92,11 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
+    - entity: input_number.dl_occupation_day
+      name: 'Дневная задержка'
+    - entity: input_number.dl_occupation_night
+      name: 'Ночная задержка'
+    - type: divider
     - entity: input_boolean.o_kitchen
       name: 'Кухня'
     - entity: input_boolean.o_hall
