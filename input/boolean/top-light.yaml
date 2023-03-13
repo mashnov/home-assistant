@@ -4,6 +4,18 @@ tl_kitchen:
   icon: 'mdi:light-recessed'
 
 
+## BATH
+tl_bath:
+  initial: false
+  icon: 'mdi:light-recessed'
+
+
+## TOILET
+tl_toilet:
+  initial: false
+  icon: 'mdi:light-recessed'
+
+
 ## HALL
 tl_hall:
   initial: false
