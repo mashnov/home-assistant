@@ -25,14 +25,14 @@ s_elevation_target:
   unit_of_measurement: '°'
   icon: 'mdi:angle-acute'
   max: 90
-  min: -90
+  min: 0
   step: 1
   initial: 30
 
 s_elevation_offset:
   unit_of_measurement: '°'
   icon: 'mdi:angle-acute'
-  max: 10
+  max: 20
   min: 0
   step: 1
   initial: 5
@@ -40,6 +40,6 @@ s_elevation_offset:
 s_elevation_level:
   unit_of_measurement: '%'
   icon: 'mdi:angle-acute'
-  min: 0
   max: 90
+  min: -90
   step: 1
