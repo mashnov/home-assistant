@@ -74,7 +74,9 @@ cards:
     show_header_toggle: false
     entities:
     - entity: input_number.c_level
-      name: 'Показания'
+      name: 'Сенсор'
+    - entity: input_number.cl_target
+      name: 'Таргет'
     - type: divider
     - entity: input_boolean.c_cloudly
       name: 'Облачно'
