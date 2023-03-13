@@ -27,8 +27,8 @@
         {% set elevationMaxValue = elevationTarget + elevationOffset %}
         {{ elevationMinValue < elevationSensor < elevationMaxValue }}
       hight_state: >
-        {% set azimuthValue = state_attr('solar', 'azimuth_state') | int(0) %}
-        {% set elevationValue = state_attr('solar', 'elevation_state') | int(0) %}
+        {% set azimuthValue = state_attr('binary_sensor.solar', 'azimuth_boolean') %}
+        {% set elevationValue = state_attr('binary_sensor.solar', 'elevation_boolean') %}
         {{ azimuthValue and elevationValue }}
 
       azimuth_boolean: "{{ is_state('input_boolean.s_azimuth', 'on') }}"
