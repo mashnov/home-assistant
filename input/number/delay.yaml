@@ -33,7 +33,7 @@ dl_toilet_mode:
 dl_illuminance:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
-  max: 600
+  max: 120
   min: 0
   step: 1
   initial: 30
