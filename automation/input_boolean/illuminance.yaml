@@ -1,4 +1,3 @@
-# for: "{{ state_attr('sensor.delay', 'illuminance') }}"
 ## KITCHEN CURTAIN
 - alias: 'i_kitchen_curtain_boolean_on'
   initial_state: true
@@ -11,6 +10,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_curtain_boolean_on
 
@@ -24,7 +24,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_curtain_boolean_off
 
@@ -41,6 +42,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'bedroom_curtain_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_curtain_boolean_on
 
@@ -54,7 +56,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'bedroom_curtain_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_curtain_boolean_off
 
@@ -71,6 +74,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'living_curtain_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_curtain_boolean_on
 
@@ -84,7 +88,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'living_curtain_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_curtain_boolean_off
 
@@ -101,6 +106,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_top_light_boolean_on
 
@@ -114,7 +120,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_top_light_boolean_off
 
@@ -131,6 +138,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_top_light_boolean_on
 
@@ -144,7 +152,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_top_light_boolean_off
 
@@ -161,6 +170,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_back_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_back_light_boolean_on
 
@@ -174,7 +184,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_back_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_back_light_boolean_off
 
@@ -191,6 +202,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'hall_back_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_back_light_boolean_on
 
@@ -204,7 +216,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'hall_back_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_back_light_boolean_off
 
@@ -221,6 +234,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'bedroom_back_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_back_light_boolean_on
 
@@ -234,7 +248,8 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'bedroom_back_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_back_light_boolean_off
 
@@ -251,6 +266,7 @@
     entity_id: 'sensor.illuminance'
     attribute: 'living_back_light_state'
     state: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_back_light_boolean_on
 
@@ -264,6 +280,7 @@
   - condition: state
     entity_id: 'sensor.illuminance'
     attribute: 'living_back_light_state'
-    state: false  
+    state: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_back_light_boolean_off
