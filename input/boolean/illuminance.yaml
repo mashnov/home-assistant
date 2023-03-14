@@ -1,19 +1,29 @@
-## KITCHEN
+## CURTAINS
 i_kitchen_curtain:
   initial: false
   icon: 'mdi:arrow-up-bold-circle-outline'
 
+i_bedroom_curtain:
+  initial: false
+  icon: 'mdi:arrow-up-bold-circle-outline'
+
+i_living_curtain:
+  initial: false
+  icon: 'mdi:arrow-up-bold-circle-outline'
+
+
+## TOP LIGHT
 i_kitchen_top_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
-i_kitchen_back_light:
+i_hall_top_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
 
-## HALL
-i_hall_top_light:
+## BACK LIGHT
+i_kitchen_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
@@ -21,22 +31,11 @@ i_hall_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
-
-## BEDROOM
 i_bedroom_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
-i_bedroom_curtain:
-  initial: false
-  icon: 'mdi:arrow-up-bold-circle-outline'
-
-
-## LIVING
 i_living_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
 
-i_living_curtain:
-  initial: false
-  icon: 'mdi:arrow-up-bold-circle-outline'

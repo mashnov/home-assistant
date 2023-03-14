@@ -24,6 +24,59 @@
   - service: script.i_kitchen_curtain_boolean_off
 
 
+## BEDROOM CURTAIN
+- alias: 'i_bedroom_curtain_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'bedroom_curtain_state'
+    from: false
+    to: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_bedroom_curtain_boolean_on
+
+- alias: 'i_bedroom_curtain_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'bedroom_curtain_state'
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_bedroom_curtain_boolean_off
+
+
+## LIVING CURTAIN
+- alias: 'i_living_curtain_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'living_curtain_state'
+    from: false
+    to: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_living_curtain_boolean_on
+
+- alias: 'i_living_curtain_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'living_curtain_state'
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_living_curtain_boolean_off
+
+
+
 
 # ## KITCHEN TOP LIGTH
 # - alias: 'i_kitchen_top_light_boolean_on'
@@ -155,30 +208,7 @@
 #   - service: script.i_bedroom_back_light_boolean_off
 
 
-# ## BEDROOM CURTAIN
-# - alias: 'i_bedroom_curtain_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'bedroom_curtain_state'
-#     from: false
-#     to: true
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_bedroom_curtain_boolean_on
 
-# - alias: 'i_bedroom_curtain_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'bedroom_curtain_state'
-#     from: true
-#     to: false
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_bedroom_curtain_boolean_off
 
 
 # ## LIVING BACK LIGTH
@@ -207,27 +237,4 @@
 #   - service: script.i_living_back_light_boolean_off
 
 
-# ## LIVING CURTAIN
-# - alias: 'i_living_curtain_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'living_curtain_state'
-#     from: false
-#     to: true
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_living_curtain_boolean_on
 
-# - alias: 'i_living_curtain_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'living_curtain_state'
-#     from: true
-#     to: false
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_living_curtain_boolean_off

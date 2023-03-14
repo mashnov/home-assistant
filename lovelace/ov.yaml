@@ -116,14 +116,19 @@ cards:
     show_header_toggle: false
     entities:
     - entity: sensor.illuminance
-      type: attribute
-      name: 'Показания'
-      attribute: illuminance_sensor
+      name: 'Сенсор'
+    - type: divider
+    - entity: input_number.dl_illuminance
+      name: 'Задержка'
     - entity: input_number.i_level
-      name: 'Инпут'
+      name: 'Показания'
+    - type: divider
     - entity: input_boolean.i_kitchen_curtain
       name: 'Кухня шторы'
-
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Спальня шторы'
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Гостиная шторы'
 
   # - type: entities
   #   title: 'Освещенность'
