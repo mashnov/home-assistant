@@ -1,6 +1,7 @@
 ## CLOUD
 - alias: 'c_state'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.c_state'
