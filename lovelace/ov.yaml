@@ -69,10 +69,10 @@ cards:
     - type: divider
     - entity: input_number.c_level
       name: 'Сенсор'
-    - entity: input_number.cl_target
+    - entity: input_number.c_target
       name: 'Таргет'
     - type: divider
-    - entity: input_boolean.c_cloudly
+    - entity: input_boolean.c_state
       name: 'Облачно'
 
   - type: entities
