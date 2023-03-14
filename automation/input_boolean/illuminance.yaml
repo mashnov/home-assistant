@@ -83,7 +83,7 @@
   - platform: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
-    from: false
+    # from: false
     to: true
     # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
@@ -95,7 +95,7 @@
   - platform: state
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
-    from: true
+    # from: true
     to: false
     # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
@@ -109,7 +109,7 @@
   - platform: state
     entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
-    from: false
+    # from: false
     to: true
     # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
@@ -121,7 +121,7 @@
   - platform: state
     entity_id: 'sensor.illuminance'
     attribute: 'hall_top_light_state'
-    from: true
+    # from: true
     to: false
     # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
