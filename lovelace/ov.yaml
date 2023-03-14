@@ -42,23 +42,12 @@ cards:
     - type: divider
 
   - type: entities
-    title: 'Облачность и освещенность'
+    title: 'Освещенность'
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_number.c_level
-      name: 'Сенсор'
-    - entity: input_number.cl_target
-      name: 'Таргет'
-    - type: divider
-    - entity: input_boolean.c_cloudly
-      name: 'Облачно'
-    - type: divider
-    - entity: sensor.illuminance
-      name: 'Сенсор'
-    - type: divider
     - entity: input_number.dl_illuminance
-      name: 'Освещеннсоть Задержка'
+      name: 'Задержка'
     - entity: input_number.i_level
       name: 'Показания'
     - type: divider
@@ -84,7 +73,7 @@ cards:
       name: 'Гостиная подсветка'
 
   - type: entities
-    title: 'Солнце'
+    title: 'Солнце и облачность'
     state_color: true
     show_header_toggle: false
     entities:
@@ -108,6 +97,14 @@ cards:
       name: 'Азимут'
     - entity: input_boolean.s_hight
       name: 'Попадание'
+    - type: divider
+    - entity: input_number.c_level
+      name: 'Сенсор'
+    - entity: input_number.cl_target
+      name: 'Таргет'
+    - type: divider
+    - entity: input_boolean.c_cloudly
+      name: 'Облачно'
 
   - type: entities
     title: 'Присутствие'
