@@ -1,18 +1,18 @@
 ## CLOUD
-- alias: 'on_c_state'
+- alias: 'c_state'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.c_state'
-    to: 'on'
   action:
-  - service: script.on_c_state
-
-- alias: 'off_c_state'
-  initial_state: true
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.c_state'
-    to: 'off'
-  action:
+  - choose:
+    - condition: state
+      entity_id: binary_sensor.c_state
+      state: 'on'
+    sequence:
+    - service: script.on_c_state
+  - condition: state
+    entity_id: binary_sensor.c_state
+    state: 'off'
+  sequence:
   - service: script.off_c_state
