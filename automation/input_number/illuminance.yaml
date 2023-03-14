@@ -4,7 +4,7 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
-    attribute: 'illuminance_state'
+    attribute: 'illuminance_sensor'
   action:
   - service: script.i_level_set_number
 

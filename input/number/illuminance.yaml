@@ -146,5 +146,5 @@ i_level:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
   min: 0
-  max: 100000
+  max: 83000
   step: 1
