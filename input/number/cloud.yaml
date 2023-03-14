@@ -12,3 +12,4 @@ c_level:
   min: 0
   max: 100
   step: 1
+  initial: 0
