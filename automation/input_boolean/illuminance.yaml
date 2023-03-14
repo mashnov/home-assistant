@@ -7,7 +7,7 @@
     attribute: 'kitchen_curtain_state'
     from: false
     to: true
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_curtain_boolean_on
 
@@ -19,7 +19,7 @@
     attribute: 'kitchen_curtain_state'
     from: true
     to: false
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_curtain_boolean_off
 
@@ -33,7 +33,7 @@
     attribute: 'bedroom_curtain_state'
     from: false
     to: true
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_curtain_boolean_on
 
@@ -45,7 +45,7 @@
     attribute: 'bedroom_curtain_state'
     from: true
     to: false
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_bedroom_curtain_boolean_off
 
@@ -59,7 +59,7 @@
     attribute: 'living_curtain_state'
     from: false
     to: true
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_curtain_boolean_on
 
@@ -71,7 +71,7 @@
     attribute: 'living_curtain_state'
     from: true
     to: false
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_living_curtain_boolean_off
 
@@ -85,7 +85,7 @@
     attribute: 'kitchen_top_light_state'
     from: false
     to: true
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_top_light_boolean_on
 
@@ -97,7 +97,7 @@
     attribute: 'kitchen_top_light_state'
     from: true
     to: false
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_kitchen_top_light_boolean_off
 
@@ -111,7 +111,7 @@
     attribute: 'hall_top_light_state'
     from: false
     to: true
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_top_light_boolean_on
 
@@ -123,7 +123,7 @@
     attribute: 'hall_top_light_state'
     from: true
     to: false
-    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
   action:
   - service: script.i_hall_top_light_boolean_off
 
