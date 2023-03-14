@@ -3,9 +3,8 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'sensor.cloud'
-    attribute: 'cloud_state'
-    to: true
+    entity_id: 'binary_sensor.cloud-state'
+    to: 'on'
   action:
   - service: script.c_cloudly_boolean_on
 
@@ -13,8 +12,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'sensor.cloud'
-    attribute: 'cloud_state'
-    to: false
+    entity_id: 'binary_sensor.cloud-state'
+    to: 'off'
   action:
   - service: script.c_cloudly_boolean_off

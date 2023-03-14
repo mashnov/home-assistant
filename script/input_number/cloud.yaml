@@ -5,6 +5,6 @@ c_cloud_set_number:
   - service: input_number.set_value
     entity_id: input_number.c_level
     data_template:
-      value: "{{ state_attr('sensor.cloud', 'cloud_sensor') }}"
+      value: "{{ states('sensor.cloud-level') }}"
 
 
