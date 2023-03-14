@@ -4,12 +4,8 @@
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
-    attribute: 'cloud_sensor'
-  condition:
-  - condition: state
-    entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    state: true
+    to: true
   action:
   - service: script.c_cloudly_boolean_on
 
@@ -18,11 +14,7 @@
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
-    attribute: 'cloud_sensor'
-  condition:
-  - condition: state
-    entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    state: false  
+    to: false
   action:
   - service: script.c_cloudly_boolean_off
