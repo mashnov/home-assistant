@@ -21,14 +21,6 @@ cards:
     - entity: input_boolean.w_living
       name: 'Гостиная'
     - type: divider
-    - entity: input_boolean.v_kitchen
-      name: 'Кухня'
-    - entity: input_boolean.v_hall
-      name: 'Коридор'
-    - entity: input_boolean.v_bedroom
-      name: 'Спальня'
-    - entity: input_boolean.v_living
-      name: 'Гостиная'
     - entity: input_boolean.d_toilet
       name: 'Туалет'
     - entity: input_boolean.d_hall
@@ -40,37 +32,14 @@ cards:
     - entity: input_boolean.d_balcony
       name: 'Балкон'
     - type: divider
-
-  - type: entities
-    title: 'Освещенность'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.dl_illuminance
-      name: 'Задержка'
-    - entity: input_number.i_level
-      name: 'Показания'
-    - type: divider
-    - entity: input_boolean.i_kitchen_curtain
-      name: 'Кухня шторы'
-    - entity: input_boolean.i_kitchen_curtain
-      name: 'Спальня шторы'
-    - entity: input_boolean.i_kitchen_curtain
-      name: 'Гостиная шторы'
-    - type: divider
-    - entity: input_boolean.i_kitchen_top_light
-      name: 'Кухня основной свет'
-    - entity: input_boolean.i_hall_top_light
-      name: 'Коридор основной свет'
-    - type: divider
-    - entity: input_boolean.i_kitchen_back_light
-      name: 'Кухня подсветка'
-    - entity: input_boolean.i_hall_back_light
-      name: 'Коридор подсветка'
-    - entity: input_boolean.i_bedroom_back_light
-      name: 'Спальня подсветка'
-    - entity: input_boolean.i_living_back_light
-      name: 'Гостиная подсветка'
+    - entity: input_boolean.v_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.v_hall
+      name: 'Коридор'
+    - entity: input_boolean.v_bedroom
+      name: 'Спальня'
+    - entity: input_boolean.v_living
+      name: 'Гостиная'
 
   - type: entities
     title: 'Солнце и облачность'
@@ -105,6 +74,37 @@ cards:
     - type: divider
     - entity: input_boolean.c_cloudly
       name: 'Облачно'
+
+  - type: entities
+    title: 'Освещенность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.dl_illuminance
+      name: 'Задержка'
+    - entity: input_number.i_level
+      name: 'Показания'
+    - type: divider
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Кухня шторы'
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Спальня шторы'
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Гостиная шторы'
+    - type: divider
+    - entity: input_boolean.i_kitchen_top_light
+      name: 'Кухня основной свет'
+    - entity: input_boolean.i_hall_top_light
+      name: 'Коридор основной свет'
+    - type: divider
+    - entity: input_boolean.i_kitchen_back_light
+      name: 'Кухня подсветка'
+    - entity: input_boolean.i_hall_back_light
+      name: 'Коридор подсветка'
+    - entity: input_boolean.i_bedroom_back_light
+      name: 'Спальня подсветка'
+    - entity: input_boolean.i_living_back_light
+      name: 'Гостиная подсветка'
 
   - type: entities
     title: 'Присутствие'
