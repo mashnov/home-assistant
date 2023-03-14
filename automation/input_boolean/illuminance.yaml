@@ -82,10 +82,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
+    attribute: 'illuminance_sensor'
+  condition:
+  - condition: state
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
-    # from: false
-    to: true
-    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    state: true
   action:
   - service: script.i_kitchen_top_light_boolean_on
 
@@ -94,10 +96,12 @@
   trigger:
   - platform: state
     entity_id: 'sensor.illuminance'
+    attribute: 'illuminance_sensor'
+  condition:
+  - condition: state
+    entity_id: 'sensor.illuminance'
     attribute: 'kitchen_top_light_state'
-    # from: true
-    to: false
-    # for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+    state: false  
   action:
   - service: script.i_kitchen_top_light_boolean_off
 
