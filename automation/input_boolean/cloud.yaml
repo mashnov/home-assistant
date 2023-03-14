@@ -10,7 +10,7 @@
     - conditions:
       - condition: state
         entity_id: binary_sensor.c_state
-        for: '00:00:02'
+        for: '00:00:10'
         state: 'on'
       sequence:
       - service: script.on_c_state
