@@ -6,13 +6,15 @@
     entity_id: 'binary_sensor.c_state'
   action:
   - choose:
-    - condition: state
-      entity_id: binary_sensor.c_state
-      state: 'on'
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.c_state
+        state: 'on'
       sequence:
       - service: script.on_c_state
-    - condition: state
-      entity_id: binary_sensor.c_state
-      state: 'off'
-    sequence:
-    - service: script.off_c_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.c_state
+        state: 'off'
+      sequence:
+      - service: script.off_c_state
