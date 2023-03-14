@@ -12,8 +12,6 @@
     entity_id: 'sensor.illuminance'
     attribute: 'kitchen_curtain_state'
     state: true
-    for:
-      seconds: 10
   action:
   - service: script.i_kitchen_curtain_boolean_on
 
