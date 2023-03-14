@@ -1,10 +1,10 @@
 ## CLOUD LEVEL
-c_cloud_set_number:
+set_c_level:
   mode: 'queued'
   sequence:
   - service: input_number.set_value
     entity_id: input_number.c_level
     data_template:
-      value: "{{ states('sensor.cloud-level') }}"
+      value: "{{ states('sensor.c_level') | int(0) }}"
 
 

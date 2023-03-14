@@ -1,4 +1,4 @@
 ## CLOUDLY
-c_cloudly:
+c_state:
   initial: false
   icon: 'mdi:apple-icloud'

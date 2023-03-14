@@ -1,18 +1,18 @@
 ## CLOUD
-- alias: 'c_cloudly_boolean_on'
+- alias: 'on_c_state'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.cloud-state'
+    entity_id: 'binary_sensor.c_state'
     to: 'on'
   action:
-  - service: script.c_cloudly_boolean_on
+  - service: script.on_c_state
 
-- alias: 'c_cloudly_boolean_off'
+- alias: 'off_c_state'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.cloud-state'
+    entity_id: 'binary_sensor.c_state'
     to: 'off'
   action:
-  - service: script.c_cloudly_boolean_off
+  - service: script.off_c_state

@@ -1,9 +1,8 @@
 ## CLOUD
-- alias: 'c_cloud_set_number'
+- alias: 'set_c_level'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'sensor.cloud-level'
+    entity_id: 'sensor.c_level'
   action:
-  - service: script.c_cloud_set_number
-
+  - service: script.set_c_level
