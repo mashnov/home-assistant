@@ -1,4 +1,8 @@
 ## KITCHEN
+i_kitchen_curtain:
+  initial: false
+  icon: 'mdi:arrow-up-bold-circle-outline'
+
 i_kitchen_top_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
@@ -6,10 +10,6 @@ i_kitchen_top_light:
 i_kitchen_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'
-
-i_kitchen_curtain:
-  initial: false
-  icon: 'mdi:arrow-up-bold-circle-outline'
 
 
 ## HALL

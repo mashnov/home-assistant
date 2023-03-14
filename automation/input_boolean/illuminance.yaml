@@ -1,3 +1,30 @@
+## KITCHEN CURTAIN
+- alias: 'i_kitchen_curtain_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_curtain_state'
+    from: false
+    to: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_kitchen_curtain_boolean_on
+
+- alias: 'i_kitchen_curtain_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_curtain_state'
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_kitchen_curtain_boolean_off
+
+
+
 # ## KITCHEN TOP LIGTH
 # - alias: 'i_kitchen_top_light_boolean_on'
 #   initial_state: true
@@ -48,32 +75,6 @@
 #     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
 #   action:
 #   - service: script.i_kitchen_back_light_boolean_off
-
-
-# ## KITCHEN CURTAIN
-# - alias: 'i_kitchen_curtain_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_curtain_state'
-#     from: false
-#     to: true
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_kitchen_curtain_boolean_on
-
-# - alias: 'i_kitchen_curtain_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_curtain_state'
-#     from: true
-#     to: false
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_kitchen_curtain_boolean_off
 
 
 # ## HALL TOP LIGTH
