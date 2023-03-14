@@ -121,8 +121,8 @@ cards:
       attribute: illuminance_sensor
     - entity: input_number.i_level
       name: 'Инпут'
-    - entity: sensor.illuminance
-      name: 'Сенсор'
+    - entity: input_boolean.i_kitchen_curtain
+      name: 'Кухня шторы'
 
 
   # - type: entities
