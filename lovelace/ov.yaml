@@ -1,7 +1,7 @@
 icon: 'mdi:monitor-dashboard'
 cards:
   - type: entities
-    title: 'Двери, Окна, Проветривание'
+    title: 'Окна и Двери'
     state_color: true
     show_header_toggle: false
     entities:
@@ -42,65 +42,7 @@ cards:
       name: 'Гостиная'
 
   - type: entities
-    title: 'Солнце'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.s_azimuth_level
-      name: 'Азимут сенсор'
-    - entity: input_number.s_azimuth_target
-      name: 'Азимут таргет'
-    - entity: input_number.s_azimuth_offset
-      name: 'Азимут офсет'
-    - type: divider
-    - entity: input_number.s_elevation_level
-      name: 'Подъем сенсор'
-    - entity: input_number.s_elevation_target
-      name: 'Подъем таргет'
-    - entity: input_number.s_elevation_offset
-      name: 'Подъем офсет'
-    - type: divider
-    - entity: input_boolean.s_elevation
-      name: 'Подъем'
-    - entity: input_boolean.s_azimuth
-      name: 'Азимут'
-    - entity: input_boolean.s_hight
-      name: 'Попадание'
-
-  - type: entities
-    title: 'Облачность'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.c_level
-      name: 'Сенсор'
-    - entity: input_number.cl_target
-      name: 'Таргет'
-    - type: divider
-    - entity: input_boolean.c_cloudly
-      name: 'Облачно'
-
-  - type: entities
-    title: 'Присутствие'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.dl_occupation_day
-      name: 'Дневная задержка'
-    - entity: input_number.dl_occupation_night
-      name: 'Ночная задержка'
-    - type: divider
-    - entity: input_boolean.o_kitchen
-      name: 'Кухня'
-    - entity: input_boolean.o_hall
-      name: 'Коридор'
-    - entity: input_boolean.o_bath
-      name: 'Ванная'
-    - entity: input_boolean.o_toilet
-      name: 'Туалет'
-
-  - type: entities
-    title: 'Освещенность'
+    title: 'Освещенность и облачность'
     state_color: true
     show_header_toggle: false
     entities:
@@ -133,6 +75,63 @@ cards:
     - entity: input_boolean.i_living_back_light
       name: 'Гостиная подсветка'
 
+  - type: entities
+    title: 'Облачность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.c_level
+      name: 'Сенсор'
+    - entity: input_number.cl_target
+      name: 'Таргет'
+    - type: divider
+    - entity: input_boolean.c_cloudly
+      name: 'Облачно'
+
+  - type: entities
+    title: 'Солнце'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.s_azimuth_level
+      name: 'Азимут сенсор'
+    - entity: input_number.s_azimuth_target
+      name: 'Азимут таргет'
+    - entity: input_number.s_azimuth_offset
+      name: 'Азимут офсет'
+    - type: divider
+    - entity: input_number.s_elevation_level
+      name: 'Подъем сенсор'
+    - entity: input_number.s_elevation_target
+      name: 'Подъем таргет'
+    - entity: input_number.s_elevation_offset
+      name: 'Подъем офсет'
+    - type: divider
+    - entity: input_boolean.s_elevation
+      name: 'Подъем'
+    - entity: input_boolean.s_azimuth
+      name: 'Азимут'
+    - entity: input_boolean.s_hight
+      name: 'Попадание'
+
+  - type: entities
+    title: 'Присутствие'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.dl_occupation_day
+      name: 'Дневная задержка'
+    - entity: input_number.dl_occupation_night
+      name: 'Ночная задержка'
+    - type: divider
+    - entity: input_boolean.o_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.o_hall
+      name: 'Коридор'
+    - entity: input_boolean.o_bath
+      name: 'Ванная'
+    - entity: input_boolean.o_toilet
+      name: 'Туалет'
 
   - type: entities
     title: 'Основной свет'

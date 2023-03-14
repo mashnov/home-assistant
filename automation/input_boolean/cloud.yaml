@@ -1,12 +1,15 @@
-## CLOUDLY
+## CLOUD
 - alias: 'c_cloudly_boolean_on'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
+    attribute: 'illuminance_sensor'
+  condition:
+  - condition: state
+    entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    from: false
-    to: true
+    state: true
   action:
   - service: script.c_cloudly_boolean_on
 
@@ -15,8 +18,11 @@
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
+    attribute: 'illuminance_sensor'
+  condition:
+  - condition: state
+    entity_id: 'sensor.cloud'
     attribute: 'cloud_state'
-    from: true
-    to: false
+    state: false  
   action:
   - service: script.c_cloudly_boolean_off
