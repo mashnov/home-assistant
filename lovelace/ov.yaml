@@ -10,17 +10,6 @@ cards:
     - entity: input_number.dl_window
       name: 'Окна задержка'
     - type: divider
-    - entity: input_boolean.d_toilet
-      name: 'Туалет'
-    - entity: input_boolean.d_hall
-      name: 'Коридор'
-    - entity: input_boolean.d_bedroom
-      name: 'Спальня'
-    - entity: input_boolean.d_living
-      name: 'Гостиная'
-    - entity: input_boolean.d_balcony
-      name: 'Балкон'
-    - type: divider
     - entity: input_boolean.w_kitchen_left
       name: 'Кухня левое'
     - entity: input_boolean.w_kitchen_right
@@ -40,17 +29,36 @@ cards:
       name: 'Спальня'
     - entity: input_boolean.v_living
       name: 'Гостиная'
+    - entity: input_boolean.d_toilet
+      name: 'Туалет'
+    - entity: input_boolean.d_hall
+      name: 'Коридор'
+    - entity: input_boolean.d_bedroom
+      name: 'Спальня'
+    - entity: input_boolean.d_living
+      name: 'Гостиная'
+    - entity: input_boolean.d_balcony
+      name: 'Балкон'
+    - type: divider
 
   - type: entities
-    title: 'Освещенность и облачность'
+    title: 'Облачность и освещенность'
     state_color: true
     show_header_toggle: false
     entities:
+    - entity: input_number.c_level
+      name: 'Сенсор'
+    - entity: input_number.cl_target
+      name: 'Таргет'
+    - type: divider
+    - entity: input_boolean.c_cloudly
+      name: 'Облачно'
+    - type: divider
     - entity: sensor.illuminance
       name: 'Сенсор'
     - type: divider
     - entity: input_number.dl_illuminance
-      name: 'Задержка'
+      name: 'Освещеннсоть Задержка'
     - entity: input_number.i_level
       name: 'Показания'
     - type: divider
@@ -74,19 +82,6 @@ cards:
       name: 'Спальня подсветка'
     - entity: input_boolean.i_living_back_light
       name: 'Гостиная подсветка'
-
-  - type: entities
-    title: 'Облачность'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.c_level
-      name: 'Сенсор'
-    - entity: input_number.cl_target
-      name: 'Таргет'
-    - type: divider
-    - entity: input_boolean.c_cloudly
-      name: 'Облачно'
 
   - type: entities
     title: 'Солнце'

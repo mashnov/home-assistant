@@ -4,7 +4,7 @@
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
-    attribute: 'illuminance_sensor'
+    attribute: 'cloud_sensor'
   condition:
   - condition: state
     entity_id: 'sensor.cloud'
@@ -18,7 +18,7 @@
   trigger:
   - platform: state
     entity_id: 'sensor.cloud'
-    attribute: 'illuminance_sensor'
+    attribute: 'cloud_sensor'
   condition:
   - condition: state
     entity_id: 'sensor.cloud'
