@@ -9,10 +9,10 @@
     - condition: state
       entity_id: binary_sensor.c_state
       state: 'on'
+      sequence:
+      - service: script.on_c_state
+    - condition: state
+      entity_id: binary_sensor.c_state
+      state: 'off'
     sequence:
-    - service: script.on_c_state
-  - condition: state
-    entity_id: binary_sensor.c_state
-    state: 'off'
-  sequence:
-  - service: script.off_c_state
+    - service: script.off_c_state
