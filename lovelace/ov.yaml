@@ -123,38 +123,16 @@ cards:
       name: 'Кухня основной свет'
     - entity: input_boolean.i_hall_top_light
       name: 'Коридор основной свет'
+    - type: divider
+    - entity: input_boolean.i_kitchen_back_light
+      name: 'Кухня подсветка'
+    - entity: input_boolean.i_hall_back_light
+      name: 'Коридор подсветка'
+    - entity: input_boolean.i_bedroom_back_light
+      name: 'Спальня подсветка'
+    - entity: input_boolean.i_living_back_light
+      name: 'Гостиная подсветка'
 
-
-
-
-  # - type: entities
-  #   title: 'Освещенность'
-  #   state_color: true
-  #   show_header_toggle: false
-  #   entities:
-  #   - entity: input_number.i_level
-  #     name: 'Сенсор'
-  #   - entity: input_number.dl_illuminance
-  #     name: 'Задержка'
-  #   - type: divider
-  #   - entity: input_boolean.i_kitchen_curtain
-  #     name: 'Кухня шторы'
-  #   - entity: input_boolean.i_bedroom_curtain
-  #     name: 'Спальня шторы'
-  #   - entity: input_boolean.i_living_curtain
-  #     name: 'Гостиная шторы'
-  #   - entity: input_boolean.i_kitchen_top_light
-  #     name: 'Кухня освещение'
-  #   - entity: input_boolean.i_hall_top_light
-  #     name: 'Коридор освещение'
-  #   - entity: input_boolean.i_kitchen_back_light
-  #     name: 'Кухня подсветка'
-  #   - entity: input_boolean.i_hall_back_light
-  #     name: 'Коридор подсветка'
-  #   - entity: input_boolean.i_bedroom_back_light
-  #     name: 'Спальня подсветка'
-  #   - entity: input_boolean.i_living_back_light
-  #     name: 'Гостиная подсветка'
 
   - type: entities
     title: 'Основной свет'
