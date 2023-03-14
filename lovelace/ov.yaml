@@ -1,31 +1,14 @@
 icon: 'mdi:monitor-dashboard'
 cards:
   - type: entities
-    title: 'Окна'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.dl_window
-      name: 'Задержка'
-    - type: divider
-    - entity: input_boolean.w_kitchen_left
-      name: 'Кухня левое'
-    - entity: input_boolean.w_kitchen_right
-      name: 'Кухня правое'
-    - entity: input_boolean.w_bedroom_left
-      name: 'Спальня левое'
-    - entity: input_boolean.w_bedroom_right
-      name: 'Спальня правое'
-    - entity: input_boolean.w_living
-      name: 'Гостиная'
-
-  - type: entities
-    title: 'Двери'
+    title: 'Двери, Окна, Проветривание'
     state_color: true
     show_header_toggle: false
     entities:
     - entity: input_number.dl_door
-      name: 'Задержка'
+      name: 'Двери задержка'
+    - entity: input_number.dl_window
+      name: 'Окна задержка'
     - type: divider
     - entity: input_boolean.d_toilet
       name: 'Туалет'
@@ -37,12 +20,18 @@ cards:
       name: 'Гостиная'
     - entity: input_boolean.d_balcony
       name: 'Балкон'
-
-  - type: entities
-    title: 'Проветривание'
-    state_color: true
-    show_header_toggle: false
-    entities:
+    - type: divider
+    - entity: input_boolean.w_kitchen_left
+      name: 'Кухня левое'
+    - entity: input_boolean.w_kitchen_right
+      name: 'Кухня правое'
+    - entity: input_boolean.w_bedroom_left
+      name: 'Спальня левое'
+    - entity: input_boolean.w_bedroom_right
+      name: 'Спальня правое'
+    - entity: input_boolean.w_living
+      name: 'Гостиная'
+    - type: divider
     - entity: input_boolean.v_kitchen
       name: 'Кухня'
     - entity: input_boolean.v_hall
@@ -129,6 +118,14 @@ cards:
       name: 'Спальня шторы'
     - entity: input_boolean.i_kitchen_curtain
       name: 'Гостиная шторы'
+    - type: divider
+    - entity: input_boolean.i_kitchen_top_light
+      name: 'Кухня основной свет'
+    - entity: input_boolean.i_hall_top_light
+      name: 'Коридор основной свет'
+
+
+
 
   # - type: entities
   #   title: 'Освещенность'

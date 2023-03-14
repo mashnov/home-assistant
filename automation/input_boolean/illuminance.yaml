@@ -76,32 +76,59 @@
   - service: script.i_living_curtain_boolean_off
 
 
+## KITCHEN TOP LIGTH
+- alias: 'i_kitchen_top_light_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_top_light_state'
+    from: false
+    to: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_kitchen_top_light_boolean_on
+
+- alias: 'i_kitchen_top_light_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'kitchen_top_light_state'
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_kitchen_top_light_boolean_off
 
 
-# ## KITCHEN TOP LIGTH
-# - alias: 'i_kitchen_top_light_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     from: false
-#     to: true
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_kitchen_top_light_boolean_on
+## HALL TOP LIGTH
+- alias: 'i_hall_top_light_boolean_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'hall_top_light_state'
+    from: false
+    to: true
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_hall_top_light_boolean_on
 
-# - alias: 'i_kitchen_top_light_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'kitchen_top_light_state'
-#     from: true
-#     to: false
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_kitchen_top_light_boolean_off
+- alias: 'i_hall_top_light_boolean_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.illuminance'
+    attribute: 'hall_top_light_state'
+    from: true
+    to: false
+    for: "{{ state_attr('sensor.delay', 'illuminance') }}"
+  action:
+  - service: script.i_hall_top_light_boolean_off
+
+
+
 
 
 # ## KITCHEN BACK LIGTH
@@ -128,32 +155,6 @@
 #     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
 #   action:
 #   - service: script.i_kitchen_back_light_boolean_off
-
-
-# ## HALL TOP LIGTH
-# - alias: 'i_hall_top_light_boolean_on'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'hall_top_light_state'
-#     from: false
-#     to: true
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_hall_top_light_boolean_on
-
-# - alias: 'i_hall_top_light_boolean_off'
-#   initial_state: true
-#   trigger:
-#   - platform: state
-#     entity_id: 'sensor.illuminance'
-#     attribute: 'hall_top_light_state'
-#     from: true
-#     to: false
-#     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
-#   action:
-#   - service: script.i_hall_top_light_boolean_off
 
 
 # ## HALL BACK LIGTH
@@ -206,9 +207,6 @@
 #     for: "{{ state_attr('sensor.delay', 'illuminance') }}"
 #   action:
 #   - service: script.i_bedroom_back_light_boolean_off
-
-
-
 
 
 # ## LIVING BACK LIGTH
