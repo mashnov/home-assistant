@@ -1,10 +1,10 @@
 ## HIGHT
-t_hight:
+t_hight_state:
   initial: false
   icon: 'mdi:thermometer-chevron-up'
 
 
 ## LOW
-t_low:
+t_low_state:
   initial: false
   icon: 'mdi:thermometer-chevron-down'

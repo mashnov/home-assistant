@@ -1,10 +1,10 @@
 ## HIGHT
-p_hight:
+p_hight_state:
   initial: false
   icon: 'mdi:gauge-full'
 
 
 ## LOW
-p_low:
+p_low_state:
   initial: false
   icon: 'mdi:gauge-empty'

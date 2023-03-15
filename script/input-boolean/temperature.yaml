@@ -1,26 +1,26 @@
 ## HIGHT
-t_hight_boolean_on:
+on_t_hight_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.t_hight
+    entity_id: input_boolean.t_hight_state
 
-t_hight_boolean_off:
+off_t_hight_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.t_hight
+    entity_id: input_boolean.t_hight_state
 
 
 ## LOW
-t_low_boolean_on:
+on_t_low_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.t_low
+    entity_id: input_boolean.t_low_state
 
-t_low_boolean_off:
+off_t_low_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.t_low
+    entity_id: input_boolean.t_low_state

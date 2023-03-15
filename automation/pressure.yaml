@@ -1,0 +1,108 @@
+## PRESSURE
+- alias: 'set_p_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_level'
+  action:
+  - service: script.set_p_level
+
+- alias: 'set_p_kitchen_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_kitchen_level'
+  action:
+  - service: script.set_p_kitchen_level
+
+- alias: 'set_p_bath_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_bath_level'
+  action:
+  - service: script.set_p_bath_level
+
+- alias: 'set_p_hall_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_hall_level'
+  action:
+  - service: script.set_p_hall_level
+
+- alias: 'set_p_bedroom_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_bedroom_level'
+  action:
+  - service: script.set_p_bedroom_level
+
+- alias: 'set_p_living_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.p_living_level'
+  action:
+  - service: script.set_p_living_level
+
+## HIGHT STATE
+- alias: 'set_p_hight_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.p_hight_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.p_hight_state
+        state: 'on'
+      sequence:
+      - service: script.on_p_hight_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.p_hight_state
+        state: 'off'
+      sequence:
+      - service: script.off_p_hight_state
+
+## LOW STATE
+- alias: 'set_p_low_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.p_low_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.p_low_state
+        state: 'on'
+      sequence:
+      - service: script.on_p_low_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.p_low_state
+        state: 'off'
+      sequence:
+      - service: script.off_p_low_state

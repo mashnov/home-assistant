@@ -1,0 +1,220 @@
+## HUMIDITY
+- alias: 'set_h_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_level'
+  action:
+  - service: script.set_h_level
+
+- alias: 'set_h_kitchen_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_kitchen_level'
+  action:
+  - service: script.set_h_kitchen_level
+
+- alias: 'set_h_bath_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_bath_level'
+  action:
+  - service: script.set_h_bath_level
+
+- alias: 'set_h_hall_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_hall_level'
+  action:
+  - service: script.set_h_hall_level
+
+- alias: 'set_h_bedroom_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_bedroom_level'
+  action:
+  - service: script.set_h_bedroom_level
+
+- alias: 'set_h_living_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_living_level'
+  action:
+  - service: script.set_h_living_level
+
+- alias: 'set_h_balcony_level'
+  initial_state: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.h_balcony_level'
+  action:
+  - service: script.set_h_balcony_level
+
+
+## AVERAGE STATE
+- alias: 'set_h_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_state
+        state: 'on'
+      sequence:
+      - service: script.on_h_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_state
+        state: 'off'
+      sequence:
+      - service: script.off_h_state
+
+
+## KITCHEN STATE
+- alias: 'set_h_kitchen_staten_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_kitchen_staten'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_kitchen_staten
+        state: 'on'
+      sequence:
+      - service: script.on_h_kitchen_staten
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_kitchen_staten
+        state: 'off'
+      sequence:
+      - service: script.off_h_kitchen_staten
+
+
+## BATH STATE
+- alias: 'set_h_bath_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_bath_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_bath_state
+        state: 'on'
+      sequence:
+      - service: script.on_h_bath_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_bath_state
+        state: 'off'
+      sequence:
+      - service: script.off_h_bath_state
+
+
+## HALL STATE
+- alias: 'set_h_hall_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_hall_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_hall_state
+        state: 'on'
+      sequence:
+      - service: script.on_h_hall_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_hall_state
+        state: 'off'
+      sequence:
+      - service: script.off_h_hall_state
+
+
+## BEDROOM STATE
+- alias: 'set_h_bedroom_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_bedroom_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_bedroom_state
+        state: 'on'
+      sequence:
+      - service: script.on_h_bedroom_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_bedroom_state
+        state: 'off'
+      sequence:
+      - service: script.off_h_bedroom_state
+
+
+## LIVING STATE
+- alias: 'set_h_living_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.h_living_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_living_state
+        state: 'on'
+      sequence:
+      - service: script.on_h_living_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.h_living_state
+        state: 'off'
+      sequence:
+      - service: script.off_h_living_state

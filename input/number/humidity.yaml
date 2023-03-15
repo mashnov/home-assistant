@@ -1,11 +1,3 @@
-h_target:
-  unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
-  step: 1
-  initial: 50
-
 h_offset:
   unit_of_measurement: '%'
   icon: 'mdi:water-plus'
@@ -13,3 +5,75 @@ h_offset:
   max: 10
   step: 1
   initial: 3
+
+h_target:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 45
+
+h_bath_target:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_kitchen_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_bath_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_hall_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_bedroom_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_living_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+h_balcony_level:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0

@@ -1,68 +1,82 @@
-## BATH
-h_bath_low_boolean_on:
+## AVERAGE
+on_h_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.h_bath_low
+    entity_id: input_boolean.h_state
 
-h_bath_low_boolean_off:
+off_h_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.h_bath_low
+    entity_id: input_boolean.h_state
+
+
+## KITCHEN
+on_h_kitchen_staten:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.h_kitchen_state
+
+off_h_kitchen_staten:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.h_kitchen_state
+
+
+## BATH
+on_h_bath_state:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.h_bath_state
+
+off_h_bath_state:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.h_bath_state
 
 
 ## HALL
-h_hall_low_boolean_on:
+on_h_hall_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.h_hall_low
+    entity_id: input_boolean.h_hall_state
 
-h_hall_low_boolean_off:
+off_h_hall_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.h_hall_low
+    entity_id: input_boolean.h_hall_state
 
 
 ## BEDROOM
-h_bedroom_low_boolean_on:
+on_h_bedroom_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.h_bedroom_low
+    entity_id: input_boolean.h_bedroom_state
 
-h_bedroom_low_boolean_off:
+off_h_bedroom_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.h_bedroom_low
+    entity_id: input_boolean.h_bedroom_state
 
 
 ## LIVING
-h_living_low_boolean_on:
+on_h_living_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.h_living_low
+    entity_id: input_boolean.h_living_state
 
-h_living_low_boolean_off:
+off_h_living_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.h_living_low
-
-
-## AVERAGE
-h_average_low_boolean_on:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.h_average_low
-
-h_average_low_boolean_off:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.h_average_low
+    entity_id: input_boolean.h_living_state

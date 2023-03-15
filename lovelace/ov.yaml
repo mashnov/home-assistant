@@ -83,7 +83,7 @@ cards:
     - entity: input_number.dl_illuminance
       name: 'Задержка'
     - entity: input_number.i_level
-      name: 'Показания'
+      name: 'Сенсор'
     - type: divider
     - entity: input_boolean.i_kitchen_curtain_state
       name: 'Кухня шторы'
@@ -168,6 +168,112 @@ cards:
     - entity: input_boolean.o_toilet
       name: 'Туалет'
 
+  - type: entities
+    title: 'Температура'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.t_target
+      name: 'Таргет'
+    - entity: input_number.t_offset
+      name: 'Офсет'
+    - type: divider
+    - entity: input_number.t_level
+      name: 'Сенсор'
+    - entity: input_number.t_kitchen_level
+      name: 'Сенсор кухня'
+    - entity: input_number.t_bath_level
+      name: 'Сенсор ванная'
+    - entity: input_number.t_hall_level
+      name: 'Сенсор коридор'
+    - entity: input_number.t_bedroom_level
+      name: 'Сенсор спальня'
+    - entity: input_number.t_living_level
+      name: 'Сенсор гостиная'
+    - entity: input_number.t_balcony_level
+      name: 'Сенсор балкон'
+    - type: divider
+    - entity: input_boolean.t_hight_state
+      name: 'Жарко'
+    - entity: input_boolean.t_low_state
+      name: 'Холодно'
+
+  - type: entities
+    title: 'Давление'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.p_target
+      name: 'Таргет'
+    - entity: input_number.p_offset
+      name: 'Офсет'
+    - type: divider
+    - entity: input_number.p_level
+      name: 'Сенсор'
+    - entity: input_number.p_kitchen_level
+      name: 'Сенсор кухня'
+    - entity: input_number.p_bath_level
+      name: 'Сенсор ванная'
+    - entity: input_number.p_hall_level
+      name: 'Сенсор коридор'
+    - entity: input_number.p_bedroom_level
+      name: 'Сенсор спальня'
+    - entity: input_number.p_living_level
+      name: 'Сенсор гостиная'
+    - type: divider
+    - entity: input_boolean.p_hight_state
+      name: 'Высокое давление'
+    - entity: input_boolean.p_low_state
+      name: 'Низкое давление'
+
+  - type: entities
+    title: 'Влажность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.h_target
+      name: 'Таргет'
+    - entity: input_number.h_offset
+      name: 'Офсет'
+    - type: divider
+    - entity: input_number.h_level
+      name: 'Cенсор'
+    - entity: input_boolean.h_state
+      name: 'Cухо'
+    - type: divider
+    - entity: input_number.h_kitchen_level
+      name: 'Кухня сенсор'
+    - entity: input_boolean.h_kitchen_state
+      name: 'Кухня сухо'
+    - type: divider
+    - entity: input_number.h_bath_level
+      name: 'Ванная сенсор'
+    - entity: input_number.h_bath_target
+      name: 'Ванная таргет'
+    - entity: input_boolean.h_bath_state
+      name: 'Ванная влажно'
+    - type: divider
+    - entity: input_number.h_hall_level
+      name: 'Коридор сенсор'
+    - entity: input_boolean.h_hall_state
+      name: 'Коридор сухо'
+    - type: divider
+    - entity: input_number.h_bedroom_level
+      name: 'Спальня сенсор'
+    - entity: input_boolean.h_bedroom_state
+      name: 'Спальня сухо'
+    - type: divider
+    - entity: input_number.h_living_level
+      name: 'Гостиная сенсор'
+    - entity: input_boolean.h_living_state
+      name: 'Гостиная сухо'
+    - type: divider
+    - entity: input_number.h_balcony_level
+      name: 'Балкон сенсор'
+
+
+
+
 
 
 
@@ -214,33 +320,6 @@ cards:
     - entity: input_boolean.h_hall_empty
     - entity: input_boolean.h_bedroom_empty
     - entity: input_boolean.h_living_empty
-
-  - type: entities
-    title: 'humidity'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.h_bath_low
-    - entity: input_boolean.h_hall_low
-    - entity: input_boolean.h_bedroom_low
-    - entity: input_boolean.h_living_low
-    - entity: input_boolean.h_average_low
-
-  - type: entities
-    title: 'temperature'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.t_hight
-    - entity: input_boolean.t_low
-
-  - type: entities
-    title: 'pressure'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.p_hight
-    - entity: input_boolean.p_low
 
   - type: entities
     title: 'night-mode'

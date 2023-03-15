@@ -1,0 +1,56 @@
+## PRESSURE
+set_h_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_level
+    data_template:
+      value: "{{ states('sensor.h_level') }}"
+
+set_h_kitchen_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_kitchen_level
+    data_template:
+      value: "{{ states('sensor.h_kitchen_level') }}"
+
+set_h_bath_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_bath_level
+    data_template:
+      value: "{{ states('sensor.h_bath_level') }}"
+
+set_h_hall_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_hall_level
+    data_template:
+      value: "{{ states('sensor.h_hall_level') }}"
+
+set_h_bedroom_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_bedroom_level
+    data_template:
+      value: "{{ states('sensor.h_bedroom_level') }}"
+
+set_h_living_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_living_level
+    data_template:
+      value: "{{ states('sensor.h_living_level') }}"
+
+set_h_balcony_level:
+  mode: 'queued'
+  sequence:
+  - service: input_number.set_value
+    entity_id: input_number.h_balcony_level
+    data_template:
+      value: "{{ states('sensor.h_balcony_level') }}"
