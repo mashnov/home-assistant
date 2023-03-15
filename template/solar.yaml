@@ -31,10 +31,10 @@
       {{ azimuthState and elevationState }}
 
   - name: 's_azimuth_boolean'
-    state: "{{ is_state('input_boolean.s_azimuth', 'on') }}"
+    state: "{{ is_state('input_boolean.s_azimuth_state', 'on') }}"
 
   - name: 's_elevation_boolean'
-    state: "{{ is_state('input_boolean.s_elevation', 'on') }}"
+    state: "{{ is_state('input_boolean.s_elevation_state', 'on') }}"
 
   - name: 's_hight_boolean'
-    state: "{{ is_state('input_boolean.s_hight', 'on') }}"
+    state: "{{ is_state('input_boolean.s_hight_state', 'on') }}"
