@@ -1,12 +1,14 @@
 ## CLOUD
-- alias: 'c_state'
+- alias: 'set_c_state'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
+    entity_id: 'sensor.c_level'
+  - platform: state
     entity_id: 'binary_sensor.c_state'
-    for: '00:00:10'
   action:
+  - service: script.set_c_level
   - choose:
     - conditions:
       - condition: state
