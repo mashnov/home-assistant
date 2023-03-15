@@ -60,10 +60,10 @@ cards:
     - entity: input_number.s_elevation_offset
       name: 'Подъем офсет'
     - type: divider
-    - entity: input_boolean.s_elevation_state
-      name: 'Подъем'
     - entity: input_boolean.s_azimuth_state
       name: 'Азимут'
+    - entity: input_boolean.s_elevation_state
+      name: 'Подъем'
     - entity: input_boolean.s_hight_state
       name: 'Попадание'
     - type: divider

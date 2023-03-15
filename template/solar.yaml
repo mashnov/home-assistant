@@ -26,8 +26,8 @@
 
   - name: 's_hight_state'
     state: >
-      {% set azimuthState = is_state('binary_sensor.s_elevation_level', 'on') %}
-      {% set elevationState = is_state('binary_sensor.s_elevation_target', 'on') %}
+      {% set azimuthState = is_state('binary_sensor.s_azimuth_boolean', 'on') %}
+      {% set elevationState = is_state('binary_sensor.s_elevation_boolean', 'on') %}
       {{ azimuthState and elevationState }}
 
   - name: 's_azimuth_boolean'

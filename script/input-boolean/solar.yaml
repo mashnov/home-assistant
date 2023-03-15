@@ -38,4 +38,3 @@ off_s_hight_state:
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.s_hight_state
-

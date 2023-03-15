@@ -12,7 +12,7 @@
   mode: 'queued'
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.s_elevation_state'
+    entity_id: 'sensor.s_elevation_level'
   action:
   - choose:
     - conditions:
@@ -43,7 +43,7 @@
   mode: 'queued'
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.s_azimuth_state'
+    entity_id: 'sensor.s_azimuth_level'
   action:
   - choose:
     - conditions:
@@ -81,4 +81,3 @@
         state: 'off'
       sequence:
       - service: script.off_s_hight_state
-
