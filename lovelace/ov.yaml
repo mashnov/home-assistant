@@ -107,26 +107,7 @@ cards:
       name: 'Гостиная подсветка'
 
   - type: entities
-    title: 'Присутствие'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.dl_occupation_day
-      name: 'Дневная задержка'
-    - entity: input_number.dl_occupation_night
-      name: 'Ночная задержка'
-    - type: divider
-    - entity: input_boolean.o_kitchen
-      name: 'Кухня'
-    - entity: input_boolean.o_hall
-      name: 'Коридор'
-    - entity: input_boolean.o_bath
-      name: 'Ванная'
-    - entity: input_boolean.o_toilet
-      name: 'Туалет'
-
-  - type: entities
-    title: 'Основещение'
+    title: 'Освещение'
     state_color: true
     show_header_toggle: false
     entities:
@@ -134,17 +115,17 @@ cards:
       name: 'Кухня праздник'
     - type: divider
     - entity: input_boolean.tl_kitchen
-      name: 'Кухня'
+      name: 'Кухня свет'
     - entity: input_boolean.tl_hall
-      name: 'Коридор'
+      name: 'Коридор свет'
     - entity: input_boolean.tl_bath
-      name: 'Ванная'
+      name: 'Ванная свет'
     - entity: input_boolean.tl_toilet
-      name: 'Туалет'
+      name: 'Туалет свет'
     - entity: input_boolean.tl_bedroom
-      name: 'Спальня'
+      name: 'Спальня свет'
     - entity: input_boolean.tl_living
-      name: 'Гостиная'
+      name: 'Гостиная свет'
     - type: divider
     - entity: input_boolean.bl_kitchen
       name: 'Кухня подсветка'
@@ -167,6 +148,26 @@ cards:
       name: 'Туалет ночник'
     - entity: input_boolean.nl_balcony
       name: 'Балкон ночник'
+
+  - type: entities
+    title: 'Присутствие'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.dl_occupation_day
+      name: 'Дневная задержка'
+    - entity: input_number.dl_occupation_night
+      name: 'Ночная задержка'
+    - type: divider
+    - entity: input_boolean.o_kitchen
+      name: 'Кухня'
+    - entity: input_boolean.o_hall
+      name: 'Коридор'
+    - entity: input_boolean.o_bath
+      name: 'Ванная'
+    - entity: input_boolean.o_toilet
+      name: 'Туалет'
+
 
 
 
