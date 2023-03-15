@@ -2,10 +2,10 @@
 - alias: 'set_i_level'
   initial_state: true
   trigger:
-  - platform: state
-    entity_id: 'sensor.i_level'
   - platform: homeassistant
     event: start
+  - platform: state
+    entity_id: 'sensor.i_level'
   action:
   - service: script.set_i_level
 
@@ -13,6 +13,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_kitchen_curtain_state'
   action:
@@ -34,6 +36,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_kitchen_top_light_state'
   action:
@@ -55,6 +59,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_kitchen_back_light_state'
   action:
@@ -76,6 +82,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_hall_top_light_state'
   action:
@@ -97,6 +105,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_hall_back_light_state'
   action:
@@ -118,6 +128,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_bedroom_curtain_state'
   action:
@@ -139,6 +151,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_bedroom_back_light_state'
   action:
@@ -160,6 +174,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_living_curtain_state'
   action:
@@ -181,6 +197,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.i_living_back_light_state'
   action:

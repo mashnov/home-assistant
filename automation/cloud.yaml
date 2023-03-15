@@ -2,10 +2,10 @@
 - alias: 'set_c_level'
   initial_state: true
   trigger:
-  - platform: state
-    entity_id: 'sensor.c_level'
   - platform: homeassistant
     event: start
+  - platform: state
+    entity_id: 'sensor.c_level'
   action:
   - service: script.set_c_level
 
@@ -13,6 +13,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.c_state'
   action:

@@ -2,10 +2,10 @@
 - alias: 'set_s_elevation_level'
   initial_state: true
   trigger:
-  - platform: state
-    entity_id: 'sensor.s_elevation_level'
   - platform: homeassistant
     event: start
+  - platform: state
+    entity_id: 'sensor.s_elevation_level'
   action:
   - service: script.set_s_elevation_level
 
@@ -13,6 +13,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.s_elevation_state'
   action:
@@ -35,6 +37,8 @@
 - alias: 'set_s_azimuth_level'
   initial_state: true
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'sensor.s_azimuth_level'
   - platform: time_pattern
@@ -46,6 +50,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.s_azimuth_state'
   action:
@@ -69,6 +75,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.s_hight_state'
   action:
