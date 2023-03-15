@@ -15,7 +15,7 @@ s_azimuth_offset:
   initial: 15
 
 s_azimuth_level:
-  unit_of_measurement: '%'
+  unit_of_measurement: '°'
   icon: 'mdi:axis-z-rotate-clockwise'
   min: 0
   max: 360
@@ -38,7 +38,7 @@ s_elevation_offset:
   initial: 5
 
 s_elevation_level:
-  unit_of_measurement: '%'
+  unit_of_measurement: '°'
   icon: 'mdi:angle-acute'
   max: 90
   min: -90
