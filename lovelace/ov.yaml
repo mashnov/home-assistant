@@ -126,10 +126,13 @@ cards:
       name: 'Туалет'
 
   - type: entities
-    title: 'Основной свет'
+    title: 'Основещение'
     state_color: true
     show_header_toggle: false
     entities:
+    - entity: input_boolean.pl_kitchen
+      name: 'Кухня праздник'
+    - type: divider
     - entity: input_boolean.tl_kitchen
       name: 'Кухня'
     - entity: input_boolean.tl_hall
@@ -142,38 +145,28 @@ cards:
       name: 'Спальня'
     - entity: input_boolean.tl_living
       name: 'Гостиная'
-
-  - type: entities
-    title: 'Подсветка'
-    state_color: true
-    show_header_toggle: false
-    entities:
+    - type: divider
     - entity: input_boolean.bl_kitchen
-      name: 'Кухня'
+      name: 'Кухня подсветка'
     - entity: input_boolean.bl_hall
-      name: 'Коридор'
+      name: 'Коридор подсветка'
     - entity: input_boolean.bl_bedroom
-      name: 'Спальня'
+      name: 'Спальня подсветка'
     - entity: input_boolean.bl_living
-      name: 'Гостиная'
+      name: 'Гостиная подсветка'
     - entity: input_boolean.bl_balcony
-      name: 'Балкон'
-
-  - type: entities
-    title: 'Ночное освещение'
-    state_color: true
-    show_header_toggle: false
-    entities:
+      name: 'Балкон подсветка'
+    - type: divider
     - entity: input_boolean.nl_kitchen
-      name: 'Кухня'
+      name: 'Кухня ночник'
     - entity: input_boolean.nl_hall
-      name: 'Коридор'
+      name: 'Коридор ночник'
     - entity: input_boolean.nl_bath
-      name: 'Ванная'
+      name: 'Ванная ночник'
     - entity: input_boolean.nl_toilet
-      name: 'Туалет'
+      name: 'Туалет ночник'
     - entity: input_boolean.nl_balcony
-      name: 'Балкон'
+      name: 'Балкон ночник'
 
 
 
@@ -193,12 +186,7 @@ cards:
 
 
 
-  - type: entities
-    title: 'party light'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.pl_kitchen
+
 
   - type: entities
     title: 'dehumidifier'
