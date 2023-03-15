@@ -1,16 +1,16 @@
 ## AZIMUTH
-s_azimuth:
+s_azimuth_state:
   initial: false
   icon: 'mdi:axis-z-rotate-clockwise'
 
 
 ## ELEVATION
-s_elevation:
+s_elevation_state:
   initial: false
   icon: 'mdi:angle-acute'
 
 
 ## HIGHT
-s_hight:
+s_hight_state:
   initial: false
   icon: 'mdi:sun-wireless'

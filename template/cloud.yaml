@@ -1,10 +1,6 @@
 - sensor:
   - name: 'c_level'
     state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
-    icon: >
-      {% set isHightIcon = is_state('binary_sensor.c_boolean', 'on') and 'mdi:apple-icloud' %}
-      {% set isLowIcon = 'mdi:cloud-outline' %}
-      {{ isHightIcon or isLowIcon }}
 
 - binary_sensor:
   - name: 'c_state'
@@ -12,14 +8,6 @@
       {% set sensorValue = states('input_number.c_level') | int(0) %}
       {% set targetValue = states('input_number.c_target') | int(0) %}
       {{ sensorValue > targetValue }}
-    icon: >
-      {% set isHightIcon = is_state('binary_sensor.c_boolean', 'on') and 'mdi:apple-icloud' %}
-      {% set isLowIcon = 'mdi:cloud-outline' %}
-      {{ isHightIcon or isLowIcon }}
 
   - name: 'c_boolean'
     state: "{{ is_state('input_boolean.c_state', 'on') }}"
-    icon: >
-      {% set isHightIcon = is_state('binary_sensor.c_boolean', 'on') and 'mdi:apple-icloud' %}
-      {% set isLowIcon = 'mdi:cloud-outline' %}
-      {{ isHightIcon or isLowIcon }}

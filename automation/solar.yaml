@@ -1,0 +1,84 @@
+## ELEVATION
+- alias: 'set_s_elevation_level'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.s_elevation_level'
+  action:
+  - service: script.set_s_elevation_level
+
+- alias: 'set_s_elevation_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.s_elevation_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_elevation_state
+        state: 'on'
+      sequence:
+      - service: script.on_s_elevation_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_elevation_state
+        state: 'off'
+      sequence:
+      - service: script.off_s_elevation_state
+
+
+## AZIMUTH
+- alias: 'set_s_azimuth_level'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.s_azimuth_level'
+  action:
+  - service: script.set_s_azimuth_level
+
+- alias: 'set_s_azimuth_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.s_azimuth_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_azimuth_state
+        state: 'on'
+      sequence:
+      - service: script.on_s_azimuth_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_azimuth_state
+        state: 'off'
+      sequence:
+      - service: script.off_s_azimuth_state
+
+
+## STATE
+- alias: 'set_s_hight_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.s_hight_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_hight_state
+        state: 'on'
+      sequence:
+      - service: script.on_s_hight_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.s_hight_state
+        state: 'off'
+      sequence:
+      - service: script.off_s_hight_state
+
