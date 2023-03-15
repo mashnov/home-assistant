@@ -1,8 +1,8 @@
 ## ILLUMINANCE
-i_level_set_number:
+set_i_level:
   mode: 'queued'
   sequence:
   - service: input_number.set_value
     entity_id: input_number.i_level
     data_template:
-      value: "{{ states('sensor.illuminance') }}"
+      value: "{{ states('sensor.i_level') }}"

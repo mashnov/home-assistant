@@ -1,5 +1,6 @@
 - sensor:
   - name: 'c_level'
+    unit_of_measurement: '%'
     state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
 
 - binary_sensor:

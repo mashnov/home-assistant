@@ -85,25 +85,25 @@ cards:
     - entity: input_number.i_level
       name: 'Показания'
     - type: divider
-    - entity: input_boolean.i_kitchen_curtain
+    - entity: input_boolean.i_kitchen_curtain_state
       name: 'Кухня шторы'
-    - entity: input_boolean.i_kitchen_curtain
+    - entity: input_boolean.i_bedroom_curtain_state
       name: 'Спальня шторы'
-    - entity: input_boolean.i_kitchen_curtain
+    - entity: input_boolean.i_living_curtain_state
       name: 'Гостиная шторы'
     - type: divider
-    - entity: input_boolean.i_kitchen_top_light
+    - entity: input_boolean.i_kitchen_top_light_state
       name: 'Кухня основной свет'
-    - entity: input_boolean.i_hall_top_light
+    - entity: input_boolean.i_hall_top_light_state
       name: 'Коридор основной свет'
     - type: divider
-    - entity: input_boolean.i_kitchen_back_light
+    - entity: input_boolean.i_kitchen_back_light_state
       name: 'Кухня подсветка'
-    - entity: input_boolean.i_hall_back_light
+    - entity: input_boolean.i_hall_back_light_state
       name: 'Коридор подсветка'
-    - entity: input_boolean.i_bedroom_back_light
+    - entity: input_boolean.i_bedroom_back_light_state
       name: 'Спальня подсветка'
-    - entity: input_boolean.i_living_back_light
+    - entity: input_boolean.i_living_back_light_state
       name: 'Гостиная подсветка'
 
   - type: entities

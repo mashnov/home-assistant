@@ -1,8 +1,10 @@
 - sensor:
   - name: 's_azimuth_level'
+    unit_of_measurement: '°'
     state: "{{ state_attr('sun.sun', 'azimuth')  | int(0) }}"
 
   - name: 's_elevation_level'
+    unit_of_measurement: '°'
     state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
 
 - binary_sensor:

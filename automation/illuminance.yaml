@@ -1,0 +1,199 @@
+## ILLUMINANCE
+- alias: 'set_i_level'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'sensor.i_level'
+  - platform: homeassistant
+    event: start
+  action:
+  - service: script.set_i_level
+
+- alias: 'set_i_kitchen_curtain_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_kitchen_curtain_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_curtain_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_kitchen_curtain_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_curtain_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_kitchen_curtain_boolean
+
+- alias: 'set_i_kitchen_top_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_kitchen_top_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_top_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_kitchen_top_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_top_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_kitchen_top_light_boolean
+
+- alias: 'set_i_kitchen_back_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_kitchen_back_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_back_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_kitchen_back_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_kitchen_back_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_kitchen_back_light_boolean
+
+- alias: 'set_i_hall_top_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_hall_top_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_hall_top_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_hall_top_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_hall_top_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_hall_top_light_boolean
+
+- alias: 'set_i_hall_back_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_hall_back_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_hall_back_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_hall_back_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_hall_back_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_hall_back_light_boolean
+
+- alias: 'set_i_bedroom_curtain_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_bedroom_curtain_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_bedroom_curtain_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_bedroom_curtain_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_bedroom_curtain_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_bedroom_curtain_boolean
+
+- alias: 'set_i_bedroom_back_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_bedroom_back_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_bedroom_back_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_bedroom_back_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_bedroom_back_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_bedroom_back_light_boolean
+
+- alias: 'set_i_living_curtain_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_living_curtain_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_living_curtain_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_living_curtain_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_living_curtain_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_living_curtain_boolean
+
+- alias: 'set_i_living_back_light_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.i_living_back_light_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_living_back_light_state
+        state: 'on'
+      sequence:
+      - service: script.on_i_living_back_light_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.i_living_back_light_state
+        state: 'off'
+      sequence:
+      - service: script.off_i_living_back_light_boolean
