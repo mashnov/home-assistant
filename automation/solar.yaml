@@ -6,8 +6,6 @@
     entity_id: 'sensor.s_elevation_level'
   - platform: homeassistant
     event: start
-  - platform: time_pattern
-    minutes: '5'
   action:
   - service: script.set_s_elevation_level
 

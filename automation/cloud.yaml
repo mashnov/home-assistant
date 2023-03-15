@@ -6,8 +6,6 @@
     entity_id: 'sensor.c_level'
   - platform: homeassistant
     event: start
-  - platform: time_pattern
-    minutes: '5'
   action:
   - service: script.set_c_level
 
