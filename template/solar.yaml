@@ -11,8 +11,8 @@
       {% set sensorValue = states('input_number.s_azimuth_level') | int(0) %}
       {% set targetValue = states('input_number.s_azimuth_target') | int(0) %}
       {% set offsetValue = states('input_number.s_azimuth_offset') | int(0) %}
-      {% set minValue = azimuthTarget - azimuthOffset %}
-      {% set maxValue = azimuthTarget + azimuthOffset %}
+      {% set minValue = targetValue - offsetValue %}
+      {% set maxValue = targetValue + offsetValue %}
       {{ minValue < sensorValue < maxValue }}
 
   - name: 's_elevation_state'
@@ -20,8 +20,8 @@
       {% set sensorValue = states('input_number.s_elevation_level') | int(0) %}
       {% set targetValue = states('input_number.s_elevation_target') | int(0) %}
       {% set offsetValue = states('input_number.s_elevation_offset') | int(0) %}
-      {% set minValue = azimuthTarget - azimuthOffset %}
-      {% set maxValue = azimuthTarget + azimuthOffset %}
+      {% set minValue = targetValue - offsetValue %}
+      {% set maxValue = targetValue + offsetValue %}
       {{ minValue < sensorValue < maxValue }}
 
   - name: 's_hight_state'
