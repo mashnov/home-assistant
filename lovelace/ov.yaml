@@ -293,7 +293,7 @@ cards:
     - entity: input_number.n_ping_target
       name: 'Пинг таргет'
     - entity: input_number.n_ping_level
-      name: 'Пинг скорость'
+      name: 'Пинг'
     - entity: input_boolean.n_ping_state
       name: 'Проблема'
 
