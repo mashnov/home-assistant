@@ -280,6 +280,7 @@ cards:
       name: 'Таргет'
     - entity: input_number.n_offset
       name: 'Офсет'
+    - type: divider
     - entity: input_number.n_download_level
       name: 'Загрузка'
     - entity: input_number.n_upload_level
