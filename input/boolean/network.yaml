@@ -1,4 +1,4 @@
-## NORMAL
-n_normal:
+## NETWORK
+n_state:
   initial: false
   icon: 'mdi:speedometer'

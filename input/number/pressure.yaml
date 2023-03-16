@@ -19,7 +19,7 @@ p_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740
 
 p_kitchen_level:
@@ -27,7 +27,7 @@ p_kitchen_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740
 
 p_bath_level:
@@ -35,7 +35,7 @@ p_bath_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740
 
 p_hall_level:
@@ -43,7 +43,7 @@ p_hall_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740
 
 p_bedroom_level:
@@ -51,7 +51,7 @@ p_bedroom_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740
 
 p_living_level:
@@ -59,5 +59,5 @@ p_living_level:
   icon: 'mdi:gauge'
   min: 740
   max: 770
-  step: 1
+  step: 0.1
   initial: 740

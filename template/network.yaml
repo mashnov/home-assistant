@@ -1,24 +1,34 @@
+## NETWORK
 - sensor:
-  - name: 'network'
+  - name: 'n_download_level'
     device_class: 'data_rate'
     unit_of_measurement: Mbit/s
-    state: "{{ state_attr('sensor.network', 'download') }}"
-    icon: >
-      {% set isNormalIcon = state_attr('sensor.network', 'normal_state') and 'mdi:speedometer' %}
-      {% set isLowIcon = not(isNormalIcon) and 'mdi:speedometer-slow' %}
-      {% set defaultIcon = 'mdi:help-circle' %}
-      {{ isNormalIcon or isLowIcon or defaultIcon }}
-    attributes:
-      ping_sensor: "{{ states('sensor.speedtest_ping') | int(0) }}"
-      upload_sensor: "{{ states('sensor.speedtest_upload') | float(0) | round(1) }}"
-      download_sensor: "{{ states('sensor.speedtest_download') | float(0) | round(1) }}"
-      
-      normal_state: >
-        {% set sensorValue = state_attr('sensor.network', 'download') | int(0) %}
-        {% set normalValue = states('input_number.n_target') | int(0) %}
-        {% set offsetValue = states('input_number.n_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue > targetValue }}
+    state: >
+      {% set minValue = state_attr('input_number.n_download_level', 'min') %}
+      {{ states('sensor.speedtest_ping') | float(minValue) | round(1) }}
 
-      normal_boolean: "{{ is_state('input_boolean.n_normal', 'on') }}"
+  - name: 'n_upload_level'
+    device_class: 'data_rate'
+    unit_of_measurement: Mbit/s
+    state: >
+      {% set minValue = state_attr('input_number.n_upload_level', 'min') %}
+      {{ states('sensor.speedtest_upload') | float(minValue) | round(1) }}
 
+  - name: 'n_ping_level'
+    device_class: 'data_rate'
+    unit_of_measurement: Mbit/s
+    state: >
+      {% set minValue = state_attr('input_number.n_ping_level', 'min') %}
+      {{ states('sensor.speedtest_download') | float(minValue) | round(1) }}
+
+- binary_sensor:
+  - name: 'n_state'
+    state: >
+      {% set sensorValue = states('sensor.n_download_level') | int(0) %}
+      {% set normalValue = states('input_number.n_target') | int(0) %}
+      {% set offsetValue = states('input_number.n_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue > targetValue }}
+
+  - name: 'n_boolean'
+    state: "{{ is_state('input_boolean.n_state', 'on') }}"

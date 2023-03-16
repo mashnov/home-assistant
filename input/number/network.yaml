@@ -13,3 +13,27 @@ n_offset:
   max: 20
   step: 1
   initial: 10
+
+n_download_level:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-cog'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+n_upload_level:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-cog'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
+n_ping_level:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-cog'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0

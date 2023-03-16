@@ -5,7 +5,7 @@ set_t_level:
   - service: input_number.set_value
     entity_id: input_number.t_level
     data_template:
-      value: "{{ states('sensor.t_level') | int(0) }}"
+      value: "{{ states('sensor.t_level') | float(0) }}"
 
 set_t_kitchen_level:
   mode: 'queued'
@@ -13,7 +13,7 @@ set_t_kitchen_level:
   - service: input_number.set_value
     entity_id: input_number.t_kitchen_level
     data_template:
-      value: "{{ states('sensor.t_kitchen_level') | int(0) }}"
+      value: "{{ states('sensor.t_kitchen_level') | float(0) }}"
 
 set_t_bath_level:
   mode: 'queued'
@@ -21,7 +21,7 @@ set_t_bath_level:
   - service: input_number.set_value
     entity_id: input_number.t_bath_level
     data_template:
-      value: "{{ states('sensor.t_bath_level') | int(0) }}"
+      value: "{{ states('sensor.t_bath_level') | float(0) }}"
 
 set_t_hall_level:
   mode: 'queued'
@@ -29,7 +29,7 @@ set_t_hall_level:
   - service: input_number.set_value
     entity_id: input_number.t_hall_level
     data_template:
-      value: "{{ states('sensor.t_hall_level') | int(0) }}"
+      value: "{{ states('sensor.t_hall_level') | float(0) }}"
 
 set_t_bedroom_level:
   mode: 'queued'
@@ -37,7 +37,7 @@ set_t_bedroom_level:
   - service: input_number.set_value
     entity_id: input_number.t_bedroom_level
     data_template:
-      value: "{{ states('sensor.t_bedroom_level') | int(0) }}"
+      value: "{{ states('sensor.t_bedroom_level') | float(0) }}"
 
 set_t_living_level:
   mode: 'queued'
@@ -45,7 +45,7 @@ set_t_living_level:
   - service: input_number.set_value
     entity_id: input_number.t_living_level
     data_template:
-      value: "{{ states('sensor.t_living_level') | int(0) }}"
+      value: "{{ states('sensor.t_living_level') | float(0) }}"
 
 set_t_balcony_level:
   mode: 'queued'
@@ -53,4 +53,4 @@ set_t_balcony_level:
   - service: input_number.set_value
     entity_id: input_number.t_balcony_level
     data_template:
-      value: "{{ states('sensor.t_balcony_level') | int(0) }}"
+      value: "{{ states('sensor.t_balcony_level') | float(0) }}"

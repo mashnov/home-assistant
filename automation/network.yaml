@@ -1,0 +1,56 @@
+## NETWORK
+- alias: 'set_n_download_level'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.n_download_level'
+  action:
+  - service: script.set_n_download_level
+
+- alias: 'set_n_upload_level'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.n_upload_level'
+  action:
+  - service: script.set_n_upload_level
+
+- alias: 'set_n_ping_level'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'sensor.n_ping_level'
+  action:
+  - service: script.set_n_ping_level
+
+- alias: 'set_n_state_boolean'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.n_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.n_state
+        state: 'on'
+      sequence:
+      - service: script.on_n_state_boolean
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.n_state
+        state: 'off'
+      sequence:
+      - service: script.off_n_state_boolean

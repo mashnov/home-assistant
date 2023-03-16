@@ -27,7 +27,7 @@ h_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
 
 h_kitchen_level:
@@ -35,7 +35,7 @@ h_kitchen_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
 
 h_bath_level:
@@ -43,7 +43,7 @@ h_bath_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 95
-  step: 1
+  step: 0.1
   initial: 10
 
 h_hall_level:
@@ -51,7 +51,7 @@ h_hall_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
 
 h_bedroom_level:
@@ -59,7 +59,7 @@ h_bedroom_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
 
 h_living_level:
@@ -67,7 +67,7 @@ h_living_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
 
 h_balcony_level:
@@ -75,5 +75,5 @@ h_balcony_level:
   icon: 'mdi:water-percent'
   min: 10
   max: 80
-  step: 1
+  step: 0.1
   initial: 10
