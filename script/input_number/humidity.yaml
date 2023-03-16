@@ -5,7 +5,7 @@ set_h_level:
   - service: input_number.set_value
     entity_id: input_number.h_level
     data_template:
-      value: "{{ states('sensor.h_level') }}"
+      value: "{{ states('sensor.h_level') | int(0) }}"
 
 set_h_kitchen_level:
   mode: 'queued'
@@ -13,7 +13,7 @@ set_h_kitchen_level:
   - service: input_number.set_value
     entity_id: input_number.h_kitchen_level
     data_template:
-      value: "{{ states('sensor.h_kitchen_level') }}"
+      value: "{{ states('sensor.h_kitchen_level') | int(0) }}"
 
 set_h_bath_level:
   mode: 'queued'
@@ -21,7 +21,7 @@ set_h_bath_level:
   - service: input_number.set_value
     entity_id: input_number.h_bath_level
     data_template:
-      value: "{{ states('sensor.h_bath_level') }}"
+      value: "{{ states('sensor.h_bath_level') | int(0) }}"
 
 set_h_hall_level:
   mode: 'queued'
@@ -29,7 +29,7 @@ set_h_hall_level:
   - service: input_number.set_value
     entity_id: input_number.h_hall_level
     data_template:
-      value: "{{ states('sensor.h_hall_level') }}"
+      value: "{{ states('sensor.h_hall_level') | int(0) }}"
 
 set_h_bedroom_level:
   mode: 'queued'
@@ -37,7 +37,7 @@ set_h_bedroom_level:
   - service: input_number.set_value
     entity_id: input_number.h_bedroom_level
     data_template:
-      value: "{{ states('sensor.h_bedroom_level') }}"
+      value: "{{ states('sensor.h_bedroom_level') | int(0) }}"
 
 set_h_living_level:
   mode: 'queued'
@@ -45,7 +45,7 @@ set_h_living_level:
   - service: input_number.set_value
     entity_id: input_number.h_living_level
     data_template:
-      value: "{{ states('sensor.h_living_level') }}"
+      value: "{{ states('sensor.h_living_level') | int(0) }}"
 
 set_h_balcony_level:
   mode: 'queued'
@@ -53,4 +53,4 @@ set_h_balcony_level:
   - service: input_number.set_value
     entity_id: input_number.h_balcony_level
     data_template:
-      value: "{{ states('sensor.h_balcony_level') }}"
+      value: "{{ states('sensor.h_balcony_level') | int(0) }}"

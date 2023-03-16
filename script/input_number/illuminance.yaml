@@ -5,4 +5,4 @@ set_i_level:
   - service: input_number.set_value
     entity_id: input_number.i_level
     data_template:
-      value: "{{ states('sensor.i_level') }}"
+      value: "{{ states('sensor.i_level') | int(0) }}"

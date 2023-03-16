@@ -8,7 +8,7 @@
       {% set hall = states('sensor.h_hall_level') | float(0) %}
       {% set bedroom = states('sensor.h_bedroom_level') | float(0) %}
       {% set living = states('sensor.h_living_level') | float(0) %}
-      {{ ((kitchen + bath + hall + bedroom + living) / 4) | round(1) }}
+      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
 
   - name: 'h_kitchen_level'
     device_class: 'humidity'

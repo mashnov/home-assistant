@@ -5,7 +5,7 @@ set_p_level:
   - service: input_number.set_value
     entity_id: input_number.p_level
     data_template:
-      value: "{{ states('sensor.p_level') }}"
+      value: "{{ states('sensor.p_level') | int(0) }}"
 
 set_p_kitchen_level:
   mode: 'queued'
@@ -13,7 +13,7 @@ set_p_kitchen_level:
   - service: input_number.set_value
     entity_id: input_number.p_kitchen_level
     data_template:
-      value: "{{ states('sensor.p_kitchen_level') }}"
+      value: "{{ states('sensor.p_kitchen_level') | int(0) }}"
 
 set_p_bath_level:
   mode: 'queued'
@@ -21,7 +21,7 @@ set_p_bath_level:
   - service: input_number.set_value
     entity_id: input_number.p_bath_level
     data_template:
-      value: "{{ states('sensor.p_bath_level') }}"
+      value: "{{ states('sensor.p_bath_level') | int(0) }}"
 
 set_p_hall_level:
   mode: 'queued'
@@ -29,7 +29,7 @@ set_p_hall_level:
   - service: input_number.set_value
     entity_id: input_number.p_hall_level
     data_template:
-      value: "{{ states('sensor.p_hall_level') }}"
+      value: "{{ states('sensor.p_hall_level') | int(0) }}"
 
 set_p_bedroom_level:
   mode: 'queued'
@@ -37,7 +37,7 @@ set_p_bedroom_level:
   - service: input_number.set_value
     entity_id: input_number.p_bedroom_level
     data_template:
-      value: "{{ states('sensor.p_bedroom_level') }}"
+      value: "{{ states('sensor.p_bedroom_level') | int(0) }}"
 
 set_p_living_level:
   mode: 'queued'
@@ -45,4 +45,4 @@ set_p_living_level:
   - service: input_number.set_value
     entity_id: input_number.p_living_level
     data_template:
-      value: "{{ states('sensor.p_living_level') }}"
+      value: "{{ states('sensor.p_living_level') | int(0) }}"
