@@ -96,7 +96,7 @@
       - service: script.on_n_ping_state
     - conditions:
       - condition: state
-        entity_id: binary_sensor.on_n_ping_state
+        entity_id: binary_sensor.n_ping_state
         state: 'off'
       sequence:
       - service: script.off_n_ping_state
