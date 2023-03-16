@@ -20,7 +20,7 @@ t_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_kitchen_level:
   unit_of_measurement: '°C'
@@ -28,7 +28,7 @@ t_kitchen_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_bath_level:
   unit_of_measurement: '°C'
@@ -36,7 +36,7 @@ t_bath_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_hall_level:
   unit_of_measurement: '°C'
@@ -44,7 +44,7 @@ t_hall_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_bedroom_level:
   unit_of_measurement: '°C'
@@ -52,7 +52,7 @@ t_bedroom_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_living_level:
   unit_of_measurement: '°C'
@@ -60,7 +60,7 @@ t_living_level:
   min: 17
   max: 40
   step: 1
-  initial: 0
+  initial: 17
 
 t_balcony_level:
   unit_of_measurement: '°C'
