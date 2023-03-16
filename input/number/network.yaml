@@ -4,7 +4,7 @@ n_download_target:
   min: 0
   max: 100
   step: 1
-  initial: 80
+  initial: 90
 
 n_download_level:
   unit_of_measurement: 'Mbit/s'
@@ -20,7 +20,7 @@ n_upload_target:
   min: 0
   max: 100
   step: 1
-  initial: 80
+  initial: 90
 
 n_upload_level:
   unit_of_measurement: 'Mbit/s'
@@ -34,9 +34,9 @@ n_ping_target:
   unit_of_measurement: 'ms'
   icon: 'mdi:database-cog'
   min: 0
-  max: 100
+  max: 50
   step: 1
-  initial: 50
+  initial: 10
 
 n_ping_level:
   unit_of_measurement: 'ms'
