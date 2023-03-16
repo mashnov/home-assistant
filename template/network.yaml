@@ -16,7 +16,7 @@
 
   - name: 'n_ping_level'
     device_class: 'data_rate'
-    unit_of_measurement: Mbit/s
+    unit_of_measurement: ms
     state: >
       {% set minValue = state_attr('input_number.n_ping_level', 'min') %}
       {{ states('sensor.speedtest_ping') | float(minValue) | round(1) }}
@@ -38,7 +38,7 @@
     state: >
       {% set sensorValue = states('input_number.n_ping_level') | int(0) %}
       {% set targetValue = states('input_number.n_ping_target') | int(0) %}
-      {{ sensorValue < targetValue }}
+      {{ sensorValue > targetValue }}
 
   - name: 'n_download_boolean'
     state: "{{ is_state('input_boolean.n_download_state', 'on') }}"
