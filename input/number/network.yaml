@@ -1,18 +1,10 @@
-n_target:
+n_download_target:
   unit_of_measurement: 'Mbit/s'
   icon: 'mdi:database-check'
   min: 0
   max: 100
   step: 1
   initial: 100
-
-n_offset:
-  unit_of_measurement: 'Mbit/s'
-  icon: 'mdi:database-cog'
-  min: 0
-  max: 20
-  step: 1
-  initial: 10
 
 n_download_level:
   unit_of_measurement: 'Mbit/s'
@@ -22,6 +14,14 @@ n_download_level:
   step: 1
   initial: 0
 
+n_upload_target:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 100
+
 n_upload_level:
   unit_of_measurement: 'Mbit/s'
   icon: 'mdi:database-cog'
@@ -29,6 +29,15 @@ n_upload_level:
   max: 100
   step: 1
   initial: 0
+
+n_ping_target:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-cog'
+  min: 0
+  max: 100
+  step: 1
+  initial: 0
+
 
 n_ping_level:
   unit_of_measurement: 'Mbit/s'

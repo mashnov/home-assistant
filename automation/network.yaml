@@ -32,25 +32,71 @@
   action:
   - service: script.set_n_ping_level
 
-- alias: 'set_n_state_boolean'
+- alias: 'set_n_upload_state'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'binary_sensor.n_state'
+    entity_id: 'binary_sensor.n_upload_state'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.n_state
+        entity_id: binary_sensor.n_upload_state
         state: 'on'
       sequence:
-      - service: script.on_n_state_boolean
+      - service: script.on_n_upload_state
     - conditions:
       - condition: state
-        entity_id: binary_sensor.n_state
+        entity_id: binary_sensor.n_upload_state
         state: 'off'
       sequence:
-      - service: script.off_n_state_boolean
+      - service: script.off_n_upload_state
+
+- alias: 'set_n_download_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.n_download_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.n_download_state
+        state: 'on'
+      sequence:
+      - service: script.on_n_download_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.n_download_state
+        state: 'off'
+      sequence:
+      - service: script.off_n_download_state
+
+- alias: 'set_n_ping_state'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.n_ping_state'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.n_ping_state
+        state: 'on'
+      sequence:
+      - service: script.on_n_ping_state
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.on_n_ping_state
+        state: 'off'
+      sequence:
+      - service: script.off_n_ping_state

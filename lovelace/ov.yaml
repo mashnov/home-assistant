@@ -276,20 +276,26 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_number.n_target
-      name: 'Таргет'
-    - entity: input_number.n_offset
-      name: 'Офсет'
-    - type: divider
+    - entity: input_number.n_download_target
+      name: 'Загрузка таргет'
     - entity: input_number.n_download_level
-      name: 'Загрузка'
-    - entity: input_number.n_upload_level
-      name: 'Отдача'
-    - entity: input_number.n_ping_level
-      name: 'Пинг'
+      name: 'Загрузка скорость'
+    - entity: input_boolean.n_download_state
+      name: 'Загрузка проблемы'
     - type: divider
-    - entity: input_boolean.n_state
-      name: 'Низкая скорость'
+    - entity: input_number.n_upload_target
+      name: 'Отдача таргет'
+    - entity: input_number.n_upload_level
+      name: 'Отдача скорость'
+    - entity: input_boolean.n_upload_state
+      name: 'Отдача проблемы'
+    - type: divider
+    - entity: input_number.n_ping_target
+      name: 'Пинг таргет'
+    - entity: input_number.n_ping_level
+      name: 'Пинг скорость'
+    - entity: input_boolean.n_ping_state
+      name: 'Пинг проблемы'
 
 
 

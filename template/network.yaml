@@ -22,13 +22,29 @@
       {{ states('sensor.speedtest_ping') | float(minValue) | round(1) }}
 
 - binary_sensor:
-  - name: 'n_state'
+  - name: 'n_download_state'
     state: >
       {% set sensorValue = states('input_number.n_download_level') | int(0) %}
-      {% set normalValue = states('input_number.n_target') | int(0) %}
-      {% set offsetValue = states('input_number.n_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue > targetValue }}
+      {% set targetValue = states('input_number.n_download_target') | int(0) %}
+      {{ sensorValue < targetValue }}
 
-  - name: 'n_boolean'
-    state: "{{ is_state('input_boolean.n_state', 'on') }}"
+  - name: 'n_upload_state'
+    state: >
+      {% set sensorValue = states('input_number.n_upload_level') | int(0) %}
+      {% set targetValue = states('input_number.n_upload_target') | int(0) %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'n_ping_state'
+    state: >
+      {% set sensorValue = states('input_number.n_ping_level') | int(0) %}
+      {% set targetValue = states('input_number.n_ping_target') | int(0) %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'n_download_boolean'
+    state: "{{ is_state('input_boolean.n_download_state', 'on') }}"
+  
+  - name: 'n_upload_boolean'
+    state: "{{ is_state('input_boolean.n_upload_state', 'on') }}"
+  
+  - name: 'n_ping_boolean'
+    state: "{{ is_state('input_boolean.n_ping_state', 'on') }}"

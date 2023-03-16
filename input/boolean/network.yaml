@@ -1,4 +1,12 @@
 ## NETWORK
-n_state:
+n_download_state:
+  initial: false
+  icon: 'mdi:speedometer'
+
+n_upload_state:
+  initial: false
+  icon: 'mdi:speedometer'
+
+n_ping_state:
   initial: false
   icon: 'mdi:speedometer'
