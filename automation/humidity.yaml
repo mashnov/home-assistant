@@ -96,28 +96,28 @@
 
 
 ## KITCHEN STATE
-- alias: 'set_h_kitchen_staten_state'
+- alias: 'set_h_kitchen_state_state'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'binary_sensor.h_kitchen_staten'
+    entity_id: 'binary_sensor.h_kitchen_state'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.h_kitchen_staten
+        entity_id: binary_sensor.h_kitchen_state
         state: 'on'
       sequence:
-      - service: script.on_h_kitchen_staten
+      - service: script.on_h_kitchen_state
     - conditions:
       - condition: state
-        entity_id: binary_sensor.h_kitchen_staten
+        entity_id: binary_sensor.h_kitchen_state
         state: 'off'
       sequence:
-      - service: script.off_h_kitchen_staten
+      - service: script.off_h_kitchen_state
 
 
 ## BATH STATE

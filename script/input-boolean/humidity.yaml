@@ -13,13 +13,13 @@ off_h_state:
 
 
 ## KITCHEN
-on_h_kitchen_staten:
+on_h_kitchen_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.h_kitchen_state
 
-off_h_kitchen_staten:
+off_h_kitchen_state:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off

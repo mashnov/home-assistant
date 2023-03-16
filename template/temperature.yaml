@@ -1,39 +1,64 @@
+## TEMPERATURE
 - sensor:
-  - name: 'temperature'
+  - name: 't_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
     state: >
-      {% set kitchen = state_attr('sensor.temperature', 'kitchen_sensor') | float(0) %}
-      {% set hall = state_attr('sensor.temperature', 'hall_sensor') | float(0) %}
-      {% set bedroom = state_attr('sensor.temperature', 'bedroom_sensor') | float(0) %}
-      {% set living = state_attr('sensor.temperature', 'living_sensor') | float(0) %}
+      {% set kitchen = states('sensor.t_kitchen_level') | float(0) %}
+      {% set hall = states('sensor.t_hall_level') | float(0) %}
+      {% set bedroom = states('sensor.t_bedroom_level') | float(0) %}
+      {% set living = states('sensor.t_living_level') | float(0) %}
       {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
-    icon: >
-      {% set isHightIcon = state_attr('sensor.temperature', 'hight_state') and 'mdi:thermometer-chevron-up' %}
-      {% set isLowIcon = state_attr('sensor.temperature', 'low_state') and 'mdi:thermometer-chevron-down' %}
-      {% set defaultIcon = 'mdi:thermometer-check' %}
-      {{ isHightIcon or isLowIcon or defaultIcon }}
-    attributes:
-      kitchen_sensor: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
-      bath_sensor: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
-      hall_sensor: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
-      bedroom_sensor: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
-      living_sensor: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
-      balcony_sensor: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
 
-      hight_state: >
-        {% set sensorValue = states('sensor.temperature') | int(0) %}
-        {% set normalValue = states('input_number.t_target') | int(0) %}
-        {% set offsetValue = states('input_number.t_offset') | int(0) %}
-        {% set targetValue = normalValue + offsetValue %}
-        {{ sensorValue > targetValue }}
-      low_state: >
-        {% set sensorValue = states('sensor.temperature') | int(0) %}
-        {% set normalValue = states('input_number.t_target') | int(0) %}
-        {% set offsetValue = states('input_number.t_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue }}
+  - name: 't_kitchen_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
 
-      hight_boolean: "{{ is_state('input_boolean.t_hight', 'on') }}"
-      low_boolean: "{{ is_state('input_boolean.t_low', 'on') }}"
+  - name: 't_bath_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
 
+  - name: 't_hall_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+
+  - name: 't_bedroom_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
+
+  - name: 't_living_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
+
+  - name: 't_balcony_level'
+    device_class: 'temperature'
+    unit_of_measurement: '°C'
+    state: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
+
+- binary_sensor:
+  - name: 't_hight_state'
+    state: >
+      {% set sensorValue = states('sensor.t_level') | int(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
+      {% set targetValue = normalValue + offsetValue %}
+      {{ sensorValue > targetValue }}
+
+  - name: 't_low_state'
+    state: >
+      {% set sensorValue = states('sensor.t_level') | int(0) %}
+      {% set normalValue = states('input_number.t_target') | int(0) %}
+      {% set offsetValue = states('input_number.t_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 't_hight_boolean'
+    state: "{{ is_state('input_boolean.t_hight_state', 'on') }}"
+
+  - name: 't_hight_boolean'
+    state: "{{ is_state('input_boolean.t_low_state', 'on') }}"

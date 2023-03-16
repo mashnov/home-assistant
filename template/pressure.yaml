@@ -1,39 +1,69 @@
+## PRESSURE
 - sensor:
-  - name: 'pressure'
+  - name: 'p_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     state: >
-      {% set kitchen = state_attr('sensor.pressure', 'kitchen_sensor') | float(0) %}
-      {% set bath = state_attr('sensor.pressure', 'bath_sensor') | float(0) %}
-      {% set hall = state_attr('sensor.pressure', 'hall_sensor') | float(0) %}
-      {% set bedroom = state_attr('sensor.pressure', 'bedroom_sensor') | float(0) %}
-      {% set living = state_attr('sensor.pressure', 'living_sensor') | float(0) %}
+      {% set kitchen = states('sensor.p_kitchen_level') | float(0) %}
+      {% set bath = states('sensor.p_bath_level') | float(0) %}
+      {% set hall = states('sensor.p_hall_level') | float(0) %}
+      {% set bedroom = states('sensor.p_bedroom_level') | float(0) %}
+      {% set living = states('sensor.p_living_level') | float(0) %}
       {{ ((kitchen + bath + hall + bedroom + living) / 5) | round(1) }}
-    icon: >
-      {% set isHightIcon = state_attr('sensor.pressure', 'hight_state') and 'mdi:gauge-full' %}
-      {% set isLowIcon = state_attr('sensor.pressure', 'low_state') and 'mdi:gauge-empty' %}
-      {% set defaultIcon = 'mdi:gauge-low' %}
-      {{ isHightIcon or isLowIcon or defaultIcon }}
-    attributes:
-      kitchen_sensor: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
-      bath_sensor: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
-      hall_sensor: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
-      bedroom_sensor: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
-      living_sensor: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
 
-      hight_state: >
-        {% set sensorValue = states('sensor.pressure') | int(0) %}
-        {% set normalValue = states('input_number.p_target') | int(0) %}
-        {% set offsetValue = states('input_number.p_offset') | int(0) %}
-        {% set targetValue = normalValue + offsetValue %}
-        {{ sensorValue > targetValue }}
-      low_state: >
-        {% set sensorValue = states('sensor.pressure') | int(0) %}
-        {% set normalValue = states('input_number.p_target') | int(0) %}
-        {% set offsetValue = states('input_number.p_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue }}
+  - name: 'p_kitchen_level'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
 
-      hight_boolean: "{{ is_state('input_boolean.p_hight', 'on') }}"
-      low_boolean: "{{ is_state('input_boolean.p_low', 'on') }}"
+  - name: 'p_bath_level'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
+
+  - name: 'p_hall_level'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
+
+  - name: 'p_bedroom_level'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
+
+  - name: 'p_living_level'
+    device_class: 'pressure'
+    unit_of_measurement: 'mmHg'
+    state: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
+
+- binary_sensor:
+  - name: 'p_hight_state'
+    state: >
+      {% set sensorValue = states('sensor.p_level') | int(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
+      {% set targetValue = normalValue + offsetValue %}
+      {{ sensorValue > targetValue }}
+
+  - name: 'p_low_state'
+    state: >
+      {% set sensorValue = states('sensor.p_level') | int(0) %}
+      {% set normalValue = states('input_number.p_target') | int(0) %}
+      {% set offsetValue = states('input_number.p_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 't_hight_boolean'
+    state: "{{ is_state('input_boolean.p_hight_state', 'on') }}"
+
+  - name: 't_hight_boolean'
+    state: "{{ is_state('input_boolean.p_low_state', 'on') }}"
+
+
+
+
+
+
+
+
 

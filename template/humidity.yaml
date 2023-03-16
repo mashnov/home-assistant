@@ -1,7 +1,5 @@
 - sensor:
   - name: 'humidity'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
     state: "{{ state_attr('sensor.humidity', 'average_sensor') }}"
     icon: >
       {% set isHightIcon = state_attr('sensor.humidity', 'hight_state') and 'mdi:water' %}
@@ -59,3 +57,113 @@
       living_low_boolean: "{{ is_state('input_boolean.h_living_low', 'on') }}"
       average_low_boolean: "{{ is_state('input_boolean.h_average_low', 'on') }}"
 
+
+
+## HUMIDITY
+- sensor:
+  - name: 'h_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: >
+      {% set kitchen = states('sensor.h_kitchen_level') | float(0) %}
+      {% set hall = states('sensor.h_hall_level') | float(0) %}
+      {% set bedroom = states('sensor.h_bedroom_level') | float(0) %}
+      {% set living = states('sensor.h_living_level') | float(0) %}
+      {{ ((kitchen + bath + hall + bedroom + living) / 4) | round(1) }}
+
+  - name: 'h_kitchen_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
+
+  - name: 'h_bath_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
+
+  - name: 'h_hall_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.hall_humidity') | float(0) | round(1) }}"
+
+  - name: 'h_bedroom_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.bedroom_humidity') | float(0) | round(1) }}"
+
+  - name: 'h_living_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.living_humidity') | float(0) | round(1) }}"
+
+  - name: 'h_balcony_level'
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    state: "{{ states('sensor.balcony_humidity') | float(0) | round(1) }}"
+
+- binary_sensor:
+  - name: 'h_state'
+    state: >
+      {% set sensorValue = states('sensor.h_level') | int(0) %}
+      {% set normalValue = states('input_number.h_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_kitchen_state'
+    state: >
+      {% set sensorValue = states('sensor.h_kitchen_level') | int(0) %}
+      {% set normalValue = states('input_number.h_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_bath_state'
+    state: >
+      {% set sensorValue = states('sensor.h_bath_level') | int(0) %}
+      {% set normalValue = states('input_number.h_bath_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue > targetValue }}
+
+  - name: 'h_hall_state'
+    state: >
+      {% set sensorValue = states('sensor.h_hall_level') | int(0) %}
+      {% set normalValue = states('input_number.h_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_bedroom_state'
+    state: >
+      {% set sensorValue = states('sensor.h_bedroom_level') | int(0) %}
+      {% set normalValue = states('input_number.h_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_living_state'
+    state: >
+      {% set sensorValue = states('sensor.h_living_level') | int(0) %}
+      {% set normalValue = states('input_number.h_target') | int(0) %}
+      {% set offsetValue = states('input_number.h_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'h_boolean'
+    state: "{{ is_state('input_boolean.h_state', 'on') }}"
+
+  - name: 'h_kitchen_boolean'
+    state: "{{ is_state('input_boolean.h_kitchen_state', 'on') }}"
+
+  - name: 'h_bath_boolean'
+    state: "{{ is_state('input_boolean.h_bath_state', 'on') }}"
+
+  - name: 'h_hall_boolean'
+    state: "{{ is_state('input_boolean.h_hall_state', 'on') }}"
+
+  - name: 'h_bedroom_boolean'
+    state: "{{ is_state('input_boolean.h_bedroom_state', 'on') }}"
+
+  - name: 'h_living_boolean'
+    state: "{{ is_state('input_boolean.h_living_state', 'on') }}"
