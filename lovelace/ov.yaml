@@ -271,6 +271,31 @@ cards:
     - entity: input_number.h_balcony_level
       name: 'Балкон сенсор'
 
+  - type: entities
+    title: 'Сеть'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.n_target
+      name: 'Таргет'
+    - entity: input_number.n_offset
+      name: 'Офсет'
+    - entity: input_number.n_download_level
+      name: 'Загрузка'
+    - entity: input_number.n_upload_level
+      name: 'Отдача'
+    - entity: input_number.n_ping_level
+      name: 'Пинг'
+    - type: divider
+    - entity: input_boolean.n_state
+      name: 'Низкая скорость'
+
+
+
+
+
+
+
 
 
 
