@@ -15,7 +15,6 @@
       {{ states('sensor.speedtest_upload') | float(minValue) | round(1) }}
 
   - name: 'n_ping_level'
-    device_class: 'measurement'
     unit_of_measurement: ms
     state: >
       {% set minValue = state_attr('input_number.n_ping_level', 'min') %}
