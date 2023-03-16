@@ -1,7 +1,10 @@
+## CLOUD
 - sensor:
   - name: 'c_level'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
+    state: >
+      {% set minValue = state_attr('input_number.c_level', 'min') %}
+      {{ states('sensor.openweathermap_cloud_coverage') | int(minValue) }}
 
 - binary_sensor:
   - name: 'c_state'

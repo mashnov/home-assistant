@@ -24,56 +24,56 @@ h_bath_target:
 
 h_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_kitchen_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_bath_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_hall_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_bedroom_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_living_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0
 
 h_balcony_level:
   unit_of_measurement: '%'
-  icon: 'mdi:water-check'
-  min: 0
-  max: 100
+  icon: 'mdi:water-percent'
+  min: 20
+  max: 90
   step: 1
   initial: 0

@@ -11,7 +11,7 @@ h_kitchen_state:
 ## BATH
 h_bath_state:
   initial: false
-  icon: 'mdi:water-outline'
+  icon: 'mdi:water'
 
 ## HALL
 h_hall_state:

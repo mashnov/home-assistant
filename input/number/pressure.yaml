@@ -16,31 +16,31 @@ p_target:
 
 p_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
-  min: 700
-  max: 800
+  icon: 'mdi:gauge'
+  min: 740
+  max: 770
   step: 1
   initial: 700
 
 p_kitchen_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
-  min: 700
-  max: 800
+  icon: 'mdi:gauge'
+  min: 740
+  max: 770
   step: 1
   initial: 700
 
 p_bath_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
-  min: 700
-  max: 800
+  icon: 'mdi:gauge'
+  min: 740
+  max: 770
   step: 1
   initial: 700
 
 p_hall_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
+  icon: 'mdi:gauge'
   min: 700
   max: 800
   step: 1
@@ -48,16 +48,16 @@ p_hall_level:
 
 p_bedroom_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
-  min: 700
-  max: 800
+  icon: 'mdi:gauge'
+  min: 740
+  max: 770
   step: 1
   initial: 700
 
 p_living_level:
   unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge-full'
-  min: 700
-  max: 800
+  icon: 'mdi:gauge'
+  min: 740
+  max: 770
   step: 1
   initial: 700

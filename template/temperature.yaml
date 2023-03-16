@@ -13,32 +13,44 @@
   - name: 't_kitchen_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_kitchen_level', 'min') %}
+      {{ states('sensor.kitchen_temperature') | float(minValue) | round(1) }}
 
   - name: 't_bath_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_bath_level', 'min') %}
+      {{ states('sensor.bath_temperature') | float(minValue) | round(1) }}
 
   - name: 't_hall_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_hall_level', 'min') %}
+      {{ states('sensor.hall_temperature') | float(minValue) | round(1) }}
 
   - name: 't_bedroom_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_bedroom_level', 'min') %}
+      {{ states('sensor.bedroom_temperature') | float(minValue) | round(1) }}
 
   - name: 't_living_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_living_level', 'min') %}
+      {{ states('sensor.living_temperature') | float(minValue) | round(1) }}
 
   - name: 't_balcony_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.t_balcony_level', 'min') %}
+      {{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}
 
 - binary_sensor:
   - name: 't_hight_state'

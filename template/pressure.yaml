@@ -14,27 +14,37 @@
   - name: 'p_kitchen_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.p_kitchen_level', 'min') %}
+      {{ states('sensor.kitchen_pressure') | float(minValue) | round(1) }}
 
   - name: 'p_bath_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.p_bath_level', 'min') %}
+      {{ states('sensor.bath_pressure') | float(minValue) | round(1) }}
 
   - name: 'p_hall_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.p_hall_level', 'min') %}
+      {{ states('sensor.hall_pressure') | float(minValue) | round(1) }}
 
   - name: 'p_bedroom_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.p_bedroom_level', 'min') %}
+      {{ states('sensor.bedroom_pressure') | float(minValue) | round(1) }}
 
   - name: 'p_living_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
+    state: >
+      {% set minValue = state_attr('input_number.p_living_level', 'min') %}
+      {{ states('sensor.living_pressure') | float(minValue) | round(1) }}
 
 - binary_sensor:
   - name: 'p_hight_state'
