@@ -1,6 +1,7 @@
 ## ILLUMINANCE
 - alias: 'set_i_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start

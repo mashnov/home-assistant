@@ -1,6 +1,7 @@
 ## ELEVATION
 - alias: 'set_s_elevation_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -36,6 +37,7 @@
 ## AZIMUTH
 - alias: 'set_s_azimuth_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start

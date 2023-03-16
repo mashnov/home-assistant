@@ -1,6 +1,7 @@
 ## HUMIDITY
 - alias: 'set_h_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -11,6 +12,7 @@
 
 - alias: 'set_h_kitchen_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -21,6 +23,7 @@
 
 - alias: 'set_h_bath_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -31,6 +34,7 @@
 
 - alias: 'set_h_hall_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -41,6 +45,7 @@
 
 - alias: 'set_h_bedroom_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -51,6 +56,7 @@
 
 - alias: 'set_h_living_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
@@ -61,6 +67,7 @@
 
 - alias: 'set_h_balcony_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start

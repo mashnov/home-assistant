@@ -1,6 +1,7 @@
 ## CLOUD
 - alias: 'set_c_level'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
