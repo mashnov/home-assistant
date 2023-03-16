@@ -4,11 +4,11 @@
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     state: >
-      {% set kitchen = states('sensor.p_kitchen_level') | float(0) %}
-      {% set bath = states('sensor.p_bath_level') | float(0) %}
-      {% set hall = states('sensor.p_hall_level') | float(0) %}
-      {% set bedroom = states('sensor.p_bedroom_level') | float(0) %}
-      {% set living = states('sensor.p_living_level') | float(0) %}
+      {% set kitchen = states('input_number.p_kitchen_level') | float(0) %}
+      {% set bath = states('input_number.p_bath_level') | float(0) %}
+      {% set hall = states('input_number.p_hall_level') | float(0) %}
+      {% set bedroom = states('input_number.p_bedroom_level') | float(0) %}
+      {% set living = states('input_number.p_living_level') | float(0) %}
       {{ ((kitchen + bath + hall + bedroom + living) / 5) | round(1) }}
 
   - name: 'p_kitchen_level'

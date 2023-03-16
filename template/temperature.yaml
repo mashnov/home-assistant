@@ -4,10 +4,10 @@
     device_class: 'temperature'
     unit_of_measurement: '°C'
     state: >
-      {% set kitchen = states('sensor.t_kitchen_level') | float(0) %}
-      {% set hall = states('sensor.t_hall_level') | float(0) %}
-      {% set bedroom = states('sensor.t_bedroom_level') | float(0) %}
-      {% set living = states('sensor.t_living_level') | float(0) %}
+      {% set kitchen = states('input_number.t_kitchen_level') | float(0) %}
+      {% set hall = states('input_number.t_hall_level') | float(0) %}
+      {% set bedroom = states('input_number.t_bedroom_level') | float(0) %}
+      {% set living = states('input_number.t_living_level') | float(0) %}
       {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
 
   - name: 't_kitchen_level'
