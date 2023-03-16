@@ -17,7 +17,7 @@ t_target:
 t_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
@@ -25,7 +25,7 @@ t_level:
 t_kitchen_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
@@ -33,7 +33,7 @@ t_kitchen_level:
 t_bath_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
@@ -41,7 +41,7 @@ t_bath_level:
 t_hall_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
@@ -49,7 +49,7 @@ t_hall_level:
 t_bedroom_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
@@ -57,7 +57,7 @@ t_bedroom_level:
 t_living_level:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
-  min: 10
+  min: 0
   max: 40
   step: 1
   initial: 0
