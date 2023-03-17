@@ -1,7 +1,6 @@
 ## STATUS
 - sensor:
   - name: 'status_curtain'
-    device_class: 'opening'
     unit_of_measurement: '%'
     state: >
       {% set kitchenValue = state_attr('sensor.status_curtain', 'kitchen') | int(0) %}
