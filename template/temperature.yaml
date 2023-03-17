@@ -1,76 +1,46 @@
 ## TEMPERATURE
 - sensor:
-  - name: 't_level'
+  - name: 'temperature'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: >
-      {% set kitchen = states('input_number.t_kitchen_level') | float(0) %}
-      {% set hall = states('input_number.t_hall_level') | float(0) %}
-      {% set bedroom = states('input_number.t_bedroom_level') | float(0) %}
-      {% set living = states('input_number.t_living_level') | float(0) %}
-      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
-
-  - name: 't_kitchen_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_kitchen_level', 'min') %}
-      {{ states('sensor.kitchen_temperature') | float(minValue) | round(1) }}
-
-  - name: 't_bath_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_bath_level', 'min') %}
-      {{ states('sensor.bath_temperature') | float(minValue) | round(1) }}
-
-  - name: 't_hall_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_hall_level', 'min') %}
-      {{ states('sensor.hall_temperature') | float(minValue) | round(1) }}
-
-  - name: 't_bedroom_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_bedroom_level', 'min') %}
-      {{ states('sensor.bedroom_temperature') | float(minValue) | round(1) }}
-
-  - name: 't_living_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_living_level', 'min') %}
-      {{ states('sensor.living_temperature') | float(minValue) | round(1) }}
-
-  - name: 't_balcony_level'
-    device_class: 'temperature'
-    unit_of_measurement: '°C'
-    state: >
-      {% set minValue = state_attr('input_number.t_balcony_level', 'min') %}
-      {{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}
+    state: "{{ state_attr('sensor.temperature', 'average') }}"
+    icon: >
+      {% set isNormal = state_attr('binary_sensor.temperature', 'normal') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:
+      kitchen: "{{ states('sensor.kitchen_temperature') | float(minValue) | round(1) }}"
+      bath: "{{ states('sensor.bath_temperature') | float(minValue) | round(1) }}"
+      hall: "{{ states('sensor.hall_temperature') | float(minValue) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_temperature') | float(minValue) | round(1) }}"
+      living: "{{ states('sensor.living_temperature') | float(minValue) | round(1) }}"
+      balcony: "{{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}"
+      average: >
+        {% set kitchen = state_attr('sensor.temperature', 'kitchen') | float(0) %}
+        {% set hall = state_attr('sensor.temperature', 'hall') | float(0) %}
+        {% set bedroom = state_attr('sensor.temperature', 'bedroom') | float(0) %}
+        {% set living = state_attr('sensor.temperature', 'living') | float(0) %}
+        {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
 
 - binary_sensor:
-  - name: 't_hight_state'
-    state: >
-      {% set sensorValue = states('sensor.t_level') | int(0) %}
-      {% set normalValue = states('input_number.t_target') | int(0) %}
-      {% set offsetValue = states('input_number.t_offset') | int(0) %}
-      {% set targetValue = normalValue + offsetValue %}
-      {{ sensorValue > targetValue }}
-
-  - name: 't_low_state'
-    state: >
-      {% set sensorValue = states('sensor.t_level') | int(0) %}
-      {% set normalValue = states('input_number.t_target') | int(0) %}
-      {% set offsetValue = states('input_number.t_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 't_hight_boolean'
-    state: "{{ is_state('input_boolean.t_hight_state', 'on') }}"
-
-  - name: 't_hight_boolean'
-    state: "{{ is_state('input_boolean.t_low_state', 'on') }}"
+  - name: 'temperature'
+    state: "{{ state_attr('binary_sensor.temperature', 'normal') }}"
+    icon: >
+      {% set isNormal = state_attr('binary_sensor.temperature', 'normal') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.temperature', 'average') | int(0) %}
+        {% set normalValue = states('input_number.temperature_target') | int(0) %}
+        {% set offsetValue = states('input_number.temperature_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.temperature', 'average') | int(0) %}
+        {% set normalValue = states('input_number.temperature_target') | int(0) %}
+        {% set offsetValue = states('input_number.temperature_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.temperature', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.temperature', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}

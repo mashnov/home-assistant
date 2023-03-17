@@ -1,9 +1,0 @@
-- platform: template
-  switches:
-    d_toilet:
-      value_template: "{{ state_attr('binary_sensor.relay', 'toilet_1') }}"
-      icon_template: "{{ iif(state_attr('sensor.humidity', 'bath_low_boolean'), 'mdi:water-outline', 'mdi:water') }}"
-      turn_off: 
-        service: script.de_toilet_off
-      turn_on: 
-        service: script.de_toilet_on

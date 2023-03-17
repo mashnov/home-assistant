@@ -1,5 +1,6 @@
+## DATE_TIME
 - sensor:
-  - name: 'date-time'
+  - name: 'date_time'
     state: "{{ utcnow() }}"
     device_class: 'timestamp'
     icon: "mdi:calendar-clock"
@@ -21,3 +22,50 @@
       hm_local: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
       z_local: '{{ as_timestamp(now()) | timestamp_custom("%z") }}'
 
+- binary_sensor:
+  - name: 'date_time'
+    state: "{{ state_attr('binary_sensor.date_time', 'night') }}"
+    icon: >
+      {% set isNightIcon = state_attr('binary_sensor.date_time', 'night') and 'mdi:clock-time-eleven-outline' %}
+      {% set isMorningIcon = state_attr('binary_sensor.date_time', 'morning') and 'mdi:clock-time-nine' %}
+      {% set isDayIcon = state_attr('binary_sensor.date_time', 'day') and 'mdi:clock-time-eleven' %}
+      {% set isEveningIcon = state_attr('binary_sensor.date_time', 'evening') and 'mdi:clock-time-nine-outline' %}
+      {% set defaultIcon = 'mdi:help-circle' %}
+      {{ isNightIcon or isMorningIcon or isDayIcon or isEveningIcon or defaultIcon }}
+    attributes:
+      night: >
+        {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+        {% set timeFrom = strptime(states('input_datetime.date_time_night_time'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.date_time_morning_time'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+      morning: >
+        {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+        {% set timeFrom = strptime(states('input_datetime.date_time_morning_time'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.date_time_day_time'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+      day: >
+        {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+        {% set timeFrom = strptime(states('input_datetime.date_time_day_time'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.date_time_evening_time'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}
+      evening: >
+        {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+        {% set timeFrom = strptime(states('input_datetime.date_time_evening_time'), "%H:%M:%S").time() %}
+        {% set timeTill = strptime(states('input_datetime.date_time_night_time'), "%H:%M:%S").time() %}
+        {% if timeFrom > timeTill %}
+          {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+        {% else %}
+          {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+        {% endif %}

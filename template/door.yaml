@@ -1,22 +1,14 @@
+## DOOR
 - binary_sensor:
   - name: 'door'
     device_class: 'door'
     state: "{{ state_attr('binary_sensor.door', 'hall') }}"
     icon: >
-      {% set isCloseIcon = is_state('binary_sensor.door', 'off') and 'mdi:door-closed' %}
-      {% set isOpenIcon = is_state('binary_sensor.door', 'off') and 'mdi:door-open' %}
-      {% set defaultIcon = 'mdi:help-circle' %}
-      {{ isCloseIcon or isOpenIcon or defaultIcon }}
+      {% set isClose = is_state('binary_sensor.pressure', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}
     attributes:
-      toilet_sensor: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
-      hall_sensor: "{{ is_state('binary_sensor.hall_door', 'on') }}"
-      bedroom_sensor: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
-      living_sensor: "{{ is_state('binary_sensor.living_door', 'on') }}"
-      balcony_sensor: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
-      
-      toilet_boolean: "{{ is_state('input_boolean.d_toilet', 'on') }}"
-      hall_boolean: "{{ is_state('input_boolean.d_hall', 'on') }}"
-      bedroom_boolean: "{{ is_state('input_boolean.d_bedroom', 'on') }}"
-      living_boolean: "{{ is_state('input_boolean.d_living', 'on') }}"
-      balcony_boolean: "{{ is_state('input_boolean.d_balcony', 'on') }}"
-
+      toilet: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
+      hall: "{{ is_state('binary_sensor.hall_door', 'on') }}"
+      bedroom: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
+      living: "{{ is_state('binary_sensor.living_door', 'on') }}"
+      balcony: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"

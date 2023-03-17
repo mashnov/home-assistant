@@ -1,42 +1,36 @@
+## SOLAR
 - sensor:
-  - name: 's_azimuth_level'
-    unit_of_measurement: '°'
-    state: "{{ state_attr('sun.sun', 'azimuth')  | int(0) }}"
-
-  - name: 's_elevation_level'
-    unit_of_measurement: '°'
-    state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
+  - name: 'solar'
+    state: "{{ states('sun.sun') }}"
+    icon: >
+      {% set isHight = state_attr('binary_sensor.solar', 'hight') %}
+      {{ iif(isHight, 'mdi:sun-wireless', 'mdi:sun-wireless-outline', 'mdi:help-circle') }}
+    attributes:
+      azimuth: "{{ state_attr('sun.sun', 'azimuth')  | int(0) }}"
+      elevation: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
 
 - binary_sensor:
-  - name: 's_azimuth_state'
-    state: >
-      {% set sensorValue = states('input_number.s_azimuth_level') | int(0) %}
-      {% set targetValue = states('input_number.s_azimuth_target') | int(0) %}
-      {% set offsetValue = states('input_number.s_azimuth_offset') | int(0) %}
-      {% set minValue = targetValue - offsetValue %}
-      {% set maxValue = targetValue + offsetValue %}
-      {{ minValue < sensorValue < maxValue }}
-
-  - name: 's_elevation_state'
-    state: >
-      {% set sensorValue = states('input_number.s_elevation_level') | int(0) %}
-      {% set targetValue = states('input_number.s_elevation_target') | int(0) %}
-      {% set offsetValue = states('input_number.s_elevation_offset') | int(0) %}
-      {% set minValue = targetValue - offsetValue %}
-      {% set maxValue = targetValue + offsetValue %}
-      {{ minValue < sensorValue < maxValue }}
-
-  - name: 's_hight_state'
-    state: >
-      {% set azimuthState = is_state('binary_sensor.s_azimuth_boolean', 'on') %}
-      {% set elevationState = is_state('binary_sensor.s_elevation_boolean', 'on') %}
-      {{ azimuthState and elevationState }}
-
-  - name: 's_azimuth_boolean'
-    state: "{{ is_state('input_boolean.s_azimuth_state', 'on') }}"
-
-  - name: 's_elevation_boolean'
-    state: "{{ is_state('input_boolean.s_elevation_state', 'on') }}"
-
-  - name: 's_hight_boolean'
-    state: "{{ is_state('input_boolean.s_hight_state', 'on') }}"
+  - name: 'solar'
+    state: "{{ state_attr('binary_sensor.solar', 'hight') }}"
+    icon: >
+      {% set isHight = state_attr('binary_sensor.solar', 'hight') %}
+      {{ iif(isHight, 'mdi:sun-wireless', 'mdi:sun-wireless-outline', 'mdi:help-circle') }}
+    attributes:      
+      azimuth: >
+        {% set sensorValue = state_attr('sensor.solar', 'azimuth') | int(0) %}
+        {% set targetValue = states('input_number.solar_azimuth_target') | int(0) %}
+        {% set offsetValue = states('input_number.solar_azimuth_offset') | int(0) %}
+        {% set minValue = targetValue - offsetValue %}
+        {% set maxValue = targetValue + offsetValue %}
+        {{ minValue < sensorValue < maxValue }}
+      elevation: >
+        {% set sensorValue = state_attr('sensor.solar', 'elevation') | int(0) %}
+        {% set targetValue = states('input_number.solar_elevation_target') | int(0) %}
+        {% set offsetValue = states('input_number.solar_elevation_offset') | int(0) %}
+        {% set minValue = targetValue - offsetValue %}
+        {% set maxValue = targetValue + offsetValue %}
+        {{ minValue < sensorValue < maxValue }}
+      hight: >
+        {% set azimuthValue = state_attr('binary_sensor.solar', 'azimuth') %}
+        {% set elevationValue = state_attr('binary_sensor.solar', 'elevation') %}
+        {{ azimuthValue and elevationValue }}

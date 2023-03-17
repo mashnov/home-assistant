@@ -1,119 +1,90 @@
 ## ILLUMINANCE
 - sensor:
-  - name: 'i_level'
+  - name: 'illuminance'
     device_class: 'illuminance'
     unit_of_measurement: 'lx'
-    state: >
-      {% set minValue = state_attr('input_number.i_level', 'min') %}
-      {{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(minValue) }}
+    state: "{{ state_attr('sensor.pressure', 'balcony') | int(0) }}"
+    icon: >
+      {% set isLow = is_state('binary_sensor.illuminance', 'on') %}
+      {{ iif(isLow, 'mdi:brightness-7', 'mdi:brightness-5', 'mdi:help-circle') }}
+    attributes:
+      balcony: "{{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(0) }}"
+      kitchen: "{{ state_attr('sensor.kitchen_motion', 'illuminance_lux') | int(1) }}"
+      hall: "{{ state_attr('sensor.hall_motion', 'illuminance_lux') | int(1) }}"
 
 - binary_sensor:
-  - name: 'i_kitchen_curtain_state'
+  - name: 'illuminance'
     state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_kitchen_curtain_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_kitchen_curtain_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue > targetValue }}
+      {% set kitchenCurtainValue = state_attr('sensor.illuminance', 'kitchen_curtain') %}
+      {% set bedroomCurtainValue = state_attr('sensor.illuminance', 'bedroom_curtain') %}
+      {% set livingCurtainValue = state_attr('sensor.illuminance', 'living_curtain') %}
+      {{ kitchenCurtainValue or bedroomCurtainValue or livingCurtainValue }}
+    icon: >
+      {% set isLow = is_state('binary_sensor.illuminance', 'on') %}
+      {{ iif(isLow, 'mdi:brightness-7', 'mdi:brightness-5', 'mdi:help-circle') }}
+    attributes: 
+      kitchen_curtain: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_kitchen_curtain_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_kitchen_curtain_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue > targetValue }}
+      bedroom_curtain: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_bedroom_curtain_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_bedroom_curtain_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue > targetValue }}
+      living_curtain: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_living_curtain_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_living_curtain_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue > targetValue }}
 
-  - name: 'i_kitchen_top_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_kitchen_top_light_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_kitchen_top_light_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
+      kitchen_top_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_kitchen_top_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_kitchen_top_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}
+      hall_top_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_hall_top_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_hall_top_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}
 
-  - name: 'i_kitchen_back_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_kitchen_back_light_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_kitchen_back_light_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'i_hall_top_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_hall_top_light_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_hal_top_light_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'i_hall_back_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_hall_back_light_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_hal_back_light_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'i_bedroom_curtain_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_bedroom_curtain_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_bedroom_curtain_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue > targetValue }}
-
-  - name: 'i_bedroom_back_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_bedroom_back_light_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_bedroom_back_light_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'i_living_curtain_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_living_curtain_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_living_curtain_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue > targetValue }}
-
-  - name: 'i_living_back_light_state'
-    state: >
-      {% set isCloudly = is_state('binary_sensor.c_boolean', 'on') %}
-      {% set targetCloudly = states('input_number.i_living_backlight_cloudly_target') | int(0) %}
-      {% set targetSunny = states('input_number.i_living_backlight_sunny_target') | int(0) %}
-      {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
-      {% set sensorValue = states('input_number.i_level') | int(0) %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'i_kitchen_curtain_boolean'
-    state: "{{ is_state('input_boolean.i_kitchen_curtain_state', 'on') }}"
-
-  - name: 'i_kitchen_back_light_boolean'
-    state: "{{ is_state('input_boolean.i_kitchen_back_light_state', 'on') }}"
-
-  - name: 'i_kitchen_top_light_boolean'
-    state: "{{ is_state('input_boolean.i_kitchen_top_light_state', 'on') }}"
-
-  - name: 'i_hall_top_light_boolean'
-    state: "{{ is_state('input_boolean.i_hall_top_light_state', 'on') }}"
-
-  - name: 'i_hall_back_light_boolean'
-    state: "{{ is_state('input_boolean.i_hall_back_light_state', 'on') }}"
-
-  - name: 'i_bedroom_curtain_boolean'
-    state: "{{ is_state('input_boolean.i_bedroom_curtain_state', 'on') }}"
-
-  - name: 'i_bedroom_back_light_boolean'
-    state: "{{ is_state('input_boolean.i_bedroom_back_light_state', 'on') }}"
-
-  - name: 'i_living_curtain_boolean'
-    state: "{{ is_state('input_boolean.i_living_curtain_state', 'on') }}"
-
-  - name: 'i_living_back_light_boolean'
-    state: "{{ is_state('input_boolean.i_living_back_light_state', 'on') }}"
-
-
+      kitchen_back_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_kitchen_back_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_kitchen_back_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}
+      hall_back_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_hall_bakc_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_hall_bakc_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}
+      bedroom_back_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_bedroom_back_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_bedroom_back_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}
+      living_back_light: >
+        {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+        {% set targetCloudly = states('input_number.illuminance_living_back_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_living_back_light_target_sunny') | int(0) %}
+        {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
+        {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
+        {{ sensorValue < targetValue }}

@@ -1,120 +1,138 @@
 ## HUMIDITY
 - sensor:
-  - name: 'h_level'
+  - name: 'humidity'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: >
-      {% set kitchen = states('input_number.h_kitchen_level') | float(0) %}
-      {% set hall = states('input_number.h_hall_level') | float(0) %}
-      {% set bedroom = states('input_number.h_bedroom_level') | float(0) %}
-      {% set living = states('input_number.h_living_level') | float(0) %}
-      {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
-
-  - name: 'h_kitchen_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_kitchen_level', 'min') %}
-      {{ states('sensor.kitchen_humidity') | float(minValue) | round(1) }}
-
-  - name: 'h_bath_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_bath_level', 'min') %}
-      {{ states('sensor.bath_humidity') | float(minValue) | round(1) }}
-
-  - name: 'h_hall_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_hall_level', 'min') %}
-      {{ states('sensor.hall_humidity') | float(minValue) | round(1) }}
-
-  - name: 'h_bedroom_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_bedroom_level', 'min') %}
-      {{ states('sensor.bedroom_humidity') | float(minValue) | round(1) }}
-
-  - name: 'h_living_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_living_level', 'min') %}
-      {{ states('sensor.living_humidity') | float(minValue) | round(1) }}
-
-  - name: 'h_balcony_level'
-    device_class: 'humidity'
-    unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.h_balcony_level', 'min') %}
-      {{ states('sensor.balcony_humidity') | float(minValue) | round(1) }}
+    state: "{{ state_attr('sensor.humidity', 'average') }}"
+    icon: >
+      {% set isNormal = state_attr('binary_sensor.humidity_average', 'normal') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:
+      kitchen: "{{ states('sensor.kitchen_temperature') | float(minValue) | round(1) }}"
+      bath: "{{ states('sensor.bath_temperature') | float(minValue) | round(1) }}"
+      hall: "{{ states('sensor.hall_temperature') | float(minValue) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_temperature') | float(minValue) | round(1) }}"
+      living: "{{ states('sensor.living_temperature') | float(minValue) | round(1) }}"
+      balcony: "{{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}"
+      average: >
+        {% set kitchen = state_attr('sensor.humidity', 'kitchen') | float(0) %}
+        {% set hall = state_attr('sensor.humidity', 'hall') | float(0) %}
+        {% set bedroom = state_attr('sensor.humidity', 'bedroom') | float(0) %}
+        {% set living = state_attr('sensor.humidity', 'living') | float(0) %}
+        {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
 
 - binary_sensor:
-  - name: 'h_state'
-    state: >
-      {% set sensorValue = states('sensor.h_level') | int(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
+  - name: 'humidity_average'
+    state: "{{ state_attr('binary_sensor.humidity_average', 'normal') }}"
+    icon: >
+      {% set isNormal = state_attr('binary_sensor.humidity_average', 'normal') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.humidity', 'average') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.humidity', 'average') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.humidity_average', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.humidity_average', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}
 
-  - name: 'h_kitchen_state'
-    state: >
-      {% set sensorValue = states('sensor.h_kitchen_level') | int(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
+  - name: 'humidity_bath'
+    state: "{{ state_attr('binary_sensor.humidity_bath', 'normal') }}"
+    icon: >
+      {% set isNormal = is_state('binary_sensor.humidity', 'on') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bath') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target_bath') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bath') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target_bath') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.humidity_bath', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.humidity_bath', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}
 
-  - name: 'h_bath_state'
-    state: >
-      {% set sensorValue = states('sensor.h_bath_level') | int(0) %}
-      {% set normalValue = states('input_number.h_bath_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue > targetValue }}
+  - name: 'humidity_hall'
+    state: "{{ state_attr('binary_sensor.humidity_hall', 'normal') }}"
+    icon: >
+      {% set isNormal = is_state('binary_sensor.humidity', 'on') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.humidity', 'hall') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.humidity', 'hall') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.humidity_hall', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.humidity_hall', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}
 
-  - name: 'h_hall_state'
-    state: >
-      {% set sensorValue = states('sensor.h_hall_level') | int(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
+  - name: 'humidity_bedroom'
+    state: "{{ state_attr('binary_sensor.humidity_bedroom', 'normal') }}"
+    icon: >
+      {% set isNormal = is_state('binary_sensor.humidity', 'on') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.humidity', 'bedroom') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.humidity', 'hall') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.humidity_bedroom', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.humidity_bedroom', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}
 
-  - name: 'h_bedroom_state'
-    state: >
-      {% set sensorValue = states('sensor.h_bedroom_level') | int(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'h_living_state'
-    state: >
-      {% set sensorValue = states('sensor.h_living_level') | int(0) %}
-      {% set normalValue = states('input_number.h_target') | int(0) %}
-      {% set offsetValue = states('input_number.h_offset') | int(0) %}
-      {% set targetValue = normalValue - offsetValue %}
-      {{ sensorValue < targetValue }}
-
-  - name: 'h_boolean'
-    state: "{{ is_state('input_boolean.h_state', 'on') }}"
-
-  - name: 'h_kitchen_boolean'
-    state: "{{ is_state('input_boolean.h_kitchen_state', 'on') }}"
-
-  - name: 'h_bath_boolean'
-    state: "{{ is_state('input_boolean.h_bath_state', 'on') }}"
-
-  - name: 'h_hall_boolean'
-    state: "{{ is_state('input_boolean.h_hall_state', 'on') }}"
-
-  - name: 'h_bedroom_boolean'
-    state: "{{ is_state('input_boolean.h_bedroom_state', 'on') }}"
-
-  - name: 'h_living_boolean'
-    state: "{{ is_state('input_boolean.h_living_state', 'on') }}"
+  - name: 'humidity_living'
+    state: "{{ state_attr('binary_sensor.humidity_living', 'normal') }}"
+    icon: >
+      {% set isNormal = is_state('binary_sensor.humidity', 'on') %}
+      {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
+    attributes:      
+      hight: >
+        {% set sensorValue = state_attr('sensor.humidity', 'living') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue + offsetValue %}
+        {{ sensorValue > targetValue }}
+      low: >
+        {% set sensorValue = state_attr('sensor.humidity', 'living') | int(0) %}
+        {% set normalValue = states('input_number.humidity_target') | int(0) %}
+        {% set offsetValue = states('input_number.humidity_offset') | int(0) %}
+        {% set targetValue = normalValue - offsetValue %}
+        {{ sensorValue < targetValue }}
+      normal: >
+        {% set hightValue = state_attr('binary_sensor.humidity_living', 'hight') %}
+        {% set lowValue = state_attr('binary_sensor.humidity_living', 'low') %}
+        {{ not(hightValue) and not(lowValue) }}

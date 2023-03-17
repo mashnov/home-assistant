@@ -1,17 +1,22 @@
 ## CLOUD
 - sensor:
-  - name: 'c_level'
+  - name: 'cloud'
     unit_of_measurement: '%'
-    state: >
-      {% set minValue = state_attr('input_number.c_level', 'min') %}
-      {{ states('sensor.openweathermap_cloud_coverage') | int(minValue) }}
+    state: "{{ state_attr('sensor.cloud', 'level') | int(0) }}"
+    icon: >
+      {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+      {{ iif(isCloudly, 'mdi:cloud', 'mdi:cloud-outline', 'mdi:help-circle') }}
+    attributes:
+      level: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
 
 - binary_sensor:
-  - name: 'c_state'
-    state: >
-      {% set sensorValue = states('input_number.c_level') | int(0) %}
-      {% set targetValue = states('input_number.c_target') | int(0) %}
-      {{ sensorValue > targetValue }}
-
-  - name: 'c_boolean'
-    state: "{{ is_state('input_boolean.c_state', 'on') }}"
+  - name: 'cloud'
+    state: "{{ state_attr('binary_sensor.cloud', 'cloudly') }}"
+    icon: >
+      {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+      {{ iif(isCloudly, 'mdi:cloud', 'mdi:cloud-outline', 'mdi:help-circle') }}
+    attributes: 
+      cloudly: >
+        {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
+        {% set targetValue = states('input_number.cloud_target') | int(0) %}
+        {{ sensorValue > targetValue }}

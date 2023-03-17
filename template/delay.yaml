@@ -1,17 +1,54 @@
+## DELAY
 - sensor:
   - name: 'delay'
-    device_class: duration
-    icon: 'mdi:camera-timer'
     state: "00:00:00"
+    icon: 'mdi:camera-timer'
     attributes:
-      power: "{{ states('input_number.dl_power') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      window: "{{ states('input_number.dl_window') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      door: "{{ states('input_number.dl_door') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-      illuminance: "{{ states('input_number.dl_illuminance') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+      power: >
+        {% set duration = states('input_number.delay_power') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      window: >
+        {% set duration = states('input_number.delay_window') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      door: >
+        {% set duration = states('input_number.delay_door') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      illuminance: >
+        {% set duration = states('input_number.delay_illuminance') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      toilet_mode: >
+        {% set duration = states('input_number.delay_toilet_mode') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
       occupation: >
-        {% set isNight = state_attr('sensor.day_time', 'night_boolean') %}
-        {% set delayNight = states('input_number.dl_occupation_night') %}
-        {% set delayDay = states('input_number.dl_occupation_day') %}
+        {% set isNight = state_attr('binary_sensor.date_time', 'night') %}
+        {% set delayNight = states('input_number.delay_occupation_night') %}
+        {% set delayDay = states('input_number.delay_occupation_day') %}
         {% set delay = iif(isNight, delayNight, delayDay) %}
         {{ delay | int(0) | timestamp_custom('%H:%M:%S', false) }}
+
+  - name: 'duration'
+    state: "00:00:00"
+    icon: 'mdi:camera-timer'
+    attributes:
+      dehumidifier: >
+        {% set isNight = state_attr('binary_sensor.date_time', 'night') %}
+        {% set durationNight = states('input_number.duration_toilet_night') %}
+        {% set durationDay = states('input_number.duration_toilet_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      top_light: >
+        {% set isNight = state_attr('binary_sensor.date_time', 'night') %}
+        {% set durationNight = states('input_number.duration_top_light_night') %}
+        {% set durationDay = states('input_number.duration_top_light_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      back_light: >
+        {% set isNight = state_attr('binary_sensor.date_time', 'night') %}
+        {% set durationNight = states('input_number.duration_back_light_night') %}
+        {% set durationDay = states('input_number.duration_back_light_day') %}
+        {% set duration = iif(isNight, durationNight, durationDay) %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      night_light: >
+        {% set duration = states('input_number.duration_night_light') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
 

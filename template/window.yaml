@@ -1,28 +1,20 @@
+## WINDOW
 - binary_sensor:
   - name: 'window'
     device_class: 'window'
     state: >
-      {% set kitchenLeftValue = state_attr('binary_sensor.window', 'kitchen_left_sensor') %}
-      {% set kitchenRightValue = state_attr('binary_sensor.window', 'kitchen_right_sensor') %}
-      {% set bedroomLeftValue = state_attr('binary_sensor.window', 'bedroom_left_sensor') %}
-      {% set bedroomRightValue = state_attr('binary_sensor.window', 'bedroom_right_sensor') %}
-      {% set livingValue = state_attr('binary_sensor.window', 'living_sensor') %}
+      {% set kitchenLeftValue = state_attr('binary_sensor.window', 'kitchen_left') %}
+      {% set kitchenRightValue = state_attr('binary_sensor.window', 'kitchen_right') %}
+      {% set bedroomLeftValue = state_attr('binary_sensor.window', 'bedroom_left') %}
+      {% set bedroomRightValue = state_attr('binary_sensor.window', 'bedroom_right') %}
+      {% set livingValue = state_attr('binary_sensor.window', 'living') %}
       {{ kitchenLeftValue or kitchenRightValue or bedroomLeftValue or bedroomRightValue or livingValue }}
     icon: >
-      {% set isOpenIcon = is_state('binary_sensor.window', 'on') and 'mdi:window-open-variant' %}
-      {% set isCloseIcon = is_state('binary_sensor.window', 'off') and 'mdi:window-closed-variant' %}
-      {% set defaultIcon = 'mdi:help-circle' %}
-      {{ isOpenIcon or isCloseIcon or defaultIcon }}
+      {% set isOpenIcon = is_state('binary_sensor.window', 'on') %}
+      {{ iif(isOpenIcon, 'mdi:window-open-variant', 'mdi:window-closed-variant', 'mdi:help-circle') }}
     attributes:
-      kitchen_left_sensor: "{{ is_state('binary_sensor.kitchen_window_left', 'on') }}"
-      kitchen_right_sensor: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"
-      bedroom_left_sensor: "{{ is_state('binary_sensor.bedroom_window_left', 'on') }}"
-      bedroom_right_sensor: "{{ is_state('binary_sensor.bedroom_window_right', 'on') }}"
-      living_sensor: "{{ is_state('binary_sensor.living_top_window', 'on') }}"
-      
-      kitchen_left_boolean: "{{ is_state('input_boolean.w_kitchen_left', 'on') }}"
-      kitchen_right_boolean: "{{ is_state('input_boolean.w_kitchen_right', 'on') }}"
-      bedroom_left_boolean: "{{ is_state('input_boolean.w_bedroom_left', 'on') }}"
-      bedroom_right_boolean: "{{ is_state('input_boolean.w_bedroom_right', 'on') }}"
-      living_boolean: "{{ is_state('input_boolean.w_living', 'on') }}"
-
+      kitchen_left: "{{ is_state('binary_sensor.kitchen_window_left', 'on') }}"
+      kitchen_right: "{{ is_state('binary_sensor.kitchen_window_right', 'on') }}"
+      bedroom_left: "{{ is_state('binary_sensor.bedroom_window_left', 'on') }}"
+      bedroom_right: "{{ is_state('binary_sensor.bedroom_window_right', 'on') }}"
+      living: "{{ is_state('binary_sensor.living_top_window', 'on') }}"

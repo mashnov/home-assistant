@@ -1,5 +1,6 @@
+## NIGHT_MODE
 - binary_sensor:
-  - name: 'night-mode'
+  - name: 'night_mode'
     state: >
       {% set hallValue = state_attr('binary_sensor.night_mode', 'hall_state') %}
       {% set bedroomValue = state_attr('binary_sensor.night_mode', 'bedroom_state') %}
@@ -11,11 +12,6 @@
       {% set isDayIcon = is_state('binary_sensor.night_mode', 'off') and 'mdi:weather-partly-cloudy' %}
       {{ isNightIcon or isDayIcon or defaultIcon }}
     attributes:
-      hall_state: "{{ is_state('input_boolean.nm_hall', 'on') }}"
-      bedroom_state: "{{ is_state('input_boolean.nm_bedroom', 'on') }}"
-      living_state: "{{ is_state('input_boolean.nm_living', 'on') }}"
-      
-      hall_boolean: "{{ is_state('input_boolean.nm_hall', 'on') }}"
-      bedroom_boolean: "{{ is_state('input_boolean.nm_bedroom', 'on') }}"
-      living_boolean: "{{ is_state('input_boolean.nm_living', 'on') }}"
-
+      hall_state: "{{ is_state('input_boolean.night_mode_hall', 'on') }}"
+      bedroom_state: "{{ is_state('input_boolean.night_mode_bedroom', 'on') }}"
+      living_state: "{{ is_state('input_boolean.night_mode_living', 'on') }}"

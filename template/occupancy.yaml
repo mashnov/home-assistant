@@ -1,23 +1,18 @@
+## OCCUPANCY
 - binary_sensor:
   - name: 'occupancy'
     device_class: 'occupancy'
     state: >
-      {% set kitchenValue = state_attr('binary_sensor.occupancy', 'kitchen_sensor') %}
-      {% set hallValue = state_attr('binary_sensor.occupancy', 'hall_sensor') %}
-      {% set bathValue = state_attr('binary_sensor.occupancy', 'bath_sensor') %}
-      {{ kitchenValue or hallValue or bathValue }}
+      {% set kitchenValue = state_attr('binary_sensor.occupancy', 'kitchen') %}
+      {% set hallValue = state_attr('binary_sensor.occupancy', 'hall') %}
+      {% set bathValue = state_attr('binary_sensor.occupancy', 'bath') %}
+      {% set toiletValue = state_attr('binary_sensor.occupancy', 'toilet') %}
+      {{ kitchenValue or hallValue or bathValue or toiletValue }}
     icon: >
-      {% set isOccupancyIcon = is_state('binary_sensor.occupancy', 'on') and 'mdi:human-greeting' %}
-      {% set isVacancyIcon = is_state('binary_sensor.occupancy', 'off') and 'mdi:human-male' %}
-      {% set defaultIcon = 'mdi:help-circle' %}
-      {{ isOccupancyIcon or isVacancyIcon or defaultIcon }}
+      {% set isOccupancy = is_state('binary_sensor.occupancy', 'on') %}
+      {{ iif(isOccupancy, 'mdi:human-greeting', 'mdi:human-male', 'mdi:help-circle') }}
     attributes:
-      kitchen_sensor: "{{ is_state('binary_sensor.kitchen_motion', 'on') }}"
-      hall_sensor: "{{ is_state('binary_sensor.hall_motion', 'on') }}"
-      bath_sensor: "{{ is_state('binary_sensor.bath_motion', 'on') }}"
-      
-      kitchen_boolean: "{{ is_state('input_boolean.o_kitchen', 'on') }}"
-      hall_boolean: "{{ is_state('input_boolean.o_hall', 'on') }}"
-      bath_boolean: "{{ is_state('input_boolean.o_bath', 'on') }}"
-      toilet_boolean: "{{ is_state('input_boolean.o_toilet', 'on') }}"
-
+      kitchen: "{{ is_state('binary_sensor.kitchen_motion', 'on') }}"
+      hall: "{{ is_state('binary_sensor.hall_motion', 'on') }}"
+      bath: "{{ is_state('binary_sensor.bath_motion', 'on') }}"
+      toilet: "{{ is_state('input_boolean.occupancy_toilet', 'on') }}"
