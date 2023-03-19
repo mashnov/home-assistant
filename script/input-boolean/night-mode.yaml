@@ -1,40 +1,12 @@
 ## HALL
-nm_hall_boolean_on:
+night_mode_hall_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.nm_hall
+    entity_id: input_boolean.night_mode_hall
 
-nm_hall_boolean_off:
+night_mode_hall_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.nm_hall
-
-
-## BEDROOM
-nm_bedroom_boolean_on:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.nm_bedroom
-
-nm_bedroom_boolean_off:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.nm_bedroom
-
-
-## LIVING
-nm_living_boolean_on:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.nm_living
-
-nm_living_boolean_off:
-  mode: 'queued'
-  sequence:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.nm_living
+    entity_id: input_boolean.night_mode_hall

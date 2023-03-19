@@ -1,54 +1,54 @@
 ## KICTHEN
-v_kitchen_boolean_on:
+ventilation_kitchen_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.v_kitchen
+    entity_id: input_boolean.ventilation_kitchen
 
-v_kitchen_boolean_off:
+ventilation_kitchen_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.v_kitchen
+    entity_id: input_boolean.ventilation_kitchen
 
 
 ## HALL
-v_hall_boolean_on:
+ventilation_hall_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.v_hall
+    entity_id: input_boolean.ventilation_hall
 
-v_hall_boolean_off:
+ventilation_hall_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.v_hall
+    entity_id: input_boolean.ventilation_hall
 
 
 ## BEDROOM
-v_bedroom_boolean_on:
+ventilation_bedroom_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.v_bedroom
+    entity_id: input_boolean.ventilation_bedroom
 
-v_bedroom_boolean_off:
+ventilation_bedroom_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.v_bedroom
+    entity_id: input_boolean.ventilation_bedroom
 
 
 ## LIVING
-v_living_boolean_on:
+ventilation_living_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.v_living
+    entity_id: input_boolean.ventilation_living
 
-v_living_boolean_off:
+ventilation_living_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.v_living
+    entity_id: input_boolean.ventilation_living

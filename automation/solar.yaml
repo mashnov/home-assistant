@@ -1,97 +1,81 @@
-## ELEVATION
-- alias: 'set_s_elevation_level'
+## SOLAR
+### AZIMUTH
+- alias: 'solar_azimuth'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'sensor.s_elevation_level'
-  action:
-  - service: script.set_s_elevation_level
-
-- alias: 'set_s_elevation_state'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'binary_sensor.s_elevation_state'
+    entity_id: 'binary_sensor.solar'
+    attribute: 'solar_azimuth'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_elevation_state
-        state: 'on'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_azimuth'
+        state: true
       sequence:
-      - service: script.on_s_elevation_state
+      - service: script.solar_azimuth_on_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_elevation_state
-        state: 'off'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_azimuth'
+        state: false
       sequence:
-      - service: script.off_s_elevation_state
+      - service: script.solar_azimuth_off_message
 
-
-## AZIMUTH
-- alias: 'set_s_azimuth_level'
+### ELEVATION
+- alias: 'solar_elevation'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'sensor.s_azimuth_level'
-  - platform: time_pattern
-    minutes: '5'
-  action:
-  - service: script.set_s_azimuth_level
-
-- alias: 'set_s_azimuth_state'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'binary_sensor.s_azimuth_state'
+    entity_id: 'binary_sensor.solar'
+    attribute: 'solar_elevation'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_azimuth_state
-        state: 'on'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_elevation'
+        state: true
       sequence:
-      - service: script.on_s_azimuth_state
+      - service: script.solar_elevation_on_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_azimuth_state
-        state: 'off'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_elevation'
+        state: false
       sequence:
-      - service: script.off_s_azimuth_state
+      - service: script.solar_elevation_off_message
 
-
-## STATE
-- alias: 'set_s_hight_state'
+### HIGHT
+- alias: 'solar_hight'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'binary_sensor.s_hight_state'
+    entity_id: 'binary_sensor.solar'
+    attribute: 'solar_hight'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_hight_state
-        state: 'on'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_hight'
+        state: true
       sequence:
-      - service: script.on_s_hight_state
+      - service: script.solar_hight_on_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.s_hight_state
-        state: 'off'
+        entity_id: binary_sensor.solar
+        attribute: 'solar_hight'
+        state: false
       sequence:
-      - service: script.off_s_hight_state
+      - service: script.solar_hight_off_message

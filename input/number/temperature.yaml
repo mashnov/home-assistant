@@ -1,4 +1,4 @@
-t_offset:
+temperature_offset:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'
   min: 0
@@ -6,7 +6,7 @@ t_offset:
   step: 1
   initial: 5
 
-t_target:
+temperature_target:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-check'
   min: 0
@@ -14,10 +14,3 @@ t_target:
   step: 1
   initial: 22
 
-t_level:
-  unit_of_measurement: '°C'
-  icon: 'mdi:thermometer'
-  min: 17
-  max: 40
-  step: 0.1
-  initial: 17

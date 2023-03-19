@@ -1,126 +1,33 @@
 ## TEMPERATURE
-- alias: 'set_t_level'
+- alias: 'temperature'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'sensor.t_level'
-  action:
-  - service: script.set_t_level
-
-- alias: 'set_t_kitchen_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_kitchen_level'
-  action:
-  - service: script.set_t_kitchen_level
-
-- alias: 'set_t_bath_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_bath_level'
-  action:
-  - service: script.set_t_bath_level
-
-- alias: 'set_t_hall_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_hall_level'
-  action:
-  - service: script.set_t_hall_level
-
-- alias: 'set_t_bedroom_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_bedroom_level'
-  action:
-  - service: script.set_t_bedroom_level
-
-- alias: 'set_t_living_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_living_level'
-  action:
-  - service: script.set_t_living_level
-
-- alias: 'set_t_balcony_level'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'sensor.t_balcony_level'
-  action:
-  - service: script.set_t_balcony_level
-
-
-## HIGHT STATE
-- alias: 'set_t_hight_state'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'binary_sensor.t_hight_state'
+    entity_id: 'binary_sensor.temperature'
+    attribute: 'normal'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.t_hight_state
-        state: 'on'
+        entity_id: binary_sensor.temperature
+        attribute: 'hight'
+        state: true
       sequence:
-      - service: script.on_t_hight_state
+      - service: script.temperature_hight_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.t_hight_state
-        state: 'off'
+        entity_id: binary_sensor.temperature
+        attribute: 'low'
+        state: true
       sequence:
-      - service: script.off_t_hight_state
-
-## LOW STATE
-- alias: 'set_t_low_state'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'binary_sensor.t_low_state'
-  action:
-  - choose:
+      - service: script.temperature_low_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.t_low_state
-        state: 'on'
+        entity_id: binary_sensor.temperature
+        attribute: 'normal'
+        state: true 
       sequence:
-      - service: script.on_t_low_state
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.t_low_state
-        state: 'off'
-      sequence:
-      - service: script.off_t_low_state
+      - service: script.temperature_normal_message

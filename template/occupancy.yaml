@@ -12,7 +12,7 @@
       {% set isOccupancy = is_state('binary_sensor.occupancy', 'on') %}
       {{ iif(isOccupancy, 'mdi:human-greeting', 'mdi:human-male', 'mdi:help-circle') }}
     attributes:
-      kitchen: "{{ is_state('binary_sensor.kitchen_motion', 'on') }}"
-      hall: "{{ is_state('binary_sensor.hall_motion', 'on') }}"
-      bath: "{{ is_state('binary_sensor.bath_motion', 'on') }}"
+      kitchen: "{{ is_state('input_boolean.occupancy_kitchen', 'on') }}"
+      hall: "{{ is_state('input_boolean.occupancy_hall', 'on') }}"
+      bath: "{{ is_state('input_boolean.occupancy_bath', 'on') }}"
       toilet: "{{ is_state('input_boolean.occupancy_toilet', 'on') }}"

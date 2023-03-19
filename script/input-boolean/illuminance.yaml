@@ -1,124 +1,124 @@
 ## KITCHEN CURTAIN
-on_i_kitchen_curtain_boolean:
+illuminance_kitchen_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_kitchen_curtain_state
+    entity_id: input_boolean.illuminance_kitchen_curtain
 
-off_i_kitchen_curtain_boolean:
+illuminance_kitchen_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_kitchen_curtain_state
+    entity_id: input_boolean.illuminance_kitchen_curtain
 
 
 ## KITCHEN TOP LIGTH
-on_i_kitchen_top_light_boolean:
+illuminance_kitchen_top_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_kitchen_top_light_state
+    entity_id: input_boolean.illuminance_kitchen_top_light
 
-off_i_kitchen_top_light_boolean:
+illuminance_kitchen_top_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_kitchen_top_light_state
+    entity_id: input_boolean.illuminance_kitchen_top_light
 
 
 ## KITCHEN BACK LIGTH
-on_i_kitchen_back_light_boolean:
+illuminance_kitchen_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_kitchen_back_light_state
+    entity_id: input_boolean.illuminance_kitchen_back_light
 
-off_i_kitchen_back_light_boolean:
+illuminance_kitchen_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_kitchen_back_light_state
+    entity_id: input_boolean.illuminance_kitchen_back_light
 
 
 ## HALL TOP LIGTH
-on_i_hall_top_light_boolean:
+illuminance_hall_top_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_hall_top_light_state
+    entity_id: input_boolean.illuminance_hall_top_light
 
-off_i_hall_top_light_boolean:
+illuminance_hall_top_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_hall_top_light_state
+    entity_id: input_boolean.illuminance_hall_top_light
 
 
 ## HALL BACK LIGTH
-on_i_hall_back_light_boolean:
+illuminance_hall_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_hall_back_light_state
+    entity_id: input_boolean.illuminance_hall_back_light
 
-off_i_hall_back_light_boolean:
+illuminance_hall_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_hall_back_light_state
+    entity_id: input_boolean.illuminance_hall_back_light
 
 
 ## BEDROOM CURTAIN
-on_i_bedroom_curtain_boolean:
+illuminance_bedroom_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_bedroom_curtain_state
+    entity_id: input_boolean.illuminance_bedroom_curtain
 
-off_i_bedroom_curtain_boolean:
+illuminance_bedroom_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_bedroom_curtain_state
+    entity_id: input_boolean.illuminance_bedroom_curtain
 
 
 ## BEDROOM BACK LIGTH
-on_i_bedroom_back_light_boolean:
+illuminance_bedroom_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_bedroom_back_light_state
+    entity_id: input_boolean.illuminance_bedroom_back_light
 
-off_i_bedroom_back_light_boolean:
+illuminance_bedroom_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_bedroom_back_light_state
+    entity_id: input_boolean.illuminance_bedroom_back_light
 
 
 ## LIVING CURTAIN
-on_i_living_curtain_boolean:
+illuminance_living_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_living_curtain_state
+    entity_id: input_boolean.illuminance_living_curtain
 
-off_i_living_curtain_boolean:
+illuminance_living_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_living_curtain_state
+    entity_id: input_boolean.illuminance_living_curtain
 
 
 ## LIVING BACK LIGTH
-on_i_living_back_light_boolean:
+illuminance_living_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.i_living_back_light_state
+    entity_id: input_boolean.illuminance_living_back_light
 
-off_i_living_back_light_boolean:
+illuminance_living_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.i_living_back_light_state
+    entity_id: input_boolean.illuminance_living_back_light

@@ -1,4 +1,4 @@
-dl_power:
+delay_power:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 10
@@ -6,7 +6,7 @@ dl_power:
   step: 1
   initial: 4
 
-dl_window:
+delay_ventilation:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 20
@@ -14,15 +14,7 @@ dl_window:
   step: 1
   initial: 10
 
-dl_door:
-  unit_of_measurement: 'сек'
-  icon: 'mdi:camera-timer'
-  max: 15
-  min: 0
-  step: 1
-  initial: 4
-
-dl_toilet_mode:
+delay_toilet_mode:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 60
@@ -30,7 +22,7 @@ dl_toilet_mode:
   step: 1
   initial: 15
 
-dl_illuminance:
+delay_illuminance:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 120
@@ -38,7 +30,7 @@ dl_illuminance:
   step: 1
   initial: 30
 
-dl_occupation_day:
+delay_occupation_day:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 240
@@ -46,7 +38,7 @@ dl_occupation_day:
   step: 10
   initial: 120
 
-dl_occupation_night:
+delay_occupation_night:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
   max: 60

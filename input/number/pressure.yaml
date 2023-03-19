@@ -1,4 +1,4 @@
-p_offset:
+pressure_offset:
   unit_of_measurement: 'mmHg'
   icon: 'mdi:gauge-empty'
   min: 0
@@ -6,18 +6,10 @@ p_offset:
   step: 1
   initial: 3
 
-p_target:
+pressure_target:
   unit_of_measurement: 'mmHg'
   icon: 'mdi:gauge-full'
   min: 740
   max: 780
   step: 1
   initial: 756
-
-p_level:
-  unit_of_measurement: 'mmHg'
-  icon: 'mdi:gauge'
-  min: 740
-  max: 780
-  step: 0.1
-  initial: 740

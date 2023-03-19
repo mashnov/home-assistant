@@ -1,148 +1,10 @@
-
-#### INPUT_NUMBER
-
-# temperature_target
-# temperature_offset
-
-# pressure_target
-# pressure_offset
-
-# humidity_target_bath
-# humidity_target
-# humidity_offset
-
-# solar_azimuth_target
-# solar_azimuth_offset
-# solar_elevation_target
-# solar_elevation_offset
-
-# network_download_target
-# network_upload_target
-# network_ping_target
-
-# curtain_kitchen_close
-# curtain_kitchen_ventilation
-# curtain_kitchen_night
-# curtain_kitchen_sun
-# curtain_kitchen_open
-
-# curtain_bedroom_close
-# curtain_bedroom_ventilation
-# curtain_bedroom_night
-# curtain_bedroom_sun
-# curtain_bedroom_open
-
-# curtain_living_close
-# curtain_living_ventilation
-# curtain_living_night
-# curtain_living_sun
-# curtain_living_open
-
-# illuminance_kitchen_curtain_target_cloudly
-# illuminance_kitchen_curtain_target_sunny
-# illuminance_bedroom_curtain_target_cloudly
-# illuminance_bedroom_curtain_target_sunny
-# illuminance_living_curtain_target_cloudly
-# illuminance_living_curtain_target_sunny
-# illuminance_kitchen_top_light_target_cloudly
-# illuminance_kitchen_top_light_target_sunny
-# illuminance_hall_top_light_target_cloudly
-# illuminance_hall_top_light_target_sunny
-# illuminance_kitchen_back_light_target_cloudly
-# illuminance_kitchen_back_light_target_sunny
-# illuminance_hall_bakc_light_target_cloudly
-# illuminance_hall_bakc_light_target_sunny
-# illuminance_bedroom_back_light_target_cloudly
-# illuminance_bedroom_back_light_target_sunny
-# illuminance_living_back_light_target_cloudly
-# illuminance_living_back_light_target_sunny
-
-# parameters_light_target
-
-# power_offset_hall
-# power_offset_bedroom
-# power_offset_living
-
-# delay_power
-# delay_window
-# delay_door
-# delay_illuminance
-# delay_toilet_mode
-# delay_occupation_night
-# delay_occupation_day
-# duration_toilet_night
-# duration_toilet_day
-# duration_top_light_night
-# duration_top_light_day
-# duration_back_light_night
-# duration_back_light_day
-# duration_night_light
-
-# cloud_target
-
-#### INPUT_DATE_TIME
-
-# date_time_night_time
-# date_time_morning_time
-# date_time_day_time
-# date_time_evening_time
-
-#### INPUT_BOOLEAN
-
-# input_boolean.occupancy_toilet
-# input_boolean.night_mode_hall
-# input_boolean.night_mode_bedroom
-# input_boolean.night_mode_living
-# input_boolean.permission_dehumidifier_toilet
-
-- sensor:
-  - name: 'permission_curtains'
-    unit_of_measurement: '%'
-    state: >
-      {% set kitchenValue = state_attr('sensor.permission_curtains', 'kitchen') | int(0) %}
-      {% set bedroomValue = state_attr('sensor.permission_curtains', 'bedroom') | int(0) %}
-      {% set livingValue = state_attr('sensor.permission_curtains', 'living') | int(0) %}
-      {{ max(kitchenValue, bedroomValue, livingValue) }}
-    icon: 'mdi:meter-electric-outline'
-    attributes:
-      kitchen: >
-        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'kitchen') %}
-        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
-        {% set isSunBright = state_attr('binary_sensor.illuminance', 'kitchen_curtain') %}
-        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_kitchen_ventilation') %}
-        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_kitchen_night') %}
-        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_kitchen_sun') %}
-        {% set openPosition = states('input_number.curtain_kitchen_open') %}
-        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
-      bedroom: >
-        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'bedroom') %}
-        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
-        {% set isSunBright = state_attr('binary_sensor.illuminance', 'bedroom_curtain') %}
-        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_bedroom_ventilation') %}
-        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_bedroom_night') %}
-        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_bedroom_sun') %}
-        {% set openPosition = states('input_number.curtain_bedroom_open') %}
-        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
-      living: >
-        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'living') %}
-        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
-        {% set isSunBright = state_attr('binary_sensor.illuminance', 'living_curtain') %}
-        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_living_ventilation') %}
-        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_living_night') %}
-        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_living_sun') %}
-        {% set openPosition = states('input_number.curtain_living_open') %}
-        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
-
 - binary_sensor:
   - name: 'permission_party_light'
     device_class: 'lock'
     state: "{{ state_attr('binary_sensor.permission_party_light', 'kitchen') }}"
     icon: 'mdi:check-all'
     attributes:
-      kitchen: "{{ is_state('light.kitchen_party_light', 'on') }}"
+      kitchen: "{{ is_state('input_boolean.permission_kitchen_party_light', 'on') }}"
 
   - name: 'permission_top_light'
     device_class: 'lock'
@@ -157,22 +19,22 @@
     icon: 'mdi:check-all'
     attributes:    
       kitchen: >
+        {% set isOccupancy = is_state('input_boolean.occupancy_kitchen', 'on') %}
+        {% set isLowSunBright = is_state('input_boolean.illuminance_kitchen_top_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'kitchen_top_light') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'kitchen') %}
         {{ not(isNightTime) and isOccupancy and isLowSunBright }}
       hall: >
+        {% set isOccupancy = is_state('input_boolean.occupancy_hall', 'on') %}
+        {% set isLowSunBright = is_state('input_boolean.illuminance_hall_top_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'hall_top_light') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'hall') %}
         {{ not(isNightTime) and isOccupancy and isLowSunBright }}
       bath:  >
+        {% set isOccupancy = is_state('input_boolean.occupancy_bath', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'bath') %}
         {{ not(isNightTime) and isOccupancy }}
       toilet:  >
+        {% set isOccupancy = is_state('input_boolean.occupancy_toilet', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'toilet') %}
         {{ not(isNightTime) and isOccupancy }}
       bedroom: false ### TODO
       living: false ### TODO
@@ -189,21 +51,21 @@
     icon: 'mdi:check-all'
     attributes:
       kitchen: >
+        {% set isOccupancy = is_state('input_boolean.occupancy_kitchen', 'on') %}
+        {% set isLowSunBright = is_state('input_boolean.illuminance_kitchen_back_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'kitchen_back_light') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'kitchen') %}
         {{ not(isNightTime) and isOccupancy and isLowSunBright }}
       hall: >
+        {% set isLowSunBright = is_state('input_boolean.illuminance_hall_back_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'hall_back_light') %}
         {{ not(isNightTime) and isLowSunBright }}
       bedroom: >
+        {% set isLowSunBright = is_state('input_boolean.illuminance_bedroom_back_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'bedroom_back_light') %}
         {{ not(isNightTime) and isLowSunBright }}
       living: >
+        {% set isLowSunBright = is_state('input_boolean.illuminance_living_back_light', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isLowSunBright = state_attr('binary_sensor.illuminance', 'living_back_light') %}
         {{ not(isNightTime) and isLowSunBright }}
       balcony: false ### TODO
 
@@ -219,17 +81,17 @@
     icon: 'mdi:check-all'
     attributes:
       kitchen: >
+        {% set isOccupancy = is_state('input_bpplean.occupancy_kitchen', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'kitchen') %}
         {{ isNightTime and isOccupancy }}
       hall: >
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'hall') %}
+        {% set isOccupancy = is_state('input_bpplean.occupancy_hall', on') %}
         {{ isOccupancy }}
       bath: >
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'bath') %}
+        {% set isOccupancy = is_state('input_bpplean.occupancy_bath', on') %}
         {{ isOccupancy }}
       toilet: >
-        {% set isOccupancy = state_attr('binary_sensor.occupancy', 'toilet') %}
+        {% set isOccupancy = is_state('input_bpplean.occupancy_toilet', 'on') %}
         {{ isOccupancy }}
       balcony: false ### TODO
 
@@ -243,18 +105,18 @@
     icon: 'mdi:check-all'
     attributes:
       hall: >
+        {% set isVentilation = is_state('input_boolean.ventilation_hall', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'hall') %}
         {% set isDry = state_attr('binary_sensor.humidity_hall', 'low') %}
         {{ not(isVentilation) and not(isNightTime) and isDry }}
       bedroom: >
+        {% set isVentilation = is_state('input_boolean.ventilation_bedroom', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'bedroom') %}
         {% set isDry = state_attr('binary_sensor.humidity_bedroom', 'low') %}
         {{ not(isVentilation) and not(isNightTime) and isDry }}
       living: >
+        {% set isVentilation = is_state('input_boolean.ventilation_living', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
-        {% set isVentilation = state_attr('binary_sensor.ventilation', 'living') %}
         {% set isDry = state_attr('binary_sensor.humidity_living', 'low') %}
         {{ not(isVentilation) and not(isNightTime) and isDry }}
 
@@ -268,3 +130,5 @@
     attributes:
       bath: "{{ state_attr('binary_sensor.humidity_bath', 'hight') }}"
       toilet: "{{ is_state('input_boolean.permission_dehumidifier_toilet', 'on') }}" ### TODO
+
+

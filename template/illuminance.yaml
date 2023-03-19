@@ -69,8 +69,8 @@
         {{ sensorValue < targetValue }}
       hall_back_light: >
         {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
-        {% set targetCloudly = states('input_number.illuminance_hall_bakc_light_target_cloudly') | int(0) %}
-        {% set targetSunny = states('input_number.illuminance_hall_bakc_light_target_sunny') | int(0) %}
+        {% set targetCloudly = states('input_number.illuminance_hall_back_light_target_cloudly') | int(0) %}
+        {% set targetSunny = states('input_number.illuminance_hall_back_light_target_sunny') | int(0) %}
         {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
         {% set sensorValue = state_attr('sensor.illuminance', 'balcony') | int(0) %}
         {{ sensorValue < targetValue }}

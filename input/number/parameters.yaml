@@ -1,4 +1,4 @@
-lb_target:
+parameters_light_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:cog'
   min: 0
@@ -6,6 +6,7 @@ lb_target:
   step: 1
   initial: 4500
 
+## TODO
 lb_hu_hue:
   icon: 'mdi:cog'
   min: 0

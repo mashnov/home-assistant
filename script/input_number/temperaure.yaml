@@ -1,8 +1,0 @@
-## TEMPERATURE
-set_t_level:
-  mode: 'queued'
-  sequence:
-  - service: input_number.set_value
-    entity_id: input_number.t_level
-    data_template:
-      value: "{{ states('sensor.t_level') | float(0) }}"

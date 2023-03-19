@@ -1,54 +1,54 @@
 ## KITCHEN
-o_kitchen_boolean_on:
+occupancy_kitchen_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.o_kitchen
+    entity_id: input_boolean.occupancy_kitchen
 
-o_kitchen_boolean_off:
+occupancy_kitchen_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.o_kitchen
+    entity_id: input_boolean.occupancy_kitchen
 
 
 ## HALL
-o_hall_boolean_on:
+occupancy_hall_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.o_hall
+    entity_id: input_boolean.occupancy_hall
 
-o_hall_boolean_off:
+occupancy_hall_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.o_hall
+    entity_id: input_boolean.occupancy_hall
 
 
 ## BATH
-o_bath_boolean_on:
+occupancy_bath_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.o_bath
+    entity_id: input_boolean.occupancy_bath
 
-o_bath_boolean_off:
+occupancy_bath_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.o_bath
+    entity_id: input_boolean.occupancy_bath
 
 
 ## TOILET
-o_toilet_boolean_on:
+occupancy_toilet_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
-    entity_id: input_boolean.o_toilet
+    entity_id: input_boolean.occupancy_toilet
 
-o_toilet_boolean_off:
+occupancy_toilet_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
-    entity_id: input_boolean.o_toilet
+    entity_id: input_boolean.occupancy_toilet

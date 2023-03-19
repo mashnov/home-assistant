@@ -1,0 +1,27 @@
+## NIGHT_MODE
+### HALL
+- alias: 'night_mode_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_mode'
+    attribute: 'hall'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_mode
+        attribute: 'hall'
+        state: true
+      sequence:
+      - service: script.night_mode_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_mode
+        attribute: 'hall'
+        state: false
+      sequence:
+      - service: script.night_mode_hall_off

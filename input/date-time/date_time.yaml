@@ -1,19 +1,19 @@
-dt_night_time:
+date_time_night_time:
   has_date: false
   has_time: true
   initial: '23:30:00'
 
-dt_morning_time:
+date_time_morning_time:
   has_date: false
   has_time: true
   initial: '09:30:00'
 
-dt_day_time:
+date_time_day_time:
   has_date: false
   has_time: true
   initial: '11:30:00'
 
-dt_evening_time:
+date_time_evening_time:
   has_date: false
   has_time: true
   initial: '21:30:00'

@@ -1,0 +1,27 @@
+## KITCHEN PARTY LIGHT
+permission_kitchen_party_light_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.permission_kitchen_party_light
+
+permission_kitchen_party_light_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.permission_kitchen_party_light
+
+## TOILET DEHUMIDIFIER
+permission_dehumidifier_toilet_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.permission_dehumidifier_toilet
+
+permission_dehumidifier_toilet_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.permission_dehumidifier_toilet
+
+

@@ -32,3 +32,43 @@
         {% set percentValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}
         {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
         {{ (deltaValue + minValue) | round }}
+
+  - name: 'parameters_curtains'
+    unit_of_measurement: '%'
+    state: >
+      {% set kitchenValue = state_attr('sensor.parameters_curtains', 'kitchen') | int(0) %}
+      {% set bedroomValue = state_attr('sensor.parameters_curtains', 'bedroom') | int(0) %}
+      {% set livingValue = state_attr('sensor.parameters_curtains', 'living') | int(0) %}
+      {{ max(kitchenValue, bedroomValue, livingValue) }}
+    icon: 'mdi:meter-electric-outline'
+    attributes:
+      kitchen: >
+        {% set isVentilation = is_state('input_boolean.ventilation_kitchen', 'on') %}
+        {% set isSunBright = is_state('input_boolean.illuminance_kitchen_curtain', 'on') %}
+        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_kitchen_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_kitchen_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_kitchen_sun') %}
+        {% set openPosition = states('input_number.curtain_kitchen_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+      bedroom: >
+        {% set isVentilation = is_state('input_boolean.ventilation_bedroom', 'on') %}
+        {% set isSunBright = is_state('input_boolean.illuminance_bedroom_curtain', 'on') %}
+        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_bedroom_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_bedroom_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_bedroom_sun') %}
+        {% set openPosition = states('input_number.curtain_bedroom_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+      living: >
+        {% set isVentilation = is_state('input_boolean.ventilation_living', 'on') %}
+        {% set isSunBright = is_state('input_boolean.illuminance_living_curtain', 'on') %}
+        {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
+        {% set isSunHight = state_attr('binary_sensor.solar', 'hight') %}
+        {% set ventilationPosition = (isNightTime and isVentilation) and states('input_number.curtain_living_ventilation') %}
+        {% set nightPosition = (isNightTime and not(isVentilation)) and states('input_number.curtain_living_night') %}
+        {% set sunnyPosition = (not(isNightTime) and isSunHight and isSunBright) and states('input_number.curtain_living_sun') %}
+        {% set openPosition = states('input_number.curtain_living_open') %}
+        {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}

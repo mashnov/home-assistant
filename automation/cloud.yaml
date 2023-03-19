@@ -1,34 +1,26 @@
 ## CLOUD
-- alias: 'set_c_level'
+- alias: 'cloud'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: 'sensor.c_level'
-  action:
-  - service: script.set_c_level
-
-- alias: 'set_c_state'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: 'binary_sensor.c_state'
+    entity_id: 'binary_sensor.cloud'
+    attribute: 'cloudly'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.c_state
-        state: 'on'
+        entity_id: binary_sensor.cloud
+        attribute: 'cloudly'
+        state: true
       sequence:
-      - service: script.on_c_state
+      - service: script.cloud_hight_message
     - conditions:
       - condition: state
-        entity_id: binary_sensor.c_state
-        state: 'off'
+        entity_id: binary_sensor.cloud
+        attribute: 'cloudly'
+        state: false
       sequence:
-      - service: script.off_c_state
+      - service: script.cloud_low_message

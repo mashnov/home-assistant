@@ -1,8 +1,0 @@
-## PRESSURE
-set_p_level:
-  mode: 'queued'
-  sequence:
-  - service: input_number.set_value
-    entity_id: input_number.p_level
-    data_template:
-      value: "{{ states('sensor.p_level') | float(0) }}"

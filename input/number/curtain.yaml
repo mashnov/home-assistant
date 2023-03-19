@@ -1,5 +1,5 @@
 ## KITCHEN
-c_kitchen_close:
+curtain_kitchen_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -7,7 +7,7 @@ c_kitchen_close:
   step: 1
   initial: 100
 
-c_kitchen_night:
+curtain_kitchen_night:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -15,7 +15,7 @@ c_kitchen_night:
   step: 1
   initial: 70
 
-c_kitchen_open:
+curtain_kitchen_open:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -23,7 +23,7 @@ c_kitchen_open:
   step: 1
   initial: 5
 
-c_kitchen_sun:
+curtain_kitchen_sun:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -31,7 +31,7 @@ c_kitchen_sun:
   step: 1
   initial: 35
 
-c_kitchen_ventilation:
+curtain_kitchen_ventilation:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -39,16 +39,9 @@ c_kitchen_ventilation:
   step: 1
   initial: 40
 
-c_kitchen_position:
-  unit_of_measurement: '%'
-  icon: 'mdi:curtains'
-  min: 0
-  max: 100
-  step: 1
-
 
 ## BEDROOM
-c_bedroom_close:
+curtain_bedroom_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -56,7 +49,7 @@ c_bedroom_close:
   step: 1
   initial: 100
 
-c_bedroom_night:
+curtain_bedroom_night:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -64,7 +57,7 @@ c_bedroom_night:
   step: 1
   initial: 75
 
-c_bedroom_open:
+curtain_bedroom_open:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -72,7 +65,7 @@ c_bedroom_open:
   step: 1
   initial: 5
 
-c_bedroom_sun:
+curtain_bedroom_sun:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -80,7 +73,7 @@ c_bedroom_sun:
   step: 1
   initial: 50
 
-c_bedroom_ventilation:
+curtain_bedroom_ventilation:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -88,16 +81,8 @@ c_bedroom_ventilation:
   step: 1
   initial: 60
 
-c_bedroom_position:
-  unit_of_measurement: '%'
-  icon: 'mdi:curtains'
-  min: 0
-  max: 100
-  step: 1
-
-
 ## LIVING
-c_living_close:
+curtain_living_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -105,7 +90,7 @@ c_living_close:
   step: 1
   initial: 100
 
-c_living_night:
+curtain_living_night:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
   min: 0
@@ -113,7 +98,7 @@ c_living_night:
   step: 1
   initial: 85
 
-c_living_open:
+curtain_living_open:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -121,7 +106,7 @@ c_living_open:
   step: 1
   initial: 10
 
-c_living_sun:
+curtain_living_sun:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
@@ -129,17 +114,10 @@ c_living_sun:
   step: 1
   initial: 35
 
-c_living_ventilation:
+curtain_living_ventilation:
   unit_of_measurement: '%'
   icon: 'mdi:curtains'
   min: 0
   max: 100
   step: 1
   initial: 30
-
-c_living_position:
-  unit_of_measurement: '%'
-  icon: 'mdi:curtains'
-  min: 0
-  max: 100
-  step: 1

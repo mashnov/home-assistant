@@ -1,145 +1,143 @@
-## KITCHEN
-- alias: 'o_kitchen_boolean_on'
+## OCCUPANCY
+### KITCHEN
+- alias: 'occupancy_kitchen_on'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'kitchen_sensor'
+    attribute: 'kitchen'
     from: false
     to: true
   action:
-  - service: script.o_kitchen_boolean_on
+  - service: script.occupancy_kitchen_on
 
-- alias: 'o_kitchen_boolean_off'
+- alias: 'occupancy_kitchen_off'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'kitchen_sensor'
+    attribute: 'kitchen'
     from: true
     to: false
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_kitchen_boolean_off
+  - service: script.occupancy_kitchen_off
 
-
-## HALL
-- alias: 'o_hall_boolean_on'
+### HALL
+- alias: 'occupancy_hall_on'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'hall_sensor'
+    attribute: 'hall'
     from: false
     to: true
   action:
-  - service: script.o_hall_boolean_on
+  - service: script.occupancy_hall_on
 
-- alias: 'o_hall_boolean_off'
+- alias: 'occupancy_hall_off'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'hall_sensor'
+    attribute: 'hall'
     from: true
     to: false
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_hall_boolean_off
+  - service: script.occupancy_hall_off
 
-
-## BATH
-- alias: 'o_bath_boolean_on'
+### BATH
+- alias: 'occupancy_bath_on'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
+    attribute: 'bath'
     from: false
     to: true
   action:
-  - service: script.o_bath_boolean_on
+  - service: script.occupancy_bath_on
 
-- alias: 'o_bath_boolean_off'
+- alias: 'occupancy_bath_off'
   initial_state: true
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath_sensor'
+    attribute: 'bath'
     from: true
     to: false
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
-  - service: script.o_bath_boolean_off
+  - service: script.occupancy_bath_off
 
-
-## TOILET
-- alias: 'o_toilet_timer_cancel'
+### TOILET
+- alias: 'occupancy_toilet_timer_cancel'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'toilet_boolean'
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'toilet'
     from: false
     to: true
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet_boolean'
+    attribute: 'toilet'
     state: false
   action:
-  - service: script.o_toilet_timer_start
+  - service: script.occupancy_toilet_timer_start
 
-- alias: 'o_toilet_timer_cancel'
+- alias: 'occupancy_toilet_timer_cancel'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'toilet_boolean'
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'toilet'
     from: true
     to: false
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet_boolean'
+    attribute: 'toilet'
     state: true
   - condition: state
-    entity_id: 'timer.o_toilet'
+    entity_id: 'timer.occupancy_toilet'
     state: 'active'
   action:
-  - service: script.o_toilet_timer_cancel
+  - service: script.occupancy_toilet_timer_cancel
 
-- alias: 'o_toilet_boolean_on'
+- alias: 'occupancy_toilet_on'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'toilet_boolean'
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'toilet'
     from: false
     to: true
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet_boolean'
+    attribute: 'toilet'
     state: false
   action:
-  - service: script.o_toilet_boolean_on
+  - service: script.occupancy_toilet_on
 
-- alias: 'o_toilet_boolean_off'
+- alias: 'occupancy_toilet_off'
   initial_state: true
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.door'
-    attribute: 'toilet_boolean'
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'toilet'
     from: true
     to: false
   condition:
   - condition: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet_boolean'
+    attribute: 'toilet'
     state: true
   - condition: state
-    entity_id: 'timer.o_toilet'
+    entity_id: 'timer.occupancy_toilet'
     state: 'idle'
   action:
-  - service: script.o_toilet_boolean_off
+  - service: script.occupancy_toilet_off

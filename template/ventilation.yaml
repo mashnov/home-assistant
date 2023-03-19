@@ -13,13 +13,13 @@
       {{ iif(isOpenIcon, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
     attributes:
       kitchen: >
-        {% set leftValue = state_attr('binary_sensor.window', 'kitchen_left') %}
-        {% set rightValue = state_attr('binary_sensor.window', 'kitchen_right') %}
+        {% set leftValue = state_attr('binary_sensor.status_window', 'kitchen_left') %}
+        {% set rightValue = state_attr('binary_sensor.status_window', 'kitchen_right') %}
         {{ leftValue or rightValue }}
       hall: >
-        {% set d_hall = state_attr('binary_sensor.door', 'hall') %}
-        {% set d_bedroom = state_attr('binary_sensor.door', 'bedroom') %}
-        {% set d_living = state_attr('binary_sensor.door', 'living') %}
+        {% set d_hall = state_attr('binary_sensor.status_door', 'hall') %}
+        {% set d_bedroom = state_attr('binary_sensor.status_door', 'bedroom') %}
+        {% set d_living = state_attr('binary_sensor.status_door', 'living') %}
         {% set v_kitchen = state_attr('binary_sensor.ventilation', 'kitchen') %}
         {% set v_bedroom = state_attr('binary_sensor.ventilation', 'bedroom') %}
         {% set v_living = state_attr('binary_sensor.ventilation', 'living') %}
@@ -27,7 +27,7 @@
         {% set livingValue = v_living and d_living %}
         {{ v_kitchen or d_hall or bedroomValue or livingValue }}
       bedroom: >
-        {% set leftValue = state_attr('binary_sensor.window', 'bedroom_left') %}
-        {% set rightValue = state_attr('binary_sensor.window', 'bedroom_right') %}
+        {% set leftValue = state_attr('binary_sensor.status_window', 'bedroom_left') %}
+        {% set rightValue = state_attr('binary_sensor.status_window', 'bedroom_right') %}
         {{ leftValue or rightValue }}
       living: "{{ state_attr('binary_sensor.window', 'living') }}"

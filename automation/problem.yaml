@@ -1,0 +1,165 @@
+## PROBLEM
+### NETWORK DOWNLOAD
+- alias: 'problem_network_download'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_network'
+    attribute: 'problem_network_download'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_download'
+        state: true
+      sequence:
+      - service: script.problem_network_download_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_download'
+        state: false
+      sequence:
+      - service: script.problem_network_download_normal_message
+
+### NETWORK UPDOWNLOAD
+- alias: 'problem_network_upload'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_network'
+    attribute: 'problem_network_upload'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_upload'
+        state: true
+      sequence:
+      - service: script.problem_network_upload_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_upload'
+        state: false
+      sequence:
+      - service: script.problem_network_upload_normal_message
+
+### NETWORK PING
+- alias: 'problem_network_ping'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_network'
+    attribute: 'problem_network_ping'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_ping'
+        state: true
+      sequence:
+      - service: script.problem_network_ping_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_network
+        attribute: 'problem_network_ping'
+        state: false
+      sequence:
+      - service: script.problem_network_ping_normal_message
+
+### HUMIDIFIER_EMPTY HALL
+- alias: 'problem_empty_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_empty'
+    attribute: 'problem_empty_hall'
+    for: "{{ state_attr('sensor.delay', 'power') }}"
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_hall'
+        state: true
+      sequence:
+      - service: script.problem_empty_hall_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_hall'
+        state: false
+      sequence:
+      - service: script.problem_empty_hall_normal_message
+
+### HUMIDIFIER_EMPTY BEDROOM
+- alias: 'problem_empty_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_empty'
+    attribute: 'problem_empty_bedroom'
+    for: "{{ state_attr('sensor.delay', 'power') }}"
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_bedroom'
+        state: true
+      sequence:
+      - service: script.problem_empty_bedroom_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_bedroom'
+        state: false
+      sequence:
+      - service: script.problem_empty_bedroom_normal_message
+
+### HUMIDIFIER_EMPTY LIVING
+- alias: 'problem_empty_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.problem_empty'
+    attribute: 'problem_empty_living'
+    for: "{{ state_attr('sensor.delay', 'power') }}"
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_living'
+        state: true
+      sequence:
+      - service: script.problem_empty_living_low_message
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.problem_empty
+        attribute: 'problem_empty_living'
+        state: false
+      sequence:
+      - service: script.problem_empty_living_normal_message
