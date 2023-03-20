@@ -1,20 +1,9 @@
 ## CLOUD
-cloud_hight_message:
+cloud_message:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Облачность
-        🌥️ Уровень .................. {{ state_attr('sensor.cloud', 'level') }}
-
-cloud_low_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Облачность
+        🟢 Облачность ............ {{ state_attr('sensor.date_time', 'hm') }}
         🌤️ Уровень .................. {{ state_attr('sensor.cloud', 'level') }}

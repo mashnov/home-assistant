@@ -1,114 +1,15 @@
 ## HUMIDITY
-### BATH
-humidity_bath_hight_message:
+humidity_message:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
+        🟠 Влажность ............. {{ state_attr('sensor.date_time', 'hm') }}
+        🏡 Средняя ................. {{ state_attr('sensor.humidity', 'average') }}
+        🥣 Кухня ..................... {{ state_attr('sensor.humidity', 'kitchen') }}
         🛁 Ванная ................... {{ state_attr('sensor.humidity', 'bath') }}
-
-humidity_bath_normal_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Влажность
-        🛁 Ванная ................... {{ state_attr('sensor.humidity', 'bath') }}
-
-### HALL
-humidity_hall_hight_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
         🧥 Коридор ................ {{ state_attr('sensor.humidity', 'hall') }}
-
-humidity_hall_low_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
-        🧥 Коридор ................ {{ state_attr('sensor.humidity', 'hall') }}
-
-humidity_hall_normal_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Влажность
-        🧥 Коридор ................ {{ state_attr('sensor.humidity', 'hall') }}
-
-### BEDROOM
-humidity_bedroom_hight_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
         🛌 Спальня ................. {{ state_attr('sensor.humidity', 'bedroom') }}
-
-humidity_bedroom_low_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
-        🛌 Спальня ................. {{ state_attr('sensor.humidity', 'bedroom') }}
-
-humidity_bedroom_normal_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Влажность
-        🛌 Спальня ................. {{ state_attr('sensor.humidity', 'bedroom') }}
-
-### LIVING
-humidity_living_hight_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
         📚 Гостиная ................ {{ state_attr('sensor.humidity', 'living') }}
-
-humidity_living_low_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Влажность
-        📚 Гостиная ................ {{ state_attr('sensor.humidity', 'living') }}
-
-humidity_living_normal_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Влажность
-        📚 Гостиная ................ {{ state_attr('sensor.humidity', 'living') }}
+        🪴 Балкон ................... {{ state_attr('sensor.humidity', 'balcony') }}

@@ -3,31 +3,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
-    entity_id: 'binary_sensor.temperature'
-    attribute: 'normal'
+    entity_id: 'sensor.temperature'
+    attribute: 'average'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.temperature
-        attribute: 'hight'
-        state: true
-      sequence:
-      - service: script.temperature_hight_message
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.temperature
-        attribute: 'low'
-        state: true
-      sequence:
-      - service: script.temperature_low_message
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.temperature
-        attribute: 'normal'
-        state: true 
-      sequence:
-      - service: script.temperature_normal_message
+  - service: script.temperature_message

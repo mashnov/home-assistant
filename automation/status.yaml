@@ -1,20 +1,67 @@
 ## STATUS
+### DOOR
+- alias: 'door_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'toilet'
+  - platform: state
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'hall'
+  - platform: state
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'bedroom'
+  - platform: state
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'living'
+  - platform: state
+    entity_id: 'binary_sensor.status_door'
+    attribute: 'balcony'
+  action:
+  - service: script.door_message
 
-## DOOR
-## TODO: отправить сообщение о новом статусе коридор
-## TODO: отправить сообщение о новом статусе туалет
-## TODO: отправить сообщение о новом статусе спальня
-## TODO: отправить сообщение о новом статусе гостиная
-## TODO: отправить сообщение о новом статусе балкон
-
-## WINDOW
-## TODO: отправить сообщение о новом статусе кухня
-## TODO: отправить сообщение о новом статусе спальня
-## TODO: отправить сообщение о новом статусе гостиная
+### WINDOW
+- alias: 'window_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.status_window'
+    attribute: 'kitchen_left'
+  - platform: state
+    entity_id: 'binary_sensor.status_window'
+    attribute: 'kitchen_right'
+  - platform: state
+    entity_id: 'binary_sensor.status_window'
+    attribute: 'bedroom_left'
+  - platform: state
+    entity_id: 'binary_sensor.status_window'
+    attribute: 'bedroom_right'
+  - platform: state
+    entity_id: 'binary_sensor.status_window'
+    attribute: 'living'
+  action:
+  - service: script.window_message
 
 ## CURTAINS
-## TODO: отправить сообщение о новом статусе штор (sensor.status_curtain)
-
+- alias: 'status_curtain'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'sensor.status_curtain'
+    attribute: 'kitchen'
+  - platform: state
+    entity_id: 'sensor.status_curtain'
+    attribute: 'bedroom'
+  - platform: state
+    entity_id: 'sensor.status_curtain'
+    attribute: 'living'
+  action:
+  - service: script.curtain_message
+  
 ## PARTY_LIGHT
 ## TODO: отправить сообщение о новом статусе устройств
 

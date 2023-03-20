@@ -1,0 +1,12 @@
+## OCCUPANCY
+occupancy_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🟠 Движение ............. {{ state_attr('binary_sensor.date_time', 'hm') }}
+        🥣 Кухня ..................... {{ state_attr('binary_sensor.occupancy', 'kitchen') }}
+        🛁 Ванная ................... {{ state_attr('binary_sensor.occupancy', 'bath') }}
+        🧥 Коридор ................ {{ state_attr('binary_sensor.occupancy', 'hall') }}
+        🚽 Туалет ................ {{ state_attr('binary_sensor.occupancy', 'toilet') }}

@@ -1,4 +1,32 @@
 ## OCCUPANCY
+### MESSAGE
+- alias: 'occupancy_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'kitchen'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'hall'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'bath'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet'
+    to: true
+  - platform: state
+    entity_id: 'binary_sensor.occupancy'
+    attribute: 'toilet'
+    to: false
+  action:
+  - service: script.occupancy_message
+
 ### KITCHEN
 - alias: 'occupancy_kitchen_on'
   initial_state: true

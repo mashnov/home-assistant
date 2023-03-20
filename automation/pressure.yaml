@@ -3,31 +3,9 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
-    entity_id: 'binary_sensor.pressure'
-    attribute: 'normal'
+    entity_id: 'sensor.pressure'
+    attribute: 'average'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.pressure
-        attribute: 'hight'
-        state: true
-      sequence:
-      - service: script.pressure_hight_message
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.pressure
-        attribute: 'low'
-        state: false
-      sequence:
-      - service: script.pressure_low_message
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.pressure
-        attribute: 'normal'
-        state: false 
-      sequence:
-      - service: script.pressure_normal_message
+  - service: script.pressure_message
+  

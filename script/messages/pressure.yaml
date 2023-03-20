@@ -1,42 +1,11 @@
 ## PRESSURE
-pressure_normal_message:
+pressure_message:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟢 Давление
-        🏡 Средняя ................. {{ state_attr('sensor.pressure', 'average') }}
-        🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }}
-        🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }}
-        🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }}
-        🛌 Спальня ................. {{ state_attr('sensor.pressure', 'bedroom') }}
-        📚 Гостиная ................ {{ state_attr('sensor.pressure', 'living') }}
-
-pressure_low_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🟠 Давление
-        🏡 Средняя ................. {{ state_attr('sensor.pressure', 'average') }}
-        🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }}
-        🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }}
-        🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }}
-        🛌 Спальня ................. {{ state_attr('sensor.pressure', 'bedroom') }}
-        📚 Гостиная ................ {{ state_attr('sensor.pressure', 'living') }}
-
-pressure_hight_message:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
-        🔴 Давление
+        🟠 Давление .............. {{ state_attr('sensor.date_time', 'hm') }}
         🏡 Средняя ................. {{ state_attr('sensor.pressure', 'average') }}
         🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }}
         🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }}

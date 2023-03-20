@@ -1,27 +1,11 @@
 ## CLOUD
-### CLOUDLY
 - alias: 'cloud'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
-    entity_id: 'binary_sensor.cloud'
-    attribute: 'cloudly'
+    entity_id: 'sensor.cloud'
+    attribute: 'level'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.cloud
-        attribute: 'cloudly'
-        state: true
-      sequence:
-      - service: script.cloud_hight_message
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.cloud
-        attribute: 'cloudly'
-        state: false
-      sequence:
-      - service: script.cloud_low_message
+  - service: script.cloud_message
+  
