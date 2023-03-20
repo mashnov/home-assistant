@@ -15,11 +15,11 @@
       living: "{{ states('sensor.living_temperature') | float(minValue) | round(1) }}"
       balcony: "{{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}"
       average: >
-        {% set kitchen = state_attr('sensor.humidity', 'kitchen') | float(0) %}
-        {% set hall = state_attr('sensor.humidity', 'hall') | float(0) %}
-        {% set bedroom = state_attr('sensor.humidity', 'bedroom') | float(0) %}
-        {% set living = state_attr('sensor.humidity', 'living') | float(0) %}
-        {{ ((kitchen + hall + bedroom + living) / 4) | round(1) }}
+        {% set kitchen = state_attr('sensor.humidity', 'kitchen') | int(0) %}
+        {% set hall = state_attr('sensor.humidity', 'hall') | int(0) %}
+        {% set bedroom = state_attr('sensor.humidity', 'bedroom') | int(0) %}
+        {% set living = state_attr('sensor.humidity', 'living') | int(0) %}
+        {{ ((kitchen + hall + bedroom + living) / 4) | int(0) }}
 
 - binary_sensor:
   - name: 'humidity_average'
