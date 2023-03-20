@@ -81,17 +81,17 @@
     icon: 'mdi:check-all'
     attributes:
       kitchen: >
-        {% set isOccupancy = is_state('input_bpplean.occupancy_kitchen', 'on') %}
+        {% set isOccupancy = is_state('input_boolean.occupancy_kitchen', 'on') %}
         {% set isNightTime = state_attr('binary_sensor.date_time', 'night') %}
         {{ isNightTime and isOccupancy }}
       hall: >
-        {% set isOccupancy = is_state('input_bpplean.occupancy_hall', on') %}
+        {% set isOccupancy = is_state('input_boolean.occupancy_hall', on') %}
         {{ isOccupancy }}
       bath: >
-        {% set isOccupancy = is_state('input_bpplean.occupancy_bath', on') %}
+        {% set isOccupancy = is_state('input_boolean.occupancy_bath', on') %}
         {{ isOccupancy }}
       toilet: >
-        {% set isOccupancy = is_state('input_bpplean.occupancy_toilet', 'on') %}
+        {% set isOccupancy = is_state('input_boolean.occupancy_toilet', 'on') %}
         {{ isOccupancy }}
       balcony: false ### TODO
 
