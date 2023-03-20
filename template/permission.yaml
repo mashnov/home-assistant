@@ -47,7 +47,7 @@
       {% set bedroomValue = state_attr('binary_sensor.permission_back_light', 'bedroom') %}
       {% set livingValue = state_attr('binary_sensor.permission_back_light', 'living') %}
       {% set balconyValue = state_attr('binary_sensor.permission_back_light', 'balcony') %}
-      {{ kitchenValue or hallValue or bathValue or toiletValue or bedroomValue or balconyValue }}
+      {{ kitchenValue or hallValue or bedroomValue or balconyValue }}
     icon: 'mdi:check-all'
     attributes:
       kitchen: >
