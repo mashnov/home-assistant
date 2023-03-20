@@ -7,9 +7,9 @@ network_message:
     data_template:
       message: | 
         🟠 Соединение ...... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        ⬇️ Загрузка ............ {{ state_attr('sensor.problem_network', 'download') }}
-        ⬆️ Отдача ............... {{ state_attr('sensor.problem_network', 'upload') }}
-        🔀 Пинг ................... {{ state_attr('sensor.problem_network', 'ping') }}
+        ⬇️ Загрузка ............ {{ state_attr('sensor.problem_network', 'download') }} Mbit/s
+        ⬆️ Отдача ............... {{ state_attr('sensor.problem_network', 'upload') }} Mbit/s
+        🔀 Пинг ................... {{ state_attr('sensor.problem_network', 'ping') }} ms
 
 ### EMPTY_HUMIDIFIER
 problem_empty_hall_low_message:

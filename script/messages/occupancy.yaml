@@ -5,8 +5,8 @@ occupancy_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Движение ............. {{ state_attr('binary_sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ state_attr('binary_sensor.occupancy', 'kitchen') }}
-        🛁 Ванная ................... {{ state_attr('binary_sensor.occupancy', 'bath') }}
-        🧥 Коридор ................ {{ state_attr('binary_sensor.occupancy', 'hall') }}
-        🚽 Туалет ................ {{ state_attr('binary_sensor.occupancy', 'toilet') }}
+        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ is_state('input_boolean.occupancy_kitchen', 'on') }}
+        🛁 Ванная ................... {{ is_state('input_boolean.occupancy_bath', 'on') }}
+        🧥 Коридор ................ {{ is_state('input_boolean.occupancy_hall', 'on') }}
+        🚽 Туалет ................ {{ is_state('input_boolean.occupancy_toilet', 'on') }}

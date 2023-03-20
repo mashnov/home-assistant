@@ -6,9 +6,9 @@ pressure_message:
     data_template:
       message: | 
         🟠 Давление .............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🏡 Средняя ................ {{ state_attr('sensor.pressure', 'average') }}
-        🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }}
-        🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }}
-        🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }}
-        🛌 Спальня ................. {{ state_attr('sensor.pressure', 'bedroom') }}
-        📚 Гостиная ................ {{ state_attr('sensor.pressure', 'living') }}
+        🏡 Средняя ................ {{ state_attr('sensor.pressure', 'average') }} mmHg
+        🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }} mmHg
+        🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }} mmHg
+        🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }} mmHg
+        🛌 Спальня ................. {{ state_attr('sensor.pressure', 'bedroom') }} mmHg
+        📚 Гостиная ................ {{ state_attr('sensor.pressure', 'living') }} mmHg

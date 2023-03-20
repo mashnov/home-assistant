@@ -16,11 +16,11 @@ door_message:
     data_template:
       message: | 
         🟠 Двери ................. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................ {{ state_attr('binary_sensor.status_door', 'toilet') }}
-        🧥 Коридор ............. {{ state_attr('binary_sensor.status_door', 'hall') }}
-        🛌 Спальня .............. {{ state_attr('binary_sensor.status_door', 'bedroom') }}
-        📚 Гостиная ............. {{ state_attr('binary_sensor.status_door', 'living') }}
-        🪴 Балкон ................ {{ state_attr('binary_sensor.status_door', 'balcony') }}
+        🚽 Туалет ................ {{ iif(state_attr('binary_sensor.status_door', 'toilet'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🧥 Коридор ............. {{ iif(state_attr('binary_sensor.status_door', 'hall'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🛌 Спальня .............. {{ iif(state_attr('binary_sensor.status_door', 'bedroom'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        📚 Гостиная ............. {{ iif(state_attr('binary_sensor.status_door', 'living'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🪴 Балкон ................ {{ iif(state_attr('binary_sensor.status_door', 'balcony'), 'Открыто', 'Закрыто', 'Неизвестно') }}
 
 ### WINDOW
 window_message:
@@ -30,11 +30,11 @@ window_message:
     data_template:
       message: | 
         🟠 Окна ................. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Левое ............... {{ state_attr('binary_sensor.status_window', 'kitchen_left') }}
-        🥣 Правое ............. {{ state_attr('binary_sensor.status_window', 'kitchen_right') }}
-        🛌 Левое ............... {{ state_attr('binary_sensor.status_window', 'bedroom_left') }}
-        🛌 Правое ............. {{ state_attr('binary_sensor.status_window', 'bedroom_right') }}
-        📚 Гостиная .......... {{ state_attr('binary_sensor.status_window', 'living') }}
+        🥣 Левое ............... {{ iif(state_attr('binary_sensor.status_window', 'kitchen_left'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🥣 Правое ............. {{ iif(state_attr('binary_sensor.status_window', 'kitchen_right'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🛌 Левое ............... {{ iif(state_attr('binary_sensor.status_window', 'bedroom_left'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        🛌 Правое ............. {{ iif(state_attr('binary_sensor.status_window', 'bedroom_right'), 'Открыто', 'Закрыто', 'Неизвестно') }}
+        📚 Гостиная .......... {{ iif(state_attr('binary_sensor.status_window', 'living'), 'Открыто', 'Закрыто', 'Неизвестно') }}
 
 ### CURTAIN
 curtain_message:
@@ -44,7 +44,6 @@ curtain_message:
     data_template:
       message: | 
         🟠 Шторы ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ state_attr('sensor.status_curtain', 'kitchen') }}
-        🛌 Спальня ................. {{ state_attr('sensor.status_curtain', 'bedroom') }}
-        📚 Гостиная ................ {{ state_attr('sensor.status_curtain', 'living') }}
-
+        🥣 Кухня ..................... {{ state_attr('sensor.status_curtain', 'kitchen') }} %
+        🛌 Спальня ................. {{ state_attr('sensor.status_curtain', 'bedroom') }} %
+        📚 Гостиная ................ {{ state_attr('sensor.status_curtain', 'living') }} %

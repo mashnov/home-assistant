@@ -6,10 +6,10 @@ temperature_message:
     data_template:
       message: | 
         🟠 Температура ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }}
-        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }}
-        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }}
-        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }}
-        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }}
-        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }}
-        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }}
+        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }} °C
+        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }} °C
+        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }} °C
+        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }} °C
+        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }} °C
+        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }} °C
+        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }} °C
