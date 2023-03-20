@@ -8,9 +8,9 @@
       {% set isProblem = state_attr('binary_sensor.problem_network', 'problem') %}
       {{ iif(isProblem, 'mdi:speedometer-slow', 'mdi:speedometer', 'mdi:help-circle') }}
     attributes:
-      download: "{{ states('sensor.speedtest_download') | float(minValue) | round(1) }}"
-      upload: "{{ states('sensor.speedtest_upload') | float(minValue) | round(1) }}"
-      ping: "{{ states('sensor.speedtest_ping') | float(minValue) | round(1) }}"
+      download: "{{ states('sensor.speedtest_download') | float(0) | round(1) }}"
+      upload: "{{ states('sensor.speedtest_upload') | float(0) | round(1) }}"
+      ping: "{{ states('sensor.speedtest_ping') | float(0) | round(1) }}"
 
 - binary_sensor:
   - name: 'problem_network'

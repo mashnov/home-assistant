@@ -8,11 +8,11 @@
       {% set isNormal = state_attr('binary_sensor.pressure', 'normal') %}
       {{ iif(isNormal, 'mdi:gauge-low', 'mdi:gauge', 'mdi:help-circle') }}
     attributes:
-      kitchen: "{{ states('sensor.kitchen_pressure') | float(minValue) | round(1) }}"
-      bath: "{{ states('sensor.bath_pressure') | float(minValue) | round(1) }}"
-      hall: "{{ states('sensor.hall_pressure') | float(minValue) | round(1) }}"
-      bedroom: "{{ states('sensor.bedroom_pressure') | float(minValue) | round(1) }}"
-      living: "{{ states('sensor.living_pressure') | float(minValue) | round(1) }}"
+      kitchen: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
       average: >
         {% set kitchen = state_attr('sensor.pressure', 'kitchen') | int(0) %}
         {% set hall = state_attr('sensor.pressure', 'hall') | int(0) %}
