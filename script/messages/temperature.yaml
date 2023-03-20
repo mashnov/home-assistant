@@ -5,7 +5,7 @@ temperature_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Температура ......... {{ state_attr('sensor.date_time', 'hm') }}
+        🟠 Температура ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }}
         🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }}
         🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }}

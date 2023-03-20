@@ -6,7 +6,7 @@ network_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Соединение .......... {{ state_attr('binary_sensor.date_time', 'hm') }}
+        🟠 Соединение .......... {{ state_attr('binary_sensor.date_time', 'hm') }} UTC
         ⬇️ Средняя ................. {{ state_attr('binary_sensor.problem_network', 'download') }}
         ⬆️ Кухня ..................... {{ state_attr('binary_sensor.problem_network', 'upload') }}
         🔀 Ванная ................... {{ state_attr('binary_sensor.problem_network', 'ping') }}
@@ -18,7 +18,7 @@ problem_empty_hall_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
         🧥 Коридор. Закончилась вода в увлажнителе
 
 problem_empty_bedroom_low_message:
@@ -27,7 +27,7 @@ problem_empty_bedroom_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
         🛌 Спальня. Закончилась вода в увлажнителе
 
 problem_empty_living_low_message:
@@ -36,5 +36,5 @@ problem_empty_living_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
         📚 Гостиная. Закончилась вода в увлажнителе

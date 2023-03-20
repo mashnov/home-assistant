@@ -5,8 +5,8 @@ pressure_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Давление .............. {{ state_attr('sensor.date_time', 'hm') }}
-        🏡 Средняя ................. {{ state_attr('sensor.pressure', 'average') }}
+        🟠 Давление .............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🏡 Средняя ................ {{ state_attr('sensor.pressure', 'average') }}
         🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }}
         🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }}
         🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }}

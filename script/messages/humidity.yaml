@@ -5,7 +5,7 @@ humidity_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Влажность ............. {{ state_attr('sensor.date_time', 'hm') }}
+        🟠 Влажность ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🏡 Средняя ................. {{ state_attr('sensor.humidity', 'average') }}
         🥣 Кухня ..................... {{ state_attr('sensor.humidity', 'kitchen') }}
         🛁 Ванная ................... {{ state_attr('sensor.humidity', 'bath') }}

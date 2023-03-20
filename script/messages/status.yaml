@@ -6,7 +6,7 @@ door_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Двери ................. {{ state_attr('sensor.date_time', 'hm') }}
+        🟠 Двери ................. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🚽 Туалет ................ {{ state_attr('binary_sensor.status_door', 'toilet') }}
         🧥 Коридор ............. {{ state_attr('binary_sensor.status_door', 'hall') }}
         🛌 Спальня .............. {{ state_attr('binary_sensor.status_door', 'bedroom') }}
@@ -20,7 +20,7 @@ window_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Окна ................. {{ state_attr('sensor.date_time', 'hm') }}
+        🟠 Окна ................. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🥣 Левое ............... {{ state_attr('binary_sensor.status_window', 'kitchen_left') }}
         🥣 Правое ............. {{ state_attr('binary_sensor.status_window', 'kitchen_right') }}
         🛌 Левое ............... {{ state_attr('binary_sensor.status_window', 'bedroom_left') }}
@@ -34,7 +34,7 @@ curtain_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Влажность ............. {{ state_attr('sensor.date_time', 'hm') }}
+        🟠 Шторы ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🥣 Кухня ..................... {{ state_attr('sensor.status_curtain', 'kitchen') }}
         🛌 Спальня ................. {{ state_attr('sensor.status_curtain', 'bedroom') }}
         📚 Гостиная ................ {{ state_attr('sensor.status_curtain', 'living') }}

@@ -5,5 +5,5 @@ cloud_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟢 Облачность ............ {{ state_attr('sensor.date_time', 'hm') }}
+        🟢 Облачность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
         🌤️ Уровень .................. {{ state_attr('sensor.cloud', 'level') }}
