@@ -6,24 +6,6 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy'
-    attribute: 'kitchen'
-    to: true
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'hall'
-    to: true
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'bath'
-    to: true
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet'
-    to: true
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-    attribute: 'toilet'
-    to: false
   action:
   - service: script.occupancy_message
 
