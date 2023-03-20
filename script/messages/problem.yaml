@@ -18,7 +18,7 @@ problem_empty_hall_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
+        ⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC
         🧥 Коридор. Закончилась вода в увлажнителе
 
 problem_empty_bedroom_low_message:
@@ -27,7 +27,7 @@ problem_empty_bedroom_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
+        ⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC
         🛌 Спальня. Закончилась вода в увлажнителе
 
 problem_empty_living_low_message:
@@ -36,5 +36,5 @@ problem_empty_living_low_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }} UTC
+        ⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC
         📚 Гостиная. Закончилась вода в увлажнителе
