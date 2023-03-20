@@ -3,10 +3,10 @@
   - name: 'occupancy'
     device_class: 'occupancy'
     state: >
-      {% set kitchenValue = state_attr('binary_sensor.occupancy', 'kitchen') %}
-      {% set hallValue = state_attr('binary_sensor.occupancy', 'hall') %}
-      {% set bathValue = state_attr('binary_sensor.occupancy', 'bath') %}
-      {% set toiletValue = state_attr('binary_sensor.occupancy', 'toilet') %}
+      {% set kitchenValue = is_state('input_boolean.occupancy_kitchen', 'on') %}
+      {% set hallValue = is_state('input_boolean.occupancy_hall', 'on') %}
+      {% set bathValue = is_state('input_boolean.occupancy_bath', 'on') %}
+      {% set toiletValue = is_state('input_boolean.occupancy_toilet', 'on') %}
       {{ kitchenValue or hallValue or bathValue or toiletValue }}
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy', 'on') %}
