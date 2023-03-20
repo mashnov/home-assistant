@@ -8,12 +8,12 @@
       {% set isNormal = state_attr('binary_sensor.humidity_average', 'normal') %}
       {{ iif(isNormal, 'mdi:thermometer-check', 'mdi:thermometer-alert', 'mdi:help-circle') }}
     attributes:
-      kitchen: "{{ states('sensor.kitchen_temperature') | float(minValue) | round(1) }}"
-      bath: "{{ states('sensor.bath_temperature') | float(minValue) | round(1) }}"
-      hall: "{{ states('sensor.hall_temperature') | float(minValue) | round(1) }}"
-      bedroom: "{{ states('sensor.bedroom_temperature') | float(minValue) | round(1) }}"
-      living: "{{ states('sensor.living_temperature') | float(minValue) | round(1) }}"
-      balcony: "{{ states('sensor.balcony_temperature') | float(minValue) | round(1) }}"
+      kitchen: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
+      bath: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
+      hall: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+      bedroom: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
+      living: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
+      balcony: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
       average: >
         {% set kitchen = state_attr('sensor.humidity', 'kitchen') | int(0) %}
         {% set hall = state_attr('sensor.humidity', 'hall') | int(0) %}
