@@ -1,3 +1,4 @@
+## PRESSURE
 pressure_offset:
   unit_of_measurement: 'mmHg'
   icon: 'mdi:gauge-empty'

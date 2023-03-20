@@ -1,3 +1,5 @@
+## ILLUMINANCE
+### KITCHEN
 illuminance_kitchen_curtain_target_sunny:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
@@ -46,6 +48,7 @@ illuminance_kitchen_back_light_target_cloudly:
   step: 1
   initial: 2500
 
+### HALL
 illuminance_hall_top_light_target_sunny:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
@@ -78,6 +81,7 @@ illuminance_hall_back_light_target_cloudly:
   step: 1
   initial: 15000
 
+### BEDROOM
 illuminance_bedroom_curtain_target_sunny:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'
@@ -110,6 +114,7 @@ illuminance_bedroom_back_light_target_cloudly:
   step: 1
   initial: 5500
 
+### LIVING
 illuminance_living_curtain_target_sunny:
   unit_of_measurement: 'lx'
   icon: 'mdi:sun-wireless-outline'

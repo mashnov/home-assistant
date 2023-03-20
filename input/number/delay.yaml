@@ -1,3 +1,4 @@
+## DELAY
 delay_power:
   unit_of_measurement: 'сек'
   icon: 'mdi:camera-timer'
@@ -45,3 +46,68 @@ delay_occupation_night:
   min: 0
   step: 5
   initial: 30
+
+## DURATION
+duration_dehumidifier_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 45
+
+duration_dehumidifier_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 20
+
+duration_top_light_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 60
+
+duration_top_light_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 20
+
+duration_back_light_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 60
+
+duration_back_light_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 20
+
+duration_night_light_day:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 60
+
+duration_night_light_night:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 120
+  min: 0
+  step: 5
+  initial: 20

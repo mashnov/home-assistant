@@ -1,209 +1,173 @@
 # group
-tl_kitchen_on:
+top_light_kitchen_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen'
+    entity_id: 'light.top_light_kitchen'
 
-tl_kitchen_off:
+top_light_kitchen_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen'
+    entity_id: 'light.top_light_kitchen'
 
-tl_kitchen_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen'
-
-tl_kitchen_set_brightness:
+top_light_kitchen_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen'
+    entity_id: 'light.top_light_kitchen'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_set_color_temp:
+top_light_kitchen_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen'
+    entity_id: 'light.top_light_kitchen'
     data_template:
       color_temp: "{{ color_temp }}"
 
 # tl 1
-tl_kitchen_1_on:
+top_light_kitchen_1_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_1'
+    entity_id: 'light.top_light_kitchen_1'
 
-tl_kitchen_1_off:
+top_light_kitchen_1_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen_1'
+    entity_id: 'light.top_light_kitchen_1'
 
-tl_kitchen_1_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen_1'
-
-tl_kitchen_1_set_brightness:
+top_light_kitchen_1_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_1'
+    entity_id: 'light.top_light_kitchen_1'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_1_set_color_temp:
+top_light_kitchen_1_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_1'
+    entity_id: 'light.top_light_kitchen_1'
     data_template:
       color_temp: "{{ color_temp }}"
 
 # tl 2
-tl_kitchen_2_on:
+top_light_kitchen_2_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_2'
+    entity_id: 'light.top_light_kitchen_2'
 
-tl_kitchen_2_off:
+top_light_kitchen_2_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen_2'
+    entity_id: 'light.top_light_kitchen_2'
 
-tl_kitchen_2_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen_2'
-
-tl_kitchen_2_set_brightness:
+top_light_kitchen_2_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_2'
+    entity_id: 'light.top_light_kitchen_2'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_2_set_color_temp:
+top_light_kitchen_2_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_2'
+    entity_id: 'light.top_light_kitchen_2'
     data_template:
       color_temp: "{{ color_temp }}"
 
 # tl 3
-tl_kitchen_3_on:
+top_light_kitchen_3_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_3'
+    entity_id: 'light.top_light_kitchen_3'
 
-tl_kitchen_3_off:
+top_light_kitchen_3_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen_3'
+    entity_id: 'light.top_light_kitchen_3'
 
-tl_kitchen_3_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen_3'
-
-tl_kitchen_3_set_brightness:
+top_light_kitchen_3_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_3'
+    entity_id: 'light.top_light_kitchen_3'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_3_set_color_temp:
+top_light_kitchen_3_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_3'
+    entity_id: 'light.top_light_kitchen_3'
     data_template:
       color_temp: "{{ color_temp }}"
 
 # tl 4
-tl_kitchen_4_on:
+top_light_kitchen_4_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_4'
+    entity_id: 'light.top_light_kitchen_4'
 
-tl_kitchen_4_off:
+top_light_kitchen_4_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen_4'
+    entity_id: 'light.top_light_kitchen_4'
 
-tl_kitchen_4_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen_4'
-
-tl_kitchen_4_set_brightness:
+top_light_kitchen_4_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_4'
+    entity_id: 'light.top_light_kitchen_4'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_4_set_color_temp:
+top_light_kitchen_4_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_4'
+    entity_id: 'light.top_light_kitchen_4'
     data_template:
       color_temp: "{{ color_temp }}"
 
 # tl 5
-tl_kitchen_5_on:
+top_light_kitchen_5_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_5'
+    entity_id: 'light.top_light_kitchen_5'
 
-tl_kitchen_5_off:
+top_light_kitchen_5_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.tl_kitchen_5'
+    entity_id: 'light.top_light_kitchen_5'
 
-tl_kitchen_5_toggle:
-  mode: 'queued'
-  sequence:
-  - service: light.toggle
-    entity_id: 'light.tl_kitchen_5'
-
-tl_kitchen_5_set_brightness:
+top_light_kitchen_5_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_5'
+    entity_id: 'light.top_light_kitchen_5'
     data_template:
       brightness: "{{ brightness }}"
 
-tl_kitchen_5_set_color_temp:
+top_light_kitchen_5_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.tl_kitchen_5'
+    entity_id: 'light.top_light_kitchen_5'
     data_template:
       color_temp: "{{ color_temp }}"

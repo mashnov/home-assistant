@@ -1,3 +1,4 @@
+### TEMPERATURE
 temperature_offset:
   unit_of_measurement: '°C'
   icon: 'mdi:thermometer-plus'

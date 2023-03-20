@@ -1,4 +1,6 @@
-network_download_target:
+## PROBLEM
+### DOWNLOAD
+problem_network_download_target:
   unit_of_measurement: 'Mbit/s'
   icon: 'mdi:database-check'
   min: 0
@@ -6,7 +8,8 @@ network_download_target:
   step: 1
   initial: 90
 
-network_upload_target:
+### UPLOAD
+problem_network_upload_target:
   unit_of_measurement: 'Mbit/s'
   icon: 'mdi:database-check'
   min: 0
@@ -14,7 +17,8 @@ network_upload_target:
   step: 1
   initial: 90
 
-network_ping_target:
+### PING
+problem_network_ping_target:
   unit_of_measurement: 'ms'
   icon: 'mdi:database-cog'
   min: 0

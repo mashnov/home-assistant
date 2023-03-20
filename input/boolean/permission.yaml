@@ -1,0 +1,9 @@
+## KITCHEN
+permission_kitchen_party_light:
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+permission_dehumidifier_toilet:
+  initial: false
+  icon: 'mdi:radiobox-marked'

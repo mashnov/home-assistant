@@ -1,4 +1,4 @@
-ws_bedroom_on:
+switch_bedroom_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
@@ -6,7 +6,7 @@ ws_bedroom_on:
     - 'switch.bedroom_switch_left'
     - 'switch.bedroom_switch_right'
 
-ws_bedroom_off:
+switch_bedroom_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off

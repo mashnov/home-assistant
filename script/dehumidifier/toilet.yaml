@@ -1,17 +1,11 @@
-de_toilet_on:
+dehumidifier_toilet_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.toilet_relay_l1'
 
-de_toilet_off:
+dehumidifier_toilet_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.toilet_relay_l1'
-
-de_toilet_toggle:
-  mode: 'queued'
-  sequence:
-  - service: switch.toggle
     entity_id: 'switch.toilet_relay_l1'

@@ -13,3 +13,11 @@ humidity_target:
   max: 100
   step: 1
   initial: 45
+
+humidity_target_bath:
+  unit_of_measurement: '%'
+  icon: 'mdi:water-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 65

@@ -1,17 +1,11 @@
-tl_toilet_on:
+top_light_toilet_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.hall_switch_restroom_right'
 
-tl_toilet_off:
+top_light_toilet_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.hall_switch_restroom_right'
-
-tl_toilet_toggle:
-  mode: 'queued'
-  sequence:
-  - service: switch.toggle
     entity_id: 'switch.hall_switch_restroom_right'

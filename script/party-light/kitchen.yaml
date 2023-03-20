@@ -1,22 +1,22 @@
-pl_kitchen_on:
+party_light_kitchen_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
     entity_id: 'light.kitchen_party_light'
 
-pl_kitchen_off:
+party_light_kitchen_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
     entity_id: 'light.kitchen_party_light'
 
-pl_kitchen_toggle:
+party_light_kitchen_toggle:
   mode: 'queued'
   sequence:
   - service: light.toggle
     entity_id: 'light.kitchen_party_light'
 
-pl_kitchen_set_brightness:
+party_light_kitchen_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
@@ -24,7 +24,7 @@ pl_kitchen_set_brightness:
     data_template:
       brightness: "{{ brightness }}"
 
-pl_kitchen_set_color_temp:
+party_light_kitchen_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on

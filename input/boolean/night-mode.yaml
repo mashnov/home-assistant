@@ -1,16 +1,5 @@
-## HALL
-nm_hall:
-  initial: false
-  icon: 'mdi:weather-night'
-
-
-## BEDROOM
-nm_bedroom:
-  initial: false
-  icon: 'mdi:weather-night'
-
-
-## LIVING
-nm_living:
+## NIGHT_MODE
+### HALL
+night_mode_hall:
   initial: false
   icon: 'mdi:weather-night'

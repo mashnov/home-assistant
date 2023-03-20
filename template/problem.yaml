@@ -26,15 +26,15 @@
         {{ downloadValue or uploadValue or pingValue }}
       download: >
         {% set sensorValue = state_attr('sensor.problem_network', 'download') | int(0) %}
-        {% set targetValue = states('input_number.network_download_target') | int(0) %}
+        {% set targetValue = states('input_number.problem_network_download_target') | int(0) %}
         {{ sensorValue < targetValue }}
       upload: >
         {% set sensorValue = state_attr('sensor.problem_network', 'upload') | int(0) %}
-        {% set targetValue = states('input_number.network_upload_target') | int(0) %}
+        {% set targetValue = states('input_number.problem_network_upload_target') | int(0) %}
         {{ sensorValue < targetValue }}
       ping: >
         {% set sensorValue = state_attr('sensor.problem_network', 'ping') | int(0) %}
-        {% set targetValue = states('input_number.network_ping_target') | int(0) %}
+        {% set targetValue = states('input_number.problem_network_ping_target') | int(0) %}
         {{ sensorValue > targetValue }}
 
   - name: 'problem_empty'

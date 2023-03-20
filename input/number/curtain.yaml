@@ -1,4 +1,5 @@
-## KITCHEN
+## CURTAIN
+### KITCHEN
 curtain_kitchen_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
@@ -40,7 +41,7 @@ curtain_kitchen_ventilation:
   initial: 40
 
 
-## BEDROOM
+### BEDROOM
 curtain_bedroom_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'
@@ -81,7 +82,7 @@ curtain_bedroom_ventilation:
   step: 1
   initial: 60
 
-## LIVING
+### LIVING
 curtain_living_close:
   unit_of_measurement: '%'
   icon: 'mdi:curtains-closed'

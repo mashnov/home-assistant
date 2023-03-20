@@ -1,3 +1,4 @@
+## PARAMETERS
 parameters_light_target:
   unit_of_measurement: 'lx'
   icon: 'mdi:cog'

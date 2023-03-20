@@ -1,4 +1,4 @@
-ws_living_on:
+switch_living_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
@@ -6,7 +6,7 @@ ws_living_on:
     - 'switch.living_switch_left'
     - 'switch.living_switch_right'
 
-ws_living_off:
+switch_living_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off

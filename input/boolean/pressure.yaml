@@ -1,8 +1,0 @@
-## PRESSURE
-p_hight_state:
-  initial: false
-  icon: 'mdi:gauge-full'
-
-p_low_state:
-  initial: false
-  icon: 'mdi:gauge-empty'

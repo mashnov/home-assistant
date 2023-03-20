@@ -1,4 +1,0 @@
-## KITCHEN
-pl_kitchen:
-  initial: false
-  icon: 'mdi:party-popper'

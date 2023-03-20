@@ -1,22 +1,23 @@
-## KICTHEN
-o_kitchen:
+## OCCUPATION
+### KICTHEN
+occupancy_kitchen:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 
-## HALL
-o_hall:
+### HALL
+occupancy_hall:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 
-## BATH
-o_bath:
+### BATH
+occupancy_bath:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 
-## TOILET
-o_toilet:
+### TOILET
+occupancy_toilet:
   initial: false
   icon: 'mdi:paper-roll'

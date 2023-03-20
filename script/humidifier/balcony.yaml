@@ -1,17 +1,11 @@
-h_balcony_on:
+humidifier_balcony_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.balcony_socket_relay_l1'
 
-h_balcony_off:
+humidifier_balcony_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.balcony_socket_relay_l1'
-
-h_balcony_toggle:
-  mode: 'queued'
-  sequence:
-  - service: switch.toggle
     entity_id: 'switch.balcony_socket_relay_l1'

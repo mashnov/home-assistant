@@ -1,0 +1,48 @@
+## TEMPERATURE
+temperature_normal_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟢 Температура
+        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }}
+        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }}
+        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }}
+        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }}
+        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }}
+        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }}
+        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }}
+
+temperature_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🔵 Температура
+        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }}
+        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }}
+        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }}
+        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }}
+        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }}
+        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }}
+        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }}
+
+temperature_hight_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟠 Температура
+        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }}
+        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }}
+        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }}
+        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }}
+        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }}
+        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }}
+        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }}

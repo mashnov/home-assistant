@@ -1,17 +1,11 @@
-bl_hall_on:
+back_light_hall_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
     entity_id: 'switch.hall_relay_l1'
 
-bl_hall_off:
+back_light_hall_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.hall_relay_l1'
-
-bl_hall_toggle:
-  mode: 'queued'
-  sequence:
-  - service: switch.toggle
     entity_id: 'switch.hall_relay_l1'

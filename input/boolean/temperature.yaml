@@ -1,8 +1,0 @@
-## TEMPERATURE
-t_hight_state:
-  initial: false
-  icon: 'mdi:thermometer-chevron-up'
-
-t_low_state:
-  initial: false
-  icon: 'mdi:thermometer-chevron-down'

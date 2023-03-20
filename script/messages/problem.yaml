@@ -1,0 +1,86 @@
+## PROBLEM
+### NETWORK_DOWNLOAD
+problem_network_download_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟠 Низкая скорость загрузки
+
+problem_network_download_normal_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟢 Нормальная скорость загрузки
+
+### NETWORK_UPLOAD
+problem_network_upload_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟠 Низкая скорость отдачи
+
+problem_network_upload_normal_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟢 Нормальная скорость отдачи
+
+### NETWORK_PING
+problem_network_ping_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟠 Большой пинг
+
+problem_network_ping_normal_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🟢 Нормальный пинг
+
+
+### EMPTY_HUMIDIFIER
+problem_empty_hall_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🧥 Коридор. Закончилась вода в увлажнителе
+
+problem_empty_bedroom_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        🛌 Спальня. Закончилась вода в увлажнителе
+
+problem_empty_living_low_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ {{ state_attr('sensor.date_time', 'hmz') }}
+        📚 Гостиная. Закончилась вода в увлажнителе
