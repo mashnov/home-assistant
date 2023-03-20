@@ -6,10 +6,10 @@ network_message:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Соединение .......... {{ state_attr('binary_sensor.date_time', 'hm') }} UTC
-        ⬇️ Средняя ................. {{ state_attr('binary_sensor.problem_network', 'download') }}
-        ⬆️ Кухня ..................... {{ state_attr('binary_sensor.problem_network', 'upload') }}
-        🔀 Ванная ................... {{ state_attr('binary_sensor.problem_network', 'ping') }}
+        🟠 Соединение ...... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        ⬇️ Загрузка ............ {{ state_attr('sensor.problem_network', 'download') }}
+        ⬆️ Отдача ............... {{ state_attr('sensor.problem_network', 'upload') }}
+        🔀 Пинг ................... {{ state_attr('sensor.problem_network', 'ping') }}
 
 ### EMPTY_HUMIDIFIER
 problem_empty_hall_low_message:

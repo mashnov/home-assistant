@@ -5,14 +5,8 @@
   mode: 'queued'
   trigger:
   - platform: state
-    entity_id: 'sensor.problem_network'
-    attribute: 'download'
-  - platform: state
-    entity_id: 'sensor.problem_network'
-    attribute: 'upload'
-  - platform: state
-    entity_id: 'sensor.problem_network'
-    attribute: 'ping'
+    entity_id: 'binary_sensor.problem_network'
+    attribute: 'problem'
   action:
   - service: script.network_message
 
