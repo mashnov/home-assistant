@@ -1,5 +1,5 @@
 ## OCCUPANCY
-occupancy_message:
+occupancy_kitchen_message:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -7,6 +7,30 @@ occupancy_message:
       message: | 
         🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🥣 Кухня ..................... {{ is_state('input_boolean.occupancy_kitchen', 'on') }}
-        🛁 Ванная ................... {{ is_state('input_boolean.occupancy_bath', 'on') }}
+
+occupancy_hall_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🧥 Коридор ................ {{ is_state('input_boolean.occupancy_hall', 'on') }}
+
+occupancy_bath_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛁 Ванная ................... {{ is_state('input_boolean.occupancy_bath', 'on') }}
+
+occupancy_toilet_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🚽 Туалет ................ {{ is_state('input_boolean.occupancy_toilet', 'on') }}

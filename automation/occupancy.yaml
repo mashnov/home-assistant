@@ -1,14 +1,4 @@
 ## OCCUPANCY
-### MESSAGE
-- alias: 'occupancy_message'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.occupancy'
-  action:
-  - service: script.occupancy_message
-
 ### KITCHEN
 - alias: 'occupancy_kitchen_on'
   initial_state: true
@@ -20,6 +10,7 @@
     to: true
   action:
   - service: script.occupancy_kitchen_on
+  - service: script.occupancy_kitchen_message
 
 - alias: 'occupancy_kitchen_off'
   initial_state: true
@@ -32,6 +23,7 @@
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
   - service: script.occupancy_kitchen_off
+  - service: script.occupancy_kitchen_message
 
 ### HALL
 - alias: 'occupancy_hall_on'
@@ -44,6 +36,7 @@
     to: true
   action:
   - service: script.occupancy_hall_on
+  - service: script.occupancy_hall_message
 
 - alias: 'occupancy_hall_off'
   initial_state: true
@@ -56,6 +49,7 @@
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
   - service: script.occupancy_hall_off
+  - service: script.occupancy_hall_message
 
 ### BATH
 - alias: 'occupancy_bath_on'
@@ -68,6 +62,7 @@
     to: true
   action:
   - service: script.occupancy_bath_on
+  - service: script.occupancy_bath_message
 
 - alias: 'occupancy_bath_off'
   initial_state: true
@@ -80,6 +75,7 @@
     for: "{{ state_attr('sensor.delay', 'occupation') }}"
   action:
   - service: script.occupancy_bath_off
+  - service: script.occupancy_bath_message
 
 ### TOILET
 - alias: 'occupancy_toilet_timer_cancel'
@@ -132,6 +128,7 @@
     state: false
   action:
   - service: script.occupancy_toilet_on
+  - service: script.occupancy_toilet_message
 
 - alias: 'occupancy_toilet_off'
   initial_state: true
@@ -151,3 +148,4 @@
     state: 'idle'
   action:
   - service: script.occupancy_toilet_off
+  - service: script.occupancy_toilet_message
