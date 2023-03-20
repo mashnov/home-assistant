@@ -1,4 +1,14 @@
 ## STATUS
+### SUSTEM
+- alias: 'illuminance_kitchen_curtain'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: script.start_message
+
 ### DOOR
 - alias: 'door_message'
   initial_state: true

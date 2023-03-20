@@ -1,4 +1,13 @@
 ## STATUS
+### SUSTEM
+start_message:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+
 ### DOOR
 door_message:
   mode: 'queued'
