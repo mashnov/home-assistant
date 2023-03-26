@@ -1,0 +1,11 @@
+## DORBELL
+- alias: message_door'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/doorbell'
+  action:
+  - service: script.notification_doorbell_elevator
+  - service: script.notification_doorbell_hall

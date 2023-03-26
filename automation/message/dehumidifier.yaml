@@ -1,4 +1,4 @@
-## CURTAINS
+## DEHUMIDIFIER
 - alias: message_dehumidifier'
   initial_state: true
   trigger:

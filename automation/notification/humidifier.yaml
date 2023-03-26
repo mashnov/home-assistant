@@ -1,0 +1,27 @@
+## HUMIDIFIER
+- alias: 'notification_humidifier_empty_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+  action:
+  - service: script.notification_humidifier_empty_hall
+
+- alias: 'notification_humidifier_empty_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
+  action:
+  - service: script.notification_humidifier_empty_bedroom
+
+- alias: 'notification_humidifier_empty_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty_boolean'
+  action:
+  - service: script.notification_humidifier_empty_living

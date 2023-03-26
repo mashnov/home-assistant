@@ -1,0 +1,39 @@
+## HUMIDITY
+- alias: 'notification_humidifier_empty_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+  action:
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ states('input_text.problem_empty_hall') }}"
+      cache: true
+
+- alias: 'notification_humidifier_empty_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
+  action:
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ states('input_text.problem_empty_bedroom') }}"
+      cache: true
+
+- alias: 'notification_humidifier_empty_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty_boolean'
+  action:
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ states('input_text.problem_empty_living') }}"
+      cache: true

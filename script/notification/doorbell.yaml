@@ -1,0 +1,26 @@
+## DORBELL
+- alias: 'notification_doorbell_elevator'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+  action:
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ states('input_text.doorbell_elevator') }}"
+      cache: true
+
+- alias: 'notification_doorbell_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
+  action:
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ states('input_text.doorbell_hall') }}"
+      cache: true
