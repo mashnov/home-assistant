@@ -6,4 +6,4 @@ message_cloud:
     data_template:
       message: | 
         ⏱️ Облачность ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🌤️ Уровень ................... {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '🟠', '🟢') }} {{ states('sensor.cloud_level') }} %
+        🌤️ Уровень ................... {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '🟢', '🔵') }} {{ states('sensor.cloud_level') }} %

@@ -18,9 +18,9 @@ message_humidifier_empty:
     data_template:
       message: | 
         ⏱️ Состояние увлажниелей ... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор .............................. {{ iif(is_state('binary_sensor.humidifier_hall_empty_boolean', 'on'), '🔴', '🟢') }}
-        🛌 Спальня ............................... {{ iif(is_state('binary_sensor.humidifier_bedroom_empty_boolean', 'on'), '🔴', '🟢') }}
-        📚 Гостиная .............................. {{ iif(is_state('binary_sensor.humidifier_living_empty_boolean', 'on'), '🔴', '🟢') }}
+        🧥 Коридор .............................. {{ iif(is_state('binary_sensor.humidifier_hall_empty_boolean', 'off'), '🟢', '🔴') }}
+        🛌 Спальня ............................... {{ iif(is_state('binary_sensor.humidifier_bedroom_empty_boolean', 'off'), '🟢', '🔴') }}
+        📚 Гостиная .............................. {{ iif(is_state('binary_sensor.humidifier_living_empty_boolean', 'off'), '🟢', '🔴') }}
 
 
 message_humidifier_empty_hall:

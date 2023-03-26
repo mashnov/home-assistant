@@ -1,11 +1,11 @@
 ## PRESSURE
-pressure_temperature:
+message_pressure:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        {%- set lowIcon = is_state('binary_sensor.pressure_low', 'on') and '🔴' %}
+        {%- set lowIcon = is_state('binary_sensor.pressure_low', 'on') and '🟠' %}
         {%- set hightIcon = is_state('binary_sensor.pressure_hight', 'on') and '🟠' %}
         {%- set statusIcon = lowIcon or hightIcon or '🟢' %}
 

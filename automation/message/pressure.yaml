@@ -1,10 +1,10 @@
 ## PRESSURE
-- alias: pressure_temperature'
+- alias: message_pressure'
   initial_state: true
   trigger:
   - platform: event
     event_type: telegram_command
     event_data:
-      command: '/temperature'
+      command: '/pressure'
   action:
-  - service: script.pressure_temperature
+  - service: script.message_pressure

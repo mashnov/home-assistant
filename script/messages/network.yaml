@@ -6,6 +6,6 @@ message_network:
     data_template:
       message: | 
         ⏱️ Соединение ...... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        ⬇️ Загрузка ............ {{ iif(is_state('binary_sensor.network_download_low', 'on'), '🟠', '🟢') }} {{ states('sensor.network_download_level') }} Mbit/s
-        ⬆️ Отдача ............... {{ iif(is_state('binary_sensor.network_upload_low', 'on'), '🟠', '🟢') }} {{ states('sensor.network_upload_level') }} Mbit/s
-        🔀 Пинг ................... {{ iif(is_state('binary_sensor.network_ping_low', 'on'), '🟠', '🟢') }} {{ states('sensor.network_ping_level') }} ms
+        ⬇️ Загрузка ............ {{ iif(is_state('binary_sensor.network_download_low', 'on'), '🟢', '🟠') }} {{ states('sensor.network_download_level') }} Mbit/s
+        ⬆️ Отдача ............... {{ iif(is_state('binary_sensor.network_upload_low', 'on'), '🟢', '🟠') }} {{ states('sensor.network_upload_level') }} Mbit/s
+        🔀 Пинг ................... {{ iif(is_state('binary_sensor.network_ping_low', 'on'), '🟢', '🟠') }} {{ states('sensor.network_ping_level') }} ms

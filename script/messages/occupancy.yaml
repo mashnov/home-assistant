@@ -6,10 +6,10 @@ message_occupancy:
     data_template:
       message: | 
         ⏱️ Присутствие ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟠', '🟢') }}
-        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟠', '🟢') }}
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟠', '🟢') }}
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟠', '🟢') }}
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟢', '🟠') }}
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟢', '🟠') }}
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🟠') }}
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟢', '🟠') }}
 
 message_occupancy_kitchen:
   mode: 'queued'
@@ -18,7 +18,7 @@ message_occupancy_kitchen:
     data_template:
       message: | 
         ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟠', '🟢') }}
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟢', '🟠') }}
 
 message_occupancy_bath:
   mode: 'queued'
@@ -27,7 +27,7 @@ message_occupancy_bath:
     data_template:
       message: | 
         ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟠', '🟢') }}
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟢', '🟠') }}
 
 message_occupancy_toilet:
   mode: 'queued'
@@ -36,7 +36,7 @@ message_occupancy_toilet:
     data_template:
       message: | 
         ⏱️ Присутствие ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟠', '🟢') }}
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🟠') }}
 
 message_occupancy_hall:
   mode: 'queued'
@@ -45,4 +45,4 @@ message_occupancy_hall:
     data_template:
       message: | 
         ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟠', '🟢') }}
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟢', '🟠') }}
