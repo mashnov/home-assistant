@@ -1,11 +1,11 @@
 ## ILLUMINANCE CURTAIN KITCHEN
-script.illuminance_kitchen_curtain_on:
+illuminance_kitchen_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_kitchen_curtain
 
-script.illuminance_kitchen_curtain_off:
+illuminance_kitchen_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -13,13 +13,13 @@ script.illuminance_kitchen_curtain_off:
 
 
 ## ILLUMINANCE CURTAIN BEDROOM
-script.illuminance_bedroom_curtain_on:
+illuminance_bedroom_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_bedroom_curtain
 
-script.illuminance_bedroom_curtain_off:
+illuminance_bedroom_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -27,13 +27,13 @@ script.illuminance_bedroom_curtain_off:
 
 
 ## ILLUMINANCE CURTAIN LIVING
-script.illuminance_living_curtain_on:
+illuminance_living_curtain_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_living_curtain
 
-script.illuminance_living_curtain_off:
+illuminance_living_curtain_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -41,13 +41,13 @@ script.illuminance_living_curtain_off:
 
 
 ## ILLUMINANCE TOP LIGHT KITCHEN
-script.illuminance_kitchen_top_light_on:
+illuminance_kitchen_top_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_kitchen_top_light
 
-script.illuminance_kitchen_top_light_off:
+illuminance_kitchen_top_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -55,13 +55,13 @@ script.illuminance_kitchen_top_light_off:
 
 
 ## ILLUMINANCE TOP LIGHT HALL
-script.illuminance_hall_top_light_on:
+illuminance_hall_top_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_hall_top_light
 
-script.illuminance_hall_top_light_off:
+illuminance_hall_top_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -69,13 +69,13 @@ script.illuminance_hall_top_light_off:
 
 
 ## ILLUMINANCE BACK LIGHT KITCHEN
-script.illuminance_kitchen_back_light_on:
+illuminance_kitchen_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_kitchen_back_light
 
-script.illuminance_kitchen_back_light_off:
+illuminance_kitchen_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -83,13 +83,13 @@ script.illuminance_kitchen_back_light_off:
 
 
 ## ILLUMINANCE BACK LIGHT HALL
-script.illuminance_hall_back_light_on:
+illuminance_hall_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_hall_back_light
 
-script.illuminance_hall_back_light_off:
+illuminance_hall_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -97,13 +97,13 @@ script.illuminance_hall_back_light_off:
 
 
 ## ILLUMINANCE BACK LIGHT BEDROOM
-script.illuminance_bedroom_back_light_on:
+illuminance_bedroom_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_bedroom_back_light
 
-script.illuminance_bedroom_back_light_off:
+illuminance_bedroom_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -111,13 +111,13 @@ script.illuminance_bedroom_back_light_off:
 
 
 ## ILLUMINANCE BACK LIGHT LIVING
-script.illuminance_living_back_light_on:
+illuminance_living_back_light_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.illuminance_living_back_light
 
-script.illuminance_living_back_light_off:
+illuminance_living_back_light_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
