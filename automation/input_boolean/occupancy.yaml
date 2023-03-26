@@ -103,7 +103,7 @@
     entity_id: 'binary_sensor.occupancy_toilet_boolean'
     state: 'on'
   - condition: state
-    entity_id: 'timer.occupancy_toilet'
+    entity_id: 'timer.toilet_mode'
     state: 'active'
   action:
   - service: script.occupancy_toilet_timer_cancel
@@ -134,7 +134,7 @@
     entity_id: 'binary_sensor.occupancy_toilet_boolean'
     state: 'on'
   - condition: state
-    entity_id: 'timer.occupancy_toilet'
+    entity_id: 'timer.toilet_mode'
     state: 'idle'
   action:
   - service: script.occupancy_toilet_off
