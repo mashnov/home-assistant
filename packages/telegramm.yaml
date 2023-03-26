@@ -25,18 +25,6 @@ telegramm:
       data_template:
         option: '{{ trigger.event.data.command }}'
 
-# ============== SYSTEM
-
-  - alias: send_system_start_message
-    initial_state: true
-    trigger:
-    - platform: homeassistant
-      event: start
-    action:
-    - service: script.telegram_create_message_test 
-      data_template:
-        options: ['/systemStart']
-
 # ============== HOME
 
   - alias: send_home_temperature_message
