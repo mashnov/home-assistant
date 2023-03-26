@@ -4,11 +4,11 @@
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     state: >
-      {% set kitchen = state_attr('sensor.pressure', 'kitchen') %}
-      {% set bath = state_attr('sensor.pressure', 'bath') %}
-      {% set hall = state_attr('sensor.pressure', 'hall') %}
-      {% set bedroom = state_attr('sensor.pressure', 'bedroom') %}
-      {% set living = state_attr('sensor.pressure', 'living') %}
+      {% set kitchen = state_attr('sensor.pressure_level', 'kitchen') | int(0) %}
+      {% set bath = state_attr('sensor.pressure_level', 'bath') | int(0) %}
+      {% set hall = state_attr('sensor.pressure_level', 'hall') | int(0) %}
+      {% set bedroom = state_attr('sensor.pressure_level', 'bedroom') | int(0) %}
+      {% set living = state_attr('sensor.pressure_level', 'living') | int(0) %}
       {{ ((kitchen + hall + bath + bedroom + living) / 5) | float(0) | round(1) }}
     icon: >
       {% set isLow = is_state('binary_sensor.pressure_low', 'on') and 'mdi:gauge-low' %}
