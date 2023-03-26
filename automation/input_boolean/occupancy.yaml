@@ -76,7 +76,7 @@
       - service: script.motion_hall_off
 
 
-### OCCUPANCY TOILET
+## OCCUPANCY TOILET
 - alias: 'occupancy_toilet_timer_start'
   initial_state: true
   trigger:

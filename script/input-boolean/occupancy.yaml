@@ -1,11 +1,11 @@
 ## MOTION KITCHEN
-script.motion_kitchen_on:
+motion_kitchen_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_kitchen
 
-script.motion_kitchen_off:
+motion_kitchen_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -13,27 +13,27 @@ script.motion_kitchen_off:
 
 
 ## MOTION BATH
-script.motion_bath_on:
+motion_bath_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_bath
 
-script.motion_bath_off:
+motion_bath_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.occupancy_bath
 
 
-### OCCUPANCY TOILET
-script.occupancy_toilet_on:
+## OCCUPANCY TOILET
+occupancy_toilet_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_toilet
 
-script.occupancy_toilet_off:
+occupancy_toilet_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off
@@ -41,13 +41,13 @@ script.occupancy_toilet_off:
 
 
 ## MOTION HALL
-script.motion_hall_on:
+motion_hall_on:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_hall
 
-script.motion_hall_off:
+motion_hall_off:
   mode: 'queued'
   sequence:
   - service: input_boolean.turn_off

@@ -1,4 +1,4 @@
-### SUSTEM START
+## SUSTEM START
 - alias: 'sustem_start_message'
   initial_state: true
   mode: 'queued'
@@ -9,7 +9,7 @@
   - service: script.message_sustem_start
 
 
-### SUSTEM POWER
+## SUSTEM POWER
 - alias: 'sustem_start_message'
   initial_state: true
   mode: 'queued'
@@ -21,7 +21,7 @@
   - service: script.message_power_problem
 
 
-### SUSTEM UPDATES
+## SUSTEM UPDATES
 - alias: 'sustem_update_message'
   initial_state: true
   trigger:

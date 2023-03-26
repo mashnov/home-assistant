@@ -15,7 +15,7 @@
   - name: 'network_ping_level'
     device_class: 'data_rate'
     unit_of_measurement: Mbit/s
-    state: "{{ states('sensor.speedtest_ping') | float(0) | round(1)"
+    state: "{{ states('sensor.speedtest_ping') | float(0) | round(1) }}"
     icon: 'mdi:speedometer'
 
 - binary_sensor:
