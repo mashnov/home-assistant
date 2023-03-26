@@ -22,8 +22,7 @@ message_navigation_climat:
       data:
         inline_keyboard: 
         - 'Температура:/temperature, Влажность:/humidity, Давление:/pressure'
-        - 'Солнце:/solar, Облачность:/cloud'
-        - 'Проветривание:/ventilation'
+        - 'Солнце:/solar, Облачность:/cloud, Проветривание:/ventilation'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION SECURITY
@@ -36,8 +35,7 @@ message_navigation_security:
       data:
         inline_keyboard: 
         - 'Двери:/door, Окна:/window'
-        - 'Движение:/occupancy'
-        - 'Ночной режим:/night_mode'
+        - 'Движение:/occupancy, Ночной режим:/night_mode'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DEVICE
@@ -49,12 +47,11 @@ message_navigation_device:
       message: 'Устройства'
       data:
         inline_keyboard: 
-        - 'Освещение:/device_top_light'
+        - 'Вечеринка:/party_light, Освещение:/device_top_light'
         - 'Подсветка:/back_light, Ночники:/night_light'
         - 'Увлажнитель:/humidifier, Вытяжка:/dehumidifier'
         - 'Выключатели:/switch, Шторы:/curtain'
-        - 'Вечеринка:/party_light, Фонтан:/fountain'
-        - 'Сеть:/network'
+        - 'Фонтан:/fountain, Сеть:/network'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DEVICE TOP LIGHT
