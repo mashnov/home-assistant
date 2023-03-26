@@ -4,8 +4,8 @@ message_navigation_home:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
+      message: 'Главное меню'
       data:
-        message: 'Главное меню'
         inline_keyboard: 
         - 'Информация:/information, Управление:/control'
         - 'Климат:/climat'
@@ -20,8 +20,8 @@ message_navigation_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
+      message: 'Климат'
       data:
-        message: 'Климат'
         inline_keyboard: 
         - 'Температура:/temperature'
         - 'Влажность:/humidity'
@@ -37,8 +37,8 @@ message_navigation_security:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
+      message: 'Безопасность'
       data:
-        message: 'Безопасность'
         inline_keyboard: 
         - 'Двери:/door'
         - 'Окна:/window'
@@ -52,8 +52,8 @@ message_navigation_device:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
+      message: 'Устройства'
       data:
-        message: 'Устройства'
         inline_keyboard: 
         - 'Вечеринка:/party_light'
         - 'Освещение:/device_top_light'
@@ -73,8 +73,8 @@ message_navigation_device_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
+      message: 'Освещение'
       data:
-        message: 'Освещение'
         inline_keyboard: 
         - 'Кухня:/top_light_kitchen'
         - 'Ванная:/top_light_bath'
