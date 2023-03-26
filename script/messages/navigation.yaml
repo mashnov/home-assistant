@@ -7,11 +7,9 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Информация:/information, Управление:/control'
         - 'Климат:/climat'
         - 'Безопасность:/security'
         - 'Устройства:/device'
-        - 'Закрыть:/hide_menu'
         - 'Закрыть:/hide_menu'
 
 ## NAVIGATION CLIMAT
@@ -23,11 +21,8 @@ message_navigation_climat:
       message: 'Климат'
       data:
         inline_keyboard: 
-        - 'Температура:/temperature'
-        - 'Влажность:/humidity'
-        - 'Давление:/pressure'
-        - 'Облачность:/cloud'
-        - 'Солнце:/solar'
+        - 'Температура:/temperature, Влажность:/humidity, Давление:/pressure'
+        - 'Солнце:/solar, Облачность:/cloud'
         - 'Проветривание:/ventilation'
         - 'Закрыть:/hide_menu'
 
@@ -40,8 +35,7 @@ message_navigation_security:
       message: 'Безопасность'
       data:
         inline_keyboard: 
-        - 'Двери:/door'
-        - 'Окна:/window'
+        - 'Двери:/door, Окна:/window'
         - 'Движение:/occupancy'
         - 'Ночной режим:/night_mode'
         - 'Закрыть:/hide_menu'
@@ -55,15 +49,11 @@ message_navigation_device:
       message: 'Устройства'
       data:
         inline_keyboard: 
-        - 'Вечеринка:/party_light'
         - 'Освещение:/device_top_light'
-        - 'Подсветка:/back_light'
-        - 'Ночники:/night_light'
-        - 'Выключатели:/switch'
-        - 'Увлажнитель:/humidifier'
-        - 'Вытяжка:/dehumidifier'
-        - 'Фонтан:/fountain'
-        - 'Шторы:/curtain'
+        - 'Подсветка:/back_light, Ночники:/night_light'
+        - 'Увлажнитель:/humidifier, Вытяжка:/dehumidifier'
+        - 'Выключатели:/switch, Шторы:/curtain'
+        - 'Вечеринка:/party_light, Фонтан:/fountain'
         - 'Сеть:/network'
         - 'Закрыть:/hide_menu'
 

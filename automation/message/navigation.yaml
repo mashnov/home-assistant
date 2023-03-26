@@ -17,7 +17,7 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
+    event_type: telegram_callback
     event_data:
       command: '/climat'
   action:
@@ -29,7 +29,7 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
+    event_type: telegram_callback
     event_data:
       command: '/security'
   action:
@@ -41,7 +41,7 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
+    event_type: telegram_callback
     event_data:
       command: '/device'
   action:
@@ -53,7 +53,7 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
+    event_type: telegram_callback
     event_data:
       command: '/device_top_light'
   action:
