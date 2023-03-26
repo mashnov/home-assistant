@@ -7,6 +7,10 @@
     event_type: telegram_command
     event_data:
       command: '/home'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/home'
   action:
   - service: script.message_navigation_home
 

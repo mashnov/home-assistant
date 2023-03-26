@@ -8,8 +8,8 @@ message_navigation_home:
       data:
         inline_keyboard: 
         - 'Климат:/climat'
-        - 'Безопасность:/security'
         - 'Устройства:/device'
+        - 'Безопасность:/security'
         - 'Закрыть:/hide_menu'
 
 ## NAVIGATION CLIMAT
@@ -24,7 +24,7 @@ message_navigation_climat:
         - 'Температура:/temperature, Влажность:/humidity, Давление:/pressure'
         - 'Солнце:/solar, Облачность:/cloud'
         - 'Проветривание:/ventilation'
-        - 'Закрыть:/hide_menu'
+        - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION SECURITY
 message_navigation_security:
@@ -38,7 +38,7 @@ message_navigation_security:
         - 'Двери:/door, Окна:/window'
         - 'Движение:/occupancy'
         - 'Ночной режим:/night_mode'
-        - 'Закрыть:/hide_menu'
+        - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DEVICE
 message_navigation_device:
@@ -55,7 +55,7 @@ message_navigation_device:
         - 'Выключатели:/switch, Шторы:/curtain'
         - 'Вечеринка:/party_light, Фонтан:/fountain'
         - 'Сеть:/network'
-        - 'Закрыть:/hide_menu'
+        - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DEVICE TOP LIGHT
 message_navigation_device_top_light:
@@ -72,7 +72,7 @@ message_navigation_device_top_light:
         - 'Коридор:/top_light_hall'
         - 'Спальня:/top_light_bedroom'
         - 'Гостиная:/top_light_living'
-        - 'Закрыть:/hide_menu'
+        - 'Закрыть:/hide_menu, Назад:/device'
 
 ## NAVIGATION REMOVE
 message_navigation_remove:
