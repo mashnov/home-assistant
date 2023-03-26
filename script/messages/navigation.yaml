@@ -5,6 +5,7 @@ message_navigation_home:
   - service: notify.telegram_home_group_id
     data_template:
       data:
+        message: 'Главное меню'
         inline_keyboard: 
         - 'Информация:/information, Управление:/control'
         - 'Климат:/climat'
@@ -20,6 +21,7 @@ message_navigation_climat:
   - service: notify.telegram_home_group_id
     data_template:
       data:
+        message: 'Климат'
         inline_keyboard: 
         - 'Температура:/temperature'
         - 'Влажность:/humidity'
@@ -36,6 +38,7 @@ message_navigation_security:
   - service: notify.telegram_home_group_id
     data_template:
       data:
+        message: 'Безопасность'
         inline_keyboard: 
         - 'Двери:/door'
         - 'Окна:/window'
@@ -50,6 +53,7 @@ message_navigation_device:
   - service: notify.telegram_home_group_id
     data_template:
       data:
+        message: 'Устройства'
         inline_keyboard: 
         - 'Вечеринка:/party_light'
         - 'Освещение:/device_top_light'
@@ -70,6 +74,7 @@ message_navigation_device_top_light:
   - service: notify.telegram_home_group_id
     data_template:
       data:
+        message: 'Освещение'
         inline_keyboard: 
         - 'Кухня:/top_light_kitchen'
         - 'Ванная:/top_light_bath'
