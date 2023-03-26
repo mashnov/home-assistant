@@ -7,6 +7,14 @@ message_sustem_start:
       message: | 
         🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
 
+message_sustem_shutdown:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🚀 Выключение системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+
 message_sustem_update:
   mode: 'queued'
   sequence:

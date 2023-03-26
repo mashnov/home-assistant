@@ -9,6 +9,17 @@
   - service: script.message_sustem_start
 
 
+## SUSTEM SHUTDOWN
+- alias: 'sustem_shutdown_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  action:
+  - service: script.message_sustem_shutdown
+
+
 ## SUSTEM POWER
 - alias: 'sustem_start_message'
   initial_state: true
