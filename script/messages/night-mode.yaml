@@ -6,6 +6,6 @@ message_night_mode:
     data_template:
       message: | 
         ⏱️ Ночной режим ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................... {{ iif(is_state('binary_sensor.night_mode_hall_boolean', 'on'), '🟢', '🟠') }}
-        🛌 Спальня ................... {{ iif(is_state('binary_sensor.night_mode_bedroom_boolean', 'on'), '🟢', '🟠') }}
-        📚 Гостиная .................. {{ iif(is_state('binary_sensor.night_mode_living_boolean', 'on'), '🟢', '🟠') }}
+        🧥 Коридор ................... {{ iif(is_state('binary_sensor.night_mode_hall_boolean', 'on'), '🟢', '🔴') }}
+        🛌 Спальня ................... {{ iif(is_state('binary_sensor.night_mode_bedroom_boolean', 'on'), '🟢', '🔴') }}
+        📚 Гостиная .................. {{ iif(is_state('binary_sensor.night_mode_living_boolean', 'on'), '🟢', '🔴') }}

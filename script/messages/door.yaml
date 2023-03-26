@@ -6,11 +6,11 @@ message_door:
     data_template:
       message: | 
         ⏱️ Двери ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.door_toilet_open', 'on'), '🟢', '🔴') }}
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.door_toilet_open', 'on'), '🟢', '🟠') }}
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.door_hall_open', 'on'), '🟢', '🔴') }}
-        🛌 Спальня ................. {{ iif(is_state('binary_sensor.door_bedroom_open', 'on'), '🟢', '🔴') }}
-        📚 Гостиная ................ {{ iif(is_state('binary_sensor.door_living_open', 'on'), '🟢', '🔴') }}
-        🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🔴') }}
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.door_bedroom_open', 'on'), '🟢', '🟠') }}
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.door_living_open', 'on'), '🟢', '🟠') }}
+        🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🟠') }}
 
 message_door_hall:
   mode: 'queued'
@@ -28,7 +28,7 @@ message_door_bedroom:
     data_template:
       message: | 
         ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛌 Спальня ................. {{ iif(is_state('binary_sensor.door_bedroom_open', 'on'), '🟢', '🔴') }}
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.door_bedroom_open', 'on'), '🟢', '🟠') }}
 
 message_door_living:
   mode: 'queued'
@@ -37,7 +37,7 @@ message_door_living:
     data_template:
       message: | 
         ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        📚 Гостиная ................ {{ iif(is_state('binary_sensor.door_living_open', 'on'), '🟢', '🔴') }}
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.door_living_open', 'on'), '🟢', '🟠') }}
 
 message_door_balcony:
   mode: 'queued'
@@ -46,4 +46,4 @@ message_door_balcony:
     data_template:
       message: | 
         ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🔴') }}
+        🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🟠') }}

@@ -6,11 +6,11 @@ message_window:
     data_template:
       message: | 
         ⏱️ Окна ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня левое ........... {{ iif(is_state('binary_sensor.window_kitchen_left_open', 'on'), '🟢', '🔴') }}
-        🥣 Кухня правое ......... {{ iif(is_state('binary_sensor.window_kitchen_right_open', 'on'), '🟢', '🔴') }}
-        🛌 Спальня левое ....... {{ iif(is_state('binary_sensor.window_bedroom_left_open', 'on'), '🟢', '🔴') }}
-        🛌 Спальня правое ..... {{ iif(is_state('binary_sensor.window_bedroom_right_open', 'on'), '🟢', '🔴') }}
-        📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🔴') }}
+        🥣 Кухня левое ........... {{ iif(is_state('binary_sensor.window_kitchen_left_open', 'on'), '🟢', '🟠') }}
+        🥣 Кухня правое ......... {{ iif(is_state('binary_sensor.window_kitchen_right_open', 'on'), '🟢', '🟠') }}
+        🛌 Спальня левое ....... {{ iif(is_state('binary_sensor.window_bedroom_left_open', 'on'), '🟢', '🟠') }}
+        🛌 Спальня правое ..... {{ iif(is_state('binary_sensor.window_bedroom_right_open', 'on'), '🟢', '🟠') }}
+        📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🟠') }}
 
 message_window_kitchen_left:
   mode: 'queued'
@@ -19,7 +19,7 @@ message_window_kitchen_left:
     data_template:
       message: | 
         ⏱️ Окно ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня левое ........... {{ iif(is_state('binary_sensor.window_kitchen_left_open', 'on'), '🟢', '🔴') }}
+        🥣 Кухня левое ........... {{ iif(is_state('binary_sensor.window_kitchen_left_open', 'on'), '🟢', '🟠') }}
 
 message_window_kitchen_right:
   mode: 'queued'
@@ -28,7 +28,7 @@ message_window_kitchen_right:
     data_template:
       message: | 
         ⏱️ Окно ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня правое ......... {{ iif(is_state('binary_sensor.window_kitchen_right_open', 'on'), '🟢', '🔴') }}
+        🥣 Кухня правое ......... {{ iif(is_state('binary_sensor.window_kitchen_right_open', 'on'), '🟢', '🟠') }}
 
 message_window_bedroom_left:
   mode: 'queued'
@@ -37,7 +37,7 @@ message_window_bedroom_left:
     data_template:
       message: | 
         ⏱️ Окно ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛌 Спальня левое ....... {{ iif(is_state('binary_sensor.window_bedroom_left_open', 'on'), '🟢', '🔴') }}
+        🛌 Спальня левое ....... {{ iif(is_state('binary_sensor.window_bedroom_left_open', 'on'), '🟢', '🟠') }}
 
 message_window_bedroom_right:
   mode: 'queued'
@@ -46,7 +46,7 @@ message_window_bedroom_right:
     data_template:
       message: | 
         ⏱️ Окно ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛌 Спальня правое ..... {{ iif(is_state('binary_sensor.window_bedroom_right_open', 'on'), '🟢', '🔴') }}
+        🛌 Спальня правое ..... {{ iif(is_state('binary_sensor.window_bedroom_right_open', 'on'), '🟢', '🟠') }}
 
 message_window_living:
   mode: 'queued'
@@ -55,4 +55,4 @@ message_window_living:
     data_template:
       message: | 
         ⏱️ Окно ....................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🔴') }}
+        📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🟠') }}

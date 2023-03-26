@@ -6,9 +6,9 @@ message_humidifier:
     data_template:
       message: | 
         ⏱️ Увлажнители .......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................. {{ iif(is_state('binary_sensor.humidifier_hall_on', 'on'), '🟢', '🔴') }}
-        🛌 Спальня .................. {{ iif(is_state('binary_sensor.humidifier_bedroom_on', 'on'), '🟢', '🔴') }}
-        📚 Гостиная ................. {{ iif(is_state('binary_sensor.humidifier_living_on', 'on'), '🟢', '🔴') }}
+        🧥 Коридор ................. {{ iif(is_state('binary_sensor.humidifier_hall_on', 'on'), '🟢', '🟠') }}
+        🛌 Спальня .................. {{ iif(is_state('binary_sensor.humidifier_bedroom_on', 'on'), '🟢', '🟠') }}
+        📚 Гостиная ................. {{ iif(is_state('binary_sensor.humidifier_living_on', 'on'), '🟢', '🟠') }}
 
 
 message_humidifier_empty:
