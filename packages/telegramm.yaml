@@ -2,16 +2,16 @@ telegramm:
   automation:
 # ============== TELEGRAMM
 
-  - alias: telegram_remove_callback_handler'
-    initial_state: true
-    trigger:
-    - platform: event
-      event_type: telegram_callback
-    action:
-    - service: script.delete_telegramm_message
-      data_template:
-        message_id: '{{ trigger.event.data.message.message_id }}'
-        chat_id: '{{ trigger.event.data.chat_id }}'
+  # - alias: telegram_remove_callback_handler'
+  #   initial_state: true
+  #   trigger:
+  #   - platform: event
+  #     event_type: telegram_callback
+  #   action:
+  #   - service: script.delete_telegramm_message
+  #     data_template:
+  #       message_id: '{{ trigger.event.data.message.message_id }}'
+  #       chat_id: '{{ trigger.event.data.chat_id }}'
 
   - alias: telegram_message_handler'
     initial_state: true
