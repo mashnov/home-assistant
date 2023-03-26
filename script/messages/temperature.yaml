@@ -1,15 +1,34 @@
 ## TEMPERATURE
-temperature_message:
+message_temperature:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Температура ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🏡 Средняя ................. {{ state_attr('sensor.temperature', 'average') }} °C
-        🥣 Кухня ..................... {{ state_attr('sensor.temperature', 'kitchen') }} °C
-        🛁 Ванная ................... {{ state_attr('sensor.temperature', 'bath') }} °C
-        🧥 Коридор ................ {{ state_attr('sensor.temperature', 'hall') }} °C
-        🛌 Спальня ................. {{ state_attr('sensor.temperature', 'bedroom') }} °C
-        📚 Гостиная ................ {{ state_attr('sensor.temperature', 'living') }} °C
-        🪴 Балкон ................... {{ state_attr('sensor.temperature', 'balcony') }} °C
+        {%- set kitchenLowIcon = is_state('binary_sensor.temperature_kitchen_low', 'on') and '🔵' %}
+        {%- set kitchenHightIcon = is_state('binary_sensor.temperature_kitchen_hight', 'on') and '🟠' %}
+        {%- set kitchenStatusIcon = kitchenLowIcon or kitchenHightIcon or '🟢' %}
+
+        {%- set bathLowIcon = is_state('binary_sensor.temperature_bath_low', 'on') and '🔵' %}
+        {%- set bathHightIcon = is_state('binary_sensor.temperature_bath_hight', 'on') and '🟠' %}
+        {%- set bathStatusIcon = bathLowIcon or kitchenHightIcon or '🟢' %}
+
+        {%- set hallLowIcon = is_state('binary_sensor.temperature_hall_low', 'on') and '🔵' %}
+        {%- set hallHightIcon = is_state('binary_sensor.temperature_hall_hight', 'on') and '🟠' %}
+        {%- set hallStatusIcon = hallLowIcon or kitchenHightIcon or '🟢' %}
+
+        {%- set bedroomLowIcon = is_state('binary_sensor.temperature_bedroom_low', 'on') and '🔵' %}
+        {%- set bedroomHightIcon = is_state('binary_sensor.temperature_bedroom_hight', 'on') and '🟠' %}
+        {%- set bedroomStatusIcon = bedroomLowIcon or kitchenHightIcon or '🟢' %}
+
+        {%- set livingLowIcon = is_state('binary_sensor.temperature_living_low', 'on') and '🔵' %}
+        {%- set livingHightIcon = is_state('binary_sensor.temperature_living_hight', 'on') and '🟠' %}
+        {%- set livingStatusIcon = livingLowIcon or kitchenHightIcon or '🟢' %}
+
+        ⏱️ Температура ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ kitchenStatusIcon }} {{ states('sensor.temperature_kitchen_level') }} °C
+        🛁 Ванная ................... {{ bathStatusIcon }} {{ states('sensor.temperature_bath_level') }} °C
+        🧥 Коридор ................ {{ hallStatusIcon }} {{ states('sensor.temperature_hall_level') }} °C
+        🛌 Спальня ................. {{ bedroomStatusIcon }} {{ states('sensor.temperature_bedroom_level') }} °C
+        📚 Гостиная ................ {{ livingStatusIcon }} {{ states('sensor.temperature_living_level') }} °C
+        🪴 Балкон ................... 🟢 {{ states('sensor.temperature_balcony_level') }} °C

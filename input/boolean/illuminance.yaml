@@ -1,48 +1,52 @@
-## ILLUMINANCE
-### KITCHEN
+## CURTAIN KITCHEN
 illuminance_kitchen_curtain:
   initial: false
   icon: 'mdi:arrow-up-bold-circle-outline'
 
 
-illuminance_kitchen_top_light:
-  initial: false
-  icon: 'mdi:arrow-down-bold-circle-outline'
-
-
-illuminance_kitchen_back_light:
-  initial: false
-  icon: 'mdi:arrow-down-bold-circle-outline'
-
-
-### HALL
-illuminance_hall_top_light:
-  initial: false
-  icon: 'mdi:arrow-down-bold-circle-outline'
-
-
-illuminance_hall_back_light:
-  initial: false
-  icon: 'mdi:arrow-down-bold-circle-outline'
-
-
-### BEDROOM
+## CURTAIN BEDROOM
 illuminance_bedroom_curtain:
   initial: false
   icon: 'mdi:arrow-up-bold-circle-outline'
 
 
-illuminance_bedroom_back_light:
-  initial: false
-  icon: 'mdi:arrow-down-bold-circle-outline'
-
-
-### LIVING
+## CURTAIN LIVING
 illuminance_living_curtain:
   initial: false
   icon: 'mdi:arrow-up-bold-circle-outline'
 
 
+## TOP LIGTH KITCHEN
+illuminance_kitchen_top_light:
+  initial: false
+  icon: 'mdi:arrow-down-bold-circle-outline'
+
+
+## TOP LIGTH HALL
+illuminance_hall_top_light:
+  initial: false
+  icon: 'mdi:arrow-down-bold-circle-outline'
+
+
+## BACK LIGTH KITCHEN
+illuminance_kitchen_back_light:
+  initial: false
+  icon: 'mdi:arrow-down-bold-circle-outline'
+
+
+## BACK LIGTH HALL
+illuminance_hall_back_light:
+  initial: false
+  icon: 'mdi:arrow-down-bold-circle-outline'
+
+
+## BACK LIGTH BEDROOM
+illuminance_bedroom_back_light:
+  initial: false
+  icon: 'mdi:arrow-down-bold-circle-outline'
+
+
+## BACK LIGTH LIVING
 illuminance_living_back_light:
   initial: false
   icon: 'mdi:arrow-down-bold-circle-outline'

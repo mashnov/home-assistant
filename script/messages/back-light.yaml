@@ -1,0 +1,50 @@
+## BACK LIGHT
+message_back_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ................... {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), '🟢', '🔴') }}
+        🧥 Коридор .............. {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), '🟢', '🔴') }}
+        🛌 Спальня 1 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), '🟢', '🔴') }}
+        🛌 Спальня 2 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), '🟢', '🔴') }}
+        📚 Гостиная .............. {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), '🟢', '🔴') }}
+        🪴 Балкон ................. {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), '🟢', '🔴') }}
+
+message_back_light_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор .............. {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), '🟢', '🔴') }}
+
+message_back_light_bedroom_1:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛌 Спальня 1 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), '🟢', '🔴') }}
+
+message_back_light_bedroom_2:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛌 Спальня 2 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), '🟢', '🔴') }}
+
+message_back_light_living:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        📚 Гостиная .............. {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), '🟢', '🔴') }}

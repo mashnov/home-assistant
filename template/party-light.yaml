@@ -1,0 +1,12 @@
+## PARTY LIGHT ON SENSORS
+- binary_sensor:
+  - name: 'party_light_kitchen_on'
+    device_class: 'plug'
+    icon: 'mdi:party-popper'
+    state: "{{ is_state('light.kitchen_party_light', 'on') }}"
+
+## PARTY LIGHT PERMISSION
+  - name: 'party_light_kitchen_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: "{{ is_state('binary_sensor.button_kicthen_both_on', 'on') }}"

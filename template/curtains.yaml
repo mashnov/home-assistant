@@ -1,0 +1,89 @@
+## CURTAIN LEVEL SENSORS
+- sensor:
+  - name: 'curtain_kitchen_level'
+    unit_of_measurement: '%'
+    state: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_kitchen_boolean', 'on') %}
+      {% set isIlluminanceLow = is_state('binary_sensor.illuminance_kitchen_curtain_boolean', 'on') %}
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set isSunHight = is_state('binary_sensor.solar_hight', 'on') %}
+      {% set ventilationPosition = (isNightMode and isVentilation) and states('input_number.curtain_kitchen_ventilation') %}
+      {% set nightPosition = (isNightMode and not(isVentilation)) and states('input_number.curtain_kitchen_night') %}
+      {% set sunnyPosition = (not(isNightMode) and isSunHight and isIlluminanceLow) and states('input_number.curtain_kitchen_sun') %}
+      {% set openPosition = states('input_number.curtain_kitchen_open') %}
+      {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+
+  - name: 'curtain_bedroom_level'
+    unit_of_measurement: '%'
+    state: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_bedroom_boolean', 'on') %}
+      {% set isIlluminanceLow = is_state('binary_sensor.illuminance_bedroom_curtain_boolean', 'on') %}
+      {% set isNightMode = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
+      {% set isSunHight = is_state('binary_sensor.solar_hight', 'on') %}
+      {% set ventilationPosition = (isNightMode and isVentilation) and states('input_number.curtain_bedroom_ventilation') %}
+      {% set nightPosition = (isNightMode and not(isVentilation)) and states('input_number.curtain_bedroom_night') %}
+      {% set sunnyPosition = (not(isNightMode) and isSunHight and isIlluminanceLow) and states('input_number.curtain_bedroom_sun') %}
+      {% set openPosition = states('input_number.curtain_bedroom_open') %}
+      {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+
+  - name: 'curtain_living_level'
+    unit_of_measurement: '%'
+    state: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_living_boolean', 'on') %}
+      {% set isIlluminanceLow = is_state('binary_sensor.illuminance_living_curtain_boolean', 'on') %}
+      {% set isNightMode = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
+      {% set isSunHight = is_state('binary_sensor.solar_hight', 'on') %}
+      {% set ventilationPosition = (isNightMode and isVentilation) and states('input_number.curtain_living_ventilation') %}
+      {% set nightPosition = (isNightMode and not(isVentilation)) and states('input_number.curtain_living_night') %}
+      {% set sunnyPosition = (not(isNightMode) and isSunHight and isIlluminanceLow) and states('input_number.curtain_living_sun') %}
+      {% set openPosition = states('input_number.curtain_living_open') %}
+      {{ ventilationPosition or nightPosition or sunnyPosition or openPosition }}
+
+
+## CURTAIN POSITION SENSORS
+  - name: 'curtain_kitchen_position'
+    unit_of_measurement: '%'
+    state: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"
+    icon: >
+      {% set isOpen = is_state('binary_sensor.curtain_kitchen_open', 'on') %}
+      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+
+  - name: 'curtain_bedroom_position'
+    unit_of_measurement: '%'
+    state: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}"
+    icon: >
+      {% set isOpen = is_state('binary_sensor.curtain_bedroom_open', 'on') %}
+      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+
+  - name: 'curtain_living_position'
+    unit_of_measurement: '%'
+    state: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"
+    icon: >
+      {% set isOpen = is_state('binary_sensor.curtain_living_open', 'on') %}
+      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+
+## CURTAIN OPEN SENSORS
+- binary_sensor:
+  - name: 'curtain_kitchen_open'
+    device_class: 'opening'
+    icon: 'mdi:curtains'
+    state: >
+      {% set sensorValue = states('sensor.curtain_kitchen_position') | int(0) %}
+      {% set closeValue = states('input_number.curtain_kitchen_close') | int(0) %}
+      {{ sensorValue < closeValue }}
+
+  - name: 'curtain_bedroom_open'
+    device_class: 'opening'
+    icon: 'mdi:curtains'
+    state: >
+      {% set sensorValue = states('sensor.curtain_bedroom_position') | int(0) %}
+      {% set closeValue = states('input_number.curtain_bedroom_close') | int(0) %}
+      {{ sensorValue < closeValue }}
+
+  - name: 'curtain_living_open'
+    device_class: 'opening'
+    icon: 'mdi:curtains'
+    state: >
+      {% set sensorValue = states('sensor.curtain_living_position') | int(0) %}
+      {% set closeValue = states('input_number.curtain_living_close') | int(0) %}
+      {{ sensorValue < closeValue }}

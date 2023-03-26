@@ -1,33 +1,73 @@
-## VENTILATION
+## VENTILATION SENSORS
 - binary_sensor:
-  - name: 'ventilation'
+  - name: 'ventilation_kitchen'
     device_class: 'opening'
     state: >
-      {% set kitchenValue = state_attr('binary_sensor.ventilation', 'kitchen') %}
-      {% set hallValue = state_attr('binary_sensor.ventilation', 'hall') %}
-      {% set bedroomValue = state_attr('binary_sensor.ventilation', 'bedroom') %}
-      {% set livingValue = state_attr('binary_sensor.ventilation', 'living') %}
-      {{ kitchenValue or hallValue or bedroomValue or livingValue }}
+      {% set leftValue = is_state('binary_sensor.window_kitchen_left_open', 'on') %}
+      {% set rightValue = is_state('binary_sensor.window_kitchen_right_open', 'on') %}
+      {{ leftValue or rightValue }}
     icon: >
-      {% set isOpenIcon = is_state('binary_sensor.ventilation', 'on') %}
-      {{ iif(isOpenIcon, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
-    attributes:
-      kitchen: >
-        {% set leftValue = state_attr('binary_sensor.status_window', 'kitchen_left') %}
-        {% set rightValue = state_attr('binary_sensor.status_window', 'kitchen_right') %}
-        {{ leftValue or rightValue }}
-      hall: >
-        {% set d_hall = state_attr('binary_sensor.status_door', 'hall') %}
-        {% set d_bedroom = state_attr('binary_sensor.status_door', 'bedroom') %}
-        {% set d_living = state_attr('binary_sensor.status_door', 'living') %}
-        {% set v_kitchen = state_attr('binary_sensor.ventilation', 'kitchen') %}
-        {% set v_bedroom = state_attr('binary_sensor.ventilation', 'bedroom') %}
-        {% set v_living = state_attr('binary_sensor.ventilation', 'living') %}
-        {% set bedroomValue = v_bedroom and d_bedroom %}
-        {% set livingValue = v_living and d_living %}
-        {{ v_kitchen or d_hall or bedroomValue or livingValue }}
-      bedroom: >
-        {% set leftValue = state_attr('binary_sensor.status_window', 'bedroom_left') %}
-        {% set rightValue = state_attr('binary_sensor.status_window', 'bedroom_right') %}
-        {{ leftValue or rightValue }}
-      living: "{{ state_attr('binary_sensor.window', 'living') }}"
+      {% set isVentilation = is_state('binary_sensor.ventilation_kitchen', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_hall'
+    device_class: 'opening'
+    state: >
+      {% set d_hall = is_state('binary_sensor.door_hall_open', 'on') %}
+      {% set d_bedroom = is_state('binary_sensor.door_bedroom_open', 'on') %}
+      {% set d_living = is_state('binary_sensor.door_living_open', 'on') %}
+      {% set v_kitchen = is_state('binary_sensor.ventilation_kitchen', 'on') %}
+      {% set v_bedroom = is_state('binary_sensor.ventilation_bedroom', 'on') %}
+      {% set v_living = is_state('binary_sensor.ventilation_living', 'on') %}
+      {% set bedroomValue = v_bedroom and d_bedroom %}
+      {% set livingValue = v_living and d_living %}
+      {{ v_kitchen or d_hall or bedroomValue or livingValue }}
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_hall', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_bedroom'
+    device_class: 'opening'
+    state: >
+      {% set leftValue = is_state('binary_sensor.window_bedroom_left_open', 'on') %}
+      {% set rightValue = is_state('binary_sensor.window_bedroom_right_open', 'on') %}
+      {{ leftValue or rightValue }}
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_bedroom', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_living'
+    device_class: 'opening'
+    state: "{{ is_state('binary_sensor.window_living_open', 'on') }}"
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_living', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+## VENTILATION BOOLEAN SENSORS
+  - name: 'ventilation_kitchen_boolean'
+    device_class: 'opening'
+    state: "{{ is_state('input_boolean.ventilation_kitchen', 'on') }}"
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_kitchen_boolean', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_hall_boolean'
+    device_class: 'opening'
+    state: "{{ is_state('input_boolean.ventilation_hall', 'on') }}"
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_hall_boolean', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_bedroom_boolean'
+    device_class: 'opening'
+    state: "{{ is_state('input_boolean.ventilation_bedroom', 'on') }}"
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_bedroom_boolean', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}
+
+  - name: 'ventilation_living_boolean'
+    device_class: 'opening'
+    state: "{{ is_state('input_boolean.ventilation_living', 'on') }}"
+    icon: >
+      {% set isVentilation = is_state('binary_sensor.ventilation_living_boolean', 'on') %}
+      {{ iif(isVentilation, 'mdi:weather-windy', 'mdi:tailwind', 'mdi:help-circle') }}

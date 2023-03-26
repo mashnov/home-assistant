@@ -1,0 +1,8 @@
+message_party_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Вечеринка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ................... {{ iif(is_state('binary_sensor.party_light_kitchen_on', 'on'), '🟢', '🔴') }}

@@ -1,0 +1,814 @@
+## TOP LIGHT KITCHEN GROUP
+top_light_kitchen_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen'
+
+top_light_kitchen_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen'
+
+top_light_kitchen_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT KITCHEN 1
+top_light_kitchen_1_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_1'
+
+top_light_kitchen_1_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen_1'
+
+top_light_kitchen_1_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_1'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_1_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_1'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT KITCHEN 2
+top_light_kitchen_2_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_2'
+
+top_light_kitchen_2_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen_2'
+
+top_light_kitchen_2_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_2'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_2_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_2'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT KITCHEN 3
+top_light_kitchen_3_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_3'
+
+top_light_kitchen_3_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen_3'
+
+top_light_kitchen_3_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_3'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_3_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_3'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT KITCHEN 4
+top_light_kitchen_4_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_4'
+
+top_light_kitchen_4_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen_4'
+
+top_light_kitchen_4_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_4'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_4_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_4'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT KITCHEN 5
+top_light_kitchen_5_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_5'
+
+top_light_kitchen_5_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_kitchen_5'
+
+top_light_kitchen_5_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_kitchen_5_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_kitchen_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+
+## TOP LIGHT BATH
+top_light_bath_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.hall_switch_restroom_left'
+
+top_light_bath_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.hall_switch_restroom_left'
+
+
+## TOP LIGHT TOILET
+top_light_toilet_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.hall_switch_restroom_right'
+
+top_light_toilet_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.hall_switch_restroom_right'
+
+
+## TOP LIGHT HALL GROUP
+top_light_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall'
+
+top_light_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall'
+
+top_light_hall_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 1
+top_light_hall_1_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_1'
+
+top_light_hall_1_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_1'
+
+top_light_hall_1_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_1'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_1_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_1'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 2
+top_light_hall_2_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_2'
+
+top_light_hall_2_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_2'
+
+top_light_hall_2_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_2'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_2_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_2'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 3
+top_light_hall_3_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_3'
+
+top_light_hall_3_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_3'
+
+top_light_hall_3_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_3'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_3_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_3'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 4
+top_light_hall_4_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_4'
+
+top_light_hall_4_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_4'
+
+top_light_hall_4_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_4'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_4_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_4'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 5
+top_light_hall_5_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+
+top_light_hall_5_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_5'
+
+top_light_hall_5_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_5_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT HALL 6
+top_light_hall_6_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+
+top_light_hall_6_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_hall_5'
+
+top_light_hall_6_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_hall_6_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_hall_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+
+
+## TOP LIGHT BEDROOM GROUP
+top_light_bedroom_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom'
+
+top_light_bedroom_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom'
+
+top_light_bedroom_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 1
+top_light_bedroom_1_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_1'
+
+top_light_bedroom_1_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_1'
+
+top_light_bedroom_1_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_1'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_1_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_1'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 2
+top_light_bedroom_2_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_2'
+
+top_light_bedroom_2_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_2'
+
+top_light_bedroom_2_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_2'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_2_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_2'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 3
+top_light_bedroom_3_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_3'
+
+top_light_bedroom_3_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_3'
+
+top_light_bedroom_3_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_3'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_3_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_3'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 4
+top_light_bedroom_4_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_4'
+
+top_light_bedroom_4_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_4'
+
+top_light_bedroom_4_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_4'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_4_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_4'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 5
+top_light_bedroom_5_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+
+top_light_bedroom_5_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_5'
+
+top_light_bedroom_5_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_5_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT BEDROOM 6
+top_light_bedroom_6_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+
+top_light_bedroom_6_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_bedroom_5'
+
+top_light_bedroom_6_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_bedroom_6_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_bedroom_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+
+## TOP LIGHT LIVING GROUP
+top_light_living_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living'
+
+top_light_living_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living'
+
+top_light_living_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 1
+top_light_living_1_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_1'
+
+top_light_living_1_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_1'
+
+top_light_living_1_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_1'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_1_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_1'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 2
+top_light_living_2_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_2'
+
+top_light_living_2_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_2'
+
+top_light_living_2_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_2'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_2_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_2'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 3
+top_light_living_3_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_3'
+
+top_light_living_3_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_3'
+
+top_light_living_3_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_3'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_3_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_3'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 4
+top_light_living_4_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_4'
+
+top_light_living_4_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_4'
+
+top_light_living_4_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_4'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_4_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_4'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 5
+top_light_living_5_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+
+top_light_living_5_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_5'
+
+top_light_living_5_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_5_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+    data_template:
+      color_temp: "{{ color_temp }}"
+
+## TOP LIGHT LIVING 6
+top_light_living_6_on:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+
+top_light_living_6_off:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_off
+    entity_id: 'light.top_light_living_5'
+
+top_light_living_6_set_brightness:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+    data_template:
+      brightness: "{{ brightness }}"
+
+top_light_living_6_set_color_temp:
+  mode: 'queued'
+  sequence:
+  - service: light.turn_on
+    entity_id: 'light.top_light_living_5'
+    data_template:
+      color_temp: "{{ color_temp }}"

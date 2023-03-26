@@ -1,45 +1,44 @@
-## PRESSURE
+## PRESSURE SENSORS
 - sensor:
-  - name: 'pressure'
+  - name: 'pressure_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
-    state: "{{ state_attr('sensor.pressure', 'average') }}"
+    state: >
+      {% set kitchen = state_attr('sensor.pressure', 'kitchen') %}
+      {% set bath = state_attr('sensor.pressure', 'bath') %}
+      {% set hall = state_attr('sensor.pressure', 'hall') %}
+      {% set bedroom = state_attr('sensor.pressure', 'bedroom') %}
+      {% set living = state_attr('sensor.pressure', 'living') %}
+      {{ ((kitchen + hall + bath + bedroom + living) / 5) | float(0) | round(1) }}
     icon: >
-      {% set isNormal = state_attr('binary_sensor.pressure', 'normal') %}
-      {{ iif(isNormal, 'mdi:gauge-low', 'mdi:gauge', 'mdi:help-circle') }}
+      {% set isLow = is_state('binary_sensor.pressure_low', 'on') and 'mdi:gauge-low' %}
+      {% set isHight = is_state('binary_sensor.pressure_hight', 'on') and 'mdi:gauge-full' %}
+      {% set isNormal = not(isLow) and not(isHight) and 'mdi:gauge' %}
+      {{ isLow or isHight or isNormal or 'mdi:help-circle' }}
     attributes:
       kitchen: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
       bath: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
       hall: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
       bedroom: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
       living: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
-      average: >
-        {% set kitchen = state_attr('sensor.pressure', 'kitchen') | int(0) %}
-        {% set hall = state_attr('sensor.pressure', 'hall') | int(0) %}
-        {% set bedroom = state_attr('sensor.pressure', 'bedroom') | int(0) %}
-        {% set living = state_attr('sensor.pressure', 'living') | int(0) %}
-        {{ ((kitchen + hall + bedroom + living) / 4) | int(0) }}
 
 - binary_sensor:
-  - name: 'pressure'
-    state: "{{ state_attr('binary_sensor.pressure', 'normal') }}"
-    icon: >
-      {% set isNormal = state_attr('binary_sensor.pressure', 'normal') %}
-      {{ iif(isNormal, 'mdi:gauge-low', 'mdi:gauge', 'mdi:help-circle') }}
-    attributes: 
-      low: >
-        {% set sensorValue = state_attr('sensor.pressure', 'average') | int(0) %}
-        {% set normalValue = states('input_number.pressure_target') | int(0) %}
-        {% set offsetValue = states('input_number.pressure_offset') | int(0) %}
-        {% set targetValue = normalValue - offsetValue %}
-        {{ sensorValue < targetValue }}
-      hight: >
-        {% set sensorValue = state_attr('sensor.pressure', 'average') | int(0) %}
-        {% set normalValue = states('input_number.pressure_target') | int(0) %}
-        {% set offsetValue = states('input_number.pressure_offset') | int(0) %}
-        {% set targetValue = normalValue + offsetValue %}
-        {{ sensorValue > targetValue }}
-      normal: >
-        {% set hightValue = state_attr('binary_sensor.pressure', 'hight') %}
-        {% set lowValue = state_attr('binary_sensor.pressure', 'low') %}
-        {{ not(hightValue) and not(lowValue) }}
+  - name: 'pressure_low'
+    device_class: 'problem'
+    icon: 'mdi:gauge-low'
+    state: >
+      {% set sensorValue = states('sensor.pressure_level') | int(0) %}
+      {% set normalValue = states('input_number.pressure_target') | int(0) %}
+      {% set offsetValue = states('input_number.pressure_offset') | int(0) %}
+      {% set targetValue = normalValue - offsetValue %}
+      {{ sensorValue < targetValue }}
+
+  - name: 'pressure_hight'
+    device_class: 'problem'
+    icon: 'mdi:gauge-full'
+    state: >
+      {% set sensorValue = states('sensor.pressure_level') | int(0) %}
+      {% set normalValue = states('input_number.pressure_target') | int(0) %}
+      {% set offsetValue = states('input_number.pressure_offset') | int(0) %}
+      {% set targetValue = normalValue + offsetValue %}
+      {{ sensorValue > targetValue }}

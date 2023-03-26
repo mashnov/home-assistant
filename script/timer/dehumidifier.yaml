@@ -1,4 +1,4 @@
-## TOILET
+## DEHUMIDIFIER TOILET
 dehumidifier_toilet_timer_start:
   mode: 'queued'
   sequence:

@@ -1,0 +1,21 @@
+## DEHUMIDIFIER ON SENSORS
+- binary_sensor:
+  - name: 'dehumidifier_toilet_on'
+    device_class: 'plug'
+    icon: 'mdi:check-all'
+    state: "{{ is_state('binary_sensor.relay_toilet_1_on', 'on') }}"
+
+## DEHUMIDIFIER PERMISSION
+  - name: 'dehumidifier_bath_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: "{{ is_state('binary_sensor.humidity_bath_hight', 'on') }}"
+
+  - name: 'dehumidifier_hall_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: > 
+      {% set isButtonOn = is_state('binary_sensor.button_toilet_long_on', 'on') %}
+      {% set bathIsWet = is_state('binary_sensor.humidity_bath_hight', 'on') %}
+      {% set toiletIsEmpty = is_state('input_boolean.permission_dehumidifier_toilet', 'on') %}
+      {{ isButtonOn or (not(bathIsWet) and toiletIsEmpty) }}

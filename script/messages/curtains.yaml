@@ -1,0 +1,11 @@
+## CURTAINS
+message_curtains:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Шторы .................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор ................. {{ states('sensor.curtain_kitchen_position') }} %
+        🛌 Спальня .................. {{ states('sensor.curtain_bedroom_position') }} %
+        📚 Гостиная ................. {{ states('sensor.curtain_living_position') }} %

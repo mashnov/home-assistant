@@ -1,23 +1,22 @@
-## VENTILATION
-### KICTHEN
+## VENTILATION KICTHEN
 ventilation_kitchen:
   initial: false
   icon: 'mdi:tailwind'
 
 
-### HALL
+## VENTILATION HALL
 ventilation_hall:
   initial: false
   icon: 'mdi:tailwind'
 
 
-### BEDROOM
+## VENTILATION BEDROOM
 ventilation_bedroom:
   initial: false
   icon: 'mdi:tailwind'
 
 
-### LIVING
+## VENTILATION LIVING
 ventilation_living:
   initial: false
   icon: 'mdi:tailwind'

@@ -1,0 +1,56 @@
+### SUSTEM START
+- alias: 'sustem_start_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: script.message_sustem_start
+
+
+### SUSTEM POWER
+- alias: 'sustem_start_message'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.rpi_power_status'
+    to: 'on'
+  action:
+  - service: script.message_power_problem
+
+
+### SUSTEM UPDATES
+- alias: 'sustem_update_message'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'update.home_assistant_core_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.home_assistant_operating_system_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.home_assistant_supervisor_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.tailscale_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.zigbee2mqtt_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.mosquitto_broker_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.home_assistant_google_drive_backup_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.file_editor_update'
+    to: 'on'
+  - platform: state
+    entity_id: 'update.terminal_ssh_update'
+    to: 'on'
+  action:
+  - service: script.message_sustem_update

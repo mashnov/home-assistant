@@ -1,5 +1,4 @@
-## SOLAR
-### AZIMUTH
+## SOLAR AZIMUTH
 solar_azimuth_target:
   unit_of_measurement: '°'
   icon: 'mdi:axis-z-rotate-clockwise'
@@ -16,7 +15,7 @@ solar_azimuth_offset:
   step: 1
   initial: 15
 
-### ELEVATION
+## SOLAR ELEVATION
 solar_elevation_target:
   unit_of_measurement: '°'
   icon: 'mdi:angle-acute'

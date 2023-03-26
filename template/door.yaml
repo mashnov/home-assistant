@@ -1,0 +1,36 @@
+## DOOR SENSORS
+- binary_sensor:
+  - name: 'door_toilet_open'
+    device_class: 'door'
+    state: "{{ is_state('binary_sensor.toilet_door', 'on') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door_toilet', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}
+
+  - name: 'door_hall_open'
+    device_class: 'door'
+    state: "{{ is_state('binary_sensor.hall_door', 'on') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door_hall_open', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}
+
+  - name: 'door_bedroom_open'
+    device_class: 'door'
+    state: "{{ is_state('binary_sensor.bedroom_door', 'on') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door_bedroom_open', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}
+
+  - name: 'door_living_open'
+    device_class: 'door'
+    state: "{{ is_state('binary_sensor.living_door', 'on') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door_living_open', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}
+
+  - name: 'door_balcony_open'
+    device_class: 'door'
+    state: "{{ is_state('binary_sensor.living_bottom_window', 'on') }}"
+    icon: >
+      {% set isClose = is_state('binary_sensor.door_balcony_open', 'on') %}
+      {{ iif(isClose, 'mdi:door-closed', 'mdi:door-open', 'mdi:help-circle') }}

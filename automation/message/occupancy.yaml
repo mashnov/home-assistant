@@ -1,0 +1,34 @@
+# по запросу
+# message_occupancy
+
+- alias: 'message_occupancy_kitchen'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_kitchen_boolean'
+  action:
+  - service: script.message_occupancy_kitchen
+
+- alias: 'message_occupancy_bath'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_bath_boolean'
+  action:
+  - service: script.message_occupancy_bath
+
+- alias: 'message_occupancy_toilet'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+  action:
+  - service: script.message_occupancy_toilet
+
+- alias: 'message_occupancy_hall'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_hall_boolean'
+  action:
+  - service: script.message_occupancy_hall

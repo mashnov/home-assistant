@@ -1,0 +1,80 @@
+## BACK LIGHT KITCHEN
+back_light_kitchen_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.kitchen_relay_l2'
+
+back_light_kitchen_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.kitchen_relay_l2'
+
+
+## BACK LIGHT HALL
+back_light_hall_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.hall_relay_l1'
+
+back_light_hall_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.hall_relay_l1'
+
+
+## BACK LIGHT BEDROOM
+back_light_bedroom_1_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.bedroom_relay_l1'
+
+back_light_bedroom_1_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.bedroom_relay_l1'
+
+back_light_bedroom_2_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.bedroom_wall_switch'
+
+back_light_bedroom_2_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.bedroom_wall_switch'
+
+
+## BACK LIGHT BALCONY
+back_light_balcony_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.balcony_light_relay_l2_2'
+
+back_light_balcony_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.balcony_light_relay_l2_2'
+
+
+## BACK LIGHT LIVING
+back_light_living_on:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_on
+    entity_id: 'switch.living_relay_l2'
+
+back_light_living_off:
+  mode: 'queued'
+  sequence:
+  - service: switch.turn_off
+    entity_id: 'switch.living_relay_l2'

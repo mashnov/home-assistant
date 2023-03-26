@@ -1,15 +1,50 @@
 ## HUMIDITY
-humidity_message:
+message_humidity:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Влажность ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🏡 Средняя ................. {{ state_attr('sensor.humidity', 'average') }} %
-        🥣 Кухня ..................... {{ state_attr('sensor.humidity', 'kitchen') }} %
-        🛁 Ванная ................... {{ state_attr('sensor.humidity', 'bath') }} %
-        🧥 Коридор ................ {{ state_attr('sensor.humidity', 'hall') }} %
-        🛌 Спальня ................. {{ state_attr('sensor.humidity', 'bedroom') }} %
-        📚 Гостиная ................ {{ state_attr('sensor.humidity', 'living') }} %
-        🪴 Балкон ................... {{ state_attr('sensor.humidity', 'balcony') }} %
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.humidity_kitchen_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_kitchen_level') }} %
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.humidity_bath_hight', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bath_level') }} %
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.humidity_hall_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_hall_level') }} %
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.humidity_bedroom_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bedroom_level') }} %
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.humidity_living_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_living_level') }} %
+        🪴 Балкон ................... 🟢 {{ states('sensor.humidity_balcony_level') }} %
+
+message_humidity_bath:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.humidity_bath_hight', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bath_level') }} %
+
+message_humidity_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.humidity_hall_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_hall_level') }} %
+
+message_humidity_bedroom:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.humidity_bedroom_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bedroom_level') }} %
+
+message_humidity_living:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.humidity_living_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_living_level') }} %

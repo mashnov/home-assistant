@@ -1,9 +1,56 @@
-## NIGHT_MODE
+## NIGHT_MODE SENSORS
 - binary_sensor:
-  - name: 'night_mode'
-    state: "{{ state_attr('binary_sensor.night_mode', 'hall') }}"
+  - name: 'night_mode_auto_time'
+    icon: 'mdi:weather-night'
+    state: >
+      {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+      {% set timeFrom = strptime(states('input_datetime.night_mode_start_time'), "%H:%M:%S").time() %}
+      {% set timeTill = strptime(states('input_datetime.night_mode_stop_time'), "%H:%M:%S").time() %}
+      {% if timeFrom > timeTill %}
+        {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+      {% else %}
+        {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+      {% endif %}
+
+  - name: 'night_mode_auto_on'
+    icon: 'mdi:weather-night'
+    state: >
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set isNightModeTime = is_state('binary_sensor.night_mode_auto_time', 'on') %}
+      {% set nowTime = as_timestamp(now()) %}
+      {% set lastKitchenUpdate = as_timestamp(states.binary_sensor.kitchen_motion.last_updated) %}
+      {% set lastHallUpdate = as_timestamp(states.binary_sensor.hall_motion.last_updated) %}
+      {% set kitchenValue = ((nowTime - lastKitchenUpdate) / 60) | round(0) %}
+      {% set hallValue = ((nowTime - lastHallUpdate) / 60) | round(0) %}
+      {% set targetValue = states('input_number.night_mode_inaction_target') | int(0) %}
+      {{ not(isNightMode) and isNightModeTime and (kitchenValue > targetValue) and (hallValue > targetValue) }}
+      
+  - name: 'night_mode_auto_off'
+    icon: 'mdi:weather-night'
+    state: >
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set isMorningTime = is_state('binary_sensor.date_time_morning_time', 'on') %}
+      {% set isHallMotion = is_state('binary_sensor.motion_hall_boolean', 'on') %}
+      {% set isKitchenMotion = is_state('binary_sensor.motion_kitchen_boolean', 'on') %}
+      {{ isNightMode and isMorningTime and (isHallMotion or isKitchenMotion) }}
+
+
+## NIGHT_MODE BOOLEAN
+  - name: 'night_mode_bedroom_boolean' 
+    state: "{{ is_state('input_boolean.button_bedroom_both', 'on') }}"
     icon: >
-      {% set isNight = is_state('binary_sensor.illuminance', 'on') %}
+      {% set isNight = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
       {{ iif(isNight, 'mdi:weather-night', 'mdi:weather-partly-cloudy', 'mdi:help-circle') }}
-    attributes:
-      hall: "{{ is_state('input_boolean.night_mode_hall', 'on') }}"
+
+  - name: 'night_mode_living_boolean' 
+    state: "{{ is_state('input_boolean.button_living_both', 'on') }}"
+    icon: >
+      {% set isNight = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
+      {{ iif(isNight, 'mdi:weather-night', 'mdi:weather-partly-cloudy', 'mdi:help-circle') }}
+
+  - name: 'night_mode_hall_boolean'
+    icon: 'mdi:weather-night'
+    state: >
+      {% set bedroomValue = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
+      {% set livingValue = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
+      {{ bedroomValue or livingValue }}

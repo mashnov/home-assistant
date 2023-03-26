@@ -1,0 +1,9 @@
+## BATH
+- alias: 'button_bath_toggle'
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: sensor.hall_switch_restroom_action
+    to: 'single_right'
+  action:
+  - service: script.button_bath_toggle

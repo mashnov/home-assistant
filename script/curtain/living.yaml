@@ -1,7 +1,0 @@
-curtain_living_set_position:
-  mode: 'queued'
-  sequence:
-  - service: cover.set_cover_position
-    entity_id: 'cover.curtain_living'
-    data_template:
-      position: '{{ position }}'

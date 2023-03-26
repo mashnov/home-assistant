@@ -572,7 +572,7 @@ hydration:
     - platform: state
       entity_id: 
       - binary_sensor.h_bath_is_hight
-      - binary_sensor.occupation_toilet_is_occupancy
+      - binary_sensor.occupancy_toilet_is_occupancy
     action:
     - choose:
       - conditions:
@@ -592,7 +592,7 @@ hydration:
               entity_id: input_boolean.hydration_toilet_use_sensor
               state: 'on'
             - condition: state
-              entity_id: binary_sensor.occupation_toilet_is_occupancy
+              entity_id: binary_sensor.occupancy_toilet_is_occupancy
               state: 'off'
             - condition: state
               entity_id: binary_sensor.h_bath_is_hight

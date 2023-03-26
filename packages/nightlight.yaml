@@ -228,7 +228,7 @@ nightlight:
       - binary_sensor.nightlight_kitchen_switch_is_on
       - binary_sensor.nightlight_kitchen_light_is_on
       - input_boolean.nightlight_kitchen_use_sensors
-      - binary_sensor.occupation_kitchen_is_occupancy
+      - binary_sensor.occupancy_kitchen_is_occupancy
       - input_boolean.nightlight_kitchen_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.nightlight_kitchen_use_in_day
@@ -253,7 +253,7 @@ nightlight:
             entity_id: input_boolean.nightlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -312,7 +312,7 @@ nightlight:
             entity_id: input_boolean.nightlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -365,7 +365,7 @@ nightlight:
             entity_id: input_boolean.nightlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.nightlight_kitchen_light_is_on
@@ -385,7 +385,7 @@ nightlight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_kitchen_is_occupancy
+              entity_id: binary_sensor.occupancy_kitchen_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.nightlight_kitchen_light_is_on
@@ -476,7 +476,7 @@ nightlight:
       entity_id: 
       - binary_sensor.nightlight_hall_light_is_on
       - input_boolean.nightlight_hall_use_sensors
-      - binary_sensor.occupation_hall_is_occupancy
+      - binary_sensor.occupancy_hall_is_occupancy
       - input_boolean.nightlight_hall_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.nightlight_hall_use_in_day
@@ -498,7 +498,7 @@ nightlight:
             entity_id: input_boolean.nightlight_hall_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_hall_is_occupancy
+            entity_id: binary_sensor.occupancy_hall_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -551,7 +551,7 @@ nightlight:
             entity_id: input_boolean.nightlight_hall_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_hall_is_occupancy
+            entity_id: binary_sensor.occupancy_hall_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.nightlight_hall_light_is_on
@@ -571,7 +571,7 @@ nightlight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_hall_is_occupancy
+              entity_id: binary_sensor.occupancy_hall_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.nightlight_hall_light_is_on
@@ -687,7 +687,7 @@ nightlight:
       entity_id: 
       - binary_sensor.nightlight_bath_light_is_on
       - input_boolean.nightlight_bath_use_sensors
-      - binary_sensor.occupation_bath_is_occupancy
+      - binary_sensor.occupancy_bath_is_occupancy
       - input_boolean.nightlight_bath_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.nightlight_bath_use_in_day
@@ -709,7 +709,7 @@ nightlight:
             entity_id: input_boolean.nightlight_bath_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_bath_is_occupancy
+            entity_id: binary_sensor.occupancy_bath_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -762,7 +762,7 @@ nightlight:
             entity_id: input_boolean.nightlight_bath_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_bath_is_occupancy
+            entity_id: binary_sensor.occupancy_bath_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.nightlight_bath_light_is_on
@@ -782,7 +782,7 @@ nightlight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_bath_is_occupancy
+              entity_id: binary_sensor.occupancy_bath_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.nightlight_bath_light_is_on
@@ -873,7 +873,7 @@ nightlight:
       entity_id: 
       - binary_sensor.nightlight_btoiletlight_is_on
       - input_boolean.nightlight_btoiletuse_sensors
-      - binary_sensor.occupation_toilet_is_occupancy
+      - binary_sensor.occupancy_toilet_is_occupancy
       - input_boolean.nightlight_toilet_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.nightlight_toilet_use_in_day
@@ -897,7 +897,7 @@ nightlight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_toilet_is_occupancy
+              entity_id: binary_sensor.occupancy_toilet_is_occupancy
               state: 'off'
             - condition: and
               conditions:
@@ -951,7 +951,7 @@ nightlight:
             entity_id: input_boolean.nightlight_toilet_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_toilet_is_occupancy
+            entity_id: binary_sensor.occupancy_toilet_is_occupancy
             state: 'on'
           - condition: or
             conditions:

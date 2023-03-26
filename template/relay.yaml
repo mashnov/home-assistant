@@ -1,0 +1,175 @@
+## RELAY POWER SENSORS
+- sensor:
+  - name: 'relay_average_power'
+    device_class: 'power'
+    unit_of_measurement: 'W'
+    icon: 'mdi:meter-electric-outline'
+    state: >
+      {% set kitchenValue = states('sensor.relay_kitchen_power') | float(0) %}
+      {% set bathValue = states('sensor.relay_bath_power') | float(0) %}
+      {% set toiletValue = states('sensor.relay_toilet_power') | float(0) %}
+      {% set hallValue = states('sensor.relay_hall_power') | float(0) %}
+      {% set bedroomValue = states('sensor.relay_bedroom_power') | float(0) %}
+      {% set livingValue = states('sensor.relay_living_power') | float(0) %}
+      {% set balconyValue = states('sensor.relay_balcony_power') | float(0) %}
+      {{ (kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balconyValue) | round(1) }}
+
+  - name: 'relay_kitchen_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.kitchen_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_bath_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.bath_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_toilet_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.toilet_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_hall_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.hall_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_bedroom_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.bedroom_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_living_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.living_relay_power') | float(0) | round(1) }}"
+
+  - name: 'relay_balcony_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: >
+      {% set balcony1Value = states('sensor.balcony_socket_relay_power') | float(0) %}
+      {% set balcony2Value = states('sensor.balcony_light_relay_power_2') | float(0) %}
+      {{ (balcony1Value + balcony2Value) | round(1) }}
+
+## RELAY ON SENSORS
+- binary_sensor:
+  - name: 'relay_kitchen_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.kitchen_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_kitchen_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_kitchen_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.kitchen_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_kitchen_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_bath_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bath_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_bath_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_bath_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bath_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_bath_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_toilet_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.toilet_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_toilet_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_toilet_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.toilet_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_toilet_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_hall_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.hall_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_hall_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_hall_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.hall_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_hall_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_bedroom_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bedroom_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_bedroom_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_bedroom_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bedroom_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_bedroom_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_living_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.living_relay_l1', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_living_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_living_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.living_relay_l2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_living_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_balcony_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.balcony_light_relay_l1_2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_balcony_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_balcony_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.balcony_light_relay_l2_2', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_balcony_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_balcony_3_on'
+    device_class: 'plug'
+    state: "{{ is_state('fan.balcony_fountain', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_balcony_3_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'relay_balcony_4_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.balcony_socket', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.relay_balcony_4_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+

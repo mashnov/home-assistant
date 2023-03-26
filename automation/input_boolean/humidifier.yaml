@@ -1,0 +1,76 @@
+## HUMIDIFIER EMPTY HALL
+- alias: 'humidifier_hall_empty'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_hall_empty
+        state: 'on'
+        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+      sequence:
+      - service: script.humidifier_hall_empty_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_hall_empty
+        state: 'off'
+      sequence:
+      - service: script.humidifier_hall_empty_off
+
+
+## HUMIDIFIER EMPTY BEDROOM
+- alias: 'humidifier_bedroom_empty'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_bedroom_empty
+        state: 'on'
+        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+      sequence:
+      - service: script.humidifier_bedroom_empty_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_bedroom_empty
+        state: 'off'
+      sequence:
+      - service: script.humidifier_bedroom_empty_off
+
+
+## HUMIDIFIER EMPTY LIVING
+- alias: 'humidifier_living_empty'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_living_empty
+        state: 'on'
+        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+      sequence:
+      - service: script.humidifier_living_empty_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_living_empty
+        state: 'off'
+      sequence:
+      - service: script.humidifier_living_empty_off

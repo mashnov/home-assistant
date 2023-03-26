@@ -14,4 +14,3 @@ temperature_target:
   max: 35
   step: 1
   initial: 22
-

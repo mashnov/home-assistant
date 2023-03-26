@@ -1,0 +1,136 @@
+## MOTION KITCHEN
+- alias: 'motion_kitchen'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.motion_kitchen'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_kitchen
+        state: 'on'
+      sequence:
+      - service: script.motion_kitchen_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_kitchen
+        state: 'off'
+        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+      sequence:
+      - service: script.motion_kitchen_off
+
+
+## MOTION BATH
+- alias: 'motion_bath'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.motion_bath'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_bath
+        state: 'on'
+      sequence:
+      - service: script.motion_bath_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_bath
+        state: 'off'
+        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+      sequence:
+      - service: script.motion_bath_off
+
+
+## MOTION HALL
+- alias: 'motion_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.motion_hall'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_hall
+        state: 'on'
+      sequence:
+      - service: script.motion_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_hall
+        state: 'off'
+        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+      sequence:
+      - service: script.motion_hall_off
+
+
+### OCCUPANCY TOILET
+- alias: 'occupancy_toilet_timer_start'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_toilet_open'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+    state: 'off'
+  action:
+  - service: script.occupancy_toilet_timer_start
+
+- alias: 'occupancy_toilet_timer_cancel'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_toilet_open'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+    state: 'on'
+  - condition: state
+    entity_id: 'timer.occupancy_toilet'
+    state: 'active'
+  action:
+  - service: script.occupancy_toilet_timer_cancel
+
+- alias: 'occupancy_toilet_on'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_toilet_open'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+    state: 'off'
+  action:
+  - service: script.occupancy_toilet_on
+
+- alias: 'occupancy_toilet_off'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_toilet_open'
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+    state: 'on'
+  - condition: state
+    entity_id: 'timer.occupancy_toilet'
+    state: 'idle'
+  action:
+  - service: script.occupancy_toilet_off

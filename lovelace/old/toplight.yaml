@@ -25,7 +25,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.occupation_kitchen_is_occupancy
+    - entity: binary_sensor.occupancy_kitchen_is_occupancy
       icon: 'mdi:human-greeting-variant'
     - entity: binary_sensor.sun_kitchen_toplight_is_dark
       icon: 'mdi:brightness-6'
@@ -134,7 +134,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.occupation_hall_is_occupancy
+    - entity: binary_sensor.occupancy_hall_is_occupancy
       icon: 'mdi:human-greeting-variant'
     - entity: binary_sensor.sun_hall_toplight_is_dark
       icon: 'mdi:brightness-6'
@@ -241,7 +241,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.occupation_bath_is_occupancy
+    - entity: binary_sensor.occupancy_bath_is_occupancy
       icon: 'mdi:human-greeting-variant'
     - entity: binary_sensor.night_bath_is_night
       icon: 'mdi:weather-night'
@@ -306,7 +306,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.occupation_toilet_is_occupancy
+    - entity: binary_sensor.occupancy_toilet_is_occupancy
       icon: 'mdi:human-greeting-variant'
     - entity: binary_sensor.night_toilet_is_night
       icon: 'mdi:weather-night'

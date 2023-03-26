@@ -1,22 +1,17 @@
-## CLOUD
+## CLOUD SENSORS
 - sensor:
-  - name: 'cloud'
+  - name: 'cloud_level'
     unit_of_measurement: '%'
-    state: "{{ state_attr('sensor.cloud', 'level') | int(0) }}"
+    state: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
     icon: >
-      {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
+      {% set isCloudly = is_state('binary_sensor.cloud', 'on') %}
       {{ iif(isCloudly, 'mdi:cloud', 'mdi:cloud-outline', 'mdi:help-circle') }}
-    attributes:
-      level: "{{ states('sensor.openweathermap_cloud_coverage') | int(0) }}"
 
 - binary_sensor:
-  - name: 'cloud'
-    state: "{{ state_attr('binary_sensor.cloud', 'cloudly') }}"
-    icon: >
-      {% set isCloudly = state_attr('binary_sensor.cloud', 'cloudly') %}
-      {{ iif(isCloudly, 'mdi:cloud', 'mdi:cloud-outline', 'mdi:help-circle') }}
-    attributes: 
-      cloudly: >
-        {% set sensorValue = state_attr('sensor.cloud', 'level') | int(0) %}
-        {% set targetValue = states('input_number.cloud_target') | int(0) %}
-        {{ sensorValue > targetValue }}
+  - name: 'cloud_hight'
+    device_class: 'problem'
+    icon: 'mdi:cloud'
+    state: >
+      {% set sensorValue = states('sensor.cloud_level') | int(0) %}
+      {% set targetValue = states('input_number.cloud_target') | int(0) %}
+      {{ sensorValue > targetValue }}

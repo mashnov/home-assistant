@@ -1,0 +1,27 @@
+# по запросу
+# message_humidifier
+# message_humidifier_empty
+
+- alias: 'message_humidifier_empty_hall'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+  action:
+  - service: script.message_humidifier_empty_hall
+
+- alias: 'message_humidifier_empty_bedroom'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
+  action:
+  - service: script.message_humidifier_empty_bedroom
+
+- alias: 'message_humidifier_empty_living'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty_boolean'
+  action:
+  - service: script.message_humidifier_empty_living

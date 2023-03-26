@@ -1,0 +1,34 @@
+# по запросу
+# message_humidity
+
+- alias: 'message_humidity_bath'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity_bath_hight'
+  action:
+  - service: script.message_humidity_bath
+
+- alias: 'message_humidity_hall'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity_hall_low'
+  action:
+  - service: script.message_humidity_hall
+
+- alias: 'message_humidity_bedroom'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity_bedroom_low'
+  action:
+  - service: script.message_humidity_bedroom
+
+- alias: 'message_humidity_living'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidity_living_low'
+  action:
+  - service: script.message_humidity_living

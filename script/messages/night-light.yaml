@@ -1,0 +1,13 @@
+## NIGH LIGHT
+message_night_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Ночник ................ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ................... {{ iif(is_state('binary_sensor.night_light_kitchen_on', 'on'), '🟢', '🔴') }}
+        🧥 Коридор .............. {{ iif(is_state('binary_sensor.night_light_hall_on', 'on'), '🟢', '🔴') }}
+        🛁 Ванная ................. {{ iif(is_state('binary_sensor.night_light_bath_on', 'on'), '🟢', '🔴') }}
+        🚽 Туалет .................. {{ iif(is_state('binary_sensor.night_light_toilet_on', 'on'), '🟢', '🔴') }}
+        🪴 Балкон ................. {{ iif(is_state('binary_sensor.night_light_balcony_on', 'on'), '🟢', '🔴') }}

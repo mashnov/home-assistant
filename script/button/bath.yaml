@@ -1,0 +1,6 @@
+## BUTTON BATH
+button_bath_toggle:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.toggle
+    entity_id: input_boolean.button_bath 

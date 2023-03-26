@@ -1,36 +1,48 @@
 ## OCCUPANCY
-occupancy_kitchen_message:
+message_occupancy:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ is_state('input_boolean.occupancy_kitchen', 'on') }}
+        ⏱️ Присутствие ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟠', '🟢') }}
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟠', '🟢') }}
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟠', '🟢') }}
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟠', '🟢') }}
 
-occupancy_hall_message:
+message_occupancy_kitchen:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................ {{ is_state('input_boolean.occupancy_hall', 'on') }}
+        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟠', '🟢') }}
 
-occupancy_bath_message:
+message_occupancy_bath:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛁 Ванная ................... {{ is_state('input_boolean.occupancy_bath', 'on') }}
+        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟠', '🟢') }}
 
-occupancy_toilet_message:
+message_occupancy_toilet:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................ {{ is_state('input_boolean.occupancy_toilet', 'on') }}
+        ⏱️ Присутствие ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟠', '🟢') }}
+
+message_occupancy_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟠', '🟢') }}

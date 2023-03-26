@@ -75,7 +75,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupation_kitchen_occupancy_virtual
+      entity_id: binary_sensor.occupancy_kitchen_occupancy_virtual
       from: 'off'
       to: 'on'
     action:
@@ -155,7 +155,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupation_bath_occupancy_virtual
+      entity_id: binary_sensor.occupancy_bath_occupancy_virtual
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -167,7 +167,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupation_toilet_is_occupancy
+      entity_id: binary_sensor.occupancy_toilet_is_occupancy
     action:
     - service: script.telegram_create_message_test 
       data_template:
@@ -195,7 +195,7 @@ telegramm:
     initial_state: true
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupation_hall_occupancy_virtual
+      entity_id: binary_sensor.occupancy_hall_occupancy_virtual
       from: 'off'
       to: 'on'
     action:
@@ -716,7 +716,7 @@ telegramm:
             {{ iif(is_state('switch.kitchen_switch_left', 'on'), '🟢 Правый выключатель ... Включен', '🔴 Правый выключатель ... Выключен') }}
 
 
-            {{ iif(is_state('binary_sensor.occupation_kitchen_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
+            {{ iif(is_state('binary_sensor.occupancy_kitchen_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
           data:
             inline_keyboard: 
             - 'Назад:/menu, Закрыть:/hideMenu'
@@ -732,7 +732,7 @@ telegramm:
             {{ iif(is_state('binary_sensor.h_bath_is_normal', 'on'), '🟢', '🔴') }} Влажность ................... {{ states('sensor.h_bath') }} %
             {{ iif(is_state('binary_sensor.p_bath_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.p_bath') }} мм
             
-            {{ iif(is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on'), '🟠 Движение .................... Обнаружено', '🟢 Движение .................... Не обнаружено') }}
+            {{ iif(is_state('binary_sensor.occupancy_bath_occupancy_virtual', 'on'), '🟠 Движение .................... Обнаружено', '🟢 Движение .................... Не обнаружено') }}
 
             {{ iif(is_state('binary_sensor.toplight_bath_light_is_on', 'on'), '🟠 Освещение .................. Включено', '🟢 Освещение .................. Выключено') }}
             {{ iif(is_state('binary_sensor.nightlight_bath_light_is_on', 'on'), '🟠 Ночник ......................... Включен', '🟢 Ночник ......................... Выключен') }}
@@ -752,7 +752,7 @@ telegramm:
             🔵 Влажность ............... {{ states('sensor.h_average') }} %
             🔵 Давление ................. {{ states('sensor.p_average') }} мм
             
-            {{ iif(is_state('binary_sensor.occupation_toilet_is_occupancy', 'on'), '🔴 Состояние ............... Занято', '🟢 Состояние ............... Свободно') }}
+            {{ iif(is_state('binary_sensor.occupancy_toilet_is_occupancy', 'on'), '🔴 Состояние ............... Занято', '🟢 Состояние ............... Свободно') }}
             {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Дверь ....................... Открыта', '🟢 Дверь ....................... Закрыта') }}
 
             {{ iif(is_state('binary_sensor.toplight_toilet_light_is_on', 'on'), '🟠 Освещение .............. Включено', '🟢 Освещение .............. Выключено') }}
@@ -774,7 +774,7 @@ telegramm:
             {{ iif(is_state('binary_sensor.p_hall_is_normal', 'on'), '🟢', '🟠') }} Давление ..................... {{ states('sensor.p_hall') }} мм
             
             {{ iif(is_state('binary_sensor.hall_door', 'on'), '🟠 Входная дверь ............. Открыта', '🟢 Входная дверь ............. Закрыта') }}
-            {{ iif(is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
+            {{ iif(is_state('binary_sensor.occupancy_hall_occupancy_virtual', 'on'), '🟠 Движение ..................... Обнаружено', '🟢 Движение ..................... Не обнаружено') }}
             
             {{ iif(is_state('fan.hydration_hall_humidifier', 'on'), '🟢 Увлажнитель ................ Включен', '🟠 Увлажнитель:................ Выключен') }}
             {{ iif(is_state('binary_sensor.hydration_hall_humidifier_is_empty', 'on'), '🔴 Вода в увлажнителе .... Закончилась', '🔵 Вода в увлажнителе .... Недоступно') }}
@@ -926,7 +926,7 @@ telegramm:
             {{ statusIcon }} - 🥣 - {{ statusText }}
             {%- endif %}
             {%- if '/kitchenMotion' in options %}
-                {%- set isMotion = is_state('binary_sensor.occupation_kitchen_occupancy_virtual', 'on') %}
+                {%- set isMotion = is_state('binary_sensor.occupancy_kitchen_occupancy_virtual', 'on') %}
                 {%- set statusIcon = iif(isMotion, '🟠', '🟢') %}
                 {%- set statusText = iif(isMotion, 'обнаружено', 'не обнаружено') %}
             {{ statusIcon }} - 🥣 - Движение - {{ statusText }}
@@ -976,7 +976,7 @@ telegramm:
             {{ statusIcon }} - 🛁 - Давление - {{ states('sensor.p_bath') }} мм рт ст
             {%- endif %}
             {%- if '/bathMotion' in options %}
-                {%- set isVentilation = is_state('binary_sensor.occupation_bath_occupancy_virtual', 'on') %}
+                {%- set isVentilation = is_state('binary_sensor.occupancy_bath_occupancy_virtual', 'on') %}
                 {%- set statusIcon = iif(isVentilation, '🟠', '🟢') %}
                 {%- set statusText = iif(isVentilation, 'обнаружено', 'не обнаружено') %}
             {{ statusIcon }} - 🛁 - Движение - {{ statusText }}
@@ -988,13 +988,13 @@ telegramm:
             {{ statusIcon }} - 🚽 - Вытяжка - {{ statusText }}
             {%- endif %}
             {%- if '/toiletMotion' in options %}
-                {%- set isMotion = is_state('binary_sensor.occupation_toilet_is_occupancy', 'on') %}
+                {%- set isMotion = is_state('binary_sensor.occupancy_toilet_is_occupancy', 'on') %}
                 {%- set statusIcon = iif(isMotion, '🔴', '🟢') %}
                 {%- set statusText = iif(isMotion, 'Занято', 'Свободно') %}
             {{ statusIcon }} - 🚽 - {{ statusText }}
             {%- endif %}
             {%- if '/toiletDoor' in options %}
-                {%- set isOpen = is_state('binary_sensor.occupation_toilet_door_virtual', 'on') %}
+                {%- set isOpen = is_state('binary_sensor.occupancy_toilet_door_virtual', 'on') %}
                 {%- set statusIcon = iif(isOpen, '🟠', '🟢') %}
                 {%- set statusText = iif(isOpen, 'открыта', 'закрыта') %}
             {{ statusIcon }} - 🚽 - Дверь - {{ statusText }}
@@ -1024,7 +1024,7 @@ telegramm:
             {{ statusIcon }} - 🧥 - {{ statusText }}
             {%- endif %}
             {%- if '/hallMotion' in options %}
-                {%- set isMotion = is_state('binary_sensor.occupation_hall_occupancy_virtual', 'on') %}
+                {%- set isMotion = is_state('binary_sensor.occupancy_hall_occupancy_virtual', 'on') %}
                 {%- set statusIcon = iif(isMotion, '🟠', '🟢') %}
                 {%- set statusText = iif(isMotion, 'обнаружено', 'не обнаружено') %}
             {{ statusIcon }} - 🧥 - Движение - {{ statusText }}

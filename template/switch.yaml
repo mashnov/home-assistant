@@ -1,0 +1,71 @@
+## SWITCH ON SENSORS
+- binary_sensor:
+  - name: 'switch_kitchen_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_kitchen_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_kitchen_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.kitchen_switch_right', 'on') }}" 
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_kitchen_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_bath_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.hall_switch_restroom_left', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_bath_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_toilet_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.hall_switch_restroom_right', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_toilet_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_hall_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.hall_switch', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_hall_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_bedroom_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bedroom_switch_left', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_bedroom_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_bedroom_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bedroom_switch_right', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_bedroom_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_bedroom_3_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.bedroom_wall_switch', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_bedroom_3_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_living_1_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.living_switch_left', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_living_1_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+  - name: 'switch_living_2_on'
+    device_class: 'plug'
+    state: "{{ is_state('switch.living_switch_right', 'on') }}"
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_living_2_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}

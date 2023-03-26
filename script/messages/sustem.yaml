@@ -1,0 +1,24 @@
+## SUSTEM
+message_sustem_start:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+
+message_sustem_update:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🚀 Доступно обновление системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+
+message_power_problem:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🚀 Проблемы с питанием ......... {{ state_attr('sensor.date_time', 'hm') }} UTC

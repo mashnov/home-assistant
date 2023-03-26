@@ -1,0 +1,26 @@
+## NETWORK DOWNLOAD
+network_download_target:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 90
+
+## NETWORK UPLOAD
+network_upload_target:
+  unit_of_measurement: 'Mbit/s'
+  icon: 'mdi:database-check'
+  min: 0
+  max: 100
+  step: 1
+  initial: 90
+
+## NETWORK PING
+network_ping_target:
+  unit_of_measurement: 'ms'
+  icon: 'mdi:database-cog'
+  min: 0
+  max: 50
+  step: 1
+  initial: 10

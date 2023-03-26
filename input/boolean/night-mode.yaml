@@ -1,5 +1,0 @@
-## NIGHT_MODE
-### HALL
-night_mode_hall:
-  initial: false
-  icon: 'mdi:weather-night'

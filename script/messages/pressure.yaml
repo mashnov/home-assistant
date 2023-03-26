@@ -1,14 +1,13 @@
 ## PRESSURE
-pressure_message:
+pressure_temperature:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🟠 Давление .............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🏡 Средняя ................ {{ state_attr('sensor.pressure', 'average') }} mmHg
-        🥣 Кухня ..................... {{ state_attr('sensor.pressure', 'kitchen') }} mmHg
-        🛁 Ванная ................... {{ state_attr('sensor.pressure', 'bath') }} mmHg
-        🧥 Коридор ................ {{ state_attr('sensor.pressure', 'hall') }} mmHg
-        🛌 Спальня ................. {{ state_attr('sensor.pressure', 'bedroom') }} mmHg
-        📚 Гостиная ................ {{ state_attr('sensor.pressure', 'living') }} mmHg
+        {%- set lowIcon = is_state('binary_sensor.pressure_low', 'on') and '🔴' %}
+        {%- set hightIcon = is_state('binary_sensor.pressure_hight', 'on') and '🟠' %}
+        {%- set statusIcon = lowIcon or hightIcon or '🟢' %}
+
+        ⏱️ Давление ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🏡 Среднее ..................... {{ statusIcon }} {{ states('sensor.pressure_level') }} mmHg

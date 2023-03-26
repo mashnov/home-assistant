@@ -1,0 +1,12 @@
+## FOUNTAIN ON SENSOR
+- binary_sensor:
+  - name: 'fountain_balcony_on'
+    device_class: 'plug'
+    icon: 'mdi:party-popper'
+    state: "{{ is_state('binary_sensor.relay_balcony_3_on', 'on') }}" 
+
+## FOUNTAIN PERMISSION
+  - name: 'fountain_balcony_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: "{{ is_state('input_boolean.button_balcony_long_on', 'on') }}"

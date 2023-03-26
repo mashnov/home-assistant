@@ -1,0 +1,14 @@
+## OCCUPANCY TOILET
+occupancy_toilet_timer_start:
+  mode: 'queued'
+  sequence:
+  - service: timer.start
+    entity_id: 'timer.occupancy_toilet'
+    data_template:
+      duration: "{{ state_attr('sensor.duration', 'toilet_mode') }}"
+
+occupancy_toilet_timer_cancel:
+  mode: 'queued'
+  sequence:
+  - service: timer.cancel
+    entity_id: 'timer.occupancy_toilet'

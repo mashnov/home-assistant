@@ -483,7 +483,7 @@ toplight:
       - binary_sensor.toplight_kitchen_switch_is_on
       - binary_sensor.toplight_kitchen_light_is_on
       - input_boolean.toplight_kitchen_use_sensors
-      - binary_sensor.occupation_kitchen_is_occupancy
+      - binary_sensor.occupancy_kitchen_is_occupancy
       - input_boolean.toplight_kitchen_use_illuminance
       - binary_sensor.sun_kitchen_toplight_is_dark
       - input_boolean.toplight_kitchen_use_in_morning
@@ -510,7 +510,7 @@ toplight:
             entity_id: input_boolean.toplight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -585,7 +585,7 @@ toplight:
             entity_id: input_boolean.toplight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -651,7 +651,7 @@ toplight:
             entity_id: input_boolean.toplight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.toplight_kitchen_light_is_on
@@ -671,7 +671,7 @@ toplight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_kitchen_is_occupancy
+              entity_id: binary_sensor.occupancy_kitchen_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.toplight_kitchen_light_is_on
@@ -798,7 +798,7 @@ toplight:
       - binary_sensor.toplight_hall_switch_is_on
       - binary_sensor.toplight_hall_light_is_on
       - input_boolean.toplight_hall_use_sensors
-      - binary_sensor.occupation_hall_is_occupancy
+      - binary_sensor.occupancy_hall_is_occupancy
       - input_boolean.toplight_hall_use_illuminance
       - binary_sensor.sun_hall_toplight_is_dark
       - input_boolean.toplight_hall_use_in_morning
@@ -825,7 +825,7 @@ toplight:
             entity_id: input_boolean.toplight_hall_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_hall_is_occupancy
+            entity_id: binary_sensor.occupancy_hall_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -900,7 +900,7 @@ toplight:
             entity_id: input_boolean.toplight_hall_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_hall_is_occupancy
+            entity_id: binary_sensor.occupancy_hall_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -966,7 +966,7 @@ toplight:
             entity_id: input_boolean.toplight_hall_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_hall_is_occupancy
+            entity_id: binary_sensor.occupancy_hall_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.toplight_hall_light_is_on
@@ -986,7 +986,7 @@ toplight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_hall_is_occupancy
+              entity_id: binary_sensor.occupancy_hall_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.toplight_hall_light_is_on
@@ -1118,7 +1118,7 @@ toplight:
       entity_id: 
       - binary_sensor.toplight_bath_light_is_on
       - input_boolean.toplight_bath_use_sensors
-      - binary_sensor.occupation_bath_is_occupancy
+      - binary_sensor.occupancy_bath_is_occupancy
       - input_boolean.toplight_bath_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.toplight_bath_use_in_day
@@ -1140,7 +1140,7 @@ toplight:
             entity_id: input_boolean.toplight_bath_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_bath_is_occupancy
+            entity_id: binary_sensor.occupancy_bath_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -1193,7 +1193,7 @@ toplight:
             entity_id: input_boolean.toplight_bath_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_bath_is_occupancy
+            entity_id: binary_sensor.occupancy_bath_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.toplight_bath_light_is_on
@@ -1213,7 +1213,7 @@ toplight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_bath_is_occupancy
+              entity_id: binary_sensor.occupancy_bath_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.toplight_bath_light_is_on
@@ -1310,7 +1310,7 @@ toplight:
       entity_id: 
       - binary_sensor.toplight_toilet_light_is_on
       - input_boolean.toplight_toilet_use_sensors
-      - binary_sensor.occupation_toilet_is_occupancy
+      - binary_sensor.occupancy_toilet_is_occupancy
       - input_boolean.toplight_toilet_use_in_morning
       - binary_sensor.night_is_morning_time
       - input_boolean.toplight_toilet_use_in_day
@@ -1334,7 +1334,7 @@ toplight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_toilet_is_occupancy
+              entity_id: binary_sensor.occupancy_toilet_is_occupancy
               state: 'off'
             - condition: and
               conditions:
@@ -1388,7 +1388,7 @@ toplight:
             entity_id: input_boolean.toplight_toilet_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_toilet_is_occupancy
+            entity_id: binary_sensor.occupancy_toilet_is_occupancy
             state: 'on'
           - condition: or
             conditions:

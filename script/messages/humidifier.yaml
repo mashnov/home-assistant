@@ -1,0 +1,50 @@
+## HUMIDIFIER
+message_humidifier:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Увлажнители .......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор ................. {{ iif(is_state('binary_sensor.humidifier_hall_on', 'on'), '🟢', '🔴') }}
+        🛌 Спальня .................. {{ iif(is_state('binary_sensor.humidifier_bedroom_on', 'on'), '🟢', '🔴') }}
+        📚 Гостиная ................. {{ iif(is_state('binary_sensor.humidifier_living_on', 'on'), '🟢', '🔴') }}
+
+
+message_humidifier_empty:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Состояние увлажниелей ... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор .............................. {{ iif(is_state('binary_sensor.humidifier_hall_empty_boolean', 'on'), '🔴', '🟢') }}
+        🛌 Спальня ............................... {{ iif(is_state('binary_sensor.humidifier_bedroom_empty_boolean', 'on'), '🔴', '🟢') }}
+        📚 Гостиная .............................. {{ iif(is_state('binary_sensor.humidifier_living_empty_boolean', 'on'), '🔴', '🟢') }}
+
+
+message_humidifier_empty_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🧥 Коридор. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+
+
+message_humidifier_empty_bedroom:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🛌 Спальня. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+
+
+message_humidifier_empty_living:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        📚 Гостиная. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC

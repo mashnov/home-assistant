@@ -1,0 +1,84 @@
+## BUTTON KITCHEN
+button_kitchen_left: ### top-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_kitchen_right: ### back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_kitchen_both: ### party-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON BATH
+button_bath: ### top-light & back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON TOILET
+button_toilet: ### top-light & back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_toilet_long: ### dehumidifier
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON HALL
+button_hall:
+  initial: false ### top-light
+  icon: 'mdi:radiobox-marked'
+
+button_hall_both: ### back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON BEDROOM
+button_bedroom_left: ### top-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_bedroom_right: ### back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_bedroom_both: ### night-mode
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON LIVING
+button_living_left: ### top-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_living_right: ### back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_living_both: ### night-mode
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+
+## BUTTON BALCONY
+button_balcony_singl: ### back-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_balcony_double: ### night-light
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_balcony_long: ### fountain
+  initial: false
+  icon: 'mdi:radiobox-marked'
+
+button_balcony_shake: ### socket
+  initial: false
+  icon: 'mdi:radiobox-marked'

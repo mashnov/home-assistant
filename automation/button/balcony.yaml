@@ -1,0 +1,36 @@
+## BUTTON BALCONY
+- alias: 'button_balcony_singl_toggle'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'single'
+  action:
+  - service: script.button_balcony_singl_toggle
+
+- alias: 'button_balcony_double_toggle'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'double'
+  action:
+  - service: script.button_balcony_double_toggle
+
+- alias: 'button_balcony_long_toggle'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'hold'
+  action:
+  - service: script.button_balcony_long_toggle
+
+- alias: 'button_balcony_shake_toggle'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'shake'
+  action:
+  - service: script.button_balcony_shake_toggle

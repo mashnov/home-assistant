@@ -123,7 +123,7 @@ backlight:
       - binary_sensor.backlight_kitchen_switch_is_on
       - binary_sensor.backlight_kitchen_light_is_on
       - input_boolean.backlight_kitchen_use_sensors
-      - binary_sensor.occupation_kitchen_is_occupancy
+      - binary_sensor.occupancy_kitchen_is_occupancy
       - input_boolean.backlight_kitchen_use_illuminance
       - binary_sensor.sun_kitchen_backlight_is_dark
       - input_boolean.backlight_kitchen_use_in_morning
@@ -150,7 +150,7 @@ backlight:
             entity_id: input_boolean.backlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -222,7 +222,7 @@ backlight:
             entity_id: input_boolean.backlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'on'
           - condition: or
             conditions:
@@ -288,7 +288,7 @@ backlight:
             entity_id: input_boolean.backlight_kitchen_use_sensors
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.occupation_kitchen_is_occupancy
+            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
             state: 'off'
           - condition: state
             entity_id: binary_sensor.backlight_kitchen_light_is_on
@@ -308,7 +308,7 @@ backlight:
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.occupation_kitchen_is_occupancy
+              entity_id: binary_sensor.occupancy_kitchen_is_occupancy
               state: 'on'
             - condition: state
               entity_id: binary_sensor.backlight_kitchen_light_is_on

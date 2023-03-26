@@ -1,0 +1,16 @@
+## HUMIDIFIER EMPTY HALL
+humidifier_hall_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'
+
+
+## HUMIDIFIER EMPTY BEDROOM
+humidifier_bedroom_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'
+
+
+## HUMIDIFIER EMPTY LIVING
+humidifier_living_empty:
+  initial: false
+  icon: 'mdi:water-alert-outline'
