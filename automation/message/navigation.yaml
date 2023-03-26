@@ -92,7 +92,7 @@
     event_data:
       command: '/manage_top_light'
   action:
-  - service: script.delete_telegramm_message
+  - service: script.message_navigation_remove
     data_template:
       message_id: '{{ trigger.event.data.message.message_id }}'
       chat_id: '{{ trigger.event.data.chat_id }}'
