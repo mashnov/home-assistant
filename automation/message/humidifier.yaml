@@ -4,13 +4,9 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/humidifier'
-  - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/humidifier'
+      command: '/details_humidifier'
   action:
   - service: script.message_humidifier
 

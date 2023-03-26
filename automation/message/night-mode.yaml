@@ -4,12 +4,8 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/night_mode'
-  - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/night_mode'
+      command: '/details_night_mode'
   action:
   - service: script.message_night_mode

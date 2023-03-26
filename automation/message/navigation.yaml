@@ -14,44 +14,19 @@
   action:
   - service: script.message_navigation_home
 
-
-## NAVIGATION INFORMATION CLIMAT
-- alias: message_navigation_climat'
+## NAVIGATION DETAILS
+- alias: message_navigation_details'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/climat'
+      command: '/details'
   action:
-  - service: script.message_navigation_climat
+  - service: script.message_navigation_details
 
-## NAVIGATION INFORMATION SECURITY
-- alias: message_navigation_security'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/security'
-  action:
-  - service: script.message_navigation_security
-
-## NAVIGATION INFORMATION DEVICE
-- alias: message_navigation_device'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/device'
-  action:
-  - service: script.message_navigation_device
-
-## NAVIGATION DEVICE TOP LIGHT
+## NAVIGATION DETAILS TOP LIGHT
 - alias: message_navigation_device_top_light'
   initial_state: true
   mode: 'queued'
@@ -59,9 +34,33 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/device_top_light'
+      command: '/details_top_light'
   action:
   - service: script.message_navigation_device_top_light
+
+## NAVIGATION MANAGE
+- alias: message_navigation_manage'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/manage'
+  action:
+  - service: script.message_navigation_manage
+
+## NAVIGATION MANAGE TOP LIGHT
+- alias: message_navigation_manage_top_light'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/manage_top_light'
+  action:
+  - service: script.message_navigation_manage_top_light
 
 ## NAVIGATION REMOVE
 - alias: message_navigation_remove'
@@ -70,6 +69,28 @@
   trigger:
   - platform: event
     event_type: telegram_callback
+    event_data:
+      command: '/hide_menu'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/home'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/details'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/details_top_light'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/manage'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/manage_top_light'
   action:
   - service: script.delete_telegramm_message
     data_template:

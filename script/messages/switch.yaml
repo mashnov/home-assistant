@@ -8,8 +8,8 @@ message_switch:
         ⏱️ Выключатели ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🥣 Кухня левый ..................... {{ iif(is_state('binary_sensor.switch_kitchen_1_on', 'on'), '🟢', '🔴') }}
         🥣 Кухня правый ................... {{ iif(is_state('binary_sensor.switch_kitchen_2_on', 'on'), '🟢', '🔴') }}
-        🧥 Ванная .............................. {{ iif(is_state('binary_sensor.switch_bath_on', 'on'), '🟢', '🔴') }}
-        🧥 Туалет ............................... {{ iif(is_state('binary_sensor.switch_toilet_on', 'on'), '🟢', '🔴') }}
+        🛁 Ванная .............................. {{ iif(is_state('binary_sensor.switch_bath_on', 'on'), '🟢', '🔴') }}
+        🚽 Туалет ............................... {{ iif(is_state('binary_sensor.switch_toilet_on', 'on'), '🟢', '🔴') }}
         🧥 Коридор ............................ {{ iif(is_state('binary_sensor.switch_hall_on', 'on'), '🟢', '🔴') }}
         🛌 Спальня левый ................. {{ iif(is_state('binary_sensor.switch_bedroom_1_on', 'on'), '🟢', '🔴') }}
         🛌 Спальня правый ............... {{ iif(is_state('binary_sensor.switch_bedroom_2_on', 'on'), '🟢', '🔴') }}

@@ -4,12 +4,8 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/party_light'
-  - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/party_light'
+      command: '/details_party_light'
   action:
   - service: script.message_party_light

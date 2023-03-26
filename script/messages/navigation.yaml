@@ -7,56 +7,44 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Климат:/climat'
-        - 'Устройства:/device'
-        - 'Безопасность:/security'
+        - 'Состояние:/details'
+        - 'Управление:/manage'
         - 'Закрыть:/hide_menu'
 
-## NAVIGATION CLIMAT
-message_navigation_climat:
+## NAVIGATION DETAILS
+message_navigation_details:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Климат'
+      message: 'Состояние'
       data:
         inline_keyboard: 
-        - 'Температура:/temperature, Влажность:/humidity, Давление:/pressure'
-        - 'Солнце:/solar, Облачность:/cloud, Проветривание:/ventilation'
-        - 'Закрыть:/hide_menu, Назад:/home'
-
-## NAVIGATION SECURITY
-message_navigation_security:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: 'Безопасность'
-      data:
-        inline_keyboard: 
-        - 'Двери:/door, Окна:/window'
-        - 'Движение:/occupancy, Ночной режим:/night_mode'
-        - 'Закрыть:/hide_menu, Назад:/home'
-
-## NAVIGATION DEVICE
-message_navigation_device:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: 'Устройства'
-      data:
-        inline_keyboard: 
-        - 'Вечеринка:/party_light, Освещение:/device_top_light'
-        - 'Подсветка:/back_light, Ночники:/night_light'
-        - 'Увлажнитель:/humidifier, Вытяжка:/dehumidifier'
-        - 'Выключатели:/switch, Шторы:/curtain'
-        - 'Фонтан:/fountain, Сеть:/network'
+        - 'Температура:/temperature'
+        - 'Влажность:/humidity'
+        - 'Давление:/pressure'
+        - 'Солнце:/solar'
+        - 'Облачность:/cloud'
+        - 'Проветривание:/ventilation'
+        - 'Двери:/door'
+        - 'Окна:/window'
+        - 'Движение:/occupancy'
+        - 'Ночной режим:/details_night_mode'
+        - 'Режим вечеринки:/details_party_light'
+        - 'Освещение:/details_top_light'
+        - 'Подсветка:/details_back_light'
+        - 'Ночники:/details_night_light'
+        - 'Увлажнитель:/details_humidifier'
         - 'Пустые увлажнители:/humidifier_empty'
+        - 'Вытяжка:/details_dehumidifier'
+        - 'Выключатели:/details_switch'
+        - 'Шторы:/details_curtain'
+        - 'Фонтан:/details_fountain'
+        - 'Сеть:/network'
         - 'Закрыть:/hide_menu, Назад:/home'
 
-## NAVIGATION DEVICE TOP LIGHT
-message_navigation_device_top_light:
+## NAVIGATION DETAILS TOP LIGHT
+message_navigation_details_top_light:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -64,14 +52,53 @@ message_navigation_device_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
-        - 'Общее:/top_light'
-        - 'Кухня:/top_light_kitchen'
-        - 'Ванная:/top_light_bath'
-        - 'Туалет:/top_light_toilet'
-        - 'Коридор:/top_light_hall'
-        - 'Спальня:/top_light_bedroom'
-        - 'Гостиная:/top_light_living'
-        - 'Закрыть:/hide_menu, Назад:/device'
+        - 'Общее:/details_top_light'
+        - 'Кухня:/details_top_light_kitchen'
+        - 'Ванная:/details_top_light_bath'
+        - 'Туалет:/details_top_light_toilet'
+        - 'Коридор:/details_top_light_hall'
+        - 'Спальня:/details_top_light_bedroom'
+        - 'Гостиная:/details_top_light_living'
+        - 'Закрыть:/hide_menu, Назад:/details'
+
+## NAVIGATION MANAGE
+message_navigation_manage:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Управление'
+      data:
+        inline_keyboard: 
+        - 'Ночной режим:/manage_night_mode'
+        - 'Освещение:/manage_top_light'
+        - 'Режим вечеринки:/manage_party_light'
+        - 'Подсветка:/manage_back_light'
+        - 'Ночники:/manage_night_light'
+        - 'Увлажнитель:/manage_humidifier'
+        - 'Вытяжка:/manage_dehumidifier'
+        - 'Выключатели:/manage_switch'
+        - 'Шторы:/manage_curtain'
+        - 'Фонтан:/manage_fountain'
+        - 'Закрыть:/hide_menu, Назад:/home'
+
+## NAVIGATION MANAGE TOP LIGHT
+message_navigation_manage_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Освещение'
+      data:
+        inline_keyboard: 
+        - 'Общее:/manage_top_light'
+        - 'Кухня:/manage_top_light_kitchen'
+        - 'Ванная:/manage_top_light_bath'
+        - 'Туалет:/manage_top_light_toilet'
+        - 'Коридор:/manage_top_light_hall'
+        - 'Спальня:/manage_top_light_bedroom'
+        - 'Гостиная:/manage_top_light_living'
+        - 'Закрыть:/hide_menu, Назад:/manage'
 
 ## NAVIGATION REMOVE
 message_navigation_remove:

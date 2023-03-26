@@ -4,12 +4,8 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/dehumidifier'
-  - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/dehumidifier'
+      command: '/details_dehumidifier'
   action:
   - service: script.message_dehumidifier
