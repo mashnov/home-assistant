@@ -246,7 +246,7 @@
       {% set isOccupancy = is_state('binary_sensor.motion_hall_boolean', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_hall_top_light_boolean', 'on') %}
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {{ button_hall_on or (not(isNightMode) and isOccupancy and isIlluminanceLow) }}
+      {{ isButtonOn or (not(isNightMode) and isOccupancy and isIlluminanceLow) }}
 
   - name: 'top_light_bedroom_permission'
     device_class: 'lock'

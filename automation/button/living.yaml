@@ -1,6 +1,7 @@
 ## BUTTON LIVING
 - alias: 'button_living_left_toggle'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: sensor.living_switch_action
@@ -11,6 +12,7 @@
 
 - alias: 'button_living_right_toggle'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: sensor.living_switch_action

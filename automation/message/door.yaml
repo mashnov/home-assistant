@@ -3,6 +3,7 @@
 
 - alias: 'message_door_toilet'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
@@ -11,6 +12,7 @@
 
 - alias: 'message_door_hall'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_hall_open'
@@ -19,6 +21,7 @@
 
 - alias: 'message_door_bedroom'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_bedroom_open'
@@ -27,6 +30,7 @@
 
 - alias: 'message_door_living'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_living_open'
@@ -35,6 +39,7 @@
 
 - alias: 'message_door_balcony'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_balcony_open'

@@ -24,6 +24,7 @@
 ## SUSTEM UPDATES
 - alias: 'sustem_update_message'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'update.home_assistant_core_update'

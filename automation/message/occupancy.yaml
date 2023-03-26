@@ -3,6 +3,7 @@
 
 - alias: 'message_occupancy_kitchen'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion_kitchen_boolean'
@@ -11,6 +12,7 @@
 
 - alias: 'message_occupancy_bath'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion_bath_boolean'
@@ -19,6 +21,7 @@
 
 - alias: 'message_occupancy_toilet'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.occupancy_toilet_boolean'
@@ -27,6 +30,7 @@
 
 - alias: 'message_occupancy_hall'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.motion_hall_boolean'

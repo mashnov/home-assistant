@@ -1,6 +1,7 @@
 # BUTTON LITCHEN
 - alias: 'button_kitchen_left_toggle'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: sensor.kitchen_switch_action
@@ -10,6 +11,7 @@
 
 - alias: 'button_kitchen_right_toggle'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: sensor.kitchen_switch_action
@@ -19,6 +21,7 @@
 
 - alias: 'button_kitchen_both_toggle'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: sensor.kitchen_switch_action

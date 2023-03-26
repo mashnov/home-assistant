@@ -79,6 +79,7 @@
 ## OCCUPANCY TOILET
 - alias: 'occupancy_toilet_timer_start'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
@@ -92,6 +93,7 @@
 
 - alias: 'occupancy_toilet_timer_cancel'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
@@ -108,6 +110,7 @@
 
 - alias: 'occupancy_toilet_on'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
@@ -121,6 +124,7 @@
 
 - alias: 'occupancy_toilet_off'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_toilet_open'

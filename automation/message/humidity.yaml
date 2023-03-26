@@ -3,6 +3,7 @@
 
 - alias: 'message_humidity_bath'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidity_bath_hight'
@@ -11,6 +12,7 @@
 
 - alias: 'message_humidity_hall'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidity_hall_low'
@@ -19,6 +21,7 @@
 
 - alias: 'message_humidity_bedroom'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidity_bedroom_low'
@@ -27,6 +30,7 @@
 
 - alias: 'message_humidity_living'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidity_living_low'
