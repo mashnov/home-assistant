@@ -1,8 +1,70 @@
-# по запросу
-# message_top_light
-# message_top_light_kitchen
-# message_top_light_bath
-# message_top_light_toilet
-# message_top_light_hall
-# message_top_light_bedroom
-# message_top_light_living
+## TOP LIGHT
+- alias: message_top_light'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light'
+  action:
+  - service: script.message_top_light
+
+- alias: message_top_light_kitchen'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_kitchen'
+  action:
+  - service: script.message_top_light_kitchen
+
+- alias: message_top_light_bath'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_bath'
+  action:
+  - service: script.message_top_light_bath
+
+- alias: message_top_light_toilet'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_toilet'
+  action:
+  - service: script.message_top_light_toilet
+
+- alias: message_top_light_hall'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_hall'
+  action:
+  - service: script.message_top_light_hall
+
+- alias: message_top_light_bedroom'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_bedroom'
+  action:
+  - service: script.message_top_light_bedroom
+
+- alias: message_top_light_living'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/top_light_living'
+  action:
+  - service: script.message_top_light_living

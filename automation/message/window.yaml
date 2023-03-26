@@ -1,5 +1,13 @@
-# по запросу
-# message_window
+## WINDOW
+- alias: message_window'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/window'
+  action:
+  - service: script.message_window
 
 - alias: 'message_window_kitchen_left'
   initial_state: true

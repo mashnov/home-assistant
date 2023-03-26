@@ -1,5 +1,13 @@
-# по запросу
-# message_occupancy
+## OCCUPANCY
+- alias: message_occupancy'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/occupancy'
+  action:
+  - service: script.message_occupancy
 
 - alias: 'message_occupancy_kitchen'
   initial_state: true

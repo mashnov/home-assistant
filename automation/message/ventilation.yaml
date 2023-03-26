@@ -1,2 +1,10 @@
-# по запросу
-# message_ventilation
+## VENTILATION
+- alias: message_ventilation'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ventilation'
+  action:
+  - service: script.message_ventilation

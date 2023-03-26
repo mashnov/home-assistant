@@ -1,2 +1,10 @@
-# по запросу
-# message_party_light
+## PARTY LIGHT
+- alias: message_party_light'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/party_light'
+  action:
+  - service: script.message_party_light

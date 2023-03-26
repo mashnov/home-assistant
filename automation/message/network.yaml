@@ -1,2 +1,10 @@
-# по запросу
-# message_network
+## NETWORK
+- alias: message_network'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/network'
+  action:
+  - service: script.message_network

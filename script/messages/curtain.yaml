@@ -1,5 +1,5 @@
 ## CURTAINS
-message_curtains:
+message_curtain:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id

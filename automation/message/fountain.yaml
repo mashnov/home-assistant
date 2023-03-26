@@ -1,2 +1,10 @@
-# по запросу
-# message_fountain
+## FOUNTAINS
+- alias: message_fountain'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/fountain'
+  action:
+  - service: script.message_fountain

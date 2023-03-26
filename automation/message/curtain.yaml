@@ -1,10 +1,10 @@
-## CLOUD
-- alias: message_cloud'
+## CURTAIN
+- alias: message_curtain'
   initial_state: true
   trigger:
   - platform: event
     event_type: telegram_command
     event_data:
-      command: '/cloud'
+      command: '/curtain'
   action:
-  - service: script.message_cloud
+  - service: script.message_curtain

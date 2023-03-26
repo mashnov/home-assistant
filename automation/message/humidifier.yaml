@@ -1,6 +1,23 @@
-# по запросу
-# message_humidifier
-# message_humidifier_empty
+## FOUNTAINS
+- alias: message_humidifier'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/humidifier'
+  action:
+  - service: script.message_humidifier
+
+- alias: message_humidifier_empty'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/humidifier_empty'
+  action:
+  - service: script.message_humidifier_empty
 
 - alias: 'message_humidifier_empty_hall'
   initial_state: true

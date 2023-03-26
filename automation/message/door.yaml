@@ -1,5 +1,13 @@
-# по запросу
-# message_door
+## DOORS
+- alias: message_door'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/door'
+  action:
+  - service: script.message_door
 
 - alias: 'message_door_toilet'
   initial_state: true

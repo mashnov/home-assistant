@@ -1,2 +1,10 @@
-# по запросу
-# message_switch
+## SWITCH
+- alias: message_switch'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/switch'
+  action:
+  - service: script.message_switch

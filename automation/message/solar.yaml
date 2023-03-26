@@ -1,2 +1,10 @@
-# по запросу
-# message_solar
+## SOLAR
+- alias: message_solar'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/solar'
+  action:
+  - service: script.message_solar

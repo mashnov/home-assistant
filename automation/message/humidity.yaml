@@ -1,5 +1,13 @@
-# по запросу
-# message_humidity
+## HUMIDITY
+- alias: message_humidity'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/humidity'
+  action:
+  - service: script.message_humidity
 
 - alias: 'message_humidity_bath'
   initial_state: true
