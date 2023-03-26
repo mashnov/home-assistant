@@ -10,20 +10,9 @@
   action:
   - service: script.message_navigation_home
 
-## NAVIGATION INFORMATION
-- alias: message_navigation_information'
-  initial_state: true
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/information'
-  action:
-  - service: script.message_navigation_information
 
 ## NAVIGATION INFORMATION CLIMAT
-- alias: message_navigation_information_climat'
+- alias: message_navigation_climat'
   initial_state: true
   mode: 'queued'
   trigger:
@@ -32,10 +21,10 @@
     event_data:
       command: '/climat'
   action:
-  - service: script.message_navigation_information_climat
+  - service: script.message_navigation_climat
 
 ## NAVIGATION INFORMATION SECURITY
-- alias: message_navigation_information_security'
+- alias: message_navigation_security'
   initial_state: true
   mode: 'queued'
   trigger:
@@ -44,10 +33,10 @@
     event_data:
       command: '/security'
   action:
-  - service: script.message_navigation_information_security
+  - service: script.message_navigation_security
 
 ## NAVIGATION INFORMATION DEVICE
-- alias: message_navigation_information_device'
+- alias: message_navigation_device'
   initial_state: true
   mode: 'queued'
   trigger:
@@ -56,7 +45,7 @@
     event_data:
       command: '/device'
   action:
-  - service: script.message_navigation_information_device
+  - service: script.message_navigation_device
 
 ## NAVIGATION DEVICE TOP LIGHT
 - alias: message_navigation_device_top_light'
