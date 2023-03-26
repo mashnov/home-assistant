@@ -1,6 +1,7 @@
 ## HUMIDIFIER
 - alias: message_humidifier'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -11,6 +12,7 @@
 
 - alias: message_humidifier_empty'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command

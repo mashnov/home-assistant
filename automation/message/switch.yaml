@@ -1,6 +1,7 @@
 ## SWITCH
 - alias: message_switch'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command

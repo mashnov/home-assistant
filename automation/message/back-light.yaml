@@ -1,6 +1,7 @@
 ## BACK LIGHT
 - alias: message_back_light'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command

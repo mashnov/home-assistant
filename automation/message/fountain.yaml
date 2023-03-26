@@ -1,6 +1,7 @@
 ## FOUNTAINS
 - alias: message_fountain'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command

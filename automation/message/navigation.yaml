@@ -1,0 +1,84 @@
+## NAVIGATION HOME
+- alias: message_navigation_home'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/home'
+  action:
+  - service: script.message_navigation_home
+
+## NAVIGATION INFORMATION
+- alias: message_navigation_information'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/information'
+  action:
+  - service: script.message_navigation_information
+
+## NAVIGATION INFORMATION CLIMAT
+- alias: message_navigation_information_climat'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/climat'
+  action:
+  - service: script.message_navigation_information_climat
+
+## NAVIGATION INFORMATION SECURITY
+- alias: message_navigation_information_security'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/security'
+  action:
+  - service: script.message_navigation_information_security
+
+## NAVIGATION INFORMATION DEVICE
+- alias: message_navigation_information_device'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/device'
+  action:
+  - service: script.message_navigation_information_device
+
+## NAVIGATION DEVICE TOP LIGHT
+- alias: message_navigation_device_top_light'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/device_top_light'
+  action:
+  - service: script.message_navigation_device_top_light
+
+## NAVIGATION REMOVE
+- alias: message_navigation_remove'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+  action:
+  - service: script.delete_telegramm_message
+    data_template:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'

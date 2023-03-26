@@ -6,6 +6,7 @@ message_solar:
     data_template:
       message: | 
         ⏱️ Солнце ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        ↕️ Яркость ................... {{ states('sensor.illuminance_level') }} LUX
         ☀️ Попадание ............. {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟢', '🟠') }}
         ↕️ Подъем ................... {{ iif(is_state('binary_sensor.solar_elevation', 'on'), '🟢', '🟠') }} {{ states('sensor.solar_elevation') }} °
         ↔️ Азимут .................... {{ iif(is_state('binary_sensor.solar_azimuth', 'on'), '🟢', '🟠') }} {{ states('sensor.solar_azimuth') }} °

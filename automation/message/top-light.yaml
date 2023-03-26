@@ -1,6 +1,7 @@
 ## TOP LIGHT
 - alias: message_top_light'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -11,6 +12,7 @@
 
 - alias: message_top_light_kitchen'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -21,6 +23,7 @@
 
 - alias: message_top_light_bath'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -31,6 +34,7 @@
 
 - alias: message_top_light_toilet'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -41,6 +45,7 @@
 
 - alias: message_top_light_hall'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -51,6 +56,7 @@
 
 - alias: message_top_light_bedroom'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command
@@ -61,6 +67,7 @@
 
 - alias: message_top_light_living'
   initial_state: true
+  mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_command

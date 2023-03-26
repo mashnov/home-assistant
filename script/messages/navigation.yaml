@@ -1,0 +1,89 @@
+## NAVIGATION HOME
+message_navigation_home:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      data:
+        inline_keyboard: 
+        - 'Информация:/information, Управление:/control'
+        - 'Климат:/climat'
+        - 'Безопасность:/security'
+        - 'Устройства:/device'
+        - 'Закрыть:/hide_menu'
+        - 'Закрыть:/hide_menu'
+
+## NAVIGATION CLIMAT
+message_navigation_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      data:
+        inline_keyboard: 
+        - 'Температура:/temperature'
+        - 'Влажность:/humidity'
+        - 'Давление:/pressure'
+        - 'Облачность:/cloud'
+        - 'Солнце:/solar'
+        - 'Проветривание:/ventilation'
+        - 'Закрыть:/hide_menu'
+
+## NAVIGATION SECURITY
+message_navigation_security:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      data:
+        inline_keyboard: 
+        - 'Двери:/door'
+        - 'Окна:/window'
+        - 'Движение:/occupancy'
+        - 'Ночной режим:/night_mode'
+        - 'Закрыть:/hide_menu'
+
+## NAVIGATION DEVICE
+message_navigation_device:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      data:
+        inline_keyboard: 
+        - 'Вечеринка:/party_light'
+        - 'Освещение:/device_top_light'
+        - 'Подсветка:/back_light'
+        - 'Ночники:/night_light'
+        - 'Выключатели:/switch'
+        - 'Увлажнитель:/humidifier'
+        - 'Вытяжка:/dehumidifier'
+        - 'Фонтан:/fountain'
+        - 'Шторы:/curtain'
+        - 'Сеть:/network'
+        - 'Закрыть:/hide_menu'
+
+## NAVIGATION DEVICE TOP LIGHT
+message_navigation_device_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      data:
+        inline_keyboard: 
+        - 'Кухня:/top_light_kitchen'
+        - 'Ванная:/top_light_bath'
+        - 'Туалет:/top_light_toilet'
+        - 'Коридор:/top_light_hall'
+        - 'Спальня:/top_light_bedroom'
+        - 'Гостиная:/top_light_living'
+        - 'Закрыть:/hide_menu'
+
+## NAVIGATION REMOVE
+message_navigation_remove:
+  mode: 'queued'
+  sequence:
+  - service: telegram_bot.delete_message
+    data_template:
+      message_id: '{{ message_id }}'
+      chat_id: '{{ chat_id }}'
