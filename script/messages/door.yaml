@@ -12,15 +12,6 @@ message_door:
         📚 Гостиная ................ {{ iif(is_state('binary_sensor.door_living_open', 'on'), '🟢', '🔴') }}
         🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🔴') }}
 
-message_door_toilet:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.door_toilet_open', 'on'), '🟢', '🔴') }}
-
 message_door_hall:
   mode: 'queued'
   sequence:

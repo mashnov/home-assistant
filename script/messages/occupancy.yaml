@@ -35,8 +35,8 @@ message_occupancy_toilet:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ Присутствие ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🟠') }}
+        ⏱️ Занято ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🔴') }}
 
 message_occupancy_hall:
   mode: 'queued'
