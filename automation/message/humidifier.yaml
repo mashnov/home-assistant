@@ -7,6 +7,10 @@
     event_type: telegram_command
     event_data:
       command: '/humidifier'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/humidifier'
   action:
   - service: script.message_humidifier
 
@@ -16,6 +20,10 @@
   trigger:
   - platform: event
     event_type: telegram_command
+    event_data:
+      command: '/humidifier_empty'
+  - platform: event
+    event_type: telegram_callback
     event_data:
       command: '/humidifier_empty'
   action:

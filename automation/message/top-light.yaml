@@ -7,6 +7,10 @@
     event_type: telegram_command
     event_data:
       command: '/top_light'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/top_light'
   action:
   - service: script.message_top_light
 
@@ -16,6 +20,10 @@
   trigger:
   - platform: event
     event_type: telegram_command
+    event_data:
+      command: '/top_light_kitchen'
+  - platform: event
+    event_type: telegram_callback
     event_data:
       command: '/top_light_kitchen'
   action:
@@ -29,6 +37,10 @@
     event_type: telegram_command
     event_data:
       command: '/top_light_bath'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/top_light_bath'
   action:
   - service: script.message_top_light_bath
 
@@ -38,6 +50,10 @@
   trigger:
   - platform: event
     event_type: telegram_command
+    event_data:
+      command: '/top_light_toilet'
+  - platform: event
+    event_type: telegram_callback
     event_data:
       command: '/top_light_toilet'
   action:
@@ -51,6 +67,10 @@
     event_type: telegram_command
     event_data:
       command: '/top_light_hall'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/top_light_hall'
   action:
   - service: script.message_top_light_hall
 
@@ -62,6 +82,10 @@
     event_type: telegram_command
     event_data:
       command: '/top_light_bedroom'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/top_light_bedroom'
   action:
   - service: script.message_top_light_bedroom
 
@@ -71,6 +95,10 @@
   trigger:
   - platform: event
     event_type: telegram_command
+    event_data:
+      command: '/top_light_living'
+  - platform: event
+    event_type: telegram_callback
     event_data:
       command: '/top_light_living'
   action:

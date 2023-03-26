@@ -52,6 +52,7 @@ message_navigation_device:
         - 'Увлажнитель:/humidifier, Вытяжка:/dehumidifier'
         - 'Выключатели:/switch, Шторы:/curtain'
         - 'Фонтан:/fountain, Сеть:/network'
+        - 'Пустые увлажнители:/humidifier_empty'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DEVICE TOP LIGHT
@@ -63,6 +64,7 @@ message_navigation_device_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
+        - 'Общее:/top_light'
         - 'Кухня:/top_light_kitchen'
         - 'Ванная:/top_light_bath'
         - 'Туалет:/top_light_toilet'

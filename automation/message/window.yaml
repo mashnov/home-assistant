@@ -7,6 +7,10 @@
     event_type: telegram_command
     event_data:
       command: '/window'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/window'
   action:
   - service: script.message_window
 

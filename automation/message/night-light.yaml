@@ -7,5 +7,9 @@
     event_type: telegram_command
     event_data:
       command: '/night_light'
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/night_light'
   action:
   - service: script.message_night_light
