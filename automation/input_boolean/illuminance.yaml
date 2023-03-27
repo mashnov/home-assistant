@@ -13,14 +13,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_curtain
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_kitchen_curtain_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_curtain
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_kitchen_curtain_off
 
@@ -40,14 +40,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_bedroom_curtain
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_bedroom_curtain_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_bedroom_curtain
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_bedroom_curtain_off
 
@@ -67,14 +67,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_living_curtain
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_living_curtain_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_living_curtain
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_living_curtain_off
 
@@ -94,14 +94,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_top_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_kitchen_top_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_top_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_kitchen_top_light_off
 
@@ -121,14 +121,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_hall_top_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_hall_top_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_hall_top_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_hall_top_light_off
 
@@ -148,14 +148,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_back_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_kitchen_back_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_kitchen_back_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_kitchen_back_light_off
 
@@ -175,14 +175,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_hall_back_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_hall_back_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_hall_back_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_hall_back_light_off
 
@@ -202,14 +202,14 @@
       - condition: state
         entity_id: binary_sensor.illuminance_bedroom_back_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_bedroom_back_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_bedroom_back_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_bedroom_back_light_off
 
@@ -229,13 +229,13 @@
       - condition: state
         entity_id: binary_sensor.illuminance_living_back_light
         state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
       sequence:
       - service: script.illuminance_living_back_light_on
     - conditions:
       - condition: state
         entity_id: binary_sensor.illuminance_living_back_light
         state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+        for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
       sequence:
       - service: script.illuminance_living_back_light_off
