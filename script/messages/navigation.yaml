@@ -91,7 +91,7 @@ message_navigation_manage_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
-        - 'Общее:/manage_top_light'
+        - 'Общее:/manage_top_light_groups'
         - 'Кухня:/manage_top_light_kitchen'
         - 'Ванная:/manage_top_light_bath'
         - 'Туалет:/manage_top_light_toilet'
