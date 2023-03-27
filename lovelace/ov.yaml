@@ -5,6 +5,15 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
+    - entity: binary_sensor.door_toilet_open
+      name: 'Дверь в туалет'
+
+    - entity: binary_sensor.occupancy_toilet_boolean
+      name: 'Туалет присутствие'
+
+    - entity: binary_sensor.humidity_bath_hight
+      name: 'Ванная влажно'
+
     - entity: binary_sensor.dehumidifier_bath_permission
       name: 'Вытяжка ванная'
 
