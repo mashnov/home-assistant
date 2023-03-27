@@ -11,7 +11,7 @@
     icon: 'mdi:check-all'
     state: "{{ is_state('binary_sensor.humidity_bath_hight', 'on') }}"
 
-  - name: 'dehumidifier_hall_permission'
+  - name: 'dehumidifier_toilet_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
     state: > 
