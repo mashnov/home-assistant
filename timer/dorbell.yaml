@@ -1,0 +1,6 @@
+## DORBELL
+dorbell_elevator:
+  duration: '00:00:07'
+
+dorbell_hall:
+  duration: '00:00:07'

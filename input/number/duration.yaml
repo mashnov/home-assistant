@@ -71,3 +71,10 @@ duration_toilet_mode:
   step: 1
   initial: 15
 
+duration_dorbell:
+  unit_of_measurement: 'сек'
+  icon: 'mdi:camera-timer'
+  max: 30
+  min: 0
+  step: 10
+  initial: 7

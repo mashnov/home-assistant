@@ -19,5 +19,3 @@ cards:
 
     - entity: timer.dehumidifier_toilet
       name: 'Таймер вытяжки'
-
-

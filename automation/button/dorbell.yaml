@@ -1,0 +1,45 @@
+## DORBELL
+- alias: 'dorbell_elevator_click'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'single'
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'double'
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'hold'
+  condition:
+  - condition: state
+    entity_id: 'timer.dorbell_elevator'
+    state: 'idle'
+  action:
+  - service: script.dorbell_elevator_timer_start
+  - service: script.message_doorbell_elevator
+  - service: script.notification_doorbell_elevator
+
+
+- alias: 'dorbell_elevator_click'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'single'
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'double'
+  - platform: state
+    entity_id: sensor.balcony_button_action
+    to: 'hold'
+  condition:
+  - condition: state
+    entity_id: 'timer.dorbell_hall'
+    state: 'idle'
+  action:
+  - service: script.dorbell_hall_timer_start
+  - service: script.message_doorbell_hall
+  - service: script.notification_doorbell_hall

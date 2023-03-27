@@ -20,10 +20,10 @@
         {% set duration = states('input_number.delay_illuminance_off') %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
       night_mode_on: >
-        {% set duration = states('input_number.night_mode_on') %}
+        {% set duration = states('input_number.delay_night_mode_on') %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
       night_mode_off: >
-        {% set duration = states('input_number.night_mode_off') %}
+        {% set duration = states('input_number.delay_night_mode_off') %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
       motion_off: >
         {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
@@ -63,4 +63,7 @@
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
       toilet_mode: >
         {% set duration = states('input_number.duration_toilet_mode') %}
+        {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
+      dorbell: >
+        {% set duration = states('input_number.duration_dorbell') %}
         {{ duration | int(0) | timestamp_custom('%H:%M:%S', false) }}
