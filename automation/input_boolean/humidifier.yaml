@@ -13,7 +13,7 @@
       - condition: state
         entity_id: binary_sensor.humidifier_hall_empty
         state: 'on'
-        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
       sequence:
       - service: script.humidifier_hall_empty_on
     - conditions:
@@ -39,7 +39,7 @@
       - condition: state
         entity_id: binary_sensor.humidifier_bedroom_empty
         state: 'on'
-        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
       sequence:
       - service: script.humidifier_bedroom_empty_on
     - conditions:
@@ -65,7 +65,7 @@
       - condition: state
         entity_id: binary_sensor.humidifier_living_empty
         state: 'on'
-        for: "{{ state_attr('sensor.delay', 'power_on') }}"
+        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
       sequence:
       - service: script.humidifier_living_empty_on
     - conditions:

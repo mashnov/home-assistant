@@ -19,7 +19,7 @@
       - condition: state
         entity_id: binary_sensor.motion_kitchen
         state: 'off'
-        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
       sequence:
       - service: script.motion_kitchen_off
 
@@ -45,7 +45,7 @@
       - condition: state
         entity_id: binary_sensor.motion_bath
         state: 'off'
-        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
       sequence:
       - service: script.motion_bath_off
 
@@ -71,7 +71,7 @@
       - condition: state
         entity_id: binary_sensor.motion_hall
         state: 'off'
-        for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
       sequence:
       - service: script.motion_hall_off
 
