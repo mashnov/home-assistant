@@ -1,94 +1,122 @@
 ## VENTILATION KITCHEN
-- alias: 'ventilation_kitchen_on'
+- alias: 'ventilation_kitchen'
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.ventilation_kitchen'
+    for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-    for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
-  action:
-  - service: script.ventilation_kitchen_on
-
-- alias: 'ventilation_kitchen_off'
-  initial_state: true
-  mode: 'queued'
-  trigger:
   - platform: state
     entity_id: 'binary_sensor.ventilation_kitchen'
-    to: 'off'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
+    to: 'off'
   action:
-  - service: script.ventilation_kitchen_off
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_kitchen
+        state: 'on'
+      sequence:
+      - service: script.ventilation_kitchen_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_kitchen
+        state: 'off'
+      sequence:
+      - service: script.ventilation_kitchen_off
 
 
 ## VENTILATION HALL
-- alias: 'ventilation_hall_on'
+- alias: 'ventilation_hall'
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.ventilation_hall'
+    for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-    for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
-  action:
-  - service: script.ventilation_hall_on
-
-- alias: 'ventilation_hall_off'
-  initial_state: true
-  mode: 'queued'
-  trigger:
   - platform: state
     entity_id: 'binary_sensor.ventilation_hall'
-    to: 'off'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
+    to: 'off'
   action:
-  - service: script.ventilation_hall_off
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_hall
+        state: 'on'
+      sequence:
+      - service: script.ventilation_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_hall
+        state: 'off'
+      sequence:
+      - service: script.ventilation_hall_off
 
 
 ## VENTILATION BEDROOM
-- alias: 'ventilation_bedroom_on'
+- alias: 'ventilation_bedroom'
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
-    entity_id: 'binary_sensor.ventilation_bedroom_on'
+    entity_id: 'binary_sensor.ventilation_bedroom'
+    for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-    for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
-  action:
-  - service: script.ventilation_bedroom_on
-
-- alias: 'ventilation_bedroom_off'
-  initial_state: true
-  mode: 'queued'
-  trigger:
   - platform: state
-    entity_id: 'binary_sensor.ventilation_bedroom_on'
-    to: 'off'
+    entity_id: 'binary_sensor.ventilation_bedroom'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
+    to: 'off'
   action:
-  - service: script.ventilation_bedroom_off
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_bedroom
+        state: 'on'
+      sequence:
+      - service: script.ventilation_bedroom_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_bedroom
+        state: 'off'
+      sequence:
+      - service: script.ventilation_bedroom_off
 
 
 ## VENTILATION LIVING
-- alias: 'ventilation_living_on'
+- alias: 'ventilation_living'
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.ventilation_living'
-    to: 'on'
     for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
-  action:
-  - service: script.ventilation_living_on
-
-- alias: 'ventilation_living_off'
-  initial_state: true
-  mode: 'queued'
-  trigger:
+    to: 'on'
   - platform: state
     entity_id: 'binary_sensor.ventilation_living'
-    to: 'off'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
+    to: 'off'
   action:
-  - service: script.ventilation_living_off
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_living
+        state: 'on'
+      sequence:
+      - service: script.ventilation_living_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.ventilation_living
+        state: 'off'
+      sequence:
+      - service: script.ventilation_living_off
