@@ -1,1 +1,23 @@
-# binary_sensor.party_light_kitchen_permission
+## PARTY LIGHT
+- alias: 'party_light_kitchen'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.party_light_kitchen_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.party_light_kitchen_permission
+        state: 'on'
+      sequence:
+      - service: script.party_light_kitchen_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.party_light_kitchen_permission
+        state: 'off'
+      sequence:
+      - service: script.party_light_kitchen_off

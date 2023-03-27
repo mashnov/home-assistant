@@ -1,5 +1,115 @@
-# binary_sensor.night_light_kitchen_permission
-# binary_sensor.night_light_bath_permission
-# binary_sensor.night_light_toilet_permission
-# binary_sensor.night_light_hall_permission
-# binary_sensor.night_light_balciony_permission
+## NIGHT LIGHT
+- alias: 'night_light_kitchden'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_light_kitchen_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_kitchen_permission
+        state: 'on'
+      sequence:
+      - service: script.night_light_kitchden_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_kitchen_permission
+        state: 'off'
+      sequence:
+      - service: script.night_light_kitchden_off
+
+- alias: 'night_light_bath'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_light_bath_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_bath_permission
+        state: 'on'
+      sequence:
+      - service: script.night_light_bath_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_bath_permission
+        state: 'off'
+      sequence:
+      - service: script.night_light_bath_off
+
+- alias: 'night_light_toilet'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_light_toilet_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_toilet_permission
+        state: 'on'
+      sequence:
+      - service: script.night_light_toilet_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_toilet_permission
+        state: 'off'
+      sequence:
+      - service: script.night_light_toilet_off
+
+- alias: 'night_light_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_light_hall_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_hall_permission
+        state: 'on'
+      sequence:
+      - service: script.night_light_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_hall_permission
+        state: 'off'
+      sequence:
+      - service: script.night_light_hall_off
+
+- alias: 'night_light_balcony'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.night_light_balciony_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_balciony_permission
+        state: 'on'
+      sequence:
+      - service: script.night_light_balcony_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_balciony_permission
+        state: 'off'
+      sequence:
+      - service: script.night_light_balcony_off

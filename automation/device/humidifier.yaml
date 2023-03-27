@@ -1,3 +1,71 @@
-# binary_sensor.humidifier_hall_permission
-# binary_sensor.humidifier_bedroom_permission
-# binary_sensor.humidifier_living_permission
+## HUMIDIFIER
+- alias: 'humidifier_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_hall_permission
+        state: 'on'
+      sequence:
+      - service: script.humidifier_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_hall_permission
+        state: 'off'
+      sequence:
+      - service: script.humidifier_hall_off
+
+
+- alias: 'humidifier_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_bedroom_permission
+        state: 'on'
+      sequence:
+      - service: script.humidifier_bedroom_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_bedroom_permission
+        state: 'off'
+      sequence:
+      - service: script.humidifier_bedroom_off
+
+
+- alias: 'humidifier_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_living_permission
+        state: 'on'
+      sequence:
+      - service: script.humidifier_living_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.humidifier_living_permission
+        state: 'off'
+      sequence:
+      - service: script.humidifier_living_off

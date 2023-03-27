@@ -10,9 +10,3 @@ fountain_balcony_off:
   sequence:
   - service: fan.turn_off
     entity_id: 'fan.balcony_fountain'
-
-fountain_balcony_toggle:
-  mode: 'queued'
-  sequence:
-  - service: fan.toggle
-    entity_id: 'fan.balcony_fountain'

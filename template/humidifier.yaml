@@ -71,7 +71,7 @@
     state: "{{ is_state('binary_sensor.relay_living_1_on', 'on') }}"
     icon: 'mdi:air-humidifier'
 
-## BACK LIGHT PERMISSION
+## HUMIDIFIER PERMISSION
   - name: 'humidifier_hall_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'

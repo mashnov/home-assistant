@@ -1,1767 +1,1767 @@
-toplight:
-  light:
-  # kitchen
-  - name: toplight_kitchen_1
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_1_host
-    token: !secret kitchen_lamp_1_token
-  - name: toplight_kitchen_2
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_2_host
-    token: !secret kitchen_lamp_2_token
-  - name: toplight_kitchen_3
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_3_host
-    token: !secret kitchen_lamp_3_token
-  - name: toplight_kitchen_4
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_4_host
-    token: !secret kitchen_lamp_4_token
-  - name: toplight_kitchen_5
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_5_host
-    token: !secret kitchen_lamp_5_token
-  - name: toplight_kitchen_lights
-    platform: group
-    entities:
-    - light.toplight_kitchen_1
-    - light.toplight_kitchen_2
-    - light.toplight_kitchen_3
-    - light.toplight_kitchen_4
-    - light.toplight_kitchen_5
-  # hall
-  - name: toplight_hall_1
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_1_host
-    token: !secret hall_lamp_1_token
-  - name: toplight_hall_2
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_2_host
-    token: !secret hall_lamp_2_token
-  - name: toplight_hall_3
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_3_host
-    token: !secret hall_lamp_3_token
-  - name: toplight_hall_4
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_4_host
-    token: !secret hall_lamp_4_token
-  - name: toplight_hall_5
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_5_host
-    token: !secret hall_lamp_5_token
-  - name: toplight_hall_6
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret hall_lamp_6_host
-    token: !secret hall_lamp_6_token
-  - name: toplight_hall_lights
-    platform: group
-    entities:
-    - light.toplight_hall_1
-    - light.toplight_hall_2
-    - light.toplight_hall_3
-    - light.toplight_hall_4
-    - light.toplight_hall_5
-    - light.toplight_hall_6
-  # bedroom
-  - name: toplight_bedroom_1
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_1_host
-    token: !secret bedroom_lamp_1_token
-  - name: toplight_bedroom_2
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_2_host
-    token: !secret bedroom_lamp_2_token
-  - name: toplight_bedroom_3
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_3_host
-    token: !secret bedroom_lamp_3_token
-  - name: toplight_bedroom_4
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_4_host
-    token: !secret bedroom_lamp_4_token
-  - name: toplight_bedroom_5
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_5_host
-    token: !secret bedroom_lamp_5_token
-  - name: toplight_bedroom_6
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret bedroom_lamp_6_host
-    token: !secret bedroom_lamp_6_token
-  - name: toplight_bedroom_lights
-    platform: group
-    entities:
-    - light.toplight_bedroom_1
-    - light.toplight_bedroom_2
-    - light.toplight_bedroom_3
-    - light.toplight_bedroom_4
-    - light.toplight_bedroom_5
-    - light.toplight_bedroom_6
-  # living
-  - name: toplight_living_1
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_1_host
-    token: !secret living_lamp_1_token
-  - name: toplight_living_2
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_2_host
-    token: !secret living_lamp_2_token
-  - name: toplight_living_3
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_3_host
-    token: !secret living_lamp_3_token
-  - name: toplight_living_4
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_4_host
-    token: !secret living_lamp_4_token
-  - name: toplight_living_5
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_5_host
-    token: !secret living_lamp_5_token
-  - name: toplight_living_6
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret living_lamp_6_host
-    token: !secret living_lamp_6_token
-  - name: toplight_living_lights
-    platform: group
-    entities:
-    - light.toplight_living_1
-    - light.toplight_living_2
-    - light.toplight_living_3
-    - light.toplight_living_4
-    - light.toplight_living_5
-    - light.toplight_living_6
+# toplight:
+#   light:
+#   # kitchen
+#   - name: toplight_kitchen_1
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret kitchen_lamp_1_host
+#     token: !secret kitchen_lamp_1_token
+#   - name: toplight_kitchen_2
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret kitchen_lamp_2_host
+#     token: !secret kitchen_lamp_2_token
+#   - name: toplight_kitchen_3
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret kitchen_lamp_3_host
+#     token: !secret kitchen_lamp_3_token
+#   - name: toplight_kitchen_4
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret kitchen_lamp_4_host
+#     token: !secret kitchen_lamp_4_token
+#   - name: toplight_kitchen_5
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret kitchen_lamp_5_host
+#     token: !secret kitchen_lamp_5_token
+#   - name: toplight_kitchen_lights
+#     platform: group
+#     entities:
+#     - light.toplight_kitchen_1
+#     - light.toplight_kitchen_2
+#     - light.toplight_kitchen_3
+#     - light.toplight_kitchen_4
+#     - light.toplight_kitchen_5
+#   # hall
+#   - name: toplight_hall_1
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_1_host
+#     token: !secret hall_lamp_1_token
+#   - name: toplight_hall_2
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_2_host
+#     token: !secret hall_lamp_2_token
+#   - name: toplight_hall_3
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_3_host
+#     token: !secret hall_lamp_3_token
+#   - name: toplight_hall_4
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_4_host
+#     token: !secret hall_lamp_4_token
+#   - name: toplight_hall_5
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_5_host
+#     token: !secret hall_lamp_5_token
+#   - name: toplight_hall_6
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret hall_lamp_6_host
+#     token: !secret hall_lamp_6_token
+#   - name: toplight_hall_lights
+#     platform: group
+#     entities:
+#     - light.toplight_hall_1
+#     - light.toplight_hall_2
+#     - light.toplight_hall_3
+#     - light.toplight_hall_4
+#     - light.toplight_hall_5
+#     - light.toplight_hall_6
+#   # bedroom
+#   - name: toplight_bedroom_1
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_1_host
+#     token: !secret bedroom_lamp_1_token
+#   - name: toplight_bedroom_2
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_2_host
+#     token: !secret bedroom_lamp_2_token
+#   - name: toplight_bedroom_3
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_3_host
+#     token: !secret bedroom_lamp_3_token
+#   - name: toplight_bedroom_4
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_4_host
+#     token: !secret bedroom_lamp_4_token
+#   - name: toplight_bedroom_5
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_5_host
+#     token: !secret bedroom_lamp_5_token
+#   - name: toplight_bedroom_6
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret bedroom_lamp_6_host
+#     token: !secret bedroom_lamp_6_token
+#   - name: toplight_bedroom_lights
+#     platform: group
+#     entities:
+#     - light.toplight_bedroom_1
+#     - light.toplight_bedroom_2
+#     - light.toplight_bedroom_3
+#     - light.toplight_bedroom_4
+#     - light.toplight_bedroom_5
+#     - light.toplight_bedroom_6
+#   # living
+#   - name: toplight_living_1
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_1_host
+#     token: !secret living_lamp_1_token
+#   - name: toplight_living_2
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_2_host
+#     token: !secret living_lamp_2_token
+#   - name: toplight_living_3
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_3_host
+#     token: !secret living_lamp_3_token
+#   - name: toplight_living_4
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_4_host
+#     token: !secret living_lamp_4_token
+#   - name: toplight_living_5
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_5_host
+#     token: !secret living_lamp_5_token
+#   - name: toplight_living_6
+#     platform: xiaomi_miio_philipslight
+#     model: philips.light.downlight
+#     host: !secret living_lamp_6_host
+#     token: !secret living_lamp_6_token
+#   - name: toplight_living_lights
+#     platform: group
+#     entities:
+#     - light.toplight_living_1
+#     - light.toplight_living_2
+#     - light.toplight_living_3
+#     - light.toplight_living_4
+#     - light.toplight_living_5
+#     - light.toplight_living_6
 
-  group:
-    # bedroom
-    toplight_bedroom_switch:
-      icon: 'mdi:nintendo-switch'
-      entities:
-      - switch.bedroom_switch_left
-      - switch.bedroom_switch_right
-    # living
-    toplight_living_switch:
-      icon: 'mdi:nintendo-switch'
-      entities:
-      - switch.living_switch_left
-      - switch.living_switch_right
+#   group:
+#     # bedroom
+#     toplight_bedroom_switch:
+#       icon: 'mdi:nintendo-switch'
+#       entities:
+#       - switch.bedroom_switch_left
+#       - switch.bedroom_switch_right
+#     # living
+#     toplight_living_switch:
+#       icon: 'mdi:nintendo-switch'
+#       entities:
+#       - switch.living_switch_left
+#       - switch.living_switch_right
 
-  timer:
-    # kitchen
-    toplight_kitchen_timer:
-      duration: '00:00:10'
-    # hall
-    toplight_hall_timer:
-      duration: '00:00:10'
-    # bath
-    toplight_bath_timer:
-      duration: '00:00:10'
+#   timer:
+#     # kitchen
+#     toplight_kitchen_timer:
+#       duration: '00:00:10'
+#     # hall
+#     toplight_hall_timer:
+#       duration: '00:00:10'
+#     # bath
+#     toplight_bath_timer:
+#       duration: '00:00:10'
 
-  input_number:
-    toplight_color_temperature_max_illuminance:
-      max: 9999
-      min: 0
-      step: 10
-    toplight_color_morning_brightness:
-      max: 255
-      min: 0
-      step: 1
-    toplight_color_day_brightness:
-      max: 255
-      min: 0
-      step: 1
-    toplight_color_evening_brightness:
-      max: 255
-      min: 0
-      step: 1
-    toplight_color_night_brightness:
-      max: 255
-      min: 0
-      step: 1
-    # kitchen
-    toplight_kitchen_sensor_delay_day:
-      max: 240
-      min: 0
-      step: 1
-    toplight_kitchen_sensor_delay_night:
-      max: 240
-      min: 0
-      step: 1
-    toplight_kitchen_light_brightness:
-      max: 255
-      min: 1
-      step: 1
-    toplight_kitchen_light_temperature:
-      max: 333
-      min: 175
-      step: 1
-    # bath
-    toplight_bath_sensor_delay_day:
-      max: 240
-      min: 0
-      step: 1
-    toplight_bath_sensor_delay_night:
-      max: 240
-      min: 0
-      step: 1
-    # hall
-    toplight_hall_sensor_delay_day:
-      max: 240
-      min: 0
-      step: 1
-    toplight_hall_sensor_delay_night:
-      max: 240
-      min: 0
-      step: 1
-    toplight_hall_light_brightness:
-      max: 255
-      min: 1
-      step: 1
-    toplight_hall_light_temperature:
-      max: 333
-      min: 175
-      step: 1
-    # toilet
-    toplight_bedroom_light_brightness:
-      max: 255
-      min: 1
-      step: 1
-    toplight_bedroom_light_temperature:
-      max: 333
-      min: 175
-      step: 1
-    # toilet
-    toplight_living_light_brightness:
-      max: 255
-      min: 1
-      step: 1
-    toplight_living_light_temperature:
-      max: 333
-      min: 175
-      step: 1
+#   input_number:
+#     toplight_color_temperature_max_illuminance:
+#       max: 9999
+#       min: 0
+#       step: 10
+#     toplight_color_morning_brightness:
+#       max: 255
+#       min: 0
+#       step: 1
+#     toplight_color_day_brightness:
+#       max: 255
+#       min: 0
+#       step: 1
+#     toplight_color_evening_brightness:
+#       max: 255
+#       min: 0
+#       step: 1
+#     toplight_color_night_brightness:
+#       max: 255
+#       min: 0
+#       step: 1
+#     # kitchen
+#     toplight_kitchen_sensor_delay_day:
+#       max: 240
+#       min: 0
+#       step: 1
+#     toplight_kitchen_sensor_delay_night:
+#       max: 240
+#       min: 0
+#       step: 1
+#     toplight_kitchen_light_brightness:
+#       max: 255
+#       min: 1
+#       step: 1
+#     toplight_kitchen_light_temperature:
+#       max: 333
+#       min: 175
+#       step: 1
+#     # bath
+#     toplight_bath_sensor_delay_day:
+#       max: 240
+#       min: 0
+#       step: 1
+#     toplight_bath_sensor_delay_night:
+#       max: 240
+#       min: 0
+#       step: 1
+#     # hall
+#     toplight_hall_sensor_delay_day:
+#       max: 240
+#       min: 0
+#       step: 1
+#     toplight_hall_sensor_delay_night:
+#       max: 240
+#       min: 0
+#       step: 1
+#     toplight_hall_light_brightness:
+#       max: 255
+#       min: 1
+#       step: 1
+#     toplight_hall_light_temperature:
+#       max: 333
+#       min: 175
+#       step: 1
+#     # toilet
+#     toplight_bedroom_light_brightness:
+#       max: 255
+#       min: 1
+#       step: 1
+#     toplight_bedroom_light_temperature:
+#       max: 333
+#       min: 175
+#       step: 1
+#     # toilet
+#     toplight_living_light_brightness:
+#       max: 255
+#       min: 1
+#       step: 1
+#     toplight_living_light_temperature:
+#       max: 333
+#       min: 175
+#       step: 1
 
-  input_boolean:
-    # kitchen
-    toplight_kitchen_use_sensors:
-      icon: 'mdi:lightbulb-auto'
-    toplight_kitchen_use_illuminance:
-      icon: 'mdi:brightness-4'
-    toplight_kitchen_use_in_morning:
-      icon: 'mdi:clock-time-nine-outline'
-    toplight_kitchen_use_in_day:
-      icon: 'mdi:clock-time-twelve-outline'
-    toplight_kitchen_use_in_evening:
-      icon: 'mdi:clock-time-eleven-outline'
-    toplight_kitchen_use_in_night:
-      icon: 'mdi:clock-time-one-outline'
-    toplight_kitchen_use_smart_brightness:
-      icon: 'mdi:lightbulb-variant-outline'
-    toplight_kitchen_use_smart_temperature:
-      icon: 'mdi:lightbulb-variant'
-    # bath
-    toplight_bath_use_sensors:
-      icon: 'mdi:lightbulb-auto'
-    toplight_bath_use_in_morning:
-      icon: 'mdi:clock-time-nine-outline'
-    toplight_bath_use_in_day:
-      icon: 'mdi:clock-time-twelve-outline'
-    toplight_bath_use_in_evening:
-      icon: 'mdi:clock-time-eleven-outline'
-    toplight_bath_use_in_night:
-      icon: 'mdi:clock-time-one-outline'
-    # hall
-    toplight_hall_use_sensors:
-      icon: 'mdi:lightbulb-auto'
-    toplight_hall_use_illuminance:
-      icon: 'mdi:brightness-4'
-    toplight_hall_use_in_morning:
-      icon: 'mdi:clock-time-nine-outline'
-    toplight_hall_use_in_day:
-      icon: 'mdi:clock-time-twelve-outline'
-    toplight_hall_use_in_evening:
-      icon: 'mdi:clock-time-eleven-outline'
-    toplight_hall_use_in_night:
-      icon: 'mdi:clock-time-one-outline'
-    toplight_hall_use_smart_brightness:
-      icon: 'mdi:lightbulb-variant-outline'
-    toplight_hall_use_smart_temperature:
-      icon: 'mdi:lightbulb-variant'
-    # toilet
-    toplight_toilet_use_sensors:
-      icon: 'mdi:lightbulb-auto'
-    toplight_toilet_use_in_morning:
-      icon: 'mdi:clock-time-nine-outline'
-    toplight_toilet_use_in_day:
-      icon: 'mdi:clock-time-twelve-outline'
-    toplight_toilet_use_in_evening:
-      icon: 'mdi:clock-time-eleven-outline'
-    toplight_toilet_use_in_night:
-      icon: 'mdi:clock-time-one-outline'
-    # bedroom
-    toplight_bedroom_use_smart_brightness:
-      icon: 'mdi:lightbulb-variant-outline'
-    toplight_bedroom_use_smart_temperature:
-      icon: 'mdi:lightbulb-variant'
-    # living
-    toplight_living_use_smart_brightness:
-      icon: 'mdi:lightbulb-variant-outline'
-    toplight_living_use_smart_temperature:
-      icon: 'mdi:lightbulb-variant'
+#   input_boolean:
+#     # kitchen
+#     toplight_kitchen_use_sensors:
+#       icon: 'mdi:lightbulb-auto'
+#     toplight_kitchen_use_illuminance:
+#       icon: 'mdi:brightness-4'
+#     toplight_kitchen_use_in_morning:
+#       icon: 'mdi:clock-time-nine-outline'
+#     toplight_kitchen_use_in_day:
+#       icon: 'mdi:clock-time-twelve-outline'
+#     toplight_kitchen_use_in_evening:
+#       icon: 'mdi:clock-time-eleven-outline'
+#     toplight_kitchen_use_in_night:
+#       icon: 'mdi:clock-time-one-outline'
+#     toplight_kitchen_use_smart_brightness:
+#       icon: 'mdi:lightbulb-variant-outline'
+#     toplight_kitchen_use_smart_temperature:
+#       icon: 'mdi:lightbulb-variant'
+#     # bath
+#     toplight_bath_use_sensors:
+#       icon: 'mdi:lightbulb-auto'
+#     toplight_bath_use_in_morning:
+#       icon: 'mdi:clock-time-nine-outline'
+#     toplight_bath_use_in_day:
+#       icon: 'mdi:clock-time-twelve-outline'
+#     toplight_bath_use_in_evening:
+#       icon: 'mdi:clock-time-eleven-outline'
+#     toplight_bath_use_in_night:
+#       icon: 'mdi:clock-time-one-outline'
+#     # hall
+#     toplight_hall_use_sensors:
+#       icon: 'mdi:lightbulb-auto'
+#     toplight_hall_use_illuminance:
+#       icon: 'mdi:brightness-4'
+#     toplight_hall_use_in_morning:
+#       icon: 'mdi:clock-time-nine-outline'
+#     toplight_hall_use_in_day:
+#       icon: 'mdi:clock-time-twelve-outline'
+#     toplight_hall_use_in_evening:
+#       icon: 'mdi:clock-time-eleven-outline'
+#     toplight_hall_use_in_night:
+#       icon: 'mdi:clock-time-one-outline'
+#     toplight_hall_use_smart_brightness:
+#       icon: 'mdi:lightbulb-variant-outline'
+#     toplight_hall_use_smart_temperature:
+#       icon: 'mdi:lightbulb-variant'
+#     # toilet
+#     toplight_toilet_use_sensors:
+#       icon: 'mdi:lightbulb-auto'
+#     toplight_toilet_use_in_morning:
+#       icon: 'mdi:clock-time-nine-outline'
+#     toplight_toilet_use_in_day:
+#       icon: 'mdi:clock-time-twelve-outline'
+#     toplight_toilet_use_in_evening:
+#       icon: 'mdi:clock-time-eleven-outline'
+#     toplight_toilet_use_in_night:
+#       icon: 'mdi:clock-time-one-outline'
+#     # bedroom
+#     toplight_bedroom_use_smart_brightness:
+#       icon: 'mdi:lightbulb-variant-outline'
+#     toplight_bedroom_use_smart_temperature:
+#       icon: 'mdi:lightbulb-variant'
+#     # living
+#     toplight_living_use_smart_brightness:
+#       icon: 'mdi:lightbulb-variant-outline'
+#     toplight_living_use_smart_temperature:
+#       icon: 'mdi:lightbulb-variant'
 
-  template:
-  - sensor: 
-    - name: 'toplight_brightness'
-      state: >
-        {% set isMorning = is_state('binary_sensor.night_is_morning_time', 'on') %}
-        {% set isDay = is_state('binary_sensor.night_is_day_time', 'on') %}
-        {% set isNEvening = is_state('binary_sensor.night_is_evening_time', 'on') %}
-        {% set isNight = is_state('binary_sensor.night_is_night_time', 'on') %}
-        {% if isMorning %}
-          {{ states('input_number.toplight_color_morning_brightness') }}
-        {% endif %}
-        {% if isDay %}
-          {{ states('input_number.toplight_color_day_brightness') }}
-        {% endif %}
-        {% if isNEvening %}
-          {{ states('input_number.toplight_color_evening_brightness') }}
-        {% endif %}
-        {% if isNight %}
-          {{ states('input_number.toplight_color_night_brightness') }}
-        {% endif %}
+#   template:
+#   - sensor: 
+#     - name: 'toplight_brightness'
+#       state: >
+#         {% set isMorning = is_state('binary_sensor.night_is_morning_time', 'on') %}
+#         {% set isDay = is_state('binary_sensor.night_is_day_time', 'on') %}
+#         {% set isNEvening = is_state('binary_sensor.night_is_evening_time', 'on') %}
+#         {% set isNight = is_state('binary_sensor.night_is_night_time', 'on') %}
+#         {% if isMorning %}
+#           {{ states('input_number.toplight_color_morning_brightness') }}
+#         {% endif %}
+#         {% if isDay %}
+#           {{ states('input_number.toplight_color_day_brightness') }}
+#         {% endif %}
+#         {% if isNEvening %}
+#           {{ states('input_number.toplight_color_evening_brightness') }}
+#         {% endif %}
+#         {% if isNight %}
+#           {{ states('input_number.toplight_color_night_brightness') }}
+#         {% endif %}
 
-    - name: 'toplight_temperature'
-      state: >
-        {% set sensorMinValue = 0 %}
-        {% set sensorMaxValue = states('input_number.toplight_color_temperature_max_illuminance') | int(sensorMinValue) %}
-        {% set sensorMaxDelta = sensorMaxValue - sensorMinValue %}
-        {% set sensorValue = states('sensor.sun_illuminance_virtual') | int(sensorMinValue) %}
-        {% if sensorValue > sensorMaxValue %}
-            {% set sensorValue = sensorMaxValue %}
-        {% endif %}
-        {% set sensorValueDelta = sensorValue - sensorMinValue %}
-        {% set sensorValuePercent = 100 - ((sensorValueDelta / sensorMaxDelta) * 100) %}
-        {% set temperatureMinValue = 175 %}
-        {% set temperatureMaxValue = 333 %}
-        {% set temperatureDelta = temperatureMaxValue - temperatureMinValue %}
-        {% set temperatureDeltaValue = temperatureDelta / 100 * sensorValuePercent %}
-        {% set temperatureValue = temperatureDeltaValue + temperatureMinValue %}
-        {{ temperatureValue | round }}
+#     - name: 'toplight_temperature'
+#       state: >
+#         {% set sensorMinValue = 0 %}
+#         {% set sensorMaxValue = states('input_number.toplight_color_temperature_max_illuminance') | int(sensorMinValue) %}
+#         {% set sensorMaxDelta = sensorMaxValue - sensorMinValue %}
+#         {% set sensorValue = states('sensor.sun_illuminance_virtual') | int(sensorMinValue) %}
+#         {% if sensorValue > sensorMaxValue %}
+#             {% set sensorValue = sensorMaxValue %}
+#         {% endif %}
+#         {% set sensorValueDelta = sensorValue - sensorMinValue %}
+#         {% set sensorValuePercent = 100 - ((sensorValueDelta / sensorMaxDelta) * 100) %}
+#         {% set temperatureMinValue = 175 %}
+#         {% set temperatureMaxValue = 333 %}
+#         {% set temperatureDelta = temperatureMaxValue - temperatureMinValue %}
+#         {% set temperatureDeltaValue = temperatureDelta / 100 * sensorValuePercent %}
+#         {% set temperatureValue = temperatureDeltaValue + temperatureMinValue %}
+#         {{ temperatureValue | round }}
 
-    # kitchen
-    - name: 'toplight_kitchen_sensor_delay_day'
-      device_class: duration
-      state: "{{ states('input_number.toplight_kitchen_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_kitchen_sensor_delay_night'
-      device_class: duration
-      state: "{{ states('input_number.toplight_kitchen_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_kitchen_sensor_delay'
-      device_class: duration
-      state: >
-        {% set dayValue = states('sensor.toplight_kitchen_sensor_delay_day') %}
-        {% set nightValue = states('sensor.toplight_kitchen_sensor_delay_night') %}
-        {% set isNight = is_state('binary_sensor.night_kitchen_is_night', 'on') %}
-        {{ iif(isNight, nightValue, dayValue) }}
-    # hall
-    - name: 'toplight_hall_sensor_delay_day'
-      device_class: duration
-      state: "{{ states('input_number.toplight_hall_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_hall_sensor_delay_night'
-      device_class: duration
-      state: "{{ states('input_number.toplight_hall_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_hall_sensor_delay'
-      device_class: duration
-      state: >
-        {% set dayValue = states('sensor.toplight_hall_sensor_delay_day') %}
-        {% set nightValue = states('sensor.toplight_hall_sensor_delay_night') %}
-        {% set isNight = is_state('binary_sensor.night_hall_is_night', 'on') %}
-        {{ iif(isNight, nightValue, dayValue) }}
-    # bath
-    - name: 'toplight_bath_sensor_delay_day'
-      device_class: duration
-      state: "{{ states('input_number.toplight_bath_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_bath_sensor_delay_night'
-      device_class: duration
-      state: "{{ states('input_number.toplight_bath_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
-    - name: 'toplight_bath_sensor_delay'
-      device_class: duration
-      state: >
-        {% set dayValue = states('sensor.toplight_bath_sensor_delay_day') %}
-        {% set nightValue = states('sensor.toplight_bath_sensor_delay_night') %}
-        {% set isNight = is_state('binary_sensor.night_bath_is_night', 'on') %}
-        {{ iif(isNight, nightValue, dayValue) }}
+#     # kitchen
+#     - name: 'toplight_kitchen_sensor_delay_day'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_kitchen_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_kitchen_sensor_delay_night'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_kitchen_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_kitchen_sensor_delay'
+#       device_class: duration
+#       state: >
+#         {% set dayValue = states('sensor.toplight_kitchen_sensor_delay_day') %}
+#         {% set nightValue = states('sensor.toplight_kitchen_sensor_delay_night') %}
+#         {% set isNight = is_state('binary_sensor.night_kitchen_is_night', 'on') %}
+#         {{ iif(isNight, nightValue, dayValue) }}
+#     # hall
+#     - name: 'toplight_hall_sensor_delay_day'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_hall_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_hall_sensor_delay_night'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_hall_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_hall_sensor_delay'
+#       device_class: duration
+#       state: >
+#         {% set dayValue = states('sensor.toplight_hall_sensor_delay_day') %}
+#         {% set nightValue = states('sensor.toplight_hall_sensor_delay_night') %}
+#         {% set isNight = is_state('binary_sensor.night_hall_is_night', 'on') %}
+#         {{ iif(isNight, nightValue, dayValue) }}
+#     # bath
+#     - name: 'toplight_bath_sensor_delay_day'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_bath_sensor_delay_day') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_bath_sensor_delay_night'
+#       device_class: duration
+#       state: "{{ states('input_number.toplight_bath_sensor_delay_night') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+#     - name: 'toplight_bath_sensor_delay'
+#       device_class: duration
+#       state: >
+#         {% set dayValue = states('sensor.toplight_bath_sensor_delay_day') %}
+#         {% set nightValue = states('sensor.toplight_bath_sensor_delay_night') %}
+#         {% set isNight = is_state('binary_sensor.night_bath_is_night', 'on') %}
+#         {{ iif(isNight, nightValue, dayValue) }}
 
-  - binary_sensor:
-    # kitchen
-    - name: 'toplight_kitchen_light_is_on'
-      state: "{{ is_state('light.toplight_kitchen_lights', 'on') }}"
-    - name: 'toplight_kitchen_switch_is_on'
-      state: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
-    - name: 'toplight_kitchen_timer_is_on'
-      state: "{{ is_state('timer.toplight_kitchen_timer', 'active') }}"
-    - name: 'toplight_kitchen_automation_is_partly'
-      state: >
-        {% set autoBrightness = is_state('input_boolean.toplight_kitchen_use_smart_brightness', 'off') %}
-        {% set autoTemperature = is_state('input_boolean.toplight_kitchen_use_smart_temperature', 'off') %}
-        {{ autoBrightness or autoTemperature }}
-    # bath
-    - name: 'toplight_bath_light_is_on'
-      state: "{{ is_state('light.toplight_bath', 'on') }}"
-    - name: 'toplight_bath_timer_is_on'
-      state: "{{ is_state('timer.toplight_bath_timer', 'active') }}"
-    # toilet
-    - name: 'toplight_toilet_light_is_on'
-      state: "{{ is_state('light.toplight_toilet', 'on') }}"
-    # hall
-    - name: 'toplight_hall_light_is_on'
-      state: "{{ is_state('light.toplight_hall_lights', 'on') }}"
-    - name: 'toplight_hall_switch_is_on'
-      state: "{{ is_state('switch.hall_switch', 'on') }}"
-    - name: 'toplight_hall_timer_is_on'
-      state: "{{ is_state('timer.toplight_hall_timer', 'active') }}"
-    - name: 'toplight_hall_automation_is_partly'
-      state: >
-        {% set autoBrightness = is_state('input_boolean.toplight_hall_use_smart_brightness', 'off') %}
-        {% set autoTemperature = is_state('input_boolean.toplight_hall_use_smart_temperature', 'off') %}
-        {{ autoBrightness or autoTemperature }}
-    # bedroom
-    - name: 'toplight_bedroom_light_is_on'
-      state: "{{ is_state('light.toplight_bedroom_lights', 'on') }}"
-    - name: 'toplight_bedroom_switch_is_on'
-      state: >
-        {% set leftSwitchIsOn = is_state('switch.bedroom_switch_left', 'on') %}
-        {% set rightSwitchIsOn = is_state('switch.bedroom_switch_right', 'on') %}
-        {{ leftSwitchIsOn and rightSwitchIsOn }}
-    - name: 'toplight_bedroom_automation_is_partly'
-      state: >
-        {% set autoBrightness = is_state('input_boolean.toplight_bedroom_use_smart_brightness', 'off') %}
-        {% set autoTemperature = is_state('input_boolean.toplight_bedroom_use_smart_temperature', 'off') %}
-        {{ autoBrightness or autoTemperature }}
-    # living
-    - name: 'toplight_living_light_is_on'
-      state: "{{ is_state('light.toplight_living_lights', 'on') }}"
-    - name: 'toplight_living_switch_is_on'
-      state: >
-        {% set leftSwitchIsOn = is_state('switch.living_switch_left', 'on') %}
-        {% set rightSwitchIsOn = is_state('switch.living_switch_right', 'on') %}
-        {{ leftSwitchIsOn and rightSwitchIsOn }}
-    - name: 'toplight_living_automation_is_partly'
-      state: >
-        {% set autoBrightness = is_state('input_boolean.toplight_living_use_smart_brightness', 'off') %}
-        {% set autoTemperature = is_state('input_boolean.toplight_living_use_smart_temperature', 'off') %}
-        {{ autoBrightness or autoTemperature }}
+#   - binary_sensor:
+#     # kitchen
+#     - name: 'toplight_kitchen_light_is_on'
+#       state: "{{ is_state('light.toplight_kitchen_lights', 'on') }}"
+#     - name: 'toplight_kitchen_switch_is_on'
+#       state: "{{ is_state('switch.kitchen_switch_left', 'on') }}"
+#     - name: 'toplight_kitchen_timer_is_on'
+#       state: "{{ is_state('timer.toplight_kitchen_timer', 'active') }}"
+#     - name: 'toplight_kitchen_automation_is_partly'
+#       state: >
+#         {% set autoBrightness = is_state('input_boolean.toplight_kitchen_use_smart_brightness', 'off') %}
+#         {% set autoTemperature = is_state('input_boolean.toplight_kitchen_use_smart_temperature', 'off') %}
+#         {{ autoBrightness or autoTemperature }}
+#     # bath
+#     - name: 'toplight_bath_light_is_on'
+#       state: "{{ is_state('light.toplight_bath', 'on') }}"
+#     - name: 'toplight_bath_timer_is_on'
+#       state: "{{ is_state('timer.toplight_bath_timer', 'active') }}"
+#     # toilet
+#     - name: 'toplight_toilet_light_is_on'
+#       state: "{{ is_state('light.toplight_toilet', 'on') }}"
+#     # hall
+#     - name: 'toplight_hall_light_is_on'
+#       state: "{{ is_state('light.toplight_hall_lights', 'on') }}"
+#     - name: 'toplight_hall_switch_is_on'
+#       state: "{{ is_state('switch.hall_switch', 'on') }}"
+#     - name: 'toplight_hall_timer_is_on'
+#       state: "{{ is_state('timer.toplight_hall_timer', 'active') }}"
+#     - name: 'toplight_hall_automation_is_partly'
+#       state: >
+#         {% set autoBrightness = is_state('input_boolean.toplight_hall_use_smart_brightness', 'off') %}
+#         {% set autoTemperature = is_state('input_boolean.toplight_hall_use_smart_temperature', 'off') %}
+#         {{ autoBrightness or autoTemperature }}
+#     # bedroom
+#     - name: 'toplight_bedroom_light_is_on'
+#       state: "{{ is_state('light.toplight_bedroom_lights', 'on') }}"
+#     - name: 'toplight_bedroom_switch_is_on'
+#       state: >
+#         {% set leftSwitchIsOn = is_state('switch.bedroom_switch_left', 'on') %}
+#         {% set rightSwitchIsOn = is_state('switch.bedroom_switch_right', 'on') %}
+#         {{ leftSwitchIsOn and rightSwitchIsOn }}
+#     - name: 'toplight_bedroom_automation_is_partly'
+#       state: >
+#         {% set autoBrightness = is_state('input_boolean.toplight_bedroom_use_smart_brightness', 'off') %}
+#         {% set autoTemperature = is_state('input_boolean.toplight_bedroom_use_smart_temperature', 'off') %}
+#         {{ autoBrightness or autoTemperature }}
+#     # living
+#     - name: 'toplight_living_light_is_on'
+#       state: "{{ is_state('light.toplight_living_lights', 'on') }}"
+#     - name: 'toplight_living_switch_is_on'
+#       state: >
+#         {% set leftSwitchIsOn = is_state('switch.living_switch_left', 'on') %}
+#         {% set rightSwitchIsOn = is_state('switch.living_switch_right', 'on') %}
+#         {{ leftSwitchIsOn and rightSwitchIsOn }}
+#     - name: 'toplight_living_automation_is_partly'
+#       state: >
+#         {% set autoBrightness = is_state('input_boolean.toplight_living_use_smart_brightness', 'off') %}
+#         {% set autoTemperature = is_state('input_boolean.toplight_living_use_smart_temperature', 'off') %}
+#         {{ autoBrightness or autoTemperature }}
 
-  automation:
-  # kitchen
-  - alias: 'toplight_kitchen_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_kitchen_switch_is_on
-      - binary_sensor.toplight_kitchen_light_is_on
-      - input_boolean.toplight_kitchen_use_sensors
-      - binary_sensor.occupancy_kitchen_is_occupancy
-      - input_boolean.toplight_kitchen_use_illuminance
-      - binary_sensor.sun_kitchen_toplight_is_dark
-      - input_boolean.toplight_kitchen_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_kitchen_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_kitchen_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_kitchen_use_in_night
-      - binary_sensor.night_kitchen_is_night
-    action:
-    - choose:
-      # switch on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_switch_is_on
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: input_boolean.toplight_kitchen_use_illuminance
-              state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_kitchen_toplight_is_dark
-                state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'on'
-        sequence:
-        - service: switch.turn_on
-          entity_id: 'switch.kitchen_switch_left'
-      # light on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_switch_is_on
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: input_boolean.toplight_kitchen_use_illuminance
-              state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_kitchen_toplight_is_dark
-                state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: 'light.toplight_kitchen_lights'
-      # timer start
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_kitchen_is_occupancy
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'on'
-        sequence:
-        - service: timer.start
-          entity_id: 'timer.toplight_kitchen_timer'
-          data_template:
-            duration: "{{ states('sensor.toplight_kitchen_sensor_delay') }}"
-      # timer cancel
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_sensors
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: binary_sensor.occupancy_kitchen_is_occupancy
-              state: 'on'
-            - condition: state
-              entity_id: binary_sensor.toplight_kitchen_light_is_on
-              state: 'off'
-        sequence:
-        - service: timer.cancel
-          entity_id: 'timer.toplight_kitchen_timer'
+#   automation:
+#   # kitchen
+#   - alias: 'toplight_kitchen_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_kitchen_switch_is_on
+#       - binary_sensor.toplight_kitchen_light_is_on
+#       - input_boolean.toplight_kitchen_use_sensors
+#       - binary_sensor.occupancy_kitchen_is_occupancy
+#       - input_boolean.toplight_kitchen_use_illuminance
+#       - binary_sensor.sun_kitchen_toplight_is_dark
+#       - input_boolean.toplight_kitchen_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_kitchen_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_kitchen_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_kitchen_use_in_night
+#       - binary_sensor.night_kitchen_is_night
+#     action:
+#     - choose:
+#       # switch on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_switch_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_kitchen_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: input_boolean.toplight_kitchen_use_illuminance
+#               state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_kitchen_toplight_is_dark
+#                 state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: switch.turn_on
+#           entity_id: 'switch.kitchen_switch_left'
+#       # light on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_switch_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_kitchen_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: input_boolean.toplight_kitchen_use_illuminance
+#               state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_kitchen_toplight_is_dark
+#                 state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: 'light.toplight_kitchen_lights'
+#       # timer start
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_kitchen_is_occupancy
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: timer.start
+#           entity_id: 'timer.toplight_kitchen_timer'
+#           data_template:
+#             duration: "{{ states('sensor.toplight_kitchen_sensor_delay') }}"
+#       # timer cancel
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_sensors
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: binary_sensor.occupancy_kitchen_is_occupancy
+#               state: 'on'
+#             - condition: state
+#               entity_id: binary_sensor.toplight_kitchen_light_is_on
+#               state: 'off'
+#         sequence:
+#         - service: timer.cancel
+#           entity_id: 'timer.toplight_kitchen_timer'
 
-  - alias: 'toplight_kitchen_light_off'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - input_boolean.toplight_kitchen_use_sensors
-      - input_boolean.toplight_kitchen_use_illuminance
-      - binary_sensor.sun_kitchen_toplight_is_dark
-      - input_boolean.toplight_kitchen_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_kitchen_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_kitchen_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_kitchen_use_in_night
-      - binary_sensor.night_kitchen_is_night
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_kitchen_toplight_is_dark
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_morning
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_day
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_evening
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_kitchen_use_in_night
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_kitchen_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: 'light.toplight_kitchen_lights'
+#   - alias: 'toplight_kitchen_light_off'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - input_boolean.toplight_kitchen_use_sensors
+#       - input_boolean.toplight_kitchen_use_illuminance
+#       - binary_sensor.sun_kitchen_toplight_is_dark
+#       - input_boolean.toplight_kitchen_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_kitchen_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_kitchen_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_kitchen_use_in_night
+#       - binary_sensor.night_kitchen_is_night
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_kitchen_toplight_is_dark
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_morning
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_day
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_evening
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_kitchen_use_in_night
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_kitchen_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: 'light.toplight_kitchen_lights'
 
-  - alias: 'toplight_kitchen_light_off_by_timer'
-    initial_state: true
-    trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.toplight_kitchen_timer
-    action:
-    - service: light.turn_off
-      entity_id: 'light.toplight_kitchen_lights'
+#   - alias: 'toplight_kitchen_light_off_by_timer'
+#     initial_state: true
+#     trigger:
+#     - platform: event
+#       event_type: timer.finished
+#       event_data:
+#         entity_id: timer.toplight_kitchen_timer
+#     action:
+#     - service: light.turn_off
+#       entity_id: 'light.toplight_kitchen_lights'
 
-  - alias: 'toplight_kitchen_params'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_kitchen_light_is_on
-      - input_boolean.toplight_kitchen_use_smart_brightness
-      - input_boolean.toplight_kitchen_use_smart_temperature
-      - input_number.toplight_kitchen_light_brightness
-      - input_number.toplight_kitchen_light_temperature
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_kitchen_lights
-          data_template:
-            brightness: "{{ states('input_number.toplight_kitchen_light_brightness') }}"
-            color_temp: "{{ states('input_number.toplight_kitchen_light_temperature') }}"
+#   - alias: 'toplight_kitchen_params'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_kitchen_light_is_on
+#       - input_boolean.toplight_kitchen_use_smart_brightness
+#       - input_boolean.toplight_kitchen_use_smart_temperature
+#       - input_number.toplight_kitchen_light_brightness
+#       - input_number.toplight_kitchen_light_temperature
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_kitchen_lights
+#           data_template:
+#             brightness: "{{ states('input_number.toplight_kitchen_light_brightness') }}"
+#             color_temp: "{{ states('input_number.toplight_kitchen_light_temperature') }}"
 
-  # hall
-  - alias: 'toplight_hall_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_hall_switch_is_on
-      - binary_sensor.toplight_hall_light_is_on
-      - input_boolean.toplight_hall_use_sensors
-      - binary_sensor.occupancy_hall_is_occupancy
-      - input_boolean.toplight_hall_use_illuminance
-      - binary_sensor.sun_hall_toplight_is_dark
-      - input_boolean.toplight_hall_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_hall_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_hall_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_hall_use_in_night
-      - binary_sensor.night_hall_is_night
-    action:
-    - choose:
-      # switch on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_switch_is_on
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_hall_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: input_boolean.toplight_hall_use_illuminance
-              state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_hall_toplight_is_dark
-                state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'on'
-        sequence:
-        - service: switch.turn_on
-          entity_id: 'switch.hall_switch'
-      # light on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_switch_is_on
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_hall_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: input_boolean.toplight_hall_use_illuminance
-              state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_hall_toplight_is_dark
-                state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: 'light.toplight_hall_lights'
-      # timer start
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_hall_is_occupancy
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'on'
-        sequence:
-        - service: timer.start
-          entity_id: 'timer.toplight_hall_timer'
-          data_template:
-            duration: "{{ states('sensor.toplight_hall_sensor_delay') }}"
-      # timer cancel
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_sensors
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: binary_sensor.occupancy_hall_is_occupancy
-              state: 'on'
-            - condition: state
-              entity_id: binary_sensor.toplight_hall_light_is_on
-              state: 'off'
-        sequence:
-        - service: timer.cancel
-          entity_id: 'timer.toplight_hall_timer'
+#   # hall
+#   - alias: 'toplight_hall_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_hall_switch_is_on
+#       - binary_sensor.toplight_hall_light_is_on
+#       - input_boolean.toplight_hall_use_sensors
+#       - binary_sensor.occupancy_hall_is_occupancy
+#       - input_boolean.toplight_hall_use_illuminance
+#       - binary_sensor.sun_hall_toplight_is_dark
+#       - input_boolean.toplight_hall_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_hall_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_hall_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_hall_use_in_night
+#       - binary_sensor.night_hall_is_night
+#     action:
+#     - choose:
+#       # switch on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_switch_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_hall_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: input_boolean.toplight_hall_use_illuminance
+#               state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_hall_toplight_is_dark
+#                 state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: switch.turn_on
+#           entity_id: 'switch.hall_switch'
+#       # light on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_switch_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_hall_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: input_boolean.toplight_hall_use_illuminance
+#               state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_hall_toplight_is_dark
+#                 state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: 'light.toplight_hall_lights'
+#       # timer start
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_hall_is_occupancy
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: timer.start
+#           entity_id: 'timer.toplight_hall_timer'
+#           data_template:
+#             duration: "{{ states('sensor.toplight_hall_sensor_delay') }}"
+#       # timer cancel
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_sensors
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: binary_sensor.occupancy_hall_is_occupancy
+#               state: 'on'
+#             - condition: state
+#               entity_id: binary_sensor.toplight_hall_light_is_on
+#               state: 'off'
+#         sequence:
+#         - service: timer.cancel
+#           entity_id: 'timer.toplight_hall_timer'
 
-  - alias: 'toplight_hall_light_off'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - input_boolean.toplight_hall_use_sensors
-      - input_boolean.toplight_hall_use_illuminance
-      - binary_sensor.sun_hall_toplight_is_dark
-      - input_boolean.toplight_hall_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_hall_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_hall_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_hall_use_in_night
-      - binary_sensor.night_hall_is_night
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_illuminance
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.sun_hall_toplight_is_dark
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_morning
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_day
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_evening
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_hall_use_in_night
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_hall_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: 'light.toplight_hall_lights'
+#   - alias: 'toplight_hall_light_off'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - input_boolean.toplight_hall_use_sensors
+#       - input_boolean.toplight_hall_use_illuminance
+#       - binary_sensor.sun_hall_toplight_is_dark
+#       - input_boolean.toplight_hall_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_hall_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_hall_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_hall_use_in_night
+#       - binary_sensor.night_hall_is_night
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_illuminance
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.sun_hall_toplight_is_dark
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_morning
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_day
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_evening
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_hall_use_in_night
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_hall_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: 'light.toplight_hall_lights'
 
-  - alias: 'toplight_hall_light_off_by_timer'
-    initial_state: true
-    trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.toplight_hall_timer
-    action:
-    - service: light.turn_off
-      entity_id: 'light.toplight_hall_lights'
+#   - alias: 'toplight_hall_light_off_by_timer'
+#     initial_state: true
+#     trigger:
+#     - platform: event
+#       event_type: timer.finished
+#       event_data:
+#         entity_id: timer.toplight_hall_timer
+#     action:
+#     - service: light.turn_off
+#       entity_id: 'light.toplight_hall_lights'
 
-  - alias: 'toplight_hall_params'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_hall_light_is_on
-      - input_boolean.toplight_hall_use_smart_brightness
-      - input_boolean.toplight_hall_use_smart_temperature
-      - input_number.toplight_hall_light_brightness
-      - input_number.toplight_hall_light_temperature
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_hall_lights
-          data_template:
-            brightness: "{{ states('input_number.toplight_hall_light_brightness') }}"
-            color_temp: "{{ states('input_number.toplight_hall_light_temperature') }}"
+#   - alias: 'toplight_hall_params'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_hall_light_is_on
+#       - input_boolean.toplight_hall_use_smart_brightness
+#       - input_boolean.toplight_hall_use_smart_temperature
+#       - input_number.toplight_hall_light_brightness
+#       - input_number.toplight_hall_light_temperature
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_hall_lights
+#           data_template:
+#             brightness: "{{ states('input_number.toplight_hall_light_brightness') }}"
+#             color_temp: "{{ states('input_number.toplight_hall_light_temperature') }}"
 
-  # bath
-  - alias: 'toplight_bath_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_bath_light_is_on
-      - input_boolean.toplight_bath_use_sensors
-      - binary_sensor.occupancy_bath_is_occupancy
-      - input_boolean.toplight_bath_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_bath_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_bath_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_bath_use_in_night
-      - binary_sensor.night_bath_is_night
-    action:
-    - choose:
-      # light on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bath_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_bath_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_bath_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: 'light.toplight_bath'
-      # timer start
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_bath_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_bath_is_occupancy
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_bath_light_is_on
-            state: 'on'
-        sequence:
-        - service: timer.start
-          entity_id: 'timer.toplight_bath_timer'
-          data_template:
-            duration: "{{ states('sensor.toplight_bath_sensor_delay') }}"
-      # timer cancel
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_bath_use_sensors
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: binary_sensor.occupancy_bath_is_occupancy
-              state: 'on'
-            - condition: state
-              entity_id: binary_sensor.toplight_bath_light_is_on
-              state: 'off'
-        sequence:
-        - service: timer.cancel
-          entity_id: 'timer.toplight_bath_timer'
+#   # bath
+#   - alias: 'toplight_bath_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_bath_light_is_on
+#       - input_boolean.toplight_bath_use_sensors
+#       - binary_sensor.occupancy_bath_is_occupancy
+#       - input_boolean.toplight_bath_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_bath_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_bath_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_bath_use_in_night
+#       - binary_sensor.night_bath_is_night
+#     action:
+#     - choose:
+#       # light on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bath_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_bath_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_bath_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: 'light.toplight_bath'
+#       # timer start
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_bath_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_bath_is_occupancy
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bath_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: timer.start
+#           entity_id: 'timer.toplight_bath_timer'
+#           data_template:
+#             duration: "{{ states('sensor.toplight_bath_sensor_delay') }}"
+#       # timer cancel
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_bath_use_sensors
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: binary_sensor.occupancy_bath_is_occupancy
+#               state: 'on'
+#             - condition: state
+#               entity_id: binary_sensor.toplight_bath_light_is_on
+#               state: 'off'
+#         sequence:
+#         - service: timer.cancel
+#           entity_id: 'timer.toplight_bath_timer'
 
-  - alias: 'toplight_bath_light_off'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - input_boolean.toplight_bath_use_sensors
-      - input_boolean.toplight_bath_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_bath_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_bath_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_bath_use_in_night
-      - binary_sensor.night_bath_is_night
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_bath_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_bath_light_is_on
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_morning
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_day
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_evening
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_bath_use_in_night
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_bath_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: 'light.toplight_bath'
+#   - alias: 'toplight_bath_light_off'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - input_boolean.toplight_bath_use_sensors
+#       - input_boolean.toplight_bath_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_bath_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_bath_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_bath_use_in_night
+#       - binary_sensor.night_bath_is_night
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_bath_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bath_light_is_on
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_morning
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_day
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_evening
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_bath_use_in_night
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_bath_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: 'light.toplight_bath'
 
-  - alias: 'toplight_bath_light_off_by_timer'
-    initial_state: true
-    trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.toplight_bath_timer
-    action:
-    - service: light.turn_off
-      entity_id: 'light.toplight_bath'
+#   - alias: 'toplight_bath_light_off_by_timer'
+#     initial_state: true
+#     trigger:
+#     - platform: event
+#       event_type: timer.finished
+#       event_data:
+#         entity_id: timer.toplight_bath_timer
+#     action:
+#     - service: light.turn_off
+#       entity_id: 'light.toplight_bath'
 
-  # toilet
-  - alias: 'toplight_toilet_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_toilet_light_is_on
-      - input_boolean.toplight_toilet_use_sensors
-      - binary_sensor.occupancy_toilet_is_occupancy
-      - input_boolean.toplight_toilet_use_in_morning
-      - binary_sensor.night_is_morning_time
-      - input_boolean.toplight_toilet_use_in_day
-      - binary_sensor.night_is_day_time
-      - input_boolean.toplight_toilet_use_in_evening
-      - binary_sensor.night_is_evening_time
-      - input_boolean.toplight_toilet_use_in_night
-      - binary_sensor.night_toilet_is_night
-    action:
-    - choose:
-      # turn_off light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: input_boolean.toplight_toilet_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_toilet_light_is_on
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: state
-              entity_id: binary_sensor.occupancy_toilet_is_occupancy
-              state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_morning
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_day
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_evening
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_night
-                state: 'off'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: 'light.toplight_toilet'
-      # turn_on light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_toilet_light_is_on
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.toplight_toilet_use_sensors
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.occupancy_toilet_is_occupancy
-            state: 'on'
-          - condition: or
-            conditions:
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_morning
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_morning_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_day
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_day_time
-                state: 'on'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_evening
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_is_evening_time
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'off'
-            - condition: and
-              conditions:
-              - condition: state
-                entity_id: input_boolean.toplight_toilet_use_in_night
-                state: 'on'
-              - condition: state
-                entity_id: binary_sensor.night_toilet_is_night
-                state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: 'light.toplight_toilet'
+#   # toilet
+#   - alias: 'toplight_toilet_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_toilet_light_is_on
+#       - input_boolean.toplight_toilet_use_sensors
+#       - binary_sensor.occupancy_toilet_is_occupancy
+#       - input_boolean.toplight_toilet_use_in_morning
+#       - binary_sensor.night_is_morning_time
+#       - input_boolean.toplight_toilet_use_in_day
+#       - binary_sensor.night_is_day_time
+#       - input_boolean.toplight_toilet_use_in_evening
+#       - binary_sensor.night_is_evening_time
+#       - input_boolean.toplight_toilet_use_in_night
+#       - binary_sensor.night_toilet_is_night
+#     action:
+#     - choose:
+#       # turn_off light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: input_boolean.toplight_toilet_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_toilet_light_is_on
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: state
+#               entity_id: binary_sensor.occupancy_toilet_is_occupancy
+#               state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_morning
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_day
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_evening
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_night
+#                 state: 'off'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: 'light.toplight_toilet'
+#       # turn_on light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_toilet_light_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: input_boolean.toplight_toilet_use_sensors
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.occupancy_toilet_is_occupancy
+#             state: 'on'
+#           - condition: or
+#             conditions:
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_morning
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_morning_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_day
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_day_time
+#                 state: 'on'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_evening
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_is_evening_time
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'off'
+#             - condition: and
+#               conditions:
+#               - condition: state
+#                 entity_id: input_boolean.toplight_toilet_use_in_night
+#                 state: 'on'
+#               - condition: state
+#                 entity_id: binary_sensor.night_toilet_is_night
+#                 state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: 'light.toplight_toilet'
 
-  # bedroom
-  - alias: 'toplight_bedroom_params'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_bedroom_light_is_on
-      - input_boolean.toplight_bedroom_use_smart_brightness
-      - input_boolean.toplight_bedroom_use_smart_temperature
-      - input_number.toplight_bedroom_light_brightness
-      - input_number.toplight_bedroom_light_temperature
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_bedroom_lights
-          data_template:
-            brightness: "{{ states('input_number.toplight_bedroom_light_brightness') }}"
-            color_temp: "{{ states('input_number.toplight_bedroom_light_temperature') }}"
+#   # bedroom
+#   - alias: 'toplight_bedroom_params'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_bedroom_light_is_on
+#       - input_boolean.toplight_bedroom_use_smart_brightness
+#       - input_boolean.toplight_bedroom_use_smart_temperature
+#       - input_number.toplight_bedroom_light_brightness
+#       - input_number.toplight_bedroom_light_temperature
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_bedroom_lights
+#           data_template:
+#             brightness: "{{ states('input_number.toplight_bedroom_light_brightness') }}"
+#             color_temp: "{{ states('input_number.toplight_bedroom_light_temperature') }}"
 
-  - alias: 'toplight_bedroom_switch_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: sensor.bedroom_switch_action
-      to: 'single_right'
-    action:
-    - choose:
-      # light off
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.toplight_bedroom_lights
-      # light on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_switch_is_on
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'off'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_bedroom_lights
-      # switch on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_switch_is_on
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'off'
-        sequence:
-        - service: switch.turn_on
-          entity_id: group.toplight_bedroom_switch
+#   - alias: 'toplight_bedroom_switch_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: sensor.bedroom_switch_action
+#       to: 'single_right'
+#     action:
+#     - choose:
+#       # light off
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: light.toplight_bedroom_lights
+#       # light on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_switch_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'off'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_bedroom_lights
+#       # switch on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_switch_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'off'
+#         sequence:
+#         - service: switch.turn_on
+#           entity_id: group.toplight_bedroom_switch
 
-  # bath
-  - alias: 'toplight_bath_switch_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: sensor.hall_switch_restroom_action
-      to: 'single_right'
-    action:
-    - choose:
-      # light off & automation on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bath_light_is_on
-            state: 'on'
-        sequence:
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.toplight_bath_use_sensors
-        - service: light.turn_off
-          entity_id: light.toplight_bath
-      # light on & automation off
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bath_light_is_on
-            state: 'off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.toplight_bath_use_sensors
-        - service: light.turn_on
-          entity_id: light.toplight_bath
+#   # bath
+#   - alias: 'toplight_bath_switch_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: sensor.hall_switch_restroom_action
+#       to: 'single_right'
+#     action:
+#     - choose:
+#       # light off & automation on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bath_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: input_boolean.turn_on
+#           entity_id: input_boolean.toplight_bath_use_sensors
+#         - service: light.turn_off
+#           entity_id: light.toplight_bath
+#       # light on & automation off
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bath_light_is_on
+#             state: 'off'
+#         sequence:
+#         - service: input_boolean.turn_off
+#           entity_id: input_boolean.toplight_bath_use_sensors
+#         - service: light.turn_on
+#           entity_id: light.toplight_bath
 
-  # living
-  - alias: 'toplight_living_params'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - binary_sensor.toplight_living_light_is_on
-      - input_boolean.toplight_living_use_smart_brightness
-      - input_boolean.toplight_living_use_smart_temperature
-      - input_number.toplight_living_light_brightness
-      - input_number.toplight_living_light_temperature
-    action:
-    - choose:
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_living_lights
-          data_template:
-            brightness: "{{ states('input_number.toplight_living_light_brightness') }}"
-            color_temp: "{{ states('input_number.toplight_living_light_temperature') }}"
+#   # living
+#   - alias: 'toplight_living_params'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - binary_sensor.toplight_living_light_is_on
+#       - input_boolean.toplight_living_use_smart_brightness
+#       - input_boolean.toplight_living_use_smart_temperature
+#       - input_number.toplight_living_light_brightness
+#       - input_number.toplight_living_light_temperature
+#     action:
+#     - choose:
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_living_lights
+#           data_template:
+#             brightness: "{{ states('input_number.toplight_living_light_brightness') }}"
+#             color_temp: "{{ states('input_number.toplight_living_light_temperature') }}"
 
-  - alias: 'toplight_living_switch_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: sensor.living_switch_action
-      to: 'single_right'
-    action:
-    - choose:
-      # light off
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'on'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.toplight_living_lights
-      # light on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_switch_is_on
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'off'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.toplight_living_lights
-      # switch on
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_switch_is_on
-            state: 'off'
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'off'
-        sequence:
-        - service: switch.turn_on
-          entity_id: group.toplight_living_switch
+#   - alias: 'toplight_living_switch_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: sensor.living_switch_action
+#       to: 'single_right'
+#     action:
+#     - choose:
+#       # light off
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'on'
+#         sequence:
+#         - service: light.turn_off
+#           entity_id: light.toplight_living_lights
+#       # light on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_switch_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'off'
+#         sequence:
+#         - service: light.turn_on
+#           entity_id: light.toplight_living_lights
+#       # switch on
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_switch_is_on
+#             state: 'off'
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'off'
+#         sequence:
+#         - service: switch.turn_on
+#           entity_id: group.toplight_living_switch
 
-  # brightness
-  - alias: 'toplight_brightness_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - sensor.toplight_brightness
-      - binary_sensor.toplight_kitchen_light_is_on
-      - input_boolean.toplight_kitchen_use_smart_brightness
-      - binary_sensor.toplight_hall_light_is_on
-      - input_boolean.toplight_hall_use_smart_brightness
-      - binary_sensor.toplight_bedroom_light_is_on
-      - input_boolean.toplight_bedroom_use_smart_brightness
-      - binary_sensor.toplight_living_light_is_on
-      - input_boolean.toplight_living_use_smart_brightness
-    action:
-    - choose:
-      # kitchen light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_smart_brightness
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_kitchen_light_brightness'
-            value: "{{ states('sensor.toplight_brightness') }}"
-      # hall light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_smart_brightness
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_hall_light_brightness'
-            value: "{{ states('sensor.toplight_brightness') }}"
-      # bedroom light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_bedroom_use_smart_brightness
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_bedroom_light_brightness'
-            value: "{{ states('sensor.toplight_brightness') }}"
-      # living light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_living_use_smart_brightness
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_living_light_brightness'
-            value: "{{ states('sensor.toplight_brightness') }}"
+#   # brightness
+#   - alias: 'toplight_brightness_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - sensor.toplight_brightness
+#       - binary_sensor.toplight_kitchen_light_is_on
+#       - input_boolean.toplight_kitchen_use_smart_brightness
+#       - binary_sensor.toplight_hall_light_is_on
+#       - input_boolean.toplight_hall_use_smart_brightness
+#       - binary_sensor.toplight_bedroom_light_is_on
+#       - input_boolean.toplight_bedroom_use_smart_brightness
+#       - binary_sensor.toplight_living_light_is_on
+#       - input_boolean.toplight_living_use_smart_brightness
+#     action:
+#     - choose:
+#       # kitchen light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_smart_brightness
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_kitchen_light_brightness'
+#             value: "{{ states('sensor.toplight_brightness') }}"
+#       # hall light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_smart_brightness
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_hall_light_brightness'
+#             value: "{{ states('sensor.toplight_brightness') }}"
+#       # bedroom light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_bedroom_use_smart_brightness
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_bedroom_light_brightness'
+#             value: "{{ states('sensor.toplight_brightness') }}"
+#       # living light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_living_use_smart_brightness
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_living_light_brightness'
+#             value: "{{ states('sensor.toplight_brightness') }}"
 
-  # temperature
-  - alias: 'toplight_temperature_actions'
-    initial_state: true
-    trigger:
-    - platform: state
-      entity_id: 
-      - sensor.toplight_temperature
-      - binary_sensor.toplight_kitchen_light_is_on
-      - input_boolean.toplight_kitchen_use_smart_temperature
-      - binary_sensor.toplight_hall_light_is_on
-      - input_boolean.toplight_hall_use_smart_temperature
-      - binary_sensor.toplight_bedroom_light_is_on
-      - input_boolean.toplight_bedroom_use_smart_temperature
-      - binary_sensor.toplight_living_light_is_on
-      - input_boolean.toplight_living_use_smart_temperature
-    action:
-    - choose:
-      # kitchen light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_kitchen_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_kitchen_use_smart_temperature
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_kitchen_light_temperature'
-            value: "{{ states('sensor.toplight_temperature') }}"
-      # hall light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_hall_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_hall_use_smart_temperature
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_hall_light_temperature'
-            value: "{{ states('sensor.toplight_temperature') }}"
-      # bedroom light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_bedroom_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_bedroom_use_smart_temperature
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_bedroom_light_temperature'
-            value: "{{ states('sensor.toplight_temperature') }}"
-      # living light
-      - conditions:
-        - condition: and
-          conditions:
-          - condition: state
-            entity_id: binary_sensor.toplight_living_light_is_on
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.toplight_living_use_smart_temperature
-            state: 'on'
-        sequence:
-        - service: input_number.set_value
-          data_template:
-            entity_id: 'input_number.toplight_living_light_temperature'
-            value: "{{ states('sensor.toplight_temperature') }}"
+#   # temperature
+#   - alias: 'toplight_temperature_actions'
+#     initial_state: true
+#     trigger:
+#     - platform: state
+#       entity_id: 
+#       - sensor.toplight_temperature
+#       - binary_sensor.toplight_kitchen_light_is_on
+#       - input_boolean.toplight_kitchen_use_smart_temperature
+#       - binary_sensor.toplight_hall_light_is_on
+#       - input_boolean.toplight_hall_use_smart_temperature
+#       - binary_sensor.toplight_bedroom_light_is_on
+#       - input_boolean.toplight_bedroom_use_smart_temperature
+#       - binary_sensor.toplight_living_light_is_on
+#       - input_boolean.toplight_living_use_smart_temperature
+#     action:
+#     - choose:
+#       # kitchen light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_kitchen_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_kitchen_use_smart_temperature
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_kitchen_light_temperature'
+#             value: "{{ states('sensor.toplight_temperature') }}"
+#       # hall light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_hall_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_hall_use_smart_temperature
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_hall_light_temperature'
+#             value: "{{ states('sensor.toplight_temperature') }}"
+#       # bedroom light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_bedroom_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_bedroom_use_smart_temperature
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_bedroom_light_temperature'
+#             value: "{{ states('sensor.toplight_temperature') }}"
+#       # living light
+#       - conditions:
+#         - condition: and
+#           conditions:
+#           - condition: state
+#             entity_id: binary_sensor.toplight_living_light_is_on
+#             state: 'on'
+#           - condition: state
+#             entity_id: input_boolean.toplight_living_use_smart_temperature
+#             state: 'on'
+#         sequence:
+#         - service: input_number.set_value
+#           data_template:
+#             entity_id: 'input_number.toplight_living_light_temperature'
+#             value: "{{ states('sensor.toplight_temperature') }}"
