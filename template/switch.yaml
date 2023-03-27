@@ -69,3 +69,47 @@
     icon: >
       {% set isEnable = is_state('binary_sensor.switch_living_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
+
+## SWITCH PERMISSION
+  - name: 'switch_kitchen_left_permission' ### top light
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: >
+      {% set lightPermission = is_state('binary_sensor.top_light_kitchen_permission', 'on') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_left_on', 'off') %}
+      {{ lightPermission and switchIsOff }}
+
+  - name: 'switch_kitchen_right_permission' ### back & night light 
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: >
+      {% set backLightPermission = is_state('binary_sensor.back_light_kitchen_permission', 'on') %}
+      {% set nightLightPermission = is_state('binary_sensor.night_light_kitchen_permission', 'on') %}
+      {% set lightPermission = backLightPermission or nightLightPermission %}
+      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_right_on', 'off') %}
+      {{ lightPermission and switchIsOff }}
+
+  - name: 'switch_hall_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: >
+      {% set lightPermission = is_state('binary_sensor.top_light_hall_permission', 'on') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_hall_on', 'off') %}
+      {{ lightPermission and switchIsOff }}
+
+  - name: 'switch_bedroom_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: >
+      {% set lightPermission = is_state('binary_sensor.top_light_bedroom_permission', 'on') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_bedroom_on', 'off') %}
+      {{ lightPermission and switchIsOff }}
+
+  - name: 'switch_living_permission'
+    device_class: 'lock'
+    icon: 'mdi:check-all'
+    state: >
+      {% set lightPermission = is_state('binary_sensor.top_light_living_permission', 'on') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_living_on', 'off') %}
+      {{ lightPermission and switchIsOff }}

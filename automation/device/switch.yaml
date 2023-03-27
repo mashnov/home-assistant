@@ -1,0 +1,52 @@
+## SWITCH
+- alias: 'switch_kitchen_1'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.switch_kitchen_left_permission'
+    to: 'on'
+  action:
+  - service: script.switch_kitchen_1_on
+
+- alias: 'switch_kitchen_2'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.switch_kitchen_right_permission'
+    to: 'on'
+  action:
+  - service: script.switch_kitchen_2_on
+
+- alias: 'switch_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.switch_hall_permission'
+    to: 'on'
+  action:
+  - service: script.switch_hall_on
+
+- alias: 'switch_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.switch_bedroom_permission'
+    to: 'on'
+  action:
+  - service: script.switch_bedroom_1_on
+  - service: script.switch_bedroom_2_on
+
+- alias: 'switch_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.switch_living_permission'
+    to: 'on'
+  action:
+  - service: script.switch_living_1_on
+  - service: script.switch_living_2_on

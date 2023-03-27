@@ -1,1 +1,23 @@
-# binary_sensor.socket_balcony_permission
+## SOCKET
+- alias: 'socket_balcony'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.socket_balcony_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.socket_balcony_permission
+        state: 'on'
+      sequence:
+      - service: script.socket_balcony_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.socket_balcony_permission
+        state: 'off'
+      sequence:
+      - service: script.socket_balcony_off

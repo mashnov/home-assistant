@@ -10,9 +10,3 @@ socket_balcony_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.balcony_socket'
-
-socket_balcony_toggle:
-  mode: 'queued'
-  sequence:
-  - service: switch.toggle
-    entity_id: 'switch.balcony_socket'
