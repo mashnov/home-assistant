@@ -22,7 +22,7 @@
   - service: script.notification_doorbell_elevator
 
 
-- alias: 'dorbell_elevator_click'
+- alias: 'dorbell_hall_click'
   initial_state: true
   mode: 'queued'
   trigger:

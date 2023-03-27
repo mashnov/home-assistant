@@ -1,5 +1,116 @@
-# binary_sensor.back_light_kitchen_permission
-# binary_sensor.back_light_hall_permission
-# binary_sensor.back_light_bedroom_permission
-# binary_sensor.back_light_living_permission
-# binary_sensor.back_light_balcony_permission
+- alias: 'back_light_kitchen'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.back_light_kitchen_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_kitchen_permission
+        state: 'on'
+      sequence:
+      - service: script.back_light_kitchen_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_kitchen_permission
+        state: 'off'
+      sequence:
+      - service: script.back_light_kitchen_off
+
+- alias: 'back_light_hall'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.back_light_hall_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_hall_permission
+        state: 'on'
+      sequence:
+      - service: script.back_light_hall_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_hall_permission
+        state: 'off'
+      sequence:
+      - service: script.back_light_hall_off
+
+- alias: 'back_light_bedroom'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.back_light_bedroom_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_bedroom_permission
+        state: 'on'
+      sequence:
+      - service: script.back_light_bedroom_1_on
+      - service: script.back_light_bedroom_2_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_bedroom_permission
+        state: 'off'
+      sequence:
+      - service: script.back_light_bedroom_1_off
+      - service: script.back_light_bedroom_2_off
+
+- alias: 'back_light_living'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.back_light_living_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_living_permission
+        state: 'on'
+      sequence:
+      - service: script.back_light_living_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_living_permission
+        state: 'off'
+      sequence:
+      - service: script.back_light_living_off
+
+- alias: 'back_light_balcony'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: 'binary_sensor.back_light_balcony_permission'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_balcony_permission
+        state: 'on'
+      sequence:
+      - service: script.back_light_balcony_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.back_light_balcony_permission
+        state: 'off'
+      sequence:
+      - service: script.back_light_balcony_off
