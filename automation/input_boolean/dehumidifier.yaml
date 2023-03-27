@@ -1,0 +1,67 @@
+## DEHUMIDIFIER TOILET
+- alias: 'dehumidifier_toilet_timer_start'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_toilet_open'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: 'binary_sensor.occupancy_toilet_boolean'
+    state: 'on'
+  - condition: state
+    entity_id: 'binary_sensor.humidity_bath_hight'
+    state: 'off'
+  action:
+  - service: script.dehumidifier_toilet_timer_start
+
+- alias: 'dehumidifier_toilet_timer_cancel'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.dehumidifier_toilet_on'
+    from: 'on'
+    to: 'off'
+  action:
+  - service: script.dehumidifier_toilet_timer_cancel
+
+
+
+
+
+
+
+
+
+# - alias: 'occupancy_toilet_on'
+#   initial_state: true
+#   mode: 'queued'
+#   trigger:
+#   - platform: state
+#     entity_id: 'binary_sensor.door_toilet_open'
+#     to: 'on'
+#   condition:
+#   - condition: state
+#     entity_id: 'binary_sensor.occupancy_toilet_boolean'
+#     state: 'off'
+#   action:
+#   - service: script.occupancy_toilet_on
+
+# - alias: 'occupancy_toilet_off'
+#   initial_state: true
+#   mode: 'queued'
+#   trigger:
+#   - platform: state
+#     entity_id: 'binary_sensor.door_toilet_open'
+#     to: 'off'
+#   condition:
+#   - condition: state
+#     entity_id: 'binary_sensor.occupancy_toilet_boolean'
+#     state: 'on'
+#   - condition: state
+#     entity_id: 'timer.toilet_mode'
+#     state: 'idle'
+#   action:
+#   - service: script.occupancy_toilet_off
