@@ -1,79 +1,70 @@
 ## MOTION KITCHEN
-- alias: 'motion_kitchen'
+- alias: 'motion_kitchen_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.motion_kitchen'
+    to: 'on'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_kitchen
-        state: 'on'
-      sequence:
-      - service: script.motion_kitchen_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_kitchen
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
-      sequence:
-      - service: script.motion_kitchen_off
+  - service: script.motion_kitchen_on
+
+- alias: 'motion_kitchen_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_kitchen'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+  action:
+  - service: script.motion_kitchen_off
 
 
 ## MOTION BATH
-- alias: 'motion_bath'
+- alias: 'motion_bath_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.motion_bath'
+    to: 'on'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_bath
-        state: 'on'
-      sequence:
-      - service: script.motion_bath_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_bath
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
-      sequence:
-      - service: script.motion_bath_off
+  - service: script.motion_bath_on
+
+- alias: 'motion_bath_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_bath'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+  action:
+  - service: script.motion_bath_off
 
 
 ## MOTION HALL
-- alias: 'motion_hall'
+- alias: 'motion_hall_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.motion_hall'
+    to: 'on'
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_hall
-        state: 'on'
-      sequence:
-      - service: script.motion_hall_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_hall
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'motion_off') }}"
-      sequence:
-      - service: script.motion_hall_off
+  - service: script.motion_hall_on
+
+- alias: 'motion_hall_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.motion_hall'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'motion_off') }}"
+  action:
+  - service: script.motion_hall_off
 
 
 ## OCCUPANCY TOILET

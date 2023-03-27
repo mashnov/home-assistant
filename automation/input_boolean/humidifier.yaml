@@ -1,76 +1,67 @@
 ## HUMIDIFIER EMPTY HALL
-- alias: 'humidifier_hall_empty'
+- alias: 'humidifier_hall_empty_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
+    to: 'on'
+    for: "{{ state_attr('sensor.delay', 'power_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_hall_empty
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
-      sequence:
-      - service: script.humidifier_hall_empty_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_hall_empty
-        state: 'off'
-      sequence:
-      - service: script.humidifier_hall_empty_off
+  - service: script.humidifier_hall_empty_on
+
+- alias: 'humidifier_hall_empty_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty'
+    to: 'off'
+  action:
+  - service: script.humidifier_hall_empty_off
 
 
 ## HUMIDIFIER EMPTY BEDROOM
-- alias: 'humidifier_bedroom_empty'
+- alias: 'humidifier_bedroom_empty_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_bedroom_empty'
+    to: 'on'
+    for: "{{ state_attr('sensor.delay', 'power_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_bedroom_empty
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
-      sequence:
-      - service: script.humidifier_bedroom_empty_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_bedroom_empty
-        state: 'off'
-      sequence:
-      - service: script.humidifier_bedroom_empty_off
+  - service: script.humidifier_bedroom_empty_on
+
+- alias: 'humidifier_bedroom_empty_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty'
+    to: 'off'
+  action:
+  - service: script.humidifier_bedroom_empty_off
 
 
 ## HUMIDIFIER EMPTY LIVING
-- alias: 'humidifier_living_empty'
+- alias: 'hhumidifier_living_empty_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_living_empty'
+    to: 'on'
+    for: "{{ state_attr('sensor.delay', 'power_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_living_empty
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'power_on') }}"
-      sequence:
-      - service: script.humidifier_living_empty_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidifier_living_empty
-        state: 'off'
-      sequence:
-      - service: script.humidifier_living_empty_off
+  - service: script.humidifier_living_empty_on
+
+- alias: 'hhumidifier_living_empty_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty'
+    to: 'off'
+  action:
+  - service: script.humidifier_living_empty_off

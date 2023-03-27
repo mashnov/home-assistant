@@ -1,250 +1,214 @@
 ## ILLUMINANCE CURTAIN KITCHEN
-- alias: 'illuminance_kitchen_curtain'
+- alias: 'illuminance_kitchen_curtain_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_kitchen_curtain'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_curtain
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_kitchen_curtain_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_curtain
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_kitchen_curtain_off
+  - service: script.illuminance_kitchen_curtain_on
+
+- alias: 'illuminance_kitchen_curtain_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_kitchen_curtain'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_kitchen_curtain_off
 
 
 ## ILLUMINANCE CURTAIN BEDROOM
-- alias: 'illuminance_bedroom_curtain'
+- alias: 'illuminance_bedroom_curtain_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_bedroom_curtain'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_bedroom_curtain
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_bedroom_curtain_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_bedroom_curtain
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_bedroom_curtain_off
+  - service: script.illuminance_bedroom_curtain_on
+
+- alias: 'illuminance_bedroom_curtain_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_bedroom_curtain'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_bedroom_curtain_off
 
 
 ## ILLUMINANCE CURTAIN LIVING
-- alias: 'illuminance_living_curtain'
+- alias: 'illuminance_living_curtain_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_living_curtain'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_living_curtain
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_living_curtain_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_living_curtain
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_living_curtain_off
+  - service: script.illuminance_living_curtain_on
+
+- alias: 'illuminance_living_curtain_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_living_curtain'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_living_curtain_off
 
 
 ## ILLUMINANCE TOP LIGHT KITCHEN
-- alias: 'illuminance_kitchen_top_light'
+- alias: 'illuminance_kitchen_top_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_kitchen_top_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_top_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_kitchen_top_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_top_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_kitchen_top_light_off
+  - service: script.illuminance_kitchen_top_light_on
+
+- alias: 'illuminance_kitchen_top_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_kitchen_top_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_kitchen_top_light_off
 
 
 ## ILLUMINANCE TOP LIGHT HALL
-- alias: 'illuminance_hall_top_light'
+- alias: 'illuminance_hall_top_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_hall_top_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_hall_top_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_hall_top_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_hall_top_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_hall_top_light_off
+  - service: script.illuminance_hall_top_light_on
+
+- alias: 'illuminance_hall_top_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_hall_top_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_hall_top_light_off
 
 
 ## ILLUMINANCE BACK LIGHT KITCHEN
-- alias: 'illuminance_kitchen_back_light'
+- alias: 'illuminance_kitchen_back_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_kitchen_back_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_back_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_kitchen_back_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_kitchen_back_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_kitchen_back_light_off
+  - service: script.illuminance_kitchen_back_light_on
+
+- alias: 'illuminance_kitchen_back_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_kitchen_back_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_kitchen_back_light_off
 
 
 ## ILLUMINANCE BACK LIGHT HALL
-- alias: 'illuminance_hall_back_light'
+- alias: 'illuminance_hall_back_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_hall_back_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_hall_back_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_hall_back_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_hall_back_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_hall_back_light_off
+  - service: script.illuminance_hall_back_light_on
+
+- alias: 'illuminance_hall_back_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_hall_back_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_hall_back_light_off
 
 
 ## ILLUMINANCE BACK LIGHT BEDROOM
-- alias: 'illuminance_bedroom_back_light'
+- alias: 'illuminance_bedroom_back_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_bedroom_back_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_bedroom_back_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_bedroom_back_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_bedroom_back_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_bedroom_back_light_off
+  - service: script.illuminance_bedroom_back_light_on
+
+- alias: 'illuminance_bedroom_back_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_bedroom_back_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_bedroom_back_light_off
 
 
 ## ILLUMINANCE BACK LIGHT LIVING
-- alias: 'illuminance_living_back_light'
+- alias: 'illuminance_living_back_light_on'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.illuminance_living_back_light'
+    to: 'on'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_living_back_light
-        state: 'on'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
-      sequence:
-      - service: script.illuminance_living_back_light_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.illuminance_living_back_light
-        state: 'off'
-        # for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
-      sequence:
-      - service: script.illuminance_living_back_light_off
+  - service: script.illuminance_living_back_light_on
+
+- alias: 'illuminance_living_back_light_off'
+  initial_state: true
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.illuminance_living_back_light'
+    to: 'off'
+    for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
+  action:
+  - service: script.illuminance_living_back_light_off
