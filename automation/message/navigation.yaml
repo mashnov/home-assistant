@@ -27,7 +27,7 @@
   - service: script.message_navigation_details
 
 ## NAVIGATION DETAILS TOP LIGHT
-- alias: message_navigation_device_top_light'
+- alias: message_navigation_details_top_light'
   initial_state: true
   mode: 'queued'
   trigger:
@@ -36,7 +36,7 @@
     event_data:
       command: '/details_top_light'
   action:
-  - service: script.message_navigation_device_top_light
+  - service: script.message_navigation_details_top_light
 
 ## NAVIGATION MANAGE
 - alias: message_navigation_manage'

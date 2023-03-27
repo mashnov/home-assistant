@@ -6,7 +6,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light'
+      command: '/details_top_light_groups'
   action:
   - service: script.message_top_light
 

@@ -52,7 +52,7 @@ message_navigation_details_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
-        - 'Общее:/details_top_light'
+        - 'Общее:/details_top_light_groups'
         - 'Кухня:/details_top_light_kitchen'
         - 'Ванная:/details_top_light_bath'
         - 'Туалет:/details_top_light_toilet'
