@@ -5,9 +5,21 @@ button_toilet_toggle:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_toilet 
 
+button_toilet_long_on:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.button_toilet_long 
+
+button_toilet_long_off:
+  mode: 'queued'
+  sequence:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.button_toilet_long 
 
 button_toilet_long_toggle:
   mode: 'queued'
   sequence:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_toilet_long 
+
