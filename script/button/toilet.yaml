@@ -22,4 +22,3 @@ button_toilet_long_toggle:
   sequence:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_toilet_long 
-

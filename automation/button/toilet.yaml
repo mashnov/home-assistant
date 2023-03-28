@@ -5,7 +5,7 @@
   trigger:
   - platform: state
     entity_id: sensor.hall_switch_restroom_action
-    to: 'single_right'
+    to: 'single_left'
   action:
   - service: script.button_toilet_toggle
 
