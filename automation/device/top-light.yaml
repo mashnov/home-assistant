@@ -24,9 +24,6 @@
       - service: script.top_light_kitchen_5_on
     - conditions:
       - condition: state
-        entity_id: binary_sensor.switch_kitchen_1_on
-        state: 'off'
-      - condition: state
         entity_id: binary_sensor.top_light_kitchen_permission
         state: 'off'
       sequence:
@@ -108,9 +105,6 @@
       - service: script.top_light_hall_6_on
     - conditions:
       - condition: state
-        entity_id: binary_sensor.switch_hall_on
-        state: 'off'
-      - condition: state
         entity_id: binary_sensor.top_light_hall_permission
         state: 'off'
       sequence:
@@ -147,9 +141,6 @@
       - service: script.top_light_bedroom_6_on
     - conditions:
       - condition: state
-        entity_id: binary_sensor.switch_bedroom_on
-        state: 'off'
-      - condition: state
         entity_id: binary_sensor.top_light_bedroom_permission
         state: 'on'
       sequence:
@@ -185,9 +176,6 @@
       - service: script.top_light_living_5_on
       - service: script.top_light_living_6_on
     - conditions:
-      - condition: state
-        entity_id: binary_sensor.switch_living_on
-        state: 'off'
       - condition: state
         entity_id: binary_sensor.top_light_living_permission
         state: 'off'
