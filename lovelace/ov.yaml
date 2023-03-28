@@ -5,26 +5,38 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: binary_sensor.top_light_bath_permission
+    - entity: binary_sensor.top_light_bath_on
       name: 'Ванная свет'
 
-    - entity: binary_sensor.night_light_bath_permission
+    - entity: binary_sensor.night_light_bath_on
       name: 'Ванная ночник'
 
-    - entity: binary_sensor.button_bath_on
-      name: 'Ванная кнопка'
+    - entity: binary_sensor.top_light_toilet_on
+      name: 'Туалет свет'
+
+    - entity: binary_sensor.night_light_toilet_on
+      name: 'Туалет ночник'
+
+    - entity: binary_sensor.top_light_bath_permission
+      name: 'Ванная свет права'
+
+    - entity: binary_sensor.night_light_bath_permission
+      name: 'Ванная ночник права'
+
+    - entity: binary_sensor.top_light_toilet_permission
+      name: 'Туалет свет права'
+
+    - entity: binary_sensor.night_light_toilet_permission
+      name: 'Туалет ночник права'
 
     - entity: binary_sensor.occupancy_toilet_boolean
       name: 'Ванная присутствие'
 
-    - entity: binary_sensor.top_light_toilet_permission
-      name: 'Туалет свет'
-
-    - entity: binary_sensor.night_light_toilet_permission
-      name: 'Туалет ночник'
+    - entity: binary_sensor.occupancy_toilet_boolean
+      name: 'Туалет присутствие'
 
     - entity: binary_sensor.door_toilet_open
       name: 'Туалет дверь'
 
-    - entity: binary_sensor.occupancy_toilet_boolean
-      name: 'Туалет присутствие'
+    - entity: binary_sensor.button_bath_on
+      name: 'Ванная кнопка'
