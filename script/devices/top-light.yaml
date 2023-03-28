@@ -405,7 +405,6 @@ top_light_hall_6_set_color_temp:
       color_temp: "{{ color_temp }}"
 
 
-
 ## TOP LIGHT BEDROOM GROUP
 top_light_bedroom_on:
   mode: 'queued'
