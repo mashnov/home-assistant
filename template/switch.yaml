@@ -96,7 +96,7 @@
     icon: 'mdi:check-all'
     state: >
       {% set lightPermission = is_state('binary_sensor.top_light_kitchen_permission', 'on') %}
-      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_left_on', 'off') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_1_on', 'off') %}
       {{ lightPermission and switchIsOff }}
 
   - name: 'switch_kitchen_right_permission' ### back & night light 
@@ -106,7 +106,7 @@
       {% set backLightPermission = is_state('binary_sensor.back_light_kitchen_permission', 'on') %}
       {% set nightLightPermission = is_state('binary_sensor.night_light_kitchen_permission', 'on') %}
       {% set lightPermission = backLightPermission or nightLightPermission %}
-      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_right_on', 'off') %}
+      {% set switchIsOff = is_state('binary_sensor.switch_kitchen_2_on', 'off') %}
       {{ lightPermission and switchIsOff }}
 
   - name: 'switch_hall_permission'

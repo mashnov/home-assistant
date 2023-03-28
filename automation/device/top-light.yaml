@@ -11,7 +11,7 @@
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.switch_kitchen_left_on
+        entity_id: binary_sensor.switch_kitchen_1_on
         state: 'on'
       - condition: state
         entity_id: binary_sensor.top_light_kitchen_permission
@@ -24,7 +24,7 @@
       - service: script.top_light_kitchen_5_on
     - conditions:
       - condition: state
-        entity_id: binary_sensor.switch_kitchen_left_on
+        entity_id: binary_sensor.switch_kitchen_1_on
         state: 'off'
       - condition: state
         entity_id: binary_sensor.top_light_kitchen_permission
