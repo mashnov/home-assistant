@@ -380,19 +380,19 @@ top_light_hall_6_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_hall_5'
+    entity_id: 'light.top_light_hall_6'
 
 top_light_hall_6_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.top_light_hall_5'
+    entity_id: 'light.top_light_hall_6'
 
 top_light_hall_6_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_hall_5'
+    entity_id: 'light.top_light_hall_6'
     data_template:
       brightness: "{{ brightness }}"
 
@@ -400,7 +400,7 @@ top_light_hall_6_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_hall_5'
+    entity_id: 'light.top_light_hall_6'
     data_template:
       color_temp: "{{ color_temp }}"
 
@@ -584,19 +584,19 @@ top_light_bedroom_6_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_bedroom_5'
+    entity_id: 'light.top_light_bedroom_6'
 
 top_light_bedroom_6_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.top_light_bedroom_5'
+    entity_id: 'light.top_light_bedroom_6'
 
 top_light_bedroom_6_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_bedroom_5'
+    entity_id: 'light.top_light_bedroom_6'
     data_template:
       brightness: "{{ brightness }}"
 
@@ -604,7 +604,7 @@ top_light_bedroom_6_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_bedroom_5'
+    entity_id: 'light.top_light_bedroom_6'
     data_template:
       color_temp: "{{ color_temp }}"
 
@@ -788,19 +788,19 @@ top_light_living_6_on:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_living_5'
+    entity_id: 'light.top_light_living_6'
 
 top_light_living_6_off:
   mode: 'queued'
   sequence:
   - service: light.turn_off
-    entity_id: 'light.top_light_living_5'
+    entity_id: 'light.top_light_living_6'
 
 top_light_living_6_set_brightness:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_living_5'
+    entity_id: 'light.top_light_living_6'
     data_template:
       brightness: "{{ brightness }}"
 
@@ -808,6 +808,6 @@ top_light_living_6_set_color_temp:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: 'light.top_light_living_5'
+    entity_id: 'light.top_light_living_6'
     data_template:
       color_temp: "{{ color_temp }}"
