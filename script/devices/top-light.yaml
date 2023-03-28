@@ -178,13 +178,13 @@ top_light_bath_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 'switch.hall_switch_restroom_left'
+    entity_id: 'switch.hall_switch_restroom_right'
 
 top_light_bath_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.hall_switch_restroom_left'
+    entity_id: 'switch.hall_switch_restroom_right'
 
 
 ## TOP LIGHT TOILET
@@ -192,13 +192,13 @@ top_light_toilet_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 'switch.hall_switch_restroom_right'
+    entity_id: 'switch.hall_switch_restroom_left'
 
 top_light_toilet_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.hall_switch_restroom_right'
+    entity_id: 'switch.hall_switch_restroom_left'
 
 
 ## TOP LIGHT HALL GROUP

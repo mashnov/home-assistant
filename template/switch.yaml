@@ -16,14 +16,14 @@
 
   - name: 'switch_bath_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.hall_switch_restroom_left', 'on') }}"
+    state: "{{ is_state('switch.hall_switch_restroom_right', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.switch_bath_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
   - name: 'switch_toilet_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.hall_switch_restroom_right', 'on') }}"
+    state: "{{ is_state('switch.hall_switch_restroom_left', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.switch_toilet_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
