@@ -1,0 +1,12 @@
+## NOTIFICATION HOMEPOD
+notification_homepod:
+  mode: 'queued'
+  sequence:
+  - service: media_player.media_stop
+    target:
+      entity_id: media_player.homepod
+  - service: tts.sveta_say
+    data:
+      entity_id: media_player.homepod
+      message: "{{ message }}"
+      cache: true

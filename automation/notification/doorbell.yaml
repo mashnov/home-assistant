@@ -1,11 +1,24 @@
 ## DORBELL
-- alias: message_door'
+- alias: notification_doorbell_elevator'
   initial_state: true
   trigger:
   - platform: event
     event_type: telegram_command
     event_data:
-      command: '/doorbell'
+      command: '/doorbell_1'
   action:
-  - service: script.notification_doorbell_elevator
-  - service: script.notification_doorbell_hall
+  - service: script.notification_homepod
+    data_template:
+      message: "{{ states('input_text.doorbell_elevator') }}"
+
+- alias: notification_doorbell_hall'
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/doorbell_2'
+  action:
+  - service: script.notification_homepod
+    data_template:
+      message: "{{ states('input_text.doorbell_hall') }}"
