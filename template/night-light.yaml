@@ -48,7 +48,7 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_toilet_on', 'on') %}
       {% set isOccupancy = is_state('binary_sensor.occupancy_toilet_boolean', 'on') %}
-      {{ isButtonOn or isOccupancy }}    
+      {{ isButtonOn or isOccupancy }} 
 
   - name: 'night_light_hall_permission'
     device_class: 'lock'
