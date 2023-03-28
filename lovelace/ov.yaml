@@ -29,3 +29,14 @@ cards:
     - entity: binary_sensor.night_light_toilet_permission
       name: 'Туалет ночник права'
 
+    - entity: binary_sensor.motion_bath_boolean
+      name: 'Ванная присутствие'
+
+    - entity: binary_sensor.occupancy_toilet_boolean
+      name: 'Туалет присутствие'
+
+    - entity: binary_sensor.door_toilet_open
+      name: 'Туалет дверь'
+
+    - entity: binary_sensor.button_bath_on
+      name: 'Ванная кнопка'
