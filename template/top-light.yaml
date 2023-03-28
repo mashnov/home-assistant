@@ -1,13 +1,14 @@
 ## TOP LIGHT 
 - sensor:
   - name: 'top_light_list_on'
+    icon: 'mdi:lightbulb-group'
     state: >
       {% set lights = states.light %}
-      {% set topLights = lights | selectattr("name", "search" ,"top_") %}
-      {% set ungrouppedToplights = topLights | rejectattr("name", "search" ,"_group") %}
-      {% set enabledTopLights = ungrouppedToplights | selectattr("state", "eq" ,"on") %}
-      {{ enabledTopLights | list }}
-    icon: 'mdi:lightbulb-group'
+      {% set lights = lights | selectattr("state", "eq" ,"on") %}
+      {% set lights = lights | selectattr("name", "search" ,"top_") %}
+      {% set lights = lights | rejectattr("name", "search" ,"_group") %}
+      {% set lights = lights | map(attribute="entity_id") %}
+      {{ lights | list }}
 
 - binary_sensor:
 ## TOP LIGHT KITCHEN ON SENSORS
