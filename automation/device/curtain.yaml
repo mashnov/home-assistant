@@ -3,8 +3,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'sensor.curtain_kitchen_level'
   action:
@@ -16,8 +14,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'sensor.curtain_bedroom_level'
   action:
@@ -29,8 +25,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'sensor.curtain_living_level'
   action:

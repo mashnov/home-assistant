@@ -3,8 +3,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.fountain_balcony_permission'
   action:

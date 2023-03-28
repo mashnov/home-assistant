@@ -3,8 +3,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.back_light_kitchen_permission'
   action:
@@ -26,8 +24,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.back_light_hall_permission'
   action:
@@ -49,8 +45,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.back_light_bedroom_permission'
   action:
@@ -74,8 +68,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.back_light_living_permission'
   action:
@@ -97,8 +89,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.back_light_balcony_permission'
   action:

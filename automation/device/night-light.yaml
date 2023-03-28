@@ -3,8 +3,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.night_light_kitchen_permission'
   action:
@@ -26,8 +24,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.night_light_bath_permission'
   action:
@@ -49,8 +45,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.night_light_toilet_permission'
   action:
@@ -72,8 +66,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.night_light_hall_permission'
   action:
@@ -95,8 +87,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.night_light_balciony_permission'
   action:

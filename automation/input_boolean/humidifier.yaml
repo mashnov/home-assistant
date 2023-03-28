@@ -3,8 +3,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
@@ -33,8 +31,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_bedroom_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
@@ -63,8 +59,6 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: 'binary_sensor.humidifier_living_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
