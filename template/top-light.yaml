@@ -1,5 +1,13 @@
-- binary_sensor:
+## TOP LIGHT 
+- sensor:
+  - name: 'top_light_list_on'
+    device_class: 'plug'
+    state: '{{ states.light | selectattr("state", "eq" ,"on") | selectattr("name", "search" ,"top_") | rejectattr("name", "search" ,"_group") | map(attribute="entity_id") | list }}'
+    icon: >
+      {% set isEnable = is_state('sensor.top_light_list_on', 'on') | count > 0 %}
+      {{ iif(isEnable, 'mdi:lightbulb-group', 'mdi:lightbulb-group-outline', 'mdi:help-circle') }}
 
+- binary_sensor:
 ## TOP LIGHT KITCHEN ON SENSORS
   - name: 'top_light_kitchen_group_on'
     device_class: 'plug'
