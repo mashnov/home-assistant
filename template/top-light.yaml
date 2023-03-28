@@ -57,7 +57,7 @@
 ## TOP LIGHT BATH ON SENSORS
   - name: 'top_light_bath_on'
     device_class: 'plug'
-    state: "{{ is_state('light.switch_bath_on', 'on') }}" 
+    state: "{{ is_state('binary_sensor.switch_bath_on', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bath_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
@@ -65,7 +65,7 @@
 ## TOP LIGHT TOILET ON SENSORS
   - name: 'top_light_toilet_on'
     device_class: 'plug'
-    state: "{{ is_state('light.switch_toilet_on', 'on') }}" 
+    state: "{{ is_state('binary_sensor.switch_toilet_on', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_toilet_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
