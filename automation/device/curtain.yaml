@@ -10,7 +10,7 @@
   action:
   - service: script.curtain_kitchen_set_position
     data_template:
-      position: "{{ states('sensor.curtain_kitchen_level') }}"
+      position: "{{ states('sensor.curtain_kitchen_level') | int(0) }}"
 
 - alias: 'curtain_bedroom'
   initial_state: true
@@ -23,7 +23,7 @@
   action:
   - service: script.curtain_bedroom_set_position
     data_template:
-      position: "{{ states('sensor.curtain_bedroom_level') }}"
+      position: "{{ states('sensor.curtain_bedroom_level') | int(0) }}"
 
 - alias: 'curtain_living'
   initial_state: true
@@ -36,4 +36,4 @@
   action:
   - service: script.curtain_living_set_position
     data_template:
-      position: "{{ states('sensorcurtain_living_level') }}"
+      position: "{{ states('sensor.curtain_living_level') | int(0) }}"
