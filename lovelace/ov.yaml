@@ -1,42 +1,312 @@
 icon: 'mdi:monitor-dashboard'
 cards:
+- type: vertical-stack
+  cards:
+
   - type: entities
-    title: 'Сенсоры'
+    title: 'Движение'
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: binary_sensor.top_light_bath_on
-      name: 'Ванная свет'
-
-    - entity: binary_sensor.night_light_bath_on
-      name: 'Ванная ночник'
-
-    - entity: binary_sensor.top_light_toilet_on
-      name: 'Туалет свет'
-
-    - entity: binary_sensor.night_light_toilet_on
-      name: 'Туалет ночник'
-
-    - entity: binary_sensor.top_light_bath_permission
-      name: 'Ванная свет права'
-
-    - entity: binary_sensor.night_light_bath_permission
-      name: 'Ванная ночник права'
-
-    - entity: binary_sensor.top_light_toilet_permission
-      name: 'Туалет свет права'
-
-    - entity: binary_sensor.night_light_toilet_permission
-      name: 'Туалет ночник права'
-
+    - entity: binary_sensor.motion_kitchen_boolean
+      name: 'Кухня'
     - entity: binary_sensor.motion_bath_boolean
-      name: 'Ванная присутствие'
-
+      name: 'Ванная'
     - entity: binary_sensor.occupancy_toilet_boolean
-      name: 'Туалет присутствие'
+      name: 'Туалет'
+    - entity: binary_sensor.motion_hall_boolean
+      name: 'Коридор'
 
+  - type: entities
+    title: 'Ночной режим'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.night_mode_hall_boolean
+      name: 'Коридор'
+    - entity: binary_sensor.night_mode_bedroom_boolean
+      name: 'Спальня'
+    - entity: binary_sensor.night_mode_living_boolean
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Освещенность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.illuminance_kitchen_curtain
+      name: 'Кухня шторы'
+    - entity: binary_sensor.illuminance_bedroom_curtain
+      name: 'Спальня шторы'
+    - entity: binary_sensor.illuminance_living_curtain
+      name: 'Гостиная шторы'
+    - entity: binary_sensor.illuminance_kitchen_top_light
+      name: 'Кухня освещение'
+    - entity: binary_sensor.illuminance_hall_top_light
+      name: 'Освещение коридор'
+    - entity: binary_sensor.illuminance_kitchen_back_light
+      name: 'Кухня подсветка'
+    - entity: binary_sensor.illuminance_hall_back_light
+      name: 'Каоридор подсветка'
+    - entity: binary_sensor.illuminance_bedroom_back_light
+      name: 'Спальня подсветка'
+    - entity: binary_sensor.illuminance_living_back_light
+      name: 'Гостиная подсветка'
+
+  - type: entities
+    title: 'Солнце'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.solar_azimuth
+      name: 'Азимут'
+    - entity: binary_sensor.solar_elevation
+      name: 'Подъем'
+    - entity: binary_sensor.solar_hight
+      name: 'Попадание'
+
+  - type: entities
+    title: 'Облачность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.cloud_hight
+      name: 'Облачно'
+
+  - type: entities
+    title: 'Сеть'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.network_download_level
+      name: 'Загрузка'
+    - entity: sensor.network_upload_level
+      name: 'Отдача'
+    - entity: sensor.network_ping_level
+      name: 'Пинг'
+
+- type: vertical-stack
+  cards:
+
+  - type: entities
+    title: 'Освещение'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.top_light_kitchen_group_on
+      name: 'Кухня'
+    - entity: binary_sensor.top_light_bath_on
+      name: 'Ванная'
+    - entity: binary_sensor.top_light_toilet_on
+      name: 'Туалет'
+    - entity: binary_sensor.top_light_hall_group_on
+      name: 'Коридор'
+    - entity: binary_sensor.top_light_bedroom_group_on
+      name: 'Спальня'
+    - entity: binary_sensor.top_light_living_group_on
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Подсветка'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.back_light_kitchen_on
+      name: 'Кухня'
+    - entity: binary_sensor.back_light_hall_on
+      name: 'Каридор'
+    - entity: binary_sensor.back_light_bedroom_1_on
+      name: 'Спальня 1'
+    - entity: binary_sensor.back_light_bedroom_2_on
+      name: 'Спальня 2'
+    - entity: binary_sensor.back_light_living_on
+      name: 'Гостиная'
+    - entity: binary_sensor.back_light_balcony_on
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Ночной свет'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.night_light_kitchen_on
+      name: 'Кухня'
+    - entity: binary_sensor.night_light_hall_on
+      name: 'Каридор'
+    - entity: binary_sensor.night_light_bath_on
+      name: 'Ванная'
+    - entity: binary_sensor.night_light_toilet_on
+      name: 'Туалет'
+    - entity: binary_sensor.night_light_balcony_on
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Выключатели'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.switch_kitchen_1_on
+      name: 'Кухня освещение'
+    - entity: binary_sensor.switch_kitchen_2_on
+      name: 'Кухня подсветка'
+    - entity: binary_sensor.switch_bath_on
+      name: 'Ванная'
+    - entity: binary_sensor.switch_toilet_on
+      name: 'Туалет'
+    - entity: binary_sensor.switch_hall_on
+      name: 'Коридор'
+    - entity: binary_sensor.switch_bedroom_1_on
+      name: 'Спальня левый'
+    - entity: binary_sensor.switch_bedroom_2_on
+      name: 'Спальня правый'
+    - entity: binary_sensor.switch_bedroom_3_on
+      name: 'Спальня подсветка'
+    - entity: binary_sensor.switch_living_1_on
+      name: 'Гостиная левый'
+    - entity: binary_sensor.switch_living_2_on
+      name: 'Гостиная правый'
+
+  - type: entities
+    title: 'Шторы'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.curtain_kitchen_level
+      name: 'Кухня'
+    - entity: sensor.curtain_bedroom_level
+      name: 'Спальня'
+    - entity: sensor.curtain_living_level
+      name: 'Гостиная'
+
+- type: vertical-stack
+  cards:
+
+  - type: entities
+    title: 'Двери'
+    state_color: true
+    show_header_toggle: false
+    entities:
     - entity: binary_sensor.door_toilet_open
-      name: 'Туалет дверь'
+      name: 'Туалет'
+    - entity: binary_sensor.door_hall_open
+      name: 'Каридор'
+    - entity: binary_sensor.door_bedroom_open
+      name: 'Спальня'
+    - entity: binary_sensor.door_living_open
+      name: 'Гостиная'
+    - entity: binary_sensor.door_balcony_open
+      name: 'Балкон'
 
-    - entity: binary_sensor.button_bath_on
-      name: 'Ванная кнопка'
+  - type: entities
+    title: 'Окна'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.window_kitchen_left_open
+      name: 'Кухня левое'
+    - entity: binary_sensor.window_kitchen_right_open
+      name: 'Кухня правое'
+    - entity: binary_sensor.window_bedroom_left_open
+      name: 'Спальня левое'
+    - entity: binary_sensor.window_bedroom_right_open
+      name: 'Спальня правое'
+    - entity: binary_sensor.window_living_open
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Проветривание'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.ventilation_kitchen_boolean
+      name: 'Кухня'
+    - entity: binary_sensor.ventilation_hall_boolean
+      name: 'Коридор'
+    - entity: binary_sensor.ventilation_bedroom_boolean
+      name: 'Спальня'
+    - entity: binary_sensor.ventilation_living_boolean
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Увлажнитель пуст'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.humidifier_hall_empty_boolean
+      name: 'Коридор'
+    - entity: binary_sensor.humidifier_bedroom_empty_boolean
+      name: 'Спальня'
+    - entity: binary_sensor.humidifier_living_empty_boolean
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Увлажнитель'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.humidifier_hall_on
+      name: 'Коридор'
+    - entity: binary_sensor.humidifier_bedroom_on
+      name: 'Спальня'
+    - entity: binary_sensor.humidifier_living_on
+      name: 'Гостиная'
+
+  - type: entities
+    title: 'Вытяжка'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.dehumidifier_toilet_on
+      name: 'Туалет'
+
+  - type: entities
+    title: 'Фонтан'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.fountain_balcony_on
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Влажность'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.humidity_kitchen_level
+      name: 'Кухня'
+    - entity: binary_sensor.humidity_bath_level
+      name: 'Ванная'
+    - entity: binary_sensor.humidity_hall_level
+      name: 'Коридор'
+    - entity: binary_sensor.humidity_bedroom_level
+      name: 'Спальня'
+    - entity: binary_sensor.humidity_living_level
+      name: 'Гостиная'
+    - entity: binary_sensor.humidity_balcony_level
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Температура'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.temperature_kitchen_level
+      name: 'Кухня'
+    - entity: binary_sensor.temperature_bath_level
+      name: 'Ванная'
+    - entity: binary_sensor.temperature_hall_level
+      name: 'Коридор'
+    - entity: binary_sensor.temperature_bedroom_level
+      name: 'Спальня'
+    - entity: binary_sensor.temperature_living_level
+      name: 'Гостиная'
+    - entity: binary_sensor.temperature_balcony_level
+      name: 'Балкон'
+
+  - type: entities
+    title: 'Давление'
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: binary_sensor.pressure_level
+      name: 'Среднее'
