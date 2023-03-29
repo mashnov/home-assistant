@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.switch_kitchen_left_permission'
     to: 'on'
   action:
@@ -14,8 +13,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.switch_kitchen_right_permission'
     to: 'on'
   action:
@@ -25,8 +23,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.switch_hall_permission'
     to: 'on'
   action:
@@ -36,8 +33,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.switch_bedroom_permission'
     to: 'on'
   action:
@@ -47,8 +43,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.switch_living_permission'
     to: 'on'
   action:

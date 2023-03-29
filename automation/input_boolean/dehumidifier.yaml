@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidity_bath_hight'
     to: 'on'
   action:
@@ -14,8 +13,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidity_bath_hight'
     to: 'off'
   action:
@@ -27,8 +25,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'on'
   condition:
@@ -45,8 +42,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'on'
   condition:
@@ -78,12 +74,10 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.dehumidifier_toilet_on'
     to: 'off'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidity_bath_hight'
     to: 'on'
   action:

@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.hall_switch_action
     to: 'single'
   action:
@@ -14,8 +13,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.hall_switch_restroom_action
     to: 'single_both'
   action:

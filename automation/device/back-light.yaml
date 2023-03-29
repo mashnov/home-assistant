@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.back_light_kitchen_permission'
   action:
   - choose:
@@ -25,8 +24,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.back_light_hall_permission'
   action:
   - choose:
@@ -47,8 +45,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.back_light_bedroom_permission'
   action:
   - choose:
@@ -71,8 +68,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.back_light_living_permission'
   action:
   - choose:
@@ -93,8 +89,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.back_light_balcony_permission'
   action:
   - choose:

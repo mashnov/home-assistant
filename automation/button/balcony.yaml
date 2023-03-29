@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.balcony_button_action
     to: 'single'
   action:
@@ -14,8 +13,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.balcony_button_action
     to: 'double'
   action:
@@ -25,8 +23,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.balcony_button_action
     to: 'hold'
   action:
@@ -36,8 +33,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: sensor.balcony_button_action
     to: 'shake'
   action:

@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_permission'
   action:
   - choose:
@@ -26,8 +25,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_bedroom_permission'
   action:
   - choose:
@@ -49,8 +47,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_living_permission'
   action:
   - choose:

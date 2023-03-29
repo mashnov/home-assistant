@@ -3,13 +3,11 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
     to: 'off'
   action:
@@ -33,13 +31,11 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_bedroom_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
     to: 'off'
   action:
@@ -63,13 +59,11 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_living_empty'
     for: "{{ state_attr('sensor.delay', 'power_on') }}"
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty'
     to: 'off'
   action:

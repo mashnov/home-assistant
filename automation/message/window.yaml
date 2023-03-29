@@ -14,8 +14,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.window_kitchen_left_open'
   action:
   - service: script.message_window_kitchen_left
@@ -24,8 +23,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.window_kitchen_right_open'
   action:
   - service: script.message_window_kitchen_right
@@ -34,8 +32,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.window_bedroom_left_open'
   action:
   - service: script.message_window_bedroom_left
@@ -44,8 +41,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.window_bedroom_right_open'
   action:
   - service: script.message_window_bedroom_right
@@ -54,8 +50,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.window_living_open'
   action:
   - service: script.message_window_living

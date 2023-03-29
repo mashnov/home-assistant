@@ -3,8 +3,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'sensor.curtain_kitchen_level'
   action:
   - service: script.curtain_kitchen_set_position
@@ -15,8 +14,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'sensor.curtain_bedroom_level'
   action:
   - service: script.curtain_bedroom_set_position
@@ -27,8 +25,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'sensor.curtain_living_level'
   action:
   - service: script.curtain_living_set_position

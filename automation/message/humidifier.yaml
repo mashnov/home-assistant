@@ -25,8 +25,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
   action:
   - service: script.message_humidifier_empty_hall
@@ -35,8 +34,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
   action:
   - service: script.message_humidifier_empty_bedroom
@@ -45,8 +43,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.humidifier_living_empty_boolean'
   action:
   - service: script.message_humidifier_empty_living

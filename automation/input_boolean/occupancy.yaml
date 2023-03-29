@@ -3,12 +3,10 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_kitchen'
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_kitchen'
     for: "{{ state_attr('sensor.delay', 'motion_off') }}"
     to: 'off'
@@ -33,12 +31,10 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_bath'
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_bath'
     for: "{{ state_attr('sensor.delay', 'motion_off') }}"
     to: 'off'
@@ -63,12 +59,10 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_hall'
     to: 'on'
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.motion_hall'
     for: "{{ state_attr('sensor.delay', 'motion_off') }}"
     to: 'off'
@@ -93,8 +87,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'on'
   condition:
@@ -108,8 +101,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'off'
   condition:
@@ -126,8 +118,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'on'
   condition:
@@ -141,8 +132,7 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: event
-    event_type: state_changed
+  - platform: state
     entity_id: 'binary_sensor.door_toilet_open'
     to: 'off'
   condition:
