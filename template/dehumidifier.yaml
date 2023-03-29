@@ -2,7 +2,7 @@
 - binary_sensor:
   - name: 'dehumidifier_toilet_on'
     device_class: 'plug'
-    icon: 'mdi:check-all'
+    icon: 'mdi:fan'
     state: "{{ is_state('binary_sensor.relay_toilet_1_on', 'on') }}"
 
 ## DEHUMIDIFIER PERMISSION

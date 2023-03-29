@@ -2,6 +2,7 @@
 - sensor:
   - name: 'curtain_kitchen_level'
     unit_of_measurement: '%'
+    icon: 'mdi:arrow-expand-right'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_kitchen_boolean', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_kitchen_curtain_boolean', 'on') %}
@@ -15,6 +16,7 @@
 
   - name: 'curtain_bedroom_level'
     unit_of_measurement: '%'
+    icon: 'mdi:arrow-expand-right'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_bedroom_boolean', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_bedroom_curtain_boolean', 'on') %}
@@ -28,6 +30,7 @@
 
   - name: 'curtain_living_level'
     unit_of_measurement: '%'
+    icon: 'mdi:arrow-expand-right'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_living_boolean', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_living_curtain_boolean', 'on') %}

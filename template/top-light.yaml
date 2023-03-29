@@ -15,44 +15,42 @@
   - name: 'top_light_kitchen_group_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_group', 'on') }}"
-    icon: >
-      {% set isEnable = is_state('binary_sensor.top_light_kitchen_group', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+    icon: 'mdi:light-recessed'
 
   - name: 'top_light_kitchen_1_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_kitchen_1', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_kitchen_2_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_2', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_kitchen_2', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_kitchen_3_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_3', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_kitchen_3', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_kitchen_4_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_4', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_kitchen_4', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_kitchen_5_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_kitchen_5', 'on') }}" 
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_kitchen_5', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
 ## TOP LIGHT BATH ON SENSORS
   - name: 'top_light_bath_on'
@@ -74,151 +72,145 @@
   - name: 'top_light_hall_group_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_group', 'on') }}"
-    icon: >
-      {% set isEnable = is_state('binary_sensor.top_light_hall_group', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+    icon: 'mdi:light-recessed'
 
   - name: 'top_light_hall_1_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_1', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_hall_2_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_2', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_2', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_hall_3_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_3', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_3', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_hall_4_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_4', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_4', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_hall_5_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_5', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_5', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_hall_6_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_hall_6', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_hall_6', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
 ## TOP LIGHT BEDROOM ON SENSORS
   - name: 'top_light_bedroom_group_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_group', 'on') }}"
-    icon: >
-      {% set isEnable = is_state('binary_sensor.top_light_bedroom_group', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+    icon: 'mdi:light-recessed'
 
   - name: 'top_light_bedroom_1_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_1', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_bedroom_2_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_2', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_2', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_bedroom_3_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_3', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_3', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_bedroom_4_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_4', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_4', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_bedroom_5_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_5', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_5', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_bedroom_6_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_bedroom_6', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_bedroom_6', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
 ## TOP LIGHT LIVING ON SENSORS
   - name: 'top_light_living_group_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_group', 'on') }}"
-    icon: >
-      {% set isEnable = is_state('binary_sensor.top_light_living_group', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+    icon: 'mdi:light-recessed'
 
   - name: 'top_light_living_1_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_1', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_living_2_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_2', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_2', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_living_3_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_3', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_3', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_living_4_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_4', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_4', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_living_5_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_5', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_5', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
   - name: 'top_light_living_6_on'
     device_class: 'plug'
     state: "{{ is_state('light.top_light_living_6', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.top_light_living_6', 'on') %}
-      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+      {{ iif(isEnable, 'mdi:lightbulb-variant-outline', 'mdi:lightbulb-variant-outline', 'mdi:help-circle') }}
 
 ## TOP LIGHT PERMISSION
   - name: 'top_light_kitchen_permission'
