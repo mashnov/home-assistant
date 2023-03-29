@@ -88,7 +88,7 @@ cards:
 - type: vertical-stack
   cards:
   - type: entities
-    title: 'Освещение'
+    title: 'Вечеринка'
     state_color: true
     show_header_toggle: false
     entities:
