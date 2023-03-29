@@ -3,7 +3,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.fountain_balcony_permission'
   action:
   - choose:

@@ -3,11 +3,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -32,11 +34,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_bedroom_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_bedroom_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -61,11 +65,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_living_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_living_curtain'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -90,11 +96,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_top_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_top_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -119,11 +127,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_hall_top_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_hall_top_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -148,11 +158,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_kitchen_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -177,11 +189,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_hall_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_hall_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -206,11 +220,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_bedroom_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_bedroom_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'
@@ -235,11 +251,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_living_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.illuminance_living_back_light'
     for: "{{ state_attr('sensor.delay', 'illuminance_off') }}"
     to: 'off'

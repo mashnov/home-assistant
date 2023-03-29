@@ -3,7 +3,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
   action:
   - service: script.notification_homepod
@@ -14,7 +15,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
   action:
   - service: script.notification_homepod
@@ -25,7 +27,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_living_empty_boolean'
   action:
   - service: script.notification_homepod

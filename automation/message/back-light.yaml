@@ -14,7 +14,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.back_light_hall_on'
   action:
   - service: script.message_back_light_hall
@@ -23,7 +24,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.back_light_bedroom_1_on'
   action:
   - service: script.message_back_light_bedroom_1
@@ -32,7 +34,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.back_light_bedroom_2_on'
   action:
   - service: script.message_back_light_bedroom_2
@@ -41,7 +44,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.back_light_living_on'
   action:
   - service: script.message_back_light_living

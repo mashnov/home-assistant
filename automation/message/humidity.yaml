@@ -4,10 +4,6 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/humidity'
-  - platform: event
     event_type: telegram_callback
     event_data:
       command: '/humidity'
@@ -18,7 +14,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidity_bath_hight'
   action:
   - service: script.message_humidity_bath
@@ -27,7 +24,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidity_hall_low'
   action:
   - service: script.message_humidity_hall
@@ -36,7 +34,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidity_bedroom_low'
   action:
   - service: script.message_humidity_bedroom
@@ -45,7 +44,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidity_living_low'
   action:
   - service: script.message_humidity_living

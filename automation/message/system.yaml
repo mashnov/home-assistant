@@ -1,68 +1,78 @@
-## SUSTEM START
-- alias: 'sustem_start_message'
+## SYSTEM START
+- alias: 'system_start_message'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: start
   action:
-  - service: script.message_sustem_start
+  - service: script.message_system_start
 
 
-## SUSTEM SHUTDOWN
-- alias: 'sustem_shutdown_message'
+## SYSTEM SHUTDOWN
+- alias: 'system_shutdown_message'
   initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
     event: shutdown
   action:
-  - service: script.message_sustem_shutdown
+  - service: script.message_system_shutdown
 
 
-## SUSTEM POWER
-- alias: 'sustem_start_message'
+## SYSTEM POWER
+- alias: 'system_power_problem'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.rpi_power_status'
     to: 'on'
   action:
-  - service: script.message_power_problem
+  - service: script.message_system_power_problem
 
 
-## SUSTEM UPDATES
-- alias: 'sustem_update_message'
+## SYSTEM UPDATES
+- alias: 'system_update_message'
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.home_assistant_core_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.home_assistant_operating_system_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.home_assistant_supervisor_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.tailscale_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.zigbee2mqtt_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.mosquitto_broker_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.home_assistant_google_drive_backup_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.file_editor_update'
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'update.terminal_ssh_update'
     to: 'on'
   action:
-  - service: script.message_sustem_update
+  - service: script.message_system_update

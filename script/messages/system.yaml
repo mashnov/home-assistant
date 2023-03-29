@@ -1,5 +1,5 @@
-## SUSTEM
-message_sustem_start:
+## SYSTEM
+message_system_start:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -7,7 +7,7 @@ message_sustem_start:
       message: | 
         🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
 
-message_sustem_shutdown:
+message_system_shutdown:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -15,7 +15,7 @@ message_sustem_shutdown:
       message: | 
         🚀 Выключение системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
 
-message_sustem_update:
+message_system_update:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -23,7 +23,7 @@ message_sustem_update:
       message: | 
         🚀 Доступно обновление системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
 
-message_power_problem:
+message_system_power_problem:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id

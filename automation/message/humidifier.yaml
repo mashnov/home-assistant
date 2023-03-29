@@ -15,10 +15,6 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/humidifier_empty'
-  - platform: event
     event_type: telegram_callback
     event_data:
       command: '/humidifier_empty'
@@ -29,7 +25,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
   action:
   - service: script.message_humidifier_empty_hall
@@ -38,7 +35,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
   action:
   - service: script.message_humidifier_empty_bedroom
@@ -47,7 +45,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.humidifier_living_empty_boolean'
   action:
   - service: script.message_humidifier_empty_living

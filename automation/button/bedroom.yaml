@@ -3,10 +3,12 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state 
+  - platform: event
+    event_type: state_changed
     entity_id: sensor.bedroom_wall_switch_action
     to: 'single'
-  - platform: state 
+  - platform: event
+    event_type: state_changed
     entity_id: sensor.bedroom_switch_action
     to: 'single_left'
   action:
@@ -17,7 +19,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state 
+  - platform: event
+    event_type: state_changed
     entity_id: sensor.bedroom_switch_action
     to: 'single_right'
   action:
@@ -28,7 +31,8 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state 
+  - platform: event
+    event_type: state_changed
     entity_id: sensor.bedroom_switch_action
     to: 'single_both'
   action:

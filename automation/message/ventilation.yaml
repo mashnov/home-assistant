@@ -4,10 +4,6 @@
   mode: 'queued'
   trigger:
   - platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/ventilation'
-  - platform: event
     event_type: telegram_callback
     event_data:
       command: '/ventilation'

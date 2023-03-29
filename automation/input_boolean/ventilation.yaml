@@ -3,11 +3,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_kitchen'
     for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_kitchen'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
     to: 'off'
@@ -32,11 +34,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_hall'
     for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_hall'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
     to: 'off'
@@ -61,11 +65,13 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_bedroom'
     for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-  - platform: state
+  - platform: event
+    event_type: state_changed
     entity_id: 'binary_sensor.ventilation_bedroom'
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
     to: 'off'
@@ -90,12 +96,14 @@
   initial_state: true
   mode: 'queued'
   trigger:
-  - platform: state
-    entity_id: 'binary_sensor.ventilation_living'
+  - platform: event
+    event_type: state_changed
+    entity_id: binary_sensor.ventilation_living
     for: "{{ state_attr('sensor.delay', 'ventilation_on') }}"
     to: 'on'
-  - platform: state
-    entity_id: 'binary_sensor.ventilation_living'
+  - platform: event
+    event_type: state_changed
+    entity_id: binary_sensor.ventilation_living
     for: "{{ state_attr('sensor.delay', 'ventilation_off') }}"
     to: 'off'
   action:
