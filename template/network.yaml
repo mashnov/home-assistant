@@ -13,7 +13,6 @@
     icon: 'mdi:speedometer'
 
   - name: 'network_ping_level'
-    device_class: 'measurement'
     unit_of_measurement: ms
     state: "{{ states('sensor.speedtest_ping') | float(0) | round(1) }}"
     icon: 'mdi:speedometer'
