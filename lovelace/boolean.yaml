@@ -2,7 +2,7 @@ title: 'Значения'
 icon: 'mdi:toggle-switch-outline'
 cards:
 
-- type: vertical-stack
+- type: entities  
   title: 'Сеть'
   state_color: true
   show_header_toggle: false
@@ -40,7 +40,7 @@ cards:
   - entity: input_boolean.button_balcony_shake
     name: 'Балкон розетка'
 
-- type: vertical-stack
+- type: entities
   title: 'Ночной режим'
   state_color: true
   show_header_toggle: false
