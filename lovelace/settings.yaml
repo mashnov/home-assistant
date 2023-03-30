@@ -61,9 +61,9 @@ cards:
     - entity: input_boolean.button_living_both
       name: 'Гостиная'
     - type: devider
-    - entity: input_dateTime.night_mode_start_time
+    - entity: input_datetime.night_mode_start_time
       name: 'Начало'
-    - entity: input_dateTime.night_mode_stop_time
+    - entity: input_datetime.night_mode_stop_time
       name: 'Конец'
 
   - type: entities
@@ -71,13 +71,13 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_dateTime.date_time_night_time
+    - entity: input_datetime.date_time_night_time
       name: 'Ночь'
-    - entity: input_dateTime.date_time_morning_time
+    - entity: input_datetime.date_time_morning_time
       name: 'Утро'
-    - entity: input_dateTime.date_time_day_time
+    - entity: input_datetime.date_time_day_time
       name: 'День'
-    - entity: input_dateTime.date_time_evening_time
+    - entity: input_datetime.date_time_evening_time
       name: 'Вечер'
 
   - type: entities
