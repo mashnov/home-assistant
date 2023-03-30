@@ -5,34 +5,40 @@ cards:
   cards:
 
   - type: entities  
-    title: 'Сеть'
+    title: 'Выключатели'
     state_color: true
     show_header_toggle: false
     entities:
     - entity: input_boolean.button_kitchen_both
-      name: 'Кухня вечеринка'
-    - entity: input_boolean.button_kitchen_left
-      name: 'Кухня освещение'
+      name: 'Кухня оба (вечеринка)'
     - entity: input_boolean.button_kitchen_right
-      name: 'Кухня подсветка'
+      name: 'Кухня 1 освещение'
+    - entity: input_boolean.button_kitchen_left
+      name: 'Кухня 2 подсветка'
     - entity: input_boolean.button_bath
-      name: 'Ванная освещение'
+      name: 'Ванная'
     - entity: input_boolean.button_toilet
-      name: 'Туалет освещение'
+      name: 'Туалет'
+    - entity: input_boolean.button_hall
+      name: 'Коридор'
+    - entity: input_boolean.button_hall_both
+      name: 'Коридор оба (подсветка)'
+    - entity: input_boolean.button_bedroom_right
+      name: 'Спальня 1 (подсветка)'
+    - entity: input_boolean.button_bedroom_left
+      name: 'Спальня 2 (освещение)'
+    - entity: input_boolean.button_living_right
+      name: 'Гостиная 1 (подсветка)'
+    - entity: input_boolean.button_living_left
+      name: 'Гостиная 2 (освещение)'
+  
+  - type: entities  
+    title: 'Выключатели'
+    state_color: true
+    show_header_toggle: false
+    entities:
     - entity: input_boolean.button_toilet_long
       name: 'Туалет вытяжка'
-    - entity: input_boolean.button_hall
-      name: 'Коридор освещение'
-    - entity: input_boolean.button_hall_both
-      name: 'Коридор подсветка'
-    - entity: input_boolean.button_bedroom_left
-      name: 'Спальня освещение'
-    - entity: input_boolean.button_bedroom_right
-      name: 'Спальня подсветка'
-    - entity: input_boolean.button_living_left
-      name: 'Гостиная освещение'
-    - entity: input_boolean.button_living_right
-      name: 'Гостиная подсветка'
     - entity: input_boolean.button_balcony_singl
       name: 'Балкон освещение'
     - entity: input_boolean.button_balcony_double
