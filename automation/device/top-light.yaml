@@ -132,7 +132,7 @@
     - conditions:
       - condition: state
         entity_id: binary_sensor.top_light_bedroom_permission
-        state: 'on'
+        state: 'off'
       sequence:
       - service: script.top_light_bedroom_1_off
       - service: script.top_light_bedroom_2_off

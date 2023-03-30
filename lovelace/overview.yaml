@@ -121,7 +121,7 @@ cards:
     - entity: binary_sensor.back_light_kitchen_on
       name: 'Кухня'
     - entity: binary_sensor.back_light_hall_on
-      name: 'Каридор'
+      name: 'Коридор'
     - entity: binary_sensor.back_light_bedroom_1_on
       name: 'Спальня 1'
     - entity: binary_sensor.back_light_bedroom_2_on
@@ -139,7 +139,7 @@ cards:
     - entity: binary_sensor.night_light_kitchen_on
       name: 'Кухня'
     - entity: binary_sensor.night_light_hall_on
-      name: 'Каридор'
+      name: 'Коридор'
     - entity: binary_sensor.night_light_bath_on
       name: 'Ванная'
     - entity: binary_sensor.night_light_toilet_on
@@ -196,7 +196,7 @@ cards:
     - entity: binary_sensor.door_toilet_open
       name: 'Туалет'
     - entity: binary_sensor.door_hall_open
-      name: 'Каридор'
+      name: 'Коридор'
     - entity: binary_sensor.door_bedroom_open
       name: 'Спальня'
     - entity: binary_sensor.door_living_open

@@ -33,8 +33,6 @@ cards:
       name: 'Датчик движения'
     - entity: sensor.hall_thermometer_battery
       name: 'Датчик температуры'
-    - entity: sensor.ipad_aleksandr_battery_level
-      name: 'Батарея iPad'
 
 ### Спальня
 - type: vertical-stack
