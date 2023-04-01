@@ -42,17 +42,17 @@
 ## HUMIDIFIER EMPTY BOOLEAN SENSORS
   - name: 'humidifier_hall_empty_boolean'
     device_class: 'problem'
-    icon: 'mdi:water-alert-outline'
+    icon: 'mdi:air-humidifier-off'
     state: "{{ is_state('input_boolean.humidifier_hall_empty', 'on') }}"
 
   - name: 'humidifier_bedroom_empty_boolean'
     device_class: 'problem'
-    icon: 'mdi:water-alert-outline'
+    icon: 'mdi:air-humidifier-off'
     state: "{{ is_state('input_boolean.humidifier_bedroom_empty', 'on') }}"
 
   - name: 'humidifier_living_empty_boolean'
     device_class: 'problem'
-    icon: 'mdi:water-alert-outline'
+    icon: 'mdi:air-humidifier-off'
     state: "{{ is_state('input_boolean.humidifier_living_empty', 'on') }}"
 
 ## HUMIDIFIER ON SENSORS

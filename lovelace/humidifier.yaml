@@ -1,6 +1,9 @@
 icon: 'mdi:water-circle'
 cards:
 
+- type: markdown
+  content: 'Коридор'
+
 - type: glance
   show_name: false
   show_state: false
@@ -12,7 +15,6 @@ cards:
   - entity: binary_sensor.humidifier_hall_empty_boolean
 
 - type: entities
-  title: 'Коридор'
   state_color: true
   show_header_toggle: false
   entities:
@@ -20,6 +22,9 @@ cards:
     name: 'Увлажнитель'
   - entity: automation.humidifier_hall
     name: 'Автоматизация'
+
+- type: markdown
+  content: 'Спальня'
 
 - type: glance
   show_name: false
@@ -32,22 +37,16 @@ cards:
   - entity: binary_sensor.humidifier_hall_empty_boolean
 
 - type: entities
-  title: 'Спальня'
   state_color: true
   show_header_toggle: false
   entities:
-  - entity: binary_sensor.humidifier_bedroom_on
-    name: 'Состояние'
-  - entity: binary_sensor.humidifier_bedroom_empty_boolean
-    name: 'Пустой'
-  - type: divider
-  - entity: binary_sensor.humidifier_bedroom_permission
-    name: 'Сенсор'
-  - type: divider
   - entity: switch.bedroom_relay_l2
     name: 'Увлажнитель'
   - entity: automation.humidifier_bedroom
     name: 'Автоматизация'
+
+- type: markdown
+  content: 'Гостиная'
 
 - type: glance
   show_name: false
@@ -60,18 +59,9 @@ cards:
   - entity: binary_sensor.humidifier_hall_empty_boolean
 
 - type: entities
-  title: 'Гостиная'
   state_color: true
   show_header_toggle: false
   entities:
-  - entity: binary_sensor.humidifier_living_on
-    name: 'Состояние'
-  - entity: binary_sensor.humidifier_living_empty_boolean
-    name: 'Пустой'
-  - type: divider
-  - entity: binary_sensor.humidifier_living_permission
-    name: 'Сенсор'
-  - type: divider
   - entity: switch.living_relay_l1
     name: 'Увлажнитель'
   - entity: automation.humidifier_living
