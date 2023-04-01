@@ -10,7 +10,7 @@ power_offset_hall:
 ## HUMIDIFIER EMPTY BEDROOM
 power_offset_bedroom:
   unit_of_measurement: 'W'
-  icon: mdi:lightning-bolt'
+  icon: 'mdi:lightning-bolt'
   min: 0
   max: 30
   step: 1
@@ -19,7 +19,7 @@ power_offset_bedroom:
 ## HUMIDIFIER EMPTY LIVING
 power_offset_living:
   unit_of_measurement: 'W'
-  icon: mdi:lightning-bolt'
+  icon: 'mdi:lightning-bolt'
   min: 0
   max: 30
   step: 1
