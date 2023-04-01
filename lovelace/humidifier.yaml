@@ -25,8 +25,7 @@ cards:
     - entity: automation.humidifier_hall
       name: 'Автоматизация'
 
-- type: vertical-stack
-  cards:
+  - type: divider
 
   - type: markdown
     content: 'Спальня'
@@ -50,8 +49,7 @@ cards:
     - entity: automation.humidifier_bedroom
       name: 'Автоматизация'
 
-- type: vertical-stack
-  cards:
+  - type: divider
 
   - type: markdown
     content: 'Гостиная'
