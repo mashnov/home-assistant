@@ -1,109 +1,116 @@
 icon: 'mdi:air-humidifier'
 cards:
-## Уборная
-- type: markdown
-  content: 'Уборная'
 
-- type: glance
-  show_name: false
-  show_state: false
-  entities:
-  - entity: binary_sensor.dehumidifier_toilet_permission
-  - entity: binary_sensor.humidity_bath_hight
-  - entity: binary_sensor.occupancy_toilet_boolean
-  - entity: binary_sensor.night_mode_bedroom_boolean
-  - entity: timer.dehumidifier_toilet
+- type: vertical-stack
+  cards:
 
-- type: entities
-  state_color: true
-  show_header_toggle: false
-  entities:
-  - entity: automation.dehumidifier_bath_on
-    name: 'Автоматизация (ванная)'
-  - entity: automation.dehumidifier_toilet_on
-    name: 'Автоматизация (туалет)'
-  - entity: switch.toilet_relay_l1
-    name: 'Вытяжка'
-  - type: divider
-  - entity: input_number.duration_dehumidifier_day
-    name: 'Длительность день (45)'
-  - entity: input_number.duration_dehumidifier_night
-    name: 'Длительность ночь (20)'
+  ## Коридор
+  - type: markdown
+    content: 'Коридор'
 
-## Коридор
-- type: markdown
-  content: 'Коридор'
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidifier_hall_permission
+    - entity: binary_sensor.ventilation_hall_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+    - entity: binary_sensor.humidity_hall_low
+    - entity: binary_sensor.humidifier_hall_empty_boolean
 
-- type: glance
-  show_name: false
-  show_state: false
-  entities:
-  - entity: binary_sensor.humidifier_hall_permission
-  - entity: binary_sensor.ventilation_hall_boolean
-  - entity: binary_sensor.night_mode_hall_boolean
-  - entity: binary_sensor.humidity_hall_low
-  - entity: binary_sensor.humidifier_hall_empty_boolean
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.humidifier_hall
+      name: 'Автоматизация'
+    - entity: switch.hall_relay_l2
+      name: 'Увлажнитель'
+    - type: divider
+    - entity: input_number.power_offset_hall
+      name: 'Офсет (11)'
 
-- type: entities
-  state_color: true
-  show_header_toggle: false
-  entities:
-  - entity: automation.humidifier_hall
-    name: 'Автоматизация'
-  - entity: switch.hall_relay_l2
-    name: 'Увлажнитель'
-  - type: divider
-  - entity: input_number.power_offset_hall
-    name: 'Офсет (11)'
+  ## Спальня
+  - type: markdown
+    content: 'Спальня'
 
-## Спальня
-- type: markdown
-  content: 'Спальня'
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidifier_hall_permission
+    - entity: binary_sensor.ventilation_bedroom_boolean
+    - entity: binary_sensor.night_mode_bedroom_boolean
+    - entity: binary_sensor.humidity_bedroom_low
+    - entity: binary_sensor.humidifier_hall_empty_boolean
 
-- type: glance
-  show_name: false
-  show_state: false
-  entities:
-  - entity: binary_sensor.humidifier_hall_permission
-  - entity: binary_sensor.ventilation_bedroom_boolean
-  - entity: binary_sensor.night_mode_bedroom_boolean
-  - entity: binary_sensor.humidity_bedroom_low
-  - entity: binary_sensor.humidifier_hall_empty_boolean
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.humidifier_bedroom
+      name: 'Автоматизация'
+    - entity: switch.bedroom_relay_l2
+      name: 'Увлажнитель'
+    - type: divider
+    - entity: input_number.power_offset_bedroom
+      name: 'Офсет (18)'
 
-- type: entities
-  state_color: true
-  show_header_toggle: false
-  entities:
-  - entity: automation.humidifier_bedroom
-    name: 'Автоматизация'
-  - entity: switch.bedroom_relay_l2
-    name: 'Увлажнитель'
-  - type: divider
-  - entity: input_number.power_offset_bedroom
-    name: 'Офсет (18)'
+- type: vertical-stack
+  cards:
 
-## Гостиная
-- type: markdown
-  content: 'Гостиная'
+  ## Гостиная
+  - type: markdown
+    content: 'Гостиная'
 
-- type: glance
-  show_name: false
-  show_state: false
-  entities:
-  - entity: binary_sensor.humidifier_hall_permission
-  - entity: binary_sensor.ventilation_living_boolean
-  - entity: binary_sensor.night_mode_living_boolean
-  - entity: binary_sensor.humidity_living_low
-  - entity: binary_sensor.humidifier_hall_empty_boolean
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidifier_hall_permission
+    - entity: binary_sensor.ventilation_living_boolean
+    - entity: binary_sensor.night_mode_living_boolean
+    - entity: binary_sensor.humidity_living_low
+    - entity: binary_sensor.humidifier_hall_empty_boolean
 
-- type: entities
-  state_color: true
-  show_header_toggle: false
-  entities:
-  - entity: automation.humidifier_living
-    name: 'Автоматизация'
-  - entity: switch.living_relay_l1
-    name: 'Увлажнитель'
-  - type: divider
-  - entity: input_number.power_offset_living
-    name: 'Офсет (11)'
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.humidifier_living
+      name: 'Автоматизация'
+    - entity: switch.living_relay_l1
+      name: 'Увлажнитель'
+    - type: divider
+    - entity: input_number.power_offset_living
+      name: 'Офсет (11)'
+
+  ## Уборная
+  - type: markdown
+    content: 'Уборная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.humidity_bath_hight
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_bedroom_boolean
+    - entity: timer.dehumidifier_toilet
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
+    - entity: automation.dehumidifier_toilet_on
+      name: 'Автоматизация (туалет)'
+    - entity: switch.toilet_relay_l1
+      name: 'Вытяжка'
+    - type: divider
+    - entity: input_number.duration_dehumidifier_day
+      name: 'Длительность день (45)'
+    - entity: input_number.duration_dehumidifier_night
+      name: 'Длительность ночь (20)'
