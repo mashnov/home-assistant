@@ -60,7 +60,7 @@ cards:
       name: 'Спальня'
     - entity: input_boolean.button_living_both
       name: 'Гостиная'
-    - type: devider
+    - type: divider
     - entity: input_datetime.night_mode_start_time
       name: 'Начало'
     - entity: input_datetime.night_mode_stop_time
