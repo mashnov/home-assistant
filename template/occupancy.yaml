@@ -41,7 +41,7 @@
     state: "{{ is_state('input_boolean.occupancy_toilet', 'on') }}"
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy_toilet', 'on') %}
-      {{ iif(isOccupancy, 'mdi:human-greeting', 'mdi:human-male', 'mdi:help-circle') }}
+      {{ iif(isOccupancy, 'mdi:toilet', 'mdi:paper-roll-outline', 'mdi:help-circle') }}
 
   - name: 'motion_hall_boolean'
     device_class: 'occupancy'

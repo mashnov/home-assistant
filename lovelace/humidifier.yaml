@@ -13,6 +13,7 @@ cards:
     entities:
     - entity: binary_sensor.humidity_bath_hight
     - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: timer.dehumidifier_toilet
 
   - type: entities
     state_color: true
@@ -20,12 +21,8 @@ cards:
     entities:
     - entity: automation.dehumidifier_bath_on
       name: 'Автоматизация (ванная)'
-    - type: divider
     - entity: automation.dehumidifier_toilet_on
       name: 'Автоматизация (туалет)'
-    - entity: timer.dehumidifier_toilet
-      name: 'Таймер (туалет)'
-    - type: divider
     - entity: switch.toilet_relay_l1
       name: 'Вытяжка'
 
@@ -49,7 +46,6 @@ cards:
     entities:
     - entity: automation.humidifier_hall
       name: 'Автоматизация'
-    - type: divider
     - entity: switch.hall_relay_l2
       name: 'Увлажнитель'
 
@@ -73,7 +69,6 @@ cards:
     entities:
     - entity: automation.humidifier_bedroom
       name: 'Автоматизация'
-    - type: divider
     - entity: switch.bedroom_relay_l2
       name: 'Увлажнитель'
 
@@ -97,6 +92,5 @@ cards:
     entities:
     - entity: automation.humidifier_living
       name: 'Автоматизация'
-    - type: divider
     - entity: switch.living_relay_l1
       name: 'Увлажнитель'
