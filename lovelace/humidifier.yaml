@@ -25,6 +25,11 @@ cards:
       name: 'Автоматизация (туалет)'
     - entity: switch.toilet_relay_l1
       name: 'Вытяжка'
+    - type: divider
+    - entity: input_number.duration_dehumidifier_day
+      name: 'День (45)'
+    - entity: input_number.duration_dehumidifier_night
+      name: 'Ночь (20)'
 
 ## Коридор
   - type: markdown
@@ -48,6 +53,7 @@ cards:
       name: 'Автоматизация'
     - entity: switch.hall_relay_l2
       name: 'Увлажнитель'
+    - type: divider
     - entity: input_number.power_offset_hall
       name: 'Офсет (11)'
 
@@ -73,6 +79,7 @@ cards:
       name: 'Автоматизация'
     - entity: switch.bedroom_relay_l2
       name: 'Увлажнитель'
+    - type: divider
     - entity: input_number.power_offset_bedroom
       name: 'Офсет (18)'
 
@@ -98,5 +105,6 @@ cards:
       name: 'Автоматизация'
     - entity: switch.living_relay_l1
       name: 'Увлажнитель'
+    - type: divider
     - entity: input_number.power_offset_living
       name: 'Офсет (11)'
