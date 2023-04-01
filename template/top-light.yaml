@@ -3,12 +3,16 @@
   - name: 'top_light_list_on'
     icon: 'mdi:lightbulb-group'
     state: >
-      {% set lights = states.light %}
-      {% set lights = lights | selectattr("state", "eq" ,"on") %}
-      {% set lights = lights | selectattr("name", "search" ,"top_") %}
-      {% set lights = lights | rejectattr("name", "search" ,"_group") %}
-      {% set lights = lights | map(attribute="entity_id") %}
-      {{ lights | list }}
+      {% set lights = states.light | list %}
+      {% if lights | count > 0 %}
+        {% set lights = lights | selectattr("state", "eq" ,"on") %}
+        {% set lights = lights | selectattr("name", "search" ,"top_light") %}
+        {% set lights = lights | rejectattr("name", "search" ,"_group") %}
+        {% set lights = lights | map(attribute="entity_id") %}
+        {{ lights | list }}
+      {% else %}
+        {{ [] | list }}
+      {% endif %}
 
 - binary_sensor:
 ## TOP LIGHT KITCHEN ON SENSORS
