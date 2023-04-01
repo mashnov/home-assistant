@@ -49,7 +49,7 @@ cards:
     - entity: switch.hall_relay_l2
       name: 'Увлажнитель'
     - entity: input_number.power_offset_hall
-      name: 'Офсет (W)'
+      name: 'Офсет (11)'
 
 ## Спальня
   - type: markdown
@@ -74,7 +74,7 @@ cards:
     - entity: switch.bedroom_relay_l2
       name: 'Увлажнитель'
     - entity: input_number.power_offset_bedroom
-      name: 'Офсет (W)'
+      name: 'Офсет (18)'
 
 ## Гостиная
   - type: markdown
@@ -99,4 +99,4 @@ cards:
     - entity: switch.living_relay_l1
       name: 'Увлажнитель'
     - entity: input_number.power_offset_living
-      name: 'Офсет (W)'
+      name: 'Офсет (11)'
