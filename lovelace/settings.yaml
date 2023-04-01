@@ -85,11 +85,11 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_boolean.cloud_target
+    - entity: input_number.cloud_target
       name: 'Облачность'
-    - entity: input_boolean.humidity_target
+    - entity: input_number.humidity_target
       name: 'Гостиная'
-    - entity: input_boolean.humidity_target_bath
+    - entity: input_number.humidity_target_bath
       name: 'Гостиная'
-    - entity: input_boolean.humidity_offset
+    - entity: input_number.humidity_offset
       name: 'Гостиная'
