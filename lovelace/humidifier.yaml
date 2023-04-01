@@ -11,6 +11,7 @@ cards:
     show_name: false
     show_state: false
     entities:
+    - entity: binary_sensor.dehumidifier_toilet_permission
     - entity: binary_sensor.humidity_bath_hight
     - entity: binary_sensor.occupancy_toilet_boolean
     - entity: binary_sensor.night_mode_bedroom_boolean
