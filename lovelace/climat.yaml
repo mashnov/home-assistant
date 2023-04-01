@@ -1,4 +1,4 @@
-icon: 'mdi:air-humidifier'
+icon: 'mdi:home-thermometer-outline'
 cards:
 
 - type: markdown
@@ -22,6 +22,7 @@ cards:
     name: 'Увлажнитель'
   - entity: automation.humidifier_hall
     name: 'Автоматизация'
+  - type: divider
 
 - type: markdown
   content: 'Спальня'
@@ -44,6 +45,7 @@ cards:
     name: 'Увлажнитель'
   - entity: automation.humidifier_bedroom
     name: 'Автоматизация'
+  - type: divider
 
 - type: markdown
   content: 'Гостиная'
@@ -66,3 +68,5 @@ cards:
     name: 'Увлажнитель'
   - entity: automation.humidifier_living
     name: 'Автоматизация'
+  - type: divider
+
