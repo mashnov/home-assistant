@@ -34,9 +34,6 @@ cards:
     - entity: input_number.duration_dehumidifier_night
       name: 'Длительность ночь (20)'
 
-- type: vertical-stack
-  cards:
-
   ## Коридор
   - type: markdown
     content: 'Коридор'

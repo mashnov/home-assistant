@@ -161,7 +161,7 @@
 
   - name: 'relay_balcony_3_on'
     device_class: 'plug'
-    state: "{{ is_state('fan.balcony_fountain', 'on') }}"
+    state: "{{ is_state('switch.balcony_socket_relay_l1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.relay_balcony_3_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}

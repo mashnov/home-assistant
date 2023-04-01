@@ -2,11 +2,11 @@
 fountain_balcony_on:
   mode: 'queued'
   sequence:
-  - service: fan.turn_on
-    entity_id: 'fan.balcony_fountain'
+  - service: switch.turn_on
+    entity_id: 'switch.balcony_socket_relay_l1'
 
 fountain_balcony_off:
   mode: 'queued'
   sequence:
-  - service: fan.turn_off
-    entity_id: 'fan.balcony_fountain'
+  - service: switch.turn_off
+    entity_id: 'switch.balcony_socket_relay_l1'
