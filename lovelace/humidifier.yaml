@@ -4,6 +4,39 @@ cards:
 - type: vertical-stack
   cards:
 
+  ## Уборная
+  - type: markdown
+    content: 'Уборная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.humidity_bath_hight
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_bedroom_boolean
+    - entity: timer.dehumidifier_toilet
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
+    - entity: automation.dehumidifier_toilet_on
+      name: 'Автоматизация (туалет)'
+    - entity: switch.toilet_relay_l1
+      name: 'Вытяжка'
+    - type: divider
+    - entity: input_number.duration_dehumidifier_day
+      name: 'Длительность день (45)'
+    - entity: input_number.duration_dehumidifier_night
+      name: 'Длительность ночь (20)'
+
+- type: vertical-stack
+  cards:
+
   ## Коридор
   - type: markdown
     content: 'Коридор'
@@ -56,9 +89,6 @@ cards:
     - entity: input_number.power_offset_bedroom
       name: 'Офсет (18)'
 
-- type: vertical-stack
-  cards:
-
   ## Гостиная
   - type: markdown
     content: 'Гостиная'
@@ -84,33 +114,3 @@ cards:
     - type: divider
     - entity: input_number.power_offset_living
       name: 'Офсет (11)'
-
-  ## Уборная
-  - type: markdown
-    content: 'Уборная'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
-    - entity: binary_sensor.humidity_bath_hight
-    - entity: binary_sensor.occupancy_toilet_boolean
-    - entity: binary_sensor.night_mode_bedroom_boolean
-    - entity: timer.dehumidifier_toilet
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: automation.dehumidifier_bath_on
-      name: 'Автоматизация (ванная)'
-    - entity: automation.dehumidifier_toilet_on
-      name: 'Автоматизация (туалет)'
-    - entity: switch.toilet_relay_l1
-      name: 'Вытяжка'
-    - type: divider
-    - entity: input_number.duration_dehumidifier_day
-      name: 'Длительность день (45)'
-    - entity: input_number.duration_dehumidifier_night
-      name: 'Длительность ночь (20)'
