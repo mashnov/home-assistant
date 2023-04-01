@@ -13,6 +13,7 @@ cards:
     entities:
     - entity: binary_sensor.humidity_bath_hight
     - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_bedroom_boolean
     - entity: timer.dehumidifier_toilet
 
   - type: entities
@@ -27,9 +28,9 @@ cards:
       name: 'Вытяжка'
     - type: divider
     - entity: input_number.duration_dehumidifier_day
-      name: 'День (45)'
+      name: 'Длительность день (45)'
     - entity: input_number.duration_dehumidifier_night
-      name: 'Ночь (20)'
+      name: 'Длительность ночь (20)'
 
 ## Коридор
   - type: markdown
