@@ -1,0 +1,65 @@
+icon: 'mdi:water-circle'
+cards:
+
+- type: entities
+  title: 'Коридор'
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: script.humidifier_hall_on
+    name: 'Включить'
+  - entity: script.humidifier_hall_off
+    name: 'Выключить'
+  - type: divider
+  - entity: binary_sensor.humidifier_hall_on
+    name: 'Состояние'
+  - entity: binary_sensor.humidifier_hall_empty_boolean
+    name: 'Пустой'
+  - type: divider
+  - entity: binary_sensor.humidifier_hall_permission
+    name: 'Сенсор'
+  - type: divider
+  - entity: automation.humidifier_hall
+    name: 'Автоматизация'
+
+- type: entities
+  title: 'Спальня'
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: script.humidifier_bedroom_on
+    name: 'Включить'
+  - entity: script.humidifier_bedroom_off
+    name: 'Выключить'
+  - type: divider
+  - entity: binary_sensor.humidifier_bedroom_on
+    name: 'Состояние'
+  - entity: binary_sensor.humidifier_bedroom_empty_boolean
+    name: 'Пустой'
+  - type: divider
+  - entity: binary_sensor.humidifier_bedroom_permission
+    name: 'Сенсор'
+  - type: divider
+  - entity: automation.humidifier_bedroom
+    name: 'Автоматизация'
+
+- type: entities
+  title: 'Гостиная'
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: script.humidifier_living_on
+    name: 'Включить'
+  - entity: script.humidifier_living_off
+    name: 'Выключить'
+  - type: divider
+  - entity: binary_sensor.humidifier_living_on
+    name: 'Состояние'
+  - entity: binary_sensor.humidifier_living_empty_boolean
+    name: 'Пустой'
+  - type: divider
+  - entity: binary_sensor.humidifier_living_permission
+    name: 'Сенсор'
+  - type: divider
+  - entity: automation.humidifier_living
+    name: 'Автоматизация'
