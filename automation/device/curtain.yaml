@@ -1,6 +1,6 @@
 ## CURTAIN
 - alias: 'curtain_kitchen'
-  initial_state: true
+  initial_state: false
   mode: 'queued'
   trigger:
   - platform: state
@@ -11,7 +11,7 @@
       position: "{{ states('sensor.curtain_kitchen_level') | int(0) }}"
 
 - alias: 'curtain_bedroom'
-  initial_state: true
+  initial_state: false
   mode: 'queued'
   trigger:
   - platform: state
@@ -22,7 +22,7 @@
       position: "{{ states('sensor.curtain_bedroom_level') | int(0) }}"
 
 - alias: 'curtain_living'
-  initial_state: true
+  initial_state: false
   mode: 'queued'
   trigger:
   - platform: state
