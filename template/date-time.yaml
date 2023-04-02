@@ -72,6 +72,18 @@
     state: >
       {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
       {% set timeFrom = strptime(states('input_datetime.date_time_evening_time'), "%H:%M:%S").time() %}
+      {% set timeTill = strptime(states('input_datetime.date_time_twilight_time'), "%H:%M:%S").time() %}
+      {% if timeFrom > timeTill %}
+        {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}
+      {% else %}
+        {{ (timeFrom <= timeNow) and (timeNow <= timeTill) }}
+      {% endif %}
+
+  - name: 'date_time_twilight'
+    icon: 'mdi:clock-time-seven-outline'
+    state: >
+      {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
+      {% set timeFrom = strptime(states('input_datetime.date_time_twilight_time'), "%H:%M:%S").time() %}
       {% set timeTill = strptime(states('input_datetime.date_time_night_time'), "%H:%M:%S").time() %}
       {% if timeFrom > timeTill %}
         {{ (timeFrom <= timeNow) or (timeNow <= timeTill) }}

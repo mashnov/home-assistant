@@ -21,3 +21,9 @@ date_time_evening_time:
   has_date: false
   has_time: true
   initial: '20:30:00'
+
+## DATE_TIME TWILIGHT
+date_time_twilight_time:
+  has_date: false
+  has_time: true
+  initial: '00:30:00'
