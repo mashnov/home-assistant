@@ -1,9 +1,6 @@
 icon: 'mdi:air-humidifier'
 cards:
 
-- type: vertical-stack
-  cards:
-
   ## Уборная
   - type: markdown
     content: 'Уборная'

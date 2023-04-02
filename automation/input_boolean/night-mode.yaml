@@ -1,20 +1,29 @@
 ## NIGHT MODE 
-- alias: 'night_mode_auto_on'
+- alias: 'night_mode_auto'
   initial_state: true
   mode: 'queued'
   trigger:
+  - platform: homeassistant
+    event: start
   - platform: state
     entity_id: 'binary_sensor.night_mode_auto_on'
-  action:
-  - service: script.button_bedroom_both_on
-  - service: script.button_living_both_on
-
-- alias: 'night_mode_auto_off'
-  initial_state: true
-  mode: 'queued'
-  trigger:
+    to: 'on'
   - platform: state
     entity_id: 'binary_sensor.night_mode_auto_off'
+    to: 'on'
   action:
-  - service: script.button_bedroom_both_off
-  - service: script.button_living_both_off
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_mode_auto_on
+        state: 'on'
+      sequence:
+      - service: script.button_bedroom_both_on
+      - service: script.button_living_both_on
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_mode_auto_off
+        state: 'on'
+      sequence:
+      - service: script.button_bedroom_both_off
+      - service: script.button_living_both_off
