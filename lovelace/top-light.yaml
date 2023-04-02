@@ -11,7 +11,10 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_kitchen_permission
+    - entity: binary_sensor.motion_kitchen_boolean
+    - entity: binary_sensor.illuminance_kitchen_top_light_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
 
   - type: entities
     state_color: true
@@ -19,7 +22,7 @@ cards:
     entities:
     - entity: automation.top_light_kitchen
       name: 'Автоматизация'
-    - entity: input_boolean.button_kitchen_left
+    - entity: input_boolean.button_kitchen_right
       name: 'Кнопка'
     - type: divider
     - entity: light.top_light_kitchen_group
@@ -50,7 +53,9 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_bath_permission
+    - entity: binary_sensor.motion_bath_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
 
   - type: entities
     state_color: true
@@ -91,7 +96,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_bedroom_permission
 
   - type: entities
     state_color: true
@@ -134,7 +139,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_living_permission
 
   - type: entities
     state_color: true
@@ -177,7 +182,9 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_bath_permission
+    - entity: binary_sensor.motion_bath_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
 
   - type: entities
     state_color: true
@@ -195,7 +202,9 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
+    - entity: binary_sensor.top_light_toilet_permission
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
 
   - type: entities
     state_color: true
