@@ -35,6 +35,9 @@ cards:
       name: 'Светильник 4'
     - entity: light.top_light_kitchen_5
       name: 'Светильник 5'
+    - type: divider
+    - entity: switch.kitchen_switch_left
+      name: 'Выключатель'
 
   ## Ванная
 - type: vertical-stack
