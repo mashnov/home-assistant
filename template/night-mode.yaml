@@ -1,7 +1,7 @@
 ## NIGHT_MODE SENSORS
 - binary_sensor:
   - name: 'night_mode_auto_time'
-    icon: 'mdi:weather-night'
+    icon: 'mdi:alarm-check'
     state: >
       {% set timeNow = strptime(state_attr('sensor.date_time', 'hm_local'), '%H:%M').time() %}
       {% set timeFrom = strptime(states('input_datetime.night_mode_start_time'), "%H:%M:%S").time() %}
@@ -13,7 +13,7 @@
       {% endif %}
 
   - name: 'night_mode_auto_on'
-    icon: 'mdi:weather-night'
+    icon: 'mdi:clock-alert-outline'
     state: >
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {% set isNightModeTime = is_state('binary_sensor.night_mode_auto_time', 'on') %}
@@ -26,7 +26,7 @@
       {{ not(isNightMode) and isNightModeTime and (kitchenValue > targetValue) and (hallValue > targetValue) }}
       
   - name: 'night_mode_auto_off'
-    icon: 'mdi:weather-night'
+    icon: 'mdi:clock-alert'
     state: >
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {% set isMorningTime = is_state('binary_sensor.date_time_morning_time', 'on') %}

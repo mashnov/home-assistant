@@ -1,0 +1,55 @@
+icon: 'mdi:weather-night-partly-cloudy'
+cards:
+
+- type: markdown
+  content: 'Время суток'
+
+- type: glance
+  show_name: false
+  show_state: false
+  entities:
+  - entity: binary_sensor.date_time_night
+  - entity: binary_sensor.date_time_morning
+  - entity: binary_sensor.date_time_day
+  - entity: binary_sensor.date_time_evening
+
+- type: entities
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: input_datetime.date_time_night_time
+    name: 'Ночь'
+  - entity: input_datetime.date_time_morning_time
+    name: 'Утро'
+  - entity: input_datetime.date_time_day_time
+    name: 'День'
+  - entity: input_datetime.date_time_evening_time
+    name: 'Вечер'
+
+
+- type: markdown
+  content: 'Ночной режим'
+
+- type: glance
+  show_name: false
+  show_state: false
+  entities:
+  - entity: binary_sensor.night_mode_auto_time
+  - entity: binary_sensor.night_mode_auto_on
+  - entity: binary_sensor.night_mode_auto_off
+  - entity: binary_sensor.night_mode_hall_boolean
+
+- type: entities
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: input_datetime.night_mode_start_time
+    name: 'Начало'
+  - entity: input_datetime.night_mode_stop_time
+    name: 'Конец'
+  - type: divider
+  - entity: input_boolean.button_bedroom_both
+    name: 'Спальня'
+  - entity: input_boolean.button_living_both
+    name: 'Гостиная'
+  - type: divider
