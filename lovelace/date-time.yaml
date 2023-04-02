@@ -20,7 +20,7 @@ cards:
   entities:
   - type: attribute
     entity: sensor.date_time
-    attribute: 'hm_local'
+    attribute: 'hms_local'
     name: 'Локальное время'
   - type: divider
   - entity: input_datetime.date_time_night_time
