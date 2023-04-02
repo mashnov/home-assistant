@@ -62,11 +62,3 @@ delay_night_mode_on:
   min: 0
   step: 10
   initial: 90
-
-delay_night_mode_off:
-  unit_of_measurement: 'сек'
-  icon: 'mdi:camera-timer'
-  max: 180
-  min: 0
-  step: 10
-  initial: 120
