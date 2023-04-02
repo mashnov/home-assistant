@@ -116,8 +116,11 @@ cards:
     - entity: light.top_light_bedroom_6
       name: 'Светильник 6'
     - type: divider
-    - entity: switch.bedroom_switch
-      name: 'Выключатель'
+    - entity: switch.bedroom_switch_left
+      name: 'Выключатель левый'
+    - entity: switch.bedroom_switch_right
+      name: 'Выключатель правый'
+
 
   ## Гостиная
 - type: vertical-stack
@@ -156,8 +159,10 @@ cards:
     - entity: light.top_light_living_6
       name: 'Светильник 6'
     - type: divider
-    - entity: switch.living_switch
-      name: 'Выключатель'
+    - entity: switch.living_switch_left
+      name: 'Выключатель левый'
+    - entity: switch.living_switch_right
+      name: 'Выключатель правый'
 
   ## Ванная
 - type: vertical-stack
