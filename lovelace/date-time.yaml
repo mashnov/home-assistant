@@ -2,32 +2,6 @@ icon: 'mdi:alarm-check'
 cards:
 
 - type: markdown
-  content: 'Время суток'
-
-- type: glance
-  show_name: false
-  show_state: false
-  entities:
-  - entity: binary_sensor.date_time_night
-  - entity: binary_sensor.date_time_morning
-  - entity: binary_sensor.date_time_day
-  - entity: binary_sensor.date_time_evening
-
-- type: entities
-  state_color: true
-  show_header_toggle: false
-  entities:
-  - entity: input_datetime.date_time_night_time
-    name: 'Ночь'
-  - entity: input_datetime.date_time_morning_time
-    name: 'Утро'
-  - entity: input_datetime.date_time_day_time
-    name: 'День'
-  - entity: input_datetime.date_time_evening_time
-    name: 'Вечер'
-
-
-- type: markdown
   content: 'Ночной режим'
 
 - type: glance
@@ -53,3 +27,28 @@ cards:
   - entity: input_boolean.button_living_both
     name: 'Гостиная'
   - type: divider
+
+- type: markdown
+  content: 'Время суток'
+
+- type: glance
+  show_name: false
+  show_state: false
+  entities:
+  - entity: binary_sensor.date_time_night
+  - entity: binary_sensor.date_time_morning
+  - entity: binary_sensor.date_time_day
+  - entity: binary_sensor.date_time_evening
+
+- type: entities
+  state_color: true
+  show_header_toggle: false
+  entities:
+  - entity: input_datetime.date_time_night_time
+    name: 'Ночь'
+  - entity: input_datetime.date_time_morning_time
+    name: 'Утро'
+  - entity: input_datetime.date_time_day_time
+    name: 'День'
+  - entity: input_datetime.date_time_evening_time
+    name: 'Вечер'
