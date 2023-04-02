@@ -24,7 +24,6 @@ cards:
       name: 'Автоматизация'
     - entity: input_boolean.button_kitchen_right
       name: 'Кнопка'
-    - type: divider
     - entity: light.top_light_kitchen_group
       name: 'Группа'
     - type: divider
@@ -65,7 +64,6 @@ cards:
       name: 'Автоматизация'
     - entity: input_boolean.button_hall
       name: 'Кнопка'
-    - type: divider
     - entity: light.top_light_hall_group
       name: 'Группа'
     - type: divider
@@ -100,7 +98,6 @@ cards:
       name: 'Автоматизация'
     - entity: input_boolean.button_bedroom_left
       name: 'Кнопка'
-    - type: divider
     - entity: light.top_light_bedroom_group
       name: 'Группа'
     - type: divider
@@ -137,7 +134,6 @@ cards:
       name: 'Автоматизация'
     - entity: input_boolean.button_living_left
       name: 'Кнопка'
-    - type: divider
     - entity: light.top_light_living_group
       name: 'Группа'
     - type: divider
@@ -183,6 +179,7 @@ cards:
       name: 'Автоматизация (ванная)'
     - entity: input_boolean.button_bath
       name: 'Кнопка'
+    - type: divider
     - entity: switch.hall_switch_restroom_right
       name: 'Выключатель'
 
@@ -209,5 +206,6 @@ cards:
       name: 'Автоматизация (ванная)'
     - entity: input_boolean.button_toilet
       name: 'Кнопка'
+    - type: divider
     - entity: switch.hall_switch_restroom_left
       name: 'Выключатель'
