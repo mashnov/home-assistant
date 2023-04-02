@@ -6,7 +6,7 @@ cards:
 
   ## Уборная
   - type: markdown
-    content: 'Уборная ({{ sensor.humidity_bath_level }})'
+    content: 'Уборная'
 
   - type: glance
     show_name: false
@@ -33,15 +33,10 @@ cards:
       name: 'Длительность день (45)'
     - entity: input_number.duration_dehumidifier_night
       name: 'Длительность ночь (20)'
-    footer:
-      type: graph
-      entity: sensor.humidity_bath_level
-      hours_to_show: 24
-      detail: 2
 
   ## Коридор
   - type: markdown
-    content: 'Коридор ({{ sensor.humidity_hall_level }})'
+    content: 'Коридор'
 
   - type: glance
     show_name: false
@@ -64,15 +59,10 @@ cards:
     - type: divider
     - entity: input_number.power_offset_hall
       name: 'Офсет (11)'
-    footer:
-      type: graph
-      entity: sensor.humidity_hall_level
-      hours_to_show: 24
-      detail: 2
 
   ## Спальня
   - type: markdown
-    content: 'Спальня ({{ sensor.humidity_bedroom_level }})'
+    content: 'Спальня'
 
   - type: glance
     show_name: false
@@ -95,15 +85,10 @@ cards:
     - type: divider
     - entity: input_number.power_offset_bedroom
       name: 'Офсет (18)'
-    footer:
-      type: graph
-      entity: sensor.humidity_bedroom_level
-      hours_to_show: 24
-      detail: 2
 
   ## Гостиная
   - type: markdown
-    content: 'Гостиная ({{ sensor.humidity_living_level }})'
+    content: 'Гостиная'
 
   - type: glance
     show_name: false
@@ -126,8 +111,3 @@ cards:
     - type: divider
     - entity: input_number.power_offset_living
       name: 'Офсет (11)'
-    footer:
-      type: graph
-      entity: sensor.humidity_living_level
-      hours_to_show: 24
-      detail: 2
