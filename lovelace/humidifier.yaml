@@ -27,9 +27,9 @@ cards:
       name: 'Вытяжка'
     - type: divider
     - entity: input_number.duration_dehumidifier_day
-      name: 'Длительность день (45)'
+      name: 'Вытяжка день (45)'
     - entity: input_number.duration_dehumidifier_night
-      name: 'Длительность ночь (20)'
+      name: 'Вытяжка ночь (20)'
 
   ## Коридор
   - type: markdown
