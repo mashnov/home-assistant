@@ -17,11 +17,6 @@ cards:
   state_color: true
   show_header_toggle: false
   entities:
-  - entity: input_datetime.night_mode_start_time
-    name: 'Начало'
-  - entity: input_datetime.night_mode_stop_time
-    name: 'Конец'
-  - type: divider
   - entity: input_boolean.button_bedroom_both
     name: 'Спальня'
   - entity: input_boolean.button_living_both
@@ -44,8 +39,12 @@ cards:
   state_color: true
   show_header_toggle: false
   entities:
+  - entity: input_datetime.night_mode_start_time
+    name: 'Ночной режим начало'
   - entity: input_datetime.date_time_night_time
     name: 'Ночь'
+  - entity: input_datetime.night_mode_stop_time
+    name: 'Ночной режим Конец'
   - entity: input_datetime.date_time_morning_time
     name: 'Утро'
   - entity: input_datetime.date_time_day_time
