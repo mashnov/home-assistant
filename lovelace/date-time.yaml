@@ -56,6 +56,5 @@ cards:
   - type: divider
   - entity: sensor.night_mode_last_motion
     name: 'Последнее движение'
-  - type: divider
   - entity: input_number.night_mode_inaction_target
     name: 'Минут без движения'
