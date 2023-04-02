@@ -61,4 +61,4 @@ cards:
   - entity: input_number.night_mode_inaction_target
     name: 'Минут без движения'
   - entity: input_number.delay_night_mode_on
-    name: 'Задержка ночного режима'
+    name: 'Задержка включения'
