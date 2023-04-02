@@ -2,7 +2,7 @@
 date_time_night_time:
   has_date: false
   has_time: true
-  initial: '23:30:00'
+  initial: '00:30:00'
 
 ## DATE_TIME MORNING
 date_time_morning_time:
@@ -26,4 +26,4 @@ date_time_evening_time:
 date_time_twilight_time:
   has_date: false
   has_time: true
-  initial: '00:30:00'
+  initial: '22:30:00'

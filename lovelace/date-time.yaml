@@ -18,9 +18,6 @@ cards:
   state_color: true
   show_header_toggle: false
   entities:
-  - entity: sensor.date_time
-    name: 'Сейчас'
-  - type: divider
   - entity: input_datetime.date_time_night_time
     name: 'Ночь'
   - entity: input_datetime.date_time_morning_time
@@ -31,7 +28,6 @@ cards:
     name: 'Вечер'
   - entity: input_datetime.date_time_twilight_time
     name: 'Сумерки'
-
 
 - type: markdown
   content: 'Ночной режим'

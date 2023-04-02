@@ -3,6 +3,6 @@ night_mode_inaction_target:
   unit_of_measurement: 'Мин'
   icon: 'mdi:motion-outline'
   min: 0
-  max: 30
+  max: 90
   step: 1
-  initial: 10
+  initial: 45
