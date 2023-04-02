@@ -9,7 +9,8 @@
       {% set morningIcon = is_state('binary_sensor.date_time_morning', 'on') and 'mdi:clock-time-nine' %}
       {% set dayIcon = is_state('binary_sensor.date_time_day', 'on') and 'mdi:clock-time-eleven' %}
       {% set eveningIcon = is_state('binary_sensor.date_time_evening', 'on') and 'mdi:clock-time-nine-outline' %}
-      {{ nightIcon or morningIcon or dayIcon or eveningIcon or defaultIcon }}
+      {% set twilightIcon = is_state('binary_sensor.date_time_evening', 'on') and 'mdi:clock-time-seven-outline' %}
+      {{ nightIcon or morningIcon or dayIcon or eveningIcon or twilightIcon or defaultIcon }}
     attributes:
       dmy_hms_z: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M:%S %z", false) }}'
       dmy_hm_z: '{{ as_timestamp(utcnow()) | timestamp_custom("%d %m %Y %H:%M %z", false) }}'
