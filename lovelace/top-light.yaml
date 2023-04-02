@@ -92,12 +92,6 @@ cards:
   - type: markdown
     content: 'Спальня'
 
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.top_light_bedroom_permission
-
   - type: entities
     state_color: true
     show_header_toggle: false
@@ -134,12 +128,6 @@ cards:
   cards:
   - type: markdown
     content: 'Гостиная'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.top_light_living_permission
 
   - type: entities
     state_color: true
