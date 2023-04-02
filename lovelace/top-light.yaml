@@ -43,6 +43,56 @@ cards:
       name: 'Выключатель'
 
 
+  ## Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.top_light_bath_permission
+    - entity: binary_sensor.motion_bath_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
+    - entity: input_boolean.button_bath
+      name: 'Кнопка'
+    - entity: switch.hall_switch_restroom_right
+      name: 'Выключатель'
+
+
+  ## Туалет
+  - type: markdown
+    content: 'Туалет'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.top_light_toilet_permission
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
+    - entity: input_boolean.button_toilet
+      name: 'Кнопка'
+    - entity: switch.hall_switch_restroom_left
+      name: 'Выключатель'
+
+
   ## Коридор
 - type: vertical-stack
   cards:
@@ -171,44 +221,3 @@ cards:
     - entity: switch.living_switch_right
       name: 'Выключатель правый'
 
-
-  ## Ванная
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Ванная'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.top_light_bath_permission
-    - entity: binary_sensor.motion_bath_boolean
-    - entity: binary_sensor.night_mode_hall_boolean
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: automation.dehumidifier_bath_on
-      name: 'Автоматизация (ванная)'
-
-
-  ## Туалет
-  - type: markdown
-    content: 'Туалет'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.top_light_toilet_permission
-    - entity: binary_sensor.occupancy_toilet_boolean
-    - entity: binary_sensor.night_mode_hall_boolean
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: automation.dehumidifier_bath_on
-      name: 'Автоматизация (ванная)'
