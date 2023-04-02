@@ -2,6 +2,8 @@ icon: 'mdi:air-humidifier'
 cards:
 
   ## Уборная
+- type: vertical-stack
+  cards:
   - type: markdown
     content: 'Уборная'
 
@@ -32,6 +34,8 @@ cards:
       name: 'Вытяжка ночь (20)'
 
   ## Коридор
+- type: vertical-stack
+  cards:
   - type: markdown
     content: 'Коридор'
 
@@ -58,6 +62,8 @@ cards:
       name: 'Офсет (11)'
 
   ## Спальня
+- type: vertical-stack
+  cards:
   - type: markdown
     content: 'Спальня'
 
@@ -84,6 +90,8 @@ cards:
       name: 'Офсет (18)'
 
   ## Гостиная
+- type: vertical-stack
+  cards:
   - type: markdown
     content: 'Гостиная'
 
