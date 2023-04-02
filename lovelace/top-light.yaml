@@ -22,6 +22,9 @@ cards:
     - entity: input_boolean.button_kitchen_left
       name: 'Кнопка'
     - type: divider
+    - entity: light.top_light_kitchen_group
+      name: 'Группа'
+    - type: divider
     - entity: light.top_light_kitchen_1
       name: 'Светильник 1'
     - entity: light.top_light_kitchen_2
