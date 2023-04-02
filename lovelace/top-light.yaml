@@ -39,6 +39,7 @@ cards:
     - entity: switch.kitchen_switch_left
       name: 'Выключатель'
 
+
   ## Коридор
 - type: vertical-stack
   cards:
@@ -78,6 +79,7 @@ cards:
     - type: divider
     - entity: switch.hall_switch
       name: 'Выключатель'
+
 
   ## Спальня
 - type: vertical-stack
@@ -164,6 +166,7 @@ cards:
     - entity: switch.living_switch_right
       name: 'Выключатель правый'
 
+
   ## Ванная
 - type: vertical-stack
   cards:
@@ -183,9 +186,8 @@ cards:
     - entity: automation.dehumidifier_bath_on
       name: 'Автоматизация (ванная)'
 
+
   ## Туалет
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Туалет'
 
