@@ -12,23 +12,23 @@
 
 - binary_sensor:
   - name: 'night_mode_auto_on'
-    icon: 'mdi:clock-alert-outline'
+    icon: 'mdi:play-circle'
     state: >
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {% set isNightTime = is_state('binary_sensor.date_time_night', 'on') %}
+      {% set isTwilightTime = is_state('binary_sensor.date_time_twilight_time', 'on') %}
       {% set kitchenValue = states('sensor.night_mode_kitchen_last_motion') | int(0) %}
       {% set hallValue = states('sensor.night_mode_hall_last_motion') | int(0) %}
       {% set targetValue = states('input_number.night_mode_inaction_target') | int(0) %}
-      {{ not(isNightMode) and isNightTime and (kitchenValue > targetValue) and (hallValue > targetValue) }}
+      {{ isNightMode or (isTwilightTime and (kitchenValue > targetValue) and (hallValue > targetValue)) }}
 
   - name: 'night_mode_auto_off'
-    icon: 'mdi:clock-alert'
+    icon: 'mdi:stop-circle'
     state: >
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {% set isMorningTime = is_state('binary_sensor.date_time_morning_time', 'on') %}
       {% set isHallMotion = is_state('binary_sensor.motion_hall_boolean', 'on') %}
       {% set isKitchenMotion = is_state('binary_sensor.motion_kitchen_boolean', 'on') %}
-      {{ isNightMode and isMorningTime and (isHallMotion or isKitchenMotion) }}
+      {{ not(isNightMode) or (isMorningTime and (isHallMotion or isKitchenMotion)) }}
 
 ## NIGHT_MODE BOOLEAN
   - name: 'night_mode_bedroom_boolean' 
