@@ -39,44 +39,6 @@ cards:
     - entity: switch.kitchen_switch_left
       name: 'Выключатель'
 
-  ## Ванная
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Ванная'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: automation.dehumidifier_bath_on
-      name: 'Автоматизация (ванная)'
-
-  ## Туалет
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Туалет'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.dehumidifier_toilet_permission
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: automation.dehumidifier_bath_on
-      name: 'Автоматизация (ванная)'
-
   ## Коридор
 - type: vertical-stack
   cards:
@@ -196,3 +158,41 @@ cards:
     - type: divider
     - entity: switch.living_switch
       name: 'Выключатель'
+
+  ## Ванная
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Ванная'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.dehumidifier_toilet_permission
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
+
+  ## Туалет
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Туалет'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.dehumidifier_toilet_permission
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.dehumidifier_bath_on
+      name: 'Автоматизация (ванная)'
