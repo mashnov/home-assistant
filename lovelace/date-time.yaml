@@ -54,10 +54,8 @@ cards:
   - entity: input_boolean.button_living_both
     name: 'Гостиная'
   - type: divider
-  - entity: sensor.night_mode_kitchen_last_motion
-    name: 'Движение (кухня)'
-  - entity: sensor.night_mode_hall_last_motion
-    name: 'Движение (коридор)'
+  - entity: sensor.night_mode_last_motion
+    name: 'Последнее движение'
   - type: divider
   - entity: input_number.night_mode_inaction_target
     name: 'Минут без движения'

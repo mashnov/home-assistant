@@ -1,14 +1,12 @@
 ## NIGHT_MODE SENSORS
 - sensor:
-  - name: 'night_mode_kitchen_last_motion'
+  - name: 'night_mode_last_motion'
     unit_of_measurement: 'мин. назад'
     icon: 'mdi:motion-play'
-    state: "{{ ((as_timestamp(now()) - as_timestamp(states.binary_sensor.hall_motion.last_changed)) / 60) | round(0) }}"
-
-  - name: 'night_mode_hall_last_motion'
-    unit_of_measurement: 'мин. назад'
-    icon: 'mdi:motion-play'
-    state: "{{ ((as_timestamp(now()) - as_timestamp(states.binary_sensor.motion_kitchen.last_changed)) / 60) | round(0) }}"
+    state: >
+      {% set kitchenValue = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.hall_motion.last_changed)) / 60) | round(0) %}
+      {% set hallValue = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.motion_kitchen.last_changed)) / 60) | round(0) %}
+      {{ min(kitchenValue, hallValue) }}
 
 - binary_sensor:
   - name: 'night_mode_auto_on'
@@ -17,10 +15,9 @@
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {% set isNightTime = is_state('binary_sensor.date_time_night_time', 'on') %}
       {% set isTwilightTime = is_state('binary_sensor.date_time_twilight_time', 'on') %}
-      {% set kitchenValue = states('sensor.night_mode_kitchen_last_motion') | int(0) %}
-      {% set hallValue = states('sensor.night_mode_hall_last_motion') | int(0) %}
+      {% set lastMotion = states('sensor.night_mode_last_motion') | int(0) %}
       {% set targetValue = states('input_number.night_mode_inaction_target') | int(0) %}
-      {{ isNightMode or isNightTime or (isTwilightTime and (kitchenValue > targetValue) and (hallValue > targetValue)) }}
+      {{ isNightMode or isNightTime or (isTwilightTime and (lastMotion > targetValue)) }}
 
   - name: 'night_mode_auto_off'
     icon: 'mdi:stop-circle'
