@@ -1,6 +1,9 @@
 icon: 'mdi:shower'
 cards:
 
+- type: vertical-stack
+  cards:
+
 # ОСВЕЩЕНИЕ
   - type: markdown
     content: 'Освещение'
