@@ -24,8 +24,10 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.party_light_kitchen_permission
-    - entity: input_boolean.button_kitchen_both 
+    - entity: binary_sensor.ventilation_kitchen_boolean
+    - entity: input_boolean.illuminance_kitchen_curtain_boolean 
+    - entity: input_boolean.night_mode_hall_boolean 
+    - entity: input_boolean.solar_hight 
 
   - type: entities
     state_color: true
