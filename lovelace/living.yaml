@@ -49,7 +49,7 @@ cards:
     entities:
     - entity: binary_sensor.top_light_living_permission
     - entity: binary_sensor.night_mode_living_boolean
-    - entity: input_boolean.button_living_left
+    - entity: input_boolean.button_living_right 
 
   - type: entities
     state_color: true
@@ -87,7 +87,7 @@ cards:
     - entity: binary_sensor.back_light_living_permission
     - entity: binary_sensor.illuminance_living_back_light_boolean
     - entity: binary_sensor.night_mode_living_boolean
-    - entity: input_boolean.button_living_right 
+    - entity: input_boolean.button_living_left
 
   - type: entities
     state_color: true
