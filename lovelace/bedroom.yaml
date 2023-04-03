@@ -50,7 +50,7 @@ cards:
     entities:
     - entity: binary_sensor.top_light_bedroom_permission
     - entity: binary_sensor.night_mode_bedroom_boolean
-    - entity: input_boolean.button_hall 
+    - entity: input_boolean.button_bedroom_left 
 
   - type: entities
     state_color: true
@@ -85,10 +85,10 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.back_light_hall_permission
-    - entity: binary_sensor.illuminance_hall_back_light_boolean
-    - entity: binary_sensor.night_mode_hall_boolean
-    - entity: input_boolean.button_hall_both
+    - entity: binary_sensor.back_light_bedroom_permission
+    - entity: binary_sensor.illuminance_bedroom_back_light_boolean
+    - entity: binary_sensor.night_mode_bedroom_boolean
+    - entity: input_boolean.button_bedroom_right
 
   - type: entities
     state_color: true
@@ -113,11 +113,11 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidifier_hall_permission
+    - entity: binary_sensor.humidifier_bedroom_permission
     - entity: binary_sensor.ventilation_bedroom_boolean
     - entity: binary_sensor.night_mode_bedroom_boolean
     - entity: binary_sensor.humidity_bedroom_low
-    - entity: binary_sensor.humidifier_hall_empty_boolean
+    - entity: binary_sensor.humidifier_bedroom_empty_boolean
 
   - type: entities
     state_color: true
