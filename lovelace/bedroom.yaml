@@ -50,7 +50,7 @@ cards:
     entities:
     - entity: binary_sensor.top_light_bedroom_permission
     - entity: binary_sensor.night_mode_bedroom_boolean
-    - entity: input_boolean.button_bedroom_left 
+    - entity: input_boolean.button_bedroom_right
 
   - type: entities
     state_color: true
@@ -88,7 +88,7 @@ cards:
     - entity: binary_sensor.back_light_bedroom_permission
     - entity: binary_sensor.illuminance_bedroom_back_light_boolean
     - entity: binary_sensor.night_mode_bedroom_boolean
-    - entity: input_boolean.button_bedroom_right
+    - entity: input_boolean.button_bedroom_left 
 
   - type: entities
     state_color: true
