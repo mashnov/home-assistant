@@ -60,8 +60,8 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.hall_switch_restroom_left
-      name: 'Выключатель'
+    - entity: switch.hall_relay_l1
+      name: 'Светильник'
     - type: divider
     - entity: automation.top_light_toilet
       name: 'Автоматизация'
