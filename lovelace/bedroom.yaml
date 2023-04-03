@@ -1,8 +1,5 @@
-icon: 'mdi:wardrobe'
+icon: 'mdi:bed-double-outline'
 cards:
-
-- type: vertical-stack
-  cards:
 
 # ОКНА И ДВЕРИ
 - type: vertical-stack
@@ -98,14 +95,14 @@ cards:
     show_header_toggle: false
     entities:
     - entity: switch.bedroom_relay_l1
-      name: 'Светильник'
+      name: 'Подсветка'
     - entity: switch.bedroom_wall_switch
-      name: 'Светильник (ниша)'
+      name: 'Светильник'
     - type: divider
     - entity: automation.back_light_bedroom_1
-      name: 'Автоматизация 1'
+      name: 'Автоматизация (подсветка)'
     - entity: automation.back_light_bedroom_2
-      name: 'Автоматизация (ниша)'
+      name: 'Автоматизация (светильник)'
 
 
 # УВЛАЖНИТЕЛЬ
