@@ -49,7 +49,7 @@ cards:
     - entity: automation.night_light_toilet
       name: 'Автоматизация'
 
-# Вытяжка
+# ВЫТЯЖКА
   - type: markdown
     content: 'Вытяжка'
 

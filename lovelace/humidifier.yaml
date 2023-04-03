@@ -1,7 +1,7 @@
 icon: 'mdi:air-humidifier'
 cards:
 
-  ## Уборная
+## УБОРНАЯ
 - type: vertical-stack
   cards:
   - type: markdown
@@ -33,7 +33,7 @@ cards:
     - entity: input_number.duration_dehumidifier_night
       name: 'Вытяжка ночь (20)'
 
-  ## Коридор
+## КОРИДОР
 - type: vertical-stack
   cards:
   - type: markdown
@@ -61,7 +61,7 @@ cards:
     - entity: input_number.power_offset_hall
       name: 'Офсет (11)'
 
-  ## Спальня
+## СПАЛЬНЯ
 - type: vertical-stack
   cards:
   - type: markdown
@@ -89,7 +89,7 @@ cards:
     - entity: input_number.power_offset_bedroom
       name: 'Офсет (18)'
 
-  ## Гостиная
+## ГОСТИНАЯ
 - type: vertical-stack
   cards:
   - type: markdown

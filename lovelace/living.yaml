@@ -16,6 +16,21 @@ cards:
     - entity: binary_sensor.window_living_open
     - entity: binary_sensor.ventilation_living_boolean
 
+# КЛИМАТ
+  - type: markdown
+    content: 'Климат'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.temperature_living_level
+      name: 'Температура'
+    - entity: sensor.humidity_living_level
+      name: 'Влажность'
+    - entity: sensor.pressure_level
+      name: 'Давление'
+
 # ШТОРЫ
   - type: markdown
     content: 'Шторы'
@@ -100,7 +115,6 @@ cards:
     - type: divider
     - entity: automation.back_light_living
       name: 'Автоматизация'
-
 
 # УВЛАЖНИТЕЛЬ
   - type: markdown

@@ -4,6 +4,21 @@ cards:
 - type: vertical-stack
   cards:
 
+# КЛИМАТ
+  - type: markdown
+    content: 'Климат'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.temperature_bath_level
+      name: 'Температура'
+    - entity: sensor.humidity_bath_level
+      name: 'Влажность'
+    - entity: sensor.pressure_level
+      name: 'Давление'
+
 # ОСВЕЩЕНИЕ
   - type: markdown
     content: 'Освещение'

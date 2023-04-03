@@ -61,7 +61,4 @@
   - name: 'night_light_balciony_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
-    state: >
-      {% set isButtonOn = is_state('binary_sensor.button_balcony_singl_on', 'on') %}
-      {% set isOccupancy = is_state('binary_sensor.permission_balcony_night_light', 'on') %}
-      {{ isButtonOn or isOccupancy }}
+    state: "{{ is_state('input_boolean.button_balcony_singl_on', 'on') }}"

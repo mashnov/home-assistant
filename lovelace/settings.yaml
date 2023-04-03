@@ -1,76 +1,32 @@
-title: 'Параметры'
 icon: 'mdi:tune-variant'
 cards:
-- type: vertical-stack
-  cards:
-
-  - type: entities  
-    title: 'Выключатели'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.button_kitchen_both
-      name: 'Кухня оба (вечеринка)'
-    - entity: input_boolean.button_kitchen_right
-      name: 'Кухня 1 освещение'
-    - entity: input_boolean.button_kitchen_left
-      name: 'Кухня 2 подсветка'
-    - entity: input_boolean.button_bath
-      name: 'Ванная'
-    - entity: input_boolean.button_toilet
-      name: 'Туалет'
-    - entity: input_boolean.button_hall
-      name: 'Коридор'
-    - entity: input_boolean.button_hall_both
-      name: 'Коридор оба (подсветка)'
-    - entity: input_boolean.button_bedroom_right
-      name: 'Спальня 1 (подсветка)'
-    - entity: input_boolean.button_bedroom_left
-      name: 'Спальня 2 (освещение)'
-    - entity: input_boolean.button_living_right
-      name: 'Гостиная 1 (подсветка)'
-    - entity: input_boolean.button_living_left
-      name: 'Гостиная 2 (освещение)'
-  
-  - type: entities  
-    title: 'Выключатели'
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_boolean.button_toilet_long
-      name: 'Туалет вытяжка'
-    - entity: input_boolean.button_balcony_singl
-      name: 'Балкон освещение'
-    - entity: input_boolean.button_balcony_double
-      name: 'Балкон подсветка'
-    - entity: input_boolean.button_balcony_long
-      name: 'Балкон фонтан'
-    - entity: input_boolean.button_balcony_shake
-      name: 'Балкон розетка'
 
 - type: vertical-stack
   cards:
+
+## ДАТА И ВРЕМЯ
+  - type: markdown
+    content: 'Дата и время'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.date_time_night
+    - entity: binary_sensor.date_time_morning
+    - entity: binary_sensor.date_time_day
+    - entity: binary_sensor.date_time_evening
+    - entity: binary_sensor.date_time_twilight
 
   - type: entities
-    title: 'Ночной режим'
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_boolean.button_bedroom_both
-      name: 'Спальня'
-    - entity: input_boolean.button_living_both
-      name: 'Гостиная'
+    - type: attribute
+      entity: sensor.date_time
+      attribute: 'hm_local'
+      name: 'Локальное время'
     - type: divider
-    - entity: input_datetime.night_mode_start_time
-      name: 'Начало'
-    - entity: input_datetime.night_mode_stop_time
-      name: 'Конец'
-
-  - type: entities
-    title: 'Время суток'
-    state_color: true
-    show_header_toggle: false
-    entities:
     - entity: input_datetime.date_time_night_time
       name: 'Ночь'
     - entity: input_datetime.date_time_morning_time
@@ -79,17 +35,182 @@ cards:
       name: 'День'
     - entity: input_datetime.date_time_evening_time
       name: 'Вечер'
+    - entity: input_datetime.date_time_twilight_time
+      name: 'Сумерки'
+
+## НОЧНОЙ РЕЖИМ
+  - type: markdown
+    content: 'Ночной режим'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_mode_auto_off
+    - entity: binary_sensor.night_mode_auto_on
+    - entity: binary_sensor.night_mode_hall_boolean
 
   - type: entities
-    title: 'Оффсет и Таргет'
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: input_number.cloud_target
-      name: 'Облачность'
-    - entity: input_number.humidity_target
+    - entity: automation.night_mode_auto
+      name: 'Автоматизация'
+    - entity: input_boolean.button_bedroom_both
+      name: 'Спальня'
+    - entity: input_boolean.button_living_both
       name: 'Гостиная'
-    - entity: input_number.humidity_target_bath
+    - type: divider
+    - entity: sensor.night_mode_last_motion
+      name: 'Последнее движение'
+    - entity: input_number.night_mode_inaction_target
+      name: 'Минут без движения'
+    - entity: input_number.delay_night_mode_on
+      name: 'Задержка включения'
+
+## КНОПКИ
+  - type: markdown
+    content: 'Кнопки'
+
+  - type: entities  
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_boolean.button_kitchen_both
+      name: 'Кухня вечеринка'
+    - entity: input_boolean.button_kitchen_right 
+      name: 'Кухня освещение'
+    - entity: input_boolean.button_kitchen_left
+      name: 'Кухня подсветка'
+    - type: divider
+    - entity: input_boolean.button_bath
+      name: 'Ванная'
+    - type: divider
+    - entity: input_boolean.button_toilet
+      name: 'Туалет'
+    - type: divider
+    - entity: input_boolean.button_hall 
+      name: 'Коридор освещение'
+    - entity: input_boolean.button_hall_both
+      name: 'Коридор подсветка'
+    - type: divider
+    - entity: input_boolean.button_bedroom_right
+      name: 'Спальня освещение'
+    - entity: input_boolean.button_bedroom_left 
+      name: 'Спальня подсветка'
+    - type: divider
+    - entity: input_boolean.button_living_right 
+      name: 'Гостиная освещение'
+    - entity: input_boolean.button_living_left
+      name: 'Гостиная подсветка'
+    - type: divider
+    - entity: input_boolean.button_balcony_double 
+      name: 'Балкон освещение'
+    - entity: input_boolean.button_balcony_singl 
+      name: 'Балкон подсветка'
+    - entity: input_boolean.button_balcony_long 
+      name: 'Балкон фонтан'
+    - entity: input_boolean.button_balcony_shake 
+      name: 'Балкон розетка'
+
+
+## ВЫКЛЮЧАТЕЛИ
+  - type: markdown
+    content: 'Выключатели'
+
+  - type: entities  
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: switch.kitchen_switch_left
+      name: 'Кухня освещение'
+    - entity: switch.kitchen_switch_right
+      name: 'Кухня подсветка'
+    - type: divider
+    - entity: switch.hall_switch_restroom_right
+      name: 'Ванная'
+    - type: divider
+    - entity: switch.hall_switch_restroom_left
+      name: 'Туалет'
+    - type: divider
+    - entity: switch.hall_switch
+      name: 'Коридор'
+    - entity: switch.bedroom_switch
+      name: 'Спальня освещение'
+    - entity: switch.bedroom_wall_switch
+      name: 'Спальня подсветка'
+    - type: divider
+    - entity: switch.bedroom_switch
       name: 'Гостиная'
-    - entity: input_number.humidity_offset
-      name: 'Гостиная'
+
+## АВТОМАТИЗАЦИИ
+  - type: markdown
+    content: 'Автоматизации'
+
+  - type: entities  
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: automation.curtain_kitchen
+      name: 'Кухня шторы'
+    - entity: automation.party_light_kitchen
+      name: 'Кухня вечеринка'
+    - entity: automation.top_light_kitchen
+      name: 'Кухня освещение'
+    - entity: automation.back_light_kitchen
+      name: 'Кухня посдветка'
+    - entity: automation.night_light_kitchden
+      name: 'Кухня ночник'
+    - type: divider
+    - entity: automation.top_light_bath
+      name: 'Ванная освещение'
+    - entity: automation.night_light_bath
+      name: 'Ванная ночник'
+    - entity: automation.dehumidifier_bath_on
+      name: 'Ванная вытяжка'
+    - type: divider
+    - entity: automation.top_light_toilet
+      name: 'Туалет ночник'
+    - entity: automation.night_light_toilet
+      name: 'Туалет ночник'
+    - entity: automation.dehumidifier_toilet_on
+      name: 'Туалет вытяжка'
+    - type: divider
+    - entity: automation.top_light_hall
+      name: 'Коридор освещение'
+    - entity: automation.top_light_toilet
+      name: 'Коридор посдветка'
+    - entity: automation.night_light_hall
+      name: 'Коридор ночник'
+    - entity: automation.humidifier_hall
+      name: 'Коридор увлажнитель'
+    - type: divider
+    - entity: automation.curtain_bedroom
+      name: 'Спальня шторы'
+    - entity: automation.top_light_bedroom
+      name: 'Спальня освещение'
+    - entity: automation.back_light_bedroom_1
+      name: 'Спальня подсветка'
+    - entity: automation.back_light_bedroom_2
+      name: 'Спальня светильник'
+    - entity: automation.humidifier_bedroom
+      name: 'Спальня увлажнитель'
+    - type: divider
+    - entity: automation.curtain_living
+      name: 'Гостиная шторы'
+    - entity: automation.top_light_living
+      name: 'Гостиная освещение'
+    - entity: automation.back_light_living
+      name: 'Гостиная подсветка'
+    - entity: automation.humidifier_living
+      name: 'Гостиная увлажнитель'
+    - type: divider
+    - entity: automation.back_light_balcony
+      name: 'Балкон освещение'
+    - entity: automation.night_light_balcony
+      name: 'Балкон подсветка'
+    - entity: automation.fountain_balcony
+      name: 'Балкон фонтан'
+    - entity: automation.socket_balcony
+      name: 'Балкон розетка'
+
