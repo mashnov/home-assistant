@@ -93,7 +93,7 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.balcony_light_relay_l2_2
+    - entity: switch.living_relay_l2
       name: 'Светильник'
     - type: divider
     - entity: automation.back_light_living
