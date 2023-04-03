@@ -1,0 +1,139 @@
+icon: 'mdi:kettle-outline'
+cards:
+- type: vertical-stack
+  cards:
+
+  - type: markdown
+    content: 'Шторы'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.party_light_kitchen_permission
+    - entity: input_boolean.button_kitchen_both 
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: cover.curtain_kitchen
+      name: 'Шторы'
+    - type: divider
+    - entity: automation.curtain_kitchen
+      name: 'Автоматизация'
+
+  - type: markdown
+    content: 'Режим вечеринки'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.party_light_kitchen_permission
+    - entity: input_boolean.button_kitchen_both 
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: light.kitchen_party_light
+      name: 'Светильник'
+    - type: divider
+    - entity: automation.party_light_kitchen
+      name: 'Автоматизация'
+    
+  - type: markdown
+    content: 'Освещение'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.top_light_kitchen_permission
+    - entity: binary_sensor.motion_kitchen_boolean
+    - entity: binary_sensor.illuminance_kitchen_top_light_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+    - entity: input_boolean.button_kitchen_right 
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: light.top_light_kitchen_group
+      name: 'Группа светильников'
+    - entity: switch.kitchen_switch_left
+      name: 'Выключатель'
+    - type: divider
+    - entity: light.top_light_kitchen_1
+      name: 'Светильник 1'
+    - entity: light.top_light_kitchen_2
+      name: 'Светильник 2'
+    - entity: light.top_light_kitchen_3
+      name: 'Светильник 3'
+    - entity: light.top_light_kitchen_4
+      name: 'Светильник 4'
+    - entity: light.top_light_kitchen_5
+      name: 'Светильник 5'
+    - type: divider
+    - entity: automation.top_light_kitchen
+      name: 'Автоматизация'
+
+  - type: markdown
+    content: 'Подсветка'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.back_light_kitchen_permission
+    - entity: binary_sensor.motion_kitchen_boolean
+    - entity: binary_sensor.illuminance_kitchen_back_light_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+    - entity: input_boolean.button_kitchen_left 
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: light.kitchen_relay_l2
+      name: 'Светильник'
+    - entity: switch.kitchen_switch_right
+      name: 'Выключатель'
+    - type: divider
+    - entity: automation.back_light_kitchen
+      name: 'Автоматизация'
+
+  - type: markdown
+    content: 'Ночник'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_light_kitchen_permission
+    - entity: binary_sensor.motion_kitchen_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: light.kitchen_relay_l1
+      name: 'Светильник'
+    - entity: switch.kitchen_switch_right
+      name: 'Выключатель'
+    - type: divider
+    - entity: automation.night_light_kitchden
+      name: 'Автоматизация'
+
+  - type: markdown
+    content: 'Окна'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.window_kitchen_left_open
+    - entity: binary_sensor.window_kitchen_right_open
+    - entity: binary_sensor.ventilation_kitchen_boolean
