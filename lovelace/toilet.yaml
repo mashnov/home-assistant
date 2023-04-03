@@ -1,0 +1,71 @@
+icon: 'mdi:toilet'
+cards:
+
+- type: vertical-stack
+  cards:
+
+# ОСВЕЩЕНИЕ
+  - type: markdown
+    content: 'Освещение'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.top_light_toilet_permission
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
+    - entity: input_boolean.button_toilet
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: switch.hall_switch_restroom_left
+      name: 'Выключатель'
+    - type: divider
+    - entity: automation.top_light_toilet
+      name: 'Автоматизация'
+
+# НОЧНИК
+  - type: markdown
+    content: 'Ночник'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.night_light_toilet_permission
+    - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: input_boolean.button_toilet
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: switch.toilet_relay_l2
+      name: 'Светильник'
+    - type: divider
+    - entity: automation.night_light_toilet
+      name: 'Автоматизация'
+
+# Вытяжка
+  - type: markdown
+    content: 'Вытяжка'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.door_toilet_open
+    - entity: input_boolean.button_toilet_long 
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: switch.toilet_relay_l1
+      name: 'Вытяжка'
+    - type: divider
+    - entity: automation.dehumidifier_toilet_on
+      name: 'Автоматизация'
