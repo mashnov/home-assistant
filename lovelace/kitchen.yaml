@@ -43,13 +43,14 @@ cards:
     - entity: binary_sensor.illuminance_kitchen_curtain_boolean 
     - entity: binary_sensor.night_mode_hall_boolean 
     - entity: binary_sensor.solar_hight 
+    - entity: cover.curtain_kitchen
 
   - type: entities
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: cover.curtain_kitchen
-      name: 'Шторы'
+    - entity: sensor.curtain_kitchen_position
+      name: 'Позиция'
     - entity: sensor.curtain_kitchen_battery
       name: 'Батарея'
     - type: divider

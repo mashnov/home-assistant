@@ -44,13 +44,14 @@ cards:
     - entity: binary_sensor.illuminance_bedroom_curtain_boolean 
     - entity: binary_sensor.night_mode_bedroom_boolean 
     - entity: binary_sensor.solar_hight 
+    - entity: cover.curtain_bedroom
 
   - type: entities
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: cover.curtain_bedroom
-      name: 'Шторы'
+    - entity: sensor.curtain_bedroom_position
+      name: 'Позиция'
     - entity: sensor.curtain_bedroom_battery
       name: 'Батарея'
     - type: divider
