@@ -49,17 +49,13 @@ switch_bedroom_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 
-    - 'switch.bedroom_switch_left'
-    - 'switch.bedroom_switch_right'
+    entity_id: 'switch.bedroom_switch'
 
 switch_bedroom_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 
-    - 'switch.bedroom_switch_left'
-    - 'switch.bedroom_switch_right'
+    entity_id: 'switch.bedroom_switch'
 
 
 ## SWITCH LIVING
@@ -67,14 +63,10 @@ switch_living_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 
-    - 'switch.living_switch_left'
-    - 'switch.living_switch_right'
+    entity_id: 'switch.living_switch'
 
 switch_living_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 
-    - 'switch.living_switch_left'
-    - 'switch.living_switch_right'
+    entity_id: 'switch.living_switch'
