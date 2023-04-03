@@ -1,10 +1,22 @@
 icon: 'mdi:kettle-outline'
 cards:
 
-# ШТОРЫ
+# ОКНА
 - type: vertical-stack
   cards:
 
+  - type: markdown
+    content: 'Окна'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.window_kitchen_left_open
+    - entity: binary_sensor.window_kitchen_right_open
+    - entity: binary_sensor.ventilation_kitchen_boolean
+
+# ШТОРЫ
   - type: markdown
     content: 'Шторы'
 
@@ -26,9 +38,6 @@ cards:
       name: 'Автоматизация'
 
 # ВЕЧЕРИНКА
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Режим вечеринки'
 
@@ -50,9 +59,6 @@ cards:
       name: 'Автоматизация'
 
 # ОСВЕЩЕНИЕ
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Освещение'
 
@@ -90,9 +96,6 @@ cards:
       name: 'Автоматизация'
 
 # ПОДСВЕТКА
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Подсветка'
 
@@ -119,9 +122,6 @@ cards:
       name: 'Автоматизация'
 
 # НОЧНИК
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Ночник'
 
@@ -144,18 +144,3 @@ cards:
     - type: divider
     - entity: automation.night_light_kitchden
       name: 'Автоматизация'
-
-# ОКНА
-- type: vertical-stack
-  cards:
-
-  - type: markdown
-    content: 'Окна'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.window_kitchen_left_open
-    - entity: binary_sensor.window_kitchen_right_open
-    - entity: binary_sensor.ventilation_kitchen_boolean
