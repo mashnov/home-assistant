@@ -1,5 +1,23 @@
 icon: 'mdi:kettle-outline'
 cards:
+
+# ОКНА
+- type: vertical-stack
+  cards:
+
+  - type: markdown
+    content: 'Окна'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.window_kitchen_left_open
+    - entity: binary_sensor.window_kitchen_right_open
+    - entity: binary_sensor.ventilation_kitchen_boolean
+
+
+# ШТОРЫ
 - type: vertical-stack
   cards:
 
@@ -23,6 +41,10 @@ cards:
     - entity: automation.curtain_kitchen
       name: 'Автоматизация'
 
+# ВЕЧЕРИНКА
+- type: vertical-stack
+  cards:
+
   - type: markdown
     content: 'Режим вечеринки'
 
@@ -42,7 +64,11 @@ cards:
     - type: divider
     - entity: automation.party_light_kitchen
       name: 'Автоматизация'
-    
+
+# ОСВЕЩЕНИЕ
+- type: vertical-stack
+  cards:
+
   - type: markdown
     content: 'Освещение'
 
@@ -79,6 +105,10 @@ cards:
     - entity: automation.top_light_kitchen
       name: 'Автоматизация'
 
+# ПОДСВЕТКА
+- type: vertical-stack
+  cards:
+
   - type: markdown
     content: 'Подсветка'
 
@@ -96,13 +126,17 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: light.kitchen_relay_l2
+    - entity: switch.kitchen_relay_l2
       name: 'Светильник'
     - entity: switch.kitchen_switch_right
       name: 'Выключатель'
     - type: divider
     - entity: automation.back_light_kitchen
       name: 'Автоматизация'
+
+# НОЧНИК
+- type: vertical-stack
+  cards:
 
   - type: markdown
     content: 'Ночник'
@@ -119,21 +153,10 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: light.kitchen_relay_l1
+    - entity: switch.kitchen_relay_l1
       name: 'Светильник'
     - entity: switch.kitchen_switch_right
       name: 'Выключатель'
     - type: divider
     - entity: automation.night_light_kitchden
       name: 'Автоматизация'
-
-  - type: markdown
-    content: 'Окна'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.window_kitchen_left_open
-    - entity: binary_sensor.window_kitchen_right_open
-    - entity: binary_sensor.ventilation_kitchen_boolean
