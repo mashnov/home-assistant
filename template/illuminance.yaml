@@ -11,7 +11,7 @@
     device_class: 'problem'
     icon: 'mdi:brightness-7'
     state: >
-      {% set isCloudly = is_state('binary_sensor.cloud', 'on') %}
+      {% set isCloudly = is_state('binary_sensor.cloud_hight', 'on') %}
       {% set targetCloudly = states('input_number.illuminance_kitchen_curtain_target_cloudly') | int(0) %}
       {% set targetSunny = states('input_number.illuminance_kitchen_curtain_target_sunny') | int(0) %}
       {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
@@ -22,7 +22,7 @@
     device_class: 'problem'
     icon: 'mdi:brightness-7'
     state: >
-      {% set isCloudly = is_state('binary_sensor.cloud', 'on') %}
+      {% set isCloudly = is_state('binary_sensor.cloud_hight', 'on') %}
       {% set targetCloudly = states('input_number.illuminance_bedroom_curtain_target_cloudly') | int(0) %}
       {% set targetSunny = states('input_number.illuminance_bedroom_curtain_target_sunny') | int(0) %}
       {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
@@ -33,7 +33,7 @@
     device_class: 'problem'
     icon: 'mdi:brightness-7'
     state: >
-      {% set isCloudly = is_state('binary_sensor.cloud', 'on') %}
+      {% set isCloudly = is_state('binary_sensor.cloud_hight', 'on') %}
       {% set targetCloudly = states('input_number.illuminance_living_curtain_target_cloudly') | int(0) %}
       {% set targetSunny = states('input_number.illuminance_living_curtain_target_sunny') | int(0) %}
       {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
@@ -88,7 +88,7 @@
     device_class: 'problem'
     icon: 'mdi:brightness-5'
     state: > 
-      {% set isCloudly = is_state('binary_sensor.cloud', 'on') %}
+      {% set isCloudly = is_state('binary_sensor.cloud_hight', 'on') %}
       {% set targetCloudly = states('input_number.illuminance_bedroom_back_light_target_cloudly') | int(0) %}
       {% set targetSunny = states('input_number.illuminance_bedroom_back_light_target_sunny') | int(0) %}
       {% set targetValue = iif(isCloudly, targetCloudly, targetSunny) %}
