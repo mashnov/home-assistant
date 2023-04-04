@@ -90,6 +90,7 @@ cards:
     entities:
     - entity: automation.night_mode_auto
       name: 'Ночной режим'
+    - type: divider
     - entity: automation.curtain_kitchen
       name: 'Кухня шторы'
     - entity: automation.party_light_kitchen
