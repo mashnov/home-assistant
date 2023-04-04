@@ -9,4 +9,4 @@
   - name: 'fountain_balcony_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
-    state: "{{ is_state('input_boolean.button_balcony_long_on', 'on') }}"
+    state: "{{ is_state('binary_sensor.button_balcony_long_on', 'on') }}"

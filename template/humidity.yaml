@@ -4,7 +4,7 @@
     device_class: 'humidity'
     unit_of_measurement: '%'
     state: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
-    icon: 'mdi:water'
+    icon: 'mdi:water-opacity'
 
   - name: 'humidity_bath_level'
     device_class: 'humidity'
@@ -42,7 +42,7 @@
     device_class: 'humidity'
     unit_of_measurement: '%'
     state: "{{ states('sensor.balcony_humidity') | float(0) | round(1) }}"
-    icon: 'mdi:water'
+    icon: 'mdi:water-opacity'
 
 - binary_sensor:
   - name: 'humidity_kitchen_low'
