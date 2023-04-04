@@ -49,7 +49,6 @@ cards:
     - entity: input_boolean.button_balcony_shake 
       name: 'Балкон розетка'
 
-
 ## ВЫКЛЮЧАТЕЛИ
   - type: markdown
     content: 'Выключатели'
@@ -79,6 +78,53 @@ cards:
     - type: divider
     - entity: switch.bedroom_switch
       name: 'Гостиная'
+
+## РЕЛЕ
+  - type: markdown
+    content: 'Реле'
+
+  - type: entities  
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: switch.kitchen_relay_l2
+      name: 'Кухня подсветка'
+    - entity: switch.kitchen_relay_l1
+      name: 'Кухня ночник'
+    - type: divider
+    - entity: switch.bath_relay_l1
+      name: 'Ванная зеркало'
+    - entity: switch.bath_relay_l2
+      name: 'Ванная свободно'
+    - type: divider
+    - entity: switch.toilet_relay_l1
+      name: 'Туалет вытяжка'
+    - entity: switch.toilet_relay_l2
+      name: 'Туалет ночник'
+    - type: divider
+    - entity: switch.hall_relay_l1
+      name: 'Коридор подсветка'
+    - entity: switch.hall_relay_l2
+      name: 'Коридор увлажнитель' 
+    - type: divider
+    - entity: switch.bedroom_relay_l1
+      name: 'Спальня подсветка'
+    - entity: switch.bedroom_relay_l2
+      name: 'Спальня увлажнитель'
+    - type: divider
+    - entity: switch.living_relay_l2
+      name: 'Гостиная подсветка'
+    - entity: switch.living_relay_l1
+      name: 'Гостиная увлажнитель'
+    - type: divider
+    - entity: switch.balcony_light_relay_l2_2
+      name: 'Балкон подсветка'
+    - entity: switch.balcony_light_relay_l1_2
+      name: 'Балкон ночник'
+    - entity: switch.balcony_socket_relay_l1
+      name: 'Балкон фонтан'
+    - entity: switch.balcony_socket
+      name: 'Балкон розетка'
 
 ## АВТОМАТИЗАЦИИ
   - type: markdown
