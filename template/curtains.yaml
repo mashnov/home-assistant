@@ -49,21 +49,21 @@
     state: "{{ state_attr('cover.curtain_kitchen', 'position') | int(0) }}"
     icon: >
       {% set isOpen = is_state('binary_sensor.curtain_kitchen_open', 'on') %}
-      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+      {{ iif(isOpen, 'mdi:arrow-left-bold-circle-outline', 'mdi:arrow-right-bold-circle-outline', 'mdi:help-circle') }}
 
   - name: 'curtain_bedroom_position'
     unit_of_measurement: '%'
     state: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}"
     icon: >
       {% set isOpen = is_state('binary_sensor.curtain_bedroom_open', 'on') %}
-      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+      {{ iif(isOpen, 'mdi:arrow-left-bold-circle-outline', 'mdi:arrow-right-bold-circle-outline', 'mdi:help-circle') }}
 
   - name: 'curtain_living_position'
     unit_of_measurement: '%'
     state: "{{ state_attr('cover.curtain_living', 'position') | int(0) }}"
     icon: >
       {% set isOpen = is_state('binary_sensor.curtain_living_open', 'on') %}
-      {{ iif(isOpen, 'mdi:curtains', 'mdi:curtains-closed', 'mdi:help-circle') }}
+      {{ iif(isOpen, 'mdi:arrow-left-bold-circle-outline', 'mdi:arrow-right-bold-circle-outline', 'mdi:help-circle') }}
 
 ## CURTAIN OPEN SENSORS
 - binary_sensor:
