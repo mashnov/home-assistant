@@ -71,10 +71,10 @@ back_light_balcony_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 'switch.balcony_light_relay_l2_2'
+    entity_id: 'switch.balcony_relay_l2'
 
 back_light_balcony_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.balcony_light_relay_l2_2'
+    entity_id: 'switch.balcony_relay_l2'

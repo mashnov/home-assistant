@@ -43,7 +43,7 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.balcony_light_relay_l2_2
+    - entity: switch.balcony_relay_l2
       name: 'Светильник'
     - type: divider
     - entity: automation.back_light_balcony
@@ -63,7 +63,7 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.balcony_light_relay_l1_2
+    - entity: switch.balcony_relay_l1
       name: 'Светильник'
     - type: divider
     - entity: automation.night_light_balcony
@@ -83,7 +83,7 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.balcony_socket_relay_l1
+    - entity: switch.balcony_relay_l3
       name: 'Фонтан'
     - type: divider
     - entity: automation.fountain_balcony
@@ -103,7 +103,7 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - entity: switch.balcony_socket
+    - entity: switch.balcony_relay_l4
       name: 'Розетка'
     - type: divider
     - entity: automation.socket_balcony

@@ -3,10 +3,10 @@ socket_balcony_on:
   mode: 'queued'
   sequence:
   - service: switch.turn_on
-    entity_id: 'switch.balcony_socket'
+    entity_id: 'switch.balcony_relay_l4'
 
 socket_balcony_off:
   mode: 'queued'
   sequence:
   - service: switch.turn_off
-    entity_id: 'switch.balcony_socket'
+    entity_id: 'switch.balcony_relay_l4'

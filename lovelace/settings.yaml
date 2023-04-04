@@ -117,13 +117,13 @@ cards:
     - entity: switch.living_relay_l1
       name: 'Гостиная увлажнитель'
     - type: divider
-    - entity: switch.balcony_light_relay_l2_2
+    - entity: switch.balcony_relay_l2
       name: 'Балкон подсветка'
-    - entity: switch.balcony_light_relay_l1_2
+    - entity: switch.balcony_relay_l1
       name: 'Балкон ночник'
-    - entity: switch.balcony_socket_relay_l1
+    - entity: switch.balcony_relay_l3
       name: 'Балкон фонтан'
-    - entity: switch.balcony_socket
+    - entity: switch.balcony_relay_l4
       name: 'Балкон розетка'
 
 ## АВТОМАТИЗАЦИИ

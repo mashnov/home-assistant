@@ -55,8 +55,8 @@
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
     state: >
-      {% set balcony1Value = states('sensor.balcony_socket_relay_power') | float(0) %}
-      {% set balcony2Value = states('sensor.balcony_light_relay_power_2') | float(0) %}
+      {% set balcony1Value = states('sensor.balcony_relay_1_power') | float(0) %}
+      {% set balcony2Value = states('sensor.balcony_relay_2_power') | float(0) %}
       {{ (balcony1Value + balcony2Value) | round(1) }}
 
 ## RELAY ON SENSORS
@@ -147,28 +147,28 @@
 
   - name: 'relay_balcony_1_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.balcony_light_relay_l1_2', 'on') }}"
+    state: "{{ is_state('switch.balcony_relay_l1', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.relay_balcony_1_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
   - name: 'relay_balcony_2_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.balcony_light_relay_l2_2', 'on') }}"
+    state: "{{ is_state('switch.balcony_relay_l2', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.relay_balcony_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
   - name: 'relay_balcony_3_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.balcony_socket_relay_l1', 'on') }}"
+    state: "{{ is_state('switch.balcony_relay_l3', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.relay_balcony_3_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
   - name: 'relay_balcony_4_on'
     device_class: 'plug'
-    state: "{{ is_state('switch.balcony_socket', 'on') }}"
+    state: "{{ is_state('switch.balcony_relay_l4', 'on') }}"
     icon: >
       {% set isEnable = is_state('binary_sensor.relay_balcony_4_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
