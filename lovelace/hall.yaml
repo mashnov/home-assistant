@@ -78,7 +78,7 @@ cards:
     - entity: switch.hall_relay_l1
       name: 'Светильник'
     - type: divider
-    - entity: automation.top_light_toilet
+    - entity: automation.top_light_hall
       name: 'Автоматизация'
 
 # НОЧНИК

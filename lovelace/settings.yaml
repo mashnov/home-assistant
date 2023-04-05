@@ -76,7 +76,7 @@ cards:
     - entity: switch.bedroom_wall_switch
       name: 'Спальня подсветка'
     - type: divider
-    - entity: switch.bedroom_switch
+    - entity: switch.living_switch
       name: 'Гостиная'
 
 ## РЕЛЕ
@@ -164,7 +164,7 @@ cards:
     - type: divider
     - entity: automation.top_light_hall
       name: 'Коридор освещение'
-    - entity: automation.top_light_toilet
+    - entity: automation.top_light_hall 
       name: 'Коридор посдветка'
     - entity: automation.night_light_hall
       name: 'Коридор ночник'

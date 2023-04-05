@@ -75,7 +75,7 @@ cards:
     entities:
     - entity: light.top_light_living_group
       name: 'Группа светильников'
-    - entity: switch.bedroom_switch
+    - entity: switch.living_switch
       name: 'Выключатель'
     - type: divider
     - entity: light.top_light_living_1
@@ -125,11 +125,11 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: binary_sensor.humidifier_hall_permission
+    - entity: binary_sensor.humidifier_living_permission
     - entity: binary_sensor.ventilation_living_boolean
     - entity: binary_sensor.night_mode_living_boolean
     - entity: binary_sensor.humidity_living_low
-    - entity: binary_sensor.humidifier_hall_empty_boolean
+    - entity: binary_sensor.humidifier_living_empty_boolean
 
   - type: entities
     state_color: true
