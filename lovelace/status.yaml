@@ -36,7 +36,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 72
     show_names: false
     entities:
     - entity: sensor.humidity_kitchen_level
@@ -94,7 +94,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 72
     show_names: false
     entities:
     - entity: sensor.temperature_kitchen_level
@@ -155,7 +155,7 @@ cards:
       name: 'Гостиная'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 72
     show_names: false
     entities:
     - entity: sensor.pressure_level
@@ -189,7 +189,7 @@ cards:
       name: 'Уровень облачности'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 72
     show_names: false
     entities:
     - sensor.cloud_level
@@ -225,7 +225,7 @@ cards:
       name: 'Освещенность'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 72
     show_names: false
     entities:
     - entity: sensor.solar_azimuth
@@ -234,6 +234,10 @@ cards:
       name: 'Подъем'
     - entity: sensor.illuminance_degree_level
       name: 'Освещенность'
+
+## СОЕДИНЕНИЕ
+  - type: markdown
+    content: 'Соединение'
 
   - type: entities
     state_color: true
@@ -248,3 +252,42 @@ cards:
       name: 'Таргет'
     - entity: input_number.solar_elevation_offset
       name: 'Офсет'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - binary_sensor.network_download_low
+    - binary_sensor.network_upload_low
+    - binary_sensor.network_ping_low
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.network_download_level
+      name: 'Загрузка'
+    - entity: sensor.network_upload_level
+      name: 'Отдача'
+    - entity: sensor.network_ping_level
+      name: 'Пинг'
+
+  - type: history-graph
+    hours_to_show: 72
+    show_names: false
+    entities:
+    - entity: sensor.network_download_level
+      name: 'Загрузка'
+    - entity: sensor.network_upload_level
+      name: 'Отдача'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.network_download_target
+      name: 'Таргет (загрузка)'
+    - entity: input_number.network_upload_target
+      name: 'Таргет (отдача)'
+    - entity: input_number.network_ping_target
+      name: 'Таргет (пинг)'
