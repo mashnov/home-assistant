@@ -135,5 +135,5 @@ cards:
       name: 'Азимут'
     - entity: sensor.solar_elevation
       name: 'Подъем'
-    - entity: sensor.parameters_light
+    - entity: sensor.illuminance_degree_level
       name: 'Освещенность'
