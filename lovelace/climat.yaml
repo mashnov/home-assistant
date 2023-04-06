@@ -36,7 +36,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 6
+    hours_to_show: 3
     show_names: false
     entities:
     - entity: sensor.humidity_kitchen_level

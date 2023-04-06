@@ -24,7 +24,7 @@ cards:
       name: 'Пинг'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 3
     show_names: false
     entities:
     - entity: sensor.network_download_level
