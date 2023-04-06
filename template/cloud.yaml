@@ -10,8 +10,10 @@
 - binary_sensor:
   - name: 'cloud_hight'
     device_class: 'problem'
-    icon: 'mdi:cloud'
     state: >
       {% set sensorValue = states('sensor.cloud_level') | int(0) %}
       {% set targetValue = states('input_number.cloud_target') | int(0) %}
       {{ sensorValue > targetValue }}
+    icon: >
+      {% set isCloudly = is_state('binary_sensor.cloud_hight', 'on') %}
+      {{ iif(isCloudly, 'mdi:cloud', 'mdi:cloud-outline', 'mdi:help-circle') }}

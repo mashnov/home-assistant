@@ -122,6 +122,8 @@ cards:
     show_name: false
     show_state: false
     entities:
+    - binary_sensor.solar_azimuth
+    - binary_sensor.solar_elevation
     - binary_sensor.solar_hight
     - sensor.illuminance_level
     - sensor.solar_azimuth
