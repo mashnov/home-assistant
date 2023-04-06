@@ -53,11 +53,11 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - sensor.temperature_kitchen_level
-    - sensor.temperature_bath_level
-    - sensor.temperature_hall_level
-    - sensor.temperature_bedroom_level
-    - sensor.temperature_living_level
+    - sensor.temperature_kitchen_problem
+    - sensor.temperature_bath_problem
+    - sensor.temperature_hall_problem
+    - sensor.temperature_bedroom_problem
+    - sensor.temperature_living_problem
 
   - type: history-graph
     hours_to_show: 6
