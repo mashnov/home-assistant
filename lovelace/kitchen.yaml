@@ -36,8 +36,6 @@ cards:
     entities:
     - entity: sensor.curtain_kitchen_position
       name: 'Позиция'
-    - entity: sensor.curtain_kitchen_battery
-      name: 'Батарея'
     - type: divider
     - entity: automation.curtain_kitchen
       name: 'Автоматизация'

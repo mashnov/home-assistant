@@ -14,27 +14,6 @@ cards:
     entities:
     - entity: binary_sensor.door_balcony_open
 
-# КЛИМАТ
-  - type: markdown
-    content: 'Климат'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.cloud_hight
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: sensor.temperature_balcony_level
-      name: 'Температура'
-    - entity: sensor.humidity_balcony_level
-      name: 'Влажность'
-    - entity: sensor.illuminance_level
-      name: 'Освещенность'
-
 # ОСВЕЩЕНИЕ
   - type: markdown
     content: 'Освещение'
