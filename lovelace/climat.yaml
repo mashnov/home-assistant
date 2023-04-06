@@ -1,9 +1,6 @@
 icon: 'mdi:home-thermometer-outline'
 cards:
 
-- type: vertical-stack
-  cards:
-
 ## ВЛАЖНОСТЬ
 - type: vertical-stack
   cards:
