@@ -88,6 +88,13 @@ cards:
   - type: markdown
     content: 'Давление'
 
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.pressure_low
+    - entity: binary_sensor.pressure_hight
+
   - type: entities
     state_color: true
     entities:
@@ -98,21 +105,7 @@ cards:
     hours_to_show: 24
     show_names: false
     entities:
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'kitchen'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'bath'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'hall'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'bedroom'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'living'
+    - entity: sensor.pressure_level
 
 ## ОБЛАЧНОСЬ
   - type: markdown
