@@ -33,6 +33,18 @@ cards:
     - entity: sensor.humidity_living_level
       name: 'Гостиная'
 
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.humidity_target
+      name: 'Таргет'
+    - entity: input_number.humidity_target_bath
+      name: 'Таргет ванная'
+    - type: divider
+    - entity: input_number.humidity_offset
+      name: 'Офсет'
+
 ## ТЕМПЕРАТУРА
   - type: markdown
     content: 'Температура'
@@ -62,6 +74,16 @@ cards:
     - entity: sensor.temperature_living_level
       name: 'Гостиная'
 
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.temperature_target
+      name: 'Таргет'
+    - type: divider
+    - entity: input_number.temperature_offset
+      name: 'Офсет'
+
 ## ДАВЛЕНИЕ
   - type: markdown
     content: 'Давление'
@@ -80,6 +102,16 @@ cards:
     - entity: sensor.pressure_level
       name: 'Среднее давление'
 
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.pressure_target
+      name: 'Таргет'
+    - type: divider
+    - entity: input_number.pressure_offset
+      name: 'Офсет'
+
 ## ОБЛАЧНОСЬ
   - type: markdown
     content: 'Облачность'
@@ -89,13 +121,19 @@ cards:
     show_state: false
     entities:
     - binary_sensor.cloud_hight
-    - sensor.cloud_level
 
   - type: history-graph
     hours_to_show: 12
     show_names: false
     entities:
-    - binary_sensor.cloud_level
+    - sensor.cloud_level
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.cloud_target
+      name: 'Таргет'
 
 ## СОЛНЦЕ
   - type: markdown
@@ -120,3 +158,17 @@ cards:
       name: 'Подъем'
     - entity: sensor.illuminance_degree_level
       name: 'Освещенность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.solar_azimuth_target
+      name: 'Таргет'
+    - entity: input_number.solar_azimuth_offset
+      name: 'Офсет'
+    - type: divider
+    - entity: input_number.solar_elevation_target
+      name: 'Таргет'
+    - entity: input_number.solar_elevation_offset
+      name: 'Офсет'
