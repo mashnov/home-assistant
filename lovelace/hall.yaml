@@ -8,6 +8,12 @@ cards:
   - type: markdown
     content: 'Климат'
 
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.cloud_hight
+
   - type: entities
     state_color: true
     show_header_toggle: false
@@ -18,6 +24,10 @@ cards:
       name: 'Влажность'
     - entity: sensor.pressure_level
       name: 'Давление'
+    - entity: sensor.cloud_level
+      name: 'Облачность'
+    - entity: sensor.illuminance_level
+      name: 'Освещенность'
 
 # ОСВЕЩЕНИЕ
   - type: markdown

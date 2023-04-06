@@ -20,6 +20,12 @@ cards:
   - type: markdown
     content: 'Климат'
 
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.cloud_hight
+
   - type: entities
     state_color: true
     show_header_toggle: false
@@ -30,6 +36,10 @@ cards:
       name: 'Влажность'
     - entity: sensor.pressure_level
       name: 'Давление'
+    - entity: sensor.cloud_level
+      name: 'Облачность'
+    - entity: sensor.illuminance_level
+      name: 'Освещенность'
 
 # ШТОРЫ
   - type: markdown
@@ -164,3 +174,24 @@ cards:
     - type: divider
     - entity: automation.night_light_kitchden
       name: 'Автоматизация'
+
+- type: vertical-stack
+  cards:
+
+## ПАРАМЕТРЫ
+  - type: markdown
+    content: 'Параметры'
+
+  - type: entities  
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.cloud_target
+      name: 'Облачность'
+    - type: divider
+    - entity: input_number.humidity_target
+      name: 'Влажность'
+    - entity: input_number.humidity_target_bath
+      name: 'Влажность в ванной'
+    - type: divider
+

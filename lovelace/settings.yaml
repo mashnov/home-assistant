@@ -199,4 +199,3 @@ cards:
       name: 'Балкон фонтан'
     - entity: automation.socket_balcony
       name: 'Балкон розетка'
-

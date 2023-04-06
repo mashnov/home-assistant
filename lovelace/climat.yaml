@@ -1,0 +1,152 @@
+icon: 'mdi:air-humidifier'
+cards:
+
+- type: vertical-stack
+  cards:
+
+## ВЛАЖНОСТЬ
+  - type: markdown
+    content: 'Влажность'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.humidity_kitchen_low
+    - entity: binary_sensor.humidity_bath_hight
+    - entity: binary_sensor.humidity_hall_low
+    - entity: binary_sensor.humidity_bedroom_low
+    - entity: binary_sensor.humidity_living_low
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.humidity_kitchen_level
+      name: 'Кухня'
+    - entity: sensor.humidity_bath_level
+      name: 'Ванная'
+    - entity: sensor.humidity_hall_level
+      name: 'Коридор'
+    - entity: sensor.humidity_bedroom_level
+      name: 'Спальня'
+    - entity: sensor.humidity_living_level
+      name: 'Гостиная'
+    - entity: sensor.humidity_balcony_level
+      name: 'Балкон'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
+    - sensor.humidity_kitchen_level
+    - sensor.humidity_bath_level
+    - sensor.humidity_hall_level
+    - sensor.humidity_bedroom_level
+    - sensor.humidity_living_level
+
+## ТЕМПЕРАТУРА
+  - type: markdown
+    content: 'Температура'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - entity: binary_sensor.temperature_kitchen_level
+    - entity: binary_sensor.temperature_bath_level
+    - entity: binary_sensor.temperature_hall_level
+    - entity: binary_sensor.temperature_bedroom_level
+    - entity: binary_sensor.temperature_living_level
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.temperature_kitchen_level
+      name: 'Кухня'
+    - entity: sensor.temperature_bath_level
+      name: 'Ванная'
+    - entity: sensor.temperature_hall_level
+      name: 'Коридор'
+    - entity: sensor.temperature_bedroom_level
+      name: 'Спальня'
+    - entity: sensor.temperature_living_level
+      name: 'Гостиная'
+    - entity: sensor.temperature_balcony_level
+      name: 'Балкон'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
+    - sensor.temperature_kitchen_level
+    - sensor.temperature_bath_level
+    - sensor.temperature_hall_level
+    - sensor.temperature_bedroom_level
+    - sensor.temperature_living_level
+
+## ДАВЛЕНИЕ
+  - type: markdown
+    content: 'Давление'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.pressure_level
+      name: 'Среднее давление'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
+    - type: attribute
+      entity: sensor.pressure_level
+      attribute: 'kitchen'
+    - type: attribute
+      entity: sensor.pressure_level
+      attribute: 'bath'
+    - type: attribute
+      entity: sensor.pressure_level
+      attribute: 'hall'
+    - type: attribute
+      entity: sensor.pressure_level
+      attribute: 'bedroom'
+    - type: attribute
+      entity: sensor.pressure_level
+      attribute: 'living'
+
+## ОБЛАЧНОСЬ
+  - type: markdown
+    content: 'Солнце'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.cloud_level
+      name: 'Облачность'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
+    - sensor.cloud_level
+
+## СОЛНЦЕ
+  - type: markdown
+    content: 'Солнце'
+
+  - type: entities
+    state_color: true
+    entities:
+    - entity: sensor.illuminance_level
+      name: 'Освещенность'
+    - entity: sensor.solar_azimuth
+      name: 'Азимут'
+    - entity: sensor.solar_elevation
+      name: 'Подъем'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
+    - sensor.solar_azimuth
+    - sensor.solar_elevation
