@@ -1,7 +1,7 @@
 ## PARAMETERS LIGHT
 - sensor:
   - name: 'parameters_light'
-    unit_of_measurement: '%'
+    unit_of_measurement: '°'
     state: "{{ state_attr('sensor.parameters_light', 'persent') | int(0) }}"
     icon: "mdi:cog"
     attributes:
