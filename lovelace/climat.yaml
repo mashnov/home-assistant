@@ -13,11 +13,11 @@ cards:
     show_state: false
     columns: 5
     entities:
-    - sensor.humidity_kitchen_low
-    - sensor.humidity_bath_hight
-    - sensor.humidity_hall_low
-    - sensor.humidity_bedroom_low
-    - sensor.humidity_living_low
+    - binary_sensor.humidity_kitchen_low
+    - binary_sensor.humidity_bath_hight
+    - binary_sensor.humidity_hall_low
+    - binary_sensor.humidity_bedroom_low
+    - binary_sensor.humidity_living_low
 
   - type: glance
     show_name: false
@@ -87,7 +87,6 @@ cards:
     entities:
     - binary_sensor.pressure_low
     - binary_sensor.pressure_hight
-    - sensor.pressure_level
 
   - type: history-graph
     hours_to_show: 6
@@ -125,9 +124,14 @@ cards:
     - binary_sensor.solar_azimuth
     - binary_sensor.solar_elevation
     - binary_sensor.solar_hight
-    - sensor.illuminance_level
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
     - sensor.solar_azimuth
     - sensor.solar_elevation
+    - sensor.illuminance_level
 
   - type: history-graph
     hours_to_show: 24
