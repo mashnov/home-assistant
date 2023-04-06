@@ -16,31 +16,6 @@ cards:
     - entity: binary_sensor.window_kitchen_right_open
     - entity: binary_sensor.ventilation_kitchen_boolean
 
-# КЛИМАТ
-  - type: markdown
-    content: 'Климат'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - entity: binary_sensor.cloud_hight
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: sensor.temperature_kitchen_level
-      name: 'Температура'
-    - entity: sensor.humidity_kitchen_level
-      name: 'Влажность'
-    - entity: sensor.pressure_level
-      name: 'Давление'
-    - entity: sensor.cloud_level
-      name: 'Облачность'
-    - entity: sensor.illuminance_level
-      name: 'Освещенность'
-
 # ШТОРЫ
   - type: markdown
     content: 'Шторы'

@@ -46,9 +46,6 @@ cards:
       name: 'Офсет'
 
 ## ТЕМПЕРАТУРА
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Температура'
 
@@ -88,9 +85,6 @@ cards:
       name: 'Офсет'
 
 ## ДАВЛЕНИЕ
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Давление'
 
@@ -119,9 +113,6 @@ cards:
       name: 'Офсет'
 
 ## ОБЛАЧНОСЬ
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Облачность'
 
@@ -145,9 +136,6 @@ cards:
       name: 'Таргет'
 
 ## СОЛНЦЕ
-- type: vertical-stack
-  cards:
-
   - type: markdown
     content: 'Солнце'
 
