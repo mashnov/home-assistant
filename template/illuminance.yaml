@@ -8,8 +8,8 @@
 
   - name: 'illuminance_degree_level'
     device_class: 'illuminance'
-    unit_of_measurement: 'lx'
-    icon: 'mdi:brightness-7'
+    unit_of_measurement: '°'
+    icon: 'mdi:brightness-auto'
     state: >
       {% set maxValue = state_attr('input_number.solar_azimuth_target', 'max') %}
       {% set sensorValue = states('sensor.parameters_light') | int(0) %}
