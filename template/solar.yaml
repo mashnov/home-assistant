@@ -7,7 +7,7 @@
 
   - name: 'solar_elevation'
     unit_of_measurement: '°'
-    icon: 'mdi:axis-z-rotate-clockwise'
+    icon: 'mdi:angle-acute'
     state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
 
 - binary_sensor:
