@@ -50,7 +50,6 @@
 ## TEMPERATURE PROBLEM
   - name: 'temperature_kitchen_problem'
     device_class: 'problem'
-    icon: 'mdi:thermometer-alert'
     state: >
       {% set sensorValue = states('sensor.temperature_kitchen_level') | int(0) %}
       {% set normalValue = states('input_number.temperature_target') | int(0) %}
@@ -58,10 +57,12 @@
       {% set maxValue = normalValue + offsetValue %}
       {% set minValue = normalValue - offsetValue %}
       {{ sensorValue < minValue or sensorValue > maxValue }}
+    icon: >
+      {% set isProblem = is_state('binary_sensor.temperature_kitchen_problem', 'on') %}
+      {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
 
   - name: 'temperature_bath_problem'
     device_class: 'problem'
-    icon: 'mdi:thermometer-alert'
     state: >
       {% set sensorValue = states('sensor.temperature_bath_level') | int(0) %}
       {% set normalValue = states('input_number.temperature_target') | int(0) %}
@@ -69,10 +70,12 @@
       {% set maxValue = normalValue + offsetValue %}
       {% set minValue = normalValue - offsetValue %}
       {{ sensorValue < minValue or sensorValue > maxValue }}
+    icon: >
+      {% set isProblem = is_state('binary_sensor.temperature_bath_problem', 'on') %}
+      {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
 
   - name: 'temperature_hall_problem'
     device_class: 'problem'
-    icon: 'mdi:thermometer-alert'
     state: >
       {% set sensorValue = states('sensor.temperature_hall_level') | int(0) %}
       {% set normalValue = states('input_number.temperature_target') | int(0) %}
@@ -80,10 +83,12 @@
       {% set maxValue = normalValue + offsetValue %}
       {% set minValue = normalValue - offsetValue %}
       {{ sensorValue < minValue or sensorValue > maxValue }}
+    icon: >
+      {% set isProblem = is_state('binary_sensor.temperature_hall_problem', 'on') %}
+      {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
 
   - name: 'temperature_bedroom_problem'
     device_class: 'problem'
-    icon: 'mdi:thermometer-alert'
     state: >
       {% set sensorValue = states('sensor.temperature_bedroom_level') | int(0) %}
       {% set normalValue = states('input_number.temperature_target') | int(0) %}
@@ -91,10 +96,12 @@
       {% set maxValue = normalValue + offsetValue %}
       {% set minValue = normalValue - offsetValue %}
       {{ sensorValue < minValue or sensorValue > maxValue }}
+    icon: >
+      {% set isProblem = is_state('binary_sensor.temperature_bedroom_problem', 'on') %}
+      {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
 
   - name: 'temperature_living_problem'
     device_class: 'problem'
-    icon: 'mdi:thermometer-alert'
     state: >
       {% set sensorValue = states('sensor.temperature_living_level') | int(0) %}
       {% set normalValue = states('input_number.temperature_target') | int(0) %}
@@ -102,3 +109,6 @@
       {% set maxValue = normalValue + offsetValue %}
       {% set minValue = normalValue - offsetValue %}
       {{ sensorValue < minValue or sensorValue > maxValue }}
+    icon: >
+      {% set isProblem = is_state('binary_sensor.temperature_living_problem', 'on') %}
+      {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
