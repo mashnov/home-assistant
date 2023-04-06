@@ -128,17 +128,12 @@ cards:
       name: 'Подъем'
 
   - type: history-graph
-    hours_to_show: 12
+    hours_to_show: 24
     show_names: false
     entities:
     - entity: sensor.solar_azimuth
       name: 'Азимут'
     - entity: sensor.solar_elevation
       name: 'Подъем'
-
-  - type: history-graph
-    hours_to_show: 12
-    show_names: false
-    entities:
     - entity: sensor.parameters_light
       name: 'Освещенность'
