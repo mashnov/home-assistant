@@ -96,7 +96,7 @@ cards:
 
 ## ОБЛАЧНОСЬ
   - type: markdown
-    content: 'Солнце'
+    content: 'Облачность'
 
   - type: glance
     show_name: false
@@ -120,7 +120,7 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: sensor.illuminance_level
+    - entity: sensor.parameters_light
       name: 'Освещенность'
     - entity: sensor.solar_azimuth
       name: 'Азимут'
@@ -128,10 +128,17 @@ cards:
       name: 'Подъем'
 
   - type: history-graph
-    hours_to_show: 24
+    hours_to_show: 12
     show_names: false
     entities:
     - entity: sensor.solar_azimuth
       name: 'Азимут'
     - entity: sensor.solar_elevation
       name: 'Подъем'
+
+  - type: history-graph
+    hours_to_show: 12
+    show_names: false
+    entities:
+    - entity: sensor.illuminance_level
+      name: 'Освещенность'
