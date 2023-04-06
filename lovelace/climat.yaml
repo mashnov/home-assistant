@@ -12,11 +12,11 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: sensor.humidity_kitchen
-    - entity: sensor.humidity_bath_h
-    - entity: sensor.humidity_hall
-    - entity: sensor.humidity_bedroom
-    - entity: sensor.humidity_living
+    - entity: sensor.humidity_kitchen_level
+    - entity: sensor.humidity_bath_level
+    - entity: sensor.humidity_hall_level
+    - entity: sensor.humidity_bedroom_level
+    - entity: sensor.humidity_living_level
 
   - type: entities
     state_color: true
@@ -35,7 +35,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 3
+    hours_to_show: 6
     show_names: false
     entities:
     - sensor.humidity_kitchen_level
@@ -75,7 +75,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 3
+    hours_to_show: 6
     show_names: false
     entities:
     - sensor.temperature_kitchen_level
@@ -101,7 +101,7 @@ cards:
       name: 'Среднее давление'
 
   - type: history-graph
-    hours_to_show: 3
+    hours_to_show: 6
     show_names: false
     entities:
     - entity: sensor.pressure_level
@@ -123,7 +123,7 @@ cards:
       name: 'Облачность'
 
   - type: history-graph
-    hours_to_show: 3
+    hours_to_show: 12
     show_names: false
     entities:
     - sensor.cloud_level
@@ -149,7 +149,7 @@ cards:
       name: 'Подъем'
 
   - type: history-graph
-    hours_to_show: 3
+    hours_to_show: 24
     show_names: false
     entities:
     - sensor.solar_azimuth
