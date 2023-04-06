@@ -424,23 +424,6 @@ cards:
     - entity: input_number.solar_elevation_offset
       name: 'Офсет (офсет)'
 
-## СЕТЬ
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Сеть'
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.network_download_target
-      name: 'Загрузка'
-    - entity: input_number.network_upload_target
-      name: 'Отдача'
-    - entity: input_number.network_ping_target
-      name: 'Пинг'
-
 ## МОЩНОСТЬ ПОДСВЕТКИ
 - type: vertical-stack
   cards:
@@ -507,3 +490,20 @@ cards:
       name: 'Режим туалета'
     - entity: input_number.duration_dorbell
       name: 'Дверной звонок'
+
+## СЕТЬ
+- type: vertical-stack
+  cards:
+  - type: markdown
+    content: 'Сеть'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.network_download_target
+      name: 'Загрузка'
+    - entity: input_number.network_upload_target
+      name: 'Отдача'
+    - entity: input_number.network_ping_target
+      name: 'Пинг'
