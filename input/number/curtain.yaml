@@ -39,7 +39,6 @@ curtain_kitchen_close:
   step: 1
   initial: 100
 
-
 ## CURTAIN BEDROOM
 curtain_bedroom_ventilation:
   unit_of_measurement: '%'

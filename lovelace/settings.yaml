@@ -199,3 +199,279 @@ cards:
       name: 'Балкон фонтан'
     - entity: automation.socket_balcony
       name: 'Балкон розетка'
+
+- type: vertical-stack
+  cards:
+
+## ВЛАЖНОСТЬ
+  - type: markdown
+    content: 'Влажность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.humidity_target
+      name: 'Таргет'
+    - entity: input_number.humidity_target_bath
+      name: 'Таргет ванная'
+    - entity: input_number.humidity_offset
+      name: 'Офсет'
+
+## ТЕМПЕРАТУРА
+  - type: markdown
+    content: 'Температура'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.temperature_target
+      name: 'Таргет'
+    - entity: input_number.temperature_offset
+      name: 'Офсет'
+
+## ДАВЛЕНИЕ
+  - type: markdown
+    content: 'Давление'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.pressure_target
+      name: 'Таргет'
+    - entity: input_number.pressure_offset
+      name: 'Офсет'
+
+## ОБЛАЧНОСТЬ
+  - type: markdown
+    content: 'Облачность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.cloud_target
+      name: 'Облачность таргет'
+
+## НОЧНОЙ РЕЖИМ
+  - type: markdown
+    content: 'Ночной режим'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.night_mode_inaction_target
+      name: 'Время бездействия'
+
+## ОСВЕЩЕННОСТЬ
+  - type: markdown
+    content: 'Яркость солнца'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.parameters_light_target
+      name: 'Максимальная яркость'
+
+## ОСВЕЩЕННОСТЬ
+  - type: markdown
+    content: 'Освещенность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.illuminance_kitchen_curtain_target_sunny
+      name: 'Шторы (солнечно)'
+    - entity: input_number.illuminance_kitchen_curtain_target_cloudly
+      name: 'Шторы (облачно)'
+    - entity: input_number.illuminance_kitchen_top_light_target_sunny
+      name: 'Освещение (солнечно)'
+    - entity: input_number.illuminance_kitchen_top_light_target_cloudly
+      name: 'Освещение (облачно)'
+    - entity: input_number.illuminance_kitchen_back_light_target_sunny
+      name: 'Подсветка (солнечно)'
+    - entity: input_number.illuminance_kitchen_back_light_target_cloudly
+      name: 'Подсветка (облачно)'
+    - type: divider
+    - entity: input_number.illuminance_hall_top_light_target_sunny
+      name: 'Освещение (солнечно)'
+    - entity: input_number.illuminance_hall_top_light_target_cloudly
+      name: 'Освещение (облачно)'
+    - entity: input_number.illuminance_hall_back_light_target_sunny
+      name: 'Подсветка (солнечно)'
+    - entity: input_number.illuminance_hall_back_light_target_cloudly
+      name: 'Подсветка (облачно)'
+    - type: divider
+    - entity: input_number.illuminance_bedroom_curtain_target_sunny
+      name: 'Шторы (солнечно)'
+    - entity: input_number.illuminance_bedroom_curtain_target_cloudly
+      name: 'Шторы (облачно)'
+    - entity: input_number.illuminance_bedroom_back_light_target_sunny
+      name: 'Подсветка (солнечно)'
+    - entity: input_number.illuminance_bedroom_back_light_target_cloudly
+      name: 'Подсветка (облачно)'
+    - type: divider
+    - entity: input_number.illuminance_living_curtain_target_sunny
+      name: 'Шторы (солнечно)'
+    - entity: input_number.illuminance_living_curtain_target_cloudly
+      name: 'Шторы (облачно)'
+    - entity: input_number.illuminance_living_back_light_target_sunny
+      name: 'Подсветка (солнечно)'
+    - entity: input_number.illuminance_living_back_light_target_cloudly
+      name: 'Подсветка (облачно)'
+
+## ШТОРЫ КУХНЯ
+  - type: markdown
+    content: 'Шторы кухня'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.curtain_kitchen_ventilation
+      name: 'Вентиляция'
+    - entity: input_number.curtain_kitchen_night
+      name: 'Ночь'
+    - entity: input_number.curtain_kitchen_sun
+      name: 'Солнечно'
+    - entity: input_number.curtain_kitchen_open
+      name: 'Открыто'
+    - entity: input_number.curtain_kitchen_close
+      name: 'Закрыто'
+
+## ШТОРЫ СПАЛЬНЯ
+  - type: markdown
+    content: 'Шторы спальня'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.curtain_bedroom_ventilation
+      name: 'Вентиляция'
+    - entity: input_number.curtain_bedroom_night
+      name: 'Ночь'
+    - entity: input_number.curtain_bedroom_sun
+      name: 'Солнечно'
+    - entity: input_number.curtain_bedroom_open
+      name: 'Открыто'
+    - entity: input_number.curtain_bedroom_close
+      name: 'Закрыто'
+
+## ШТОРЫ ГОСТИНАЯ
+  - type: markdown
+    content: 'Шторы гостиная'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.curtain_living_ventilation
+      name: 'Вентиляция'
+    - entity: input_number.curtain_living_night
+      name: 'Ночь'
+    - entity: input_number.curtain_living_sun
+      name: 'Солнечно'
+    - entity: input_number.curtain_living_open
+      name: 'Открыто'
+    - entity: input_number.curtain_living_close
+      name: 'Закрыто'
+
+## СОЛНЦЕ
+  - type: markdown
+    content: 'Солнце'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.solar_azimuth_target
+      name: 'Таргет (азимут)'
+    - entity: input_number.solar_azimuth_offset
+      name: 'Офсет (азимут)'
+    - type: divider
+    - entity: input_number.solar_elevation_target
+      name: 'Таргет (офсет)'
+    - entity: input_number.solar_elevation_offset
+      name: 'Офсет (офсет)'
+
+## СЕТЬ
+  - type: markdown
+    content: 'Сеть'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.network_download_target
+      name: 'Загрузка'
+    - entity: input_number.network_upload_target
+      name: 'Отдача'
+    - entity: input_number.network_ping_target
+      name: 'Пинг'
+
+## МОЩНОСТЬ ПОДСВЕТКИ
+  - type: markdown
+    content: 'Мощность подсветки'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.power_offset_hall
+      name: 'Коридор'
+    - entity: input_number.power_offset_bedroom
+      name: 'Спальня'
+    - entity: input_number.power_offset_living
+      name: 'Гостиная'
+
+## ЗАДЕРЖКА
+  - type: markdown
+    content: 'Задержка'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.delay_power_on
+      name: 'Питание'
+    - entity: input_number.delay_ventilation_on
+      name: 'Вентиляция (вкл)'
+    - entity: input_number.delay_ventilation_off
+      name: 'Вентиляция (выкл)'
+    - entity: input_number.delay_illuminance_on
+      name: 'Освещенность (вкл)'
+    - entity: input_number.delay_illuminance_off
+      name: 'Освещенность (выкл)'
+    - entity: input_number.delay_motion_night_off
+      name: 'Движение выкл (ночь)'
+    - entity: input_number.delay_motion_day_off
+      name: 'Движение выкл (день)'
+    - entity: input_number.delay_night_mode_on
+      name: 'Ночной режим вкл'
+
+## ДЛИТЕЛЬНОСТЬ
+  - type: markdown
+    content: 'Длительность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.duration_dehumidifier_night
+      name: 'Вытяжка (ночь)'
+    - entity: input_number.duration_dehumidifier_day
+      name: 'Вытяжка (день)'
+    - entity: input_number.duration_light_night
+      name: 'Освещение (ночь)'
+    - entity: input_number.duration_light_day
+      name: 'Освещение (день)'
+    - entity: input_number.duration_toilet_mode
+      name: 'Режим туалета'
+    - entity: input_number.duration_dorbell
+      name: 'Дверной звонок'
