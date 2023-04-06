@@ -1,7 +1,7 @@
 ## NETWORK DOWNLOAD
 network_download_target:
   unit_of_measurement: 'Mbit/s'
-  icon: 'mdi:database-check'
+  icon: 'mdi:database-cog'
   min: 0
   max: 100
   step: 1
@@ -10,7 +10,7 @@ network_download_target:
 ## NETWORK UPLOAD
 network_upload_target:
   unit_of_measurement: 'Mbit/s'
-  icon: 'mdi:database-check'
+  icon: 'mdi:database-cog'
   min: 0
   max: 100
   step: 1
