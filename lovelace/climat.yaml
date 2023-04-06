@@ -136,18 +136,23 @@ cards:
     - type: attribute
       entity: sensor.pressure_level
       attribute: 'kitchen'
+      name: 'Кухня'
     - type: attribute
       entity: sensor.pressure_level
       attribute: 'bath'
+      name: 'Ванная'
     - type: attribute
       entity: sensor.pressure_level
       attribute: 'hall'
+      name: 'Коридор'
     - type: attribute
       entity: sensor.pressure_level
       attribute: 'bedroom'
+      name: 'Спальня'
     - type: attribute
       entity: sensor.pressure_level
       attribute: 'living'
+      name: 'Гостиная'
 
   - type: history-graph
     hours_to_show: 6
@@ -176,9 +181,9 @@ cards:
     entities:
     - binary_sensor.cloud_hight
 
-  - type: history-graph
-    hours_to_show: 6
-    show_names: false
+  - type: entities
+    state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.cloud_level
       name: 'Уровень облачности'
@@ -208,9 +213,9 @@ cards:
     - binary_sensor.solar_elevation
     - binary_sensor.solar_hight
 
-  - type: history-graph
-    hours_to_show: 6
-    show_names: false
+  - type: entities
+    state_color: true
+    show_header_toggle: false
     entities:
     - entity: sensor.solar_azimuth
       name: 'Азимут'
