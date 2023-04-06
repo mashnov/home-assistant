@@ -93,14 +93,14 @@ cards:
     show_name: false
     show_state: false
     entities:
-    - entity: sensor.cloud_level
-      name: 'Облачность'
+    - sensor.cloud_hight
+    - binary_sensor.cloud_level
 
   - type: history-graph
     hours_to_show: 12
     show_names: false
     entities:
-    - binary_sensor.cloud_hight
+    - binary_sensor.cloud_level
     - sensor.cloud_level
 
 ## СОЛНЦЕ
