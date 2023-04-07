@@ -1,66 +1,6 @@
 icon: 'mdi:home-thermometer-outline'
 cards:
 
-## ВЛАЖНОСТЬ
-- type: vertical-stack
-  cards:
-  - type: markdown
-    content: 'Влажность'
-
-  - type: glance
-    show_name: false
-    show_state: false
-    entities:
-    - binary_sensor.humidity_kitchen_low
-    - binary_sensor.humidity_bath_hight
-    - binary_sensor.humidity_hall_low
-    - binary_sensor.humidity_bedroom_low
-    - binary_sensor.humidity_living_low
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: sensor.humidity_kitchen_level
-      name: 'Кухня'
-    - entity: sensor.humidity_bath_level
-      name: 'Ванная'
-    - entity: sensor.humidity_hall_level
-      name: 'Коридор'
-    - entity: sensor.humidity_bedroom_level
-      name: 'Спальня'
-    - entity: sensor.humidity_living_level
-      name: 'Гостиная'
-    - entity: sensor.humidity_balcony_level
-      name: 'Балкон'
-
-  - type: history-graph
-    hours_to_show: 3
-    show_names: false
-    entities:
-    - entity: sensor.humidity_kitchen_level
-      name: 'Кухня'
-    - entity: sensor.humidity_bath_level
-      name: 'Ванная'
-    - entity: sensor.humidity_hall_level
-      name: 'Коридор'
-    - entity: sensor.humidity_bedroom_level
-      name: 'Спальня'
-    - entity: sensor.humidity_living_level
-      name: 'Гостиная'
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.humidity_target
-      name: 'Таргет'
-    - entity: input_number.humidity_target_bath
-      name: 'Таргет ванная'
-    - type: divider
-    - entity: input_number.humidity_offset
-      name: 'Офсет'
-
 ## ТЕМПЕРАТУРА
 - type: vertical-stack
   cards:
@@ -119,9 +59,65 @@ cards:
     - entity: input_number.temperature_offset
       name: 'Офсет'
 
+## ВЛАЖНОСТЬ
+  - type: markdown
+    content: 'Влажность'
+
+  - type: glance
+    show_name: false
+    show_state: false
+    entities:
+    - binary_sensor.humidity_kitchen_low
+    - binary_sensor.humidity_bath_hight
+    - binary_sensor.humidity_hall_low
+    - binary_sensor.humidity_bedroom_low
+    - binary_sensor.humidity_living_low
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.humidity_kitchen_level
+      name: 'Кухня'
+    - entity: sensor.humidity_bath_level
+      name: 'Ванная'
+    - entity: sensor.humidity_hall_level
+      name: 'Коридор'
+    - entity: sensor.humidity_bedroom_level
+      name: 'Спальня'
+    - entity: sensor.humidity_living_level
+      name: 'Гостиная'
+    - entity: sensor.humidity_balcony_level
+      name: 'Балкон'
+
+  - type: history-graph
+    hours_to_show: 3
+    show_names: false
+    entities:
+    - entity: sensor.humidity_kitchen_level
+      name: 'Кухня'
+    - entity: sensor.humidity_bath_level
+      name: 'Ванная'
+    - entity: sensor.humidity_hall_level
+      name: 'Коридор'
+    - entity: sensor.humidity_bedroom_level
+      name: 'Спальня'
+    - entity: sensor.humidity_living_level
+      name: 'Гостиная'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.humidity_target
+      name: 'Таргет'
+    - entity: input_number.humidity_target_bath
+      name: 'Таргет ванная'
+    - type: divider
+    - entity: input_number.humidity_offset
+      name: 'Офсет'
+
 ## ДАВЛЕНИЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Давление'
 
@@ -175,8 +171,6 @@ cards:
       name: 'Офсет'
 
 ## ОБЛАЧНОСЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Облачность'
 
@@ -207,8 +201,6 @@ cards:
       name: 'Таргет'
 
 ## СОЛНЦЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Солнце'
 
@@ -302,8 +294,6 @@ cards:
       name: 'Таргет (пинг)'
 
 ## МОЩНОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Мощность'
 
