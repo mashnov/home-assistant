@@ -171,8 +171,6 @@ cards:
       name: 'Офсет'
 
 ## ОБЛАЧНОСЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Облачность'
 
@@ -237,8 +235,6 @@ cards:
       name: 'Освещенность'
 
 ## СОЕДИНЕНИЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Соединение'
 
