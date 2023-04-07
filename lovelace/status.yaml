@@ -171,6 +171,8 @@ cards:
       name: 'Офсет'
 
 ## ОБЛАЧНОСЬ
+- type: vertical-stack
+  cards:
   - type: markdown
     content: 'Облачность'
 
