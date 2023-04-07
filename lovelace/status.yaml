@@ -291,3 +291,40 @@ cards:
       name: 'Таргет (отдача)'
     - entity: input_number.network_ping_target
       name: 'Таргет (пинг)'
+
+## МОЩНОСТЬ
+  - type: markdown
+    content: 'Мощность'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: sensor.relay_kitchen_power
+      name: 'Пинг'
+    - entity: sensor.relay_bath_power
+      name: 'Пинг'
+    - entity: sensor.relay_toilet_power
+      name: 'Пинг'
+    - entity: sensor.relay_hall_power
+      name: 'Пинг'
+    - entity: sensor.relay_bedroom_power
+      name: 'Пинг'
+    - entity: sensor.relay_living_power
+      name: 'Пинг'
+    - entity: sensor.relay_balcony_power
+      name: 'Пинг'
+
+  - type: history-graph
+    hours_to_show: 168
+    show_names: false
+    entities:
+    - entity: sensor.relay_average_power
+      name: 'Общее'
+
+  - type: entities
+    state_color: true
+    show_header_toggle: false
+    entities:
+    - entity: input_number.delay_power_on
+      name: 'Задержка сенсора'
