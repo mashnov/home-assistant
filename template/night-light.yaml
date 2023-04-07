@@ -32,7 +32,9 @@
     state: >
       {% set isOccupancy = is_state('binary_sensor.motion_kitchen_boolean', 'on') %}
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {{ isNightMode and isOccupancy }}
+      {% set onlyNightMode = is_state('input_boolean.night_light_kitchen_only_night_mode', 'on') %}
+      {% set nightModePermission = isNightMode or not(onlyNightMode) %}
+      {{ isButtonOn or (nightModePermission and isOccupancy) }}
 
   - name: 'night_light_bath_permission'
     device_class: 'lock'
@@ -40,7 +42,10 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_bath_on', 'on') %}
       {% set isOccupancy = is_state('binary_sensor.motion_bath_boolean', 'on') %}
-      {{ isButtonOn or isOccupancy }}
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set onlyNightMode = is_state('input_boolean.night_light_bath_only_night_mode', 'on') %}
+      {% set nightModePermission = isNightMode or not(onlyNightMode) %}
+      {{ isButtonOn or (nightModePermission and isOccupancy) }}
 
   - name: 'night_light_toilet_permission'
     device_class: 'lock'
@@ -48,7 +53,10 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_toilet_on', 'on') %}
       {% set isOccupancy = is_state('binary_sensor.occupancy_toilet_boolean', 'on') %}
-      {{ isButtonOn or isOccupancy }} 
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set onlyNightMode = is_state('input_boolean.night_light_toilet_only_night_mode', 'on') %}
+      {% set nightModePermission = isNightMode or not(onlyNightMode) %}
+      {{ isButtonOn or (nightModePermission and isOccupancy) }}
 
   - name: 'night_light_hall_permission'
     device_class: 'lock'
@@ -56,7 +64,10 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_hall_on', 'on') %}
       {% set isOccupancy = is_state('binary_sensor.motion_hall_boolean', 'on') %}
-      {{ isButtonOn or isOccupancy }}
+      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      {% set onlyNightMode = is_state('input_boolean.night_light_hall_only_night_mode', 'on') %}
+      {% set nightModePermission = isNightMode or not(onlyNightMode) %}
+      {{ isButtonOn or (nightModePermission and isOccupancy) }}
 
   - name: 'night_light_balciony_permission'
     device_class: 'lock'

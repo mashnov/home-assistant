@@ -95,9 +95,9 @@ cards:
     - entity: light.top_light_kitchen_5
       name: 'Светильник 5'
     - type: divider
-    - entity: input_boolean.top_light_ignore_kitchen_illuminance
+    - entity: input_boolean.top_light_kitchen_ignore_illuminance
       name: 'Игнорировать освещенность'
-    - entity: input_boolean.top_light_ignore_kitchen_night_mode
+    - entity: input_boolean.top_light_kitchen_ignore_night_mode
       name: 'Работа ночью'
     - type: divider
     - entity: automation.top_light_kitchen
@@ -126,9 +126,9 @@ cards:
     - entity: switch.kitchen_switch_right
       name: 'Выключатель'
     - type: divider
-    - entity: input_boolean.back_light_ignore_kitchen_illuminance
+    - entity: input_boolean.back_light_kitchen_ignore_illuminance
       name: 'Игнорировать освещенность'
-    - entity: input_boolean.back_light_ignore_kitchen_night_mode
+    - entity: input_boolean.back_light_kitchen_ignore_night_mode
       name: 'Работа ночью'
     - type: divider
     - entity: automation.back_light_kitchen
@@ -154,6 +154,9 @@ cards:
       name: 'Светильник'
     - entity: switch.kitchen_switch_right
       name: 'Выключатель'
+    - type: divider
+    - entity: input_boolean.night_light_kitchen_only_night_mode
+      name: 'Работа только ночью'
     - type: divider
     - entity: automation.night_light_kitchden
       name: 'Автоматизация'

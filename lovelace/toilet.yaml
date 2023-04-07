@@ -24,7 +24,7 @@ cards:
     - entity: switch.hall_switch_restroom_left
       name: 'Выключатель'
     - type: divider
-    - entity: input_boolean.top_light_ignore_toilet_night_mode
+    - entity: input_boolean.top_light_toilet_ignore_night_mode
       name: 'Работа ночью'
     - type: divider
     - entity: automation.top_light_toilet
@@ -48,6 +48,9 @@ cards:
     entities:
     - entity: switch.toilet_relay_l2
       name: 'Светильник'
+    - type: divider
+    - entity: input_boolean.night_light_toilet_only_night_mode
+      name: 'Работа только ночью'
     - type: divider
     - entity: automation.night_light_toilet
       name: 'Автоматизация'

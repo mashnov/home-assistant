@@ -1,92 +1,113 @@
 ## HUDRATION HALL
-hudration_ignore_hall_ventilation:
+hudration_hall_ignore_ventilation:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-hudration_ignore_hall_night_mode:
+hudration_hall_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## HUDRATION BEDROOM
-hudration_ignore_bedroom_ventilation:
+hudration_bedroom_ignore_ventilation:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-hudration_ignore_bedroom_night_mode:
+hudration_bedroom_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## HUDRATION LIVING
-hudration_ignore_living_ventilation:
+hudration_living_ignore_ventilation:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-hudration_ignore_living_night_mode:
+hudration_living_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 
 ## TOP LIGHT KITCHEN
-top_light_ignore_kitchen_illuminance:
+top_light_kitchen_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-top_light_ignore_kitchen_night_mode:
+top_light_kitchen_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## TOP LIGHT BATH
-top_light_ignore_bath_night_mode:
+top_light_bath_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## TOP LIGHT TOILET
-top_light_ignore_toilet_night_mode:
+top_light_toilet_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## TOP LIGHT HALL
-top_light_ignore_hall_illuminance:
+top_light_hall_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-top_light_ignore_hall_night_mode:
+top_light_hall_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 
 ## BACK LIGHT KITCHEN
-back_light_ignore_kitchen_illuminance:
+back_light_kitchen_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-back_light_ignore_kitchen_night_mode:
+back_light_kitchen_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## BACK LIGHT HALL
-back_light_ignore_hall_illuminance:
+back_light_hall_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-back_light_ignore_hall_night_mode:
+back_light_hall_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## BACK LIGHT BEDROOM
-back_light_ignore_bedroom_illuminance:
+back_light_bedroom_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-back_light_ignore_bedroom_night_mode:
+back_light_bedroom_ignore_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
 ## BACK LIGHT LIVING
-back_light_ignore_living_illuminance:
+back_light_living_ignore_illuminance:
   initial: false
   icon: 'mdi:human-greeting-variant'
 
-back_light_ignore_living_night_mode:
+back_light_living_ignore_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+
+## NIGHT LIGHT KITCHEN
+night_light_kitchen_only_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## NIGHT LIGHT BATH
+night_light_bath_only_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## NIGHT LIGHT TOILET
+night_light_toilet_only_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## NIGHT LIGHT HALL
+night_light_hall_only_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'

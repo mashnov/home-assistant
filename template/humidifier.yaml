@@ -77,10 +77,10 @@
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_hall_boolean', 'on') %}
-      {% set ignoreVentilation = is_state('input_boolean.hudration_ignore_hall_ventilation', 'on') %}
+      {% set ignoreVentilation = is_state('input_boolean.hudration_hall_ignore_ventilation', 'on') %}
       {% set ventilationPermission = not(isVentilation) or ignoreVentilation %}
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {% set ignoreNightMode = is_state('input_boolean.hudration_ignore_hall_night_mode', 'on') %}
+      {% set ignoreNightMode = is_state('input_boolean.hudration_hall_ignore_night_mode', 'on') %}
       {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
       {% set isDry = is_state('binary_sensor.humidity_hall_low', 'on') %}
       {{ ventilationPermission and nightModePermission and isDry }}
@@ -90,10 +90,10 @@
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_bedroom_boolean', 'on') %}
-      {% set ignoreVentilation = is_state('input_boolean.hudration_ignore_bedroom_ventilation', 'on') %}
+      {% set ignoreVentilation = is_state('input_boolean.hudration_bedroom_ignore_ventilation', 'on') %}
       {% set ventilationPermission = not(isVentilation) or ignoreVentilation %}
       {% set isNightMode = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
-      {% set ignoreNightMode = is_state('input_boolean.hudration_ignore_bedroom_night_mode', 'on') %}
+      {% set ignoreNightMode = is_state('input_boolean.hudration_bedroom_ignore_night_mode', 'on') %}
       {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
       {% set isDry = is_state('binary_sensor.humidity_bedroom_low', 'on') %}
       {{ ventilationPermission and nightModePermission and isDry }}
@@ -103,10 +103,10 @@
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_living_boolean', 'on') %}
-      {% set ignoreVentilation = is_state('input_boolean.hudration_ignore_living_ventilation', 'on') %}
+      {% set ignoreVentilation = is_state('input_boolean.hudration_living_ignore_ventilation', 'on') %}
       {% set ventilationPermission = not(isVentilation) or ignoreVentilation %}
       {% set isNightMode = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
-      {% set ignoreNightMode = is_state('input_boolean.hudration_ignore_living_night_mode', 'on') %}
+      {% set ignoreNightMode = is_state('input_boolean.hudration_living_ignore_night_mode', 'on') %}
       {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
       {% set isDry = is_state('binary_sensor.humidity_living_low', 'on') %}
       {{ ventilationPermission and nightModePermission and isDry }}

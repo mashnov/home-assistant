@@ -100,9 +100,9 @@ cards:
     - entity: switch.bedroom_wall_switch
       name: 'Светильник'
     - type: divider
-    - entity: input_boolean.back_light_ignore_bedroom_illuminance
+    - entity: input_boolean.back_light_bedroom_ignore_illuminance
       name: 'Игнорировать освещенность'
-    - entity: input_boolean.back_light_ignore_bedroom_night_mode
+    - entity: input_boolean.back_light_bedroom_ignore_night_mode
       name: 'Работа ночью'
     - type: divider
     - entity: automation.back_light_bedroom_1
@@ -131,9 +131,9 @@ cards:
     - entity: switch.bedroom_relay_l2
       name: 'Увлажнитель'
     - type: divider
-    - entity: input_boolean.hudration_ignore_bedroom_ventilation
+    - entity: input_boolean.hudration_bedroom_ignore_ventilation
       name: 'Игнорировать проветривание'
-    - entity: input_boolean.hudration_ignore_bedroom_night_mode
+    - entity: input_boolean.hudration_bedroom_ignore_night_mode
       name: 'Работа ночью'
     - type: divider
     - entity: automation.humidifier_bedroom
