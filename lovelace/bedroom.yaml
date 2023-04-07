@@ -125,5 +125,11 @@ cards:
     entities:
     - entity: switch.bedroom_relay_l2
       name: 'Увлажнитель'
+    - type: divider
+    - entity: input_boolean.hudration_ignore_bedroom_ventilation
+      name: 'Игнорировать проветривание'
+    - entity: input_boolean.hudration_ignore_bedroom_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.humidifier_bedroom
       name: 'Автоматизация'

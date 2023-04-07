@@ -1,0 +1,26 @@
+## HUDRATION HALL
+hudration_ignore_hall_ventilation:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+hudration_ignore_hall_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## HUDRATION BEDROOM
+hudration_ignore_bedroom_ventilation:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+hudration_ignore_bedroom_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## HUDRATION LIVING
+hudration_ignore_living_ventilation:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+hudration_ignore_living_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
