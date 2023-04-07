@@ -299,6 +299,13 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
+    - entity: sensor.relay_average_power
+      name: 'Общее'
+
+  - type: history-graph
+    hours_to_show: 24
+    show_names: false
+    entities:
     - entity: sensor.relay_kitchen_power
       name: 'Кухня'
     - entity: sensor.relay_bath_power
@@ -313,13 +320,6 @@ cards:
       name: 'Гостиная'
     - entity: sensor.relay_balcony_power
       name: 'Балкон'
-
-  - type: history-graph
-    hours_to_show: 24
-    show_names: false
-    entities:
-    - entity: sensor.relay_average_power
-      name: 'Общее'
 
   - type: entities
     state_color: true
