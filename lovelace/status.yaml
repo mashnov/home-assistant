@@ -316,7 +316,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 24
     show_names: false
     entities:
     - entity: sensor.relay_average_power
