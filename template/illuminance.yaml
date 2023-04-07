@@ -7,7 +7,6 @@
     icon: 'mdi:brightness-7'
 
   - name: 'illuminance_degree_level'
-    device_class: 'illuminance'
     unit_of_measurement: '°'
     icon: 'mdi:brightness-auto'
     state: >
