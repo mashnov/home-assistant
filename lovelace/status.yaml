@@ -301,19 +301,19 @@ cards:
     show_header_toggle: false
     entities:
     - entity: sensor.relay_kitchen_power
-      name: 'Пинг'
+      name: 'Кухня'
     - entity: sensor.relay_bath_power
-      name: 'Пинг'
+      name: 'Ванная'
     - entity: sensor.relay_toilet_power
-      name: 'Пинг'
+      name: 'Туалет'
     - entity: sensor.relay_hall_power
-      name: 'Пинг'
+      name: 'Коридор'
     - entity: sensor.relay_bedroom_power
-      name: 'Пинг'
+      name: 'Спальня'
     - entity: sensor.relay_living_power
-      name: 'Пинг'
+      name: 'Гостиная'
     - entity: sensor.relay_balcony_power
-      name: 'Пинг'
+      name: 'Балкон'
 
   - type: history-graph
     hours_to_show: 168
