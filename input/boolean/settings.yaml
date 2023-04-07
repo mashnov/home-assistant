@@ -53,3 +53,40 @@ top_light_ignore_hall_illuminance:
 top_light_ignore_hall_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
+
+
+## BACK LIGHT KITCHEN
+back_light_ignore_kitchen_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+back_light_ignore_kitchen_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## BACK LIGHT HALL
+back_light_ignore_hall_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+back_light_ignore_hall_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## BACK LIGHT BEDROOM
+back_light_ignore_bedroom_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+back_light_ignore_bedroom_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## BACK LIGHT LIVING
+back_light_ignore_living_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+back_light_ignore_living_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'

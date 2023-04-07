@@ -38,8 +38,12 @@
       {% set isButtonOn = is_state('binary_sensor.button_kitchen_left_on', 'on') %}
       {% set isOccupancy = is_state('binary_sensor.motion_kitchen_boolean', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_kitchen_back_light_boolean', 'on') %}
+      {% set ignoreIlluminance = is_state('input_boolean.back_light_ignore_kitchen_illuminance', 'on') %}
+      {% set illuminancePermission = isIlluminanceLow or ignoreIlluminance %}
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {{ isButtonOn or (not(isNightMode) and isOccupancy and isIlluminanceLow) }}
+      {% set ignoreNightMode = is_state('input_boolean.back_light_ignore_kitchen_night_mode', 'on') %}
+      {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
+      {{ isButtonOn or (nightModePermission and isOccupancy and illuminancePermission) }}
 
   - name: 'back_light_hall_permission'
     device_class: 'lock'
@@ -47,8 +51,12 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_hall_both_on', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_hall_back_light_boolean', 'on') %}
+      {% set ignoreIlluminance = is_state('input_boolean.back_light_ignore_hall_illuminance', 'on') %}
+      {% set illuminancePermission = isIlluminanceLow or ignoreIlluminance %}
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
-      {{ isButtonOn or (not(isNightMode) and isIlluminanceLow) }}
+      {% set ignoreNightMode = is_state('input_boolean.back_light_ignore_hall_night_mode', 'on') %}
+      {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
+      {{ isButtonOn or (nightModePermission and illuminancePermission) }}
 
   - name: 'back_light_bedroom_permission'
     device_class: 'lock'
@@ -56,8 +64,12 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_bedroom_left_on', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_bedroom_back_light_boolean', 'on') %}
+      {% set ignoreIlluminance = is_state('input_boolean.back_light_ignore_bedroom_illuminance', 'on') %}
+      {% set illuminancePermission = isIlluminanceLow or ignoreIlluminance %}
       {% set isNightMode = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
-      {{ isButtonOn or (not(isNightMode) and isIlluminanceLow) }}
+      {% set ignoreNightMode = is_state('input_boolean.back_light_ignore_bedroom_night_mode', 'on') %}
+      {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
+      {{ isButtonOn or (nightModePermission and illuminancePermission) }}
 
   - name: 'back_light_living_permission'
     device_class: 'lock'
@@ -65,8 +77,12 @@
     state: >
       {% set isButtonOn = is_state('binary_sensor.button_living_left_on', 'on') %}
       {% set isIlluminanceLow = is_state('binary_sensor.illuminance_living_back_light_boolean', 'on') %}
+      {% set ignoreIlluminance = is_state('input_boolean.back_light_ignore_living_illuminance', 'on') %}
+      {% set illuminancePermission = isIlluminanceLow or ignoreIlluminance %}
       {% set isNightMode = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
-      {{ isButtonOn or (not(isNightMode) and isIlluminanceLow) }}
+      {% set ignoreNightMode = is_state('input_boolean.back_light_ignore_living_night_mode', 'on') %}
+      {% set nightModePermission = not(isNightMode) or ignoreNightMode %}
+      {{ isButtonOn or (nightModePermission and illuminancePermission) }}
 
   - name: 'back_light_balcony_permission'
     device_class: 'lock'

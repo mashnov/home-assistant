@@ -97,6 +97,11 @@ cards:
     - entity: switch.living_relay_l2
       name: 'Светильник'
     - type: divider
+    - entity: input_boolean.back_light_ignore_living_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.back_light_ignore_living_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.back_light_living
       name: 'Автоматизация'
 

@@ -126,6 +126,11 @@ cards:
     - entity: switch.kitchen_switch_right
       name: 'Выключатель'
     - type: divider
+    - entity: input_boolean.back_light_ignore_kitchen_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.back_light_ignore_kitchen_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.back_light_kitchen
       name: 'Автоматизация'
 

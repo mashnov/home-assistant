@@ -100,6 +100,11 @@ cards:
     - entity: switch.bedroom_wall_switch
       name: 'Светильник'
     - type: divider
+    - entity: input_boolean.back_light_ignore_bedroom_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.back_light_ignore_bedroom_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.back_light_bedroom_1
       name: 'Автоматизация (подсветка)'
     - entity: automation.back_light_bedroom_2

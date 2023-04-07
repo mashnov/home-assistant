@@ -78,6 +78,11 @@ cards:
     - entity: switch.hall_relay_l1
       name: 'Светильник'
     - type: divider
+    - entity: input_boolean.back_light_ignore_hall_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.back_light_ignore_hall_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.top_light_hall
       name: 'Автоматизация'
 
