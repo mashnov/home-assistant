@@ -95,6 +95,11 @@ cards:
     - entity: light.top_light_kitchen_5
       name: 'Светильник 5'
     - type: divider
+    - entity: input_boolean.top_light_ignore_kitchen_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.top_light_ignore_kitchen_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.top_light_kitchen
       name: 'Автоматизация'
 

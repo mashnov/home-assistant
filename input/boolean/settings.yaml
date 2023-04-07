@@ -24,3 +24,32 @@ hudration_ignore_living_ventilation:
 hudration_ignore_living_night_mode:
   initial: false
   icon: 'mdi:human-greeting-variant'
+
+
+## TOP LIGHT KITCHEN
+top_light_ignore_kitchen_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+top_light_ignore_kitchen_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## TOP LIGHT BATH
+top_light_ignore_bath_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## TOP LIGHT TOILET
+top_light_ignore_toilet_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+## TOP LIGHT HALL
+top_light_ignore_hall_illuminance:
+  initial: false
+  icon: 'mdi:human-greeting-variant'
+
+top_light_ignore_hall_night_mode:
+  initial: false
+  icon: 'mdi:human-greeting-variant'

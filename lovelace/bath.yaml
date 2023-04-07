@@ -24,6 +24,9 @@ cards:
     - entity: switch.hall_switch_restroom_right
       name: 'Выключатель'
     - type: divider
+    - entity: input_boolean.top_light_ignore_bath_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.top_light_bath
       name: 'Автоматизация'
 

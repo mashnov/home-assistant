@@ -50,6 +50,11 @@ cards:
     - entity: light.top_light_hall_6
       name: 'Светильник 6'
     - type: divider
+    - entity: input_boolean.top_light_ignore_hall_illuminance
+      name: 'Игнорировать освещенность'
+    - entity: input_boolean.top_light_ignore_hall_night_mode
+      name: 'Работа ночью'
+    - type: divider
     - entity: automation.top_light_hall
       name: 'Автоматизация'
 
