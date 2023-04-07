@@ -77,24 +77,27 @@
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_hall_boolean', 'on') %}
-      {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
+      # {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {% set isDry = is_state('binary_sensor.humidity_hall_low', 'on') %}
-      {{ not(isVentilation) and not(isNightMode) and isDry }}
+      {{ not(isVentilation) and isDry }}
+      # {{ not(isVentilation) and not(isNightMode) and isDry }}
 
   - name: 'humidifier_bedroom_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_bedroom_boolean', 'on') %}
-      {% set isNightMode = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
+      # {% set isNightMode = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
       {% set isDry = is_state('binary_sensor.humidity_bedroom_low', 'on') %}
-      {{ not(isVentilation) and not(isNightMode) and isDry }}
+      {{ not(isVentilation) and isDry }}
+      # {{ not(isVentilation) and not(isNightMode) and isDry }}
 
   - name: 'humidifier_living_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
     state: >
       {% set isVentilation = is_state('binary_sensor.ventilation_living_boolean', 'on') %}
-      {% set isNightMode = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
+      # {% set isNightMode = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
       {% set isDry = is_state('binary_sensor.humidity_living_low', 'on') %}
-      {{ not(isVentilation) and not(isNightMode) and isDry }}
+      {{ not(isVentilation) and isDry }}
+      # {{ not(isVentilation) and not(isNightMode) and isDry }}
