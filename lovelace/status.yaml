@@ -36,7 +36,7 @@ cards:
 
   - type: history-graph
     hours_to_show: 6
-    show_names: false
+    show_names: true
     entities:
     - entity: sensor.temperature_kitchen_level
       name: 'Кухня'
@@ -92,7 +92,7 @@ cards:
 
   - type: history-graph
     hours_to_show: 3
-    show_names: false
+    show_names: true
     entities:
     - entity: sensor.humidity_kitchen_level
       name: 'Кухня'
@@ -273,7 +273,7 @@ cards:
 
   - type: history-graph
     hours_to_show: 168
-    show_names: false
+    show_names: true
     entities:
     - entity: sensor.network_download_level
       name: 'Загрузка'
@@ -304,7 +304,7 @@ cards:
 
   - type: history-graph
     hours_to_show: 24
-    show_names: false
+    show_names: true
     entities:
     - entity: sensor.relay_kitchen_power
       name: 'Кухня'
