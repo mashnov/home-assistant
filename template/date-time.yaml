@@ -12,22 +12,16 @@
       {% set twilightIcon = is_state('binary_sensor.date_time_twilight', 'on') and 'mdi:clock-time-seven-outline' %}
       {{ nightIcon or morningIcon or dayIcon or eveningIcon or twilightIcon or defaultIcon }}
     attributes:
-      dmy_hms_z: '{{ utcnow().strftime("%d %m %Y %H:%M:%S %z") }}'
       dmy_hm_z: '{{ utcnow().strftime("%d %m %Y %H:%M %z") }}'
-      dmy_hms: '{{ utcnow().strftime("%d %m %Y %H:%M:%S") }}'
       dmy_hm: '{{ utcnow().strftime("%d %m %Y %H:%M") }}'
       dmy: '{{ utcnow().strftime("%d %m %Y") }}'
       hmz: '{{ utcnow().strftime("%H:%M %z") }}'
-      hms: '{{ utcnow().strftime("%H:%M:%S") }}'
       hm: '{{ utcnow().strftime("%H:%M") }}'
       z: '{{ utcnow().strftime("%z") }}'
-      dmy_hms_z_local: '{{ now().strftime("%d %m %Y %H:%M:%S %z") }}'
       dmy_hm_z_local: '{{ now().strftime("%d %m %Y %H:%M %z") }}'
-      dmy_hms_local: '{{ now().strftime("%d %m %Y %H:%M:%S") }}'
       dmy_hm_local: '{{ now().strftime("%d %m %Y %H:%M") }}'
       dmy_local: '{{ now().strftime("%d %m %Y") }}'
       hmz_local: '{{ now().strftime("%H:%M %z") }}'
-      hms_local: '{{ now().strftime("%H:%M:%S") }}'
       hm_local: '{{ now().strftime("%H:%M") }}'
       z_local: '{{ now().strftime("%z") }}'
 

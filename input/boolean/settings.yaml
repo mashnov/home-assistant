@@ -4,7 +4,7 @@ hudration_hall_ignore_ventilation:
   icon: 'mdi:cog'
 
 hudration_hall_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 ## HUDRATION BEDROOM
@@ -13,7 +13,7 @@ hudration_bedroom_ignore_ventilation:
   icon: 'mdi:cog'
 
 hudration_bedroom_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 ## HUDRATION LIVING
@@ -22,7 +22,7 @@ hudration_living_ignore_ventilation:
   icon: 'mdi:cog'
 
 hudration_living_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 
@@ -99,15 +99,15 @@ night_light_kitchen_ignore_night_mode:
 
 ## NIGHT LIGHT BATH
 night_light_bath_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 ## NIGHT LIGHT TOILET
 night_light_toilet_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 ## NIGHT LIGHT HALL
 night_light_hall_ignore_night_mode:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
