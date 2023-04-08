@@ -1,9 +1,6 @@
 ## ILLUMINANCE SENSORS
-- platform: history_stats
-  name: illuminance_max_level
+- platform: statistics
   entity_id: sensor.illuminance_level
-  state: 'on'
-  type: time
-  end: '{{ now().strftime("%Y-%m-%d 23:59:59") }}'
-  duration:
-    days: 1
+  name: illuminance_max_level
+  max_age:
+    hours: 24 
