@@ -1,0 +1,8 @@
+## ILLUMINANCE SENSORS
+- sensor:
+  
+  - name: illuminance_max_level
+    platform: history_stats
+    entity_id: sensor.illuminance_level
+    state: 'max'
+    type: 'day'

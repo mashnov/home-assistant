@@ -6,12 +6,6 @@
     state: "{{ state_attr('sensor.balcony_illuminance', 'illuminance_lux') | int(0) }}"
     icon: 'mdi:brightness-7'
 
-  - name: illuminance_max_level
-    platform: history_stats
-    entity_id: sensor.illuminance_level
-    state: 'max'
-    type: 'day'
-
   - name: 'illuminance_degree_level'
     unit_of_measurement: '°'
     icon: 'mdi:brightness-auto'
