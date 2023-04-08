@@ -35,7 +35,7 @@ cards:
       name: 'Балкон'
 
   - type: history-graph
-    hours_to_show: 6
+    hours_to_show: 3
     show_names: true
     entities:
     - entity: sensor.temperature_kitchen_level
@@ -154,7 +154,7 @@ cards:
       name: 'Гостиная'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 720
     show_names: false
     entities:
     - entity: sensor.pressure_level
@@ -188,7 +188,7 @@ cards:
       name: 'Уровень облачности'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 720
     show_names: false
     entities:
     - sensor.cloud_level
@@ -275,7 +275,7 @@ cards:
       name: 'Пинг'
 
   - type: history-graph
-    hours_to_show: 168
+    hours_to_show: 720
     show_names: true
     entities:
     - entity: sensor.network_download_level
@@ -306,7 +306,7 @@ cards:
       name: 'Общее'
 
   - type: history-graph
-    hours_to_show: 24
+    hours_to_show: 12
     show_names: true
     entities:
     - entity: sensor.relay_kitchen_power
