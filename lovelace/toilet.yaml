@@ -40,6 +40,7 @@ cards:
     entities:
     - entity: binary_sensor.night_light_toilet_permission
     - entity: binary_sensor.occupancy_toilet_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
     - entity: input_boolean.button_toilet
 
   - type: entities
@@ -72,6 +73,11 @@ cards:
     entities:
     - entity: switch.toilet_relay_l1
       name: 'Вытяжка'
+    - type: divider
+    - entity: input_number.duration_dehumidifier_night
+      name: 'Длительность (ночь)'
+    - entity: input_number.duration_dehumidifier_day
+      name: 'Длительность (день)'
     - type: divider
     - entity: automation.dehumidifier_toilet_on
       name: 'Автоматизация'

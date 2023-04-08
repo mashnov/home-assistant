@@ -49,8 +49,6 @@ cards:
       name: 'Балкон розетка'
 
 ## ВЫКЛЮЧАТЕЛИ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Выключатели'
 
@@ -81,8 +79,6 @@ cards:
       name: 'Гостиная'
 
 ## РЕЛЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Реле'
 
@@ -130,8 +126,6 @@ cards:
       name: 'Балкон розетка'
 
 ## АВТОМАТИЗАЦИИ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Автоматизации'
 
@@ -206,8 +200,6 @@ cards:
       name: 'Балкон розетка'
 
 ## ВЛАЖНОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Влажность'
 
@@ -223,8 +215,6 @@ cards:
       name: 'Офсет'
 
 ## ТЕМПЕРАТУРА
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Температура'
 
@@ -238,8 +228,6 @@ cards:
       name: 'Офсет'
 
 ## ДАВЛЕНИЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Давление'
 
@@ -253,8 +241,6 @@ cards:
       name: 'Офсет'
 
 ## ОБЛАЧНОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Облачность'
 
@@ -266,8 +252,6 @@ cards:
       name: 'Облачность таргет'
 
 ## НОЧНОЙ РЕЖИМ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Ночной режим'
 
@@ -279,8 +263,6 @@ cards:
       name: 'Время бездействия'
 
 ## ОСВЕЩЕННОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Яркость солнца'
 
@@ -292,8 +274,6 @@ cards:
       name: 'Максимальная яркость'
 
 ## ОСВЕЩЕННОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Освещенность'
 
@@ -342,8 +322,6 @@ cards:
       name: 'Подсветка (облачно)'
 
 ## ШТОРЫ КУХНЯ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Шторы кухня'
 
@@ -363,8 +341,6 @@ cards:
       name: 'Закрыто'
 
 ## ШТОРЫ СПАЛЬНЯ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Шторы спальня'
 
@@ -384,8 +360,6 @@ cards:
       name: 'Закрыто'
 
 ## ШТОРЫ ГОСТИНАЯ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Шторы гостиная'
 
@@ -405,8 +379,6 @@ cards:
       name: 'Закрыто'
 
 ## СОЛНЦЕ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Солнце'
 
@@ -425,8 +397,6 @@ cards:
       name: 'Офсет (офсет)'
 
 ## МОЩНОСТЬ ПОДСВЕТКИ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Мощность подсветки'
 
@@ -442,8 +412,6 @@ cards:
       name: 'Гостиная'
 
 ## ЗАДЕРЖКА
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Задержка'
 
@@ -469,8 +437,6 @@ cards:
       name: 'Ночной режим вкл'
 
 ## ДЛИТЕЛЬНОСТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Длительность'
 
@@ -492,8 +458,6 @@ cards:
       name: 'Дверной звонок'
 
 ## СЕТЬ
-- type: vertical-stack
-  cards:
   - type: markdown
     content: 'Сеть'
 

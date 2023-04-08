@@ -145,6 +145,7 @@ cards:
     - entity: binary_sensor.night_light_kitchen_permission
     - entity: binary_sensor.motion_kitchen_boolean
     - entity: binary_sensor.night_mode_hall_boolean
+    - entity: input_boolean.button_kitchen_left 
 
   - type: entities
     state_color: true

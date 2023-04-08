@@ -95,6 +95,7 @@ cards:
     show_state: false
     entities:
     - entity: binary_sensor.motion_hall_boolean
+    - entity: binary_sensor.night_mode_hall_boolean
     - entity: input_boolean.button_hall 
 
   - type: entities
