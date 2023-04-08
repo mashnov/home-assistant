@@ -12,7 +12,7 @@ humidity_target:
   min: 0
   max: 100
   step: 1
-  initial: 45
+  initial: 40
 
 humidity_target_bath:
   unit_of_measurement: '%'
@@ -20,4 +20,4 @@ humidity_target_bath:
   min: 0
   max: 100
   step: 1
-  initial: 65
+  initial: 60
