@@ -20,7 +20,7 @@
 - binary_sensor:
   - name: 'network_download_low'
     device_class: 'problem'
-    icon: 'mdi:speedometer'
+    icon: 'mdi:arrow-down-bold-circle-outline'
     state: >
       {% set sensorValue = states('sensor.network_download_level') | int(0) %}
       {% set targetValue = states('input_number.network_download_target') | int(0) %}
@@ -28,7 +28,7 @@
 
   - name: 'network_upload_low'
     device_class: 'problem'
-    icon: 'mdi:speedometer'
+    icon: 'mdi:arrow-up-bold-circle-outline'
     state: >
       {% set sensorValue = states('sensor.network_upload_level') | int(0) %}
       {% set targetValue = states('input_number.network_upload_target') | int(0) %}
@@ -36,7 +36,7 @@
 
   - name: 'network_ping_low'
     device_class: 'problem'
-    icon: 'mdi:speedometer'
+    icon: 'mdi:transit-connection-variant'
     state: >
       {% set sensorValue = states('sensor.network_ping_level') | int(0) %}
       {% set targetValue = states('input_number.network_ping_target') | int(0) %}

@@ -103,7 +103,7 @@ cards:
     - entity: input_boolean.back_light_bedroom_ignore_illuminance
       name: 'Игнорировать освещенность'
     - entity: input_boolean.back_light_bedroom_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.back_light_bedroom_1
       name: 'Автоматизация (подсветка)'
@@ -134,7 +134,7 @@ cards:
     - entity: input_boolean.hudration_bedroom_ignore_ventilation
       name: 'Игнорировать проветривание'
     - entity: input_boolean.hudration_bedroom_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.humidifier_bedroom
       name: 'Автоматизация'

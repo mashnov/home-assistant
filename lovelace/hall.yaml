@@ -53,7 +53,7 @@ cards:
     - entity: input_boolean.top_light_hall_ignore_illuminance
       name: 'Игнорировать освещенность'
     - entity: input_boolean.top_light_hall_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.top_light_hall
       name: 'Автоматизация'
@@ -81,7 +81,7 @@ cards:
     - entity: input_boolean.back_light_hall_ignore_illuminance
       name: 'Игнорировать освещенность'
     - entity: input_boolean.back_light_hall_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.top_light_hall
       name: 'Автоматизация'
@@ -105,8 +105,8 @@ cards:
     - entity: light.nightlight_hall
       name: 'Светильник'
     - type: divider
-    - entity: input_boolean.night_light_hall_only_night_mode
-      name: 'Работа только ночью'
+    - entity: input_boolean.night_light_hall_ignore_night_mode
+      name: 'Включать днем'
     - type: divider
     - entity: automation.night_light_hall
       name: 'Автоматизация'
@@ -135,7 +135,7 @@ cards:
     - entity: input_boolean.hudration_hall_ignore_ventilation
       name: 'Игнорировать проветривание'
     - entity: input_boolean.hudration_hall_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.humidifier_hall
       name: 'Автоматизация'

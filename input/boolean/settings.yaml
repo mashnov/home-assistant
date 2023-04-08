@@ -93,21 +93,21 @@ back_light_living_ignore_night_mode:
 
 
 ## NIGHT LIGHT KITCHEN
-night_light_kitchen_only_night_mode:
+night_light_kitchen_ignore_night_mode:
   initial: false
   icon: 'mdi:cog'
 
 ## NIGHT LIGHT BATH
-night_light_bath_only_night_mode:
+night_light_bath_ignore_night_mode:
   initial: false
   icon: 'mdi:cog'
 
 ## NIGHT LIGHT TOILET
-night_light_toilet_only_night_mode:
+night_light_toilet_ignore_night_mode:
   initial: false
   icon: 'mdi:cog'
 
 ## NIGHT LIGHT HALL
-night_light_hall_only_night_mode:
+night_light_hall_ignore_night_mode:
   initial: false
   icon: 'mdi:cog'

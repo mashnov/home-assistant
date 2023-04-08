@@ -25,7 +25,7 @@ cards:
       name: 'Выключатель'
     - type: divider
     - entity: input_boolean.top_light_bath_ignore_night_mode
-      name: 'Работа ночью'
+      name: 'Включать ночью'
     - type: divider
     - entity: automation.top_light_bath
       name: 'Автоматизация'
@@ -50,8 +50,8 @@ cards:
     - entity: switch.bath_relay_l1
       name: 'Светильник'
     - type: divider
-    - entity: input_boolean.night_light_bath_only_night_mode
-      name: 'Работа только ночью'
+    - entity: input_boolean.night_light_bath_ignore_night_mode
+      name: 'Включать днем'
     - type: divider
     - entity: automation.night_light_bath
       name: 'Автоматизация'
