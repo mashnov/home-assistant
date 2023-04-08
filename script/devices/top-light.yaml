@@ -4,7 +4,7 @@ top_light_set_params:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "test"
+      message: "{{ states('sensor.top_light_list_on') | tojson }}"
 
 ## TOP LIGHT KITCHEN
 ## TOP LIGHT KITCHEN GROUP
