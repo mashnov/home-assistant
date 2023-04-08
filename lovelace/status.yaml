@@ -222,6 +222,9 @@ cards:
       name: 'Подъем'
     - entity: sensor.illuminance_level
       name: 'Освещенность'
+    - type: divider
+    - entity: sensor.illuminance_max_level
+      name: 'Освещенность (макс)'
 
   - type: history-graph
     hours_to_show: 24

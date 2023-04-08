@@ -264,17 +264,6 @@ cards:
 
 ## ОСВЕЩЕННОСТЬ
   - type: markdown
-    content: 'Яркость солнца'
-
-  - type: entities
-    state_color: true
-    show_header_toggle: false
-    entities:
-    - entity: input_number.parameters_light_target
-      name: 'Максимальная яркость'
-
-## ОСВЕЩЕННОСТЬ
-  - type: markdown
     content: 'Освещенность'
 
   - type: entities
