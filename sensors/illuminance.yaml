@@ -3,4 +3,7 @@
   name: illuminance_max_level
   entity_id: sensor.illuminance_level
   state: 'max'
-  type: 'day'
+  type: 'time'
+  end: '{{ now().strftime("%Y-%m-%d") }}'
+  duration:
+    hours: 24
