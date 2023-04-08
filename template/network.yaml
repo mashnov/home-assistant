@@ -4,18 +4,18 @@
     device_class: 'data_rate'
     unit_of_measurement: Mbit/s
     state: "{{ states('sensor.speedtest_download') | float(0) | round(1) }}"
-    icon: 'mdi:speedometer'
+    icon: 'mdi:arrow-down-bold-circle-outline'
 
   - name: 'network_upload_level'
     device_class: 'data_rate'
     unit_of_measurement: Mbit/s
     state: "{{ states('sensor.speedtest_upload') | float(0) | round(1) }}"
-    icon: 'mdi:speedometer'
+    icon: 'mdi:arrow-up-bold-circle-outline'
 
   - name: 'network_ping_level'
     unit_of_measurement: ms
     state: "{{ states('sensor.speedtest_ping') | float(0) | round(1) }}"
-    icon: 'mdi:speedometer'
+    icon: 'mdi:transit-connection-variant'
 
 - binary_sensor:
   - name: 'network_download_low'

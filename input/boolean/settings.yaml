@@ -1,3 +1,43 @@
+## CURTAIN KITCHN
+curtain_kitchn_ignore_illuminance:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_kitchn_ignore_ventilation:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_kitchn_ignore_night_mode:
+  initial: true
+  icon: 'mdi:cog'
+
+## CURTAIN BEDROOM
+curtain_bedroom_ignore_illuminance:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_bedroom_ignore_ventilation:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_bedroom_ignore_night_mode:
+  initial: true
+  icon: 'mdi:cog'
+
+## CURTAIN LIVING
+curtain_living_ignore_illuminance:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_living_ignore_ventilation:
+  initial: false
+  icon: 'mdi:cog'
+
+curtain_living_ignore_night_mode:
+  initial: true
+  icon: 'mdi:cog'
+
+
 ## HUDRATION HALL
 hudration_hall_ignore_ventilation:
   initial: false
