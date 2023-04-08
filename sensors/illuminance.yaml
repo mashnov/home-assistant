@@ -2,5 +2,6 @@
 - platform: statistics
   entity_id: sensor.illuminance_level
   name: illuminance_max_level
+  state_characteristic: value_max
   max_age:
     hours: 24 
