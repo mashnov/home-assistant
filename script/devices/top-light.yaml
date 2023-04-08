@@ -4,11 +4,7 @@ top_light_set_params:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        ⏱️ Облачность ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🌤️ Уровень ................... {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '🟢', '🔵') }} {{ states('sensor.cloud_level') }} %
-
-
+      message: "test"
 
 ## TOP LIGHT KITCHEN
 ## TOP LIGHT KITCHEN GROUP
