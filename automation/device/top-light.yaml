@@ -1,3 +1,14 @@
+## TOP LIGHT PARAMS
+- alias: 'top_light_params'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'sensor.top_light_list_on'
+  - platform: state
+    entity_id: 'sensor.parameters_light'
+  action:
+  - service: script.top_light_set_params
+
 ## TOP LIGHT KITCHEN
 - alias: 'top_light_kitchen'
   mode: 'queued'
