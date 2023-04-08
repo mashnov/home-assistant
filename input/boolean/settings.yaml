@@ -4,7 +4,7 @@ curtain_kitchn_ignore_illuminance:
   icon: 'mdi:cog'
 
 curtain_kitchn_ignore_ventilation:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 curtain_kitchn_ignore_night_mode:
@@ -17,7 +17,7 @@ curtain_bedroom_ignore_illuminance:
   icon: 'mdi:cog'
 
 curtain_bedroom_ignore_ventilation:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 curtain_bedroom_ignore_night_mode:
@@ -30,7 +30,7 @@ curtain_living_ignore_illuminance:
   icon: 'mdi:cog'
 
 curtain_living_ignore_ventilation:
-  initial: false
+  initial: true
   icon: 'mdi:cog'
 
 curtain_living_ignore_night_mode:
