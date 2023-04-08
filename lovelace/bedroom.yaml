@@ -38,11 +38,11 @@ cards:
     - entity: sensor.curtain_bedroom_position
       name: 'Позиция'
     - type: divider
-    - entity: input_number.curtain_bedroom_ignore_illuminance
+    - entity: input_boolean.curtain_bedroom_ignore_illuminance
       name: 'Игнорировать солнце'
-    - entity: input_number.curtain_bedroom_ignore_ventilation
+    - entity: input_boolean.curtain_bedroom_ignore_ventilation
       name: 'Игнорировать проветривание'
-    - entity: input_number.curtain_bedroom_ignore_night_mode
+    - entity: input_boolean.curtain_bedroom_ignore_night_mode
       name: 'Закрывать на ночь'
     - type: divider
     - entity: automation.curtain_bedroom
