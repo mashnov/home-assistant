@@ -5,7 +5,6 @@ illuminance_kitchen_curtain_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 3500
 
 illuminance_kitchen_curtain_target_cloudly:
   unit_of_measurement: 'lx'
@@ -13,7 +12,6 @@ illuminance_kitchen_curtain_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 4500
 
 illuminance_kitchen_top_light_target_sunny:
   unit_of_measurement: 'lx'
@@ -21,7 +19,6 @@ illuminance_kitchen_top_light_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 3000
 
 illuminance_kitchen_top_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -29,7 +26,6 @@ illuminance_kitchen_top_light_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 2000
 
 illuminance_kitchen_back_light_target_sunny:
   unit_of_measurement: 'lx'
@@ -37,7 +33,6 @@ illuminance_kitchen_back_light_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 3500
 
 illuminance_kitchen_back_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -45,7 +40,6 @@ illuminance_kitchen_back_light_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 2500
 
 ## ILLUMINANCE HALL
 illuminance_hall_top_light_target_sunny:
@@ -54,7 +48,6 @@ illuminance_hall_top_light_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 4000
 
 illuminance_hall_top_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -62,7 +55,6 @@ illuminance_hall_top_light_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 4000
 
 illuminance_hall_back_light_target_sunny:
   unit_of_measurement: 'lx'
@@ -70,7 +62,6 @@ illuminance_hall_back_light_target_sunny:
   min: 0
   max: 20000
   step: 1
-  initial: 15000
 
 illuminance_hall_back_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -78,7 +69,6 @@ illuminance_hall_back_light_target_cloudly:
   min: 0
   max: 20000
   step: 1
-  initial: 15000
 
 ## ILLUMINANCE BEDROOM
 illuminance_bedroom_curtain_target_sunny:
@@ -87,7 +77,6 @@ illuminance_bedroom_curtain_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 3500
 
 illuminance_bedroom_curtain_target_cloudly:
   unit_of_measurement: 'lx'
@@ -95,7 +84,6 @@ illuminance_bedroom_curtain_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 4500
 
 illuminance_bedroom_back_light_target_sunny:
   unit_of_measurement: 'lx'
@@ -103,7 +91,6 @@ illuminance_bedroom_back_light_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 4500
 
 illuminance_bedroom_back_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -111,7 +98,6 @@ illuminance_bedroom_back_light_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 5500
 
 ## ILLUMINANCE LIVING
 illuminance_living_curtain_target_sunny:
@@ -120,7 +106,6 @@ illuminance_living_curtain_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 3500
 
 illuminance_living_curtain_target_cloudly:
   unit_of_measurement: 'lx'
@@ -128,7 +113,6 @@ illuminance_living_curtain_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 4500
 
 illuminance_living_back_light_target_sunny:
   unit_of_measurement: 'lx'
@@ -136,7 +120,6 @@ illuminance_living_back_light_target_sunny:
   min: 0
   max: 9000
   step: 1
-  initial: 4500
 
 illuminance_living_back_light_target_cloudly:
   unit_of_measurement: 'lx'
@@ -144,4 +127,3 @@ illuminance_living_back_light_target_cloudly:
   min: 0
   max: 9000
   step: 1
-  initial: 5500

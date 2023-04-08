@@ -1,6 +1,5 @@
 ## BUTTON LIVING
 - alias: 'button_living_left_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -11,7 +10,6 @@
 
 
 - alias: 'button_living_right_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -22,7 +20,6 @@
 
 
 - alias: 'button_living_both_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

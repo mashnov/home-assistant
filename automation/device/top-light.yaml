@@ -1,6 +1,5 @@
-## TOP LIGHT
+## TOP LIGHT KITCHEN
 - alias: 'top_light_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -31,8 +30,8 @@
       - service: script.top_light_kitchen_4_off
       - service: script.top_light_kitchen_5_off
 
+## TOP LIGHT BATH
 - alias: 'top_light_bath'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -52,8 +51,8 @@
       sequence:
       - service: script.top_light_bath_off
 
+## TOP LIGHT TOILET
 - alias: 'top_light_toilet'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -73,8 +72,8 @@
       sequence:
       - service: script.top_light_toilet_off
 
+## TOP LIGHT HALL
 - alias: 'top_light_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -107,8 +106,8 @@
       - service: script.top_light_hall_5_off
       - service: script.top_light_hall_6_off
 
+## TOP LIGHT BEDROOM
 - alias: 'top_light_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -141,8 +140,8 @@
       - service: script.top_light_bedroom_5_off
       - service: script.top_light_bedroom_6_off
 
+## TOP LIGHT LIVING
 - alias: 'top_light_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

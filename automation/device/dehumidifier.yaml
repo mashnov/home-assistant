@@ -1,6 +1,5 @@
 ## DEHUMIDIFIER
 - alias: 'dehumidifier_toilet'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

@@ -11,7 +11,6 @@ ventilation_kitchen_off:
   - service: input_boolean.turn_off
     entity_id: input_boolean.ventilation_kitchen
 
-
 ## HALL KITCHEN
 ventilation_hall_on:
   mode: 'queued'
@@ -25,7 +24,6 @@ ventilation_hall_off:
   - service: input_boolean.turn_off
     entity_id: input_boolean.ventilation_hall
 
-
 ## BEDROOM KITCHEN
 ventilation_bedroom_on:
   mode: 'queued'
@@ -38,7 +36,6 @@ ventilation_bedroom_off:
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.ventilation_bedroom
-
 
 ## LIVING KITCHEN
 ventilation_living_on:

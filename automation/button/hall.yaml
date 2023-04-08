@@ -1,6 +1,5 @@
 ## BUTTON HALL
 - alias: 'button_hall_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -10,7 +9,6 @@
   - service: script.button_hall_toggle
 
 - alias: 'button_hall_both_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

@@ -5,7 +5,6 @@ network_download_target:
   min: 0
   max: 100
   step: 1
-  initial: 90
 
 ## NETWORK UPLOAD
 network_upload_target:
@@ -14,7 +13,6 @@ network_upload_target:
   min: 0
   max: 100
   step: 1
-  initial: 90
 
 ## NETWORK PING
 network_ping_target:
@@ -23,4 +21,3 @@ network_ping_target:
   min: 0
   max: 50
   step: 1
-  initial: 10

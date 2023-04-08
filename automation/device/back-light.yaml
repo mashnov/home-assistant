@@ -1,6 +1,5 @@
-## BACK LIGHT
+## BACK LIGHT KITCHEN
 - alias: 'back_light_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,8 +19,8 @@
       sequence:
       - service: script.back_light_kitchen_off
 
+## BACK LIGHT HALL
 - alias: 'back_light_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -41,8 +40,8 @@
       sequence:
       - service: script.back_light_hall_off
 
+## BACK LIGHT BEDROOM
 - alias: 'back_light_bedroom_1'
-  initial_state: false
   mode: 'queued'
   trigger:
   - platform: state
@@ -63,7 +62,6 @@
       - service: script.back_light_bedroom_1_off
 
 - alias: 'back_light_bedroom_2'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -83,9 +81,8 @@
       sequence:
       - service: script.back_light_bedroom_2_off
 
-
+## BACK LIGHT LIVING
 - alias: 'back_light_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -105,8 +102,8 @@
       sequence:
       - service: script.back_light_living_off
 
+## BACK LIGHT BALCONY
 - alias: 'back_light_balcony'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

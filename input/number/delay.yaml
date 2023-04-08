@@ -5,7 +5,6 @@ delay_power_on:
   max: 10
   min: 0
   step: 1
-  initial: 4
 
 delay_ventilation_on:
   unit_of_measurement: 'сек'
@@ -13,7 +12,6 @@ delay_ventilation_on:
   max: 20
   min: 0
   step: 1
-  initial: 10
 
 delay_ventilation_off:
   unit_of_measurement: 'сек'
@@ -21,7 +19,6 @@ delay_ventilation_off:
   max: 20
   min: 0
   step: 1
-  initial: 10
 
 delay_illuminance_on:
   unit_of_measurement: 'сек'
@@ -29,7 +26,6 @@ delay_illuminance_on:
   max: 120
   min: 0
   step: 1
-  initial: 30
 
 delay_illuminance_off:
   unit_of_measurement: 'сек'
@@ -37,7 +33,6 @@ delay_illuminance_off:
   max: 120
   min: 0
   step: 1
-  initial: 30
 
 delay_motion_night_off:
   unit_of_measurement: 'сек'
@@ -45,7 +40,6 @@ delay_motion_night_off:
   max: 60
   min: 0
   step: 5
-  initial: 30
 
 delay_motion_day_off:
   unit_of_measurement: 'сек'
@@ -53,7 +47,6 @@ delay_motion_day_off:
   max: 240
   min: 0
   step: 10
-  initial: 120
 
 delay_night_mode_on:
   unit_of_measurement: 'сек'
@@ -61,4 +54,3 @@ delay_night_mode_on:
   max: 180
   min: 0
   step: 10
-  initial: 90

@@ -1,6 +1,5 @@
 ## DEHUMIDIFIER BATH
 - alias: 'dehumidifier_bath_on'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,10 +19,8 @@
       sequence:
       - service: script.button_toilet_long_off
 
-
 ## DEHUMIDIFIER TOILET
 - alias: 'dehumidifier_toilet_on'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -41,7 +38,6 @@
   - service: script.dehumidifier_toilet_timer_start
   
 - alias: 'dehumidifier_toilet_off'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -56,7 +52,6 @@
   - service: script.button_toilet_long_off
 
 - alias: 'dehumidifier_toilet_timer_cancel'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

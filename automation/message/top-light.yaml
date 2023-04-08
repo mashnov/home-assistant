@@ -1,6 +1,5 @@
 ## TOP LIGHT
 - alias: message_top_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -11,7 +10,6 @@
   - service: script.message_top_light
 
 - alias: message_top_light_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -22,7 +20,6 @@
   - service: script.message_top_light_kitchen
 
 - alias: message_top_light_bath'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -33,7 +30,6 @@
   - service: script.message_top_light_bath
 
 - alias: message_top_light_toilet'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -44,7 +40,6 @@
   - service: script.message_top_light_toilet
 
 - alias: message_top_light_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -55,7 +50,6 @@
   - service: script.message_top_light_hall
 
 - alias: message_top_light_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -66,7 +60,6 @@
   - service: script.message_top_light_bedroom
 
 - alias: message_top_light_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

@@ -1,6 +1,5 @@
 ## DEHUMIDIFIER
 - alias: message_dehumidifier'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

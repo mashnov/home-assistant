@@ -5,7 +5,6 @@ curtain_kitchen_ventilation:
   min: 0
   max: 100
   step: 1
-  initial: 40
 
 curtain_kitchen_night:
   unit_of_measurement: '%'
@@ -13,7 +12,6 @@ curtain_kitchen_night:
   min: 0
   max: 100
   step: 1
-  initial: 70
 
 curtain_kitchen_sun:
   unit_of_measurement: '%'
@@ -21,7 +19,6 @@ curtain_kitchen_sun:
   min: 0
   max: 100
   step: 1
-  initial: 35
 
 curtain_kitchen_open:
   unit_of_measurement: '%'
@@ -29,7 +26,6 @@ curtain_kitchen_open:
   min: 0
   max: 100
   step: 1
-  initial: 5
 
 curtain_kitchen_close:
   unit_of_measurement: '%'
@@ -37,7 +33,6 @@ curtain_kitchen_close:
   min: 0
   max: 100
   step: 1
-  initial: 100
 
 ## CURTAIN BEDROOM
 curtain_bedroom_ventilation:
@@ -46,7 +41,6 @@ curtain_bedroom_ventilation:
   min: 0
   max: 100
   step: 1
-  initial: 60
 
 curtain_bedroom_night:
   unit_of_measurement: '%'
@@ -54,7 +48,6 @@ curtain_bedroom_night:
   min: 0
   max: 100
   step: 1
-  initial: 75
 
 curtain_bedroom_sun:
   unit_of_measurement: '%'
@@ -62,7 +55,6 @@ curtain_bedroom_sun:
   min: 0
   max: 100
   step: 1
-  initial: 50
 
 curtain_bedroom_open:
   unit_of_measurement: '%'
@@ -70,7 +62,6 @@ curtain_bedroom_open:
   min: 0
   max: 100
   step: 1
-  initial: 5
 
 curtain_bedroom_close:
   unit_of_measurement: '%'
@@ -78,7 +69,6 @@ curtain_bedroom_close:
   min: 0
   max: 100
   step: 1
-  initial: 100
 
 ## CURTAIN LIVING
 curtain_living_ventilation:
@@ -87,7 +77,6 @@ curtain_living_ventilation:
   min: 0
   max: 100
   step: 1
-  initial: 30
 
 curtain_living_night:
   unit_of_measurement: '%'
@@ -95,7 +84,6 @@ curtain_living_night:
   min: 0
   max: 100
   step: 1
-  initial: 85
 
 curtain_living_sun:
   unit_of_measurement: '%'
@@ -103,7 +91,6 @@ curtain_living_sun:
   min: 0
   max: 100
   step: 1
-  initial: 35
 
 curtain_living_open:
   unit_of_measurement: '%'
@@ -111,7 +98,6 @@ curtain_living_open:
   min: 0
   max: 100
   step: 1
-  initial: 10
 
 curtain_living_close:
   unit_of_measurement: '%'
@@ -119,4 +105,3 @@ curtain_living_close:
   min: 0
   max: 100
   step: 1
-  initial: 100

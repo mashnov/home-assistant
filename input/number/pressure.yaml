@@ -5,7 +5,6 @@ pressure_offset:
   min: 0
   max: 10
   step: 1
-  initial: 3
 
 pressure_target:
   unit_of_measurement: 'mmHg'
@@ -13,4 +12,3 @@ pressure_target:
   min: 740
   max: 780
   step: 1
-  initial: 756

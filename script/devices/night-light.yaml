@@ -11,7 +11,6 @@ night_light_kitchden_off:
   - service: switch.turn_off
     entity_id: 'switch.kitchen_relay_l1'
 
-
 ## NIGHT LIGHT BATH
 night_light_bath_on:
   mode: 'queued'
@@ -25,7 +24,6 @@ night_light_bath_off:
   - service: switch.turn_off
     entity_id: 'switch.bath_relay_l1'
 
-
 ## NIGHT LIGHT TOILET
 night_light_toilet_on:
   mode: 'queued'
@@ -38,7 +36,6 @@ night_light_toilet_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.toilet_relay_l2'
-
 
 ## NIGHT LIGHT HALL
 night_light_hall_on:
@@ -68,7 +65,6 @@ night_light_hall_set_color_temp:
     entity_id: 'light.nightlight_hall'
     data_template:
       hs_color: "[{{ hsY }}, {{ hsX }}]"
-
 
 ## NIGHT LIGHT BALCONY
 night_light_balcony_on:

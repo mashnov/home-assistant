@@ -1,6 +1,5 @@
 ## BATH
 - alias: 'button_bath_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

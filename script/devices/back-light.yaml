@@ -11,7 +11,6 @@ back_light_kitchen_off:
   - service: switch.turn_off
     entity_id: 'switch.kitchen_relay_l2'
 
-
 ## BACK LIGHT HALL
 back_light_hall_on:
   mode: 'queued'
@@ -24,7 +23,6 @@ back_light_hall_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.hall_relay_l1'
-
 
 ## BACK LIGHT BEDROOM
 back_light_bedroom_1_on:
@@ -51,7 +49,6 @@ back_light_bedroom_2_off:
   - service: switch.turn_off
     entity_id: 'switch.bedroom_wall_switch'
 
-
 ## BACK LIGHT LIVING
 back_light_living_on:
   mode: 'queued'
@@ -64,7 +61,6 @@ back_light_living_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.living_relay_l2'
-
 
 ## BACK LIGHT BALCONY
 back_light_balcony_on:

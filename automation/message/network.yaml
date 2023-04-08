@@ -1,6 +1,5 @@
 ## NETWORK
 - alias: message_network'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

@@ -1,6 +1,5 @@
 ## TEMPERATURE
 - alias: message_temperature'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

@@ -13,7 +13,6 @@ switch_kitchen_left_off:
     entity_id: 
     - 'switch.kitchen_switch_left'
 
-
 ## SWITCH KITCHEN RIGHT
 switch_kitchen_right_on:
   mode: 'queued'
@@ -29,7 +28,6 @@ switch_kitchen_right_off:
     entity_id: 
     - 'switch.kitchen_switch_right'
 
-
 ## SWITCH HALL
 switch_hall_on:
   mode: 'queued'
@@ -43,7 +41,6 @@ switch_hall_off:
   - service: switch.turn_off
     entity_id: 'switch.hall_switch'
 
-
 ## SWITCH BEDROOM
 switch_bedroom_on:
   mode: 'queued'
@@ -56,7 +53,6 @@ switch_bedroom_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.bedroom_switch'
-
 
 ## SWITCH LIVING
 switch_living_on:

@@ -5,7 +5,6 @@ power_offset_hall:
   min: 0
   max: 30
   step: 1
-  initial: 11
 
 ## HUMIDIFIER EMPTY BEDROOM
 power_offset_bedroom:
@@ -14,7 +13,6 @@ power_offset_bedroom:
   min: 0
   max: 30
   step: 1
-  initial: 18
 
 ## HUMIDIFIER EMPTY LIVING
 power_offset_living:
@@ -23,4 +21,3 @@ power_offset_living:
   min: 0
   max: 30
   step: 1
-  initial: 11

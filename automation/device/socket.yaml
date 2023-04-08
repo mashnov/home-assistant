@@ -1,6 +1,5 @@
 ## SOCKET
 - alias: 'socket_balcony'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

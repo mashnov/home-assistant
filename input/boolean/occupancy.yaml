@@ -1,22 +1,15 @@
 ## MOTION KITCHEN
 occupancy_kitchen:
-  initial: false
   icon: 'mdi:human-greeting-variant'
-
 
 ## MOTION BATH
 occupancy_bath:
-  initial: false
   icon: 'mdi:human-greeting-variant'
-
 
 ## OCCUPANCY TOILET
 occupancy_toilet:
-  initial: false
   icon: 'mdi:paper-roll'
-
 
 ## MOTION HALL
 occupancy_hall:
-  initial: false
   icon: 'mdi:human-greeting-variant'

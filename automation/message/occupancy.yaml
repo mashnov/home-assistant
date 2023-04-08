@@ -1,6 +1,5 @@
 ## OCCUPANCY
 - alias: message_occupancy'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -11,7 +10,6 @@
   - service: script.message_occupancy
 
 - alias: 'message_occupancy_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,7 +18,6 @@
   - service: script.message_occupancy_kitchen
 
 - alias: 'message_occupancy_bath'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -29,7 +26,6 @@
   - service: script.message_occupancy_bath
 
 - alias: 'message_occupancy_toilet'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -38,7 +34,6 @@
   - service: script.message_occupancy_toilet
 
 - alias: 'message_occupancy_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

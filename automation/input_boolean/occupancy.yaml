@@ -1,6 +1,5 @@
 ## MOTION KITCHEN
 - alias: 'motion_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -25,10 +24,8 @@
       sequence:
       - service: script.motion_kitchen_off
 
-
 ## MOTION BATH
 - alias: 'motion_bath'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -53,10 +50,8 @@
       sequence:
       - service: script.motion_bath_off
 
-
 ## MOTION HALL
 - alias: 'motion_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -81,10 +76,8 @@
       sequence:
       - service: script.motion_hall_off
 
-
 ## OCCUPANCY TOILET
 - alias: 'occupancy_toilet_timer_start'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -98,7 +91,6 @@
   - service: script.occupancy_toilet_timer_start
 
 - alias: 'occupancy_toilet_timer_cancel'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -115,7 +107,6 @@
   - service: script.occupancy_toilet_timer_cancel
 
 - alias: 'occupancy_toilet_on'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -129,7 +120,6 @@
   - service: script.occupancy_toilet_on
 
 - alias: 'occupancy_toilet_off'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

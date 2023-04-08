@@ -5,14 +5,12 @@ button_living_left_toggle:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_living_left 
 
-
 ## BUTTON LIVING RIGHT
 button_living_right_toggle:
   mode: 'queued'
   sequence:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_living_right 
-
 
 ## BUTTON LIVING BOTH
 button_living_both_on:

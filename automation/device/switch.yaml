@@ -1,6 +1,5 @@
-## SWITCH
+## SWITCH KITCHEN
 - alias: 'switch_kitchen_1'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -10,7 +9,6 @@
   - service: script.switch_kitchen_left_on
 
 - alias: 'switch_kitchen_2'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -19,8 +17,8 @@
   action:
   - service: script.switch_kitchen_right_on
 
+## SWITCH HALL
 - alias: 'switch_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -29,8 +27,8 @@
   action:
   - service: script.switch_hall_on
 
+## SWITCH BEDROOM
 - alias: 'switch_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -39,8 +37,8 @@
   action:
   - service: script.switch_bedroom_on
 
+## SWITCH LIVING
 - alias: 'switch_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

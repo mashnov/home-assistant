@@ -7,7 +7,6 @@ curtain_kitchen_set_position:
     data_template:
       position: '{{ position }}'
 
-
 ## CURTAIN BEDROOM
 curtain_bedroom_set_position:
   mode: 'queued'
@@ -16,7 +15,6 @@ curtain_bedroom_set_position:
     entity_id: 'cover.curtain_bedroom'
     data_template:
       position: '{{ position }}'
-
 
 ## CURTAIN LIVING
 curtain_living_set_position:

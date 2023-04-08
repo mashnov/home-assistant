@@ -1,6 +1,5 @@
 ## NIGHT MODE
 - alias: message_night_mode'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

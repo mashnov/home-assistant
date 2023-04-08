@@ -1,6 +1,5 @@
 ## VENTILATION KITCHEN
 - alias: 'ventilation_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -26,10 +25,8 @@
       sequence:
       - service: script.ventilation_kitchen_off
 
-
 ## VENTILATION HALL
 - alias: 'ventilation_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -55,10 +52,8 @@
       sequence:
       - service: script.ventilation_hall_off
 
-
 ## VENTILATION BEDROOM
 - alias: 'ventilation_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -84,10 +79,8 @@
       sequence:
       - service: script.ventilation_bedroom_off
 
-
 ## VENTILATION LIVING
 - alias: 'ventilation_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

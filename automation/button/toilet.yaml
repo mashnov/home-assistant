@@ -1,6 +1,5 @@
 ## BUTTON TOILET
 - alias: 'button_toilet_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -10,7 +9,6 @@
   - service: script.button_toilet_toggle
 
 - alias: 'button_toilet_long_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

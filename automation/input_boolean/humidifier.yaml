@@ -1,6 +1,5 @@
 ## HUMIDIFIER EMPTY HALL
 - alias: 'humidifier_hall_empty'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -25,10 +24,8 @@
       sequence:
       - service: script.humidifier_hall_empty_off
 
-
 ## HUMIDIFIER EMPTY BEDROOM
 - alias: 'humidifier_bedroom_empty'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -53,10 +50,8 @@
       sequence:
       - service: script.humidifier_bedroom_empty_off
 
-
 ## HUMIDIFIER EMPTY LIVING
 - alias: 'humidifier_living_empty'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

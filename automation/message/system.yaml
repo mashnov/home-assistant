@@ -1,6 +1,5 @@
 ## SYSTEM START
 - alias: 'system_start_message'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -8,10 +7,8 @@
   action:
   - service: script.message_system_start
 
-
 ## SYSTEM SHUTDOWN
 - alias: 'system_shutdown_message'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -19,10 +16,8 @@
   action:
   - service: script.message_system_shutdown
 
-
 ## SYSTEM POWER
 - alias: 'system_power_problem'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -31,10 +26,8 @@
   action:
   - service: script.message_system_power_problem
 
-
 ## SYSTEM UPDATES
 - alias: 'system_update_message'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

@@ -1,6 +1,5 @@
 ## HUMIDIFIER
 - alias: 'notification_humidifier_empty_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -11,7 +10,6 @@
       message: "{{ states('input_text.problem_empty_hall') }}"
 
 - alias: 'notification_humidifier_empty_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -22,7 +20,6 @@
       message: "{{ states('input_text.problem_empty_bedroom') }}"
 
 - alias: 'notification_humidifier_empty_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

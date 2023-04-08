@@ -1,6 +1,5 @@
 ## PARTY LIGHT
 - alias: 'party_light_kitchen'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

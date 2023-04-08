@@ -1,6 +1,5 @@
 ## WINDOW
 - alias: message_window'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -11,7 +10,6 @@
   - service: script.message_window
 
 - alias: 'message_window_kitchen_left'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,7 +18,6 @@
   - service: script.message_window_kitchen_left
 
 - alias: 'message_window_kitchen_right'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -29,7 +26,6 @@
   - service: script.message_window_kitchen_right
 
 - alias: 'message_window_bedroom_left'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -38,7 +34,6 @@
   - service: script.message_window_bedroom_left
 
 - alias: 'message_window_bedroom_right'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -47,7 +42,6 @@
   - service: script.message_window_bedroom_right
 
 - alias: 'message_window_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

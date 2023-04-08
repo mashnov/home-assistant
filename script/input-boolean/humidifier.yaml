@@ -11,7 +11,6 @@ humidifier_hall_empty_off:
   - service: input_boolean.turn_off
     entity_id: input_boolean.humidifier_hall_empty
 
-
 ## HUMIDIFIER EMPTY BEDROOM
 humidifier_bedroom_empty_on:
   mode: 'queued'
@@ -24,7 +23,6 @@ humidifier_bedroom_empty_off:
   sequence:
   - service: input_boolean.turn_off
     entity_id: input_boolean.humidifier_bedroom_empty
-
 
 ## HUMIDIFIER EMPTY LIVING
 humidifier_living_empty_on:

@@ -1,6 +1,5 @@
-## NIGHT LIGHT
+## NIGHT LIGHT KITCHEN
 - alias: 'night_light_kitchden'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,8 +19,8 @@
       sequence:
       - service: script.night_light_kitchden_off
 
+## NIGHT LIGHT BATH
 - alias: 'night_light_bath'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -41,8 +40,8 @@
       sequence:
       - service: script.night_light_bath_off
 
+## NIGHT LIGHT TOILET
 - alias: 'night_light_toilet'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -62,8 +61,8 @@
       sequence:
       - service: script.night_light_toilet_off
 
+## NIGHT LIGHT HALL
 - alias: 'night_light_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -83,8 +82,8 @@
       sequence:
       - service: script.night_light_hall_off
 
+## NIGHT LIGHT BALCONY
 - alias: 'night_light_balcony'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

@@ -1,6 +1,5 @@
 ## FOUNTAIN
 - alias: 'fountain_balcony'
-  initial_state: false
   mode: 'queued'
   trigger:
   - platform: state

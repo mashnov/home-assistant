@@ -11,7 +11,6 @@ humidifier_hall_off:
   - service: switch.turn_off
     entity_id: 'switch.hall_relay_l2'
 
-
 ## HUMIDIFIER BEDROOM
 humidifier_bedroom_on:
   mode: 'queued'
@@ -24,7 +23,6 @@ humidifier_bedroom_off:
   sequence:
   - service: switch.turn_off
     entity_id: 'switch.bedroom_relay_l2'
-
 
 ## HUMIDIFIER LIVING
 humidifier_living_on:

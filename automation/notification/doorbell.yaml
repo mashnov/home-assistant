@@ -1,6 +1,5 @@
 ## DORBELL
 - alias: notification_doorbell_elevator'
-  initial_state: true
   trigger:
   - platform: event
     event_type: telegram_command
@@ -12,7 +11,6 @@
       message: "{{ states('input_text.doorbell_elevator') }}"
 
 - alias: notification_doorbell_hall'
-  initial_state: true
   trigger:
   - platform: event
     event_type: telegram_command

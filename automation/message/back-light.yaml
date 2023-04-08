@@ -1,6 +1,5 @@
 ## BACK LIGHT
 - alias: message_back_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -11,7 +10,6 @@
   - service: script.message_back_light
 
 - alias: 'message_back_light_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,7 +18,6 @@
   - service: script.message_back_light_hall
 
 - alias: 'message_back_light_bedroom_1'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -29,7 +26,6 @@
   - service: script.message_back_light_bedroom_1
 
 - alias: 'message_back_light_bedroom_2'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -38,7 +34,6 @@
   - service: script.message_back_light_bedroom_2
 
 - alias: 'message_back_light_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

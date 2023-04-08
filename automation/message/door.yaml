@@ -1,6 +1,5 @@
 ## DOORS
 - alias: message_door'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event
@@ -11,7 +10,6 @@
   - service: script.message_door
 
 - alias: 'message_door_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,7 +18,6 @@
   - service: script.message_door_hall
 
 - alias: 'message_door_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -29,7 +26,6 @@
   - service: script.message_door_bedroom
 
 - alias: 'message_door_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -38,7 +34,6 @@
   - service: script.message_door_living
 
 - alias: 'message_door_balcony'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

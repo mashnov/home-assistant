@@ -1,6 +1,5 @@
 ## NIGHT MODE 
 - alias: 'night_mode_auto'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant

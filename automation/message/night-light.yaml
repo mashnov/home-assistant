@@ -1,6 +1,5 @@
 ## NIGHT LIGHT
 - alias: message_night_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: event

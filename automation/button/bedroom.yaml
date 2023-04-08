@@ -1,6 +1,5 @@
 ## BUTTON BEDROOM
 - alias: 'button_bedroom_left_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -14,7 +13,6 @@
 
 
 - alias: 'button_bedroom_right_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -25,7 +23,6 @@
 
 
 - alias: 'button_bedroom_both_toggle'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

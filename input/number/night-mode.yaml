@@ -5,4 +5,3 @@ night_mode_inaction_target:
   min: 0
   max: 90
   step: 1
-  initial: 45

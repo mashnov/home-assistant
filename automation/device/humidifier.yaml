@@ -1,6 +1,5 @@
-## HUMIDIFIER
+## HUMIDIFIER HALL
 - alias: 'humidifier_hall'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -20,9 +19,8 @@
       sequence:
       - service: script.humidifier_hall_off
 
-
+## HUMIDIFIER BEDROOM
 - alias: 'humidifier_bedroom'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state
@@ -42,9 +40,8 @@
       sequence:
       - service: script.humidifier_bedroom_off
 
-
+## HUMIDIFIER LIVING
 - alias: 'humidifier_living'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: state

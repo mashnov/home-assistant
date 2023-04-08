@@ -1,6 +1,5 @@
 ## ILLUMINANCE CURTAIN KITCHEN
 - alias: 'illuminance_kitchen_curtain'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -28,10 +27,8 @@
       sequence:
       - service: script.illuminance_kitchen_curtain_off
 
-
 ## ILLUMINANCE CURTAIN BEDROOM
 - alias: 'illuminance_bedroom_curtain'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -59,10 +56,8 @@
       sequence:
       - service: script.illuminance_bedroom_curtain_off
 
-
 ## ILLUMINANCE CURTAIN LIVING
 - alias: 'illuminance_living_curtain'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -90,10 +85,8 @@
       sequence:
       - service: script.illuminance_living_curtain_off
 
-
 ## ILLUMINANCE TOP LIGHT KITCHEN
 - alias: 'illuminance_kitchen_top_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -121,10 +114,8 @@
       sequence:
       - service: script.illuminance_kitchen_top_light_off
 
-
 ## ILLUMINANCE TOP LIGHT HALL
 - alias: 'illuminance_hall_top_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -152,10 +143,8 @@
       sequence:
       - service: script.illuminance_hall_top_light_off
 
-
 ## ILLUMINANCE BACK LIGHT KITCHEN
 - alias: 'illuminance_kitchen_back_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -183,10 +172,8 @@
       sequence:
       - service: script.illuminance_kitchen_back_light_off
 
-
 ## ILLUMINANCE BACK LIGHT HALL
 - alias: 'illuminance_hall_back_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -214,10 +201,8 @@
       sequence:
       - service: script.illuminance_hall_back_light_off
 
-
 ## ILLUMINANCE BACK LIGHT BEDROOM
 - alias: 'illuminance_bedroom_back_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant
@@ -245,10 +230,8 @@
       sequence:
       - service: script.illuminance_bedroom_back_light_off
 
-
 ## ILLUMINANCE BACK LIGHT LIVING
 - alias: 'illuminance_living_back_light'
-  initial_state: true
   mode: 'queued'
   trigger:
   - platform: homeassistant

@@ -5,7 +5,6 @@ button_balcony_singl_toggle:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_balcony_singl 
 
-
 ## BUTTON BALCONY DOUBLE
 button_balcony_double_toggle:
   mode: 'queued'
@@ -13,14 +12,12 @@ button_balcony_double_toggle:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_balcony_double 
 
-
 ## BUTTON BALCONY LONG
 button_balcony_long_toggle:
   mode: 'queued'
   sequence:
   - service: input_boolean.toggle
     entity_id: input_boolean.button_balcony_long 
-
 
 ## BUTTON BALCONY SHAKE
 button_balcony_shake_toggle:
