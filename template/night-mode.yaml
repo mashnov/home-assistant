@@ -46,7 +46,7 @@
     state: >
       {% set bedroomValue = is_state('binary_sensor.night_mode_bedroom_boolean', 'on') %}
       {% set livingValue = is_state('binary_sensor.night_mode_living_boolean', 'on') %}
-      {{ bedroomValue or livingValue }}
+      {{ bedroomValue and livingValue }}
     icon: >
       {% set isNightMode = is_state('binary_sensor.night_mode_hall_boolean', 'on') %}
       {{ iif(isNightMode, 'mdi:weather-night', 'mdi:weather-partly-cloudy', 'mdi:help-circle') }}
