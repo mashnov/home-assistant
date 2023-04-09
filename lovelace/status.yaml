@@ -294,6 +294,8 @@ cards:
     entities:
     - entity: sensor.relay_average_power
       name: 'Общее'
+    - entity: sensor.power_max_level
+      name: 'Максимальное'
 
   - type: history-graph
     hours_to_show: 12
