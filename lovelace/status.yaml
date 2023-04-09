@@ -315,6 +315,8 @@ cards:
       name: 'Гостиная'
     - entity: sensor.relay_balcony_power
       name: 'Балкон'
+    - entity: sensor.relay_average_power
+      name: 'Общее'
 
   - type: entities
     state_color: true
