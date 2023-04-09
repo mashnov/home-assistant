@@ -1,20 +1,5 @@
 ## RELAY POWER SENSORS
 - sensor:
-  - name: 'relay_average_power'
-    device_class: 'power'
-    unit_of_measurement: 'W'
-    icon: 'mdi:meter-electric-outline'
-    state: >
-      {% set kitchenValue = states('sensor.relay_kitchen_power') | float(0) %}
-      {% set bathValue = states('sensor.relay_bath_power') | float(0) %}
-      {% set toiletValue = states('sensor.relay_toilet_power') | float(0) %}
-      {% set hallValue = states('sensor.relay_hall_power') | float(0) %}
-      {% set bedroomValue = states('sensor.relay_bedroom_power') | float(0) %}
-      {% set livingValue = states('sensor.relay_living_power') | float(0) %}
-      {% set balcony1Value = states('sensor.relay_balcony_1_power') | float(0) %}
-      {% set balcony2Value = states('sensor.relay_balcony_2_power') | float(0) %}
-      {{ (kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balcony1Value + balcony1Value) | round(1) }}
-
   - name: 'relay_kitchen_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
