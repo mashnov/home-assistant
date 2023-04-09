@@ -1,8 +1,7 @@
 ## POWER
 - platform: statistics
-  name: 'relay_average_power'
-  round_digits: 2
   type: sum
+  name: 'relay_average_power'
   entity_id:
   - sensor.relay_kitchen_power
   - sensor.relay_bath_power
