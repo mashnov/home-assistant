@@ -139,15 +139,15 @@ cards:
     hours_to_show: 720
     show_names: false
     entities:
-    - entity: pressure_kitchen_level
+    - entity: sensor.pressure_kitchen_level
       name: 'Кухня'
-    - entity: pressure_bath_level
+    - entity: sensor.pressure_bath_level
       name: 'Ванная'
-    - entity: pressure_hall_level
+    - entity: sensor.pressure_hall_level
       name: 'Коридор'
-    - entity: pressure_bedroom_level
+    - entity: sensor.pressure_bedroom_level
       name: 'Спальня'
-    - entity: pressure_living_level
+    - entity: sensor.pressure_living_level
       name: 'Гостиная'
 
   - type: entities
