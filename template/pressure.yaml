@@ -16,11 +16,11 @@
       {% set isNormal = not(isLow) and not(isHight) and 'mdi:gauge' %}
       {{ isLow or isHight or isNormal or 'mdi:help-circle' }}
     attributes:
-      kitchen: "{{ states('sensor.kitchen_pressure') | float(0) | round(1) }}"
-      bath: "{{ states('sensor.bath_pressure') | float(0) | round(1) }}"
-      hall: "{{ states('sensor.hall_pressure') | float(0) | round(1) }}"
-      bedroom: "{{ states('sensor.bedroom_pressure') | float(0) | round(1) }}"
-      living: "{{ states('sensor.living_pressure') | float(0) | round(1) }}"
+      kitchen: "{{ states('sensor.kitchen_pressure') }}"
+      bath: "{{ states('sensor.bath_pressure') }}"
+      hall: "{{ states('sensor.hall_pressure') }}"
+      bedroom: "{{ states('sensor.bedroom_pressure') }}"
+      living: "{{ states('sensor.living_pressure') }}"
 
 - binary_sensor:
   - name: 'pressure_low'

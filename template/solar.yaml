@@ -3,40 +3,40 @@
   - name: 'solar_azimuth'
     unit_of_measurement: '°'
     icon: 'mdi:axis-z-rotate-clockwise'
-    state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
+    state: "{{ state_attr('sun.sun', 'azimuth') }}"
 
   - name: 'solar_elevation'
     unit_of_measurement: '°'
     icon: 'mdi:angle-acute'
-    state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
+    state: "{{ state_attr('sun.sun', 'elevation') }}"
 
 - binary_sensor:
   - name: 'solar_azimuth'
     device_class: 'problem'
     icon: 'mdi:axis-z-rotate-clockwise'
     state: >
-      {% set sensorValue = state_attr('sun.sun', 'azimuth') | int(0) %}
+      {% set sensorValue = states('sensor.solar_azimuth') | int(0) %}
       {% set targetValue = states('input_number.solar_azimuth_target') | int(0) %}
       {% set offsetValue = states('input_number.solar_azimuth_offset') | int(0) %}
       {% set minValue = targetValue - offsetValue %}
       {% set maxValue = targetValue + offsetValue %}
-      {{ minValue < sensorValue < maxValue }}
+      {{ (minValue <= sensorValue) and (sensorValue <= maxValue) }}
 
   - name: 'solar_elevation'
     device_class: 'problem'
     icon: 'mdi:angle-acute'
     state: >
-      {% set sensorValue = state_attr('sun.sun', 'elevation') | int(0) %}
+      {% set sensorValue = states('sensor.solar_elevation') | int(0) %}
       {% set targetValue = states('input_number.solar_elevation_target') | int(0) %}
       {% set offsetValue = states('input_number.solar_elevation_offset') | int(0) %}
       {% set minValue = targetValue - offsetValue %}
       {% set maxValue = targetValue + offsetValue %}
-      {{ minValue < sensorValue < maxValue }}
+      {{ (minValue <= sensorValue) and (sensorValue <= maxValue) }}
 
   - name: 'solar_hight'
     device_class: 'problem'
     icon: 'mdi:sun-wireless'
     state: >
-      {% set azimuthValue = state_attr('binary_sensor.solar', 'azimuth') %}
-      {% set elevationValue = state_attr('binary_sensor.solar', 'elevation') %}
+      {% set azimuthValue = is_state('binary_sensor.solar_azimuth', 'on') %}
+      {% set elevationValue = is_state('binary_sensor.solar_elevation', 'on') %}
       {{ azimuthValue and elevationValue }}

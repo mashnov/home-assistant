@@ -3,13 +3,13 @@
   - name: 'humidity_kitchen_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.kitchen_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.kitchen_humidity') }}"
     icon: 'mdi:water-opacity'
 
   - name: 'humidity_bath_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.bath_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bath_humidity') }}"
     icon: >
       {% set isHight = is_state('binary_sensor.humidity_bath_hight', 'on') %}
       {{ iif(not(isHight), 'mdi:water', 'mdi:water-alert', 'mdi:help-circle') }}
@@ -17,7 +17,7 @@
   - name: 'humidity_hall_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.hall_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.hall_humidity') }}"
     icon: >
       {% set isLow = is_state('binary_sensor.humidity_hall_low', 'on') %}
       {{ iif(not(isLow), 'mdi:water', 'mdi:water-alert-outline', 'mdi:help-circle') }}
@@ -25,7 +25,7 @@
   - name: 'humidity_bedroom_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.bedroom_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bedroom_humidity') }}"
     icon: >
       {% set isLow = is_state('binary_sensor.humidity_bedroom_low', 'on') %}
       {{ iif(not(isLow), 'mdi:water', 'mdi:water-alert-outline', 'mdi:help-circle') }}
@@ -33,7 +33,7 @@
   - name: 'humidity_living_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.living_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.living_humidity') }}"
     icon: >
       {% set isLow = is_state('binary_sensor.humidity_living_low', 'on') %}
       {{ iif(not(isLow), 'mdi:water', 'mdi:water-alert-outline', 'mdi:help-circle') }}
@@ -41,7 +41,7 @@
   - name: 'humidity_balcony_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.balcony_humidity') | float(0) | round(1) }}"
+    state: "{{ states('sensor.balcony_humidity') }}"
     icon: 'mdi:water-opacity'
 
 - binary_sensor:

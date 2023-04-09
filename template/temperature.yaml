@@ -3,7 +3,7 @@
   - name: 'temperature_kitchen_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.kitchen_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.kitchen_temperature') }}"
     icon: >
       {% set isProblem = is_state('binary_sensor.temperature_kitchen_problem', 'on') %}
       {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
@@ -11,7 +11,7 @@
   - name: 'temperature_bath_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.bath_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bath_temperature') }}"
     icon: >
       {% set isProblem = is_state('binary_sensor.temperature_bath_problem', 'on') %}
       {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
@@ -19,7 +19,7 @@
   - name: 'temperature_hall_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.hall_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.hall_temperature') }}"
     icon: >
       {% set isProblem = is_state('binary_sensor.temperature_hall_problem', 'on') %}
       {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
@@ -27,7 +27,7 @@
   - name: 'temperature_bedroom_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.bedroom_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bedroom_temperature') }}"
     icon: >
       {% set isProblem = is_state('binary_sensor.temperature_bedroom_problem', 'on') %}
       {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
@@ -35,7 +35,7 @@
   - name: 'temperature_living_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.living_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.living_temperature') }}"
     icon: >
       {% set isProblem = is_state('binary_sensor.temperature_living_problem', 'on') %}
       {{ iif(isProblem, 'mdi:thermometer-alert', 'mdi:thermometer', 'mdi:help-circle') }}
@@ -43,7 +43,7 @@
   - name: 'temperature_balcony_level'
     device_class: 'temperature'
     unit_of_measurement: '°C'
-    state: "{{ states('sensor.balcony_temperature') | float(0) | round(1) }}"
+    state: "{{ states('sensor.balcony_temperature') }}"
     icon: 'mdi:thermometer'
 
 - binary_sensor:
