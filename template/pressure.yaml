@@ -20,31 +20,31 @@
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     icon: 'mdi:gauge'
-    kitchen: "{{ states('sensor.kitchen_pressure') }}"
+    state: "{{ states('sensor.kitchen_pressure') }}"
 
   - name: 'pressure_bath_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     icon: 'mdi:gauge'
-    bath: "{{ states('sensor.bath_pressure') }}"
+    state: "{{ states('sensor.bath_pressure') }}"
 
   - name: 'pressure_hall_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     icon: 'mdi:gauge'
-    hall: "{{ states('sensor.hall_pressure') }}"
+    state: "{{ states('sensor.hall_pressure') }}"
 
   - name: 'pressure_bedroom_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     icon: 'mdi:gauge'
-    bedroom: "{{ states('sensor.bedroom_pressure') }}"
+    state: "{{ states('sensor.bedroom_pressure') }}"
 
   - name: 'pressure_living_level'
     device_class: 'pressure'
     unit_of_measurement: 'mmHg'
     icon: 'mdi:gauge'
-    living: "{{ states('sensor.living_pressure') }}"
+    state: "{{ states('sensor.living_pressure') }}"
 
 - binary_sensor:
   - name: 'pressure_low'
