@@ -132,26 +132,8 @@ cards:
     state_color: true
     show_header_toggle: false
     entities:
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'kitchen'
-      name: 'Кухня'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'bath'
-      name: 'Ванная'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'hall'
-      name: 'Коридор'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'bedroom'
-      name: 'Спальня'
-    - type: attribute
-      entity: sensor.pressure_level
-      attribute: 'living'
-      name: 'Гостиная'
+    - entity: sensor.pressure_level
+      name: 'Давление'
 
   - type: history-graph
     hours_to_show: 720
