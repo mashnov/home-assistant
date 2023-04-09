@@ -1,0 +1,14 @@
+## POWER
+- platform: min_max
+  name: relay_average_power
+  round_digits: 2
+  type: median
+  entity_ids:
+  - sensor.relay_kitchen_power
+  - sensor.relay_bath_power
+  - sensor.relay_toilet_power
+  - sensor.relay_hall_power
+  - sensor.relay_bedroom_power
+  - sensor.relay_living_power
+  - sensor.relay_balcony_1_power
+  - sensor.relay_balcony_2_power

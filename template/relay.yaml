@@ -1,63 +1,52 @@
 ## RELAY POWER SENSORS
 - sensor:
-  - name: 'relay_average_power'
-    device_class: 'power'
-    unit_of_measurement: 'W'
-    icon: 'mdi:meter-electric-outline'
-    state: >
-      {% set kitchenValue = states('sensor.relay_kitchen_power') | float(0) %}
-      {% set bathValue = states('sensor.relay_bath_power') | float(0) %}
-      {% set toiletValue = states('sensor.relay_toilet_power') | float(0) %}
-      {% set hallValue = states('sensor.relay_hall_power') | float(0) %}
-      {% set bedroomValue = states('sensor.relay_bedroom_power') | float(0) %}
-      {% set livingValue = states('sensor.relay_living_power') | float(0) %}
-      {% set balconyValue = states('sensor.relay_balcony_power') | float(0) %}
-      {{ (kitchenValue + bathValue + toiletValue + hallValue + bedroomValue + livingValue + balconyValue) | round(1) }}
-
   - name: 'relay_kitchen_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.kitchen_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.kitchen_relay_power') }}"
 
   - name: 'relay_bath_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.bath_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bath_relay_power') }}"
 
   - name: 'relay_toilet_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.toilet_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.toilet_relay_power') }}"
 
   - name: 'relay_hall_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.hall_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.hall_relay_power') }}"
 
   - name: 'relay_bedroom_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.bedroom_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.bedroom_relay_power') }}"
 
   - name: 'relay_living_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: "{{ states('sensor.living_relay_power') | float(0) | round(1) }}"
+    state: "{{ states('sensor.living_relay_power') }}"
 
-  - name: 'relay_balcony_power'
+  - name: 'relay_balcony_1_power'
     device_class: 'power'
     icon: 'mdi:meter-electric-outline'
     unit_of_measurement: 'W'
-    state: >
-      {% set balcony1Value = states('sensor.balcony_relay_1_power') | float(0) %}
-      {% set balcony2Value = states('sensor.balcony_relay_2_power') | float(0) %}
-      {{ (balcony1Value + balcony2Value) | round(1) }}
+    state: "{{ states('sensor.balcony_relay_1_power') }}"
+
+  - name: 'relay_balcony_2_power'
+    device_class: 'power'
+    icon: 'mdi:meter-electric-outline'
+    unit_of_measurement: 'W'
+    state: "{{ states('sensor.balcony_relay_2_power') }}"
 
 ## RELAY ON SENSORS
 - binary_sensor:
