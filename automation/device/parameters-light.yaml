@@ -1,8 +1,3 @@
-# sensor.parameters_light
-# sensor.brightness
-# sensor.temperature
-# sensor.saturation
-
 ## PARAMETERS TOP LIGHT
 - alias: 'parameters_top_light'
   mode: 'queued'
