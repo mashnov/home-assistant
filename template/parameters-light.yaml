@@ -34,3 +34,34 @@
         {% set percentValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}
         {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
         {{ (deltaValue + minValue) | round }}
+
+  - name: 'parameters_top_light_list'
+    icon: 'mdi:lightbulb-group'
+    state: >
+      {% set domain = states.light | list %}
+      {% set lights = [] %}
+      {% if domain | length > 0 %}
+        {% set lights = domain | selectattr("state", "eq" ,"on") %}
+        {% set lights = lights | selectattr("name", "search" ,"top_light") %}
+        {% set lights = lights | rejectattr("name", "search" ,"_group") %}
+        {% set lights = lights | map(attribute="entity_id") %}
+      {% endif %}
+      {{ lights | list }}
+
+- binary_sensor:
+  - name: 'parameters_top_light_permission_2'
+    icon: 'mdi:lightbulb-group'
+    state: "{{ states('sensor.parameters_top_light_list') | list | count > 0 }}"
+
+  - name: 'parameters_top_light_permission'
+    icon: 'mdi:lightbulb-group'
+    state: >
+      {% set domain = states.light | list %}
+      {% set lights = [] %}
+      {% if domain | length > 0 %}
+        {% set lights = domain | selectattr("state", "eq" ,"on") %}
+        {% set lights = lights | selectattr("name", "search" ,"top_light") %}
+        {% set lights = lights | rejectattr("name", "search" ,"_group") %}
+        {% set lights = lights | map(attribute="entity_id") %}
+      {% endif %}
+      {{ lights | list | count > 0 }}
