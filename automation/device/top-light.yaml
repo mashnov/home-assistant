@@ -7,7 +7,12 @@
   - platform: state
     entity_id: 'sensor.parameters_light'
   action:
-  - service: script.top_light_set_params
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ states("sensor.top_light_list_on") | int > 0 }}'
+      sequence:
+      - service: script.top_light_set_params
 
 ## TOP LIGHT KITCHEN
 - alias: 'top_light_kitchen'

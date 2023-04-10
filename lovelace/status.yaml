@@ -294,6 +294,7 @@ cards:
     entities:
     - entity: sensor.relay_average_power
       name: 'Общее'
+    - type: divider
     - entity: sensor.power_max_level
       name: 'Максимальное'
 
