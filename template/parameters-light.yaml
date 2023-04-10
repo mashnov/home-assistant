@@ -40,7 +40,7 @@
     state: >
       {% set domain = states.light | list %}
       {% set lights = [] %}
-      {% if domain | length > 0 %}
+      {% if expand(domain) | length > 0 %}
         {% set lights = domain | selectattr("state", "eq" ,"on") %}
         {% set lights = lights | selectattr("name", "search" ,"top_light") %}
         {% set lights = lights | rejectattr("name", "search" ,"_group") %}
@@ -54,7 +54,7 @@
     state: >
       {% set domain = states.light | list %}
       {% set lights = [] %}
-      {% if domain | length > 0 %}
+      {% if expand(domain) | length > 0 %}
         {% set lights = domain | selectattr("state", "eq" ,"on") %}
         {% set lights = lights | selectattr("name", "search" ,"top_light") %}
         {% set lights = lights | rejectattr("name", "search" ,"_group") %}

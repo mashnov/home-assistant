@@ -3,7 +3,8 @@ parameters_top_light:
   mode: 'queued'
   sequence:
   - service: light.turn_on
-    entity_id: "{{ states('sensor.parameters_top_light_list') }}"
+    data:
+      entity_id: "{{ entity_id(states('sensor.parameters_top_light_list')) }}"
     data_template:
       brightness: "{{ state_attr('sensor.parameters_light', 'brightness') }}"
       color_temp: "{{ state_attr('sensor.parameters_light', 'temperature') }}"
