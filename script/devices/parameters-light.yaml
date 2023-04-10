@@ -4,7 +4,7 @@ parameters_top_light:
   sequence:
   - service: light.turn_on
     data:
-      entity_id: "{{ entity_id(states('sensor.parameters_top_light_list')) }}"
+      entity_id: "{{ states('sensor.parameters_top_light_list') }}"
     data_template:
       brightness: "{{ state_attr('sensor.parameters_light', 'brightness') }}"
       color_temp: "{{ state_attr('sensor.parameters_light', 'temperature') }}"
