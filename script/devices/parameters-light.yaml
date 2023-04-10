@@ -1,0 +1,7 @@
+## TOP LIGHT PARAMS
+parameters_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: "{{ states('sensor.parameters_top_light_list') | tojson }}"

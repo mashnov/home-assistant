@@ -2,3 +2,20 @@
 # sensor.brightness
 # sensor.temperature
 # sensor.saturation
+
+## PARAMETERS TOP LIGHT
+- alias: 'parameters_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'sensor.parameters_top_light_list'
+  - platform: state
+    entity_id: 'sensor.parameters_light'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.parameters_top_light_permission
+        state: 'on'
+      sequence:
+      - service: script.parameters_top_light

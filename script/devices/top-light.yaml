@@ -1,11 +1,3 @@
-## TOP LIGHT PARAMS
-top_light_set_params:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: "{{ states('sensor.top_light_list_on') | tojson }}"
-
 ## TOP LIGHT KITCHEN
 ## TOP LIGHT KITCHEN GROUP
 top_light_kitchen_on:

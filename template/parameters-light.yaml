@@ -49,10 +49,6 @@
       {{ lights | list }}
 
 - binary_sensor:
-  - name: 'parameters_top_light_permission_2'
-    icon: 'mdi:lightbulb-group'
-    state: "{{ states('sensor.parameters_top_light_list') | list | count > 0 }}"
-
   - name: 'parameters_top_light_permission'
     icon: 'mdi:lightbulb-group'
     state: >
