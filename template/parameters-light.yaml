@@ -12,23 +12,22 @@
         {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
         {{ (sensorValue / targetValue) * 100 }}
       brightness: >
-        {% set minValue = 25 %}
-        {% set maxValue = 100 %}
-        {% set isNightTime = is_state('binary_sensor.date_time_night', 'on') %}
-        {% set isMorningTime = is_state('binary_sensor.date_time_morning', 'on') %}
+        {% set maxValue = 255 %}
+        {% set minValue = 1 %}
         {% set sensorValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}
-        {% set percentValue = 100 - sensorValue %}
+        {% set isDayTime = is_state('binary_sensor.date_time_day', 'on') %}
+        {% set isEveningTime = is_state('binary_sensor.date_time_evening', 'on') %}
+        {% set percentValue = iif(isDayTime or isEveningTime, 100 - sensorValue, sensorValue) %}
         {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
-        {% set dayBrightness = (deltaValue + minValue) | round %}
-        {{ iif(isNightTime or isMorningTime, minValue, dayBrightness) }}
-      temperature: >
+        {{ (deltaValue + minValue) | round }}
+      color_temperature: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
         {% set sensorValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}
         {% set percentValue = 100 - sensorValue %}
         {% set deltaValue = (maxValue - minValue) / 100 * percentValue %}
         {{ (deltaValue + minValue) | round }}
-      saturation: >
+      color_saturation: >
         {% set minValue = 95 %}
         {% set maxValue = 100 %}
         {% set percentValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}

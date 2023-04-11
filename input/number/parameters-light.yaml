@@ -1,0 +1,7 @@
+## PARAMETERS NIGHT LIGHT
+parameters_light_color_hue:
+  unit_of_measurement: '°'
+  icon: 'mdi:cloud-cog'
+  min: 0
+  max: 20
+  step: 1

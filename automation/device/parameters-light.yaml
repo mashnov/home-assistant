@@ -14,3 +14,22 @@
         state: 'on'
       sequence:
       - service: script.parameters_top_light
+
+## PARAMETERS NIGHT LIGHT
+- alias: 'parameters_night_light'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.night_light_hall_on'
+  - platform: state
+    entity_id: 'input_number.parameters_light_color_hue'
+  - platform: state
+    entity_id: 'sensor.parameters_light'
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.night_light_hall_on
+        state: 'on'
+      sequence:
+      - service: script.parameters_night_light
