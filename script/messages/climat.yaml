@@ -5,9 +5,9 @@ message_cloud:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        🌤️ .. {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '🟢', '🔵') }} .. Облачность ..... {{ states('sensor.cloud_level') }} %
-        ☀️ .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟢', '🟠') }} .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), 'Светит в окна', 'Не попадает в окна') }}
-        ↕️ .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟠', '🟢') }} .. Яркость ..... {{ states('sensor.illuminance_level') }} LUX
+        {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '☁️', '🌤️') }} .. {{ iif(is_state('binary_sensor.cloud_hight', 'on'), '🟢', '🔵') }} .. Облачность ..... {{ states('sensor.cloud_level') }} %
+        ☀️ .. 🔵 .. Яркость ..... {{ states('sensor.illuminance_level') }} LUX
+        ↘️ .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟢', '🟠') }} .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), 'Светит в окна', 'Не попадает в окна') }}
         ↕️ .. {{ iif(is_state('binary_sensor.solar_elevation', 'on'), '🟢', '🟠') }} .. Подъем ..... {{ states('sensor.solar_elevation') }} °
         ↔️ .. {{ iif(is_state('binary_sensor.solar_azimuth', 'on'), '🟢', '🟠') }} .. Азимут ..... {{ states('sensor.solar_azimuth') }} °
       data:
