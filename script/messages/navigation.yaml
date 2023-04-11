@@ -28,7 +28,7 @@ message_navigation_home:
         - 'Шторы:/details_curtain'
         - 'Фонтан:/details_fountain'
         - 'Сеть:/network'
-        - 'Закрыть:/hide_menu, Назад:/home'
+        - 'Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS TOP LIGHT
 message_navigation_details_top_light:
