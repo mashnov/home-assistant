@@ -5,13 +5,12 @@ message_back_light:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ Подсветка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ................... {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), '🟢', '🔴') }}
-        🧥 Коридор .............. {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), '🟢', '🔴') }}
-        🛌 Спальня 1 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), '🟢', '🔴') }}
-        🛌 Спальня 2 ............ {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), '🟢', '🔴') }}
-        📚 Гостиная .............. {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), '🟢', '🔴') }}
-        🪴 Балкон ................. {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), '🟢', '🔴') }}
+        🥣 .. {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🧥 .. {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🛌 .. {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🛌 .. {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        📚 .. {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🪴 .. {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
       data:
         inline_keyboard: 
         - 'Назад:/home, Закрыть:/hide_menu'
