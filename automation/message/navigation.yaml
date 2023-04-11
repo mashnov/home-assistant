@@ -1,3 +1,15 @@
+## NAVIGATION REMOVE
+- alias: message_navigation_remove'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+  action:
+  - service: script.message_navigation_remove
+    data_template:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.chat_id }}'
+
 ## NAVIGATION HOME
 - alias: message_navigation_home'
   mode: 'queued'
@@ -13,17 +25,6 @@
   action:
   - service: script.message_navigation_home
 
-## NAVIGATION DETAILS
-- alias: message_navigation_details'
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/details'
-  action:
-  - service: script.message_navigation_details
-
 ## NAVIGATION DETAILS TOP LIGHT
 - alias: message_navigation_details_top_light'
   mode: 'queued'
@@ -31,62 +32,6 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light'
+      command: '/top_light'
   action:
   - service: script.message_navigation_details_top_light
-
-## NAVIGATION MANAGE
-- alias: message_navigation_manage'
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/manage'
-  action:
-  - service: script.message_navigation_manage
-
-## NAVIGATION MANAGE TOP LIGHT
-- alias: message_navigation_manage_top_light'
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/manage_top_light'
-  action:
-  - service: script.message_navigation_manage_top_light
-
-## NAVIGATION REMOVE
-- alias: message_navigation_remove'
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/hide_menu'
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/home'
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/details'
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/details_top_light'
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/manage'
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/manage_top_light'
-  action:
-  - service: script.message_navigation_remove
-    data_template:
-      message_id: '{{ trigger.event.data.message.message_id }}'
-      chat_id: '{{ trigger.event.data.chat_id }}'
