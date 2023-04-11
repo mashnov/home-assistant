@@ -10,39 +10,7 @@ message_occupancy:
         🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟢', '🟠') }}
         🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🟠') }}
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟢', '🟠') }}
-
-message_occupancy_kitchen:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.motion_kitchen_boolean', 'on'), '🟢', '🟠') }}
-
-message_occupancy_bath:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🛁 Ванная ................... {{ iif(is_state('binary_sensor.motion_bath_boolean', 'on'), '🟢', '🟠') }}
-
-message_occupancy_toilet:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Занято ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.occupancy_toilet_boolean', 'on'), '🟢', '🔴') }}
-
-message_occupancy_hall:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Движение ............. {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟢', '🟠') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

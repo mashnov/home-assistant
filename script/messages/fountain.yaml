@@ -7,3 +7,7 @@ message_fountain:
       message: | 
         ⏱️ Фонтан .................. {{ state_attr('sensor.date_time', 'hm') }} UTC
         🪴 Балкон ................... {{ iif(is_state('binary_sensor.fountain_balcony_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

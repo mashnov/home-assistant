@@ -9,3 +9,7 @@ message_curtain:
         🧥 Коридор ................. {{ states('sensor.curtain_kitchen_position') }} %
         🛌 Спальня .................. {{ states('sensor.curtain_bedroom_position') }} %
         📚 Гостиная ................. {{ states('sensor.curtain_living_position') }} %
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

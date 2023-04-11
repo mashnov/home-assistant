@@ -11,3 +11,7 @@ message_night_light:
         🛁 Ванная ................. {{ iif(is_state('binary_sensor.night_light_bath_on', 'on'), '🟢', '🔴') }}
         🚽 Туалет .................. {{ iif(is_state('binary_sensor.night_light_toilet_on', 'on'), '🟢', '🔴') }}
         🪴 Балкон ................. {{ iif(is_state('binary_sensor.night_light_balcony_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

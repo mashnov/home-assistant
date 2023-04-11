@@ -10,3 +10,7 @@ message_ventilation:
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.ventilation_hall_boolean', 'on'), '🟢', '🟠') }}
         🛌 Спальня ................. {{ iif(is_state('binary_sensor.ventilation_bedroom_boolean', 'on'), '🟢', '🟠') }}
         📚 Гостиная ................ {{ iif(is_state('binary_sensor.ventilation_living_boolean', 'on'), '🟢', '🟠') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

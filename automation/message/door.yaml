@@ -17,22 +17,6 @@
   action:
   - service: script.message_door_hall
 
-- alias: 'message_door_bedroom'
-  mode: 'queued'
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.door_bedroom_open'
-  action:
-  - service: script.message_door_bedroom
-
-- alias: 'message_door_living'
-  mode: 'queued'
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.door_living_open'
-  action:
-  - service: script.message_door_living
-
 - alias: 'message_door_balcony'
   mode: 'queued'
   trigger:

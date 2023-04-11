@@ -27,3 +27,7 @@ message_temperature:
         🛌 Спальня ................. {{ bedroomStatusIcon }} {{ states('sensor.temperature_bedroom_level') }} °C
         📚 Гостиная ................ {{ livingStatusIcon }} {{ states('sensor.temperature_living_level') }} °C
         🪴 Балкон ................... 🟢 {{ states('sensor.temperature_balcony_level') }} °C
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'

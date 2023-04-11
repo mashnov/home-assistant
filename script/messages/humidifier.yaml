@@ -9,6 +9,10 @@ message_humidifier:
         🧥 Коридор ................. {{ iif(is_state('binary_sensor.humidifier_hall_on', 'on'), '🟢', '🔴') }}
         🛌 Спальня .................. {{ iif(is_state('binary_sensor.humidifier_bedroom_on', 'on'), '🟢', '🔴') }}
         📚 Гостиная ................. {{ iif(is_state('binary_sensor.humidifier_living_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'
 
 
 message_humidifier_empty:
@@ -21,6 +25,10 @@ message_humidifier_empty:
         🧥 Коридор .............................. {{ iif(is_state('binary_sensor.humidifier_hall_empty_boolean', 'off'), '🟢', '🔴') }}
         🛌 Спальня ............................... {{ iif(is_state('binary_sensor.humidifier_bedroom_empty_boolean', 'off'), '🟢', '🔴') }}
         📚 Гостиная .............................. {{ iif(is_state('binary_sensor.humidifier_living_empty_boolean', 'off'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home'
+        - 'Закрыть:/hide_menu'
 
 
 message_humidifier_empty_hall:
