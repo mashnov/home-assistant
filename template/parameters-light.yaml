@@ -11,7 +11,7 @@
         {% set illuminanceValue = states('sensor.illuminance_level') | int(0) %}
         {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
         {{ (sensorValue / targetValue) * 100 }}
-      brightness: >
+      light_brightness: >
         {% set maxValue = 255 %}
         {% set minValue = 1 %}
         {% set sensorValue = state_attr('sensor.parameters_light', 'persent') | int(0) %}

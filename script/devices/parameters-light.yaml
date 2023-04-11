@@ -6,7 +6,7 @@ parameters_top_light:
     data:
       entity_id: "{{ states('sensor.parameters_top_light_list') }}"
     data_template:
-      brightness: "{{ state_attr('sensor.parameters_light', 'brightness') }}"
+      brightness: "{{ state_attr('sensor.parameters_light', 'light_brightness') }}"
       color_temp: "{{ state_attr('sensor.parameters_light', 'color_temperature') }}"
 
 ## PARAMETERS NIGHT LIGHT
@@ -17,7 +17,5 @@ parameters_night_light:
     data:
       entity_id: light.nightlight_hall
     data_template:
-      brightness: "{{ state_attr('sensor.parameters_light', 'brightness') }}"
-      hs_color:
-          - "{{ state_attr('input_number.parameters_light_color_hue') | int }}"
-          - "{{ state_attr('sensor.parameters_light', 'color_saturation') | int }}"
+      brightness: "{{ state_attr('sensor.parameters_light', 'light_brightness') }}"
+      hs_color: ["{{ state_attr('input_number.parameters_light_color_hue') | int }}", "{{ state_attr('sensor.parameters_light', 'color_saturation') | int }}"]
