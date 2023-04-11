@@ -18,4 +18,4 @@ parameters_night_light:
       entity_id: light.nightlight_hall
     data_template:
       brightness: "{{ state_attr('sensor.parameters_light', 'light_brightness') }}"
-      hs_color: ["{{ state_attr('input_number.parameters_light_color_hue') | int }}", "{{ state_attr('sensor.parameters_light', 'color_saturation') | int }}"]
+      hs_color: ["{{ states('input_number.parameters_light_color_hue') | int }}", "{{ state_attr('sensor.parameters_light', 'color_saturation') | int }}"]
