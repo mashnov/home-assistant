@@ -12,7 +12,9 @@ message_top_light:
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.top_light_hall_group_on', 'on'), '🟢', '🔴') }}
         🛌 Спальня ................. {{ iif(is_state('binary_sensor.top_light_bedroom_group_on', 'on'), '🟢', '🔴') }}
         📚 Гостиная ................ {{ iif(is_state('binary_sensor.top_light_living_group_on', 'on'), '🟢', '🔴') }}
-
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 message_top_light_kitchen:
   mode: 'queued'
@@ -26,7 +28,9 @@ message_top_light_kitchen:
         🥣 3 лампочка ................... {{ iif(is_state('binary_sensor.top_light_kitchen_3_on', 'on'), '🟢', '🔴') }}
         🥣 4 лампочка ................... {{ iif(is_state('binary_sensor.top_light_kitchen_4_on', 'on'), '🟢', '🔴') }}
         🥣 5 лампочка ................... {{ iif(is_state('binary_sensor.top_light_kitchen_5_on', 'on'), '🟢', '🔴') }}
-
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 message_top_light_bath:
   mode: 'queued'
@@ -36,7 +40,9 @@ message_top_light_bath:
       message: | 
         ⏱️ Освещение ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🛁 Ванная ............ {{ iif(is_state('binary_sensor.top_light_bath_on', 'on'), '🟢', '🔴') }}
-
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 message_top_light_toilet:
   mode: 'queued'
@@ -46,7 +52,9 @@ message_top_light_toilet:
       message: | 
         ⏱️ Освещение ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🚽 Туалет ................... {{ iif(is_state('binary_sensor.top_light_toilet_on', 'on'), '🟢', '🔴') }}
-
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 message_top_light_hall:
   mode: 'queued'
@@ -61,6 +69,9 @@ message_top_light_hall:
         🧥 4 лампочка ................ {{ iif(is_state('binary_sensor.top_light_hall_4_on', 'on'), '🟢', '🔴') }}
         🧥 5 лампочка ................ {{ iif(is_state('binary_sensor.top_light_hall_5_on', 'on'), '🟢', '🔴') }}
         🧥 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_hall_6_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 
 message_top_light_bedroom:
@@ -76,6 +87,9 @@ message_top_light_bedroom:
         🛌 4 лампочка ................ {{ iif(is_state('binary_sensor.top_light_bedroom_4_on', 'on'), '🟢', '🔴') }}
         🛌 5 лампочка ................ {{ iif(is_state('binary_sensor.top_light_bedroom_5_on', 'on'), '🟢', '🔴') }}
         🛌 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_bedroom_6_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 
 message_top_light_living:
@@ -91,3 +105,6 @@ message_top_light_living:
         📚 4 лампочка ................ {{ iif(is_state('binary_sensor.top_light_living_4_on', 'on'), '🟢', '🔴') }}
         📚 5 лампочка ................ {{ iif(is_state('binary_sensor.top_light_living_5_on', 'on'), '🟢', '🔴') }}
         📚 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_living_6_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'

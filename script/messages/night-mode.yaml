@@ -11,5 +11,4 @@ message_night_mode:
         📚 Гостиная .................. {{ iif(is_state('binary_sensor.night_mode_living_boolean', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

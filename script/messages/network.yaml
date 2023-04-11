@@ -11,5 +11,4 @@ message_network:
         🔀 Пинг ................... {{ iif(is_state('binary_sensor.network_ping_low', 'off'), '🟢', '🟠') }} {{ states('sensor.network_ping_level') }} ms
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

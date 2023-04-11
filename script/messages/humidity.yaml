@@ -14,5 +14,4 @@ message_humidity:
         🪴 Балкон ................... 🟢 {{ states('sensor.humidity_balcony_level') }} %
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

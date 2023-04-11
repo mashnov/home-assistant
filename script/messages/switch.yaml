@@ -18,5 +18,4 @@ message_switch:
         📚 Гостиная правый .............. {{ iif(is_state('binary_sensor.switch_living_2_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

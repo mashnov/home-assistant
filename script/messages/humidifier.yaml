@@ -27,8 +27,7 @@ message_humidifier_empty:
         📚 Гостиная .............................. {{ iif(is_state('binary_sensor.humidifier_living_empty_boolean', 'off'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 
 message_humidifier_empty_hall:

@@ -11,5 +11,4 @@ message_curtain:
         📚 Гостиная ................. {{ states('sensor.curtain_living_position') }} %
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

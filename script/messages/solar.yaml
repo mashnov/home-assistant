@@ -12,5 +12,4 @@ message_solar:
         ↔️ Азимут .................... {{ iif(is_state('binary_sensor.solar_azimuth', 'on'), '🟢', '🟠') }} {{ states('sensor.solar_azimuth') }} °
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

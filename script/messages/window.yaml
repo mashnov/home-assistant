@@ -13,5 +13,4 @@ message_window:
         📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🟠') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

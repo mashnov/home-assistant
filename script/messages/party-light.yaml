@@ -9,5 +9,4 @@ message_party_light:
         🥣 Кухня ................... {{ iif(is_state('binary_sensor.party_light_kitchen_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

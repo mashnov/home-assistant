@@ -29,5 +29,4 @@ message_temperature:
         🪴 Балкон ................... 🟢 {{ states('sensor.temperature_balcony_level') }} °C
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

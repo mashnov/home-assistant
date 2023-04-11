@@ -13,5 +13,4 @@ message_pressure:
         🏡 Среднее ..................... {{ statusIcon }} {{ states('sensor.pressure_level') }} mmHg
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'

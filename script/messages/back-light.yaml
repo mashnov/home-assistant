@@ -14,5 +14,4 @@ message_back_light:
         🪴 Балкон ................. {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home'
-        - 'Закрыть:/hide_menu'
+        - 'Назад:/home, Закрыть:/hide_menu'
