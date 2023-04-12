@@ -22,7 +22,7 @@ message_navigation_home:
         - 'Ночники:/details_night_light'
         - 'Увлажнитель:/details_humidifier'
         - 'Пустые увлажнители:/humidifier_empty'
-        - 'Вытяжка:/details_dehumidifier'
+        - 'Вытяжка:/dehumidifier'
         - 'Выключатели:/details_switch'
         - 'Шторы:/curtain'
         - 'Фонтан:/details_fountain'
