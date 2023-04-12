@@ -5,6 +5,6 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_back_light'
+      command: '/back_light'
   action:
   - service: script.message_back_light

@@ -5,10 +5,9 @@ message_curtain:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
-        ⏱️ Шторы .................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................. {{ states('sensor.curtain_kitchen_position') }} %
-        🛌 Спальня .................. {{ states('sensor.curtain_bedroom_position') }} %
-        📚 Гостиная ................. {{ states('sensor.curtain_living_position') }} %
+        🥣 .. Шторы ..... {{ states('sensor.curtain_kitchen_position') }} %
+        🛌 .. Шторы ..... {{ states('sensor.curtain_bedroom_position') }} %
+        📚 .. Шторы ..... {{ states('sensor.curtain_living_position') }} %
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, Обновить:/curtain, Закрыть:/hide_menu'

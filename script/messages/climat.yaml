@@ -12,4 +12,4 @@ message_cloud:
         {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟢', '🟠') }} .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), 'Светит в окна', 'Не попадает в окна') }}
       data:
         inline_keyboard:
-        - 'Назад:/home, Закрыть:/hide_menu, Обновить:/climat'
+        - 'Назад:/home, Обновить:/climat, Закрыть:/hide_menu'
