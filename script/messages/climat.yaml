@@ -29,7 +29,7 @@ message_climat_temperature:
         🪴 Балкон ................... 🟢 {{ states('sensor.temperature_balcony_level') }} °C
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/climat, Обновить:/climat_temperature, Закрыть:/hide_menu'
 
 ## HUMIDITY
 message_climat_humidity:
@@ -47,7 +47,7 @@ message_climat_humidity:
         🪴 Балкон ................... 🟢 {{ states('sensor.humidity_balcony_level') }} %
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/climat, Обновить:/climat_humidity, Закрыть:/hide_menu'
 
 ## PRESSURE
 message_climat_pressure:
@@ -64,7 +64,7 @@ message_climat_pressure:
         🏡 Среднее ..................... {{ statusIcon }} {{ states('sensor.pressure_level') }} mmHg
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/climat, Обновить:/climat_pressure, Закрыть:/hide_menu'
 
 ## SUN
 message_climat_sun:
@@ -80,7 +80,7 @@ message_climat_sun:
         {{ iif(is_state('binary_sensor.solar_hight', 'on'), '🟢', '🟠') }} .. {{ iif(is_state('binary_sensor.solar_hight', 'on'), 'Светит в окна', 'Не попадает в окна') }}
       data:
         inline_keyboard:
-        - 'Назад:/home, Обновить:/climat, Закрыть:/hide_menu'
+        - 'Назад:/climat, Обновить:/climat_sun, Закрыть:/hide_menu'
 
 ## VENTILATION
 message_climat_ventilation:
@@ -96,4 +96,4 @@ message_climat_ventilation:
         📚 Гостиная ................ {{ iif(is_state('binary_sensor.ventilation_living_boolean', 'on'), '🟢', '🟠') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/climat, Обновить:/climat_ventilation, Закрыть:/hide_menu'

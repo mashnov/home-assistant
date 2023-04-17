@@ -12,7 +12,7 @@ message_occupancy:
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.motion_hall_boolean', 'on'), '🟢', '🟠') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/security, Обновить:/security_occupancy, Закрыть:/hide_menu'
 
 ## WINDOW
 message_window:
@@ -29,7 +29,7 @@ message_window:
         📚 Гостиная ................. {{ iif(is_state('binary_sensor.window_living_open', 'on'), '🟢', '🟠') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/security, Обновить:/security_window, Закрыть:/hide_menu'
 
 ## DOOR
 message_door:
@@ -46,7 +46,7 @@ message_door:
         🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🟠') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/security, Обновить:/security_door, Закрыть:/hide_menu'
 
 message_door_hall:
   mode: 'queued'
@@ -56,6 +56,9 @@ message_door_hall:
       message: | 
         ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🧥 Коридор ................ {{ iif(is_state('binary_sensor.door_hall_open', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Меню:/home, Закрыть:/hide_menu'
 
 message_door_balcony:
   mode: 'queued'
@@ -65,3 +68,6 @@ message_door_balcony:
       message: | 
         ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
         🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🟠') }}
+      data:
+        inline_keyboard: 
+        - 'Меню:/home, Закрыть:/hide_menu'
