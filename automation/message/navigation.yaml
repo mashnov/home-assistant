@@ -59,7 +59,7 @@
   - service: script.message_navigation_light
 
 ## NAVIGATION RGB LIGHT
-- alias: message_navigation_top_light'
+- alias: message_navigation_rgb_light'
   mode: 'queued'
   trigger:
   - platform: event
@@ -67,7 +67,7 @@
     event_data:
       command: '/rgb_light'
   action:
-  - service: script.message_navigation_top_light
+  - service: script.message_navigation_rgb_light
 
 ## NAVIGATION TOP LIGHT
 - alias: message_navigation_top_light'
@@ -81,7 +81,7 @@
   - service: script.message_navigation_top_light
 
 ## NAVIGATION BACK LIGHT
-- alias: message_navigation_top_light'
+- alias: message_navigation_back_light'
   mode: 'queued'
   trigger:
   - platform: event
@@ -89,10 +89,10 @@
     event_data:
       command: '/back_light'
   action:
-  - service: script.message_navigation_top_light
+  - service: script.message_navigation_back_light
 
 ## NAVIGATION NIGHT LIGHT
-- alias: message_navigation_top_light'
+- alias: message_navigation_night_light'
   mode: 'queued'
   trigger:
   - platform: event
@@ -100,4 +100,4 @@
     event_data:
       command: '/night_light'
   action:
-  - service: script.message_navigation_top_light
+  - service: script.message_navigation_night_light

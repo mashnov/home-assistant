@@ -71,7 +71,7 @@ message_navigation_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Освещение'
+      message: 'Светильники'
       data:
         inline_keyboard: 
         - 'Кухня:/top_light_kitchen'
