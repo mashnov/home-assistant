@@ -1,21 +1,22 @@
-## TOP LIGHT
-- alias: message_top_light'
+## RGB LIGHT
+- alias: message_rgb_light'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_groups'
+      command: '/rgb_light'
   action:
-  - service: script.message_top_light
+  - service: script.message_rgb_light
 
+## TOP LIGHT
 - alias: message_top_light_kitchen'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_kitchen'
+      command: '/top_light_kitchen'
   action:
   - service: script.message_top_light_kitchen
 
@@ -25,7 +26,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_bath'
+      command: '/top_light_bath'
   action:
   - service: script.message_top_light_bath
 
@@ -35,7 +36,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_toilet'
+      command: '/top_light_toilet'
   action:
   - service: script.message_top_light_toilet
 
@@ -45,7 +46,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_hall'
+      command: '/top_light_hall'
   action:
   - service: script.message_top_light_hall
 
@@ -55,7 +56,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_bedroom'
+      command: '/top_light_bedroom'
   action:
   - service: script.message_top_light_bedroom
 
@@ -65,6 +66,28 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/details_top_light_living'
+      command: '/top_light_living'
   action:
   - service: script.message_top_light_living
+
+## BACK LIGHT
+- alias: message_back_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/back_light'
+  action:
+  - service: script.message_back_light
+
+## NIGHT LIGHT
+- alias: message_night_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/night_light'
+  action:
+  - service: script.message_night_light
