@@ -1,5 +1,73 @@
-## CLOUD
-message_cloud:
+## TEMPERATURE
+climat_temperature:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        {%- set kitcheProblemwIcon = is_state('binary_sensor.temperature_kitchen_problem', 'on') and '🟠' %}
+        {%- set kitchenStatusIcon = kitcheProblemwIcon or '🟢' %}
+
+        {%- set bathLoProblemIcon = is_state('binary_sensor.temperature_bath_problem', 'on') and '🟠' %}
+        {%- set bathStatusIcon = bathLoProblemIcon or '🟢' %}
+
+        {%- set hallLoProblemIcon = is_state('binary_sensor.temperature_hall_problem', 'on') and '🟠' %}
+        {%- set hallStatusIcon = hallLoProblemIcon or '🟢' %}
+
+        {%- set bedroomProblemIcon = is_state('binary_sensor.temperature_bedroom_problem', 'on') and '🟠' %}
+        {%- set bedroomStatusIcon = bedroomProblemIcon or '🟢' %}
+
+        {%- set livingProblemIcon = is_state('binary_sensor.temperature_living_problem', 'on') and '🟠' %}
+        {%- set livingStatusIcon = livingProblemIcon or '🟢' %}
+
+        ⏱️ Температура ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ kitchenStatusIcon }} {{ states('sensor.temperature_kitchen_level') }} °C
+        🛁 Ванная ................... {{ bathStatusIcon }} {{ states('sensor.temperature_bath_level') }} °C
+        🧥 Коридор ................ {{ hallStatusIcon }} {{ states('sensor.temperature_hall_level') }} °C
+        🛌 Спальня ................. {{ bedroomStatusIcon }} {{ states('sensor.temperature_bedroom_level') }} °C
+        📚 Гостиная ................ {{ livingStatusIcon }} {{ states('sensor.temperature_living_level') }} °C
+        🪴 Балкон ................... 🟢 {{ states('sensor.temperature_balcony_level') }} °C
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## HUMIDITY
+climat_humidity:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Влажность ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.humidity_kitchen_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_kitchen_level') }} %
+        🛁 Ванная ................... {{ iif(is_state('binary_sensor.humidity_bath_hight', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bath_level') }} %
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.humidity_hall_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_hall_level') }} %
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.humidity_bedroom_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_bedroom_level') }} %
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.humidity_living_low', 'on'), '🟠', '🟢') }} {{ states('sensor.humidity_living_level') }} %
+        🪴 Балкон ................... 🟢 {{ states('sensor.humidity_balcony_level') }} %
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## PRESSURE
+climat_pressure:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        {%- set lowIcon = is_state('binary_sensor.pressure_low', 'on') and '🟠' %}
+        {%- set hightIcon = is_state('binary_sensor.pressure_hight', 'on') and '🟠' %}
+        {%- set statusIcon = lowIcon or hightIcon or '🟢' %}
+
+        ⏱️ Давление ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🏡 Среднее ..................... {{ statusIcon }} {{ states('sensor.pressure_level') }} mmHg
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## SUN
+climat_sun:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -13,3 +81,19 @@ message_cloud:
       data:
         inline_keyboard:
         - 'Назад:/home, Обновить:/climat, Закрыть:/hide_menu'
+
+## VENTILATION
+climat_ventilation:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Вентиляция .......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.ventilation_kitchen_boolean', 'on'), '🟢', '🟠') }}
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.ventilation_hall_boolean', 'on'), '🟢', '🟠') }}
+        🛌 Спальня ................. {{ iif(is_state('binary_sensor.ventilation_bedroom_boolean', 'on'), '🟢', '🟠') }}
+        📚 Гостиная ................ {{ iif(is_state('binary_sensor.ventilation_living_boolean', 'on'), '🟢', '🟠') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/home, Закрыть:/hide_menu'

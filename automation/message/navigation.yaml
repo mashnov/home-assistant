@@ -25,8 +25,19 @@
   action:
   - service: script.message_navigation_home
 
+## NAVIGATION DETAILS CLIMAT
+- alias: message_navigation_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat'
+  action:
+  - service: script.message_navigation_climat
+
 ## NAVIGATION DETAILS TOP LIGHT
-- alias: message_navigation_details_top_light'
+- alias: message_navigation_top_light'
   mode: 'queued'
   trigger:
   - platform: event
@@ -34,4 +45,4 @@
     event_data:
       command: '/top_light'
   action:
-  - service: script.message_navigation_details_top_light
+  - service: script.message_navigation_top_light

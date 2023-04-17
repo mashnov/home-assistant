@@ -1,10 +1,54 @@
-## CLOUD
-- alias: message_cloud'
+## HUMIDITY
+- alias: message_climat_humidity'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/climat'
+      command: '/climat_humidity'
   action:
-  - service: script.message_cloud
+  - service: script.message_climat_humidity
+
+## PRESSURE
+- alias: message_climat_pressure'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_pressure'
+  action:
+  - service: script.message_climat_pressure
+
+## TEMPERATURE
+- alias: message_climat_temperature'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_temperature'
+  action:
+  - service: script.message_climat_temperature
+
+## SUN
+- alias: message_climat_sun'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_sun'
+  action:
+  - service: script.message_climat_sun
+
+## VENTILATION
+- alias: message_climat_ventilation'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_ventilation'
+  action:
+  - service: script.message_climat_ventilation

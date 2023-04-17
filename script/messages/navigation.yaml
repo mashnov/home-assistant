@@ -7,9 +7,6 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Температура:/temperature'
-        - 'Влажность:/humidity'
-        - 'Давление:/pressure'
         - 'Климат:/climat'
         - 'Проветривание:/ventilation'
         - 'Двери:/door'
@@ -29,8 +26,24 @@ message_navigation_home:
         - 'Сеть:/network'
         - 'Закрыть:/hide_menu'
 
+## NAVIGATION DETAILS CLIMAT
+message_navigation_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Освещение'
+      data:
+        inline_keyboard: 
+        - 'Температура:/climat_temperature'
+        - 'Влажность:/climat_humidity'
+        - 'Давление:/climat_pressure'
+        - 'Солнце:/climat_sun'
+        - 'Проветривание:/climat_ventilation'
+        - 'Закрыть:/hide_menu, Назад:/home'
+
 ## NAVIGATION DETAILS TOP LIGHT
-message_navigation_details_top_light:
+message_navigation_top_light:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
