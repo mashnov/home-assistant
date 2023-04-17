@@ -1,6 +1,6 @@
 
 ## RGB LIGHT
-message_party_light:
+message_rgb_light:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -13,23 +13,6 @@ message_party_light:
         - 'Назад:/light, Обновить:/rgb_light, Закрыть:/hide_menu'
 
 ## TOP LIGHT
-message_top_light:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Освещение ............ {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🥣 Кухня ..................... {{ iif(is_state('binary_sensor.top_light_kitchen_group_on', 'on'), '🟢', '🔴') }}
-        🛁 Ванная ................... {{ iif(is_state('binary_sensor.top_light_bath_on', 'on'), '🟢', '🔴') }}
-        🚽 Туалет ................... {{ iif(is_state('binary_sensor.top_light_toilet_on', 'on'), '🟢', '🔴') }}
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.top_light_hall_group_on', 'on'), '🟢', '🔴') }}
-        🛌 Спальня ................. {{ iif(is_state('binary_sensor.top_light_bedroom_group_on', 'on'), '🟢', '🔴') }}
-        📚 Гостиная ................ {{ iif(is_state('binary_sensor.top_light_living_group_on', 'on'), '🟢', '🔴') }}
-      data:
-        inline_keyboard: 
-        - 'Назад:/light, Закрыть:/hide_menu'
-
 message_top_light_kitchen:
   mode: 'queued'
   sequence:
@@ -154,3 +137,4 @@ message_night_light:
       data:
         inline_keyboard: 
         - 'Назад:/light, Обновить:/night_light, Закрыть:/hide_menu'
+
