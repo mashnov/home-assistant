@@ -36,6 +36,17 @@
   action:
   - service: script.message_navigation_climat
 
+## NAVIGATION DETAILS SECURITY
+- alias: message_navigation_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/security'
+  action:
+  - service: script.message_navigation_security
+
 ## NAVIGATION DETAILS TOP LIGHT
 - alias: message_navigation_top_light'
   mode: 'queued'

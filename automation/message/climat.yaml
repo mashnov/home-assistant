@@ -1,3 +1,14 @@
+## TEMPERATURE
+- alias: message_climat_temperature'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_temperature'
+  action:
+  - service: script.message_climat_temperature
+
 ## HUMIDITY
 - alias: message_climat_humidity'
   mode: 'queued'
@@ -19,17 +30,6 @@
       command: '/climat_pressure'
   action:
   - service: script.message_climat_pressure
-
-## TEMPERATURE
-- alias: message_climat_temperature'
-  mode: 'queued'
-  trigger:
-  - platform: event
-    event_type: telegram_callback
-    event_data:
-      command: '/climat_temperature'
-  action:
-  - service: script.message_climat_temperature
 
 ## SUN
 - alias: message_climat_sun'

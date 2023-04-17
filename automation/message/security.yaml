@@ -1,3 +1,25 @@
+## OCCUPANCY
+- alias: message_occupancy'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/security_occupancy'
+  action:
+  - service: script.message_occupancy
+
+## WINDOW
+- alias: message_window'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/security_window'
+  action:
+  - service: script.message_window
+
 ## DOORS
 - alias: message_door'
   mode: 'queued'
@@ -5,7 +27,7 @@
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/door'
+      command: '/security_door'
   action:
   - service: script.message_door
 

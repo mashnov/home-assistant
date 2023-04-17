@@ -8,10 +8,7 @@ message_navigation_home:
       data:
         inline_keyboard: 
         - 'Климат:/climat'
-        - 'Проветривание:/ventilation'
-        - 'Двери:/door'
-        - 'Окна:/window'
-        - 'Движение:/occupancy'
+        - 'Безопасность:/security'
         - 'Ночной режим:/details_night_mode'
         - 'Режим вечеринки:/details_party_light'
         - 'Освещение:/details_top_light'
@@ -32,7 +29,7 @@ message_navigation_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Освещение'
+      message: 'Климат'
       data:
         inline_keyboard: 
         - 'Температура:/climat_temperature'
@@ -40,6 +37,20 @@ message_navigation_climat:
         - 'Давление:/climat_pressure'
         - 'Солнце:/climat_sun'
         - 'Проветривание:/climat_ventilation'
+        - 'Закрыть:/hide_menu, Назад:/home'
+
+## NAVIGATION DETAILS SECURITY
+message_navigation_security:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Безопасность'
+      data:
+        inline_keyboard: 
+        - 'Двери:/security_door'
+        - 'Окна:/security_window'
+        - 'Движение:/security_occupancy'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION DETAILS TOP LIGHT
@@ -51,13 +62,13 @@ message_navigation_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
-        - 'Общее:/details_top_light_groups'
-        - 'Кухня:/details_top_light_kitchen'
-        - 'Ванная:/details_top_light_bath'
-        - 'Туалет:/details_top_light_toilet'
-        - 'Коридор:/details_top_light_hall'
-        - 'Спальня:/details_top_light_bedroom'
-        - 'Гостиная:/details_top_light_living'
+        - 'Общее:/top_light_groups'
+        - 'Кухня:/top_light_kitchen'
+        - 'Ванная:/top_light_bath'
+        - 'Туалет:/top_light_toilet'
+        - 'Коридор:/top_light_hall'
+        - 'Спальня:/top_light_bedroom'
+        - 'Гостиная:/top_light_living'
         - 'Закрыть:/hide_menu, Назад:/home'
 
 ## NAVIGATION REMOVE

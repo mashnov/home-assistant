@@ -1,5 +1,5 @@
 ## TEMPERATURE
-climat_temperature:
+message_climat_temperature:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -32,7 +32,7 @@ climat_temperature:
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## HUMIDITY
-climat_humidity:
+message_climat_humidity:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -50,7 +50,7 @@ climat_humidity:
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## PRESSURE
-climat_pressure:
+message_climat_pressure:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -67,7 +67,7 @@ climat_pressure:
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## SUN
-climat_sun:
+message_climat_sun:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
@@ -83,7 +83,7 @@ climat_sun:
         - 'Назад:/home, Обновить:/climat, Закрыть:/hide_menu'
 
 ## VENTILATION
-climat_ventilation:
+message_climat_ventilation:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
