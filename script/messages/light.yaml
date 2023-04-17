@@ -87,7 +87,6 @@ message_top_light_hall:
         inline_keyboard: 
         - 'Назад:/top_light, Обновить:/top_light_hall, Закрыть:/hide_menu'
 
-
 message_top_light_bedroom:
   mode: 'queued'
   sequence:
@@ -104,7 +103,6 @@ message_top_light_bedroom:
       data:
         inline_keyboard: 
         - 'Назад:/top_light, Обновить:/top_light_bedroom, Закрыть:/hide_menu'
-
 
 message_top_light_living:
   mode: 'queued'
