@@ -1,3 +1,17 @@
+
+## RGB LIGHT
+message_party_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Вечеринка ........... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ................... {{ iif(is_state('binary_sensor.party_light_kitchen_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/light, Обновить:/rgb_light, Закрыть:/hide_menu'
+
 ## TOP LIGHT
 message_top_light:
   mode: 'queued'
@@ -14,7 +28,7 @@ message_top_light:
         📚 Гостиная ................ {{ iif(is_state('binary_sensor.top_light_living_group_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/light, Закрыть:/hide_menu'
 
 message_top_light_kitchen:
   mode: 'queued'
@@ -30,7 +44,7 @@ message_top_light_kitchen:
         🥣 5 лампочка ................... {{ iif(is_state('binary_sensor.top_light_kitchen_5_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_kitchen, Закрыть:/hide_menu'
 
 message_top_light_bath:
   mode: 'queued'
@@ -42,7 +56,7 @@ message_top_light_bath:
         🛁 Ванная ............ {{ iif(is_state('binary_sensor.top_light_bath_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_bath, Закрыть:/hide_menu'
 
 message_top_light_toilet:
   mode: 'queued'
@@ -54,7 +68,7 @@ message_top_light_toilet:
         🚽 Туалет ................... {{ iif(is_state('binary_sensor.top_light_toilet_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_toilet, Закрыть:/hide_menu'
 
 message_top_light_hall:
   mode: 'queued'
@@ -71,7 +85,7 @@ message_top_light_hall:
         🧥 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_hall_6_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_hall, Закрыть:/hide_menu'
 
 
 message_top_light_bedroom:
@@ -89,7 +103,7 @@ message_top_light_bedroom:
         🛌 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_bedroom_6_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_bedroom, Закрыть:/hide_menu'
 
 
 message_top_light_living:
@@ -107,4 +121,38 @@ message_top_light_living:
         📚 6 лампочка ................ {{ iif(is_state('binary_sensor.top_light_living_6_on', 'on'), '🟢', '🔴') }}
       data:
         inline_keyboard: 
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/top_light, Обновить:/top_light_living, Закрыть:/hide_menu'
+
+## BACK LIGHT
+message_back_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🥣 .. {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_kitchen_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🧥 .. {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_hall_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🛌 .. {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_bedroom_1_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🛌 .. {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_bedroom_2_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        📚 .. {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_living_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+        🪴 .. {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), '🟢', '🔴') }} .. Подсветка ..... {{ iif(is_state('binary_sensor.back_light_balcony_on', 'on'), 'ВКЛ', 'ВЫКЛ') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/light, Обновить:/back_light, Закрыть:/hide_menu'
+
+## NIGH LIGHT
+message_night_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Ночник ................ {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🥣 Кухня ................... {{ iif(is_state('binary_sensor.night_light_kitchen_on', 'on'), '🟢', '🔴') }}
+        🧥 Коридор .............. {{ iif(is_state('binary_sensor.night_light_hall_on', 'on'), '🟢', '🔴') }}
+        🛁 Ванная ................. {{ iif(is_state('binary_sensor.night_light_bath_on', 'on'), '🟢', '🔴') }}
+        🚽 Туалет .................. {{ iif(is_state('binary_sensor.night_light_toilet_on', 'on'), '🟢', '🔴') }}
+        🪴 Балкон ................. {{ iif(is_state('binary_sensor.night_light_balcony_on', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - 'Назад:/light, Обновить:/night_light, Закрыть:/hide_menu'

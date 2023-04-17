@@ -25,7 +25,7 @@
   action:
   - service: script.message_navigation_home
 
-## NAVIGATION DETAILS CLIMAT
+## NAVIGATION CLIMAT
 - alias: message_navigation_climat'
   mode: 'queued'
   trigger:
@@ -36,7 +36,7 @@
   action:
   - service: script.message_navigation_climat
 
-## NAVIGATION DETAILS SECURITY
+## NAVIGATION SECURITY
 - alias: message_navigation_security'
   mode: 'queued'
   trigger:
@@ -47,7 +47,29 @@
   action:
   - service: script.message_navigation_security
 
-## NAVIGATION DETAILS TOP LIGHT
+## NAVIGATION LIGHT
+- alias: message_navigation_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/light'
+  action:
+  - service: script.message_navigation_light
+
+## NAVIGATION RGB LIGHT
+- alias: message_navigation_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/rgb_light'
+  action:
+  - service: script.message_navigation_top_light
+
+## NAVIGATION TOP LIGHT
 - alias: message_navigation_top_light'
   mode: 'queued'
   trigger:
@@ -55,5 +77,27 @@
     event_type: telegram_callback
     event_data:
       command: '/top_light'
+  action:
+  - service: script.message_navigation_top_light
+
+## NAVIGATION BACK LIGHT
+- alias: message_navigation_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/back_light'
+  action:
+  - service: script.message_navigation_top_light
+
+## NAVIGATION NIGHT LIGHT
+- alias: message_navigation_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/night_light'
   action:
   - service: script.message_navigation_top_light

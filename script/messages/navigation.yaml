@@ -9,11 +9,8 @@ message_navigation_home:
         inline_keyboard: 
         - 'Климат:/climat'
         - 'Безопасность:/security'
+        - 'Освещение:/light'
         - 'Ночной режим:/details_night_mode'
-        - 'Режим вечеринки:/details_party_light'
-        - 'Освещение:/details_top_light'
-        - 'Подсветка:/back_light'
-        - 'Ночники:/details_night_light'
         - 'Увлажнитель:/details_humidifier'
         - 'Пустые увлажнители:/humidifier_empty'
         - 'Вытяжка:/dehumidifier'
@@ -37,7 +34,7 @@ message_navigation_climat:
         - 'Давление:/climat_pressure'
         - 'Солнце:/climat_sun'
         - 'Проветривание:/climat_ventilation'
-        - 'Закрыть:/hide_menu, Назад:/home'
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS SECURITY
 message_navigation_security:
@@ -51,7 +48,22 @@ message_navigation_security:
         - 'Двери:/security_door'
         - 'Окна:/security_window'
         - 'Движение:/security_occupancy'
-        - 'Закрыть:/hide_menu, Назад:/home'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION DETAILS LIGHT
+message_navigation_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Освещение'
+      data:
+        inline_keyboard: 
+        - 'RGB-ленты:/rgb_light'
+        - 'Светильники:/top_light'
+        - 'Подсветка:/back_light'
+        - 'Ночники:/night_light'
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS TOP LIGHT
 message_navigation_top_light:
@@ -62,14 +74,13 @@ message_navigation_top_light:
       message: 'Освещение'
       data:
         inline_keyboard: 
-        - 'Общее:/top_light_groups'
         - 'Кухня:/top_light_kitchen'
         - 'Ванная:/top_light_bath'
         - 'Туалет:/top_light_toilet'
         - 'Коридор:/top_light_hall'
         - 'Спальня:/top_light_bedroom'
         - 'Гостиная:/top_light_living'
-        - 'Закрыть:/hide_menu, Назад:/home'
+        - 'Назад:/light, Закрыть:/hide_menu'
 
 ## NAVIGATION REMOVE
 message_navigation_remove:
