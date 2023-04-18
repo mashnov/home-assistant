@@ -36,10 +36,40 @@ message_navigation_kitchen:
         inline_keyboard: 
         - 'RGB-лента:/kitchen_rgb_light'
         - 'Освещение:/kitchen_top_light'
-        - 'Освещение:/kitchen_back_light'
-        - 'Освещение:/kitchen_night_light'
+        - 'Подсветка:/kitchen_back_light'
+        - 'Ночник:/kitchen_night_light'
+        - 'Выключатель:/kitchen_switch'
         - 'Шторы:/kitchen_curtain'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION KITCHEN SWITCH
+message_navigation_kitchen_switch:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Кухня Выключатель'
+      data:
+        inline_keyboard: 
+        - 'Освещение:/kitchen_switch_top_light'
+        - 'Подсветка:/kitchen_switch_back_light'
+        - 'Назад:/kitchen, Закрыть:/hide_menu'
+
+## NAVIGATION KITCHEN TOP LIGHT
+message_navigation_kitchen_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Кухня Освещение'
+      data:
+        inline_keyboard: 
+        - 'Светильник 1:/kitchen_top_light_1'
+        - 'Светильник 2:/kitchen_top_light_2'
+        - 'Светильник 3:/kitchen_top_light_3'
+        - 'Светильник 4:/kitchen_top_light_4'
+        - 'Светильник 5:/kitchen_top_light_5'
+        - 'Назад:/kitchen, Закрыть:/hide_menu'
 
 ## NAVIGATION BATH
 message_navigation_bath:
@@ -80,8 +110,26 @@ message_navigation_hall:
         - 'Освещение:/hall_top_light'
         - 'Подсветка:/hall_back_light'
         - 'Ночник:/hall_night_light'
+        - 'Выключатель:/hall_switch'
         - 'Увлажнитель:/hall_humidifier'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION HALL TOP LIGHT
+message_navigation_hall_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Коридор Освещение'
+      data:
+        inline_keyboard: 
+        - 'Светильник 1:/hall_top_light_1'
+        - 'Светильник 2:/hall_top_light_2'
+        - 'Светильник 3:/hall_top_light_3'
+        - 'Светильник 4:/hall_top_light_4'
+        - 'Светильник 5:/hall_top_light_5'
+        - 'Светильник 6:/hall_top_light_6'
+        - 'Назад:/hall, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM
 message_navigation_bedroom:
@@ -95,8 +143,39 @@ message_navigation_bedroom:
         - 'Освещение:/bedroom_top_light'
         - 'Светильник:/bedroom_wall_light'
         - 'Подсветка:/bedroom_back_light'
+        - 'Выключатель:/bedroom_switch'
         - 'Увлажнитель:/bedroom_humidifier'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION BEDROOM SWITCH
+message_navigation_bedroom_switch:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Спальня Выключатель'
+      data:
+        inline_keyboard: 
+        - 'Освещение:/bedroom_switch_left'
+        - 'Подсветка:/bedroom_switch_right'
+        - 'Назад:/bedroom, Закрыть:/hide_menu'
+
+## NAVIGATION BEDROOM TOP LIGHT
+message_navigation_bedroom_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Спальня Освещение'
+      data:
+        inline_keyboard: 
+        - 'Светильник 1:/bedroom_top_light_1'
+        - 'Светильник 2:/bedroom_top_light_2'
+        - 'Светильник 3:/bedroom_top_light_3'
+        - 'Светильник 4:/bedroom_top_light_4'
+        - 'Светильник 5:/bedroom_top_light_5'
+        - 'Светильник 6:/bedroom_top_light_6'
+        - 'Назад:/bedroom, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING
 message_navigation_living:
@@ -109,8 +188,39 @@ message_navigation_living:
         inline_keyboard: 
         - 'Освещение:/living_top_light'
         - 'Подсветка:/living_back_light'
+        - 'Выключатель:/living_switch'
         - 'Увлажнитель:/living_humidifier'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION LIVING SWITCH
+message_navigation_living_switch:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Спальня Выключатель'
+      data:
+        inline_keyboard: 
+        - 'Освещение:/living_switch_left'
+        - 'Подсветка:/living_switch_right'
+        - 'Назад:/living, Закрыть:/hide_menu'
+
+## NAVIGATION LIVING TOP LIGHT
+message_navigation_living_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Гостиная Освещение'
+      data:
+        inline_keyboard: 
+        - 'Светильник 1:/living_top_light_1'
+        - 'Светильник 2:/living_top_light_2'
+        - 'Светильник 3:/living_top_light_3'
+        - 'Светильник 4:/living_top_light_4'
+        - 'Светильник 5:/living_top_light_5'
+        - 'Светильник 6:/living_top_light_6'
+        - 'Назад:/living, Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY
 message_navigation_balcony:

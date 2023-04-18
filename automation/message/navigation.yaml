@@ -36,6 +36,28 @@
   action:
   - service: script.message_navigation_kitchen
 
+## NAVIGATION KITCHEN TOP LIGHT
+- alias: message_navigation_kitchen_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_top_light'
+  action:
+  - service: script.message_navigation_kitchen_top_light
+
+## NAVIGATION KITCHEN SWITCH
+- alias: message_navigation_kitchen_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_switch'
+  action:
+  - service: script.message_navigation_kitchen_switch
+
 ## NAVIGATION BATH
 - alias: message_navigation_bath'
   mode: 'queued'
@@ -69,6 +91,17 @@
   action:
   - service: script.message_navigation_hall
 
+## NAVIGATION HALL TOP LIGHT
+- alias: message_navigation_hall_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_top_light'
+  action:
+  - service: script.message_navigation_hall_top_light
+
 ## NAVIGATION BEDROOM
 - alias: message_navigation_bedroom'
   mode: 'queued'
@@ -79,6 +112,28 @@
       command: '/bedroom'
   action:
   - service: script.message_navigation_bedroom
+
+## NAVIGATION BEDROOM TOP LIGHT
+- alias: message_navigation_bedroom_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_top_light'
+  action:
+  - service: script.message_navigation_bedroom_top_light
+
+## NAVIGATION BEDROOM SWITCH
+- alias: message_navigation_bedroom_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_switch'
+  action:
+  - service: script.message_navigation_bedroom_switch
 
 ## NAVIGATION LIVING
 - alias: message_navigation_living'
@@ -101,3 +156,25 @@
       command: '/balcony'
   action:
   - service: script.message_navigation_balcony
+
+## NAVIGATION LIVING TOP LIGHT
+- alias: message_navigation_living_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_top_light'
+  action:
+  - service: script.message_navigation_living_top_light
+
+## NAVIGATION LIVING SWITCH
+- alias: message_navigation_living_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_switch'
+  action:
+  - service: script.message_navigation_living_switch
