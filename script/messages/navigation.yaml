@@ -327,6 +327,5 @@ message_navigation_balcony_climat:
         - 'Влажность:/balcony_climat'
         - 'Облачность:/balcony_climat'
         - 'Освещенность:/balcony_climat'
-        - 'Подъем:/balcony_climat'
-        - 'Азимут:/balcony_climat'
+        - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - 'Назад:/balcony, Закрыть:/hide_menu'
