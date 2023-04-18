@@ -16,15 +16,31 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Ночной режим:/night_mode'
         - 'Безопасность:/security'
         - 'Освещение:/light'
         - 'Шторы:/curtain'
         - 'Климат:/climat'
         - 'Сеть:/network'
-
-        - 'Выключатели:/details_switch'
+        - 'Устройства:/devices'
         - 'Закрыть:/hide_menu'
+
+## NAVIGATION DETAILS DEVICES
+message_navigation_devices:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Устройства'
+      data:
+        inline_keyboard: 
+        - 'Кухня:/devices_kitchen'
+        - 'Ванная:/devices_bath'
+        - 'Туалет:/devices_toilet'
+        - 'Коридор:/devices_hall'
+        - 'Спальня:/devices_bedroom'
+        - 'Гостиная:/devices_living'
+        - 'Балкон:/devices_balcony'
+        - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS CLIMAT
 message_navigation_climat:
@@ -35,12 +51,13 @@ message_navigation_climat:
       message: 'Климат'
       data:
         inline_keyboard: 
+        - 'Проветривание:/climat_ventilation'
         - 'Температура:/climat_temperature'
         - 'Влажность:/climat_humidity'
         - 'Давление:/climat_pressure'
         - 'Солнце:/climat_sun'
-        - 'Проветривание:/climat_ventilation'
         - 'Устройства:/climat_devices'
+        - 'Ночной режим:/climat_night_mode'
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS CLIMAT DEVICES

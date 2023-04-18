@@ -26,6 +26,18 @@
   - service: script.message_navigation_home
 
 
+## NAVIGATION DEVICES
+- alias: message_navigation_devices'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/devices'
+  action:
+  - service: script.message_navigation_devices
+
+
 ## NAVIGATION CLIMAT
 - alias: message_navigation_climat'
   mode: 'queued'
