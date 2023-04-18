@@ -52,8 +52,8 @@ message_navigation_kitchen_climat:
       message: 'Спальня климат'
       data:
         inline_keyboard: 
-        - 'Температура:/kitchen_climat'
-        - 'Влажность:/kitchen_climat'
+        - 'Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
+        - 'Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
         - 'Назад:/kitchen, Закрыть:/hide_menu'
 
@@ -110,8 +110,8 @@ message_navigation_bath_climat:
       message: 'Ванная климат'
       data:
         inline_keyboard: 
-        - 'Температура:/bath_climat'
-        - 'Влажность:/bath_climat'
+        - 'Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
+        - 'Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/bath_climat'
         - 'Назад:/bath, Закрыть:/hide_menu'
 
@@ -155,8 +155,8 @@ message_navigation_hall_climat:
       message: 'Коридор климат'
       data:
         inline_keyboard: 
-        - 'Температура:/hall_climat'
-        - 'Влажность:/hall_climat'
+        - 'Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
+        - 'Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/hall_climat'
         - 'Назад:/hall, Закрыть:/hide_menu'
 
@@ -203,8 +203,8 @@ message_navigation_bedroom_climat:
       message: 'Спальня климат'
       data:
         inline_keyboard: 
-        - 'Температура:/bedroom_climat'
-        - 'Влажность:/bedroom_climat'
+        - 'Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
+        - 'Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
         - 'Назад:/bedroom, Закрыть:/hide_menu'
 
@@ -263,9 +263,9 @@ message_navigation_living_climat:
       message: 'Гостиная климат'
       data:
         inline_keyboard: 
-        - 'Температура:/living_climat'
-        - 'Влажность:/living_climat'
-        - 'Давлени {{ states("sensor.pressure_level") }} mmHg е:/living_climat'
+        - 'Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
+        - 'Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
+        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
         - 'Назад:/living, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
