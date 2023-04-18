@@ -23,7 +23,7 @@ message_navigation_home:
         - '🛌 Спальня:/bedroom'
         - '📚 Гостиная:/living'
         - '🪴 Балкон:/balcony'
-        - 'Закрыть:/hide_menu'
+        - '❌ Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN
 message_navigation_kitchen:
@@ -41,7 +41,7 @@ message_navigation_kitchen:
         - 'Ночник:/kitchen_night_light'
         - 'Выключатель:/kitchen_switch'
         - 'Шторы:/kitchen_curtain'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN CLIMAT
 message_navigation_kitchen_climat:
@@ -55,7 +55,7 @@ message_navigation_kitchen_climat:
         - 'Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
         - 'Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
-        - 'Назад:/kitchen, Закрыть:/hide_menu'
+        - 'Назад:/kitchen, ❌ Закрыть:/hide_menu'
 
 
 ## NAVIGATION KITCHEN SWITCH
@@ -69,7 +69,7 @@ message_navigation_kitchen_switch:
         inline_keyboard: 
         - 'Освещение:/kitchen_switch_top_light'
         - 'Подсветка:/kitchen_switch_back_light'
-        - 'Назад:/kitchen, Закрыть:/hide_menu'
+        - 'Назад:/kitchen, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN TOP LIGHT
 message_navigation_kitchen_top_light:
@@ -85,7 +85,7 @@ message_navigation_kitchen_top_light:
         - 'Светильник 3:/kitchen_top_light_3'
         - 'Светильник 4:/kitchen_top_light_4'
         - 'Светильник 5:/kitchen_top_light_5'
-        - 'Назад:/kitchen, Закрыть:/hide_menu'
+        - 'Назад:/kitchen, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BATH
 message_navigation_bath:
@@ -99,7 +99,7 @@ message_navigation_bath:
         - 'Климат:/bath_climat'
         - 'Освещение:/bath_top_light'
         - 'Ночник:/bath_night_light'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BATH CLIMAT
 message_navigation_bath_climat:
@@ -113,7 +113,7 @@ message_navigation_bath_climat:
         - 'Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
         - 'Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/bath_climat'
-        - 'Назад:/bath, Закрыть:/hide_menu'
+        - 'Назад:/bath, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
 message_navigation_toilet:
@@ -127,7 +127,7 @@ message_navigation_toilet:
         - 'Освещение:/toilet_top_light'
         - 'Ночник:/toilet_night_light'
         - 'Вытяжка:/toilet_dehumidifier'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL
 message_navigation_hall:
@@ -144,7 +144,7 @@ message_navigation_hall:
         - 'Ночник:/hall_night_light'
         - 'Выключатель:/hall_switch'
         - 'Увлажнитель:/hall_humidifier'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL CLIMAT
 message_navigation_hall_climat:
@@ -158,7 +158,7 @@ message_navigation_hall_climat:
         - 'Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
         - 'Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/hall_climat'
-        - 'Назад:/hall, Закрыть:/hide_menu'
+        - 'Назад:/hall, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
 message_navigation_hall_top_light:
@@ -175,7 +175,7 @@ message_navigation_hall_top_light:
         - 'Светильник 4:/hall_top_light_4'
         - 'Светильник 5:/hall_top_light_5'
         - 'Светильник 6:/hall_top_light_6'
-        - 'Назад:/hall, Закрыть:/hide_menu'
+        - 'Назад:/hall, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM
 message_navigation_bedroom:
@@ -192,7 +192,7 @@ message_navigation_bedroom:
         - 'Подсветка:/bedroom_back_light'
         - 'Выключатель:/bedroom_switch'
         - 'Увлажнитель:/bedroom_humidifier'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM CLIMAT
 message_navigation_bedroom_climat:
@@ -206,7 +206,7 @@ message_navigation_bedroom_climat:
         - 'Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
         - 'Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
-        - 'Назад:/bedroom, Закрыть:/hide_menu'
+        - 'Назад:/bedroom, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM SWITCH
 message_navigation_bedroom_switch:
@@ -219,7 +219,7 @@ message_navigation_bedroom_switch:
         inline_keyboard: 
         - 'Левый:/bedroom_switch_left'
         - 'Правый:/bedroom_switch_right'
-        - 'Назад:/bedroom, Закрыть:/hide_menu'
+        - 'Назад:/bedroom, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM TOP LIGHT
 message_navigation_bedroom_top_light:
@@ -236,7 +236,7 @@ message_navigation_bedroom_top_light:
         - 'Светильник 4:/bedroom_top_light_4'
         - 'Светильник 5:/bedroom_top_light_5'
         - 'Светильник 6:/bedroom_top_light_6'
-        - 'Назад:/bedroom, Закрыть:/hide_menu'
+        - 'Назад:/bedroom, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING
 message_navigation_living:
@@ -252,7 +252,7 @@ message_navigation_living:
         - 'Подсветка:/living_back_light'
         - 'Выключатель:/living_switch'
         - 'Увлажнитель:/living_humidifier'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING CLIMAT
 message_navigation_living_climat:
@@ -266,7 +266,7 @@ message_navigation_living_climat:
         - 'Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
         - 'Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
-        - 'Назад:/living, Закрыть:/hide_menu'
+        - 'Назад:/living, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
 message_navigation_living_switch:
@@ -279,7 +279,7 @@ message_navigation_living_switch:
         inline_keyboard: 
         - 'Левый:/living_switch_left'
         - 'Правый:/living_switch_right'
-        - 'Назад:/living, Закрыть:/hide_menu'
+        - 'Назад:/living, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING TOP LIGHT
 message_navigation_living_top_light:
@@ -296,7 +296,7 @@ message_navigation_living_top_light:
         - 'Светильник 4:/living_top_light_4'
         - 'Светильник 5:/living_top_light_5'
         - 'Светильник 6:/living_top_light_6'
-        - 'Назад:/living, Закрыть:/hide_menu'
+        - 'Назад:/living, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY
 message_navigation_balcony:
@@ -312,7 +312,7 @@ message_navigation_balcony:
         - 'Подсветка:/balcony_back_light'
         - 'Фонтан:/balcony_fountain'
         - 'Розетка:/balcony_socket'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/home, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY CLIMAT
 message_navigation_balcony_climat:
@@ -329,4 +329,4 @@ message_navigation_balcony_climat:
         - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
         - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
-        - 'Назад:/balcony, Закрыть:/hide_menu'
+        - 'Назад:/balcony, ❌ Закрыть:/hide_menu'
