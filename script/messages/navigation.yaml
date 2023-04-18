@@ -54,7 +54,7 @@ message_navigation_kitchen_climat:
         inline_keyboard: 
         - 'Температура:/kitchen_climat'
         - 'Влажность:/kitchen_climat'
-        - 'Давление:/kitchen_climat'
+        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
         - 'Назад:/kitchen, Закрыть:/hide_menu'
 
 
@@ -112,7 +112,7 @@ message_navigation_bath_climat:
         inline_keyboard: 
         - 'Температура:/bath_climat'
         - 'Влажность:/bath_climat'
-        - 'Давление:/bath_climat'
+        - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/bath_climat'
         - 'Назад:/bath, Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
@@ -157,7 +157,7 @@ message_navigation_hall_climat:
         inline_keyboard: 
         - 'Температура:/hall_climat'
         - 'Влажность:/hall_climat'
-        - 'Давление:/hall_climat'
+        - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/hall_climat'
         - 'Назад:/hall, Закрыть:/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
@@ -205,7 +205,7 @@ message_navigation_bedroom_climat:
         inline_keyboard: 
         - 'Температура:/bedroom_climat'
         - 'Влажность:/bedroom_climat'
-        - 'Давление:/bedroom_climat'
+        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
         - 'Назад:/bedroom, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM SWITCH
@@ -265,7 +265,7 @@ message_navigation_living_climat:
         inline_keyboard: 
         - 'Температура:/living_climat'
         - 'Влажность:/living_climat'
-        - 'Давление:/living_climat'
+        - 'Давлени {{ states("sensor.pressure_level") }} mmHg е:/living_climat'
         - 'Назад:/living, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
@@ -327,5 +327,5 @@ message_navigation_balcony_climat:
         - 'Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
         - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
-        - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "🟢", "🟠", "🔘") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
+        - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - 'Назад:/balcony, Закрыть:/hide_menu'
