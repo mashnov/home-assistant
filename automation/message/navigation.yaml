@@ -25,83 +25,79 @@
   action:
   - service: script.message_navigation_home
 
-
-## NAVIGATION DEVICES
-- alias: message_navigation_devices'
+## NAVIGATION KITCHEN
+- alias: message_navigation_kitchen'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/devices'
+      command: '/kitchen'
   action:
-  - service: script.message_navigation_devices
+  - service: script.message_navigation_kitchen
 
-
-## NAVIGATION CLIMAT
-- alias: message_navigation_climat'
+## NAVIGATION BATH
+- alias: message_navigation_bath'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/climat'
+      command: '/bath'
   action:
-  - service: script.message_navigation_climat
+  - service: script.message_navigation_bath
 
-## NAVIGATION DETAILS CLIMAT DEVICES
-- alias: message_navigation_climat_devices'
+## NAVIGATION TOILET
+- alias: message_navigation_toilet'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/climat_devices'
+      command: '/toilet'
   action:
-  - service: script.message_navigation_climat_devices
+  - service: script.message_navigation_toilet
 
-## NAVIGATION CLIMAT HUMIDIFIER
-- alias: message_navigation_climat_humidifier'
+## NAVIGATION HALL
+- alias: message_navigation_hall'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/climat_humidifier'
+      command: '/hall'
   action:
-  - service: script.message_navigation_climat_humidifier
+  - service: script.message_navigation_hall
 
-
-## NAVIGATION SECURITY
-- alias: message_navigation_security'
+## NAVIGATION BEDROOM
+- alias: message_navigation_bedroom'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/security'
+      command: '/bedroom'
   action:
-  - service: script.message_navigation_security
+  - service: script.message_navigation_bedroom
 
-
-## NAVIGATION LIGHT
-- alias: message_navigation_light'
+## NAVIGATION LIVING
+- alias: message_navigation_living'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/light'
+      command: '/living'
   action:
-  - service: script.message_navigation_light
+  - service: script.message_navigation_living
 
-## NAVIGATION TOP LIGHT
-- alias: message_navigation_top_light'
+## NAVIGATION BALCONY
+- alias: message_navigation_balcony'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/top_light'
+      command: '/balcony'
   action:
-  - service: script.message_navigation_top_light
+  - service: script.message_navigation_balcony

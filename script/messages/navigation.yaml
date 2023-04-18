@@ -16,121 +16,121 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Безопасность:/security'
-        - 'Освещение:/light'
-        - 'Шторы:/curtain'
-        - 'Климат:/climat'
-        - 'Сеть:/network'
-        - 'Устройства:/devices'
+        - 'Кухня:/kitchen'
+        - 'Ванная:/bath'
+        - 'Туалет:/toilet'
+        - 'Коридор:/hall'
+        - 'Спальня:/bedroom'
+        - 'Гостиная:/living'
+        - 'Балкон:/balcony'
+        - ''
         - 'Закрыть:/hide_menu'
 
-## NAVIGATION DETAILS DEVICES
-message_navigation_devices:
+## NAVIGATION KITCHEN
+message_navigation_kitchen:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Устройства'
+      message: 'Кухня'
       data:
         inline_keyboard: 
-        - 'Кухня:/devices_kitchen'
-        - 'Ванная:/devices_bath'
-        - 'Туалет:/devices_toilet'
-        - 'Коридор:/devices_hall'
-        - 'Спальня:/devices_bedroom'
-        - 'Гостиная:/devices_living'
-        - 'Балкон:/devices_balcony'
+        - 'RGB-лента:/kitchen_rgb_light'
+        - 'Освещение:/kitchen_top_light'
+        - 'Освещение:/kitchen_back_light'
+        - 'Освещение:/kitchen_night_light'
+        - 'Шторы:/kitchen_curtain'
+        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
-## NAVIGATION DETAILS CLIMAT
-message_navigation_climat:
+## NAVIGATION BATH
+message_navigation_bath:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Климат'
+      message: 'Ванная'
       data:
         inline_keyboard: 
-        - 'Проветривание:/climat_ventilation'
-        - 'Температура:/climat_temperature'
-        - 'Влажность:/climat_humidity'
-        - 'Давление:/climat_pressure'
-        - 'Солнце:/climat_sun'
-        - 'Устройства:/climat_devices'
-        - 'Ночной режим:/climat_night_mode'
+        - 'Освещение:/bath_top_light'
+        - 'Ночник:/bath_night_light'
+        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
-## NAVIGATION DETAILS CLIMAT DEVICES
-message_navigation_climat_devices:
+## NAVIGATION TOILET
+message_navigation_toilet:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Устройства'
+      message: 'Туалет'
       data:
         inline_keyboard: 
-        - 'Увлажнители:/climat_humidifier'
-        - 'Вытяжка:/climat_dehumidifier'
-        - 'Фонтан:/climat_fountain'
-        - 'Назад:/climat, Закрыть:/hide_menu'
-
-## NAVIGATION DETAILS CLIMAT HUMIDIFIER
-message_navigation_climat_humidifier:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: 'Устройства'
-      data:
-        inline_keyboard: 
-        - 'Коридор:/humidifier_hall'
-        - 'Спальня:/humidifier_bedroom'
-        - 'Гостиная:/humidifier_living'
-        - 'Пустые:/humidifier_empty'
-        - 'Назад:/climat_devices, Закрыть:/hide_menu'
-
-## NAVIGATION DETAILS SECURITY
-message_navigation_security:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: 'Безопасность'
-      data:
-        inline_keyboard: 
-        - 'Двери:/security_door'
-        - 'Окна:/security_window'
-        - 'Движение:/security_occupancy'
+        - 'Освещение:/toilet_top_light'
+        - 'Ночник:/toilet_night_light'
+        - 'Вытяжка:/toilet_dehumidifier'
+        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
-## NAVIGATION DETAILS LIGHT
-message_navigation_light:
+## NAVIGATION HALL
+message_navigation_hall:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Освещение'
+      message: 'Коридор'
       data:
         inline_keyboard: 
-        - 'RGB-ленты:/rgb_light'
-        - 'Светильники:/top_light'
-        - 'Подсветка:/back_light'
-        - 'Ночники:/night_light'
+        - 'Освещение:/hall_top_light'
+        - 'Подсветка:/hall_back_light'
+        - 'Ночник:/hall_night_light'
+        - 'Увлажнитель:/hall_humidifier'
+        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
-## NAVIGATION DETAILS TOP LIGHT
-message_navigation_top_light:
+## NAVIGATION BEDROOM
+message_navigation_bedroom:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Светильники'
+      message: 'Спальня'
       data:
         inline_keyboard: 
-        - 'Кухня:/top_light_kitchen'
-        - 'Ванная:/top_light_bath'
-        - 'Туалет:/top_light_toilet'
-        - 'Коридор:/top_light_hall'
-        - 'Спальня:/top_light_bedroom'
-        - 'Гостиная:/top_light_living'
-        - 'Назад:/light, Закрыть:/hide_menu'
+        - 'Освещение:/bedroom_top_light'
+        - 'Светильник:/bedroom_wall_light'
+        - 'Подсветка:/bedroom_back_light'
+        - 'Увлажнитель:/bedroom_humidifier'
+        - ''
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION LIVING
+message_navigation_living:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Гостиная'
+      data:
+        inline_keyboard: 
+        - 'Освещение:/living_top_light'
+        - 'Подсветка:/living_back_light'
+        - 'Увлажнитель:/living_humidifier'
+        - ''
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION BALCONY
+message_navigation_balcony:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Балкон'
+      data:
+        inline_keyboard: 
+        - 'Освещение:/balcony_top_light'
+        - 'Подсветка:/balcony_back_light'
+        - 'Фонтан:/balcony_fountain'
+        - 'Розетка:/balcony_socket'
+        - ''
+        - 'Назад:/home, Закрыть:/hide_menu'
