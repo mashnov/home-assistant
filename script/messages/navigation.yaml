@@ -53,7 +53,7 @@ message_navigation_kitchen_climat:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
-        - 'Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
         - '⬅️ Назад:/kitchen, ❌ Закрыть:/hide_menu'
 
@@ -111,7 +111,7 @@ message_navigation_bath_climat:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
-        - 'Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/bath_climat'
         - '⬅️ Назад:/bath, ❌ Закрыть:/hide_menu'
 
@@ -156,7 +156,7 @@ message_navigation_hall_climat:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_hall_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
-        - 'Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
         - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/hall_climat'
         - '⬅️ Назад:/hall, ❌ Закрыть:/hide_menu'
 
@@ -204,7 +204,7 @@ message_navigation_bedroom_climat:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_bedroom_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
-        - 'Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_bedroom_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
         - '⬅️ Назад:/bedroom, ❌ Закрыть:/hide_menu'
 
@@ -264,7 +264,7 @@ message_navigation_living_climat:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_living_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
-        - 'Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
         - '⬅️ Назад:/living, ❌ Закрыть:/hide_menu'
 
@@ -324,7 +324,7 @@ message_navigation_balcony_climat:
       data:
         inline_keyboard: 
         - '🔵 Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
-        - 'Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
+        - '🔵 Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
         - 'Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
         - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
