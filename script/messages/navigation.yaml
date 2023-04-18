@@ -325,6 +325,7 @@ message_navigation_balcony_climat:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
         - 'Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
+        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
         - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
         - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
