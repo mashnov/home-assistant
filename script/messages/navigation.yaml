@@ -16,13 +16,13 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Кухня:/kitchen'
-        - 'Ванная:/bath'
-        - 'Туалет:/toilet'
-        - 'Коридор:/hall'
-        - 'Спальня:/bedroom'
-        - 'Гостиная:/living'
-        - 'Балкон:/balcony'
+        - '🥣 Кухня:/kitchen'
+        - '🛁 Ванная:/bath'
+        - '🚽 Туалет:/toilet'
+        - '🧥 Коридор:/hall'
+        - '🛌 Спальня:/bedroom'
+        - '📚 Гостиная:/living'
+        - '🪴 Балкон:/balcony'
         - 'Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN
@@ -31,7 +31,7 @@ message_navigation_kitchen:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня'
+      message: '🥣 Кухня'
       data:
         inline_keyboard: 
         - 'Климат:/kitchen_climat'
@@ -49,7 +49,7 @@ message_navigation_kitchen_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня'
+      message: '🥣 Кухня'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
@@ -64,7 +64,7 @@ message_navigation_kitchen_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня'
+      message: '🥣 Кухня'
       data:
         inline_keyboard: 
         - 'Освещение:/kitchen_switch_top_light'
@@ -77,7 +77,7 @@ message_navigation_kitchen_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня'
+      message: '🥣 Кухня'
       data:
         inline_keyboard: 
         - 'Светильник 1:/kitchen_top_light_1'
@@ -93,7 +93,7 @@ message_navigation_bath:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Ванная'
+      message: '🛁 Ванная'
       data:
         inline_keyboard: 
         - 'Климат:/bath_climat'
@@ -107,7 +107,7 @@ message_navigation_bath_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Ванная'
+      message: '🛁 Ванная'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
@@ -121,7 +121,7 @@ message_navigation_toilet:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Туалет'
+      message: '🚽 Туалет'
       data:
         inline_keyboard: 
         - 'Освещение:/toilet_top_light'
@@ -135,7 +135,7 @@ message_navigation_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Коридор'
+      message: '🧥 Коридор'
       data:
         inline_keyboard: 
         - 'Климат:/hall_climat'
@@ -152,7 +152,7 @@ message_navigation_hall_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Коридор'
+      message: '🧥 Коридор'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
@@ -166,7 +166,7 @@ message_navigation_hall_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Коридор'
+      message: '🧥 Коридор'
       data:
         inline_keyboard: 
         - 'Светильник 1:/hall_top_light_1'
@@ -183,7 +183,7 @@ message_navigation_bedroom:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня'
+      message: '🛌 Спальня'
       data:
         inline_keyboard: 
         - 'Климат:/bedroom_climat'
@@ -200,7 +200,7 @@ message_navigation_bedroom_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня'
+      message: '🛌 Спальня'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
@@ -214,7 +214,7 @@ message_navigation_bedroom_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня'
+      message: '🛌 Спальня'
       data:
         inline_keyboard: 
         - 'Левый:/bedroom_switch_left'
@@ -227,7 +227,7 @@ message_navigation_bedroom_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня'
+      message: '🛌 Спальня'
       data:
         inline_keyboard: 
         - 'Светильник 1:/bedroom_top_light_1'
@@ -244,7 +244,7 @@ message_navigation_living:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная'
+      message: '📚 Гостиная'
       data:
         inline_keyboard: 
         - 'Климат:/living_climat'
@@ -260,7 +260,7 @@ message_navigation_living_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная'
+      message: '📚 Гостиная'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
@@ -274,7 +274,7 @@ message_navigation_living_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная'
+      message: '📚 Гостиная'
       data:
         inline_keyboard: 
         - 'Левый:/living_switch_left'
@@ -287,7 +287,7 @@ message_navigation_living_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная'
+      message: '📚 Гостиная'
       data:
         inline_keyboard: 
         - 'Светильник 1:/living_top_light_1'
@@ -304,7 +304,7 @@ message_navigation_balcony:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Балкон'
+      message: '🪴 Балкон'
       data:
         inline_keyboard: 
         - 'Климат:/balcony_climat'
@@ -320,7 +320,7 @@ message_navigation_balcony_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Балкон'
+      message: '🪴 Балкон'
       data:
         inline_keyboard: 
         - 'Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
