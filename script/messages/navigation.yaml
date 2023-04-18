@@ -49,7 +49,7 @@ message_navigation_kitchen_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня Климат'
+      message: 'Спальня климат'
       data:
         inline_keyboard: 
         - 'Температура:/kitchen_climat'
@@ -64,7 +64,7 @@ message_navigation_kitchen_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня Выключатель'
+      message: 'Кухня выключатель'
       data:
         inline_keyboard: 
         - 'Освещение:/kitchen_switch_top_light'
@@ -77,7 +77,7 @@ message_navigation_kitchen_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Кухня Освещение'
+      message: 'Кухня освещение'
       data:
         inline_keyboard: 
         - 'Светильник 1:/kitchen_top_light_1'
@@ -107,7 +107,7 @@ message_navigation_bath_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Ванная Климат'
+      message: 'Ванная климат'
       data:
         inline_keyboard: 
         - 'Температура:/bath_climat'
@@ -152,7 +152,7 @@ message_navigation_hall_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Коридор Климат'
+      message: 'Коридор климат'
       data:
         inline_keyboard: 
         - 'Температура:/hall_climat'
@@ -166,7 +166,7 @@ message_navigation_hall_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Коридор Освещение'
+      message: 'Коридор освещение'
       data:
         inline_keyboard: 
         - 'Светильник 1:/hall_top_light_1'
@@ -200,7 +200,7 @@ message_navigation_bedroom_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня Климат'
+      message: 'Спальня климат'
       data:
         inline_keyboard: 
         - 'Температура:/bedroom_climat'
@@ -214,11 +214,11 @@ message_navigation_bedroom_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня Выключатель'
+      message: 'Спальня выключатель'
       data:
         inline_keyboard: 
-        - 'Освещение:/bedroom_switch_left'
-        - 'Подсветка:/bedroom_switch_right'
+        - 'Левый:/bedroom_switch_left'
+        - 'Правый:/bedroom_switch_right'
         - 'Назад:/bedroom, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM TOP LIGHT
@@ -227,7 +227,7 @@ message_navigation_bedroom_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня Освещение'
+      message: 'Спальня освещение'
       data:
         inline_keyboard: 
         - 'Светильник 1:/bedroom_top_light_1'
@@ -260,7 +260,7 @@ message_navigation_living_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная Климат'
+      message: 'Гостиная климат'
       data:
         inline_keyboard: 
         - 'Температура:/living_climat'
@@ -274,11 +274,11 @@ message_navigation_living_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Спальня Выключатель'
+      message: 'Спальня выключатель'
       data:
         inline_keyboard: 
-        - 'Освещение:/living_switch_left'
-        - 'Подсветка:/living_switch_right'
+        - 'Левый:/living_switch_left'
+        - 'Правый:/living_switch_right'
         - 'Назад:/living, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING TOP LIGHT
@@ -287,7 +287,7 @@ message_navigation_living_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Гостиная Освещение'
+      message: 'Гостиная освещение'
       data:
         inline_keyboard: 
         - 'Светильник 1:/living_top_light_1'
@@ -320,13 +320,13 @@ message_navigation_balcony_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: 'Балкон Климат'
+      message: 'Балкон климат'
       data:
         inline_keyboard: 
+        - 'Температура:/balcony_climat'
+        - 'Влажность:/balcony_climat'
         - 'Облачность:/balcony_climat'
         - 'Освещенность:/balcony_climat'
         - 'Подъем:/balcony_climat'
         - 'Азимут:/balcony_climat'
-        - 'Влажность:/balcony_climat'
-        - 'Температура:/balcony_climat'
         - 'Назад:/balcony, Закрыть:/hide_menu'
