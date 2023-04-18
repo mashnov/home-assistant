@@ -55,7 +55,7 @@ message_navigation_kitchen_climat:
         - 'Температура:/kitchen_climat'
         - 'Влажность:/kitchen_climat'
         - 'Давление:/kitchen_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/kitchen, Закрыть:/hide_menu'
 
 
 ## NAVIGATION KITCHEN SWITCH
@@ -113,7 +113,7 @@ message_navigation_bath_climat:
         - 'Температура:/bath_climat'
         - 'Влажность:/bath_climat'
         - 'Давление:/bath_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/bath, Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
 message_navigation_toilet:
@@ -158,7 +158,7 @@ message_navigation_hall_climat:
         - 'Температура:/hall_climat'
         - 'Влажность:/hall_climat'
         - 'Давление:/hall_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/hall, Закрыть:/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
 message_navigation_hall_top_light:
@@ -206,7 +206,7 @@ message_navigation_bedroom_climat:
         - 'Температура:/bedroom_climat'
         - 'Влажность:/bedroom_climat'
         - 'Давление:/bedroom_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/bedroom, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM SWITCH
 message_navigation_bedroom_switch:
@@ -266,7 +266,7 @@ message_navigation_living_climat:
         - 'Температура:/living_climat'
         - 'Влажность:/living_climat'
         - 'Давление:/living_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/living, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
 message_navigation_living_switch:
@@ -329,4 +329,4 @@ message_navigation_balcony_climat:
         - 'Азимут:/balcony_climat'
         - 'Влажность:/balcony_climat'
         - 'Температура:/balcony_climat'
-        - 'Назад:/home, Закрыть:/hide_menu'
+        - 'Назад:/balcony, Закрыть:/hide_menu'
