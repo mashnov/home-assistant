@@ -25,6 +25,7 @@
   action:
   - service: script.message_navigation_home
 
+
 ## NAVIGATION CLIMAT
 - alias: message_navigation_climat'
   mode: 'queued'
@@ -36,6 +37,29 @@
   action:
   - service: script.message_navigation_climat
 
+## NAVIGATION DETAILS CLIMAT DEVICES
+- alias: message_navigation_climat_devices'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_devices'
+  action:
+  - service: script.message_navigation_climat_devices
+
+## NAVIGATION CLIMAT HUMIDIFIER
+- alias: message_navigation_climat_humidifier'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/climat_humidifier'
+  action:
+  - service: script.message_navigation_climat_humidifier
+
+
 ## NAVIGATION SECURITY
 - alias: message_navigation_security'
   mode: 'queued'
@@ -46,6 +70,7 @@
       command: '/security'
   action:
   - service: script.message_navigation_security
+
 
 ## NAVIGATION LIGHT
 - alias: message_navigation_light'

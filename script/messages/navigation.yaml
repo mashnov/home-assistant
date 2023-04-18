@@ -1,3 +1,12 @@
+## NAVIGATION REMOVE
+message_navigation_remove:
+  mode: 'queued'
+  sequence:
+  - service: telegram_bot.delete_message
+    data_template:
+      message_id: '{{ message_id }}'
+      chat_id: '{{ chat_id }}'
+
 ## NAVIGATION HOME
 message_navigation_home:
   mode: 'queued'
@@ -7,17 +16,14 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - 'Климат:/climat'
+        - 'Ночной режим:/night_mode'
         - 'Безопасность:/security'
         - 'Освещение:/light'
-        - 'Ночной режим:/details_night_mode'
-        - 'Увлажнитель:/details_humidifier'
-        - 'Пустые увлажнители:/humidifier_empty'
-        - 'Вытяжка:/dehumidifier'
-        - 'Выключатели:/details_switch'
         - 'Шторы:/curtain'
-        - 'Фонтан:/details_fountain'
+        - 'Климат:/climat'
         - 'Сеть:/network'
+
+        - 'Выключатели:/details_switch'
         - 'Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS CLIMAT
@@ -34,7 +40,37 @@ message_navigation_climat:
         - 'Давление:/climat_pressure'
         - 'Солнце:/climat_sun'
         - 'Проветривание:/climat_ventilation'
+        - 'Устройства:/climat_devices'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION DETAILS CLIMAT DEVICES
+message_navigation_climat_devices:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Устройства'
+      data:
+        inline_keyboard: 
+        - 'Увлажнители:/climat_humidifier'
+        - 'Вытяжка:/climat_dehumidifier'
+        - 'Фонтан:/climat_fountain'
+        - 'Назад:/climat, Закрыть:/hide_menu'
+
+## NAVIGATION DETAILS CLIMAT HUMIDIFIER
+message_navigation_climat_humidifier:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Устройства'
+      data:
+        inline_keyboard: 
+        - 'Коридор:/humidifier_hall'
+        - 'Спальня:/humidifier_bedroom'
+        - 'Гостиная:/humidifier_living'
+        - 'Пустые:/humidifier_empty'
+        - 'Назад:/climat_devices, Закрыть:/hide_menu'
 
 ## NAVIGATION DETAILS SECURITY
 message_navigation_security:
@@ -81,12 +117,3 @@ message_navigation_top_light:
         - 'Спальня:/top_light_bedroom'
         - 'Гостиная:/top_light_living'
         - 'Назад:/light, Закрыть:/hide_menu'
-
-## NAVIGATION REMOVE
-message_navigation_remove:
-  mode: 'queued'
-  sequence:
-  - service: telegram_bot.delete_message
-    data_template:
-      message_id: '{{ message_id }}'
-      chat_id: '{{ chat_id }}'
