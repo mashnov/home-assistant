@@ -34,6 +34,7 @@ message_navigation_kitchen:
       message: 'Кухня'
       data:
         inline_keyboard: 
+        - 'Климат:/kitchen_climat'
         - 'RGB-лента:/kitchen_rgb_light'
         - 'Освещение:/kitchen_top_light'
         - 'Подсветка:/kitchen_back_light'
@@ -41,6 +42,21 @@ message_navigation_kitchen:
         - 'Выключатель:/kitchen_switch'
         - 'Шторы:/kitchen_curtain'
         - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION KITCHEN CLIMAT
+message_navigation_kitchen_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Спальня Климат'
+      data:
+        inline_keyboard: 
+        - 'Температура:/kitchen_climat'
+        - 'Влажность:/kitchen_climat'
+        - 'Давление:/kitchen_climat'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
 
 ## NAVIGATION KITCHEN SWITCH
 message_navigation_kitchen_switch:
@@ -80,8 +96,23 @@ message_navigation_bath:
       message: 'Ванная'
       data:
         inline_keyboard: 
+        - 'Климат:/bath_climat'
         - 'Освещение:/bath_top_light'
         - 'Ночник:/bath_night_light'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION BATH CLIMAT
+message_navigation_bath_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Ванная Климат'
+      data:
+        inline_keyboard: 
+        - 'Температура:/bath_climat'
+        - 'Влажность:/bath_climat'
+        - 'Давление:/bath_climat'
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
@@ -107,11 +138,26 @@ message_navigation_hall:
       message: 'Коридор'
       data:
         inline_keyboard: 
+        - 'Климат:/hall_climat'
         - 'Освещение:/hall_top_light'
         - 'Подсветка:/hall_back_light'
         - 'Ночник:/hall_night_light'
         - 'Выключатель:/hall_switch'
         - 'Увлажнитель:/hall_humidifier'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION HALL CLIMAT
+message_navigation_hall_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Коридор Климат'
+      data:
+        inline_keyboard: 
+        - 'Температура:/hall_climat'
+        - 'Влажность:/hall_climat'
+        - 'Давление:/hall_climat'
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
@@ -140,11 +186,26 @@ message_navigation_bedroom:
       message: 'Спальня'
       data:
         inline_keyboard: 
+        - 'Климат:/bedroom_climat'
         - 'Освещение:/bedroom_top_light'
         - 'Светильник:/bedroom_wall_light'
         - 'Подсветка:/bedroom_back_light'
         - 'Выключатель:/bedroom_switch'
         - 'Увлажнитель:/bedroom_humidifier'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION BEDROOM CLIMAT
+message_navigation_bedroom_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Спальня Климат'
+      data:
+        inline_keyboard: 
+        - 'Температура:/bedroom_climat'
+        - 'Влажность:/bedroom_climat'
+        - 'Давление:/bedroom_climat'
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM SWITCH
@@ -186,10 +247,25 @@ message_navigation_living:
       message: 'Гостиная'
       data:
         inline_keyboard: 
+        - 'Климат:/living_climat'
         - 'Освещение:/living_top_light'
         - 'Подсветка:/living_back_light'
         - 'Выключатель:/living_switch'
         - 'Увлажнитель:/living_humidifier'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION LIVING CLIMAT
+message_navigation_living_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Гостиная Климат'
+      data:
+        inline_keyboard: 
+        - 'Температура:/living_climat'
+        - 'Влажность:/living_climat'
+        - 'Давление:/living_climat'
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
@@ -231,8 +307,26 @@ message_navigation_balcony:
       message: 'Балкон'
       data:
         inline_keyboard: 
+        - 'Климат:/balcony_climat'
         - 'Освещение:/balcony_top_light'
         - 'Подсветка:/balcony_back_light'
         - 'Фонтан:/balcony_fountain'
         - 'Розетка:/balcony_socket'
+        - 'Назад:/home, Закрыть:/hide_menu'
+
+## NAVIGATION BALCONY CLIMAT
+message_navigation_balcony_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: 'Балкон Климат'
+      data:
+        inline_keyboard: 
+        - 'Облачность:/balcony_climat'
+        - 'Освещенность:/balcony_climat'
+        - 'Подъем:/balcony_climat'
+        - 'Азимут:/balcony_climat'
+        - 'Влажность:/balcony_climat'
+        - 'Температура:/balcony_climat'
         - 'Назад:/home, Закрыть:/hide_menu'
