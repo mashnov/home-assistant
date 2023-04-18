@@ -23,7 +23,6 @@ message_navigation_home:
         - 'Спальня:/bedroom'
         - 'Гостиная:/living'
         - 'Балкон:/balcony'
-        - ''
         - 'Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN
@@ -40,7 +39,6 @@ message_navigation_kitchen:
         - 'Освещение:/kitchen_back_light'
         - 'Освещение:/kitchen_night_light'
         - 'Шторы:/kitchen_curtain'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION BATH
@@ -54,7 +52,6 @@ message_navigation_bath:
         inline_keyboard: 
         - 'Освещение:/bath_top_light'
         - 'Ночник:/bath_night_light'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
@@ -69,7 +66,6 @@ message_navigation_toilet:
         - 'Освещение:/toilet_top_light'
         - 'Ночник:/toilet_night_light'
         - 'Вытяжка:/toilet_dehumidifier'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION HALL
@@ -85,7 +81,6 @@ message_navigation_hall:
         - 'Подсветка:/hall_back_light'
         - 'Ночник:/hall_night_light'
         - 'Увлажнитель:/hall_humidifier'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM
@@ -101,7 +96,6 @@ message_navigation_bedroom:
         - 'Светильник:/bedroom_wall_light'
         - 'Подсветка:/bedroom_back_light'
         - 'Увлажнитель:/bedroom_humidifier'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING
@@ -116,7 +110,6 @@ message_navigation_living:
         - 'Освещение:/living_top_light'
         - 'Подсветка:/living_back_light'
         - 'Увлажнитель:/living_humidifier'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY
@@ -132,5 +125,4 @@ message_navigation_balcony:
         - 'Подсветка:/balcony_back_light'
         - 'Фонтан:/balcony_fountain'
         - 'Розетка:/balcony_socket'
-        - ''
         - 'Назад:/home, Закрыть:/hide_menu'
