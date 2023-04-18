@@ -327,5 +327,5 @@ message_navigation_balcony_climat:
         - 'Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
         - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
-        - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "🟢", "🟠", "🔘") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - 'Назад:/balcony, Закрыть:/hide_menu'
