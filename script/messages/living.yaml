@@ -9,7 +9,7 @@ message_navigation_living:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.relay_living_2_on", "on"), "🟢", "🔴") }} Подсветка :/living_back_light'
         - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель :/living_switch'
-        - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} Увлажнитель {{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "") }} :/living_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/living_humidifier'
         - '➡️ Шторы :/living_curtain'
         - '➡️ Климат :/living_climat'
         - '➡️ Освещение :/living_top_light'
@@ -39,6 +39,7 @@ message_navigation_living_top_light:
       message: '📚 Гостиная'
       data:
         inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_living_group_on", "on"), "🟢", "🔴") }} Освещение :/living_top_light_group'
         - '{{ iif(is_state("binary_sensor.top_light_living_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/living_top_light_1'
         - '{{ iif(is_state("binary_sensor.top_light_living_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/living_top_light_2'
         - '{{ iif(is_state("binary_sensor.top_light_living_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/living_top_light_3'

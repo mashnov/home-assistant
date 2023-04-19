@@ -10,7 +10,7 @@ message_navigation_bedroom:
         - '{{ iif(is_state("binary_sensor.switch_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник :/bedroom_wall_light'
         - '{{ iif(is_state("binary_sensor.relay_bedroom_1_on", "on"), "🟢", "🔴") }} Подсветка :/bedroom_back_light'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_on", "on"), "🟢", "🔴") }} Выключатель :/bedroom_switch'
-        - '{{ iif(is_state("binary_sensor.relay_bedroom_2_on", "on"), "🟢", "🔴") }} Увлажнитель {{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "⚠️", "") }} :/bedroom_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_bedroom_2_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/bedroom_humidifier'
         - '➡️ Шторы :/bedroom_curtain'
         - '➡️ Климат :/bedroom_climat'
         - '➡️ Освещение :/bedroom_top_light'
@@ -40,6 +40,7 @@ message_navigation_bedroom_top_light:
       message: '🛌 Спальня'
       data:
         inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_group_on", "on"), "🟢", "🔴") }} Освещение :/bedroom_top_light_group'
         - '{{ iif(is_state("binary_sensor.top_light_bedroom_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/bedroom_top_light_1'
         - '{{ iif(is_state("binary_sensor.top_light_bedroom_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/bedroom_top_light_2'
         - '{{ iif(is_state("binary_sensor.top_light_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/bedroom_top_light_3'

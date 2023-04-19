@@ -10,7 +10,7 @@ message_navigation_hall:
         - '{{ iif(is_state("binary_sensor.relay_hall_1_on", "on"), "🟢", "🔴") }} Подсветка :/hall_back_light'
         - '{{ iif(is_state("binary_sensor.night_light_hall_on", "on"), "🟢", "🔴") }} Ночник :/hall_night_light'
         - '{{ iif(is_state("binary_sensor.switch_hall_on", "on"), "🟢", "🔴") }} Выключатель :/hall_switch'
-        - '{{ iif(is_state("binary_sensor.relay_hall_2_on", "on"), "🟢", "🔴") }} Увлажнитель {{ iif(is_state("binary_sensor.humidifier_hall_empty_boolean", "on"), "⚠️", "") }} :/hall_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_hall_2_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_hall_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/hall_humidifier'
         - '➡️ Климат :/hall_climat'
         - '➡️ Освещение :/hall_top_light'
         - '⬅️ :/home, 🔄 :/hall, ❌ :/hide_menu'
@@ -39,6 +39,7 @@ message_navigation_hall_top_light:
       message: '🧥 Коридор'
       data:
         inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_hall_group_on", "on"), "🟢", "🔴") }} Освещение :/kitchen_top_light_group'
         - '{{ iif(is_state("binary_sensor.top_light_hall_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/hall_top_light_1'
         - '{{ iif(is_state("binary_sensor.top_light_hall_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/hall_top_light_2'
         - '{{ iif(is_state("binary_sensor.top_light_hall_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/hall_top_light_3'
