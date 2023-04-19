@@ -34,7 +34,7 @@ message_navigation_kitchen:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - '➡️ Климат:/kitchen_climat'
+        - 'Климат ➡️ :/kitchen_climat'
         - 'RGB-лента:/kitchen_rgb_light'
         - '➡️ Освещение:/kitchen_top_light'
         - 'Подсветка:/kitchen_back_light'
@@ -66,8 +66,8 @@ message_navigation_kitchen_switch:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - 'Освещение:/kitchen_switch_top_light'
-        - 'Подсветка:/kitchen_switch_back_light'
+        - '{{ iif(is_state("binary_sensor.switch_kitchen_1_on", "on"), "🟢", "🔴") }} Освещение:/kitchen_switch_top_light'
+        - '{{ iif(is_state("binary_sensor.switch_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка:/kitchen_switch_back_light'
         - '⬅️ Назад:/kitchen, 🔄 Обновить:/kitchen_switch, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN TOP LIGHT
@@ -79,11 +79,11 @@ message_navigation_kitchen_top_light:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - 'Светильник 1:/kitchen_top_light_1'
-        - 'Светильник 2:/kitchen_top_light_2'
-        - 'Светильник 3:/kitchen_top_light_3'
-        - 'Светильник 4:/kitchen_top_light_4'
-        - 'Светильник 5:/kitchen_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_1_on", "on"), "🟢", "🔴") }} Светильник 1:/kitchen_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_2_on", "on"), "🟢", "🔴") }} Светильник 2:/kitchen_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_3_on", "on"), "🟢", "🔴") }} Светильник 3:/kitchen_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_4_on", "on"), "🟢", "🔴") }} Светильник 4:/kitchen_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} Светильник 5:/kitchen_top_light_5'
         - '⬅️ Назад:/kitchen, 🔄 Обновить:/kitchen_top_light, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BATH
@@ -96,7 +96,7 @@ message_navigation_bath:
       data:
         inline_keyboard: 
         - '➡️ Климат:/bath_climat'
-        - 'Освещение:/bath_top_light'
+        - '{{ iif(is_state("binary_sensor.top_light_bath_on", "on"), "🟢", "🔴") }} Освещение:/bath_top_light'
         - 'Ночник:/bath_night_light'
         - '⬅️ Назад:/home, 🔄 Обновить:/bath, ❌ Закрыть:/hide_menu'
 
@@ -123,7 +123,7 @@ message_navigation_toilet:
       message: '🚽 Туалет'
       data:
         inline_keyboard: 
-        - 'Освещение:/toilet_top_light'
+        - '{{ iif(is_state("binary_sensor.top_light_toilet_on", "on"), "🟢", "🔴") }} Освещение:/toilet_top_light'
         - 'Ночник:/toilet_night_light'
         - 'Вытяжка:/toilet_dehumidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/toilet, ❌ Закрыть:/hide_menu'
@@ -141,7 +141,7 @@ message_navigation_hall:
         - '➡️ Освещение:/hall_top_light'
         - 'Подсветка:/hall_back_light'
         - 'Ночник:/hall_night_light'
-        - 'Выключатель:/hall_switch'
+        - '{{ iif(is_state("binary_sensor.switch_hall_on", "on"), "🟢", "🔴") }} Выключатель:/hall_switch'
         - 'Увлажнитель:/hall_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/hall, ❌ Закрыть:/hide_menu'
 
@@ -156,7 +156,7 @@ message_navigation_hall_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_hall_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
         - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
-        - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/hall_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/hall_climat'
         - '⬅️ Назад:/hall, 🔄 Обновить:/hall_climat, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
@@ -168,12 +168,12 @@ message_navigation_hall_top_light:
       message: '🧥 Коридор'
       data:
         inline_keyboard: 
-        - 'Светильник 1:/hall_top_light_1'
-        - 'Светильник 2:/hall_top_light_2'
-        - 'Светильник 3:/hall_top_light_3'
-        - 'Светильник 4:/hall_top_light_4'
-        - 'Светильник 5:/hall_top_light_5'
-        - 'Светильник 6:/hall_top_light_6'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_1_on", "on"), "🟢", "🔴") }} Светильник 1:/hall_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_2_on", "on"), "🟢", "🔴") }} Светильник 2:/hall_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_3_on", "on"), "🟢", "🔴") }} Светильник 3:/hall_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_4_on", "on"), "🟢", "🔴") }} Светильник 4:/hall_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_5_on", "on"), "🟢", "🔴") }} Светильник 5:/hall_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_6_on", "on"), "🟢", "🔴") }} Светильник 6:/hall_top_light_6'
         - '⬅️ Назад:/hall, 🔄 Обновить:/hall_top_light, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM
@@ -187,9 +187,9 @@ message_navigation_bedroom:
         inline_keyboard: 
         - '➡️ Климат:/bedroom_climat'
         - '➡️ Освещение:/bedroom_top_light'
-        - 'Светильник:/bedroom_wall_light'
+        - '{{ iif(is_state("binary_sensor.switch_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник:/bedroom_wall_light'
         - 'Подсветка:/bedroom_back_light'
-        - '➡️ Выключатель:/bedroom_switch'
+        - '{{ iif(is_state("binary_sensor.switch_bedroom_on", "on"), "🟢", "🔴") }} Выключатель:/bedroom_switch'
         - 'Увлажнитель:/bedroom_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/bedroom, ❌ Закрыть:/hide_menu'
 
@@ -207,19 +207,6 @@ message_navigation_bedroom_climat:
         - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
         - '⬅️ Назад:/bedroom, 🔄 Обновить:/bedroom_climat, ❌ Закрыть:/hide_menu'
 
-## NAVIGATION BEDROOM SWITCH
-message_navigation_bedroom_switch:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: '🛌 Спальня'
-      data:
-        inline_keyboard: 
-        - 'Левый:/bedroom_switch_left'
-        - 'Правый:/bedroom_switch_right'
-        - '⬅️ Назад:/bedroom, 🔄 Обновить:/bedroom_switch, ❌ Закрыть:/hide_menu'
-
 ## NAVIGATION BEDROOM TOP LIGHT
 message_navigation_bedroom_top_light:
   mode: 'queued'
@@ -229,12 +216,12 @@ message_navigation_bedroom_top_light:
       message: '🛌 Спальня'
       data:
         inline_keyboard: 
-        - 'Светильник 1:/bedroom_top_light_1'
-        - 'Светильник 2:/bedroom_top_light_2'
-        - 'Светильник 3:/bedroom_top_light_3'
-        - 'Светильник 4:/bedroom_top_light_4'
-        - 'Светильник 5:/bedroom_top_light_5'
-        - 'Светильник 6:/bedroom_top_light_6'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_1_on", "on"), "🟢", "🔴") }} Светильник 1:/bedroom_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_2_on", "on"), "🟢", "🔴") }} Светильник 2:/bedroom_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник 3:/bedroom_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_4_on", "on"), "🟢", "🔴") }} Светильник 4:/bedroom_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_5_on", "on"), "🟢", "🔴") }} Светильник 5:/bedroom_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_6_on", "on"), "🟢", "🔴") }} Светильник 6:/bedroom_top_light_6'
         - '⬅️ Назад:/bedroom, 🔄 Обновить:/bedroom_top_light, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING
@@ -249,7 +236,7 @@ message_navigation_living:
         - '➡️ Климат:/living_climat'
         - '➡️ Освещение:/living_top_light'
         - 'Подсветка:/living_back_light'
-        - '➡️ Выключатель:/living_switch'
+        - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель:/living_switch'
         - 'Увлажнитель:/living_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/living, ❌ Закрыть:/hide_menu'
 
@@ -267,19 +254,6 @@ message_navigation_living_climat:
         - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
         - '⬅️ Назад:/living, 🔄 Обновить:/living_climat, ❌ Закрыть:/hide_menu'
 
-## NAVIGATION LIVING SWITCH
-message_navigation_living_switch:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: '📚 Гостиная'
-      data:
-        inline_keyboard: 
-        - 'Левый:/living_switch_left'
-        - 'Правый:/living_switch_right'
-        - '⬅️ Назад:/living, 🔄 Обновить:/living_switch, ❌ Закрыть:/hide_menu'
-
 ## NAVIGATION LIVING TOP LIGHT
 message_navigation_living_top_light:
   mode: 'queued'
@@ -289,12 +263,12 @@ message_navigation_living_top_light:
       message: '📚 Гостиная'
       data:
         inline_keyboard: 
-        - 'Светильник 1:/living_top_light_1'
-        - 'Светильник 2:/living_top_light_2'
-        - 'Светильник 3:/living_top_light_3'
-        - 'Светильник 4:/living_top_light_4'
-        - 'Светильник 5:/living_top_light_5'
-        - 'Светильник 6:/living_top_light_6'
+        - '{{ iif(is_state("binary_sensor.top_light_living_1_on", "on"), "🟢", "🔴") }} Светильник 1:/living_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_living_2_on", "on"), "🟢", "🔴") }} Светильник 2:/living_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_living_3_on", "on"), "🟢", "🔴") }} Светильник 3:/living_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_living_4_on", "on"), "🟢", "🔴") }} Светильник 4:/living_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_living_5_on", "on"), "🟢", "🔴") }} Светильник 5:/living_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_living_6_on", "on"), "🟢", "🔴") }} Светильник 6:/living_top_light_6'
         - '⬅️ Назад:/living, 🔄 Обновить:/living_top_light, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY
