@@ -34,12 +34,12 @@ message_navigation_kitchen:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - 'Климат:/kitchen_climat'
+        - '➡️ Климат:/kitchen_climat'
         - 'RGB-лента:/kitchen_rgb_light'
-        - 'Освещение:/kitchen_top_light'
+        - '➡️ Освещение:/kitchen_top_light'
         - 'Подсветка:/kitchen_back_light'
         - 'Ночник:/kitchen_night_light'
-        - 'Выключатель:/kitchen_switch'
+        - '➡️ Выключатель:/kitchen_switch'
         - 'Шторы:/kitchen_curtain'
         - '⬅️ Назад:/home, 🔄 Обновить:/kitchen, ❌ Закрыть:/hide_menu'
 
@@ -95,7 +95,7 @@ message_navigation_bath:
       message: '🛁 Ванная'
       data:
         inline_keyboard: 
-        - 'Климат:/bath_climat'
+        - '➡️ Климат:/bath_climat'
         - 'Освещение:/bath_top_light'
         - 'Ночник:/bath_night_light'
         - '⬅️ Назад:/home, 🔄 Обновить:/bath, ❌ Закрыть:/hide_menu'
@@ -137,8 +137,8 @@ message_navigation_hall:
       message: '🧥 Коридор'
       data:
         inline_keyboard: 
-        - 'Климат:/hall_climat'
-        - 'Освещение:/hall_top_light'
+        - '➡️ Климат:/hall_climat'
+        - '➡️ Освещение:/hall_top_light'
         - 'Подсветка:/hall_back_light'
         - 'Ночник:/hall_night_light'
         - 'Выключатель:/hall_switch'
@@ -185,11 +185,11 @@ message_navigation_bedroom:
       message: '🛌 Спальня'
       data:
         inline_keyboard: 
-        - 'Климат:/bedroom_climat'
-        - 'Освещение:/bedroom_top_light'
+        - '➡️ Климат:/bedroom_climat'
+        - '➡️ Освещение:/bedroom_top_light'
         - 'Светильник:/bedroom_wall_light'
         - 'Подсветка:/bedroom_back_light'
-        - 'Выключатель:/bedroom_switch'
+        - '➡️ Выключатель:/bedroom_switch'
         - 'Увлажнитель:/bedroom_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/bedroom, ❌ Закрыть:/hide_menu'
 
@@ -246,10 +246,10 @@ message_navigation_living:
       message: '📚 Гостиная'
       data:
         inline_keyboard: 
-        - 'Климат:/living_climat'
-        - 'Освещение:/living_top_light'
+        - '➡️ Климат:/living_climat'
+        - '➡️ Освещение:/living_top_light'
         - 'Подсветка:/living_back_light'
-        - 'Выключатель:/living_switch'
+        - '➡️ Выключатель:/living_switch'
         - 'Увлажнитель:/living_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/living, ❌ Закрыть:/hide_menu'
 
@@ -306,7 +306,7 @@ message_navigation_balcony:
       message: '🪴 Балкон'
       data:
         inline_keyboard: 
-        - 'Климат:/balcony_climat'
+        - '➡️ Климат:/balcony_climat'
         - 'Освещение:/balcony_top_light'
         - 'Подсветка:/balcony_back_light'
         - 'Фонтан:/balcony_fountain'
