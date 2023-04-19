@@ -68,11 +68,10 @@ message_system_start:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🚀 Старт системы :/hide_menu'
 
 ## MESSAGE SYSTEM SHUTDOWN
 message_system_shutdown:
@@ -80,11 +79,10 @@ message_system_shutdown:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🚀 Выключение системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🚀 Выключение системы :/hide_menu'
 
 ## MESSAGE SYSTEM POWER PROBLEM
 message_system_power_problem:
@@ -92,11 +90,10 @@ message_system_power_problem:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🚀 Доступно обновление системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🚀 Доступно обновление системы :/hide_menu'
 
 ## MESSAGE SYSTEM UPDATE
 message_system_update:
@@ -104,8 +101,7 @@ message_system_update:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🚀 Проблемы с питанием ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🚀 Проблемы с питанием :/hide_menu'

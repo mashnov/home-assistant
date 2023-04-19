@@ -54,12 +54,10 @@ message_door_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.door_hall_open', 'on'), '🟢', '🔴') }}
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🧥 Открыта дверь. :/hide_menu'
 
 ## MESSAGE HALL EMPTY HUMIDIFIER
 message_empty_humidifier_hall:
@@ -67,8 +65,7 @@ message_empty_humidifier_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🧥 Коридор. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🧥 Закончилась вода в увлажниеле. :/hide_menu'

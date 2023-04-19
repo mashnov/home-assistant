@@ -55,8 +55,7 @@ message_empty_humidifier_bedroom:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: | 
-        🛌 Спальня. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
       data:
         inline_keyboard: 
-        - '🏠 :/home, ❌ :/hide_menu'
+        - '🛌 Закончилась вода в увлажниеле. :/hide_menu'
