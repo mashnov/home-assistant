@@ -24,10 +24,10 @@ message_navigation_living_climat:
       message: '📚 Гостиная'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.temperature_living_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
-        - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
-        - '{{ iif(is_state("binary_sensor.ventilation_living_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.temperature_living_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_living_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '⬅️ :/living, 🔄 :/living_climat, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING TOP LIGHT

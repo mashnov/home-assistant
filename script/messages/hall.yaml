@@ -24,10 +24,10 @@ message_navigation_hall_climat:
       message: '🧥 Коридор'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.temperature_hall_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
-        - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/hall_climat'
-        - '{{ iif(is_state("binary_sensor.ventilation_hall_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.temperature_hall_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_hall_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '⬅️ :/hall, 🔄 :/hall_climat, ❌ :/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT

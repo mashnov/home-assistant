@@ -25,10 +25,10 @@ message_navigation_bedroom_climat:
       message: '🛌 Спальня'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.temperature_bedroom_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
-        - '{{ iif(is_state("binary_sensor.humidity_bedroom_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
-        - '{{ iif(is_state("binary_sensor.ventilation_bedroom_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.temperature_bedroom_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_bedroom_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_bedroom_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '⬅️ :/bedroom, 🔄 :/bedroom_climat, ❌ :/hide_menu'
 
 ## NAVIGATION BEDROOM TOP LIGHT

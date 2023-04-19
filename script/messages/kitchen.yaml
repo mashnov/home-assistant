@@ -25,10 +25,10 @@ message_navigation_kitchen_climat:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
-        - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
-        - '{{ iif(is_state("binary_sensor.ventilation_kitchen_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_kitchen_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '⬅️ :/kitchen, 🔄 :/kitchen_climat, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN SWITCH

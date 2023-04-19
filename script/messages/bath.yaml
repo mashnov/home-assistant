@@ -21,7 +21,7 @@ message_navigation_bath_climat:
       message: '🛁 Ванная'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
-        - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bath_climat'
+        - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bath_climat'
         - '⬅️ :/bath, 🔄 :/bath_climat, ❌ :/hide_menu'

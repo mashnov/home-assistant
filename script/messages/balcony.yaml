@@ -23,12 +23,12 @@ message_navigation_balcony_climat:
       message: '🪴 Балкон'
       data:
         inline_keyboard: 
-        - '🔵 Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
-        - '🔵 Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
+        - '🌡️ Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
+        - '💧 Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
         - '{{ iif(is_state("binary_sensor.cloud_hight", "on"), "☁️", "🌤️") }} Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - '☀️ Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
-        - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "🟠", "🟢") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "⚠️", "🟢") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - '⬅️ :/balcony, 🔄 :/balcony_climat, ❌ :/hide_menu'
 
 ## MESSAGE BALCONY DOOR OPEN
