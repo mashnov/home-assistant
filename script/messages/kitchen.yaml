@@ -53,7 +53,7 @@ message_navigation_kitchen_top_light:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.top_light_kitchen_group_on", "on"), "🟢", "🔴") }} Освещение :/kitchen_top_light_group'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_group_on", "on"), "🟢", "🔴") }} Все светильники :/kitchen_top_light_group'
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/kitchen_top_light_1'
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/kitchen_top_light_2'
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/kitchen_top_light_3'
