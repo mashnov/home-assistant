@@ -25,7 +25,7 @@ message_navigation_living_curtain:
       data:
         inline_keyboard: 
         - '↔️ Положение {{ states("sensor.curtain_living_position") }} % :/living_curtain'
-        - '⬅ Открыть :/living_curtain_open'
+        - '⬅️ Открыть :/living_curtain_open'
         - '➡️ Закрыть :/living_curtain_close'
         - '⬅️ :/living, 🔄 :/living_curtain, ❌ :/hide_menu'
 

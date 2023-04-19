@@ -26,7 +26,7 @@ message_navigation_kitchen_curtain:
       data:
         inline_keyboard: 
         - '↔️ Положение {{ states("sensor.curtain_kitchen_position") }} % :/kitchen_curtain'
-        - '⬅ Открыть :/kitchen_curtain_open'
+        - '⬅️ Открыть :/kitchen_curtain_open'
         - '➡️ Закрыть :/kitchen_curtain_close'
         - '⬅️ :/kitchen, 🔄 :/kitchen_curtain, ❌ :/hide_menu'
 
