@@ -307,10 +307,10 @@ message_navigation_balcony:
       data:
         inline_keyboard: 
         - '➡️ Климат:/balcony_climat'
-        - 'Освещение:/balcony_top_light'
-        - 'Подсветка:/balcony_back_light'
-        - 'Фонтан:/balcony_fountain'
-        - 'Розетка:/balcony_socket'
+        - '{{ iif(is_state("binary_sensor.relay_balcony_2_on", "on"), "🟢", "🔴") }} Освещение:/balcony_top_light'
+        - '{{ iif(is_state("binary_sensor.relay_balcony_1_on", "on"), "🟢", "🔴") }} Подсветка:/balcony_back_light'
+        - '{{ iif(is_state("binary_sensor.relay_balcony_3_on", "on"), "🟢", "🔴") }} Фонтан:/balcony_fountain'
+        - '{{ iif(is_state("binary_sensor.relay_balcony_4_on", "on"), "🟢", "🔴") }} Розетка:/balcony_socket'
         - '⬅️ Назад:/home, 🔄 Обновить:/balcony, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BALCONY CLIMAT
