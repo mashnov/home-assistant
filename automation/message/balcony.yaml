@@ -1,0 +1,30 @@
+## NAVIGATION BALCONY
+- alias: message_navigation_balcony'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony'
+  action:
+  - service: script.message_navigation_balcony
+
+## NAVIGATION BALCONY CLIMAT
+- alias: message_navigation_balcony_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony_climat'
+  action:
+  - service: script.message_navigation_balcony_climat
+
+## MESSAGE BALCONY DOOR OPEN
+- alias: 'message_door_balcony'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_balcony_open'
+  action:
+  - service: script.message_door_balcony

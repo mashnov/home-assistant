@@ -1,4 +1,68 @@
-## SYSTEM
+## NAVIGATION SYSTEM
+message_navigation_system:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Система'
+      data:
+        inline_keyboard: 
+        - '➡️ Сеть :/system_network'
+        - '➡️ Проблемы :/system_problems'
+        - '➡️ Обновления :/system_updates'
+        - '♦️ Перезагрузка :/system_restart'
+        - '⬅️ :/home, ❌ :/hide_menu'
+
+## NAVIGATION SYSTEM NETWORK
+message_navigation_system_network:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Сеть'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.network_download_low", "on"), "🟠", "🟢") }} Загрузка {states("sensor.network_download_level") }} Mbit/s :/system_network'
+        - '{{ iif(is_state("binary_sensor.network_upload_low", "on"), "🟠", "🟢") }} Отдача {{ states("sensor.network_upload_level") }} Mbit/s :/system_network'
+        - '{{ iif(is_state("binary_sensor.network_ping_low", "on"), "🟠", "🟢") }} {{ states("sensor.network_ping_level") }} ms :/system_network'
+        - '⬅️ :/system, 🔄 :/system_network, ❌ :/hide_menu'
+
+## NAVIGATION SYSTEM ERRORS
+message_navigation_system_problems:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Проблемы'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.humidifier_hall_empty_boolean", "on"), "🔴", "🟢") }} Увлажнитель в коридоре :/system_problems'
+        - '{{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "🔴", "🟢") }} Увлажнитель в спальне :/system_problems'
+        - '{{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "🔴", "🟢") }} Увлажнитель в гостиной :/system_problems'
+        - '{{ iif(is_state("binary_sensor.rpi_power_status", "on"), "🟠", "🟢") }} Питание Raspberry :/system_problems'
+        - '⬅️ :/system, 🔄 :/system_problems, ❌ :/hide_menu'
+
+## NAVIGATION SYSTEM UPDATES
+message_navigation_updates:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Обновления'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.home_assistant_core_update", "on"), "🟢", "🔴") }} Core :/system_updates'
+        - '{{ iif(is_state("binary_sensor.home_assistant_operating_system_update", "on"), "🟢", "🔴") }} Operating System :/system_updates'
+        - '{{ iif(is_state("binary_sensor.home_assistant_supervisor_update", "on"), "🟢", "🔴") }} Supervisor :/system_updates'
+        - '{{ iif(is_state("binary_sensor.tailscale_update", "on"), "🟢", "🔴") }} Tailscale :/system_updates'
+        - '{{ iif(is_state("binary_sensor.zigbee2mqtt_update", "on"), "🟢", "🔴") }} Zigbee 2 MQTT :/system_updates'
+        - '{{ iif(is_state("binary_sensor.mosquitto_broker_update", "on"), "🟢", "🔴") }} MQTT Broker :/system_updates'
+        - '{{ iif(is_state("binary_sensor.home_assistant_google_drive_backup_update", "on"), "🟢", "🔴") }} Google Backup :/system_updates'
+        - '{{ iif(is_state("binary_sensor.file_editor_update", "on"), "🟢", "🔴") }} File Editor :/system_updates'
+        - '{{ iif(is_state("binary_sensor.terminal_ssh_update", "on"), "🟢", "🔴") }} Terminal & SSH :/system_updates'
+        - '⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
+
+## MESSAGE SYSTEM START
 message_system_start:
   mode: 'queued'
   sequence:
@@ -6,7 +70,11 @@ message_system_start:
     data_template:
       message: | 
         🚀 Старт системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'
 
+## MESSAGE SYSTEM SHUTDOWN
 message_system_shutdown:
   mode: 'queued'
   sequence:
@@ -14,19 +82,30 @@ message_system_shutdown:
     data_template:
       message: | 
         🚀 Выключение системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'
 
-message_system_update:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        🚀 Доступно обновление системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
-
+## MESSAGE SYSTEM POWER PROBLEM
 message_system_power_problem:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
       message: | 
+        🚀 Доступно обновление системы ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'
+
+## MESSAGE SYSTEM UPDATE
+message_system_update:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
         🚀 Проблемы с питанием ......... {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'

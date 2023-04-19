@@ -1,0 +1,42 @@
+## NAVIGATION BEDROOM
+- alias: message_navigation_bedroom'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom'
+  action:
+  - service: script.message_navigation_bedroom
+
+## NAVIGATION BEDROOM CLIMAT
+- alias: message_navigation_bedroom_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_climat'
+  action:
+  - service: script.message_navigation_bedroom_climat
+
+## NAVIGATION BEDROOM TOP LIGHT
+- alias: message_navigation_bedroom_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_top_light'
+  action:
+  - service: script.message_navigation_bedroom_top_light
+
+## MESSAGE BEDROOM HUMIDIFIER EMPTY
+- alias: 'message_empty_humidifier_bedroom'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_bedroom_empty_boolean'
+    to: 'on'
+  action:
+  - service: script.message_empty_humidifier_bedroom

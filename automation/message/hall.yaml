@@ -1,0 +1,51 @@
+## NAVIGATION HALL
+- alias: message_navigation_hall'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall'
+  action:
+  - service: script.message_navigation_hall
+
+## NAVIGATION HALL CLIMAT
+- alias: message_navigation_hall_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_climat'
+  action:
+  - service: script.message_navigation_hall_climat
+
+## NAVIGATION HALL TOP LIGHT
+- alias: message_navigation_hall_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_top_light'
+  action:
+  - service: script.message_navigation_hall_top_light
+
+## MESSAGE HALL DOOR OPEN
+- alias: 'message_door_hall'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.door_hall_open'
+  action:
+  - service: script.message_door_hall
+
+## MESSAGE HALL HUMIDIFIER EMPTY
+- alias: 'message_empty_humidifier_hall'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+    to: 'on'
+  action:
+  - service: script.message_empty_humidifier_hall

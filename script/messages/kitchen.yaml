@@ -1,0 +1,61 @@
+## NAVIGATION KITCHEN
+message_navigation_kitchen:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_back_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник :/kitchen_night_light'
+        - '➡️ Шторы :/kitchen_curtain'
+        - '➡️ Климат :/kitchen_climat'
+        - '➡️ Освещение :/kitchen_top_light'
+        - '➡️ Выключатель :/kitchen_switch'
+        - '⬅️ :/home, 🔄 :/kitchen, ❌ :/hide_menu'
+
+## NAVIGATION KITCHEN CLIMAT
+message_navigation_kitchen_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_kitchen_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '⬅️ :/kitchen, 🔄 :/kitchen_climat, ❌ :/hide_menu'
+
+## NAVIGATION KITCHEN SWITCH
+message_navigation_kitchen_switch:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.switch_kitchen_1_on", "on"), "🟢", "🔴") }} Освещение :/kitchen_switch_top_light'
+        - '{{ iif(is_state("binary_sensor.switch_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_switch_back_light'
+        - '⬅️ :/kitchen, 🔄 :/kitchen_switch, ❌ :/hide_menu'
+
+## NAVIGATION KITCHEN TOP LIGHT
+message_navigation_kitchen_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/kitchen_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/kitchen_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/kitchen_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/kitchen_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/kitchen_top_light_5'
+        - '⬅️ :/kitchen, 🔄 :/kitchen_top_light, ❌ :/hide_menu'

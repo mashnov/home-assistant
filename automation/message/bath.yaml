@@ -1,0 +1,21 @@
+## NAVIGATION BATH
+- alias: message_navigation_bath'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bath'
+  action:
+  - service: script.message_navigation_bath
+
+## NAVIGATION BATH CLIMAT
+- alias: message_navigation_bath_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bath_climat'
+  action:
+  - service: script.message_navigation_bath_climat

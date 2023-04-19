@@ -1,0 +1,73 @@
+## NAVIGATION HALL
+message_navigation_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🧥 Коридор'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.relay_hall_1_on", "on"), "🟢", "🔴") }} Подсветка :/hall_back_light'
+        - '{{ iif(is_state("binary_sensor.night_light_hall_on", "on"), "🟢", "🔴") }} Ночник :/hall_night_light'
+        - '{{ iif(is_state("binary_sensor.switch_hall_on", "on"), "🟢", "🔴") }} Выключатель :/hall_switch'
+        - '{{ iif(is_state("binary_sensor.relay_hall_2_on", "on"), "🟢", "🔴") }} Увлажнитель {{ iif(is_state("binary_sensor.humidifier_hall_empty_boolean", "on"), "⚠️", "") }} :/hall_humidifier'
+        - '➡️ Климат :/hall_climat'
+        - '➡️ Освещение :/hall_top_light'
+        - '⬅️ :/home, 🔄 :/hall, ❌ :/hide_menu'
+
+## NAVIGATION HALL CLIMAT
+message_navigation_hall_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🧥 Коридор'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.temperature_hall_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_hall_level") }} °C :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/hall_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_hall_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '⬅️ :/hall, 🔄 :/hall_climat, ❌ :/hide_menu'
+
+## NAVIGATION HALL TOP LIGHT
+message_navigation_hall_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🧥 Коридор'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_hall_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/hall_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/hall_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/hall_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/hall_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/hall_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_hall_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/hall_top_light_6'
+        - '⬅️ :/hall, 🔄 :/hall_top_light, ❌ :/hide_menu'
+
+## MESSAGE HALL DOOR OPEN
+message_door_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
+        🧥 Коридор ................ {{ iif(is_state('binary_sensor.door_hall_open', 'on'), '🟢', '🔴') }}
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'
+
+## MESSAGE HALL EMPTY HUMIDIFIER
+message_empty_humidifier_hall:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🧥 Коридор. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'

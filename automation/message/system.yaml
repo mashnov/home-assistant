@@ -1,4 +1,48 @@
-## SYSTEM START
+## NAVIGATION SYSTEM
+- alias: message_navigation_system'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/system'
+  action:
+  - service: script.message_navigation_system
+
+## NAVIGATION SYSTEM NETWORK
+- alias: message_navigation_system_network'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/system_network'
+  action:
+  - service: script.message_navigation_system_network
+
+## NAVIGATION SYSTEM ERRORS
+- alias: message_navigation_system_problems'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/system_problems'
+  action:
+  - service: script.message_navigation_system_problems
+
+## NAVIGATION SYSTEM UPDATES
+- alias: message_navigation_system_updates'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/system_updates'
+  action:
+  - service: script.message_navigation_updates
+
+## MESSAGE SYSTEM START
 - alias: 'system_start_message'
   mode: 'queued'
   trigger:
@@ -7,7 +51,7 @@
   action:
   - service: script.message_system_start
 
-## SYSTEM SHUTDOWN
+## MESSAGE SYSTEM SHUTDOWN
 - alias: 'system_shutdown_message'
   mode: 'queued'
   trigger:
@@ -16,7 +60,7 @@
   action:
   - service: script.message_system_shutdown
 
-## SYSTEM POWER
+## MESSAGE SYSTEM POWER
 - alias: 'system_power_problem'
   mode: 'queued'
   trigger:
@@ -26,7 +70,7 @@
   action:
   - service: script.message_system_power_problem
 
-## SYSTEM UPDATES
+## MESSAGE SYSTEM UPDATES
 - alias: 'system_update_message'
   mode: 'queued'
   trigger:

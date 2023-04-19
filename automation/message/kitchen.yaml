@@ -1,0 +1,43 @@
+## NAVIGATION KITCHEN
+- alias: message_navigation_kitchen'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen'
+  action:
+  - service: script.message_navigation_kitchen
+
+## NAVIGATION KITCHEN TOP LIGHT
+- alias: message_navigation_kitchen_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_top_light'
+  action:
+  - service: script.message_navigation_kitchen_top_light
+
+## NAVIGATION KITCHEN CLIMAT
+- alias: message_navigation_kitchen_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_climat'
+  action:
+  - service: script.message_navigation_kitchen_climat
+
+## NAVIGATION KITCHEN SWITCH
+- alias: message_navigation_kitchen_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_switch'
+  action:
+  - service: script.message_navigation_kitchen_switch

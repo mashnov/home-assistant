@@ -1,0 +1,42 @@
+## NAVIGATION LIVING
+- alias: message_navigation_living'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living'
+  action:
+  - service: script.message_navigation_living
+
+## NAVIGATION LIVING CLIMAT
+- alias: message_navigation_living_climat'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_climat'
+  action:
+  - service: script.message_navigation_living_climat
+
+## NAVIGATION LIVING TOP LIGHT
+- alias: message_navigation_living_top_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_top_light'
+  action:
+  - service: script.message_navigation_living_top_light
+
+## MESSAGE LIVING HUMIDIFIER EMPTY
+- alias: 'message_empty_humidifier_living'
+  mode: 'queued'
+  trigger:
+  - platform: state
+    entity_id: 'binary_sensor.humidifier_living_empty_boolean'
+    to: 'on'
+  action:
+  - service: script.message_empty_humidifier_living

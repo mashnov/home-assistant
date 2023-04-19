@@ -1,0 +1,10 @@
+## NAVIGATION TOILET
+- alias: message_navigation_toilet'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/toilet'
+  action:
+  - service: script.message_navigation_toilet

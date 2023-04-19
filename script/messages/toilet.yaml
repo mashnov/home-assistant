@@ -1,0 +1,13 @@
+## NAVIGATION TOILET
+message_navigation_toilet:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🚽 Туалет'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_toilet_on", "on"), "🟢", "🔴") }} Освещение :/toilet_top_light'
+        - '{{ iif(is_state("binary_sensor.relay_toilet_2_on", "on"), "🟢", "🔴") }} Ночник :/toilet_night_light'
+        - '{{ iif(is_state("binary_sensor.relay_toilet_1_on", "on"), "🟢", "🔴") }} Вытяжка :/toilet_dehumidifier'
+        - '⬅️ :/home, 🔄 :/toilet, ❌ :/hide_menu'

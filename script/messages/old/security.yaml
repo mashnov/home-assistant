@@ -47,27 +47,3 @@ message_door:
       data:
         inline_keyboard: 
         - 'Назад:/security, Обновить:/security_door, Закрыть:/hide_menu'
-
-message_door_hall:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🧥 Коридор ................ {{ iif(is_state('binary_sensor.door_hall_open', 'on'), '🟢', '🔴') }}
-      data:
-        inline_keyboard: 
-        - 'Меню:/home, Закрыть:/hide_menu'
-
-message_door_balcony:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: | 
-        ⏱️ Дверь ................... {{ state_attr('sensor.date_time', 'hm') }} UTC
-        🪴 Балкон ................... {{ iif(is_state('binary_sensor.door_balcony_open', 'on'), '🟢', '🟠') }}
-      data:
-        inline_keyboard: 
-        - 'Меню:/home, Закрыть:/hide_menu'

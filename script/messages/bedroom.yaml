@@ -1,0 +1,61 @@
+## NAVIGATION BEDROOM
+message_navigation_bedroom:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🛌 Спальня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.switch_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник :/bedroom_wall_light'
+        - '{{ iif(is_state("binary_sensor.relay_bedroom_1_on", "on"), "🟢", "🔴") }} Подсветка :/bedroom_back_light'
+        - '{{ iif(is_state("binary_sensor.switch_bedroom_on", "on"), "🟢", "🔴") }} Выключатель :/bedroom_switch'
+        - '{{ iif(is_state("binary_sensor.relay_bedroom_2_on", "on"), "🟢", "🔴") }} Увлажнитель {{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "⚠️", "") }} :/bedroom_humidifier'
+        - '➡️ Шторы :/bedroom_curtain'
+        - '➡️ Климат :/bedroom_climat'
+        - '➡️ Освещение :/bedroom_top_light'
+        - '⬅️ :/home, 🔄 :/bedroom, ❌ :/hide_menu'
+
+## NAVIGATION BEDROOM CLIMAT
+message_navigation_bedroom_climat:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🛌 Спальня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.temperature_bedroom_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.humidity_bedroom_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.ventilation_bedroom_boolean", "on"), "🟢", "🟠") }} Проветривание :/kitchen_climat'
+        - '⬅️ :/bedroom, 🔄 :/bedroom_climat, ❌ :/hide_menu'
+
+## NAVIGATION BEDROOM TOP LIGHT
+message_navigation_bedroom_top_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🛌 Спальня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_1_on", "on"), "🟢", "🔴") }} Светильник 1 :/bedroom_top_light_1'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_2_on", "on"), "🟢", "🔴") }} Светильник 2 :/bedroom_top_light_2'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/bedroom_top_light_3'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/bedroom_top_light_4'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/bedroom_top_light_5'
+        - '{{ iif(is_state("binary_sensor.top_light_bedroom_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/bedroom_top_light_6'
+        - '⬅️ :/bedroom, 🔄 :/bedroom_top_light, ❌ :/hide_menu'
+
+## MESSAGE BEDROOM EMPTY HUMIDIFIER
+message_empty_humidifier_bedroom:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: | 
+        🛌 Спальня. Закончилась вода в увлажниеле. {{ state_attr('sensor.date_time', 'hm') }} UTC
+      data:
+        inline_keyboard: 
+        - '🏠 :/home, ❌ :/hide_menu'
