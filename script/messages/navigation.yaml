@@ -54,7 +54,7 @@ message_navigation_kitchen_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
         - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
-        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
         - '⬅️ Назад:/kitchen, ❌ Закрыть:/hide_menu'
 
 
@@ -205,7 +205,7 @@ message_navigation_bedroom_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_bedroom_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bedroom_level") }} °C :/bedroom_climat'
         - '{{ iif(is_state("binary_sensor.humidity_bedroom_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bedroom_level") }} % :/bedroom_climat'
-        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bedroom_climat'
         - '⬅️ Назад:/bedroom, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM SWITCH
@@ -265,7 +265,7 @@ message_navigation_living_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_living_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
         - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
-        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
         - '⬅️ Назад:/living, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
@@ -325,8 +325,8 @@ message_navigation_balcony_climat:
         inline_keyboard: 
         - '🔵 Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
         - '🔵 Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
-        - 'Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
-        - 'Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
-        - 'Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
-        - 'Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.cloud_hight", "on"), "☁️", "🌤️") }} Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
+        - '☀️ Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
+        - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "🟠", "🟢") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - '⬅️ Назад:/balcony, ❌ Закрыть:/hide_menu'

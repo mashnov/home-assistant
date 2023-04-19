@@ -66,3 +66,10 @@
       {% set offsetValue = states('input_number.pressure_offset') | int(0) %}
       {% set targetValue = normalValue + offsetValue %}
       {{ sensorValue > targetValue }}
+
+  - name: 'pressure_normal'
+    icon: 'mdi:gauge'
+    state: >
+      {% set isLow = is_state('binary_sensor.pressure_low', 'on') %}
+      {% set isHight = is_state('binary_sensor.pressure_hight', 'on') %}
+      {{ not(isLow) and not(isHight) }}
