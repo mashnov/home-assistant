@@ -34,13 +34,13 @@ message_navigation_kitchen:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - 'Климат ➡️ :/kitchen_climat'
-        - 'RGB-лента:/kitchen_rgb_light'
+        - '➡️ Климат:/kitchen_climat'
         - '➡️ Освещение:/kitchen_top_light'
-        - 'Подсветка:/kitchen_back_light'
-        - 'Ночник:/kitchen_night_light'
         - '➡️ Выключатель:/kitchen_switch'
-        - 'Шторы:/kitchen_curtain'
+        - '➡️ Шторы:/kitchen_curtain'
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента:/kitchen_rgb_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка:/kitchen_back_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник:/kitchen_night_light'
         - '⬅️ Назад:/home, 🔄 Обновить:/kitchen, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION KITCHEN CLIMAT
@@ -97,7 +97,7 @@ message_navigation_bath:
         inline_keyboard: 
         - '➡️ Климат:/bath_climat'
         - '{{ iif(is_state("binary_sensor.top_light_bath_on", "on"), "🟢", "🔴") }} Освещение:/bath_top_light'
-        - 'Ночник:/bath_night_light'
+        - '{{ iif(is_state("binary_sensor.relay_bath_1_on", "on"), "🟢", "🔴") }} Ночник:/bath_night_light'
         - '⬅️ Назад:/home, 🔄 Обновить:/bath, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BATH CLIMAT
@@ -111,7 +111,7 @@ message_navigation_bath_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "🟠", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
         - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "🟠", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
-        - 'Давле {{ states("sensor.pressure_level") }} mmHg ние:/bath_climat'
+        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "🟠") }} Давление {{ states("sensor.pressure_level") }} mmHg :/bath_climat'
         - '⬅️ Назад:/bath, 🔄 Обновить:/bath_climat, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION TOILET
@@ -124,8 +124,8 @@ message_navigation_toilet:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.top_light_toilet_on", "on"), "🟢", "🔴") }} Освещение:/toilet_top_light'
-        - 'Ночник:/toilet_night_light'
-        - 'Вытяжка:/toilet_dehumidifier'
+        - '{{ iif(is_state("binary_sensor.relay_toilet_2_on", "on"), "🟢", "🔴") }} Ночник:/toilet_night_light'
+        - '{{ iif(is_state("binary_sensor.relay_toilet_1_on", "on"), "🟢", "🔴") }} Вытяжка:/toilet_dehumidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/toilet, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL
@@ -139,10 +139,10 @@ message_navigation_hall:
         inline_keyboard: 
         - '➡️ Климат:/hall_climat'
         - '➡️ Освещение:/hall_top_light'
-        - 'Подсветка:/hall_back_light'
-        - 'Ночник:/hall_night_light'
+        - '{{ iif(is_state("binary_sensor.relay_hall_1_on", "on"), "🟢", "🔴") }} Подсветка:/hall_back_light'
+        - '{{ iif(is_state("binary_sensor.night_light_hall_on", "on"), "🟢", "🔴") }} Ночник:/hall_night_light'
         - '{{ iif(is_state("binary_sensor.switch_hall_on", "on"), "🟢", "🔴") }} Выключатель:/hall_switch'
-        - 'Увлажнитель:/hall_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_hall_2_on", "on"), "🟢", "🔴") }} Увлажнитель:/hall_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/hall, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION HALL CLIMAT
@@ -187,10 +187,11 @@ message_navigation_bedroom:
         inline_keyboard: 
         - '➡️ Климат:/bedroom_climat'
         - '➡️ Освещение:/bedroom_top_light'
+        - '➡️ Шторы:/bedroom_curtain'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_3_on", "on"), "🟢", "🔴") }} Светильник:/bedroom_wall_light'
-        - 'Подсветка:/bedroom_back_light'
+        - '{{ iif(is_state("binary_sensor.relay_bedroom_1_on", "on"), "🟢", "🔴") }} Подсветка:/bedroom_back_light'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_on", "on"), "🟢", "🔴") }} Выключатель:/bedroom_switch'
-        - 'Увлажнитель:/bedroom_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_bedroom_2_on", "on"), "🟢", "🔴") }} Увлажнитель:/bedroom_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/bedroom, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION BEDROOM CLIMAT
@@ -235,9 +236,10 @@ message_navigation_living:
         inline_keyboard: 
         - '➡️ Климат:/living_climat'
         - '➡️ Освещение:/living_top_light'
-        - 'Подсветка:/living_back_light'
+        - '➡️ Шторы:/living_curtain'
+        - '{{ iif(is_state("binary_sensor.relay_living_2_on", "on"), "🟢", "🔴") }} Подсветка:/living_back_light'
         - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель:/living_switch'
-        - 'Увлажнитель:/living_humidifier'
+        - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} Увлажнитель:/living_humidifier'
         - '⬅️ Назад:/home, 🔄 Обновить:/living, ❌ Закрыть:/hide_menu'
 
 ## NAVIGATION LIVING CLIMAT

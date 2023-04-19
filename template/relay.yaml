@@ -63,7 +63,7 @@
     unit_of_measurement: 'W'
     state: "{{ states('sensor.balcony_relay_2_power') }}"
 
-## RELAY ON SENSORS
+## RELAY ON KITCHEN SENSORS
 - binary_sensor:
   - name: 'relay_kitchen_1_on'
     device_class: 'plug'
@@ -79,6 +79,7 @@
       {% set isEnable = is_state('binary_sensor.relay_kitchen_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON BATH SENSORS
   - name: 'relay_bath_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.bath_relay_l1', 'on') }}"
@@ -93,6 +94,7 @@
       {% set isEnable = is_state('binary_sensor.relay_bath_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON TOILET SENSORS
   - name: 'relay_toilet_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.toilet_relay_l1', 'on') }}"
@@ -107,6 +109,7 @@
       {% set isEnable = is_state('binary_sensor.relay_toilet_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON HALL SENSORS
   - name: 'relay_hall_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.hall_relay_l1', 'on') }}"
@@ -121,6 +124,7 @@
       {% set isEnable = is_state('binary_sensor.relay_hall_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON BEDROOM SENSORS
   - name: 'relay_bedroom_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.bedroom_relay_l1', 'on') }}"
@@ -135,6 +139,7 @@
       {% set isEnable = is_state('binary_sensor.relay_bedroom_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON LIVING SENSORS
   - name: 'relay_living_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.living_relay_l1', 'on') }}"
@@ -149,6 +154,7 @@
       {% set isEnable = is_state('binary_sensor.relay_living_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+## RELAY ON BALCONY SENSORS
   - name: 'relay_balcony_1_on'
     device_class: 'plug'
     state: "{{ is_state('switch.balcony_relay_l1', 'on') }}"
