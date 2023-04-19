@@ -51,15 +51,15 @@ message_navigation_updates:
       message: '💾 Обновления'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.home_assistant_core_update", "on"), "⚠️", "🟢") }} Core :/system_updates'
-        - '{{ iif(is_state("binary_sensor.home_assistant_operating_system_update", "on"), "⚠️", "🟢") }} Operating System :/system_updates'
-        - '{{ iif(is_state("binary_sensor.home_assistant_supervisor_update", "on"), "⚠️", "🟢") }} Supervisor :/system_updates'
-        - '{{ iif(is_state("binary_sensor.tailscale_update", "on"), "⚠️", "🟢") }} Tailscale :/system_updates'
-        - '{{ iif(is_state("binary_sensor.zigbee2mqtt_update", "on"), "⚠️", "🟢") }} Zigbee 2 MQTT :/system_updates'
-        - '{{ iif(is_state("binary_sensor.mosquitto_broker_update", "on"), "⚠️", "🟢") }} MQTT Broker :/system_updates'
-        - '{{ iif(is_state("binary_sensor.home_assistant_google_drive_backup_update", "on"), "⚠️", "🟢") }} Google Backup :/system_updates'
-        - '{{ iif(is_state("binary_sensor.file_editor_update", "on"), "⚠️", "🟢") }} File Editor :/system_updates'
-        - '{{ iif(is_state("binary_sensor.terminal_ssh_update", "on"), "⚠️", "🟢") }} Terminal & SSH :/system_updates'
+        - '{{ iif(is_state("update.home_assistant_core_update", "on"), "⚠️", "🟢") }} Core :/system_updates'
+        - '{{ iif(is_state("update.home_assistant_operating_system_update", "on"), "⚠️", "🟢") }} Operating System :/system_updates'
+        - '{{ iif(is_state("update.home_assistant_supervisor_update", "on"), "⚠️", "🟢") }} Supervisor :/system_updates'
+        - '{{ iif(is_state("update.tailscale_update", "on"), "⚠️", "🟢") }} Tailscale :/system_updates'
+        - '{{ iif(is_state("update.zigbee2mqtt_update", "on"), "⚠️", "🟢") }} Zigbee 2 MQTT :/system_updates'
+        - '{{ iif(is_state("update.mosquitto_broker_update", "on"), "⚠️", "🟢") }} MQTT Broker :/system_updates'
+        - '{{ iif(is_state("update.home_assistant_google_drive_backup_update", "on"), "⚠️", "🟢") }} Google Backup :/system_updates'
+        - '{{ iif(is_state("update.file_editor_update", "on"), "⚠️", "🟢") }} File Editor :/system_updates'
+        - '{{ iif(is_state("update.terminal_ssh_update", "on"), "⚠️", "🟢") }} Terminal & SSH :/system_updates'
         - '⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM START
