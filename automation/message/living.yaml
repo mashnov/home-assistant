@@ -9,6 +9,17 @@
   action:
   - service: script.message_navigation_living
 
+## NAVIGATION LIVING CURATAIN
+- alias: message_navigation_living_curtain'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_curtain'
+  action:
+  - service: script.message_navigation_living_curtain
+
 ## NAVIGATION LIVING CLIMAT
 - alias: message_navigation_living_climat'
   mode: 'queued'

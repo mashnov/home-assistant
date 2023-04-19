@@ -16,6 +16,20 @@ message_navigation_bedroom:
         - '➡️ Освещение :/bedroom_top_light'
         - '⬅️ :/home, 🔄 :/bedroom, ❌ :/hide_menu'
 
+## NAVIGATION BEDROOM CURTAIN
+message_navigation_bedroom_curtain:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🛌 Спальня'
+      data:
+        inline_keyboard: 
+        - '↔️ Положение {{ states("sensor.curtain_bedroom_position") }} % :/bedroom_curtain'
+        - '⬅ Открыть :/bedroom_curtain_open'
+        - '➡️ Закрыть :/bedroom_curtain_close'
+        - '⬅️ :/bedroom, 🔄 :/bedroom_curtain, ❌ :/hide_menu'
+
 ## NAVIGATION BEDROOM CLIMAT
 message_navigation_bedroom_climat:
   mode: 'queued'

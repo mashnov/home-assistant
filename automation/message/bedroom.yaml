@@ -20,6 +20,17 @@
   action:
   - service: script.message_navigation_bedroom_climat
 
+## NAVIGATION BEDROOM CURATAIN
+- alias: message_navigation_bedroom_curtain'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_curtain'
+  action:
+  - service: script.message_navigation_bedroom_curtain
+
 ## NAVIGATION BEDROOM TOP LIGHT
 - alias: message_navigation_bedroom_top_light'
   mode: 'queued'

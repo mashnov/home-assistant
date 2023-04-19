@@ -16,6 +16,20 @@ message_navigation_kitchen:
         - '➡️ Выключатель :/kitchen_switch'
         - '⬅️ :/home, 🔄 :/kitchen, ❌ :/hide_menu'
 
+## NAVIGATION KITCHEN CURTAIN
+message_navigation_kitchen_curtain:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '↔️ Положение {{ states("sensor.curtain_kitchen_position") }} % :/kitchen_curtain'
+        - '⬅ Открыть :/kitchen_curtain_open'
+        - '➡️ Закрыть :/kitchen_curtain_close'
+        - '⬅️ :/kitchen, 🔄 :/kitchen_curtain, ❌ :/hide_menu'
+
 ## NAVIGATION KITCHEN CLIMAT
 message_navigation_kitchen_climat:
   mode: 'queued'

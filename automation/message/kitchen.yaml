@@ -20,6 +20,17 @@
   action:
   - service: script.message_navigation_kitchen_top_light
 
+## NAVIGATION KITCHNE CURATAIN
+- alias: message_navigation_kitchen_curtain'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_curtain'
+  action:
+  - service: script.message_navigation_kitchen_curtain
+
 ## NAVIGATION KITCHEN CLIMAT
 - alias: message_navigation_kitchen_climat'
   mode: 'queued'

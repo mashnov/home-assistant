@@ -15,6 +15,20 @@ message_navigation_living:
         - '➡️ Освещение :/living_top_light'
         - '⬅️ :/home, 🔄 :/living, ❌ :/hide_menu'
 
+## NAVIGATION LIVING CURTAIN
+message_navigation_living_curtain:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '📚 Гостиная'
+      data:
+        inline_keyboard: 
+        - '↔️ Положение {{ states("sensor.curtain_living_position") }} % :/living_curtain'
+        - '⬅ Открыть :/living_curtain_open'
+        - '➡️ Закрыть :/living_curtain_close'
+        - '⬅️ :/living, 🔄 :/living_curtain, ❌ :/hide_menu'
+
 ## NAVIGATION LIVING CLIMAT
 message_navigation_living_climat:
   mode: 'queued'
