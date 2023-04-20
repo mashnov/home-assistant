@@ -36,7 +36,6 @@ message_navigation_kitchen_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
         - '{{ iif(is_state("binary_sensor.humidity_kitchen_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_kitchen_level") }} % :/kitchen_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/kitchen_climat'
         - '{{ iif(is_state("binary_sensor.ventilation_kitchen_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '⬅️ :/kitchen, 🔄 :/kitchen_climat, ❌ :/hide_menu'
 
@@ -62,7 +61,7 @@ message_navigation_kitchen_light:
       message: '🥣 Освещение'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
+        - '{{ iif(is_state("binary_sensor.party_light_kitchen_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
         - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_back_light'
         - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник :/kitchen_night_light'
         - '➡️ Светильники :/kitchen_top_light'

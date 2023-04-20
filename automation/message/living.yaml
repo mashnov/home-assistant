@@ -31,6 +31,28 @@
   action:
   - service: script.message_navigation_living_climat
 
+## NAVIGATION LIVING SWITCH
+- alias: message_navigation_living_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_switch'
+  action:
+  - service: script.message_navigation_living_switch
+
+## NAVIGATION LIVING LIGHT
+- alias: message_navigation_living_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_light'
+  action:
+  - service: script.message_navigation_living_light
+
 ## NAVIGATION LIVING TOP LIGHT
 - alias: message_navigation_living_top_light'
   mode: 'queued'

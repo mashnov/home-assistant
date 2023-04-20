@@ -7,12 +7,10 @@ message_navigation_living:
       message: '📚 Гостиная'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.relay_living_2_on", "on"), "🟢", "🔴") }} Подсветка :/living_back_light'
-        - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель :/living_switch'
-        - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/living_humidifier'
         - '➡️ Шторы :/living_curtain'
         - '➡️ Климат :/living_climat'
-        - '➡️ Освещение :/living_top_light'
+        - '➡️ Освещение :/living_light'
+        - '➡️ Выключатели :/living_switch'
         - '⬅️ :/home, 🔄 :/living, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING CURTAIN
@@ -21,12 +19,10 @@ message_navigation_living_curtain:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '📚 Гостиная'
+      message: '📚 Шторы: {{ states("sensor.curtain_living_position") }} %'
       data:
         inline_keyboard: 
-        - '↔️ Положение {{ states("sensor.curtain_living_position") }} % :/living_curtain'
-        - '⬅️ Открыть :/living_curtain_open'
-        - '➡️ Закрыть :/living_curtain_close'
+        - '0 :/living_curtain_0, 25 :/living_curtain_25, 50 :/living_curtain_50, 75 :/living_curtain_75, 100 :/living_curtain_100'
         - '⬅️ :/living, 🔄 :/living_curtain, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING CLIMAT
@@ -35,14 +31,41 @@ message_navigation_living_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '📚 Гостиная'
+      message: '📚 Климат'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_living_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_living_level") }} °C :/living_climat'
         - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
-        - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/living_climat'
         - '{{ iif(is_state("binary_sensor.ventilation_living_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
+        - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/living_humidifier'
         - '⬅️ :/living, 🔄 :/living_climat, ❌ :/hide_menu'
+
+## NAVIGATION LIVING SWITCH
+message_navigation_living_switch:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '📚 Выключатели'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель :/living_switch_both'
+        - '{{ iif(is_state("binary_sensor.switch_living_1_on", "on"), "🟢", "🔴") }} Левый :/living_switch_left'
+        - '{{ iif(is_state("binary_sensor.switch_living_2_on", "on"), "🟢", "🔴") }} Правый :/living_switch_right'
+        - '⬅️ :/living, 🔄 :/living_switch, ❌ :/hide_menu'
+
+## NAVIGATION LIVING LIGHT
+message_navigation_living_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '📚 Освещение'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.relay_living_2_on", "on"), "🟢", "🔴") }} Подсветка :/living_back_light'
+        - '➡️ Светильники :/living_top_light'
+        - '⬅️ :/living, 🔄 :/living_light, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING TOP LIGHT
 message_navigation_living_top_light:
@@ -50,7 +73,7 @@ message_navigation_living_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '📚 Гостиная'
+      message: '📚 Светильники'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.top_light_living_group_on", "on"), "🟢", "🔴") }} Все светильники :/living_top_light_group'

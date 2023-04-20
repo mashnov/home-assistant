@@ -9,7 +9,7 @@
   action:
   - service: script.message_navigation_kitchen
 
-## NAVIGATION KITCHEN TOP LIGHT
+## NAVIGATION KITCHEN LIGHT
 - alias: message_navigation_kitchen_light'
   mode: 'queued'
   trigger:

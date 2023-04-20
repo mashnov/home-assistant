@@ -4,17 +4,17 @@ message_doorbell_elevator:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
+      message: '🛎️ Коридор. Нажата кнопка звонка {{ state_attr("sensor.date_time", "hm") }} UTC'
       data:
         inline_keyboard: 
-        - '🛎️ Коридор. Нажата кнопка звонка :/hide_menu'
+        - '❌ :/hide_menu'
 
 message_doorbell_hall:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
+      message: '🛎️ Прихожая. Нажата кнопка звонка {{ state_attr("sensor.date_time", "hm") }} UTC'
       data:
         inline_keyboard: 
-        - '🛎️ Прихожая. Нажата кнопка звонка :/hide_menu'
+        - '❌ :/hide_menu'

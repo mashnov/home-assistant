@@ -20,6 +20,28 @@
   action:
   - service: script.message_navigation_hall_climat
 
+## NAVIGATION HALL SWITCH
+- alias: message_navigation_hall_switch'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_switch'
+  action:
+  - service: script.message_navigation_hall_switch
+
+## NAVIGATION KITCHEN LIGHT
+- alias: message_navigation_kitchen_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_light'
+  action:
+  - service: script.message_navigation_kitchen_light
+
 ## NAVIGATION HALL TOP LIGHT
 - alias: message_navigation_hall_top_light'
   mode: 'queued'

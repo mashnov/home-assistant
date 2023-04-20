@@ -20,6 +20,39 @@
   action:
   - service: script.message_navigation_balcony_climat
 
+## NAVIGATION BALCONY SUN
+- alias: message_navigation_balcony_sun'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony_sun'
+  action:
+  - service: script.message_navigation_balcony_sun
+
+## NAVIGATION BALCONY LIGHT
+- alias: message_navigation_balcony_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony_light'
+  action:
+  - service: script.message_navigation_balcony_light
+
+## NAVIGATION BALCONY RELAY
+- alias: message_navigation_balcony_relay'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony_relay'
+  action:
+  - service: script.message_navigation_balcony_relay
+
 ## MESSAGE BALCONY DOOR OPEN
 - alias: 'message_door_balcony'
   mode: 'queued'
