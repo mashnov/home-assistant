@@ -16,12 +16,6 @@ message_navigation_home:
       message: 'Главное меню'
       data:
         inline_keyboard: 
-        - '💾 Система :/system'
-        - '🥣 Кухня :/kitchen'
-        - '🛁 Ванная :/bath'
-        - '🚽 Туалет :/toilet'
-        - '🧥 Коридор :/hall'
-        - '🛌 Спальня :/bedroom'
-        - '📚 Гостиная :/living'
-        - '🪴 Балкон :/balcony'
+        - '💾 :/system, 🥣 :/kitchen, 🛁 :/bath, 🚽 :/toilet'
+        - '🧥 :/hall, 🛌 :/bedroom, 📚 :/living, 🪴 :/balcony'
         - '❌ :/hide_menu'
