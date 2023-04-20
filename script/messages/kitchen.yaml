@@ -23,7 +23,7 @@ message_navigation_kitchen_curtain:
       data:
         inline_keyboard: 
         - '⬅️ Открыть :/kitchen_curtain_open, ➡️ Закрыть :/kitchen_curtain_close'
-        - '10 :/kitchen_curtain_10, 20 :/kitchen_curtain_20, 30 :/kitchen_curtain_30, 40 :/kitchen_curtain_40, 50 :/kitchen_curtain_50, 60 :/kitchen_curtain_60, 70 :/kitchen_curtain_70, 80 :/kitchen_curtain_80, 90 :/kitchen_curtain_90'
+        - '20 :/kitchen_curtain_20, 35 :/kitchen_curtain_35, 50 :/kitchen_curtain_50, 65 :/kitchen_curtain_65, 80 :/kitchen_curtain_80'
         - '⬅️ :/kitchen, 🔄 :/kitchen_curtain, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN CLIMAT
