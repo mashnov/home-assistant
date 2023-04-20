@@ -86,7 +86,7 @@ message_navigation_living_top_light:
         - '⬅️ :/living_light, 🔄 :/living_top_light, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING SECURITY
-message_navigation_hall_security:
+message_navigation_living_security:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id

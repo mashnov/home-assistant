@@ -64,6 +64,17 @@
   action:
   - service: script.message_navigation_living_top_light
 
+## NAVIGATION LIVING SECURITY
+- alias: message_navigation_living_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/living_security'
+  action:
+  - service: script.message_navigation_living_security
+
 ## MESSAGE LIVING HUMIDIFIER EMPTY
 - alias: 'message_empty_humidifier_living'
   mode: 'queued'
