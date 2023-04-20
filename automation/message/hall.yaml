@@ -31,8 +31,8 @@
   action:
   - service: script.message_navigation_hall_switch
 
-## NAVIGATION KITCHEN LIGHT
-- alias: message_navigation_kitchen_light'
+## NAVIGATION HALL LIGHT
+- alias: message_navigation_hall_light'
   mode: 'queued'
   trigger:
   - platform: event
