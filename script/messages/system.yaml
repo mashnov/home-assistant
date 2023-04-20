@@ -69,7 +69,7 @@ message_navigation_system_night:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '💾 Ночной режим ({{ iif(is_state("binary_sensor.night_mode_hall_boolean"), "Вкл", "Выкл") }})'
+      message: '💾 Ночной режим ({{ iif(is_state("binary_sensor.night_mode_hall_boolean", "on"), "Вкл", "Выкл") }})'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "🟢", "🔴") }} Спальня :/system_night_bedroom'

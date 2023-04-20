@@ -4,7 +4,7 @@ message_navigation_bath:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🛁 Ванная ({{ iif(is_state("binary_sensor.motion_bath_boolean"), "Занято", "Свободно") }})'
+      message: '🛁 Ванная ({{ iif(is_state("binary_sensor.motion_bath_boolean", "on"), "Занято", "Свободно") }})'
       data:
         inline_keyboard: 
         - '➡️ Климат :/bath_climat'
