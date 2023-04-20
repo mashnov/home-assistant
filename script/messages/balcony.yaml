@@ -37,7 +37,7 @@ message_door_balcony:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
+      message: '🪴 Открыта дверь'
       data:
         inline_keyboard: 
-        - '🪴 Открыта дверь. :/hide_menu'
+        - '❌ :/hide_menu'

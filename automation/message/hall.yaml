@@ -37,6 +37,12 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.door_hall_open'
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: 'binary_sensor.door_hall_open'
+    from: 'on'
+    to: 'off'
   action:
   - service: script.message_door_hall
 
@@ -46,6 +52,7 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidifier_hall_empty_boolean'
+    from: 'off'
     to: 'on'
   action:
   - service: script.message_empty_humidifier_hall

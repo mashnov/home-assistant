@@ -54,10 +54,10 @@ message_door_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
+      message: '🧥 Открыта дверь'
       data:
         inline_keyboard: 
-        - '🧥 Открыта дверь. :/hide_menu'
+        - '❌ :/hide_menu'
 
 ## MESSAGE HALL EMPTY HUMIDIFIER
 message_empty_humidifier_hall:
@@ -65,7 +65,7 @@ message_empty_humidifier_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: "⏱️ {{ state_attr('sensor.date_time', 'hm') }} UTC"
+      message: '🧥 Закончилась вода в увлажниеле'
       data:
         inline_keyboard: 
-        - '🧥 Закончилась вода в увлажниеле. :/hide_menu'
+        - '❌ :/hide_menu'

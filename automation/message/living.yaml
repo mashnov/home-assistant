@@ -48,6 +48,7 @@
   trigger:
   - platform: state
     entity_id: 'binary_sensor.humidifier_living_empty_boolean'
+    from: 'off'
     to: 'on'
   action:
   - service: script.message_empty_humidifier_living
