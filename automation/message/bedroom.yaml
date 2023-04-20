@@ -64,6 +64,17 @@
   action:
   - service: script.message_navigation_bedroom_top_light
 
+## NAVIGATION BEDROOM SECURITY
+- alias: message_navigation_bedroom_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/bedroom_security'
+  action:
+  - service: script.message_navigation_bedroom_security
+
 ## MESSAGE BEDROOM HUMIDIFIER EMPTY
 - alias: 'message_empty_humidifier_bedroom'
   mode: 'queued'

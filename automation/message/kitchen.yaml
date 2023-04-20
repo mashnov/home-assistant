@@ -63,3 +63,14 @@
       command: '/kitchen_switch'
   action:
   - service: script.message_navigation_kitchen_switch
+
+## NAVIGATION KITCHEN SECURITY
+- alias: message_navigation_kitchen_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_security'
+  action:
+  - service: script.message_navigation_kitchen_security

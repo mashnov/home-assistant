@@ -85,6 +85,19 @@ message_navigation_living_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_living_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/living_top_light_6'
         - '⬅️ :/living_light, 🔄 :/living_top_light, ❌ :/hide_menu'
 
+## NAVIGATION LIVING SECURITY
+message_navigation_hall_security:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '📚 Безопасность'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.window_living_open", "on"), "🟠", "🟢") }} Окно :/living_security'
+        - '{{ iif(is_state("binary_sensor.door_living_open", "on"), "🟠", "🟢") }} Дверь :/living_security'
+        - '⬅️ :/living, 🔄 :/living_security, ❌ :/hide_menu'
+
 ## MESSAGE LIVING EMPTY HUMIDIFIER
 message_empty_humidifier_living:
   mode: 'queued'

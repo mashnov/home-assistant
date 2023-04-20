@@ -10,6 +10,7 @@ message_navigation_system:
         - '➡️ Сеть :/system_network'
         - '➡️ Проблемы :/system_problems'
         - '➡️ Обновления :/system_updates'
+        - '➡️ Ночной режим :/system_night'
         - '⚠️ Перезагрузка :/system_restart'
         - '⬅️ :/home, ❌ :/hide_menu'
 
@@ -61,6 +62,19 @@ message_navigation_updates:
         - '{{ iif(is_state("update.file_editor_update", "on"), "⚠️", "🟢") }} File Editor :/system_updates'
         - '{{ iif(is_state("update.terminal_ssh_update", "on"), "⚠️", "🟢") }} Terminal & SSH :/system_updates'
         - '⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
+
+## NAVIGATION SYSTEM NIGHT
+message_navigation_system_night:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Ночной режим ({{ iif(is_state("binary_sensor.night_mode_hall_boolean"), "Вкл", "Выкл") }})'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "🟢", "🔴") }} Спальня :/system_night_bedroom'
+        - '{{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "🟢", "🔴") }} Гостиная :/system_night_living'
+        - '⬅️ :/system, 🔄 :/system_night, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM SHUTDOWN
 message_system_shutdown:

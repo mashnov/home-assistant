@@ -53,6 +53,17 @@
   action:
   - service: script.message_navigation_balcony_relay
 
+## NAVIGATION BALCONY SECURITY
+- alias: message_navigation_balcony_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/balcony_security'
+  action:
+  - service: script.message_navigation_balcony_security
+
 ## MESSAGE BALCONY DOOR OPEN
 - alias: 'message_door_balcony'
   mode: 'queued'

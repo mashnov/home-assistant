@@ -87,6 +87,20 @@ message_navigation_bedroom_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_bedroom_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/bedroom_top_light_6'
         - '⬅️ :/bedroom_light, 🔄 :/bedroom_top_light, ❌ :/hide_menu'
 
+## NAVIGATION BEDROOM SECURITY
+message_navigation_bedroom_security:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🛌 Безопасность'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.window_bedroom_left_open", "on"), "🟠", "🟢") }} Левое окно :/bedroom_security'
+        - '{{ iif(is_state("binary_sensor.window_bedroom_right_open", "on"), "🟠", "🟢") }} Правое окно :/bedroom_security'
+        - '{{ iif(is_state("binary_sensor.door_bedroom_open", "on"), "🟠", "🟢") }} Дверь :/bedroom_security'
+        - '⬅️ :/bedroom, 🔄 :/bedroom_security, ❌ :/hide_menu'
+
 ## MESSAGE BEDROOM EMPTY HUMIDIFIER
 message_empty_humidifier_bedroom:
   mode: 'queued'

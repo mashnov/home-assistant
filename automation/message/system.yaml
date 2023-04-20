@@ -42,6 +42,17 @@
   action:
   - service: script.message_navigation_updates
 
+## NAVIGATION SYSTEM NIGHT
+- alias: message_navigation_system_night'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/system_night'
+  action:
+  - service: script.message_navigation_system_night
+
 ## MESSAGE SYSTEM START
 - alias: 'system_start_message'
   mode: 'queued'

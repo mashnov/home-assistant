@@ -53,6 +53,17 @@
   action:
   - service: script.message_navigation_hall_top_light
 
+## NAVIGATION HALL SECURITY
+- alias: message_navigation_hall_security'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/hall_security'
+  action:
+  - service: script.message_navigation_hall_security
+
 ## MESSAGE HALL DOOR OPEN
 - alias: 'message_door_hall'
   mode: 'queued'
