@@ -4,7 +4,7 @@ message_navigation_toilet:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🚽 Туалет ({{ iif(is_state("binary_sensor.occupancy_toilet_boolean", "on"), "🟠 Занято", "🟢 Свободно") }})'
+      message: '🚽 Туалет {{ iif(is_state("binary_sensor.occupancy_toilet_boolean", "on"), "🟠", "🟢" }})'
       data:
         inline_keyboard: 
         - '➡️ Климат :/toilet_climat'
