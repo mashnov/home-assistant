@@ -19,12 +19,10 @@ message_navigation_kitchen_curtain:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🥣 Кухня'
+      message: '🥣 Шторы: {{ states("sensor.curtain_kitchen_position") }} %'
       data:
         inline_keyboard: 
-        - '↔️ Положение {{ states("sensor.curtain_kitchen_position") }} % :/kitchen_curtain'
-        - '⬅️ Открыть :/kitchen_curtain_open'
-        - '➡️ Закрыть :/kitchen_curtain_close'
+        - '⬅️ Открыть :/kitchen_curtain_open, ➡️ Закрыть :/kitchen_curtain_close'
         - '10 :/kitchen_curtain_10, 20 :/kitchen_curtain_20, 30 :/kitchen_curtain_30, 40 :/kitchen_curtain_40, 50 :/kitchen_curtain_50, 60 :/kitchen_curtain_60, 70 :/kitchen_curtain_70, 80 :/kitchen_curtain_80, 90 :/kitchen_curtain_90'
         - '⬅️ :/kitchen, 🔄 :/kitchen_curtain, ❌ :/hide_menu'
 
@@ -34,7 +32,7 @@ message_navigation_kitchen_climat:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🥣 Кухня'
+      message: '🥣 Климат'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_kitchen_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_kitchen_level") }} °C :/kitchen_climat'
@@ -49,7 +47,7 @@ message_navigation_kitchen_switch:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🥣 Кухня'
+      message: '🥣 Выключатели'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.switch_kitchen_1_on", "on"), "🟢", "🔴") }} Освещение :/kitchen_switch_top_light'
@@ -62,7 +60,7 @@ message_navigation_kitchen_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🥣 Кухня'
+      message: '🥣 Освещение'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
@@ -77,7 +75,7 @@ message_navigation_kitchen_top_light:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🥣 Кухня'
+      message: '🥣 Светильники'
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_group_on", "on"), "🟢", "🔴") }} Все светильники :/kitchen_top_light_group'
