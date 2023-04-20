@@ -24,4 +24,4 @@ message_navigation_home:
         - '🛌 Спальня :/bedroom'
         - '📚 Гостиная :/living'
         - '🪴 Балкон :/balcony'
-        - '❌ Закрыть :/hide_menu'
+        - '❌ :/hide_menu'

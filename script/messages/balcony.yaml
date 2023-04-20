@@ -12,7 +12,7 @@ message_navigation_balcony:
         - '➡️ Солнце :/balcony_sun'
         - '➡️ Освещение :/balcony_light'
         - '➡️ Безопасность :/balcony_security'
-        - '⬅️ :/home, 🔄 :/balcony, ❌ :/hide_menu'
+        - '⬆️ :/home, 🔄 :/balcony, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY CLIMAT
 message_navigation_balcony_climat:
@@ -26,7 +26,7 @@ message_navigation_balcony_climat:
         - '💧 Влажность {{ states("sensor.humidity_balcony_level") }} % :/balcony_climat'
         - '🌡️ Температура {{ states("sensor.temperature_balcony_level") }} °C :/balcony_climat'
         - '{{ iif(is_state("binary_sensor.pressure_normal", "on"), "🟢", "⚠️") }} Давление {{ states("sensor.pressure_level") }} mmHg :/balcony_climat'
-        - '⬅️ :/balcony, 🔄 :/balcony_climat, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_climat, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY SUN
 message_navigation_balcony_sun:
@@ -40,7 +40,7 @@ message_navigation_balcony_sun:
         - '{{ iif(is_state("binary_sensor.cloud_hight", "on"), "☁️", "🌤️") }} Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
         - '☀️ Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
         - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "⚠️", "🟢") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
-        - '⬅️ :/balcony, 🔄 :/balcony_sun, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_sun, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY LIGHT
 message_navigation_balcony_light:
@@ -53,7 +53,7 @@ message_navigation_balcony_light:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.relay_balcony_2_on", "on"), "🟢", "🔴") }} Освещение :/balcony_top_light'
         - '{{ iif(is_state("binary_sensor.relay_balcony_1_on", "on"), "🟢", "🔴") }} Подсветка :/balcony_back_light'
-        - '⬅️ :/balcony, 🔄 :/balcony_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_light, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY LIGHT
 message_navigation_balcony_relay:
@@ -66,7 +66,7 @@ message_navigation_balcony_relay:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.relay_balcony_3_on", "on"), "🟢", "🔴") }} Фонтан :/balcony_fountain'
         - '{{ iif(is_state("binary_sensor.relay_balcony_4_on", "on"), "🟢", "🔴") }} Розетка :/balcony_socket'
-        - '⬅️ :/balcony, 🔄 :/balcony_relay, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_relay, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY SECURITY
 message_navigation_balcony_security:
@@ -78,7 +78,7 @@ message_navigation_balcony_security:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.door_balcony_open", "on"), "🟠", "🟢") }} Дверь :/balcony_security'
-        - '⬅️ :/balcony, 🔄 :/balcony_security, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_security, ❌ :/hide_menu'
 
 ## MESSAGE BALCONY DOOR OPEN
 message_door_balcony:

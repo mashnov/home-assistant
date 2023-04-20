@@ -11,7 +11,7 @@ message_navigation_hall:
         - '➡️ Освещение :/hall_light'
         - '➡️ Выключатели :/hall_switch'
         - '➡️ Безопасность :/hall_security'
-        - '⬅️ :/home, 🔄 :/hall, ❌ :/hide_menu'
+        - '⬆️ :/home, 🔄 :/hall, ❌ :/hide_menu'
 
 ## NAVIGATION HALL CLIMAT
 message_navigation_hall_climat:
@@ -26,7 +26,7 @@ message_navigation_hall_climat:
         - '{{ iif(is_state("binary_sensor.humidity_hall_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_hall_level") }} % :/hall_climat'
         - '{{ iif(is_state("binary_sensor.ventilation_hall_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '{{ iif(is_state("binary_sensor.relay_hall_2_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_hall_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/hall_humidifier'
-        - '⬅️ :/hall, 🔄 :/hall_climat, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/hall, 🔄 :/hall_climat, ❌ :/hide_menu'
 
 ## NAVIGATION HALL SWITCH
 message_navigation_hall_switch:
@@ -38,7 +38,7 @@ message_navigation_hall_switch:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.switch_hall_on", "on"), "🟢", "🔴") }} Выключатель :/hall_switch'
-        - '⬅️ :/hall, 🔄 :/hall_switch, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/hall, 🔄 :/hall_switch, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN LIGHT
 message_navigation_hall_light:
@@ -52,7 +52,7 @@ message_navigation_hall_light:
         - '{{ iif(is_state("binary_sensor.relay_hall_1_on", "on"), "🟢", "🔴") }} Подсветка :/hall_back_light'
         - '{{ iif(is_state("binary_sensor.night_light_hall_on", "on"), "🟢", "🔴") }} Ночник :/hall_night_light'
         - '➡️ Светильники :/hall_top_light'
-        - '⬅️ :/hall, 🔄 :/hall_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/hall, 🔄 :/hall_light, ❌ :/hide_menu'
 
 ## NAVIGATION HALL TOP LIGHT
 message_navigation_hall_top_light:
@@ -70,7 +70,7 @@ message_navigation_hall_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_hall_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/hall_top_light_4'
         - '{{ iif(is_state("binary_sensor.top_light_hall_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/hall_top_light_5'
         - '{{ iif(is_state("binary_sensor.top_light_hall_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/hall_top_light_6'
-        - '⬅️ :/hall_light, 🔄 :/hall_top_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/hall_light, 🔄 :/hall_top_light, ❌ :/hide_menu'
 
 ## NAVIGATION HALL SECURITY
 message_navigation_hall_security:
@@ -83,7 +83,7 @@ message_navigation_hall_security:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.motion_hall_boolean", "on"), "🟠", "🟢") }} Движение :/hall_security'
         - '{{ iif(is_state("binary_sensor.door_hall_open", "on"), "🟠", "🟢") }} Входная дверь :/hall_security'
-        - '⬅️ :/hall, 🔄 :/hall_security, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/hall, 🔄 :/hall_security, ❌ :/hide_menu'
 
 ## MESSAGE HALL DOOR OPEN
 message_door_hall:

@@ -9,7 +9,7 @@ message_navigation_bath:
         inline_keyboard: 
         - '➡️ Климат :/bath_climat'
         - '➡️ Освещение :/bath_light'
-        - '⬅️ :/home, 🔄 :/bath, ❌ :/hide_menu'
+        - '⬆️ :/home, 🔄 :/bath, ❌ :/hide_menu'
 
 ## NAVIGATION BATH CLIMAT
 message_navigation_bath_climat:
@@ -23,7 +23,7 @@ message_navigation_bath_climat:
         - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
         - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
         - '{{ iif(is_state("binary_sensor.relay_toilet_1_on", "on"), "🟢", "🔴") }} Вытяжка :/toilet_dehumidifier'
-        - '⬅️ :/bath, 🔄 :/bath_climat, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/bath, 🔄 :/bath_climat, ❌ :/hide_menu'
 
 ## NAVIGATION BATH LIGHT
 message_navigation_bath_light:
@@ -36,5 +36,5 @@ message_navigation_bath_light:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.top_light_bath_on", "on"), "🟢", "🔴") }} Освещение :/bath_top_light'
         - '{{ iif(is_state("binary_sensor.relay_bath_1_on", "on"), "🟢", "🔴") }} Ночник :/bath_night_light'
-        - '⬅️ :/bath, 🔄 :/bath_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/bath, 🔄 :/bath_light, ❌ :/hide_menu'
 

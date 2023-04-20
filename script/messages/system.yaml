@@ -12,7 +12,7 @@ message_navigation_system:
         - '➡️ Обновления :/system_updates'
         - '➡️ Дата и время :/system_date_time'
         - '⚠️ Перезагрузка :/system_restart'
-        - '⬅️ :/home, ❌ :/hide_menu'
+        - '⬆️ :/home, ❌ :/hide_menu'
 
 ## NAVIGATION SYSTEM NETWORK
 message_navigation_system_network:
@@ -26,7 +26,7 @@ message_navigation_system_network:
         - '{{ iif(is_state("binary_sensor.network_ping_low", "on"), "⚠️", "🟢") }} Пинг {{ states("sensor.network_ping_level") }} ms :/system_network'
         - '{{ iif(is_state("binary_sensor.network_upload_low", "on"), "⚠️", "🟢") }} Отдача {{ states("sensor.network_upload_level") }} Mbit/s :/system_network'
         - '{{ iif(is_state("binary_sensor.network_download_low", "on"), "⚠️", "🟢") }} Загрузка {{ states("sensor.network_download_level") }} Mbit/s :/system_network'
-        - '⬅️ :/system, 🔄 :/system_network, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_network, ❌ :/hide_menu'
 
 ## NAVIGATION SYSTEM ERRORS
 message_navigation_system_problems:
@@ -41,7 +41,7 @@ message_navigation_system_problems:
         - '{{ iif(is_state("binary_sensor.humidifier_bedroom_empty_boolean", "on"), "⚠️", "🟢") }} Увлажнитель в спальне :/system_problems'
         - '{{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "🟢") }} Увлажнитель в гостиной :/system_problems'
         - '{{ iif(is_state("binary_sensor.rpi_power_status", "on"), "⚠️", "🟢") }} Питание Raspberry :/system_problems'
-        - '⬅️ :/system, 🔄 :/system_problems, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_problems, ❌ :/hide_menu'
 
 ## NAVIGATION SYSTEM UPDATES
 message_navigation_updates:
@@ -61,7 +61,7 @@ message_navigation_updates:
         - '{{ iif(is_state("update.home_assistant_google_drive_backup_update", "on"), "⚠️", "🟢") }} Google Backup :/system_updates'
         - '{{ iif(is_state("update.file_editor_update", "on"), "⚠️", "🟢") }} File Editor :/system_updates'
         - '{{ iif(is_state("update.terminal_ssh_update", "on"), "⚠️", "🟢") }} Terminal & SSH :/system_updates'
-        - '⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
 
 ## NAVIGATION SYSTEM DATE TIME
 message_navigation_system_date_time:
@@ -75,7 +75,7 @@ message_navigation_system_date_time:
         - '{{ iif(is_state("binary_sensor.night_mode_hall_boolean", "on"), "🟢", "🔴") }} Коридор :/system_date_time'
         - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} Спальня :/system_night_bedroom'
         - '{{ iif(is_state("binary_sensor.night_mode_living_boolean", "on"), "🟢", "🔴") }} Гостиная :/system_night_living'
-        - '⬅️ :/system, 🔄 :/system_date_time, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_date_time, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM SHUTDOWN
 message_system_shutdown:

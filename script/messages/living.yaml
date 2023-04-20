@@ -12,7 +12,7 @@ message_navigation_living:
         - '➡️ Освещение :/living_light'
         - '➡️ Выключатели :/living_switch'
         - '➡️ Безопасность :/living_security'
-        - '⬅️ :/home, 🔄 :/living, ❌ :/hide_menu'
+        - '⬆️ :/home, 🔄 :/living, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING CURTAIN
 message_navigation_living_curtain:
@@ -24,7 +24,7 @@ message_navigation_living_curtain:
       data:
         inline_keyboard: 
         - '0 :/living_curtain_0, 25 :/living_curtain_25, 50 :/living_curtain_50, 75 :/living_curtain_75, 100 :/living_curtain_100'
-        - '⬅️ :/living, 🔄 :/living_curtain, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living, 🔄 :/living_curtain, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING CLIMAT
 message_navigation_living_climat:
@@ -39,7 +39,7 @@ message_navigation_living_climat:
         - '{{ iif(is_state("binary_sensor.humidity_living_low", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_living_level") }} % :/living_climat'
         - '{{ iif(is_state("binary_sensor.ventilation_living_boolean", "on"), "⚠️", "🟢") }} Проветривание :/kitchen_climat'
         - '{{ iif(is_state("binary_sensor.relay_living_1_on", "on"), "🟢", "🔴") }} {{ iif(is_state("binary_sensor.humidifier_living_empty_boolean", "on"), "⚠️", "") }} Увлажнитель :/living_humidifier'
-        - '⬅️ :/living, 🔄 :/living_climat, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living, 🔄 :/living_climat, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING SWITCH
 message_navigation_living_switch:
@@ -52,7 +52,7 @@ message_navigation_living_switch:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.switch_living_1_on", "on"), "🟢", "🔴") }} Левый :/living_switch_left'
         - '{{ iif(is_state("binary_sensor.switch_living_2_on", "on"), "🟢", "🔴") }} Правый :/living_switch_right'
-        - '⬅️ :/living, 🔄 :/living_switch, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living, 🔄 :/living_switch, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING LIGHT
 message_navigation_living_light:
@@ -65,7 +65,7 @@ message_navigation_living_light:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.relay_living_2_on", "on"), "🟢", "🔴") }} Подсветка :/living_back_light'
         - '➡️ Светильники :/living_top_light'
-        - '⬅️ :/living, 🔄 :/living_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living, 🔄 :/living_light, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING TOP LIGHT
 message_navigation_living_top_light:
@@ -83,7 +83,7 @@ message_navigation_living_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_living_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/living_top_light_4'
         - '{{ iif(is_state("binary_sensor.top_light_living_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/living_top_light_5'
         - '{{ iif(is_state("binary_sensor.top_light_living_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/living_top_light_6'
-        - '⬅️ :/living_light, 🔄 :/living_top_light, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living_light, 🔄 :/living_top_light, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING SECURITY
 message_navigation_living_security:
@@ -96,7 +96,7 @@ message_navigation_living_security:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.window_living_open", "on"), "🟠", "🟢") }} Окно :/living_security'
         - '{{ iif(is_state("binary_sensor.door_living_open", "on"), "🟠", "🟢") }} Дверь :/living_security'
-        - '⬅️ :/living, 🔄 :/living_security, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/living, 🔄 :/living_security, ❌ :/hide_menu'
 
 ## MESSAGE LIVING EMPTY HUMIDIFIER
 message_empty_humidifier_living:
