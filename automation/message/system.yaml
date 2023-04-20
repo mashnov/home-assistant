@@ -42,16 +42,16 @@
   action:
   - service: script.message_navigation_updates
 
-## NAVIGATION SYSTEM NIGHT
-- alias: message_navigation_system_night'
+## NAVIGATION SYSTEM DATE TIME
+- alias: message_navigation_system_date_time'
   mode: 'queued'
   trigger:
   - platform: event
     event_type: telegram_callback
     event_data:
-      command: '/system_night'
+      command: '/system_date_time'
   action:
-  - service: script.message_navigation_system_night
+  - service: script.message_navigation_system_date_time
 
 ## MESSAGE SYSTEM START
 - alias: 'system_start_message'
