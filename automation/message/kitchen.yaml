@@ -10,6 +10,17 @@
   - service: script.message_navigation_kitchen
 
 ## NAVIGATION KITCHEN TOP LIGHT
+- alias: message_navigation_kitchen_light'
+  mode: 'queued'
+  trigger:
+  - platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/kitchen_light'
+  action:
+  - service: script.message_navigation_kitchen_light
+
+## NAVIGATION KITCHEN TOP LIGHT
 - alias: message_navigation_kitchen_top_light'
   mode: 'queued'
   trigger:

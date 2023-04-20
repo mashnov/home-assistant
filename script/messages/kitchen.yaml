@@ -7,14 +7,11 @@ message_navigation_kitchen:
       message: '🥣 Кухня'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
-        - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_back_light'
-        - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник :/kitchen_night_light'
         - '➡️ Шторы :/kitchen_curtain'
         - '➡️ Климат :/kitchen_climat'
-        - '➡️ Освещение :/kitchen_top_light'
-        - '➡️ Выключатель :/kitchen_switch'
-        - '⬅️ :/home, 🔄 :/kitchen, ❌ :/hide_menu'
+        - '➡️ Освещение :/kitchen_light'
+        - '➡️ Выключатели :/kitchen_switch'
+        - '⬅️ :/home, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN CURTAIN
 message_navigation_kitchen_curtain:
@@ -57,6 +54,21 @@ message_navigation_kitchen_switch:
         - '{{ iif(is_state("binary_sensor.switch_kitchen_1_on", "on"), "🟢", "🔴") }} Освещение :/kitchen_switch_top_light'
         - '{{ iif(is_state("binary_sensor.switch_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_switch_back_light'
         - '⬅️ :/kitchen, 🔄 :/kitchen_switch, ❌ :/hide_menu'
+
+## NAVIGATION KITCHEN LIGHT
+message_navigation_kitchen_light:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🥣 Кухня'
+      data:
+        inline_keyboard: 
+        - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_back_light'
+        - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник :/kitchen_night_light'
+        - '➡️ Освещение :/kitchen_top_light'
+        - '⬅️ :/kitchen, 🔄 :/kitchen_light, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN TOP LIGHT
 message_navigation_kitchen_top_light:
