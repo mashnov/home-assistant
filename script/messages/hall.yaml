@@ -8,7 +8,7 @@ message_navigation_hall:
       data:
         inline_keyboard: 
         - '➡️ Климат :/hall_climat'
-        - '➡️ Освещение :/hall_top_light'
+        - '➡️ Освещение :/hall_light'
         - '➡️ Выключатели :/hall_switch'
         - '⬅️ :/home, 🔄 :/hall, ❌ :/hide_menu'
 

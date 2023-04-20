@@ -23,8 +23,8 @@ message_navigation_system_network:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.network_ping_low", "on"), "⚠️", "🟢") }} Пинг {{ states("sensor.network_ping_level") }} ms :/system_network'
-        - '{{ iif(is_state("binary_sensor.network_download_low", "on"), "⚠️", "🟢") }} Загрузка {{ states("sensor.network_download_level") }} Mbit/s :/system_network'
         - '{{ iif(is_state("binary_sensor.network_upload_low", "on"), "⚠️", "🟢") }} Отдача {{ states("sensor.network_upload_level") }} Mbit/s :/system_network'
+        - '{{ iif(is_state("binary_sensor.network_download_low", "on"), "⚠️", "🟢") }} Загрузка {{ states("sensor.network_download_level") }} Mbit/s :/system_network'
         - '⬅️ :/system, 🔄 :/system_network, ❌ :/hide_menu'
 
 ## NAVIGATION SYSTEM ERRORS
@@ -62,6 +62,14 @@ message_navigation_updates:
         - '{{ iif(is_state("update.terminal_ssh_update", "on"), "⚠️", "🟢") }} Terminal & SSH :/system_updates'
         - '⬅️ :/system, 🔄 :/system_updates, ❌ :/hide_menu'
 
+## MESSAGE SYSTEM SHUTDOWN
+message_system_shutdown:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '🚀 Выключение системы'
+
 ## MESSAGE SYSTEM START
 message_system_start:
   mode: 'queued'
@@ -71,18 +79,7 @@ message_system_start:
       message: '🚀 Старт системы'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
-
-## MESSAGE SYSTEM SHUTDOWN
-message_system_shutdown:
-  mode: 'queued'
-  sequence:
-  - service: notify.telegram_home_group_id
-    data_template:
-      message: '🚀 Выключение системы'
-      data:
-        inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/home, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM POWER PROBLEM
 message_system_power_problem:
@@ -93,7 +90,7 @@ message_system_power_problem:
       message: '🚀 Доступно обновление системы'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/system_updates, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM UPDATE
 message_system_update:
@@ -104,4 +101,4 @@ message_system_update:
       message: '🚀 Проблемы с питанием'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/system_problems, ❌ :/hide_menu'

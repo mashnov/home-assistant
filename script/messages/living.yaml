@@ -49,7 +49,6 @@ message_navigation_living_switch:
       message: '📚 Выключатели'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.switch_living_on", "on"), "🟢", "🔴") }} Выключатель :/living_switch_both'
         - '{{ iif(is_state("binary_sensor.switch_living_1_on", "on"), "🟢", "🔴") }} Левый :/living_switch_left'
         - '{{ iif(is_state("binary_sensor.switch_living_2_on", "on"), "🟢", "🔴") }} Правый :/living_switch_right'
         - '⬅️ :/living, 🔄 :/living_switch, ❌ :/hide_menu'
@@ -83,7 +82,7 @@ message_navigation_living_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_living_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/living_top_light_4'
         - '{{ iif(is_state("binary_sensor.top_light_living_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/living_top_light_5'
         - '{{ iif(is_state("binary_sensor.top_light_living_6_on", "on"), "🟢", "🔴") }} Светильник 6 :/living_top_light_6'
-        - '⬅️ :/living, 🔄 :/living_top_light, ❌ :/hide_menu'
+        - '⬅️ :/living_light, 🔄 :/living_top_light, ❌ :/hide_menu'
 
 ## MESSAGE LIVING EMPTY HUMIDIFIER
 message_empty_humidifier_living:

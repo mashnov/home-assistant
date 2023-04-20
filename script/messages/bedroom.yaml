@@ -49,7 +49,6 @@ message_navigation_bedroom_switch:
       message: '🛌 Выключатели'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.switch_bedroom_on", "on"), "🟢", "🔴") }} Выключатель :/bedroom_switch_both'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_1_on", "on"), "🟢", "🔴") }} Левый :/bedroom_switch_left'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_2_on", "on"), "🟢", "🔴") }} Правый :/bedroom_switch_right'
         - '{{ iif(is_state("binary_sensor.switch_bedroom_3_on", "on"), "🟢", "🔴") }} Подсветка :/bedroom_switch_wall'

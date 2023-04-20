@@ -40,7 +40,7 @@
     event_data:
       command: '/hall_light'
   action:
-  - service: script.message_navigation_kitchen_light
+  - service: script.message_navigation_hall_light
 
 ## NAVIGATION HALL TOP LIGHT
 - alias: message_navigation_hall_top_light'
