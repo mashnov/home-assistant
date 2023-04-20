@@ -40,7 +40,7 @@ message_navigation_hall_switch:
         - '⬅️ :/hall, 🔄 :/hall_switch, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN LIGHT
-message_navigation_kitchen_light:
+message_navigation_hall_light:
   mode: 'queued'
   sequence:
   - service: notify.telegram_home_group_id
