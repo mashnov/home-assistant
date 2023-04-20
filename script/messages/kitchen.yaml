@@ -11,6 +11,7 @@ message_navigation_kitchen:
         - '➡️ Климат :/kitchen_climat'
         - '➡️ Освещение :/kitchen_light'
         - '➡️ Выключатели :/kitchen_switch'
+        - '➡️ Безопасность :/kitchen_security'
         - '⬅️ :/home, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN CURTAIN

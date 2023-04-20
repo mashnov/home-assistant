@@ -4,7 +4,7 @@ message_navigation_bath:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🛁 Ванная'
+      message: '🛁 Ванная ({{ iif(is_state("binary_sensor.motion_bath_boolean"), "Занято", "Свободно") }})'
       data:
         inline_keyboard: 
         - '➡️ Климат :/bath_climat'
@@ -22,6 +22,7 @@ message_navigation_bath_climat:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.temperature_bath_problem", "on"), "⚠️", "🟢") }} Температура {{ states("sensor.temperature_bath_level") }} °C :/bath_climat'
         - '{{ iif(is_state("binary_sensor.humidity_bath_hight", "on"), "⚠️", "🟢") }} Влажность {{ states("sensor.humidity_bath_level") }} % :/bath_climat'
+        - '{{ iif(is_state("binary_sensor.relay_toilet_1_on", "on"), "🟢", "🔴") }} Вытяжка :/toilet_dehumidifier'
         - '⬅️ :/bath, 🔄 :/bath_climat, ❌ :/hide_menu'
 
 ## NAVIGATION BATH LIGHT

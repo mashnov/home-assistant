@@ -11,6 +11,7 @@ message_navigation_balcony:
         - '➡️ Климат :/balcony_climat'
         - '➡️ Солнце :/balcony_sun'
         - '➡️ Освещение :/balcony_light'
+        - '➡️ Безопасность :/balcony_security'
         - '⬅️ :/home, 🔄 :/balcony, ❌ :/hide_menu'
 
 ## NAVIGATION BALCONY CLIMAT
@@ -73,7 +74,7 @@ message_door_balcony:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🪴 Открыта дверь'
+      message: '🪴 {{ iif(is_state("binary_sensor.door_balcony_open", "on"), "Открыта ", "Закрыта") }} дверь'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/balcony_security, ❌ :/hide_menu'

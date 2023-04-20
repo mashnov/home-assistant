@@ -10,6 +10,7 @@ message_navigation_hall:
         - '➡️ Климат :/hall_climat'
         - '➡️ Освещение :/hall_light'
         - '➡️ Выключатели :/hall_switch'
+        - '➡️ Безопасность :/hall_security'
         - '⬅️ :/home, 🔄 :/hall, ❌ :/hide_menu'
 
 ## NAVIGATION HALL CLIMAT
@@ -77,10 +78,10 @@ message_door_hall:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '🧥 Открыта дверь'
+      message: '🧥 {{ iif(is_state("binary_sensor.door_hall_open", "on"), "Открыта ", "Закрыта") }} дверь'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/hall_security, ❌ :/hide_menu'
 
 ## MESSAGE HALL EMPTY HUMIDIFIER
 message_empty_humidifier_hall:
@@ -91,4 +92,4 @@ message_empty_humidifier_hall:
       message: '🧥 Закончилась вода в увлажниеле'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/hall_climat, ❌ :/hide_menu'

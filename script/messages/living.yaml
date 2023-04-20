@@ -11,6 +11,7 @@ message_navigation_living:
         - '➡️ Климат :/living_climat'
         - '➡️ Освещение :/living_light'
         - '➡️ Выключатели :/living_switch'
+        - '➡️ Безопасность :/living_security'
         - '⬅️ :/home, 🔄 :/living, ❌ :/hide_menu'
 
 ## NAVIGATION LIVING CURTAIN
@@ -93,4 +94,4 @@ message_empty_humidifier_living:
       message: '📚 Закончилась вода в увлажниеле'
       data:
         inline_keyboard: 
-        - '❌ :/hide_menu'
+        - '⬆️ :/living_climat, ❌ :/hide_menu'
