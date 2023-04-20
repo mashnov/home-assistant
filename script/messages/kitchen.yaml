@@ -25,6 +25,7 @@ message_navigation_kitchen_curtain:
         - '↔️ Положение {{ states("sensor.curtain_kitchen_position") }} % :/kitchen_curtain'
         - '⬅️ Открыть :/kitchen_curtain_open'
         - '➡️ Закрыть :/kitchen_curtain_close'
+        - '10 :/kitchen_curtain_10, 20 :/kitchen_curtain_20, 30 :/kitchen_curtain_30, 40 :/kitchen_curtain_40, 50 :/kitchen_curtain_50, 60 :/kitchen_curtain_60, 70 :/kitchen_curtain_70, 80 :/kitchen_curtain_80, 90 :/kitchen_curtain_90'
         - '⬅️ :/kitchen, 🔄 :/kitchen_curtain, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN CLIMAT
@@ -67,7 +68,7 @@ message_navigation_kitchen_light:
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} RGB-лента :/kitchen_rgb_light'
         - '{{ iif(is_state("binary_sensor.relay_kitchen_2_on", "on"), "🟢", "🔴") }} Подсветка :/kitchen_back_light'
         - '{{ iif(is_state("binary_sensor.relay_kitchen_1_on", "on"), "🟢", "🔴") }} Ночник :/kitchen_night_light'
-        - '➡️ Освещение :/kitchen_top_light'
+        - '➡️ Светильники :/kitchen_top_light'
         - '⬅️ :/kitchen, 🔄 :/kitchen_light, ❌ :/hide_menu'
 
 ## NAVIGATION KITCHEN TOP LIGHT
@@ -85,4 +86,4 @@ message_navigation_kitchen_top_light:
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_3_on", "on"), "🟢", "🔴") }} Светильник 3 :/kitchen_top_light_3'
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_4_on", "on"), "🟢", "🔴") }} Светильник 4 :/kitchen_top_light_4'
         - '{{ iif(is_state("binary_sensor.top_light_kitchen_5_on", "on"), "🟢", "🔴") }} Светильник 5 :/kitchen_top_light_5'
-        - '⬅️ :/kitchen, 🔄 :/kitchen_top_light, ❌ :/hide_menu'
+        - '⬅️ :/kitchen_light, 🔄 :/kitchen_top_light, ❌ :/hide_menu'
