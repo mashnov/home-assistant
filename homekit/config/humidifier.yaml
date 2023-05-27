@@ -1,0 +1,8 @@
+switch.hall_relay_l2:
+  name: Humidifier Hall
+
+switch.bedroom_relay_l2:
+  name: Humidifier Bedroom
+
+switch.living_relay_l1:
+  name: Humidifier Living

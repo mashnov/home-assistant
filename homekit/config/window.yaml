@@ -1,0 +1,14 @@
+binary_sensor.window_kitchen_left_open:
+  name: Window Left Kitchen
+
+binary_sensor.window_kitchen_right_open:
+  name: Window Right Kitchen
+
+binary_sensor.window_bedroom_left_open:
+  name: Window Left Bedroom
+
+binary_sensor.window_bedroom_right_open:
+  name: Window Right Bedroom
+
+binary_sensor.window_living_open:
+  name: Window Living

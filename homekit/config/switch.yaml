@@ -1,0 +1,20 @@
+switch.kitchen_switch_left:
+  name: Switch Top Light Kitchen
+
+switch.kitchen_switch_right:
+  name: Switch Back Light Kitchen
+
+switch.hall_switch_restroom_right:
+  name: Switch Toilet
+
+switch.hall_switch_restroom_left:
+  name: Switch Bath
+
+switch.hall_switch:
+  name: Switch Hall
+
+switch.bedroom_switch:
+  name: Switch Bedroom
+
+switch.living_switch:
+  name: Switch Living

@@ -1,0 +1,14 @@
+switch.kitchen_relay_l1:
+  name: Night Light Kitchen
+
+switch.bath_relay_l1:
+  name: Night Light Bath
+
+switch.toilet_relay_l2:
+  name: Night Light Toilet
+
+light.nightlight_hall:
+  name: Night Light Hall
+
+switch.balcony_relay_l1:
+  name: Night Light Balcony
