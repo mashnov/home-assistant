@@ -1,8 +1,8 @@
-switch.hall_relay_l2:
+humidifier.humidifier_hall:
   name: Humidifier
 
-switch.bedroom_relay_l2:
+humidifier.humidifier_bedroom:
   name: Humidifier
 
-switch.living_relay_l1:
+humidifier.humidifier_living:
   name: Humidifier
