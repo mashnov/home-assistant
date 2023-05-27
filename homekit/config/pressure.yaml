@@ -1,0 +1,14 @@
+sensor.pressure_kitchen_level:
+  type: pressure
+
+sensor.pressure_bath_level:
+  type: pressure
+
+sensor.pressure_hall_level:
+  type: pressure
+
+sensor.pressure_bedroom_level:
+  type: pressure
+
+sensor.pressure_living_level:
+  type: pressure
