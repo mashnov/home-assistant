@@ -14,6 +14,16 @@
       {% set isEnable = is_state('binary_sensor.switch_kitchen_2_on', 'on') %}
       {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
 
+  - name: 'switch_kitchen_on'
+    device_class: 'plug'
+    state: >
+      {% set isEnableLeft = is_state('binary_sensor.switch_kitchen_1_on', 'on') %}
+      {% set isEnableRight = is_state('binary_sensor.switch_kitchen_2_on', 'on') %}    
+      {{ isEnableLeft and isEnableRight }}
+    icon: >
+      {% set isEnable = is_state('binary_sensor.switch_kitchen_on', 'on') %}
+      {{ iif(isEnable, 'mdi:light-switch', 'mdi:light-switch-off', 'mdi:help-circle') }}
+
   - name: 'switch_bath_on'
     device_class: 'plug'
     state: "{{ is_state('switch.hall_switch_restroom_right', 'on') }}"

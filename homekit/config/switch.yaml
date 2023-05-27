@@ -1,8 +1,5 @@
-switch.kitchen_switch_left:
-  name: Switch Top Light Kitchen
-
-switch.kitchen_switch_right:
-  name: Switch Back Light Kitchen
+switch.kitchen_switch:
+  name: Switch Kitchen
 
 switch.hall_switch_restroom_right:
   name: Switch Toilet

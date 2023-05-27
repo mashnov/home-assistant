@@ -1,5 +1,4 @@
-- switch.kitchen_switch_left
-- switch.kitchen_switch_right
+- switch.kitchen_switch
 - switch.hall_switch_restroom_right
 - switch.hall_switch_restroom_left
 - switch.hall_switch
