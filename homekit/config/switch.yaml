@@ -1,17 +1,17 @@
 switch.kitchen_switch:
-  name: Switch Kitchen
+  name: Switch
 
 switch.hall_switch_restroom_right:
-  name: Switch Toilet
+  name: Switch
 
 switch.hall_switch_restroom_left:
-  name: Switch Bath
+  name: Switch
 
 switch.hall_switch:
-  name: Switch Hall
+  name: Switch
 
 switch.bedroom_switch:
-  name: Switch Bedroom
+  name: Switch
 
 switch.living_switch:
-  name: Switch Living
+  name: Switch

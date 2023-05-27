@@ -1,17 +1,17 @@
 sensor.humidity_kitchen_level:
-  name: Humidity Kitchen
+  name: Humidity
 
 sensor.humidity_bath_level:
-  name: Humidity Bath
+  name: Humidity
 
 sensor.humidity_hall_level:
-  name: Humidity Hall
+  name: Humidity
 
 sensor.humidity_bedroom_level:
-  name: Humidity Bedroom
+  name: Humidity
 
 sensor.humidity_living_level:
-  name: Humidity Livin
+  name: Humidity
 
 sensor.humidity_balcony_level:
-  name: Humidity Balcony
+  name: Humidity

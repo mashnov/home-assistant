@@ -1,17 +1,17 @@
 sensor.temperature_kitchen_level:
-  name: Temperature Kitchen
+  name: Temperature
 
 sensor.temperature_bath_level:
-  name: Temperature Bath
+  name: Temperature
 
 sensor.temperature_hall_level:
-  name: Temperature Hall
+  name: Temperature
 
 sensor.temperature_bedroom_level:
-  name: Temperature Bedroom
+  name: Temperature
 
 sensor.temperature_living_level:
-  name: Temperature Living
+  name: Temperature
 
 sensor.temperature_balcony_level:
-  name: Temperature Bedroom
+  name: Temperature

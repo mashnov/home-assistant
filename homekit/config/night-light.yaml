@@ -1,14 +1,14 @@
 switch.kitchen_relay_l1:
-  name: Night Light Kitchen
+  name: Night Light
 
 switch.bath_relay_l1:
-  name: Night Light Bath
+  name: Night Light
 
 switch.toilet_relay_l2:
-  name: Night Light Toilet
+  name: Night Light
 
 light.nightlight_hall:
-  name: Night Light Hall
+  name: Night Light
 
 switch.balcony_relay_l1:
-  name: Night Light Balcony
+  name: Night Light

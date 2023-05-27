@@ -1,11 +1,11 @@
 binary_sensor.motion_kitchen_boolean:
-  name: Occupancy Kitchen
+  name: Occupancy
 
 binary_sensor.motion_bath_boolean:
-  name: Occupancy Bath
+  name: Occupancy
 
 binary_sensor.occupancy_toilet_boolean:
-  name: Occupancy Toilet
+  name: Occupancy
 
 binary_sensor.motion_hall_boolean:
-  name: Occupancy Hall
+  name: Occupancy
