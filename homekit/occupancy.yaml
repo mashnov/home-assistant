@@ -1,0 +1,4 @@
+- binary_sensor.motion_kitchen_boolean
+- binary_sensor.motion_bath_boolean
+- binary_sensor.occupancy_toilet_boolean
+- binary_sensor.motion_hall_boolean
