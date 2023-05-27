@@ -1,0 +1,6 @@
+- sensor.temperature_kitchen_level
+- sensor.temperature_bath_level
+- sensor.temperature_hall_level
+- sensor.temperature_bedroom_level
+- sensor.temperature_living_level
+- sensor.temperature_balcony_level
