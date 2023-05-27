@@ -1,11 +1,11 @@
- - group.top_light_kitchen_group
+ - light.top_light_kitchen_group
  - light.top_light_kitchen_1
  - light.top_light_kitchen_2
  - light.top_light_kitchen_3
  - light.top_light_kitchen_4
  - light.top_light_kitchen_5
 
- - group.top_light_hall_group
+ - light.top_light_hall_group
  - light.top_light_hall_1
  - light.top_light_hall_2
  - light.top_light_hall_3
@@ -13,7 +13,7 @@
  - light.top_light_hall_5
  - light.top_light_hall_6
 
- - group.top_light_bedroom_group
+ - light.top_light_bedroom_group
  - light.top_light_bedroom_1
  - light.top_light_bedroom_2
  - light.top_light_bedroom_3
@@ -21,7 +21,7 @@
  - light.top_light_bedroom_5
  - light.top_light_bedroom_6
 
- - group.top_light_living_group
+ - light.top_light_living_group
  - light.top_light_living_1
  - light.top_light_living_2
  - light.top_light_living_3
