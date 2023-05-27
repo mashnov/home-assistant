@@ -69,13 +69,29 @@ message_navigation_system_date_time:
   sequence:
   - service: notify.telegram_home_group_id
     data_template:
-      message: '💾 Дата и время'
+      message: '💾 Дата и время ({{ state_attr("sensor.date_time", "hm") }}) UTC'
       data:
         inline_keyboard: 
-        - '{{ iif(is_state("binary_sensor.night_mode_hall_boolean", "on"), "🟢", "🔴") }} Коридор :/system_date_time'
+        - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} Утро :/system_date_time'
+        - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} День :/system_date_time'
+        - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} Вечер :/system_date_time'
+        - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} Сумерки :/system_date_time'
+        - '{{ iif(is_state("binary_sensor.night_mode_living_boolean", "on"), "🟢", "🔴") }} Ночь :/system_date_time'
+        - '➡️ Ночной режим :/system_night_mode'
+        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_date_time, ❌ :/hide_menu'
+
+## NAVIGATION SYSTEM DATE TIME
+message_navigation_system_night_mode:
+  mode: 'queued'
+  sequence:
+  - service: notify.telegram_home_group_id
+    data_template:
+      message: '💾 Ночной режим iif(is_state("binary_sensor.night_mode_hall_boolean", "on"), "(Вкл)", "")'
+      data:
+        inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.night_mode_bedroom_boolean", "on"), "🟢", "🔴") }} Спальня :/system_night_bedroom'
         - '{{ iif(is_state("binary_sensor.night_mode_living_boolean", "on"), "🟢", "🔴") }} Гостиная :/system_night_living'
-        - '⬆️ :/home, ⬅️ :/system, 🔄 :/system_date_time, ❌ :/hide_menu'
+        - '⬆️ :/home, ⬅️ :/system_date_time, 🔄 :/system_night_mode, ❌ :/hide_menu'
 
 ## MESSAGE SYSTEM SHUTDOWN
 message_system_shutdown:
