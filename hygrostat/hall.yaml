@@ -1,0 +1,5 @@
+- name: humidifier_hall
+  device_class: 'humidifier'
+  humidifier: switch.hall_relay_l2
+  target_sensor: sensor.humidity_hall_level
+  
