@@ -23,28 +23,28 @@
 
 ## MOTION BOOLEAN SENSORS
   - name: 'motion_kitchen_boolean'
-    device_class: 'motion'
+    device_class: 'occupancy'
     state: "{{ is_state('input_boolean.occupancy_kitchen', 'on') }}"
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy_toilet', 'on') %}
       {{ iif(isOccupancy, 'mdi:human-greeting', 'mdi:human-male', 'mdi:help-circle') }}
 
   - name: 'motion_bath_boolean'
-    device_class: 'motion'
+    device_class: 'occupancy'
     state: "{{ is_state('input_boolean.occupancy_bath', 'on') }}"
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy_bath', 'on') %}
       {{ iif(isOccupancy, 'mdi:human-greeting', 'mdi:human-male', 'mdi:help-circle') }}
 
   - name: 'occupancy_toilet_boolean'
-    device_class: 'motion'
+    device_class: 'occupancy'
     state: "{{ is_state('input_boolean.occupancy_toilet', 'on') }}"
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy_toilet', 'on') %}
       {{ iif(isOccupancy, 'mdi:toilet', 'mdi:paper-roll-outline', 'mdi:help-circle') }}
 
   - name: 'motion_hall_boolean'
-    device_class: 'motion'
+    device_class: 'occupancy'
     state: "{{ is_state('input_boolean.occupancy_hall', 'on') }}"
     icon: >
       {% set isOccupancy = is_state('binary_sensor.occupancy_hall', 'on') %}
