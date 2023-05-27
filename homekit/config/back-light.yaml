@@ -8,7 +8,7 @@ switch.bedroom_relay_l1:
   name: Back Light
 
 switch.bedroom_wall_switch:
-  name: Back Light
+  name: Wall Light
 
 switch.living_relay_l2:
   name: Back Light
