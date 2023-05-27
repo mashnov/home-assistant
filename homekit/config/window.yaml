@@ -12,4 +12,3 @@ binary_sensor.window_bedroom_right_open:
 
 binary_sensor.window_living_open:
   name: Window
-  room: Living
