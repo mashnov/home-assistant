@@ -1,7 +1,5 @@
-- switch.hall_switch
-- switch.bedroom_switch_left
-- switch.bedroom_switch_right
 - switch.kitchen_switch_left
 - switch.kitchen_switch_right
-- switch.living_switch_left
-- switch.living_switch_right
+- switch.hall_switch
+- switch.bedroom_switch
+- switch.living_switch
