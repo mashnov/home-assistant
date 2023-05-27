@@ -1,19 +1,14 @@
 sensor.pressure_kitchen_level:
-  service: pressure
   name: pressure_kitchen_level
 
 sensor.pressure_bath_level:
-  service: pressure
   name: pressure_bath_level
 
 sensor.pressure_hall_level:
-  service: pressure
   name: pressure_hall_level
 
 sensor.pressure_bedroom_level:
-  service: pressure
   name: pressure_bedroom_level
 
 sensor.pressure_living_level:
-  service: pressure
   name: pressure_living_level
