@@ -1,0 +1,5 @@
+- name: humidifier_bath
+  device_class: 'dehumidifier'
+  humidifier: switch.toilet_relay_l1
+  target_sensor: sensor.humidity_bath_level
+  

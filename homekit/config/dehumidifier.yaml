@@ -1,2 +1,5 @@
 switch.toilet_relay_l1:
   name: Dehumidifier
+
+dehumidifier.dehumidifier_bath:
+  name: Dehumidifier
