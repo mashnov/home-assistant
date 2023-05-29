@@ -1,5 +1,2 @@
-switch.toilet_relay_l1:
-  name: Dehumidifier
-
 humidifier.humidifier_bath:
   name: Dehumidifier

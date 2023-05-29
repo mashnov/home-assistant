@@ -1,24 +1,3 @@
-## DEHUMIDIFIER BATH
-- alias: 'dehumidifier_bath_on'
-  mode: 'queued'
-  trigger:
-  - platform: state
-    entity_id: 'binary_sensor.humidity_bath_hight'
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidity_bath_hight
-        state: 'on'
-      sequence:
-      - service: script.button_toilet_long_on
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.humidity_bath_hight
-        state: 'off'
-      sequence:
-      - service: script.button_toilet_long_off
-
 ## DEHUMIDIFIER TOILET
 - alias: 'dehumidifier_toilet_on'
   mode: 'queued'

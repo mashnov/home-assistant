@@ -1,6 +1,0 @@
-toilet_fan:
-  value_template: "{{ states('switch.toilet_relay_l1') }}"
-  turn_on:
-    service: script.dehumidifier_toilet_on
-  turn_off:
-    service: script.dehumidifier_toilet_off
