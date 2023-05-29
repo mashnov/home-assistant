@@ -31,3 +31,12 @@
   - light.top_light_kitchen_3
   - light.top_light_kitchen_4
   - light.top_light_kitchen_5
+
+- platform: template
+  lights:
+    back_light_kitchen:
+      value_template: "{{ states('switch.kitchen_relay_l2') }}"
+      turn_on:
+        service: script.back_light_kitchen_on
+      turn_off:
+        service: script.back_light_kitchen_off

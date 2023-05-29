@@ -1,7 +1,6 @@
-- switch.kitchen_relay_l2
-- switch.hall_relay_l1
-- switch.bedroom_relay_l1
-- switch.bedroom_wall_switch
-- switch.living_relay_l2
-
+- light.back_light_kitchen
+- light.back_light_hall
+- light.back_light_bedroom
+- light.wall_light_bedroom
+- light.back_light_living
 - light.back_light_balcony

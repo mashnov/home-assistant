@@ -37,4 +37,12 @@
   - light.top_light_hall_4
   - light.top_light_hall_5
   - light.top_light_hall_6
-  
+
+- platform: template
+  lights:
+    back_light_hall:
+      value_template: "{{ states('switch.hall_relay_l1') }}"
+      turn_on:
+        service: script.back_light_hall_on
+      turn_off:
+        service: script.back_light_hall_off

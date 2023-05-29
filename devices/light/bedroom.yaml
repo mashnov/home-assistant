@@ -37,3 +37,19 @@
   - light.top_light_bedroom_4
   - light.top_light_bedroom_5
   - light.top_light_bedroom_6
+
+- platform: template
+  lights:
+    back_light_bedroom:
+      value_template: "{{ states('switch.bedroom_relay_l1') }}"
+      turn_on:
+        service: script.back_light_bedroom_1_on
+      turn_off:
+        service: script.back_light_bedroom_1_off
+
+    wall_light_bedroom:
+      value_template: "{{ states('switch.bedroom_wall_switch') }}"
+      turn_on:
+        service: script.back_light_bedroom_2_on
+      turn_off:
+        service: script.back_light_bedroom_2_off

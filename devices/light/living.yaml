@@ -37,3 +37,12 @@
   - light.top_light_living_4
   - light.top_light_living_5
   - light.top_light_living_6
+
+- platform: template
+  lights:
+    back_light_living:
+      value_template: "{{ states('switch.living_relay_l2') }}"
+      turn_on:
+        service: script.back_light_living_on
+      turn_off:
+        service: script.back_light_living_off

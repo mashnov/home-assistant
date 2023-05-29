@@ -1,17 +1,17 @@
-switch.kitchen_relay_l2:
+light.back_light_kitchen:
   name: Back Light
 
-switch.hall_relay_l1:
+light.back_light_hall:
   name: Back Light
 
-switch.bedroom_relay_l1:
+light.back_light_bedroom:
   name: Back Light
 
-switch.bedroom_wall_switch:
+light.wall_light_bedroom:
   name: Wall Light
 
-switch.living_relay_l2:
+light.back_light_living:
   name: Back Light
 
-switch.balcony_relay_l2:
+light.back_light_balcony:
   name: Back Light
