@@ -1,0 +1,8 @@
+- platform: template
+  lights:
+    night_light_balcony:
+      value_template: "{{ states('switch.balcony_relay_l1') }}"
+      turn_on:
+        service: script.night_light_balcony_on
+      turn_off:
+        service: script.night_light_balcony_off
