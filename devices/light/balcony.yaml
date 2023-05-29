@@ -6,3 +6,10 @@
         service: script.night_light_balcony_on
       turn_off:
         service: script.night_light_balcony_off
+
+    back_light_balcony:
+      value_template: "{{ states('switch.balcony_relay_l2') }}"
+      turn_on:
+        service: script.back_light_balcony_on
+      turn_off:
+        service: script.back_light_balcony_off
