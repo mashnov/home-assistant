@@ -40,3 +40,10 @@
         service: script.back_light_kitchen_on
       turn_off:
         service: script.back_light_kitchen_off
+
+    night_light_kitchen:
+      value_template: "{{ states('switch.kitchen_relay_l1') }}"
+      turn_on:
+        service: script.night_light_kitchden_on
+      turn_off:
+        service: script.night_light_kitchden_off

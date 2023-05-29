@@ -17,6 +17,14 @@ light.top_light_kitchen_5:
   name: Top Light 5
 
 
+light.top_light_bath:
+  name: Top Light
+
+
+light.top_light_toilet:
+  name: Top Light
+
+
 light.top_light_hall_group:
   name: Top Light
 

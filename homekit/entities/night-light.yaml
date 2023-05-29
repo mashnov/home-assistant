@@ -1,6 +1,5 @@
-- switch.kitchen_relay_l1
-- switch.bath_relay_l1
-- switch.toilet_relay_l2
-
+- light.night_light_kitchen
+- light.night_light_bath
+- light.night_light_toilet
 - light.nightlight_hall
 - light.night_light_balcony

@@ -1,12 +1,6 @@
 switch.kitchen_switch:
   name: Switch
 
-switch.hall_switch_restroom_right:
-  name: Switch
-
-switch.hall_switch_restroom_left:
-  name: Switch
-
 switch.hall_switch:
   name: Switch
 

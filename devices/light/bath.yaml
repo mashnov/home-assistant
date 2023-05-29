@@ -1,0 +1,16 @@
+- platform: template
+  lights:
+    top_light_bath:
+      value_template: "{{ states('switch.hall_switch_restroom_right') }}"
+      turn_on:
+        service: script.top_light_bath_on
+      turn_off:
+        service: script.top_light_bath_off
+
+    night_light_bath:
+      value_template: "{{ states('switch.bath_relay_l1') }}"
+      turn_on:
+        service: script.night_light_toilet_on
+      turn_off:
+        service: script.night_light_toilet_off
+
