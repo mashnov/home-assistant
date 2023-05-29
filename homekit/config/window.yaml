@@ -1,14 +1,19 @@
 binary_sensor.window_kitchen_left_open:
   name: Window Left
+  type: window
 
 binary_sensor.window_kitchen_right_open:
   name: Window Right
+  type: window
 
 binary_sensor.window_bedroom_left_open:
   name: Window Left
+  type: window
 
 binary_sensor.window_bedroom_right_open:
   name: Window Right
+  type: window
 
 binary_sensor.window_living_open:
   name: Window
+  type: window

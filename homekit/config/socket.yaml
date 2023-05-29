@@ -1,3 +1,7 @@
+switch.balcony_relay_l3:
+  name: Fountain
+  type: outlet
+
 switch.balcony_relay_l4:
   name: Socket
   type: outlet
