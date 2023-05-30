@@ -1,23 +1,23 @@
 sensor.temperature_kitchen_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_kitchen_level
+  linked_battery_sensor: sensor.kitchen_thermometer_battery
 
 sensor.temperature_bath_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_bath_level
+  linked_battery_sensor: sensor.bath_thermometer_battery
 
 sensor.temperature_hall_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_hall_level
+  linked_battery_sensor: sensor.hall_thermometer_battery
 
 sensor.temperature_bedroom_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_bedroom_level
+  linked_battery_sensor: sensor.bedroom_thermometer_battery
 
 sensor.temperature_living_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_living_level
+  linked_battery_sensor: sensor.living_thermometer_battery
 
 sensor.temperature_balcony_level:
   name: Temperature
-  linked_humidity_sensor: sensor.humidity_balcony_level
+  linked_battery_sensor: sensor.ble_battery_balcony

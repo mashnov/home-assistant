@@ -41,7 +41,7 @@
   - name: 'humidity_balcony_level'
     device_class: 'humidity'
     unit_of_measurement: '%'
-    state: "{{ states('sensor.balcony_humidity') }}"
+    state: "{{ states('sensor.ble_humidity_balcony') }}"
     icon: 'mdi:water-opacity'
 
 - binary_sensor:
