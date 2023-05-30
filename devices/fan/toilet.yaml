@@ -1,7 +1,7 @@
 - platform: template
   fans: 
     toilet_fan:
-      value_template: "{{ states('switch.toilet_relay_l1') }}"
+      value_template: "{{ is_state('switch.toilet_relay_l1', 'on') }}"
       turn_on:
         service: script.dehumidifier_toilet_on
       turn_off:

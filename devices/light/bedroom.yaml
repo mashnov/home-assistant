@@ -41,14 +41,14 @@
 - platform: template
   lights:
     back_light_bedroom:
-      value_template: "{{ states('switch.bedroom_relay_l1') }}"
+      value_template: "{{ is_state('switch.bedroom_relay_l1', 'on') }}"
       turn_on:
         service: script.back_light_bedroom_1_on
       turn_off:
         service: script.back_light_bedroom_1_off
 
     wall_light_bedroom:
-      value_template: "{{ states('switch.bedroom_wall_switch') }}"
+      value_template: "{{ is_state('switch.bedroom_wall_switch', 'on') }}"
       turn_on:
         service: script.back_light_bedroom_2_on
       turn_off:

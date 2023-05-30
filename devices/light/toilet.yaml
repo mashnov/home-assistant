@@ -1,14 +1,14 @@
 - platform: template
   lights:
     top_light_toilet:
-      value_template: "{{ states('switch.hall_switch_restroom_left') }}"
+      value_template: "{{ is_state('switch.hall_switch_restroom_left', 'on') }}"
       turn_on:
         service: script.top_light_toilet_on
       turn_off:
         service: script.top_light_toilet_off
 
     night_light_toilet:
-      value_template: "{{ states('switch.toilet_relay_l2') }}"
+      value_template: "{{ is_state('switch.toilet_relay_l2', 'on') }}"
       turn_on:
         service: script.night_light_toilet_on
       turn_off:

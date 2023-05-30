@@ -41,7 +41,7 @@
 - platform: template
   lights:
     back_light_hall:
-      value_template: "{{ states('switch.hall_relay_l1') }}"
+      value_template: "{{ is_state('switch.hall_relay_l1', 'on') }}"
       turn_on:
         service: script.back_light_hall_on
       turn_off:
