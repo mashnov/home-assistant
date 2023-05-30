@@ -38,7 +38,7 @@ message_navigation_balcony_sun:
       data:
         inline_keyboard: 
         - '{{ iif(is_state("binary_sensor.cloud_hight", "on"), "☁️", "🌤️") }} Облачность {{ states("sensor.cloud_level") }} % :/balcony_climat'
-        - '☀️ Освещенность {{ states("sensor.illuminance_level") }} LUX :/balcony_climat'
+        - '☀️ Освещенность {{ states("sensor.illuminance_balcony_level") }} LUX :/balcony_climat'
         - '{{ iif(is_state("binary_sensor.solar_hight", "on"), "⚠️", "🟢") }} Солнце {{ states("sensor.solar_elevation") }}° | {{ states("sensor.solar_azimuth") }}° :/balcony_climat'
         - '⬆️ :/home, ⬅️ :/balcony, 🔄 :/balcony_sun, ❌ :/hide_menu'
 

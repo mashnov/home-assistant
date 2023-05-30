@@ -8,7 +8,7 @@
       persent: >
         {% set maxValuePerDay = states('sensor.illuminance_max_level') | int(1) %}
         {% set targetValue = iif(maxValuePerDay <= 0, 1, maxValuePerDay) %}
-        {% set illuminanceValue = states('sensor.illuminance_level') | int(0) %}
+        {% set illuminanceValue = states('sensor.illuminance_balcony_level') | int(0) %}
         {% set sensorValue = iif(illuminanceValue > targetValue, targetValue, illuminanceValue) %}
         {{ (sensorValue / targetValue) * 100 }}
       light_brightness: >

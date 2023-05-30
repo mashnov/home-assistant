@@ -210,7 +210,7 @@ cards:
       name: 'Азимут'
     - entity: sensor.solar_elevation
       name: 'Подъем'
-    - entity: sensor.illuminance_level
+    - entity: sensor.illuminance_balcony_level
       name: 'Освещенность'
     - type: divider
     - entity: sensor.illuminance_max_level
@@ -224,7 +224,7 @@ cards:
       name: 'Азимут'
     - entity: sensor.solar_elevation
       name: 'Подъем'
-    - entity: sensor.illuminance_degree_level
+    - entity: sensor.illuminance_balcony_degree_level
       name: 'Освещенность'
 
 ## СОЕДИНЕНИЕ
