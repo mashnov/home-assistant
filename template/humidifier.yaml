@@ -3,8 +3,6 @@
   - name: 'humidifier_hall_empty'
     icon: 'mdi:water-alert-outline'
     device_class: 'problem'
-    homekit:
-      category: security-system
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_hall_on', 'on') %}
       {% set backlightIsOn = is_state('binary_sensor.back_light_hall_on', 'on') %}
@@ -18,8 +16,6 @@
   - name: 'humidifier_bedroom_empty'
     icon: 'mdi:water-alert-outline'
     device_class: 'problem'
-    homekit:
-      category: security-system
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_bedroom_on', 'on') %}
       {% set backlightIsOn = is_state('binary_sensor.back_light_bedroom_1_on', 'on') %}
@@ -33,8 +29,6 @@
   - name: 'humidifier_living_empty'
     icon: 'mdi:water-alert-outline'
     device_class: 'problem'
-    homekit:
-      category: security-system
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_living_on', 'on') %}
       {% set backlightIsOn = is_state('binary_sensor.back_light_living_on', 'on') %}
