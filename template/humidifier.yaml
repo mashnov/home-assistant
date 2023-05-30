@@ -1,7 +1,7 @@
 ## HUMIDIFIER EMPTY SENSORS
 - binary_sensor:
   - name: 'humidifier_hall_empty'
-    device_class: 'moisture'
+    device_class: 'safety'
     icon: 'mdi:water-alert-outline'
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_hall_on', 'on') %}
@@ -14,7 +14,7 @@
       {{ humidifierIsOn and (sensorValue <= expectedValue) }}
 
   - name: 'humidifier_bedroom_empty'
-    device_class: 'moisture'
+    device_class: 'safety'
     icon: 'mdi:water-alert-outline'
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_bedroom_on', 'on') %}
@@ -27,7 +27,7 @@
       {{ humidifierIsOn and (sensorValue <= expectedValue) }}
 
   - name: 'humidifier_living_empty'
-    device_class: 'moisture'
+    device_class: 'safety'
     icon: 'mdi:water-alert-outline'
     state: >
       {% set humidifierIsOn = is_state('binary_sensor.humidifier_living_on', 'on') %}
