@@ -1,20 +1,20 @@
-## SOCKET
-- alias: 'socket_balcony'
+## OUTLET
+- alias: 'outlet_balcony'
   mode: 'queued'
   trigger:
   - platform: state
-    entity_id: 'binary_sensor.socket_balcony_permission'
+    entity_id: 'binary_sensor.outlet_balcony_permission'
   action:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.socket_balcony_permission
+        entity_id: binary_sensor.outlet_balcony_permission
         state: 'on'
       sequence:
-      - service: script.socket_balcony_on
+      - service: script.outlet_balcony_on
     - conditions:
       - condition: state
-        entity_id: binary_sensor.socket_balcony_permission
+        entity_id: binary_sensor.outlet_balcony_permission
         state: 'off'
       sequence:
-      - service: script.socket_balcony_off
+      - service: scoutlet_balcony_off

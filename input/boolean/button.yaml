@@ -56,5 +56,5 @@ button_balcony_double: ### night-light
 button_balcony_long: ### fountain
   icon: 'mdi:radiobox-marked'
 
-button_balcony_shake: ### socket
+button_balcony_shake: ### outlet
   icon: 'mdi:radiobox-marked'

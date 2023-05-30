@@ -91,5 +91,5 @@ cards:
     - entity: switch.balcony_relay_l4
       name: 'Розетка'
     - type: divider
-    - entity: automation.socket_balcony
+    - entity: automation.outlet_balcony
       name: 'Автоматизация'

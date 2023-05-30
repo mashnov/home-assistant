@@ -97,7 +97,7 @@
     state: "{{ is_state('input_boolean.button_balcony_long', 'on') }}"
     icon: 'mdi:radiobox-marked'
 
-  - name: 'button_balcony_shake_on' ### socket
+  - name: 'button_balcony_shake_on' ### outlet
     device_class: 'running'
     state: "{{ is_state('input_boolean.button_balcony_shake', 'on') }}"
     icon: 'mdi:radiobox-marked'

@@ -1,12 +1,12 @@
-## SOCKET ON SENSOR
+## OUTLET ON SENSOR
 - binary_sensor:
-  - name: 'socket_balcony_on'
+  - name: 'outlet_balcony_on'
     device_class: 'plug'
     icon: 'mdi:party-popper'
     state: "{{ is_state('binary_sensor.relay_balcony_4_on', 'on') }}" 
 
-## SOCKET PERMISSION
-  - name: 'socket_balcony_permission'
+## OUTLET PERMISSION
+  - name: 'outlet_balcony_permission'
     device_class: 'lock'
     icon: 'mdi:check-all'
     state: "{{ is_state('binary_sensor.button_balcony_shake_on', 'on') }}"

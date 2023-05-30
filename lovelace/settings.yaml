@@ -196,7 +196,7 @@ cards:
       name: 'Балкон подсветка'
     - entity: automation.fountain_balcony
       name: 'Балкон фонтан'
-    - entity: automation.socket_balcony
+    - entity: automation.outlet_balcony
       name: 'Балкон розетка'
 
 ## ВЛАЖНОСТЬ

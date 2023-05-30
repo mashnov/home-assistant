@@ -3,5 +3,5 @@ switch.balcony_relay_l3:
   type: outlet
 
 switch.balcony_relay_l4:
-  name: Socket
+  name: Outlet
   type: outlet
