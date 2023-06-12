@@ -1,0 +1,40 @@
+party_light_kitchen:
+  input_boolean:
+    button_kitchen_both:
+
+  automation:
+  - alias: 'party_light_kitchen_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_kitchen_action
+      to: 'single_both'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_kitchen_both
+
+  - alias: 'party_light_kitchen_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_kitchen_both
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_kitchen_both
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.party_light_kitchen
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.party_light_kitchen

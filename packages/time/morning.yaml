@@ -1,0 +1,17 @@
+morning:
+  input_datetime:
+    morning: # 08:30:00
+      has_date: false
+
+  template:
+  - binary_sensor: 
+    - name: 'morning'
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.morning'), "%H:%M:%S").time() %}
+        {% set till = strptime(states('input_datetime.daytime'), "%H:%M:%S").time() %}
+        {% if from > till %}
+          {{ (from <= current) or (current <= till) }}
+        {% else %}
+          {{ (from <= current) and (current <= till) }}
+        {% endif %}

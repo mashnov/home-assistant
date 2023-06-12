@@ -1,7 +1,0 @@
-## POWER SENSORS
-- platform: statistics
-  entity_id: sensor.relay_average_power
-  name: power_max_level
-  state_characteristic: value_max
-  max_age:
-    hours: 24 

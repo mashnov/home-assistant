@@ -1,0 +1,44 @@
+### todo add light_brightness sensor usage
+### todo add hue input usage
+night_light_hall:
+  input_number:
+    parameters_light_color_hue: # 20
+      max: 20
+      min: 0
+
+  script:
+    back_light_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.switch_kitchen
+      - delay: '{{ states("sensor.delay_light_connect") }}'
+      - service: light.turn_on
+        entity_id: light.back_light_kitchen
+
+  automation:
+  - alias: 'night_light_hall_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_hall'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_hall'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.night_light_hall
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.night_light_hall

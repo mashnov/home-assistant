@@ -1,0 +1,92 @@
+### todo add button nitification
+top_light_kitchen:
+  input_boolean:
+    button_kitchen_right:
+
+  light:
+  - platform: group
+    name: top_light_kitchen
+    entities:
+    - light.bulb_light_kitchen_1
+    - light.bulb_light_kitchen_2
+    - light.bulb_light_kitchen_3
+    - light.bulb_light_kitchen_4
+    - light.bulb_light_kitchen_5
+
+  script:
+    top_light_kitchen_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.top_light_kitchen
+    top_light_kitchen_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.top_light_kitchen
+
+  automation:
+  - alias: 'button_kitchen_right'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_kitchen_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_kitchen_right
+
+  - alias: 'button_kitchen_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_kitchen_right
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_kitchen_right
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.top_light_kitchen_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_kitchen_turn_off
+
+  - alias: 'button_kitchen_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_bath'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_bath'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.top_light_kitchen
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - platform: state
+          entity_id: binary_sensor.night_mode_hall
+          state: 'off'
+        sequence:
+        - service: script.top_light_kitchen_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_kitchen_turn_off

@@ -1,7 +1,0 @@
-- name: humidifier_bedroom
-  device_class: 'humidifier'
-  humidifier: switch.bedroom_relay_l2
-  target_sensor: sensor.humidity_bedroom_level
-  min_humidity: 20
-  max_humidity: 80
-  

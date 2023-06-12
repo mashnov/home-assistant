@@ -1,0 +1,86 @@
+### todo add automation for change light parameters by any light on
+light_shared:
+  input_number:
+    delay_light_connect: # 00:00:06
+      max: 180
+      min: 0
+
+    illuminance_top_light: # 3000
+      max: 9000
+      min: 0
+
+    illuminance_back_light: # 4500
+      max: 9000
+      min: 0
+
+  sensor:
+  - name: illuminance_max
+    platform: statistics
+    entity_id: sensor.illuminance_balcony
+    state_characteristic: value_max
+    max_age:
+      hours: 24 
+
+  template:
+  - sensor:
+    - name: 'delay_light_connect'
+      state: >
+        {% set duration = states('input_number.delay_light_connect') %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'light_persent'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set target = states('sensor.illuminance_max') | int(1) %}
+        {{ min((sensor / (target or 1) ) * 100, 100) }}
+    
+    - name: 'light_brightness'
+      state: >
+        {% set minValue = 1 %}
+        {% set maxValue = 255 %}
+        {% set sensor = states('sensor.light_persent') | int(0) %}
+        {% set dayTime = is_state('binary_sensor.time_day', 'on') %}
+        {% set eveningTime = is_state('binary_sensor.time_evening', 'on') %}
+        {% set percent = iif(dayTime or eveningTime, 100 - sensor, sensor) %}
+        {{ ((maxValue - minValue) / 100 * percent + minValue) | round }}
+    
+    - name: 'light_temperature'
+      state: >
+        {% set minValue = 175 %}
+        {% set maxValue = 333 %}
+        {% set sensor = states('sensor.light_persent') | int(0) %}
+        {{ ((maxValue - minValue) / 100 * (100 - sensor) + minValue) | round }}  
+
+    - name: 'light_saturation'
+      state: >
+        {% set minValue = 95 %}
+        {% set maxValue = 100 %}
+        {% set sensor = states('sensor.light_persent') | int(0) %}
+        {{ ((maxValue - minValue) / 100 * sensor + minValue) | round }}
+
+    - name: 'ligth_enabled'
+      state: >
+        {% set lights = states.light | list %}
+        {% set lights = lights | selectattr("state", "eq" ,"on") %}
+        {% set lights = lights | selectattr("name", "search" ,"top_light") %}
+        {% set lights = lights | rejectattr("name", "search" ,"_group") %}
+        {% set lights = lights | map(attribute="entity_id") %}
+        {{ lights | list }}
+
+  - binary_sensor:
+    - name: 'illuminance_top_light'
+      delay_on: '00:00:15'
+      delay_off: '00:00:30'
+      state: >
+        {% set cloudly = is_state('binary_sensor.cloudly', 'on') %}
+        {% set target = states('input_number.illuminance_top_light') | int(0) %}
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {{ cloudly or not(cloudly) and sensor < target }}
+
+    - name: 'illuminance_back_light'
+      delay_on: '00:00:15'
+      delay_off: '00:00:30'
+      state: > 
+        {% set target = states('input_number.illuminance_back_light') | int(0) %}
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {{ sensor < target }}

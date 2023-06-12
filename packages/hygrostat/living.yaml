@@ -1,0 +1,96 @@
+### todo add notification
+hygrostat_living:
+  input_text:
+    humidifier_empty_living:
+      initial: 'Гостиная. Закончилась вода в увлажнителе'
+
+  input_number:
+    power_offset_living: # 12
+      max: 60
+      min: 0
+
+  generic_hygrostat:
+  - name: humidifier_living
+    device_class: 'humidifier'
+    humidifier: switch.relay_living_l1
+    target_sensor: sensor.humidity_living_level
+    min_humidity: 20
+    max_humidity: 80
+
+  template:
+  - binary_sensor:
+    - name: 'humidifier_full_living'
+      device_class: 'moisture'
+      delay_on: '00:00:04'
+      state: >
+        {% set humidifier = is_state('switch.living_relay_l1', 'on') %}
+        {% set backlight = is_state('light.back_light_living', 'on') %}
+        {% set power = states('sensor.living_relay_power') | round(0) %}
+        {% set offset = states('input_number.power_offset_living') | int(0) %}
+        {% set value = iif(backlight, power + offset, 1) %}
+        {{ humidifier and (power < value) }}
+
+  script:
+    hygrostat_living_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: humidifier.turn_on
+        entity_id: humidifier.humidifier_living
+    hygrostat_living_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: humidifier.turn_off
+        entity_id: humidifier.humidifier_living
+
+  automation:
+  - alias: 'hygrostat_living_ventilation'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_off'
+      platform: state
+      entity_id: binary_sensor.ventilation_living
+      to: 'on'
+    - id: 'turn_on'
+      platform: state
+      entity_id: binary_sensor.ventilation_living
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.night_mode_living
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.hygrostat_living_turn_off
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.hygrostat_living_turn_on
+
+  - alias: 'hygrostat_living_night'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.night_mode_living
+      to: 'on'
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.night_mode_living
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.hygrostat_living_turn_off
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.hygrostat_living_turn_on

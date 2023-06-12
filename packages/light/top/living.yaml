@@ -1,0 +1,51 @@
+top_light_living:
+  input_boolean:
+    button_living_right:
+  
+  light:
+  - platform: group
+    name: top_light_living
+    entities:
+    - light.bulb_light_living_1
+    - light.bulb_light_living_2
+    - light.bulb_light_living_3
+    - light.bulb_light_living_4
+    - light.bulb_light_living_5
+    - light.bulb_light_living_6
+
+  automation:
+  - alias: 'button_living_right'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_living_right
+
+  - alias: 'button_living_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_living_right
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_living_right
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_living
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_living

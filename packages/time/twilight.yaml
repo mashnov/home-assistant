@@ -1,0 +1,17 @@
+time:
+  input_datetime:
+    time_twilight: # 22:30:00
+      has_date: false
+
+  template:
+  - binary_sensor:    
+    - name: 'twilight'
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.twilight'), "%H:%M:%S").time() %}
+        {% set till = strptime(states('input_datetime.night'), "%H:%M:%S").time() %}
+        {% if from > till %}
+          {{ (from <= current) or (current <= till) }}
+        {% else %}
+          {{ (from <= current) and (current <= till) }}
+        {% endif %}

@@ -1,0 +1,46 @@
+night_mode_shared:
+  input_number:
+    delay_night_mode: # 00:01:30
+      max: 180
+      min: 0
+    delay_night_mode_inaction: # 00:45:00
+      max: 90
+      min: 0
+    delay_night_mode_action: # 00:05:00
+      max: 90
+      min: 0
+
+  template:
+  - sensor:
+    - name: 'delay_night_mode'
+      state: >
+        {% set duration = states('input_number.delay_night_mode') %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  - binary_sensor:
+    - name: 'night_mode_inaction'
+      state: >
+        {% set kitchen = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_hall.last_changed)) / 60) | round(0) %}
+        {% set hall = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_kitchen.last_changed)) / 60) | round(0) %}
+        {% set target = states('input_number.delay_night_mode_inaction') | int(0) %}
+        {% set sensor = min(kitchen, hall) %}
+        {{ sensor > target }}
+    - name: 'night_mode_action'
+      state: >
+        {% set kitchen = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_hall.last_changed)) / 60) | round(0) %}
+        {% set hall = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_kitchen.last_changed)) / 60) | round(0) %}
+        {% set target = states('input_number.delay_night_mode_action') | int(0) %}
+        {% set sensor = min(kitchen, hall) %}
+        {{ sensor > target }}
+    - name: 'night_mode_auto_on'
+      state: >
+        {% set night = is_state('binary_sensor.night', 'on') %}
+        {% set twilight = is_state('binary_sensor.twilight', 'on') %}
+        {% set inactive = is_state('binary_sensor.night_mode_inaction', 'on') %}
+        {{ night or (twilight and inactive) }}
+    - name: 'night_mode_auto_off'
+      state: >
+        {% set night = is_state('binary_sensor.morning', 'on') %}
+        {% set twilight = is_state('binary_sensor.daytime', 'on') %}
+        {% set active = is_state('binary_sensor.night_mode_action', 'on') %}
+        {{ daytime or (morning and active) }}

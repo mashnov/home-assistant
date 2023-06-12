@@ -1,0 +1,100 @@
+### todo add button nitification
+top_light_bath:
+  input_boolean:
+    button_bath_top_single:
+
+  light:
+  - platform: template
+    lights:
+      top_light_bath:
+        value_template: "{{ is_state('switch.switch_restroom_right', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.switch_restroom_right
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.switch_restroom_right
+
+  script:
+    top_light_bath_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.top_light_bath
+    top_light_bath_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.top_light_bath
+
+  automation:
+  - alias: 'top_light_bath_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_restroom_action
+      to: 'single_right'
+    condition:
+    - platform: state
+      entity_id: binary_sensor.night_mode_hall
+      state: 'off'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_bath_top_single
+
+  - alias: 'top_light_bath_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_bath_top_single
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_bath_top_single
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.top_light_bath_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_bath_turn_off
+
+  - alias: 'top_light_bath_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_bath'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_bath'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_bath_top_single
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - platform: state
+          entity_id: binary_sensor.night_mode_hall
+          state: 'off'
+        sequence:
+        - service: script.top_light_bath_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_bath_turn_off

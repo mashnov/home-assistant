@@ -1,0 +1,8 @@
+night_mode_hall:
+  template:
+  - binary_sensor:
+    - name: 'night_mode_hall'
+      state: >
+        {% set bedroom = is_state('input_boolean.night_mode_bedroom', 'on') %}
+        {% set living = is_state('input_boolean.night_mode_living', 'on') %}
+        {{ bedroom and living }}

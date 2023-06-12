@@ -1,0 +1,54 @@
+night_light_balcony:
+  input_boolean:
+    button_balcony_single:
+
+  light:
+  - platform: template
+    lights:
+      night_light_balcony:
+        value_template: "{{ is_state('switch.relay_balcony_l1', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.relay_balcony_l1
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.relay_balcony_l1
+
+  automation:
+  - alias: 'night_light_balcony_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'single'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_balcony_single
+
+  - alias: 'night_light_balcony_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_balcony_single
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_balcony_single
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.night_light_balcony
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.night_light_balcony

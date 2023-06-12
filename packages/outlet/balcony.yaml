@@ -1,0 +1,40 @@
+outlet_balcony:
+  input_boolean:
+    button_balcony_shake:
+
+  automation:
+  - alias: 'outlet_balcony_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'shake'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_balcony_shake
+
+  - alias: 'outlet_balcony_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_balcony_shake
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_balcony_shake
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: switch.turn_on
+          entity_id: switch.balcony_relay_l4
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: switch.turn_off
+          entity_id: switch.balcony_relay_l4

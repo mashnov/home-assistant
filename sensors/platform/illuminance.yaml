@@ -1,7 +1,0 @@
-## ILLUMINANCE SENSORS
-- platform: statistics
-  entity_id: sensor.illuminance_balcony_level
-  name: illuminance_max_level
-  state_characteristic: value_max
-  max_age:
-    hours: 24 

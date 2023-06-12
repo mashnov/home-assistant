@@ -1,7 +1,0 @@
-- humidifier.humidifier_hall
-- humidifier.humidifier_bedroom
-- humidifier.humidifier_living
-
-- binary_sensor.humidifier_hall_empty
-- binary_sensor.humidifier_bedroom_empty
-- binary_sensor.humidifier_living_empty

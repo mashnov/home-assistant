@@ -1,0 +1,93 @@
+### todo add button nitification
+top_light_hall:
+  input_boolean:
+    button_hall_single:
+
+  light:
+  - platform: group
+    name: top_light_hall
+    entities:
+    - light.bulb_light_hall_1
+    - light.bulb_light_hall_2
+    - light.bulb_light_hall_3
+    - light.bulb_light_hall_4
+    - light.bulb_light_hall_5
+    - light.bulb_light_hall_6
+
+  script:
+    top_light_hall_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.top_light_hall
+    top_light_hall_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.top_light_hall
+
+  automation:
+  - alias: 'button_hall_single'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_hall_action
+      to: 'single'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_hall_single
+
+  - alias: 'button_hall_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_hall_single
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_hall_single
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.top_light_hall_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_hall_turn_off
+
+  - alias: 'top_light_hall_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_hall'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_hall'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_hall_single
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - platform: state
+          entity_id: binary_sensor.night_mode_hall
+          state: 'off'
+        sequence:
+        - service: script.top_light_hall_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.top_light_hall_turn_off

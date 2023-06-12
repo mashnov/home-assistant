@@ -1,0 +1,92 @@
+night_light_bath:
+  input_boolean:
+    button_bath_night_single:
+
+  light:
+  - platform: template
+    lights:
+      night_light_bath:
+        value_template: "{{ is_state('switch.relay_bath_l1', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.relay_bath_l1
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.relay_bath_l1
+
+  script:
+    night_light_bath_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.night_light_bath
+    night_light_bath_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.night_light_bath
+
+  automation:
+  - alias: 'night_light_bath_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_restroom_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_bath_night_single
+
+  - alias: 'night_light_bath_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_bath_night_single
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_bath_night_single
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.night_light_bath_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.night_light_bath_turn_off
+
+  - alias: 'night_light_bath_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_batn'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_batn'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_bath_night_single
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.night_light_bath_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.night_light_bath_turn_off

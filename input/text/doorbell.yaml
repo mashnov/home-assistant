@@ -1,9 +1,0 @@
-## EMPTY_HUMIDIFIER HALL
-doorbell_elevator:
-  icon: mdi:message-processing
-  initial: 'Коридор. Кто-то нажал кнопку звонка.'
-
-## EMPTY_HUMIDIFIER BEDROOM
-doorbell_hall:
-  icon: mdi:message-processing
-  initial: 'Прихожая. Кто-то нажал кнопку звонка.'

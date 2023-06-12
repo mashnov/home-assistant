@@ -1,0 +1,43 @@
+### TODO: Add notification
+
+night_mode_living:
+  input_boolean:
+    night_mode_living:
+
+  automation:
+  - alias: 'night_mode_living'
+    mode: 'queued'
+    trigger:
+    - id: 'button_action'
+      platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_both'
+    - id: 'auto_on'
+      platform: state
+      entity_id: binary_sensor.night_mode_auto_on
+      to: 'on'
+    - id: 'auto_off'
+      platform: state
+      entity_id: binary_sensor.night_mode_auto_off
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'button_action'
+        sequence:
+        - delay: '{{ states("sensor.delay_night_mode") }}'
+        - service: input_boolean.toggle
+          entity_id: input_boolean.night_mode_living
+      - conditions:
+        - condition: trigger
+          id: 'auto_on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.night_mode_living
+      - conditions:
+        - condition: trigger
+          id: 'auto_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.night_mode_living

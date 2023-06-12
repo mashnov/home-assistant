@@ -1,0 +1,102 @@
+fan_toilet:
+  input_boolean:
+    button_toilet_hold:
+
+  input_number:
+    duration_fan_night: # 00:00:10
+      max: 120
+      min: 0
+    duration_fan_day: # 00:00:45
+      max: 120
+      min: 0
+
+  timer:
+    fan_toilet:
+      duration: '00:00:20'
+
+  fan:
+  - platform: template
+    fans:
+      fan_toilet:
+        value_template: "{{ is_state('switch.relay_toilet_l1', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.relay_toilet_l1
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.relay_toilet_l1
+
+  template:
+  - sensor:
+    - name: 'duration_fan'
+      state: >
+        {% set isNightMode = is_state('binary_sensor.night_mode_hall', 'on') %}
+        {% set nightValue = states('input_number.duration_fan_night') %}
+        {% set dayValue = states('input_number.duration_fan_day') %}
+        {% set duration = iif(isNightMode, nightValue, dayValue) | int(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  automation:
+  - alias: 'fan_toilet_boolean_on'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'binary_sensor.door_toilet'
+      to: 'on'
+    - platform: state
+      entity_id: sensor.button_toilet_action
+      to: 'single'
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: 'on'
+    - condition: state
+      entity_id: fan.fan_toilet
+      state: 'off'
+    action:
+    - parallel:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.button_toilet_hold
+      - service: timer.start
+        entity_id: timer.fan_toilet
+        data_template:
+          duration: "{{ states('sensor.duration_fan') }}"
+
+  - alias: 'fan_toilet_boolean_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.fan_toilet
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.button_toilet_hold
+
+  - alias: 'fan_toilet_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.button_toilet_hold'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.button_toilet_hold'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: fan.turn_on
+          entity_id: fan.fan_toilet
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: fan.turn_off
+          entity_id: fan.fan_toilet

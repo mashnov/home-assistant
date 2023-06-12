@@ -1,0 +1,93 @@
+### todo add button nitification
+back_light_hall:
+  input_boolean:
+    button_hall_both:
+
+  light:
+  - platform: template
+    lights:
+      back_light_hall:
+        value_template: "{{ is_state('switch.relay_hall_l1', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.relay_hall_l1
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.relay_hall_l1
+
+  script:
+    back_light_hall_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.back_light_hall
+    back_light_hall_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.back_light_hall
+
+  automation:
+  - alias: 'back_light_hall_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_restroom_action
+      to: 'single_both'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_hall_both
+
+  - alias: 'back_light_hall_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_hall_both
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_hall_both
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.back_light_hall_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.back_light_hall_turn_off
+
+  - alias: 'back_light_hall_night'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.night_mode_hall'
+      to: 'on'
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.night_mode_hall'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_hall_both
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.back_light_hall_turn_off
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.back_light_hall_turn_on

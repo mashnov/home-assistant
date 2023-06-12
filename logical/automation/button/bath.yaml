@@ -1,9 +1,0 @@
-## BATH
-- alias: 'button_bath_toggle'
-  mode: 'queued'
-  trigger:
-  - platform: state
-    entity_id: sensor.hall_switch_restroom_action
-    to: 'single_right'
-  action:
-  - service: script.button_bath_toggle

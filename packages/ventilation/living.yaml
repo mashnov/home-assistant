@@ -1,0 +1,7 @@
+ventilation_living:
+  template:
+  - binary_sensor:
+    - name: 'ventilation_living'
+      delay_on: '00:00:10'
+      delay_off: '00:00:10'
+      state: "{{ is_state('binary_sensor.window_living', 'on') }}"

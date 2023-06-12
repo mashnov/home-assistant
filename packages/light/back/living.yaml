@@ -1,0 +1,124 @@
+### todo add button nitification
+back_light_living:
+  input_boolean:
+    button_living_left:
+
+  light:
+  - platform: template
+    lights:
+      back_light_living:
+        value_template: "{{ is_state('switch.relay_living_l2', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.relay_living_l2
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.relay_living_l2
+
+  script:
+    back_light_living_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.back_light_living
+    back_light_living_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.back_light_living
+
+  automation:
+  - alias: 'back_light_living_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_left'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.button_living_left
+
+  - alias: 'back_light_living_action'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.button_living_left
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.button_living_left
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.back_light_living_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.back_light_living_turn_off
+
+  - alias: 'back_light_living_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.illuminance_back_light'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.illuminance_back_light'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_living_left
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - platform: state
+          entity_id: input_boolean.night_mode_living
+          state: 'off'
+        sequence:
+        - service: script.back_light_living_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.back_light_living_turn_off
+
+  - alias: 'back_light_living_night'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.night_mode_living'
+      to: 'on'
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.night_mode_living'
+      to: 'off'
+    condition:
+    - platform: state
+      entity_id: input_boolean.button_living_left
+      state: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: script.back_light_living_turn_off
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: script.back_light_living_turn_on

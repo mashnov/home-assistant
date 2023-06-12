@@ -1,0 +1,45 @@
+top_light_toilet:
+  light:
+  - platform: template
+    lights:
+      top_light_toilet:
+        value_template: "{{ is_state('switch.switch_restroom_left', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.switch_restroom_left
+        turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.switch_restroom_left
+
+  automation:
+  - alias: 'top_light_toilet_auto'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_toilet'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'binary_sensor.occupancy_toilet'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - platform: state
+          entity_id: binary_sensor.night_mode_hall
+          state: 'off'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_toilet
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_toilet
+
