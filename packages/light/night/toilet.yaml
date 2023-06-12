@@ -13,16 +13,6 @@ night_light_toilet:
           data:
             entity_id: switch.relay_toilet_l2
 
-  script:
-    back_light_turn_on:
-      mode: 'queued'
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.switch_kitchen
-      - delay: '{{ states("sensor.delay_light_connect") }}'
-      - service: light.turn_on
-        entity_id: light.back_light_kitchen
-
   automation:
   - alias: 'night_light_toilet_auto'
     mode: 'queued'

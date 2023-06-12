@@ -1,7 +1,7 @@
 ### todo add button nitification
 back_light_living:
   input_boolean:
-    button_living_left:
+    back_light_living_button:
 
   light:
   - platform: template
@@ -38,18 +38,18 @@ back_light_living:
       to: 'single_left'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_living_left
+      entity_id: input_boolean.back_light_living_button
 
   - alias: 'back_light_living_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_living_left
+      entity_id: input_boolean.back_light_living_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_living_left
+      entity_id: input_boolean.back_light_living_button
       to: 'off'
     action:
     - choose:
@@ -69,15 +69,15 @@ back_light_living:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'binary_sensor.illuminance_back_light'
+      entity_id: 'binary_sensor.light_illuminance'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'binary_sensor.illuminance_back_light'
+      entity_id: 'binary_sensor.light_illuminance'
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_living_left
+      entity_id: input_boolean.back_light_living_button
       state: 'off'
     action:
     - choose:
@@ -108,7 +108,7 @@ back_light_living:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_living_left
+      entity_id: input_boolean.back_light_living_button
       state: 'off'
     action:
     - choose:

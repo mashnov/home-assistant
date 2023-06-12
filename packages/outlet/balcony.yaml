@@ -1,6 +1,6 @@
 outlet_balcony:
   input_boolean:
-    button_balcony_shake:
+    outlet_balcony_button:
 
   automation:
   - alias: 'outlet_balcony_button'
@@ -11,18 +11,18 @@ outlet_balcony:
       to: 'shake'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_balcony_shake
+      entity_id: input_boolean.outlet_balcony_button
 
   - alias: 'outlet_balcony_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_balcony_shake
+      entity_id: input_boolean.outlet_balcony_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_balcony_shake
+      entity_id: input_boolean.outlet_balcony_button
       to: 'off'
     action:
     - choose:

@@ -1,6 +1,6 @@
 top_light_bedroom:
   input_boolean:
-    button_bedroom_right:
+    top_light_bedroom_button:
 
   light:
   - platform: group
@@ -19,12 +19,12 @@ top_light_bedroom:
       sequence:
       - service: switch.turn_on
         entity_id: switch.switch_kitchen
-      - delay: '{{ states("sensor.delay_light_connect") }}'
+      - delay: '{{ states("sensor.light_connect_delay") }}'
       - service: light.turn_on
         entity_id: light.back_light_kitchen
 
   automation:
-  - alias: 'button_bedroom_right'
+  - alias: 'top_light_bedroom_button'
     mode: 'queued'
     trigger:
     - platform: state
@@ -32,18 +32,18 @@ top_light_bedroom:
       to: 'single_right'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_bedroom_right
+      entity_id: input_boolean.top_light_bedroom_button
 
-  - alias: 'button_bedroom_action'
+  - alias: 'top_light_bedroom_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_bedroom_right
+      entity_id: input_boolean.top_light_bedroom_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_bedroom_right
+      entity_id: input_boolean.top_light_bedroom_button
       to: 'off'
     action:
     - choose:

@@ -1,7 +1,7 @@
 ### todo add button nitification
 back_light_hall:
   input_boolean:
-    button_hall_both:
+    back_light_hall_button:
 
   light:
   - platform: template
@@ -38,18 +38,18 @@ back_light_hall:
       to: 'single_both'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_hall_both
+      entity_id: input_boolean.back_light_hall_button
 
   - alias: 'back_light_hall_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_hall_both
+      entity_id: input_boolean.back_light_hall_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_hall_both
+      entity_id: input_boolean.back_light_hall_button
       to: 'off'
     action:
     - choose:
@@ -77,7 +77,7 @@ back_light_hall:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_hall_both
+      entity_id: input_boolean.back_light_hall_button
       state: 'off'
     action:
     - choose:

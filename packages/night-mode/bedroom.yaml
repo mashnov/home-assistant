@@ -25,7 +25,7 @@ night_mode_bedroom:
         - condition: trigger
           id: 'button_action'
         sequence:
-        - delay: '{{ states("sensor.delay_night_mode") }}'
+        - delay: '{{ states("sensor.night_mode_delay") }}'
         - service: input_boolean.toggle
           entity_id: input_boolean.night_mode_bedroom
       - conditions:

@@ -1,11 +1,11 @@
 ### todo add notification
 hygrostat_hall:
   input_text:
-    humidifier_empty_hall:
+    hygrostat_hall_empty_text:
       initial: 'Коридор. Закончилась вода в увлажнителе'
 
   input_number:
-    power_offset_hall: # 12
+    hygrostat_hall_power_delay: # 12
       max: 60
       min: 0
 
@@ -19,14 +19,14 @@ hygrostat_hall:
 
   template:
   - binary_sensor:
-    - name: 'humidifier_full_hall'
+    - name: 'hygrostat_hall_is_full'
       device_class: 'moisture'
       delay_on: '00:00:04'
       state: >
         {% set humidifier = is_state('switch.hall_relay_l2', 'on') %}
         {% set backlight = is_state('light.back_light_hall', 'on') %}
         {% set power = states('sensor.hall_relay_power') | round(0) %}
-        {% set offset = states('input_number.power_offset_hall') | int(0) %}
+        {% set offset = states('input_number.hygrostat_hall_power_delay') | int(0) %}
         {% set value = iif(backlight, power + offset, 1) %}
         {{ humidifier and (power < value) }}
 

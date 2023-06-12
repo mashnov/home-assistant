@@ -1,7 +1,7 @@
 ### todo add button nitification
 top_light_hall:
   input_boolean:
-    button_hall_single:
+    top_light_hall_button:
 
   light:
   - platform: group
@@ -27,7 +27,7 @@ top_light_hall:
         entity_id: light.top_light_hall
 
   automation:
-  - alias: 'button_hall_single'
+  - alias: 'top_light_hall_button'
     mode: 'queued'
     trigger:
     - platform: state
@@ -35,18 +35,18 @@ top_light_hall:
       to: 'single'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_hall_single
+      entity_id: input_boolean.top_light_hall_button
 
-  - alias: 'button_hall_action'
+  - alias: 'top_light_hall_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_hall_single
+      entity_id: input_boolean.top_light_hall_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_hall_single
+      entity_id: input_boolean.top_light_hall_button
       to: 'off'
     action:
     - choose:
@@ -74,7 +74,7 @@ top_light_hall:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_hall_single
+      entity_id: input_boolean.top_light_hall_button
       state: 'off'
     action:
     - choose:

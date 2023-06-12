@@ -2,7 +2,7 @@
 ### todo: add script condidion: switch_kitchen_right - switch for relay
 back_light_kitchen:
   input_boolean:
-    button_kitchen_left:
+    back_light_kitchen_button:
 
   light:
   - platform: template
@@ -39,18 +39,18 @@ back_light_kitchen:
       to: 'single_left'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_kitchen_left
+      entity_id: input_boolean.back_light_kitchen_button
 
   - alias: 'back_light_kitchen_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_kitchen_left
+      entity_id: input_boolean.back_light_kitchen_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_kitchen_left
+      entity_id: input_boolean.back_light_kitchen_button
       to: 'off'
     action:
     - choose:
@@ -78,7 +78,7 @@ back_light_kitchen:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_kitchen_left
+      entity_id: input_boolean.back_light_kitchen_button
       state: 'off'
     action:
     - choose:

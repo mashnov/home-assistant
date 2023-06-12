@@ -1,20 +1,16 @@
 ### todo add automation for change light parameters by any light on
 light_shared:
   input_number:
-    delay_light_connect: # 00:00:06
+    light_connect_delay: # 00:00:06
       max: 180
       min: 0
 
-    illuminance_top_light: # 3000
-      max: 9000
-      min: 0
-
-    illuminance_back_light: # 4500
+    light_illuminance: # 4500
       max: 9000
       min: 0
 
   sensor:
-  - name: illuminance_max
+  - name: light_max_illuminance
     platform: statistics
     entity_id: sensor.illuminance_balcony
     state_characteristic: value_max
@@ -23,15 +19,15 @@ light_shared:
 
   template:
   - sensor:
-    - name: 'delay_light_connect'
+    - name: 'light_connect_delay'
       state: >
-        {% set duration = states('input_number.delay_light_connect') %}
+        {% set duration = states('input_number.light_connect_delay') %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
     - name: 'light_persent'
       state: >
         {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
-        {% set target = states('sensor.illuminance_max') | int(1) %}
+        {% set target = states('sensor.light_max_illuminance') | int(1) %}
         {{ min((sensor / (target or 1) ) * 100, 100) }}
     
     - name: 'light_brightness'
@@ -68,19 +64,10 @@ light_shared:
         {{ lights | list }}
 
   - binary_sensor:
-    - name: 'illuminance_top_light'
-      delay_on: '00:00:15'
-      delay_off: '00:00:30'
-      state: >
-        {% set cloudly = is_state('binary_sensor.cloudly', 'on') %}
-        {% set target = states('input_number.illuminance_top_light') | int(0) %}
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
-        {{ cloudly or not(cloudly) and sensor < target }}
-
-    - name: 'illuminance_back_light'
+    - name: 'light_illuminance'
       delay_on: '00:00:15'
       delay_off: '00:00:30'
       state: > 
-        {% set target = states('input_number.illuminance_back_light') | int(0) %}
+        {% set target = states('input_number.light_illuminance') | int(0) %}
         {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
         {{ sensor < target }}

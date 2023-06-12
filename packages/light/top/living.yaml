@@ -14,7 +14,7 @@ top_light_living:
     - light.bulb_light_living_6
 
   automation:
-  - alias: 'button_living_right'
+  - alias: 'top_light_living_button'
     mode: 'queued'
     trigger:
     - platform: state
@@ -22,18 +22,18 @@ top_light_living:
       to: 'single_right'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_living_right
+      entity_id: input_boolean.top_light_living_button
 
-  - alias: 'button_living_action'
+  - alias: 'top_light_living_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_living_right
+      entity_id: input_boolean.top_light_living_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_living_right
+      entity_id: input_boolean.top_light_living_button
       to: 'off'
     action:
     - choose:

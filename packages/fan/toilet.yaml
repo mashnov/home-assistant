@@ -1,6 +1,6 @@
 fan_toilet:
   input_boolean:
-    button_toilet_hold:
+    fan_toilet_button:
 
   input_number:
     duration_fan_night: # 00:00:10
@@ -58,7 +58,7 @@ fan_toilet:
     action:
     - parallel:
       - service: input_boolean.turn_on
-        entity_id: input_boolean.button_toilet_hold
+        entity_id: input_boolean.fan_toilet_button
       - service: timer.start
         entity_id: timer.fan_toilet
         data_template:
@@ -73,18 +73,18 @@ fan_toilet:
         entity_id: timer.fan_toilet
     action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.button_toilet_hold
+      entity_id: input_boolean.fan_toilet_button
 
   - alias: 'fan_toilet_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.button_toilet_hold'
+      entity_id: 'input_boolean.fan_toilet_button'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.button_toilet_hold'
+      entity_id: 'input_boolean.fan_toilet_button'
       to: 'off'
     action:
     - choose:

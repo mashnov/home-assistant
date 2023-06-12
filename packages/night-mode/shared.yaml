@@ -1,20 +1,20 @@
 night_mode_shared:
   input_number:
-    delay_night_mode: # 00:01:30
+    night_mode_delay: # 00:01:30
       max: 180
       min: 0
-    delay_night_mode_inaction: # 00:45:00
+    night_mode_inaction_delay: # 00:45:00
       max: 90
       min: 0
-    delay_night_mode_action: # 00:05:00
+    night_mode_action_delay: # 00:05:00
       max: 90
       min: 0
 
   template:
   - sensor:
-    - name: 'delay_night_mode'
+    - name: 'night_mode_delay'
       state: >
-        {% set duration = states('input_number.delay_night_mode') %}
+        {% set duration = states('input_number.night_mode_delay') %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   - binary_sensor:
@@ -22,14 +22,14 @@ night_mode_shared:
       state: >
         {% set kitchen = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_hall.last_changed)) / 60) | round(0) %}
         {% set hall = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_kitchen.last_changed)) / 60) | round(0) %}
-        {% set target = states('input_number.delay_night_mode_inaction') | int(0) %}
+        {% set target = states('input_number.night_mode_inaction_delay') | int(0) %}
         {% set sensor = min(kitchen, hall) %}
         {{ sensor > target }}
     - name: 'night_mode_action'
       state: >
         {% set kitchen = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_hall.last_changed)) / 60) | round(0) %}
         {% set hall = ((as_timestamp(now()) - as_timestamp(states.binary_sensor.occupancy_kitchen.last_changed)) / 60) | round(0) %}
-        {% set target = states('input_number.delay_night_mode_action') | int(0) %}
+        {% set target = states('input_number.night_mode_action_delay') | int(0) %}
         {% set sensor = min(kitchen, hall) %}
         {{ sensor > target }}
     - name: 'night_mode_auto_on'

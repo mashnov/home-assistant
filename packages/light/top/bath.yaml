@@ -1,7 +1,7 @@
 ### todo add button nitification
 top_light_bath:
   input_boolean:
-    button_bath_top_single:
+    top_light_bath_игеещт:
 
   light:
   - platform: template
@@ -42,18 +42,18 @@ top_light_bath:
       state: 'off'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_bath_top_single
+      entity_id: input_boolean.top_light_bath_игеещт
 
   - alias: 'top_light_bath_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_bath_top_single
+      entity_id: input_boolean.top_light_bath_игеещт
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_bath_top_single
+      entity_id: input_boolean.top_light_bath_игеещт
       to: 'off'
     action:
     - choose:
@@ -81,7 +81,7 @@ top_light_bath:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_bath_top_single
+      entity_id: input_boolean.top_light_bath_игеещт
       state: 'off'
     action:
     - choose:

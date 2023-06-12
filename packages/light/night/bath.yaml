@@ -1,6 +1,6 @@
 night_light_bath:
   input_boolean:
-    button_bath_night_single:
+    night_light_bath_button:
 
   light:
   - platform: template
@@ -37,18 +37,18 @@ night_light_bath:
       to: 'single_right'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_bath_night_single
+      entity_id: input_boolean.night_light_bath_button
 
   - alias: 'night_light_bath_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_bath_night_single
+      entity_id: input_boolean.night_light_bath_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_bath_night_single
+      entity_id: input_boolean.night_light_bath_button
       to: 'off'
     action:
     - choose:
@@ -76,7 +76,7 @@ night_light_bath:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_bath_night_single
+      entity_id: input_boolean.night_light_bath_button
       state: 'off'
     action:
     - choose:

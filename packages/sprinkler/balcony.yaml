@@ -1,6 +1,6 @@
 sprinkler_balcony:
   input_boolean:
-    sprinkler_button:
+    sprinkler_balcony_button:
 
   automation:
   - alias: 'sprinkler_balcony_button'
@@ -11,7 +11,7 @@ sprinkler_balcony:
       to: 'hold'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.sprinkler_button
+      entity_id: input_boolean.sprinkler_balcony_button
 
   - alias: 'sprinkler_balcony_action'
     mode: 'queued'

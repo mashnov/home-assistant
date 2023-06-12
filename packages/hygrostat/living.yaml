@@ -1,11 +1,11 @@
 ### todo add notification
 hygrostat_living:
   input_text:
-    humidifier_empty_living:
+    hygrostat_living_empty_text:
       initial: 'Гостиная. Закончилась вода в увлажнителе'
 
   input_number:
-    power_offset_living: # 12
+    hygrostat_living_power_delay: # 12
       max: 60
       min: 0
 
@@ -19,14 +19,14 @@ hygrostat_living:
 
   template:
   - binary_sensor:
-    - name: 'humidifier_full_living'
+    - name: 'hygrostat_living_is_full'
       device_class: 'moisture'
       delay_on: '00:00:04'
       state: >
         {% set humidifier = is_state('switch.living_relay_l1', 'on') %}
         {% set backlight = is_state('light.back_light_living', 'on') %}
         {% set power = states('sensor.living_relay_power') | round(0) %}
-        {% set offset = states('input_number.power_offset_living') | int(0) %}
+        {% set offset = states('input_number.hygrostat_living_power_delay') | int(0) %}
         {% set value = iif(backlight, power + offset, 1) %}
         {{ humidifier and (power < value) }}
 

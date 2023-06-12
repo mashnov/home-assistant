@@ -39,7 +39,7 @@ occupancy_kitchen:
         - service: timer.start
           entity_id: timer.occupancy_kitchen
           data_template:
-            duration: "{{ states('sensor.duration_occupancy') }}"
+            duration: "{{ states('sensor.occupancy_duration') }}"
 
   - alias: 'occupancy_kitchen_off'
     mode: 'queued'

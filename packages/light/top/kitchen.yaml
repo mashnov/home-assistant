@@ -1,7 +1,7 @@
 ### todo add button nitification
 top_light_kitchen:
   input_boolean:
-    button_kitchen_right:
+    top_light_kitchen_button:
 
   light:
   - platform: group
@@ -26,7 +26,7 @@ top_light_kitchen:
         entity_id: light.top_light_kitchen
 
   automation:
-  - alias: 'button_kitchen_right'
+  - alias: 'top_light_kitchen_button'
     mode: 'queued'
     trigger:
     - platform: state
@@ -34,18 +34,18 @@ top_light_kitchen:
       to: 'single_right'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_kitchen_right
+      entity_id: input_boolean.top_light_kitchen_button
 
-  - alias: 'button_kitchen_action'
+  - alias: 'top_light_kitchen_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_kitchen_right
+      entity_id: input_boolean.top_light_kitchen_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_kitchen_right
+      entity_id: input_boolean.top_light_kitchen_button
       to: 'off'
     action:
     - choose:
@@ -60,7 +60,7 @@ top_light_kitchen:
         sequence:
         - service: script.top_light_kitchen_turn_off
 
-  - alias: 'button_kitchen_auto'
+  - alias: 'top_light_kitchen_auto'
     mode: 'queued'
     trigger:
     - id: 'turn_on'

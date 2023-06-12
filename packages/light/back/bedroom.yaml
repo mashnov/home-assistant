@@ -2,7 +2,7 @@
 ### todo add button nitification
 back_light_bedroom:
   input_boolean:
-    button_bedroom_left:
+    back_light_bedroom_button:
 
   light:
   - platform: template
@@ -49,18 +49,18 @@ back_light_bedroom:
       to: 'single_left'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.button_bedroom_left
+      entity_id: input_boolean.back_light_bedroom_button
 
   - alias: 'back_light_bedroom_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.button_bedroom_left
+      entity_id: input_boolean.back_light_bedroom_button
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.button_bedroom_left
+      entity_id: input_boolean.back_light_bedroom_button
       to: 'off'
     action:
     - choose:
@@ -80,15 +80,15 @@ back_light_bedroom:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'binary_sensor.illuminance_back_light'
+      entity_id: 'binary_sensor.light_illuminance'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'binary_sensor.illuminance_back_light'
+      entity_id: 'binary_sensor.light_illuminance'
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_bedroom_left
+      entity_id: input_boolean.back_light_bedroom_button
       state: 'off'
     - platform: state
       entity_id: input_boolean.night_mode_bedroom
@@ -119,7 +119,7 @@ back_light_bedroom:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.button_bedroom_left
+      entity_id: input_boolean.back_light_bedroom_button
       state: 'off'
     action:
     - choose:
