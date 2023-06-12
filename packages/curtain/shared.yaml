@@ -1,4 +1,3 @@
-### todo test script entity
 curtain_shared:
   input_number:
     curtain_azimuth_target: # 160
@@ -16,15 +15,6 @@ curtain_shared:
     curtain_illuminance: # 3500
       max: 9000
       min: 0
-
-  script:
-    curtain_set_position:
-      mode: 'queued'
-      sequence:
-      - service: cover.set_cover_position
-        entity_id: '{{ entity }}'
-        data_template:
-          position: '{{ position }}'
 
   template:
   - binary_sensor:

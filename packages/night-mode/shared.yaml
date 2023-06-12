@@ -40,7 +40,7 @@ night_mode_shared:
         {{ night or (twilight and inactive) }}
     - name: 'night_mode_auto_off'
       state: >
-        {% set night = is_state('binary_sensor.morning', 'on') %}
-        {% set twilight = is_state('binary_sensor.daytime', 'on') %}
+        {% set morning = is_state('binary_sensor.morning', 'on') %}
+        {% set daytime = is_state('binary_sensor.daytime', 'on') %}
         {% set active = is_state('binary_sensor.night_mode_action', 'on') %}
         {{ daytime or (morning and active) }}

@@ -13,6 +13,15 @@ curtain_kitchen:
       max: 100
       min: 0
 
+  script:
+    curtain_kitchen_set_position:
+      mode: 'queued'
+      sequence:
+      - service: cover.set_cover_position
+        entity_id: cover.curtain_kitchen
+        data_template:
+          position: '{{ position }}'
+
   automation:
   - alias: 'curtain_kitchen_sunny'
     mode: 'queued'
@@ -31,18 +40,16 @@ curtain_kitchen:
         - condition: trigger
           id: 'sunny_on'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_sun') | int(0) }}"
-            entity: cover.curtain_kitchen
       - conditions:
         - condition: trigger
           id: 'sunny_off'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
-            entity: cover.curtain_kitchen
 
   - alias: 'curtain_kitchen_night'
     mode: 'queued'
@@ -61,18 +68,16 @@ curtain_kitchen:
         - condition: trigger
           id: 'night_mode_on'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_night') | int(0) }}"
-            entity: cover.curtain_kitchen
       - conditions:
         - condition: trigger
           id: 'night_mode_off'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
-            entity: cover.curtain_kitchen
 
   - alias: 'curtain_kitchen_ventilation'
     mode: 'queued'
@@ -95,15 +100,13 @@ curtain_kitchen:
         - condition: trigger
           id: 'ventilation_on'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_ventilation') | int(0) }}"
-            entity: cover.curtain_kitchen
       - conditions:
         - condition: trigger
           id: 'ventilation_off'
         sequence:
-        - service: script.curtain_set_position
+        - service: script.curtain_kitchen_set_position
           data_template:
             position: "{{ states('input_number.curtain_kitchen_night') | int(0) }}"
-            entity: cover.curtain_kitchen
