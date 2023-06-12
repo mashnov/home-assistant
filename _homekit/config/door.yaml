@@ -1,0 +1,14 @@
+binary_sensor.door_toilet:
+  name: Door
+
+binary_sensor.door_hall:
+  name: Door
+
+binary_sensor.door_bedroom:
+  name: Door
+
+binary_sensor.door_living:
+  name: Door
+
+binary_sensor.door_balcony:
+  name: Door

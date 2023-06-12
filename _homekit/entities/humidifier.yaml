@@ -1,0 +1,9 @@
+- humidifier.humidifier_hall
+- humidifier.humidifier_bedroom
+- humidifier.humidifier_living
+
+- binary_sensor.hygrostat_hall_is_full
+- binary_sensor.hygrostat_bedroom_is_full
+- binary_sensor.hygrostat_living_is_full
+
+

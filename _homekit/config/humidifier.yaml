@@ -1,0 +1,17 @@
+humidifier.humidifier_hall:
+  name: Humidifier
+
+humidifier.humidifier_bedroom:
+  name: Humidifier
+
+humidifier.humidifier_living:
+  name: Humidifier
+
+binary_sensor.humidifier_full_hall:
+  name: Full humidifier
+
+binary_sensor.humidifier_full_bedroom:
+  name: Full humidifier
+
+binary_sensor.humidifier_full_living:
+  name: Full humidifier

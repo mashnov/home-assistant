@@ -1,0 +1,17 @@
+sensor.humidity_kitchen:
+  name: Humidity
+
+sensor.humidity_bath:
+  name: Humidity
+
+sensor.humidity_hall:
+  name: Humidity
+
+sensor.humidity_bedroom:
+  name: Humidity
+
+sensor.humidity_living:
+  name: Humidity
+
+sensor.humidity_balcony:
+  name: Humidity

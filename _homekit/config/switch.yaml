@@ -1,0 +1,11 @@
+switch.switch_kitchen:
+  name: Switch
+
+switch.switch_hall:
+  name: Switch
+
+switch.switch_bedroom:
+  name: Switch
+
+switch.switch_living:
+  name: Switch

@@ -1,0 +1,17 @@
+sensor.temperature_kitchen:
+  name: Temperature
+
+sensor.temperature_bath:
+  name: Temperature
+
+sensor.temperature_hall:
+  name: Temperature
+
+sensor.temperature_bedroom:
+  name: Temperature
+
+sensor.temperature_living:
+  name: Temperature
+
+sensor.temperature_balcony:
+  name: Temperature

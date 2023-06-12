@@ -1,0 +1,5 @@
+- binary_sensor.binary_sensor.window_kitchen_right
+- binary_sensor.binary_sensor.window_kitchen_left
+- binary_sensor.binary_sensor.window_bedroom_right
+- binary_sensor.binary_sensor.window_bedroom_left
+- binary_sensor.window_living

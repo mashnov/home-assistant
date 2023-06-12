@@ -1,0 +1,5 @@
+input_boolean.night_mode_bedroom:
+  name: Night Mode
+
+input_boolean.night_mode_living:
+  name: Night Mode
