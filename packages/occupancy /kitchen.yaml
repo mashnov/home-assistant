@@ -18,11 +18,11 @@ occupancy_kitchen:
     trigger:
     - id: 'motion_on'
       platform: state
-      entity_id: 'binary_sensor.occupancy_kitchen'
+      entity_id: 'binary_sensor.motion_kitchen'
       to: 'on'
     - id: 'motion_off'
       platform: state
-      entity_id: 'binary_sensor.occupancy_kitchen'
+      entity_id: 'binary_sensor.motion_kitchen'
       to: 'off'
     action:
     - choose:

@@ -31,10 +31,10 @@ sprinkler_balcony:
           id: 'turn_on'
         sequence:
         - service: switch.turn_on
-          entity_id: switch.balcony_relay_l3
+          entity_id: switch.relay_balcony_l3
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
         - service: switch.turn_off
-          entity_id: switch.balcony_relay_l3
+          entity_id: switch.relay_balcony_l3

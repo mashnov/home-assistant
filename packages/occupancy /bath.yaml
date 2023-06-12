@@ -18,11 +18,11 @@ occupancy_bath:
     trigger:
     - id: 'motion_on'
       platform: state
-      entity_id: 'binary_sensor.occupancy_bath'
+      entity_id: 'binary_sensor.motion_bath'
       to: 'on'
     - id: 'motion_off'
       platform: state
-      entity_id: 'binary_sensor.occupancy_bath'
+      entity_id: 'binary_sensor.motion_bath'
       to: 'off'
     action:
     - choose:

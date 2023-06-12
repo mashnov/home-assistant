@@ -18,11 +18,11 @@ occupancy_hall:
     trigger:
     - id: 'motion_on'
       platform: state
-      entity_id: 'binary_sensor.occupancy_hall'
+      entity_id: 'binary_sensor.motion_hall'
       to: 'on'
     - id: 'motion_off'
       platform: state
-      entity_id: 'binary_sensor.occupancy_hall'
+      entity_id: 'binary_sensor.motion_hall'
       to: 'off'
     action:
     - choose:
