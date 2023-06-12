@@ -1,4 +1,4 @@
-time:
+twilight:
   input_datetime:
     twilight: # 22:30:00
       has_date: false

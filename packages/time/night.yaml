@@ -1,4 +1,4 @@
-time:
+night:
   input_datetime:
     night: # 00:30:00
       has_date: false
