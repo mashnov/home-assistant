@@ -1,6 +1,6 @@
 time:
   input_datetime:
-    time_twilight: # 22:30:00
+    twilight: # 22:30:00
       has_date: false
       has_time: true
 
