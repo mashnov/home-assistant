@@ -2,13 +2,13 @@ night_mode_shared:
   input_number:
     night_mode_delay: # 00:01:30
       max: 180
-      min: 0
+      min: 1
     night_mode_inaction_delay: # 00:45:00
       max: 90
-      min: 0
+      min: 1
     night_mode_action_delay: # 00:05:00
       max: 90
-      min: 0
+      min: 1
 
   template:
   - sensor:

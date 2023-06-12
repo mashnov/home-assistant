@@ -5,9 +5,9 @@ hygrostat_bedroom:
       initial: 'Спальня. Закончилась вода в увлажнителе'
 
   input_number:
-    hygrostat_bedroom_power_delay: # 0
+    hygrostat_bedroom_power_offset: # 0
       max: 60
-      min: 0
+      min: 1
 
   generic_hygrostat:
   - name: humidifier_bedroom
@@ -26,7 +26,7 @@ hygrostat_bedroom:
         {% set humidifier = is_state('switch.bedroom_relay_l2', 'on') %}
         {% set backlight = is_state('light.back_light_bedroom', 'on') %}
         {% set power = states('sensor.relay_bedroom_energy') | round(0) %}
-        {% set offset = states('input_number.hygrostat_bedroom_power_delay') | int(0) %}
+        {% set offset = states('input_number.hygrostat_bedroom_power_offset') | int(0) %}
         {% set value = iif(backlight, power + offset, 1) %}
         {{ humidifier and (power < value) }}
 

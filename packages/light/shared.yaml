@@ -3,7 +3,7 @@ light_shared:
   input_number:
     light_connect_delay: # 00:00:06
       max: 180
-      min: 0
+      min: 1
 
     light_illuminance: # 4500
       max: 9000

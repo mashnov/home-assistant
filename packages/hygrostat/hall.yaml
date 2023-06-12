@@ -5,9 +5,9 @@ hygrostat_hall:
       initial: 'Коридор. Закончилась вода в увлажнителе'
 
   input_number:
-    hygrostat_hall_power_delay: # 12
+    hygrostat_hall_power_offset: # 12
       max: 60
-      min: 0
+      min: 1
 
   generic_hygrostat:
   - name: humidifier_hall
@@ -26,7 +26,7 @@ hygrostat_hall:
         {% set humidifier = is_state('switch.hall_relay_l2', 'on') %}
         {% set backlight = is_state('light.back_light_hall', 'on') %}
         {% set power = states('sensor.hall_relay_power') | round(0) %}
-        {% set offset = states('input_number.hygrostat_hall_power_delay') | int(0) %}
+        {% set offset = states('input_number.hygrostat_hall_power_offset') | int(0) %}
         {% set value = iif(backlight, power + offset, 1) %}
         {{ humidifier and (power < value) }}
 
