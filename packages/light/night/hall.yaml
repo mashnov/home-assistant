@@ -1,8 +1,6 @@
-### todo add light_brightness sensor usage
-### todo add hue input usage
 night_light_hall:
   input_number:
-    parameters_light_color_hue: # 20
+    night_light_hall_hue: # 20
       max: 20
       min: 0
 
@@ -22,13 +20,16 @@ night_light_hall:
     - choose:
       - conditions:
         - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.night_light_hall
-      - conditions:
-        - condition: trigger
           id: 'turn_off'
         sequence:
         - service: light.turn_off
           entity_id: light.night_light_hall
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.night_light_hall
+          data_template:
+            brightness: "{{ states('sensor.light_brightness') }}"
+            hs_color: ["{{ states('input_number.night_light_hall_hue') | int }}", "{{ states('sensor.light_saturation') | int }}"]
