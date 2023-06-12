@@ -21,7 +21,7 @@ light_shared:
   - sensor:
     - name: 'light_connect_delay'
       state: >
-        {% set duration = states('input_number.light_connect_delay') %}
+        {% set duration = states('input_number.light_connect_delay') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
     - name: 'light_persent'

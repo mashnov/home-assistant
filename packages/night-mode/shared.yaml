@@ -14,7 +14,7 @@ night_mode_shared:
   - sensor:
     - name: 'night_mode_delay'
       state: >
-        {% set duration = states('input_number.night_mode_delay') %}
+        {% set duration = states('input_number.night_mode_delay') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   - binary_sensor:
