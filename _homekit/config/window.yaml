@@ -1,8 +1,14 @@
-binary_sensor.window_kitchen:
-  name: Window
+binary_sensor.binary_sensor.window_kitchen_right:
+  name: Window Right
 
-binary_sensor.window_bedroom:
-  name: Window
+binary_sensor.binary_sensor.window_kitchen_left:
+  name: Window Left
+
+binary_sensor.binary_sensor.window_bedroom_right:
+  name: Window Right
+
+binary_sensor.binary_sensor.window_bedroom_left:
+  name: Window Left
 
 binary_sensor.window_living:
   name: Window
