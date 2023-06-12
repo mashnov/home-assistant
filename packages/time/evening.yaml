@@ -2,6 +2,7 @@ evening:
   input_datetime:
     evening: # 20:30:00
       has_date: false
+      has_time: true
 
   template:
   - binary_sensor: 
