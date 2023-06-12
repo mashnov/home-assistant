@@ -64,7 +64,7 @@ back_light_hall:
         sequence:
         - service: script.back_light_hall_turn_off
 
-  - alias: 'back_light_hall_night'
+  - alias: 'back_light_hall_auto'
     mode: 'queued'
     trigger:
     - id: 'turn_off'

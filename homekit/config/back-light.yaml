@@ -7,9 +7,6 @@ light.back_light_hall:
 light.back_light_bedroom:
   name: Back Light
 
-light.wall_light_bedroom:
-  name: Wall Light
-
 light.back_light_living:
   name: Back Light
 

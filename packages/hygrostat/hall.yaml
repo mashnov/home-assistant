@@ -13,7 +13,7 @@ hygrostat_hall:
   - name: humidifier_hall
     device_class: 'humidifier'
     humidifier: switch.relay_hall_l2
-    target_sensor: sensor.humidity_hall_level
+    target_sensor: sensor.humidity_hall
     min_humidity: 20
     max_humidity: 80
 

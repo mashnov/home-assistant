@@ -3,7 +3,7 @@ hygrostat_bath:
   - name: dehumidifier_bath
     device_class: 'dehumidifier'
     humidifier: switch.relay_toilet_l1
-    target_sensor: sensor.humidity_bath_level
+    target_sensor: sensor.humidity_bath
     min_humidity: 40
     max_humidity: 80
   

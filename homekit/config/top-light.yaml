@@ -1,4 +1,4 @@
-light.top_light_kitchen_group:
+light.top_light_kitchen:
   name: Top Light
 
 light.top_light_bath:
@@ -7,11 +7,11 @@ light.top_light_bath:
 light.top_light_toilet:
   name: Top Light
 
-light.top_light_hall_group:
+light.top_light_hall:
   name: Top Light
 
-light.top_light_bedroom_group:
+light.top_light_bedroom:
   name: Top Light
 
-light.top_light_living_group:
+light.top_light_living:
   name: Top Light

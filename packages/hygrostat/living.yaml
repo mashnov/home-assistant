@@ -13,7 +13,7 @@ hygrostat_living:
   - name: humidifier_living
     device_class: 'humidifier'
     humidifier: switch.relay_living_l1
-    target_sensor: sensor.humidity_living_level
+    target_sensor: sensor.humidity_living
     min_humidity: 20
     max_humidity: 80
 
