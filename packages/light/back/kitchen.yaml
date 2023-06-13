@@ -10,13 +10,9 @@ back_light_kitchen:
       back_light_kitchen:
         value_template: "{{ is_state('switch.relay_kitchen_l2', 'on') }}"
         turn_on:
-        - service: script.turn_on
-          data:
-            entity_id: script.back_light_turn_on
+        - service: script.back_light_kitchen_turn_on
         turn_off:
-        - service: switch.turn_off
-          data:
-            entity_id: switch.relay_kitchen_l2
+        - service: script.back_light_kitchen_turn_off
 
   script:
     back_light_kitchen_turn_on:
