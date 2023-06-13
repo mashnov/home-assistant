@@ -68,11 +68,11 @@ night_light_bath:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'binary_sensor.occupancy_batn'
+      entity_id: 'binary_sensor.occupancy_bath'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'binary_sensor.occupancy_batn'
+      entity_id: 'binary_sensor.occupancy_bath'
       to: 'off'
     condition:
     - platform: state

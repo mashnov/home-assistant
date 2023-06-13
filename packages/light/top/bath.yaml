@@ -81,7 +81,7 @@ top_light_bath:
       to: 'off'
     condition:
     - platform: state
-      entity_id: input_boolean.top_light_bath_игеещт
+      entity_id: input_boolean.top_light_bath_button
       state: 'off'
     action:
     - choose:
