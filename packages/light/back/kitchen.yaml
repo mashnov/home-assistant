@@ -18,13 +18,13 @@ back_light_kitchen:
     back_light_kitchen_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.back_light_kitchen
+      - service: switch.turn_on
+        entity_id: switch.relay_kitchen_l2
     back_light_kitchen_turn_off:
       mode: 'queued'
       sequence:
-      - service: light.turn_off
-        entity_id: light.back_light_kitchen
+      - service: switch.turn_off
+        entity_id: switch.relay_kitchen_l2
 
   automation:
   - alias: 'back_light_kitchen_button'

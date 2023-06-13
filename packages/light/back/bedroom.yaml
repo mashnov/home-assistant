@@ -13,29 +13,25 @@ back_light_bedroom:
           {% set wall = is_state('switch.switch_bedroom_wall', 'on') %}
           {{ wall }}
         turn_on:
-        - service: switch.turn_on
-          data:
-            entity_id: 
-            # - switch.relay_bedroom_l1
-            - switch.switch_bedroom_wall
+        - service: script.back_light_bedroom_turn_on
         turn_off:
-        - service: switch.turn_off
-          data:
-            entity_id: 
-            - switch.relay_bedroom_l1
-            - switch.switch_bedroom_wall
+        - service: script.back_light_bedroom_turn_off
 
   script:
     back_light_bedroom_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.back_light_bedroom
+      - service: switch.turn_on
+        entity_id:
+        - switch.relay_bedroom_l1
+        - switch.switch_bedroom_wall
     back_light_bedroom_turn_off:
       mode: 'queued'
       sequence:
-      - service: light.turn_off
-        entity_id: light.back_light_bedroom
+      - service: switch.turn_off
+        entity_id:
+        - switch.relay_bedroom_l1
+        - switch.switch_bedroom_wall
 
   automation:
   - alias: 'back_light_bedroom_button'
