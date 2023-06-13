@@ -7,7 +7,7 @@ light.night_light_bath:
 light.night_light_toilet:
   name: Night Light
 
-light.nightlight_hall:
+light.night_light_hall:
   name: Night Light
 
 light.night_light_balcony:
