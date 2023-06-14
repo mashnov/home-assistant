@@ -23,7 +23,7 @@ hygrostat_hall:
       device_class: 'moisture'
       delay_on: '00:00:04'
       state: >
-        {% set humidifier = is_state('switch.hall_relay_l2', 'on') %}
+        {% set humidifier = is_state('switch.relay_hall_l2', 'on') %}
         {% set backlight = is_state('light.back_light_hall', 'on') %}
         {% set power = states('sensor.hall_relay_power') | round(0) %}
         {% set offset = states('input_number.hygrostat_hall_power_offset') | int(0) %}
