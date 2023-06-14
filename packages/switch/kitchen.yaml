@@ -4,9 +4,9 @@ switch_kitchen:
     switches:
       switch_kitchen:
         value_template: >
-          {% set left = is_state('switch.switch_kitchen_left', 'on') %}
-          {% set right = is_state('switch.switch_kitchen_right', 'on') %}    
-          {{ left and right }}
+          {% set topLight = is_state('switch.switch_kitchen_left', 'on') %}
+          {% set backLight = is_state('switch.switch_kitchen_right', 'on') %}    
+          {{ topLight and backLight }}
         turn_on:
         - service: script.switch_kitchen_turn_on
         turn_off:
