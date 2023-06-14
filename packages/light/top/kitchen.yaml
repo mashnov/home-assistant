@@ -73,7 +73,7 @@ top_light_kitchen:
       entity_id: 'binary_sensor.occupancy_bath'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.top_light_kitchen
       state: 'off'
     action:
@@ -81,7 +81,7 @@ top_light_kitchen:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - platform: state
+        - condition: state
           entity_id: binary_sensor.night_mode_hall
           state: 'off'
         sequence:

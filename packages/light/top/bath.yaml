@@ -84,7 +84,7 @@ top_light_bath:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - platform: state
+        - condition: state
           entity_id: binary_sensor.night_mode_hall
           state: 'off'
         sequence:
