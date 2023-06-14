@@ -1,6 +1,2 @@
 - sensor.humidity_kitchen
-- sensor.humidity_bath
-- sensor.humidity_hall
-- sensor.humidity_bedroom
-- sensor.humidity_living
 - sensor.humidity_balcony
