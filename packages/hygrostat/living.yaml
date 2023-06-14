@@ -25,10 +25,10 @@ hygrostat_living:
       state: >
         {% set humidifier = is_state('switch.relay_living_l1', 'on') %}
         {% set backlight = is_state('light.back_light_living', 'on') %}
-        {% set power = states('sensor.living_relay_power') | float(0) | round(0) %}
         {% set offset = states('input_number.hygrostat_living_power_offset') | int(0) %}
-        {% set value = iif(backlight, power + offset, 1) %}
-        {{ humidifier and (power < value) }}
+        {% set power = states('sensor.relay_living_power') | float(0) | round(0) %}
+        {% set sensor = iif(backlight, power - offset, power) %}
+        {{ humidifier and (sensor <= 0) }}
 
   script:
     hygrostat_living_turn_on:
