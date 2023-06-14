@@ -9,25 +9,21 @@ top_light_bath:
       top_light_bath:
         value_template: "{{ is_state('switch.switch_restroom_right', 'on') }}"
         turn_on:
-        - service: switch.turn_on
-          data:
-            entity_id: switch.switch_restroom_right
+        - service: script.top_light_bath_turn_on
         turn_off:
-        - service: switch.turn_off
-          data:
-            entity_id: switch.switch_restroom_right
+        - service: script.top_light_bath_turn_off
 
   script:
     top_light_bath_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.top_light_bath
+      - service: switch.turn_on
+        entity_id: switch.switch_restroom_right
     top_light_bath_turn_off:
       mode: 'queued'
       sequence:
-      - service: light.turn_off
-        entity_id: light.top_light_bath
+      - service: switch.turn_off
+        entity_id: switch.switch_restroom_right
 
   automation:
   - alias: 'top_light_bath_button'
