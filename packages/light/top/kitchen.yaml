@@ -66,11 +66,11 @@ top_light_kitchen:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'binary_sensor.occupancy_bath'
+      entity_id: 'binary_sensor.occupancy_kitchen'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'binary_sensor.occupancy_bath'
+      entity_id: 'binary_sensor.occupancy_kitchen'
       to: 'off'
     condition:
     - condition: state
