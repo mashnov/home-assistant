@@ -1,6 +1,6 @@
 top_light_living:
   input_boolean:
-    button_living_right:
+    top_light_living_button:
   
   light:
   - platform: group
