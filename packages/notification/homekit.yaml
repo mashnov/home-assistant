@@ -1,0 +1,8 @@
+notification_homekit:
+  script:
+    homekit_message:
+      mode: 'queued'
+      sequence:
+      - service: notify.homekit_notification
+        data:
+          message: "{{ message }}"

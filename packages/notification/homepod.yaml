@@ -1,6 +1,6 @@
 notification_homepod:
   script:
-    notification_homepod:
+    homepod_message:
       mode: 'queued'
       sequence:
       - service: tts.sveta_say
