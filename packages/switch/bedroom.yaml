@@ -1,14 +1,4 @@
 switch_bedroom:
-  homekit_switch:
-  - name: automation_bedroom
-    entity_ids:
-    - automation.curtain_bedroom_sunny
-    - automation.curtain_bedroom_night
-    - automation.curtain_bedroom_ventilation
-    - automation.hygrostat_bedroom_night
-    - automation.back_light_bedroom_auto
-    - automation.back_light_bedroom_night
-
   switch:
   - platform: template
     switches:

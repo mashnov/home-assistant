@@ -1,0 +1,38 @@
+automation_kitchen:
+  switch:
+  - platform: group
+    name: automation_kitchen
+    entities:
+      - switch.curtain_bedroom_sunny
+      - switch.curtain_bedroom_night
+      - switch.curtain_bedroom_ventilation
+
+  - platform: template
+    switches:
+      curtain_bedroom_sunny:
+        value_template: "{{ is_state('automation.curtain_kitchen_sunny', 'on') }}"
+        turn_on:
+        - service: automation.turn_on
+          entity_id: automation.curtain_kitchen_sunny
+        turn_off:
+        - service: automation.turn_off
+          entity_id: automation.curtain_kitchen_sunny
+
+      curtain_bedroom_night:
+        value_template: "{{ is_state('automation.curtain_kitchen_night', 'on') }}"
+        turn_on:
+        - service: automation.turn_on
+          entity_id: automation.curtain_kitchen_night
+        turn_off:
+        - service: automation.turn_off
+          entity_id: automation.curtain_kitchen_night
+
+      curtain_bedroom_ventilation:
+        value_template: "{{ is_state('automation.curtain_kitchen_ventilation', 'on') }}"
+        turn_on:
+        - service: automation.turn_on
+          entity_id: automation.curtain_kitchen_ventilation
+        turn_off:
+        - service: automation.turn_off
+          entity_id: automation.curtain_kitchen_ventilation
+

@@ -1,6 +1,0 @@
-switch_hall:
-  homekit_switch:
-  - name: automation_hall
-    entity_ids:
-    - automation.hygrostat_hall_night
-    - automation.back_light_hall_auto
