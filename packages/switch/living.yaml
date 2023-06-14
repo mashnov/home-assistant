@@ -4,18 +4,28 @@ switch_living:
     switches:
       switch_living:
         value_template: >
-          {% set left = is_state('binary_sensor.switch_living_left', 'on') %}
-          {% set right = is_state('binary_sensor.switch_living_right', 'on') %}    
+          {% set left = is_state('switch.switch_living_left', 'on') %}
+          {% set right = is_state('switch.switch_living_right', 'on') %}    
           {{ left and right }}
         turn_on:
-        - service: switch.turn_on
-          data:
-            entity_id: 
-            - switch.switch_living_left
-            - switch.switch_living_right
+        - service: script.switch_living_turn_on
         turn_off:
-        - service: switch.turn_off
-          data:
-            entity_id: 
-            - switch.switch_living_left
-            - switch.switch_living_right
+        - service: script.switch_living_turn_off
+
+  script:
+    switch_living_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_on
+        entity_id: 
+        - switch.switch_living_left 
+        - switch.switch_living_right
+    switch_living_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_off
+        entity_id: 
+        - switch.switch_living_left 
+        - switch.switch_living_right
+
+
