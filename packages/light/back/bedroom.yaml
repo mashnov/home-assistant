@@ -1,4 +1,4 @@
-### rodo add back value to value_template of back_light_bedroom
+### rodo add relay to script
 ### todo add button nitification
 back_light_bedroom:
   input_boolean:
@@ -23,7 +23,6 @@ back_light_bedroom:
       sequence:
       - service: switch.turn_on
         entity_id:
-        - switch.relay_bedroom_l1
         - switch.switch_bedroom_wall
     back_light_bedroom_turn_off:
       mode: 'queued'
