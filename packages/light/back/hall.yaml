@@ -1,8 +1,4 @@
-### todo add button nitification
 back_light_hall:
-  input_boolean:
-    back_light_hall_button:
-
   light:
   - platform: template
     lights:
@@ -26,40 +22,6 @@ back_light_hall:
         entity_id: switch.relay_hall_l1
 
   automation:
-  - alias: 'back_light_hall_button'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: sensor.switch_restroom_action
-      to: 'single_both'
-    action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.back_light_hall_button
-
-  - alias: 'back_light_hall_action'
-    mode: 'queued'
-    trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: input_boolean.back_light_hall_button
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: input_boolean.back_light_hall_button
-      to: 'off'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: script.back_light_hall_turn_on
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: script.back_light_hall_turn_off
-
   - alias: 'back_light_hall_auto'
     mode: 'queued'
     trigger:
@@ -71,10 +33,6 @@ back_light_hall:
       platform: state
       entity_id: 'binary_sensor.night_mode_hall'
       to: 'off'
-    condition:
-    - platform: state
-      entity_id: input_boolean.back_light_hall_button
-      state: 'off'
     action:
     - choose:
       - conditions:

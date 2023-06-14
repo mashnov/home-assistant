@@ -33,7 +33,7 @@ top_light_bath:
       entity_id: sensor.switch_restroom_action
       to: 'single_right'
     condition:
-    - platform: state
+      condition: state
       entity_id: binary_sensor.night_mode_hall
       state: 'off'
     action:
