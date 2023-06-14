@@ -82,10 +82,10 @@ back_light_bedroom:
       entity_id: 'binary_sensor.light_illuminance'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.back_light_bedroom_button
       state: 'off'
-    - platform: state
+    - condition: state
       entity_id: input_boolean.night_mode_bedroom
       state: 'off'
     action:
@@ -113,7 +113,7 @@ back_light_bedroom:
       entity_id: 'input_boolean.night_mode_bedroom'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.back_light_bedroom_button
       state: 'off'
     action:

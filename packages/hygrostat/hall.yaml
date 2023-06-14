@@ -55,7 +55,7 @@ hygrostat_hall:
       entity_id: binary_sensor.ventilation_kitchen
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: 'binary_sensor.night_mode_hall'
       state: 'off'
     action:

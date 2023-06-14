@@ -72,7 +72,7 @@ back_light_living:
       entity_id: 'binary_sensor.light_illuminance'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.back_light_living_button
       state: 'off'
     action:
@@ -80,7 +80,7 @@ back_light_living:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - platform: state
+        - condition: state
           entity_id: input_boolean.night_mode_living
           state: 'off'
         sequence:
@@ -103,7 +103,7 @@ back_light_living:
       entity_id: 'input_boolean.night_mode_living'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.back_light_living_button
       state: 'off'
     action:

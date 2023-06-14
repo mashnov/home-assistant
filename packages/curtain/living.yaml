@@ -91,7 +91,7 @@ curtain_living:
       entity_id: 'binary_sensor.ventilation_living'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: 'input_boolean.night_mode_living'
       state: 'on'
     action:
