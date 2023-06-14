@@ -71,7 +71,7 @@ night_light_bath:
       entity_id: 'binary_sensor.occupancy_bath'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.night_light_bath_button
       state: 'off'
     action:
