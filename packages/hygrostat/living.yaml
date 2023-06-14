@@ -19,7 +19,7 @@ hygrostat_living:
 
   template:
   - binary_sensor:
-    - name: 'hygrostat_living_is_full'
+    - name: 'hygrostat_living_is_empty'
       device_class: 'moisture'
       delay_on: '00:00:04'
       state: >
