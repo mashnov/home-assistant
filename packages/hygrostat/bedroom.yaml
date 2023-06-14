@@ -7,7 +7,7 @@ hygrostat_bedroom:
   input_number:
     hygrostat_bedroom_power_offset: # 0
       max: 60
-      min: 1
+      min: 0
 
   generic_hygrostat:
   - name: humidifier_bedroom

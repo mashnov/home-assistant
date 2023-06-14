@@ -7,7 +7,7 @@ hygrostat_hall:
   input_number:
     hygrostat_hall_power_offset: # 12
       max: 60
-      min: 1
+      min: 0
 
   generic_hygrostat:
   - name: humidifier_hall

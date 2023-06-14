@@ -2,7 +2,7 @@ occupancy_shared:
   input_number:
     occupancy_duration_night: # 00:00:30
       max: 60
-      min: 1
+      min: 0
     occupancy_duration_day: # 00:02:00
       max: 240
       min: 1

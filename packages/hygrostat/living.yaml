@@ -7,7 +7,7 @@ hygrostat_living:
   input_number:
     hygrostat_living_power_offset: # 12
       max: 60
-      min: 1
+      min: 0
 
   generic_hygrostat:
   - name: humidifier_living
