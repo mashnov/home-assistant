@@ -1,49 +1,11 @@
-# automation.curtain_bedroom_sunny:
-#   name: 'Cover Sunny Mode'
-# automation.curtain_bedroom_night:
-#   name: 'Cover Night Mode'
-# automation.curtain_bedroom_ventilation:
-#   name: 'Cover Ventilation Mode'
+switch.automation_kitchen:
+  name: 'Automation'
 
-# automation.curtain_kitchen_sunny:
-#   name: 'Cover Sunny Mode'
-# automation.curtain_kitchen_night:
-#   name: 'Cover Night Mode'
-# automation.curtain_kitchen_ventilation:
-#   name: 'Cover Ventilation Mode'
+switch.automation_hall:
+  name: 'Automation'
 
-# automation.curtain_living_sunny:
-#   name: 'Cover Sunny Mode'
-# automation.curtain_living_night:
-#   name: 'Cover Night Mode'
-# automation.curtain_living_ventilation:
-#   name: 'Cover Ventilation Mode'
+switch.automation_bedroom:
+  name: 'Automation'
 
-# automation.hygrostat_bedroom_night:
-#   name: 'Humidifier Off By Night'
-# hygrostat_bedroom_ventilation:
-#   name: 'Humidifier Off By Ventilation'
-
-# automation.hygrostat_hall_night:
-#   name: 'Humidifier Off By Night'
-# hygrostat_hall_ventilation:
-#   name: 'Humidifier Off By Ventilation'
-
-# automation.hygrostat_living_night:
-#   name: 'Humidifier Off By Night'
-# hygrostat_living_ventilation:
-#   name: 'Humidifier Off By Ventilation'
-
-
-# automation.back_light_bedroom_auto:
-#   name: 'Back Light Off By Sun'
-# automation.back_light_bedroom_night:
-#   name: 'Back Light Off By Night'
-
-# automation.back_light_living_auto:
-#   name: 'Back Light Off By Sun'
-# automation.back_light_living_night:
-#   name: 'Back Light Off By Night'
-
-# automation.back_light_hall_auto:
-#   name: 'Back Light Off By Night'
+switch.automation_living:
+  name: 'Automation'

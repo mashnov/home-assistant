@@ -1,5 +1,15 @@
 switch_living:
   switch:
+  - platform: group
+    name: automation_living
+    entities:
+    - automation.curtain_living_sunny
+    - automation.curtain_living_night
+    - automation.curtain_living_ventilation
+    - automation.hygrostat_living_night
+    - automation.back_light_living_auto
+    - automation.back_light_living_night
+
   - platform: template
     switches:
       switch_living:

@@ -1,5 +1,12 @@
 switch_kitchen:
   switch:
+  - platform: group
+    name: automation_kitchen
+    entities:
+    - automation.curtain_kitchen_sunny
+    - automation.curtain_kitchen_night
+    - automation.curtain_kitchen_ventilation
+
   - platform: template
     switches:
       switch_kitchen:

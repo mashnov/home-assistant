@@ -1,23 +1,4 @@
-- automation.curtain_bedroom_sunny
-- automation.curtain_bedroom_night
-- automation.curtain_bedroom_ventilation
-
-- automation.curtain_kitchen_sunny
-- automation.curtain_kitchen_night
-- automation.curtain_kitchen_ventilation
-
-- automation.curtain_living_sunny
-- automation.curtain_living_night
-- automation.curtain_living_ventilation
-
-- automation.hygrostat_bedroom_night
-- automation.hygrostat_hall_night
-- automation.hygrostat_living_night
-
-- automation.back_light_bedroom_auto
-- automation.back_light_bedroom_night
-
-- automation.back_light_hall_auto
-
-- automation.back_light_living_auto
-- automation.back_light_living_night
+- switch.automation_kitchen
+- switch.automation_hall
+- switch.automation_bedroom
+- switch.automation_living

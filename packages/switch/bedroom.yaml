@@ -1,5 +1,15 @@
 switch_bedroom:
   switch:
+  - platform: group
+    name: automation_bedroom
+    entities:
+    - automation.curtain_bedroom_sunny
+    - automation.curtain_bedroom_night
+    - automation.curtain_bedroom_ventilation
+    - automation.hygrostat_bedroom_night
+    - automation.back_light_bedroom_auto
+    - automation.back_light_bedroom_night
+
   - platform: template
     switches:
       switch_bedroom:

@@ -1,0 +1,7 @@
+switch_kitchen:
+  switch:
+  - platform: group
+    name: automation_hall
+    entities:
+    - automation.hygrostat_hall_night
+    - automation.back_light_hall_auto
