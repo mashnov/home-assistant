@@ -9,7 +9,7 @@ humidifier.humidifier_bedroom:
 humidifier.humidifier_living:
   name: Humidifier
   linked_battery_sensor: sensor.humidity_living
-  linked_humidity_sensor: sensor.humidity_living
+  water_level_entity: sensor.humidity_living
 
 binary_sensor.hygrostat_hall_is_empty:
   name: Full humidifier
