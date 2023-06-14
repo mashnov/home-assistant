@@ -1,7 +1,3 @@
 sensor.pressure_hall:
   name: Pressure
   type: pressure
-
-sensor.pressure_kitchen:
-  name: Pressure
-  type: air-pressure
