@@ -25,7 +25,7 @@ hygrostat_bedroom:
       state: >
         {% set humidifier = is_state('switch.relay_bedroom_l2', 'on') %}
         {% set backlight = is_state('light.back_light_bedroom', 'on') %}
-        {% set power = states('sensor.relay_bedroom_energy') | round(0) %}
+        {% set power = states('sensor.relay_bedroom_energy') | float(0) | round(0) %}
         {% set offset = states('input_number.hygrostat_bedroom_power_offset') | int(0) %}
         {% set value = iif(backlight, power + offset, 1) %}
         {{ humidifier and (power < value) }}
@@ -64,7 +64,7 @@ hygrostat_bedroom:
         - condition: trigger
           id: 'turn_off'
         sequence:
-        - hygrostat_bedroom_turn_on
+        - service: script.hygrostat_bedroom_turn_on
       - conditions:
         - condition: trigger
           id: 'turn_on'
