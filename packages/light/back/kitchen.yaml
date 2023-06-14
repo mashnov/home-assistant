@@ -73,7 +73,7 @@ back_light_kitchen:
       entity_id: 'binary_sensor.occupancy_kitchen'
       to: 'off'
     condition:
-    - platform: state
+    - condition: state
       entity_id: input_boolean.back_light_kitchen_button
       state: 'off'
     action:

@@ -74,7 +74,7 @@ top_light_kitchen:
       to: 'off'
     condition:
     - condition: state
-      entity_id: input_boolean.top_light_kitchen
+      entity_id: input_boolean.top_light_kitchen_button
       state: 'off'
     action:
     - choose:
