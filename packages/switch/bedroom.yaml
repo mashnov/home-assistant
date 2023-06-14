@@ -27,4 +27,3 @@ switch_bedroom:
         entity_id: 
         - switch.switch_bedroom_left 
         - switch.switch_bedroom_right
-

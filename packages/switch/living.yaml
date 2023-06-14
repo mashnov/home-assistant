@@ -27,5 +27,3 @@ switch_living:
         entity_id: 
         - switch.switch_living_left 
         - switch.switch_living_right
-
-

@@ -27,4 +27,3 @@ switch_kitchen:
         entity_id: 
         - switch.switch_kitchen_left 
         - switch.switch_kitchen_right
-
