@@ -1,0 +1,3 @@
+sensor.pressure_kitchen:
+  type: custom_sensor
+  name: Pressure

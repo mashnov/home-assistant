@@ -60,10 +60,6 @@ hygrostat_living:
       platform: state
       entity_id: binary_sensor.ventilation_living
       to: 'off'
-    condition:
-    - condition: state
-      entity_id: input_boolean.night_mode_living
-      state: 'off'
     action:
     - choose:
       - conditions:
@@ -74,29 +70,8 @@ hygrostat_living:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        sequence:
-        - service: script.hygrostat_living_turn_on
-
-  - alias: 'hygrostat_living_night'
-    mode: 'queued'
-    trigger:
-    - id: 'turn_off'
-      platform: state
-      entity_id: input_boolean.night_mode_living
-      to: 'on'
-    - id: 'turn_on'
-      platform: state
-      entity_id: input_boolean.night_mode_living
-      to: 'off'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: script.hygrostat_living_turn_off
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
+        - condition: state
+          entity_id: input_boolean.night_mode_living
+          state: 'off'
         sequence:
         - service: script.hygrostat_living_turn_on

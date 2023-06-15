@@ -1,7 +1,3 @@
 - humidifier.humidifier_hall
 - humidifier.humidifier_bedroom
 - humidifier.humidifier_living
-
-- sensor.humidifier_hall_water_level
-- sensor.humidifier_bedroom_water_level
-- sensor.humidifier_living_water_level

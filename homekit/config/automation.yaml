@@ -1,9 +1,6 @@
 switch.automation_kitchen:
   name: 'Automation'
 
-switch.automation_hall:
-  name: 'Automation'
-
 switch.automation_bedroom:
   name: 'Automation'
 

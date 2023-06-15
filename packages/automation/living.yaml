@@ -6,9 +6,7 @@ automation_living:
       - switch.curtain_living_sunny
       - switch.curtain_living_night
       - switch.curtain_living_ventilation
-      - switch.hygrostat_living_night
       - switch.back_light_living_auto
-      - switch.back_light_living_night
 
   - platform: template
     switches:
@@ -39,15 +37,6 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.curtain_living_ventilation
 
-      hygrostat_living_night:
-        value_template: "{{ is_state('automation.hygrostat_living_night', 'on') }}"
-        turn_on:
-        - service: automation.turn_on
-          entity_id: automation.hygrostat_living_night
-        turn_off:
-        - service: automation.turn_off
-          entity_id: automation.hygrostat_living_night
-
       back_light_living_auto:
         value_template: "{{ is_state('automation.back_light_living_auto', 'on') }}"
         turn_on:
@@ -56,12 +45,3 @@ automation_living:
         turn_off:
         - service: automation.turn_off
           entity_id: automation.back_light_living_auto
-
-      back_light_living_night:
-        value_template: "{{ is_state('automation.back_light_living_night', 'on') }}"
-        turn_on:
-        - service: automation.turn_on
-          entity_id: automation.back_light_living_night
-        turn_off:
-        - service: automation.turn_off
-          entity_id: automation.back_light_living_night

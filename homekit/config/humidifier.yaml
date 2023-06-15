@@ -12,12 +12,3 @@ humidifier.humidifier_living:
   name: Humidifier
   linked_humidity_sensor: sensor.humidity_living
   linked_battery_sensor: sensor.humidifier_living_water_level
-
-sensor.humidifier_hall_water_level:
-  name: Water Level
-
-sensor.humidifier_bedroom_water_level:
-  name: Water Level
-
-sensor.humidifier_living_water_level:
-  name: Water Level
