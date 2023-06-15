@@ -1,0 +1,4 @@
+sensor.pressure_kitchen:
+  type: custom_sensor
+  name: Pressure
+  unit_of_measurement: 'mm hg'
