@@ -30,6 +30,10 @@ hygrostat_living:
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
 
+  - sensor:
+    - name: 'humidifier_living_water_level'
+      state: '{{ iif(is_state("binary_sensor.hygrostat_living_is_empty", "on"), 0, 100) }}'
+
   script:
     hygrostat_living_turn_on:
       mode: 'queued'

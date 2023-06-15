@@ -1,6 +1,3 @@
 - humidifier.humidifier_hall
 - humidifier.humidifier_bedroom
 - humidifier.humidifier_living
-# - binary_sensor.hygrostat_hall_is_empty
-# - binary_sensor.hygrostat_bedroom_is_empty
-# - binary_sensor.hygrostat_living_is_empty

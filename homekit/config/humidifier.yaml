@@ -1,21 +1,14 @@
 humidifier.humidifier_hall:
   name: Humidifier
   linked_humidity_sensor: sensor.humidity_hall
+  linked_battery_sensor: sensor.humidifier_hall_water_level
 
 humidifier.humidifier_bedroom:
   name: Humidifier
   linked_humidity_sensor: sensor.humidity_bedroom
+  linked_battery_sensor: sensor.humidifier_bedroom_water_level
 
 humidifier.humidifier_living:
   name: Humidifier
-  linked_battery_sensor: sensor.humidity_living
-  water_level_entity: sensor.humidity_living
-
-binary_sensor.hygrostat_hall_is_empty:
-  name: Full humidifier
-
-binary_sensor.hygrostat_bedroom_is_empty:
-  name: Full humidifier
-
-binary_sensor.hygrostat_living_is_empty:
-  name: Full humidifier
+  linked_humidity_sensor: sensor.humidity_living
+  linked_battery_sensor: sensor.humidifier_living_water_level
