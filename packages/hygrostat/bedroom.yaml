@@ -32,6 +32,8 @@ hygrostat_bedroom:
 
   - sensor:
     - name: 'humidifier_bedroom_water_level'
+      unit_of_measurement: "%"
+      device_class: battery
       state: '{{ iif(is_state("binary_sensor.hygrostat_bedroom_is_empty", "on"), 0, 100) }}'
 
   script:
