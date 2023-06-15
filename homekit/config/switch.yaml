@@ -1,11 +1,11 @@
 switch.switch_kitchen:
-  name: Switch
+  name: Выключатель
 
 switch.switch_hall:
-  name: Switch
+  name: Выключатель
 
 switch.switch_bedroom:
-  name: Switch
+  name: Выключатель
 
 switch.switch_living:
-  name: Switch
+  name: Выключатель

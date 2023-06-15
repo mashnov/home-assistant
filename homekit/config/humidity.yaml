@@ -1,5 +1,5 @@
 sensor.humidity_kitchen:
-  name: Humidity
+  name: Влажность
 
 sensor.humidity_balcony:
-  name: Humidity
+  name: Влажность

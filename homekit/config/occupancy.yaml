@@ -1,11 +1,11 @@
 binary_sensor.occupancy_kitchen:
-  name: Occupancy
+  name: Движение
 
 binary_sensor.occupancy_bath:
-  name: Occupancy
+  name: Движение
 
 binary_sensor.occupancy_toilet:
-  name: Occupancy
+  name: Движение
 
 binary_sensor.occupancy_hall:
-  name: Occupancy
+  name: Движение

@@ -1,3 +1,3 @@
 humidifier.dehumidifier_bath:
-  name: Dehumidifier
+  name: Осушитель
   linked_humidity_sensor: sensor.humidity_bath

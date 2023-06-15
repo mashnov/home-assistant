@@ -1,17 +1,17 @@
 sensor.temperature_kitchen:
-  name: Temperature
+  name: Температура
 
 sensor.temperature_bath:
-  name: Temperature
+  name: Температура
 
 sensor.temperature_hall:
-  name: Temperature
+  name: Температура
 
 sensor.temperature_bedroom:
-  name: Temperature
+  name: Температура
 
 sensor.temperature_living:
-  name: Temperature
+  name: Температура
 
 sensor.temperature_balcony:
-  name: Temperature
+  name: Температура
