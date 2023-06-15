@@ -3,16 +3,16 @@ automation_living:
   - platform: group
     name: automation_living
     entities:
-      - switch.curtain_bedroom_sunny
-      - switch.curtain_bedroom_night
-      - switch.curtain_bedroom_ventilation
-      - switch.hygrostat_bedroom_night
-      - switch.back_light_bedroom_auto
-      - switch.back_light_bedroom_night
+      - switch.curtain_living_sunny
+      - switch.curtain_living_night
+      - switch.curtain_living_ventilation
+      - switch.hygrostat_living_night
+      - switch.back_light_living_auto
+      - switch.back_light_living_night
 
   - platform: template
     switches:
-      curtain_bedroom_sunny:
+      curtain_living_sunny:
         value_template: "{{ is_state('automation.curtain_living_sunny', 'on') }}"
         turn_on:
         - service: automation.turn_on
@@ -21,7 +21,7 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.curtain_living_sunny
 
-      curtain_bedroom_night:
+      curtain_living_night:
         value_template: "{{ is_state('automation.curtain_living_night', 'on') }}"
         turn_on:
         - service: automation.turn_on
@@ -30,7 +30,7 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.curtain_living_night
 
-      curtain_bedroom_ventilation:
+      curtain_living_ventilation:
         value_template: "{{ is_state('automation.curtain_living_ventilation', 'on') }}"
         turn_on:
         - service: automation.turn_on
@@ -39,7 +39,7 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.curtain_living_ventilation
 
-      hygrostat_bedroom_night:
+      hygrostat_living_night:
         value_template: "{{ is_state('automation.hygrostat_living_night', 'on') }}"
         turn_on:
         - service: automation.turn_on
@@ -48,7 +48,7 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.hygrostat_living_night
 
-      back_light_bedroom_auto:
+      back_light_living_auto:
         value_template: "{{ is_state('automation.back_light_living_auto', 'on') }}"
         turn_on:
         - service: automation.turn_on
@@ -57,7 +57,7 @@ automation_living:
         - service: automation.turn_off
           entity_id: automation.back_light_living_auto
 
-      back_light_bedroom_night:
+      back_light_living_night:
         value_template: "{{ is_state('automation.back_light_living_night', 'on') }}"
         turn_on:
         - service: automation.turn_on
