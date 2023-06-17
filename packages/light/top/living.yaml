@@ -19,13 +19,16 @@ top_light_living:
     top_light_living_turn_on:
       mode: 'queued'
       sequence:
-      - service: homeassistant.turn_on
-        entity_id: >
-          {% if is_state('switch.switch_living', 'on') %}
-            light.top_light_living
-          {% else %}
-            switch.switch_living
-          {% endif %}
+      - if:
+        condition: state
+        entity_id: switch.switch_living
+        state: 'on'
+      then:
+      - service: light.turn_on
+        entity_id: light.top_light_living
+      else:
+      - service: switch.turn_on
+        entity_id: switch.switch_living
 
     top_light_living_turn_off:
       mode: 'queued'
