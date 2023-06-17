@@ -30,6 +30,8 @@ occupancy_hall:
         - condition: trigger
           id: 'motion_on'
         sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_hall
         - service: input_boolean.turn_on
           entity_id: input_boolean.occupancy_hall
       - conditions:
