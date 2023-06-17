@@ -16,15 +16,22 @@ top_light_living:
         turn_off:
         - service: script.top_light_living_turn_off
         set_level:
-        - service: light.turn_on
-          entity_id: light.bulb_light_living
-          data_template:
-            brightness_pct: "{{ brightness }}"
+        - service: notify.telegram_home_group_id
+          message: 'brightness: {{ brightness }}'
         set_temperature:
-        - service: light.turn_on
-          entity_id: light.bulb_light_living
-          data_template:
-            color_temp: "{{ color_temp }}"
+        - service: notify.telegram_home_group_id
+          message: 'color_temp: {{ color_temp }}'
+
+        # set_level:
+        # - service: light.turn_on
+        #   entity_id: light.bulb_light_living
+        #   data_template:
+        #     brightness_pct: "{{ brightness }}"
+        # set_temperature:
+        # - service: light.turn_on
+        #   entity_id: light.bulb_light_living
+        #   data_template:
+        #     color_temp: "{{ color_temp }}"
 
   script:
     top_light_living_turn_on:
