@@ -20,14 +20,14 @@ top_light_hall:
       sequence:
       - if:
           - condition: state
-            entity_id: switch.switch_bedroom
+            entity_id: switch.switch_hall
             state: 'on'
         then:
           - service: light.turn_on
             entity_id: light.top_light_hall
         else:
         - service: switch.turn_on
-          entity_id: switch.switch_bedroom
+          entity_id: switch.switch_hall
 
     top_light_hall_turn_off:
       mode: 'queued'
