@@ -47,6 +47,26 @@ night_light_hall:
         sequence:
         - service: light.turn_on
           entity_id: light.night_light_hall
-          data_template:
-            brightness: "{{ states('sensor.night_light_hall_brightness') }}"
-            hs_color: ["{{ states('input_number.night_light_hall_hue') | int }}", "{{ states('sensor.light_saturation') | int }}"]
+
+  - alias: 'night_light_hall_params'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.night_light_hall'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.night_light_hall_brightness'
+    - platform: state
+      entity_id: 'sensor.night_light_hall_hue'
+    - platform: state
+      entity_id: 'sensor.light_saturation'
+    condition:
+    - condition: state
+      entity_id: light.night_light_hall
+      state: 'on'
+    action:
+    - service: light.turn_on
+      entity_id: light.night_light_hall
+      data_template:
+        brightness: "{{ states('sensor.night_light_hall_brightness') }}"
+        hs_color: ["{{ states('input_number.night_light_hall_hue') | int }}", "{{ states('sensor.light_saturation') | int }}"]

@@ -28,7 +28,7 @@ light_shared:
       state: >
         {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
         {% set target = states('sensor.light_max_illuminance') | int(1) %}
-        {{ min((sensor / (target or 1) ) * 100, 100) }}
+        {{ min((sensor / max(1, target) ) * 100, 100) }}
     
     - name: 'light_brightness'
       state: >
@@ -38,21 +38,24 @@ light_shared:
         {% set dayTime = is_state('binary_sensor.time_day', 'on') %}
         {% set eveningTime = is_state('binary_sensor.time_evening', 'on') %}
         {% set percent = iif(dayTime or eveningTime, 100 - sensor, sensor) %}
-        {{ ((maxValue - minValue) / 100 * percent + minValue) | round }}
+        {% set brightness = (maxValue / 100 * percent) | round %}
+        {{ max(minValue, brightness) }}
     
     - name: 'light_temperature'
       state: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
         {% set sensor = states('sensor.light_persent') | int(0) %}
-        {{ ((maxValue - minValue) / 100 * (100 - sensor) + minValue) | round }}  
+        {% set temperature = (maxValue / 100 * (100 - sensor)) | round %}
+        {{ max(minValue, temperature) }}
 
     - name: 'light_saturation'
       state: >
         {% set minValue = 95 %}
         {% set maxValue = 100 %}
         {% set sensor = states('sensor.light_persent') | int(0) %}
-        {{ ((maxValue - minValue) / 100 * sensor + minValue) | round }}
+        {% set saturation = (maxValue / 100 * sensor) | round %}
+        {{ max(minValue, temperature) }}
 
     - name: 'ligth_enabled'
       state: >
