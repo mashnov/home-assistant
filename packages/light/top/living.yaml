@@ -8,13 +8,13 @@ top_light_living:
   - platform: template
     lights:
       top_light_living:
-        value_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int > 0 }}"
-        level_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int }}"
-        temperature_template: "{{ state_attr('light.bulb_light_living', 'color_temp') | int }}"
+        value_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) > 0 }}"
+        level_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.bulb_light_living', 'color_temp') | int(0) }}"
         turn_on:
-          service: script.top_light_living_turn_on
+        - service: script.top_light_living_turn_on
         turn_off:
-          service: script.top_light_living_turn_off
+        - service: script.top_light_living_turn_off
         set_level:
         - service: light.turn_on
           entity_id: light.bulb_light_living
@@ -36,7 +36,7 @@ top_light_living:
             state: 'on'
         then:
           - service: light.turn_on
-            entity_id: light.top_light_living
+            entity_id: light.bulb_light_living
         else:
         - service: switch.turn_on
           entity_id: switch.switch_living
@@ -45,7 +45,7 @@ top_light_living:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.top_light_living
+        entity_id: light.bulb_light_living
 
   automation:
   - alias: 'top_light_living_button'
