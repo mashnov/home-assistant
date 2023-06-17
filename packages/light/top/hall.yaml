@@ -1,4 +1,5 @@
 # todo add button nitification
+# todo refactor button
 top_light_hall:
   input_boolean:
     top_light_hall_button:

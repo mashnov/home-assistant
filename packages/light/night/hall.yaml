@@ -1,11 +1,28 @@
 night_light_hall:
   input_number:
-    night_light_hall_hue: # 20
-      max: 20
+    night_light_hall_hue: # 30
+      max: 30
+      min: 0
+    
+    light_night_min_brightness: # 30
+      max: 30
       min: 0
 
+  template:
+  - sensor:
+    - name: 'night_light_hall_brightness'
+      state: >
+        {% set minValue = states('input_number.light_night_min_brightness') | int(0) %}
+        {% set sensor = states('sensor.light_night_brightness') %}
+        {{ max(minValue, sensor) }}
+
+    - name: 'light_connect_delay'
+      state: >
+        {% set duration = states('input_number.light_connect_delay') | int(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
   automation:
-  - alias: 'night_light_hall_auto'
+  - alias: 'night_light_hall'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
@@ -31,5 +48,5 @@ night_light_hall:
         - service: light.turn_on
           entity_id: light.night_light_hall
           data_template:
-            brightness: "{{ states('sensor.light_brightness') }}"
+            brightness: "{{ states('sensor.night_light_hall_brightness') }}"
             hs_color: ["{{ states('input_number.night_light_hall_hue') | int }}", "{{ states('sensor.light_saturation') | int }}"]

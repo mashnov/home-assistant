@@ -1,5 +1,6 @@
 # todo: turn on switch | switch_kitchen_right
 # todo add button nitification
+# todo refactor button
 back_light_kitchen:
   input_boolean:
     back_light_kitchen_button:
