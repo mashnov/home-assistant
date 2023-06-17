@@ -5,15 +5,26 @@ top_light_living:
     top_light_living_button:
   
   light:
-  - platform: group
-    name: top_light_living
-    entities:
-    - light.bulb_light_living_1
-    - light.bulb_light_living_2
-    - light.bulb_light_living_3
-    - light.bulb_light_living_4
-    - light.bulb_light_living_5
-    - light.bulb_light_living_6
+  - platform: template
+    lights:
+      top_light_living:
+        value_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int > 0 }}"
+        level_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int }}"
+        temperature_template: "{{ state_attr('light.bulb_light_living', 'color_temp') | int }}"
+        turn_on:
+          service: script.top_light_living_turn_on
+        turn_off:
+          service: script.top_light_living_turn_off
+        set_level:
+        - service: light.turn_on
+          entity_id: light.bulb_light_living
+          data_template:
+            brightness_pct: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.bulb_light_living
+          data_template:
+            color_temp: "{{ color_temp }}"
 
   script:
     top_light_living_turn_on:
