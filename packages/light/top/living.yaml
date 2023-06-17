@@ -11,6 +11,7 @@ top_light_living:
         value_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) > 0 }}"
         level_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.bulb_light_living', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
         turn_on:
         - service: script.top_light_living_turn_on
         turn_off:
