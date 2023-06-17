@@ -1,11 +1,14 @@
-### todo add automation for change light parameters by any light on
 light_shared:
   input_number:
     light_connect_delay: # 00:00:06
       max: 180
       min: 0
 
-    light_illuminance: # 4500
+    back_light_illuminance: # 4500
+      max: 9000
+      min: 0
+
+    top_light_illuminance: # 2000
       max: 9000
       min: 0
 
@@ -30,7 +33,7 @@ light_shared:
         {% set target = states('sensor.light_max_illuminance') | int(1) %}
         {{ min((sensor / max(1, target) ) * 100, 100) }}
     
-    - name: 'light_brightness'
+    - name: 'bulb_light_brightness'
       state: >
         {% set minValue = 1 %}
         {% set maxValue = 255 %}
@@ -41,7 +44,7 @@ light_shared:
         {% set brightness = (maxValue / 100 * percent) | round %}
         {{ max(minValue, brightness) }}
     
-    - name: 'light_temperature'
+    - name: 'bulb_light_temperature'
       state: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
@@ -49,28 +52,19 @@ light_shared:
         {% set temperature = (maxValue / 100 * (100 - sensor)) | round %}
         {{ max(minValue, temperature) }}
 
-    - name: 'light_saturation'
-      state: >
-        {% set minValue = 95 %}
-        {% set maxValue = 100 %}
-        {% set sensor = states('sensor.light_persent') | int(0) %}
-        {% set saturation = (maxValue / 100 * sensor) | round %}
-        {{ max(minValue, saturation) }}
-
-    - name: 'ligth_enabled'
-      state: >
-        {% set lights = states.light | list %}
-        {% set lights = lights | selectattr("state", "eq" ,"on") %}
-        {% set lights = lights | selectattr("name", "search" ,"top_light") %}
-        {% set lights = lights | rejectattr("name", "search" ,"_group") %}
-        {% set lights = lights | map(attribute="entity_id") %}
-        {{ lights | list }}
-
   - binary_sensor:
-    - name: 'light_illuminance'
+    - name: 'back_light_illuminance'
       delay_on: '00:00:15'
       delay_off: '00:00:30'
       state: > 
-        {% set target = states('input_number.light_illuminance') | int(0) %}
+        {% set target = states('input_number.back_light_illuminance') | int(0) %}
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {{ sensor < target }}
+
+    - name: 'top_light_illuminance'
+      delay_on: '00:00:15'
+      delay_off: '00:00:30'
+      state: > 
+        {% set target = states('input_number.top_light_illuminance') | int(0) %}
         {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
         {{ sensor < target }}

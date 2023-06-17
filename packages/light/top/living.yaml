@@ -1,15 +1,4 @@
-top_light_living:  
-  light:
-  - platform: group
-    name: top_light_living
-    entities:
-    - light.bulb_light_living_1
-    - light.bulb_light_living_2
-    - light.bulb_light_living_3
-    - light.bulb_light_living_4
-    - light.bulb_light_living_5
-    - light.bulb_light_living_6
-
+top_light_living: 
   script:
     top_light_living_turn_on:
       mode: 'queued'
@@ -20,7 +9,7 @@ top_light_living:
             state: 'on'
         then:
           - service: light.turn_on
-            entity_id: light.top_light_living
+            entity_id: light.bulb_light_living
         else:
         - service: switch.turn_on
           entity_id: switch.switch_living
@@ -29,7 +18,7 @@ top_light_living:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.top_light_living
+        entity_id: light.bulb_light_living
 
   automation:
   - alias: 'top_light_living'

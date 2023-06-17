@@ -1,32 +1,23 @@
 # todo: turn on switch | switch_kitchen_left
 # todo add button nitification
 # - delay: '{{ states("sensor.light_connect_delay") }}'
+# todo add top_light_illuminance
 # todo refactor button
 top_light_kitchen:
   input_boolean:
     top_light_kitchen_button:
-
-  light:
-  - platform: group
-    name: top_light_kitchen
-    entities:
-    - light.bulb_light_kitchen_1
-    - light.bulb_light_kitchen_2
-    - light.bulb_light_kitchen_3
-    - light.bulb_light_kitchen_4
-    - light.bulb_light_kitchen_5
 
   script:
     top_light_kitchen_turn_on:
       mode: 'queued'
       sequence:
       - service: light.turn_on
-        entity_id: light.top_light_kitchen
+        entity_id: light.bulb_light_kitchen
     top_light_kitchen_turn_off:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.top_light_kitchen
+        entity_id: light.bulb_light_kitchen
 
   automation:
   - alias: 'top_light_kitchen_button'

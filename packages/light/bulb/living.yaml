@@ -30,3 +30,116 @@ bulb_light_living:
     model: philips.light.downlight
     host: !secret living_lamp_6_host
     token: !secret living_lamp_6_token
+
+  - platform: group
+    name: bulb_light_living
+    entities:
+    - light.bulb_light_living_1
+    - light.bulb_light_living_2
+    - light.bulb_light_living_3
+    - light.bulb_light_living_4
+    - light.bulb_light_living_5
+    - light.bulb_light_living_6
+
+  automation:
+  - alias: 'bulb_light_living_1'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_1'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_1
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"
+
+  - alias: 'bulb_light_living_2'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_2'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_2
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"
+
+  - alias: 'bulb_light_living_3'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_3'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_3
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"
+
+  - alias: 'bulb_light_living_4'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_4'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_4
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"
+
+  - alias: 'bulb_light_living_5'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_5'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_5
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"
+
+  - alias: 'bulb_light_living_6'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'light.bulb_light_living_6'
+      to: 'on'
+    - platform: state
+      entity_id: 'sensor.bulb_light_brightness'
+    - platform: state
+      entity_id: 'sensor.bulb_light_temperature'
+    action:
+    - service: light.turn_on
+      entity_id: light.bulb_light_living_6
+      data_template:
+        brightness: "{{ states('sensor.bulb_light_brightness') }}"
+        color_temp: "{{ states('sensor.bulb_light_temperature') }}"

@@ -27,11 +27,11 @@ back_light_living:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'binary_sensor.light_illuminance'
+      entity_id: 'binary_sensor.back_light_illuminance'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'binary_sensor.light_illuminance'
+      entity_id: 'binary_sensor.back_light_illuminance'
       to: 'off'
     action:
     - choose:
@@ -71,7 +71,7 @@ back_light_living:
         - condition: trigger
           id: 'turn_on'
         - condition: state
-          entity_id: binary_sensor.light_illuminance
+          entity_id: binary_sensor.back_light_illuminance
           state: 'on'
         sequence:
         - service: script.back_light_living_turn_on

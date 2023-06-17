@@ -1,15 +1,4 @@
 top_light_bedroom:
-  light:
-  - platform: group
-    name: top_light_bedroom
-    entities:
-    - light.bulb_light_bedroom_1
-    - light.bulb_light_bedroom_2
-    - light.bulb_light_bedroom_3
-    - light.bulb_light_bedroom_4
-    - light.bulb_light_bedroom_5
-    - light.bulb_light_bedroom_6
-
   script:
     top_light_bedroom_turn_on:
       mode: 'queued'
@@ -20,7 +9,7 @@ top_light_bedroom:
             state: 'on'
         then:
           - service: light.turn_on
-            entity_id: light.top_light_bedroom
+            entity_id: light.bulb_light_bedroom
         else:
         - service: switch.turn_on
           entity_id: switch.switch_bedroom
@@ -29,7 +18,7 @@ top_light_bedroom:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.top_light_bedroom
+        entity_id: light.bulb_light_bedroom
 
   automation:
   - alias: 'top_light_bedroom_action'
