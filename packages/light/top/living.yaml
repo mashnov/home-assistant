@@ -19,8 +19,16 @@ top_light_living:
     top_light_living_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.top_light_living
+      - if:
+          - condition: state
+            entity_id: switch.switch_living
+            state: 'on'
+        then:
+          - service: light.turn_on
+            entity_id: light.top_light_living
+        else:
+        - service: switch.turn_on
+          entity_id: switch.switch_living
 
     top_light_living_turn_off:
       mode: 'queued'
@@ -55,19 +63,8 @@ top_light_living:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - condition: state
-          entity_id: switch.switch_living
-          state: 'off'
         sequence:
         - service: script.top_light_living_turn_on
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        - condition: state
-          entity_id: switch.switch_living
-          state: 'on'
-        sequence:
-        - service: script.switch_living_turn_on
       - conditions:
         - condition: trigger
           id: 'turn_off'
