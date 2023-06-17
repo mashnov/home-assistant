@@ -55,7 +55,7 @@ light_shared:
         {% set maxValue = 100 %}
         {% set sensor = states('sensor.light_persent') | int(0) %}
         {% set saturation = (maxValue / 100 * sensor) | round %}
-        {{ max(minValue, temperature) }}
+        {{ max(minValue, saturation) }}
 
     - name: 'ligth_enabled'
       state: >
