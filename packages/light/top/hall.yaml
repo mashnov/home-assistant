@@ -1,5 +1,6 @@
 # todo: turn on switch
 # todo add button nitification
+# - delay: '{{ states("sensor.light_connect_delay") }}'
 top_light_hall:
   input_boolean:
     top_light_hall_button:

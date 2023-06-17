@@ -1,5 +1,3 @@
-# todo: turn on switch
-# - delay: '{{ states("sensor.light_connect_delay") }}'
 top_light_living:
   input_boolean:
     top_light_living_button:

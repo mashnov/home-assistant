@@ -1,4 +1,3 @@
-# todo: turn on switch
 top_light_bedroom:
   input_boolean:
     top_light_bedroom_button:
@@ -18,8 +17,17 @@ top_light_bedroom:
     top_light_bedroom_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.top_light_bedroom
+      - if:
+          - condition: state
+            entity_id: switch.switch_bedroom
+            state: 'on'
+        then:
+          - service: light.turn_on
+            entity_id: light.top_light_bedroom
+        else:
+        - service: switch.turn_on
+          entity_id: switch.switch_bedroom
+
     top_light_bedroom_turn_off:
       mode: 'queued'
       sequence:
