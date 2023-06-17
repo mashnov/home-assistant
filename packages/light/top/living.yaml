@@ -17,10 +17,12 @@ top_light_living:
         - service: script.top_light_living_turn_off
         set_level:
         - service: notify.telegram_home_group_id
-          message: 'brightness: {{ brightness }}'
+          data_template:
+            message: 'brightness: {{ brightness }}'
         set_temperature:
         - service: notify.telegram_home_group_id
-          message: 'color_temp: {{ color_temp }}'
+          data_template:
+            message: 'color_temp: {{ color_temp }}'
 
         # set_level:
         # - service: light.turn_on
