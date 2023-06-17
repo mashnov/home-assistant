@@ -1,6 +1,4 @@
-# todo: turn on switch
 # todo add button nitification
-# - delay: '{{ states("sensor.light_connect_delay") }}'
 top_light_hall:
   input_boolean:
     top_light_hall_button:
@@ -20,8 +18,17 @@ top_light_hall:
     top_light_hall_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.top_light_hall
+      - if:
+          - condition: state
+            entity_id: switch.switch_bedroom
+            state: 'on'
+        then:
+          - service: light.turn_on
+            entity_id: light.top_light_hall
+        else:
+        - service: switch.turn_on
+          entity_id: switch.switch_bedroom
+
     top_light_hall_turn_off:
       mode: 'queued'
       sequence:

@@ -9,3 +9,9 @@ binary_sensor.occupancy_toilet:
 
 binary_sensor.occupancy_hall:
   name: Движение
+
+binary_sensor.occupancy_bedroom:
+  name: Присутствие
+
+binary_sensor.occupancy_living:
+  name: Присутствие
