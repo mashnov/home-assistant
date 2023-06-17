@@ -5,56 +5,28 @@ top_light_living:
     top_light_living_button:
   
   light:
-  - platform: template
-    lights:
-      top_light_living:
-        value_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) > 0 }}"
-        level_template: "{{ state_attr('light.bulb_light_living', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.bulb_light_living', 'color_temp') | int(0) }}"
-        turn_on:
-        - service: script.top_light_living_turn_on
-        turn_off:
-        - service: script.top_light_living_turn_off
-        set_level:
-        - service: light.turn_on
-          entity_id: light.bulb_light_living
-          brightness: "{{ brightness }}"
-        set_temperature:
-        - service: notify.telegram_home_group_id
-          data_template:
-            message: 'color_temp: {{ color_temp }}'
-
-        # set_level:
-        # - service: light.turn_on
-        #   entity_id: light.bulb_light_living
-        #   data_template:
-        #     brightness_pct: "{{ brightness }}"
-        # set_temperature:
-        # - service: light.turn_on
-        #   entity_id: light.bulb_light_living
-        #   data_template:
-        #     color_temp: "{{ color_temp }}"
+  - platform: group
+    name: top_light_living
+    entities:
+    - light.bulb_light_living_1
+    - light.bulb_light_living_2
+    - light.bulb_light_living_3
+    - light.bulb_light_living_4
+    - light.bulb_light_living_5
+    - light.bulb_light_living_6
 
   script:
     top_light_living_turn_on:
       mode: 'queued'
       sequence:
-      - if:
-          - condition: state
-            entity_id: switch.switch_living
-            state: 'on'
-        then:
-          - service: light.turn_on
-            entity_id: light.bulb_light_living
-        else:
-        - service: switch.turn_on
-          entity_id: switch.switch_living
+      - service: light.turn_on
+        entity_id: light.top_light_living
 
     top_light_living_turn_off:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.bulb_light_living
+        entity_id: light.top_light_living
 
   automation:
   - alias: 'top_light_living_button'
@@ -83,8 +55,19 @@ top_light_living:
       - conditions:
         - condition: trigger
           id: 'turn_on'
+        - condition: state
+          entity_id: switch.switch_living
+          state: 'off'
         sequence:
         - service: script.top_light_living_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - condition: state
+          entity_id: switch.switch_living
+          state: 'on'
+        sequence:
+        - service: script.switch_living_turn_on
       - conditions:
         - condition: trigger
           id: 'turn_off'
