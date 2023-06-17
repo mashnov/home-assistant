@@ -69,4 +69,4 @@ night_light_hall:
       entity_id: light.night_light_hall
       data_template:
         brightness: "{{ states('sensor.night_light_hall_brightness') }}"
-        hs_color: ["{{ states('input_number.night_light_hall_hue') | int }}", "{{ states('sensor.light_saturation') | int }}"]
+        hs_color: ["{{ states('input_number.night_light_hall_hue') | int(0) }}", "{{ states('sensor.light_saturation') | int(0) }}"]
