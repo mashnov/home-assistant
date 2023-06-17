@@ -1,4 +1,5 @@
 # todo: turn on switch
+# - delay: '{{ states("sensor.light_connect_delay") }}'
 top_light_living:
   input_boolean:
     top_light_living_button:
@@ -26,9 +27,6 @@ top_light_living:
         action:
         - service: switch.turn_on
           entity_id: switch.switch_living
-        - delay: '{{ states("sensor.light_connect_delay") }}'
-        - service: light.turn_on
-          entity_id: light.top_light_living
 
       - conditions:
         - condition: state
