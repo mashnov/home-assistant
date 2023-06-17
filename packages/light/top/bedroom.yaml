@@ -1,7 +1,4 @@
 top_light_bedroom:
-  input_boolean:
-    top_light_bedroom_button:
-
   light:
   - platform: group
     name: top_light_bedroom
@@ -35,26 +32,16 @@ top_light_bedroom:
         entity_id: light.top_light_bedroom
 
   automation:
-  - alias: 'top_light_bedroom_button'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: sensor.switch_bedroom_action
-      to: 'single_right'
-    action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.top_light_bedroom_button
-
   - alias: 'top_light_bedroom_action'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.top_light_bedroom_button
+      entity_id: input_boolean.occupancy_bedroom
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.top_light_bedroom_button
+      entity_id: input_boolean.occupancy_bedroom
       to: 'off'
     action:
     - choose:

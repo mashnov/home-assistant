@@ -1,7 +1,4 @@
-top_light_living:
-  input_boolean:
-    top_light_living_button:
-  
+top_light_living:  
   light:
   - platform: group
     name: top_light_living
@@ -35,26 +32,16 @@ top_light_living:
         entity_id: light.top_light_living
 
   automation:
-  - alias: 'top_light_living_button'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: sensor.switch_living_action
-      to: 'single_right'
-    action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.top_light_living_button
-
-  - alias: 'top_light_living_action'
+  - alias: 'top_light_living'
     mode: 'queued'
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: input_boolean.top_light_living_button
+      entity_id: input_boolean.occupancy_living
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: input_boolean.top_light_living_button
+      entity_id: input_boolean.occupancy_living
       to: 'off'
     action:
     - choose:

@@ -1,0 +1,20 @@
+occupancy_bedroom:
+  input_boolean:
+    occupancy_bedroom:
+
+  template:
+  - binary_sensor:
+    - name: 'occupancy_bedroom'
+      device_class: 'occupancy'
+      state: "{{ is_state('input_boolean.occupancy_bedroom', 'on') }}"
+
+  automation:
+  - alias: 'occupancy_bedroom'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_bedroom_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.occupancy_bedroom
