@@ -20,15 +20,15 @@ top_light_living:
       mode: 'queued'
       sequence:
       - if:
-        condition: state
-        entity_id: switch.switch_living
-        state: 'on'
-      then:
-      - service: light.turn_on
-        entity_id: light.top_light_living
-      else:
-      - service: switch.turn_on
-        entity_id: switch.switch_living
+          - condition: state
+            entity_id: switch.switch_living
+            state: 'on'
+        then:
+          - service: light.turn_on
+            entity_id: light.top_light_living
+        else:
+        - service: switch.turn_on
+          entity_id: switch.switch_living
 
     top_light_living_turn_off:
       mode: 'queued'
