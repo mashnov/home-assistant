@@ -16,9 +16,9 @@ top_light_living:
         turn_off:
         - service: script.top_light_living_turn_off
         set_level:
-        - service: notify.telegram_home_group_id
-          data_template:
-            message: 'brightness: {{ brightness }}'
+        - service: light.turn_on
+          entity_id: light.bulb_light_living
+          brightness: "{{ brightness }}"
         set_temperature:
         - service: notify.telegram_home_group_id
           data_template:
