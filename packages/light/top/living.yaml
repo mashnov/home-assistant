@@ -1,3 +1,4 @@
+# todo: turn on switch
 top_light_living:
   input_boolean:
     top_light_living_button:
@@ -12,6 +13,36 @@ top_light_living:
     - light.bulb_light_living_4
     - light.bulb_light_living_5
     - light.bulb_light_living_6
+
+  script:
+    top_light_living_turn_on:
+      mode: 'queued'
+      sequence:
+
+      - conditions:
+        - condition: state
+          entity_id: switch.switch_living
+          state: 'off'
+        action:
+        - service: switch.turn_on
+          entity_id: switch.switch_living
+        - delay: '{{ states("sensor.light_connect_delay") }}'
+        - service: light.turn_on
+          entity_id: light.top_light_living
+
+      - conditions:
+        - condition: state
+          entity_id: switch.switch_living
+          state: 'on'
+        action:
+        - service: light.turn_on
+          entity_id: light.top_light_living
+
+    top_light_living_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.top_light_living
 
   automation:
   - alias: 'top_light_living_button'
@@ -41,11 +72,9 @@ top_light_living:
         - condition: trigger
           id: 'turn_on'
         sequence:
-        - service: light.turn_on
-          entity_id: light.top_light_living
+        - service: script.top_light_living_turn_on
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
-        - service: light.turn_off
-          entity_id: light.top_light_living
+        - service: script.top_light_living_turn_off

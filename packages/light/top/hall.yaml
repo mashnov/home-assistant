@@ -1,4 +1,5 @@
-### todo add button nitification
+# todo: turn on switch
+# todo add button nitification
 top_light_hall:
   input_boolean:
     top_light_hall_button:

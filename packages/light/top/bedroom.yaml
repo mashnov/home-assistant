@@ -1,3 +1,4 @@
+# todo: turn on switch
 top_light_bedroom:
   input_boolean:
     top_light_bedroom_button:
@@ -14,14 +15,16 @@ top_light_bedroom:
     - light.bulb_light_bedroom_6
 
   script:
-    back_light_turn_on:
+    top_light_bedroom_turn_on:
       mode: 'queued'
       sequence:
-      - service: switch.turn_on
-        entity_id: switch.switch_kitchen
-      - delay: '{{ states("sensor.light_connect_delay") }}'
       - service: light.turn_on
-        entity_id: light.back_light_kitchen
+        entity_id: light.top_light_bedroom
+    top_light_bedroom_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.top_light_bedroom
 
   automation:
   - alias: 'top_light_bedroom_button'
@@ -51,11 +54,9 @@ top_light_bedroom:
         - condition: trigger
           id: 'turn_on'
         sequence:
-        - service: light.turn_on
-          entity_id: light.top_light_bedroom
+        - service: script.top_light_bedroom_turn_on
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
-        - service: light.turn_off
-          entity_id: light.top_light_bedroom
+        - service: script.top_light_bedroom_turn_off

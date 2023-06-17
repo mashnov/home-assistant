@@ -1,5 +1,5 @@
-### todo add button nitification
-### todo: add script condidion: switch_kitchen_right - switch for relay
+# todo: turn on switch | switch_kitchen_right
+# todo add button nitification
 back_light_kitchen:
   input_boolean:
     back_light_kitchen_button:
