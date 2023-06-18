@@ -1,0 +1,8 @@
+notification_telegramm:
+  script:
+    telegramm_message:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: "{{ message }}"

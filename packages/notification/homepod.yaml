@@ -1,3 +1,5 @@
+#todo: sound vilume before notification
+
 notification_homepod:
   script:
     homepod_message:

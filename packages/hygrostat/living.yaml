@@ -1,4 +1,3 @@
-### todo add notification
 hygrostat_living:
   input_text:
     hygrostat_living_empty_text:
@@ -49,7 +48,7 @@ hygrostat_living:
         entity_id: humidifier.humidifier_living
 
   automation:
-  - alias: 'hygrostat_living_ventilation'
+  - alias: 'hygrostat_living'
     mode: 'queued'
     trigger:
     - id: 'turn_off'
@@ -75,3 +74,29 @@ hygrostat_living:
           state: 'off'
         sequence:
         - service: script.hygrostat_living_turn_on
+
+  - alias: 'hygrostat_living_notification'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hygrostat_living_is_empty
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: 'binary_sensor.night_mode_hall'
+      state: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.hygrostat_living_empty_text') }}"
+
+  - alias: 'hygrostat_living_message'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hygrostat_living_is_empty
+      to: 'on'
+    action:
+    - service: script.telegramm_message
+      data_template:
+        message: "{{ states('input_text.hygrostat_living_empty_text') }}"
