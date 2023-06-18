@@ -1,11 +1,18 @@
 automation.curtain_kitchen_sunny:
   name: 'Солнечно'
-
 automation.curtain_kitchen_night:
   name: 'Ночь'
-
 automation.curtain_kitchen_ventilation:
   name: 'Вентяляция'
+
+automation.curtain_bedroom_sunny:
+  name: 'Солнечно'
+automation.curtain_bedroom_night:
+  name: 'Ночь'
+automation.curtain_bedroom_ventilation:
+  name: 'Вентяляция'
+automation.back_light_bedroom_auto:
+  name: 'Подсветка'
 
 
 

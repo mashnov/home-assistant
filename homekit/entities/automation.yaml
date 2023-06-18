@@ -2,5 +2,9 @@
 - automation.curtain_kitchen_night
 - automation.curtain_kitchen_ventilation
 
-- switch.automation_bedroom
+- automation.curtain_bedroom_sunny
+- automation.curtain_bedroom_night
+- automation.curtain_bedroom_ventilation
+- automation.back_light_bedroom_auto
+
 - switch.automation_living
