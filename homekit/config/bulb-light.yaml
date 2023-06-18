@@ -6,6 +6,20 @@ light.bulb_light_hall:
 
 light.bulb_light_bedroom:
   name: Освещение
+light.bulb_light_bedroom_1:
+  name: Светильник
+light.bulb_light_bedroom_2:
+  name: Светильник
+light.bulb_light_bedroom_3:
+  name: Светильник
+light.bulb_light_bedroom_4:
+  name: Светильник
+light.bulb_light_bedroom_5:
+  name: Светильник
+light.bulb_light_bedroom_6:
+  name: Светильник
+
 
 light.bulb_light_living:
   name: Освещение
+
