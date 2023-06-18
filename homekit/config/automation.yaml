@@ -1,8 +1,18 @@
-switch.automation_kitchen:
-  name: 'Автоматизации'
+automation.curtain_kitchen_sunny:
+  name: 'Солнечно'
+
+automation.curtain_kitchen_night:
+  name: 'Ночь'
+
+automation.curtain_kitchen_ventilation:
+  name: 'Вентяляция'
+
+
+
 
 switch.automation_bedroom:
   name: 'Автоматизации'
 
 switch.automation_living:
   name: 'Автоматизации'
+
