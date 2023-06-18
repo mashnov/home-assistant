@@ -1,12 +1,6 @@
 light.bulb_light_kitchen:
   name: Освещение
 
-light.bulb_light_bath:
-  name: Освещение
-
-light.bulb_light_toilet:
-  name: Освещение
-
 light.bulb_light_hall:
   name: Освещение
 
