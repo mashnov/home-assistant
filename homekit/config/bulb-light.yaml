@@ -1,17 +1,17 @@
-light.top_light_kitchen:
+light.bulb_light_kitchen:
   name: Освещение
 
-light.top_light_bath:
+light.bulb_light_bath:
   name: Освещение
 
-light.top_light_toilet:
+light.bulb_light_toilet:
   name: Освещение
 
-light.top_light_hall:
+light.bulb_light_hall:
   name: Освещение
 
-light.top_light_bedroom:
+light.bulb_light_bedroom:
   name: Освещение
 
-light.top_light_living:
+light.bulb_light_living:
   name: Освещение

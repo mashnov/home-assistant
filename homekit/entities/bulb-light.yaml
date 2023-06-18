@@ -1,0 +1,6 @@
+ - light.bulb_light_kitchen
+ - light.bulb_light_bath
+ - light.bulb_light_toilet
+ - light.bulb_light_hall
+ - light.bulb_light_bedroom
+ - light.bulb_light_living
