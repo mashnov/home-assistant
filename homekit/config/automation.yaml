@@ -14,12 +14,11 @@ automation.curtain_bedroom_ventilation:
 automation.back_light_bedroom_auto:
   name: 'Подсветка'
 
-
-
-
-switch.automation_bedroom:
-  name: 'Автоматизации'
-
-switch.automation_living:
-  name: 'Автоматизации'
-
+automation.curtain_living_sunny:
+  name: 'Солнечно'
+automation.curtain_living_night:
+  name: 'Ночь'
+automation.curtain_living_ventilation:
+  name: 'Вентяляция'
+automation.back_light_living_auto:
+  name: 'Подсветка'

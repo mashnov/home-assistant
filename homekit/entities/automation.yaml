@@ -7,4 +7,7 @@
 - automation.curtain_bedroom_ventilation
 - automation.back_light_bedroom_auto
 
-- switch.automation_living
+- automation.curtain_living_sunny
+- automation.curtain_living_night
+- automation.curtain_living_ventilation
+- automation.back_light_living_auto
