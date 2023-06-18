@@ -41,11 +41,14 @@ bulb_light_kitchen:
     trigger:
     - platform: state
       entity_id: 'light.bulb_light_kitchen_1'
-      to: 'on'
     - platform: state
       entity_id: 'sensor.bulb_light_brightness'
     - platform: state
       entity_id: 'sensor.bulb_light_temperature'
+    condition:
+    - condition: state
+      entity_id: light.bulb_light_kitchen_1
+      state: 'on'
     action:
     - service: light.turn_on
       entity_id: light.bulb_light_kitchen_1
@@ -58,11 +61,14 @@ bulb_light_kitchen:
     trigger:
     - platform: state
       entity_id: 'light.bulb_light_kitchen_2'
-      to: 'on'
     - platform: state
       entity_id: 'sensor.bulb_light_brightness'
     - platform: state
       entity_id: 'sensor.bulb_light_temperature'
+    condition:
+    - condition: state
+      entity_id: light.bulb_light_kitchen_2
+      state: 'on'
     action:
     - service: light.turn_on
       entity_id: light.bulb_light_kitchen_2
@@ -75,11 +81,14 @@ bulb_light_kitchen:
     trigger:
     - platform: state
       entity_id: 'light.bulb_light_kitchen_3'
-      to: 'on'
     - platform: state
       entity_id: 'sensor.bulb_light_brightness'
     - platform: state
       entity_id: 'sensor.bulb_light_temperature'
+    condition:
+    - condition: state
+      entity_id: light.bulb_light_kitchen_3
+      state: 'on'
     action:
     - service: light.turn_on
       entity_id: light.bulb_light_kitchen_3
@@ -92,11 +101,14 @@ bulb_light_kitchen:
     trigger:
     - platform: state
       entity_id: 'light.bulb_light_kitchen_4'
-      to: 'on'
     - platform: state
       entity_id: 'sensor.bulb_light_brightness'
     - platform: state
       entity_id: 'sensor.bulb_light_temperature'
+    condition:
+    - condition: state
+      entity_id: light.bulb_light_kitchen_4
+      state: 'on'
     action:
     - service: light.turn_on
       entity_id: light.bulb_light_kitchen_4
@@ -109,11 +121,14 @@ bulb_light_kitchen:
     trigger:
     - platform: state
       entity_id: 'light.bulb_light_kitchen_5'
-      to: 'on'
     - platform: state
       entity_id: 'sensor.bulb_light_brightness'
     - platform: state
       entity_id: 'sensor.bulb_light_temperature'
+    condition:
+    - condition: state
+      entity_id: light.bulb_light_kitchen_5
+      state: 'on'
     action:
     - service: light.turn_on
       entity_id: light.bulb_light_kitchen_5
