@@ -12,10 +12,12 @@ door_hall:
     - id: 'open'
       platform: state
       entity_id: 'binary_sensor.door_hall'
+      from: 'off'
       to: 'on'
     - id: 'close'
       platform: state
       entity_id: 'binary_sensor.door_hall'
+      from: 'on'
       to: 'off'
     action:
     - choose:
