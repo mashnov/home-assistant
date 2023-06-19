@@ -32,31 +32,20 @@ notification_homepod:
       - service: media_player.media_stop
         data_template:
           entity_id: media_player.homepod
-      # - delay: '00:00:00.001'
       - service: input_number.set_value
         data_template:
           entity_id: input_number.notification_homepod_volume_current
           value: "{{ state_attr('media_player.homepod', 'volume_level') }}"
-      # - delay: '00:00:00.001'
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
           volume_level: "{{ states('sensor.notification_homepod_volume') }}"
-      # - delay: '00:00:00.001'
       - service: tts.sveta_say
         data:
           entity_id: media_player.homepod
           message: "{{ message }}"
           cache: false
-      # - delay: '00:00:00.001'
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
           volume_level: "{{ states('input_number.notification_homepod_volume_current') }}"
-
-    notification_homepod_test:
-      mode: 'queued'
-      sequence:
-      - service: script.notification_homepod
-        data_template:
-          message: "Тестовое уведомление"
