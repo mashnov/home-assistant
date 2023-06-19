@@ -1,0 +1,35 @@
+door_balcony:
+  input_text:
+    door_balcony_open_text:
+      initial: 'Балкон. Дверь открыта'
+    door_hall_closed_text:
+      initial: 'Балкон. Дверь закрыта'
+
+  automation:
+  - alias: 'door_balcony_open'
+    mode: 'queued'
+    trigger:
+    - id: 'open'
+      platform: state
+      entity_id: 'binary_sensor.door_balcony'
+      to: 'on'
+    - id: 'close'
+      platform: state
+      entity_id: 'binary_sensor.door_balcony'
+      to: 'off'    
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "{{ states('input_text.door_balcony_open_text') }}"
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "{{ states('input_text.door_hall_closed_text') }}"

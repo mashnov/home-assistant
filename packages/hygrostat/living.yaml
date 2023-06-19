@@ -86,7 +86,7 @@ hygrostat_living:
       entity_id: 'binary_sensor.night_mode_hall'
       state: 'off'
     action:
-    - service: script.homepod_message
+    - service: script.notification_homepod
       data_template:
         message: "{{ states('input_text.hygrostat_living_empty_text') }}"
 
@@ -97,6 +97,6 @@ hygrostat_living:
       entity_id: binary_sensor.hygrostat_living_is_empty
       to: 'on'
     action:
-    - service: script.telegramm_message
+    - service: script.notification_telegramm_send
       data_template:
         message: "{{ states('input_text.hygrostat_living_empty_text') }}"

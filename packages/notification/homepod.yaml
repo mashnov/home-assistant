@@ -1,8 +1,8 @@
-#todo: sound vilume before notification
+#todo: sound volume before notification
 
 notification_homepod:
   script:
-    homepod_message:
+    notification_homepod:
       mode: 'queued'
       sequence:
       - service: tts.sveta_say

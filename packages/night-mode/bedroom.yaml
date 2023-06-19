@@ -1,5 +1,8 @@
-### TODO: Add notification
 night_mode_bedroom:
+  input_text:
+    night_mode_bedroom_on_text:
+      initial: 'Спальня. Подготовка к запуску ночного режима'
+
   input_boolean:
     night_mode_bedroom:
   
@@ -25,6 +28,12 @@ night_mode_bedroom:
         - condition: trigger
           id: 'button_action'
         sequence:
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "{{ states('input_text.night_mode_bedroom_on_text') }}"
+        - service: script.notification_homepod
+          data_template:
+            message: "{{ states('input_text.night_mode_bedroom_on_text') }}"
         - delay: '{{ states("sensor.night_mode_delay") }}'
         - service: input_boolean.toggle
           entity_id: input_boolean.night_mode_bedroom

@@ -1,5 +1,5 @@
 # todo: turn on switch | switch_kitchen_right
-# todo refactor button
+# todo refactor button to occupancy
 night_light_kitchen:
   light:
   - platform: template

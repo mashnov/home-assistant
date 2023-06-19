@@ -1,6 +1,8 @@
-### TODO: Add notification
-
 night_mode_living:
+  input_text:
+    night_mode_living_on_text:
+      initial: 'Гостиная. Подготовка к запуску ночного режима'
+
   input_boolean:
     night_mode_living:
 
@@ -26,6 +28,12 @@ night_mode_living:
         - condition: trigger
           id: 'button_action'
         sequence:
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "{{ states('input_text.night_mode_living_on_text') }}"
+        - service: script.notification_homepod
+          data_template:
+            message: "{{ states('input_text.night_mode_living_on_text') }}"
         - delay: '{{ states("sensor.night_mode_delay") }}'
         - service: input_boolean.toggle
           entity_id: input_boolean.night_mode_living
@@ -41,3 +49,4 @@ night_mode_living:
         sequence:
         - service: input_boolean.turn_off
           entity_id: input_boolean.night_mode_living
+

@@ -1,8 +1,7 @@
 # todo: turn on switch | switch_kitchen_left
-# todo add button nitification
 # - delay: '{{ states("sensor.light_connect_delay") }}'
 # todo add top_light_illuminance
-# todo refactor button
+# todo refactor button to occupancy
 top_light_kitchen:
   input_boolean:
     top_light_kitchen_button:

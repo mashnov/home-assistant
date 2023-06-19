@@ -1,8 +1,107 @@
 notification_telegramm:
+  input_text:
+    notification_system_shutdown_text:
+      initial: 'Завершение работы'
+    notification_system_start_text:
+      initial: 'Старт системы'
+    notification_system_power_text:
+      initial: 'Проблемы с питанием'
+    notification_system_update_text:
+      initial: 'Доступно обновление'
+
   script:
-    telegramm_message:
+    notification_telegramm_remove:
+      mode: 'queued'
+      sequence:
+      - service: telegram_bot.delete_message
+        data_template:
+          message_id: '{{ message_id }}'
+          chat_id: '{{ chat_id }}'
+
+    notification_telegramm_send:
       mode: 'queued'
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
           message: "{{ message }}"
+          data:
+          inline_keyboard: 
+          - 'Закрыть :/hide_menu'
+
+  automation:
+  - alias: notification_telegramm_remove'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+    action:
+    - service: script.notification_telegramm_remove
+      data_template:
+        message_id: '{{ trigger.event.data.message.message_id }}'
+        chat_id: '{{ trigger.event.data.chat_id }}'
+
+  - alias: 'notification_system_shutdown'
+    mode: 'queued'
+    trigger:
+    - platform: homeassistant
+      event: shutdown
+    action:
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.notification_system_shutdown_text') }}"
+
+  - alias: 'notification_system_start'
+    mode: 'queued'
+    trigger:
+    - platform: homeassistant
+      event: start
+    action:
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.notification_system_start_text') }}"
+
+  - alias: 'notification_system_зщцук'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'binary_sensor.rpi_power_status'
+      to: 'on'
+    action:
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.notification_system_power_text') }}"
+
+  - alias: 'system_update_message'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.home_assistant_core_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_operating_system_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_supervisor_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.tailscale_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.zigbee2mqtt_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.mosquitto_broker_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_google_drive_backup_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.file_editor_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.terminal_ssh_update'
+      to: 'on'
+    action:
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.notification_system_update_text') }}"

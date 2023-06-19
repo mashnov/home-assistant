@@ -1,5 +1,4 @@
-# todo add button nitification
-# todo refactor button
+# todo refactor button to occupancy
 top_light_hall:
   input_boolean:
     top_light_hall_button:
