@@ -1,6 +1,12 @@
 #todo: sound volume before notification
 
 notification_homepod:
+  tts: 
+  - platform: edge_tts
+    service_name: sveta_say
+    language: ru-RU-SvetlanaNeural
+    cache: false
+
   script:
     notification_homepod:
       mode: 'queued'
