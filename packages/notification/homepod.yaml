@@ -7,6 +7,26 @@ notification_homepod:
     language: ru-RU-SvetlanaNeural
     cache: false
 
+  input_number:
+    notification_homepod_volume_current: # 30
+      max: 100
+      min: 0
+    notification_homepod_volume_night: # 85
+      max: 100
+      min: 0
+    notification_homepod_volume_day: # 35
+      max: 100
+      min: 0
+
+  template:
+  - sensor:
+    - name: 'notification_homepod_volume'
+      state: >
+        {% set isNightMode = is_state('binary_sensor.night_mode_hall', 'on') %}
+        {% set nightValue = states('input_number.notification_homepod_volume_night') %}
+        {% set dayValue = states('input_number.notification_homepod_volume_day') %}
+        {{ iif(isNightMode, nightValue, dayValue) | int(0) }}
+
   script:
     notification_homepod:
       mode: 'queued'
@@ -16,3 +36,14 @@ notification_homepod:
           entity_id: media_player.homepod
           message: "{{ message }}"
           cache: false
+
+    notification_homepod_set_volume:
+      mode: 'queued'
+      sequence:
+      - service: media_player.volume_set
+        target:
+          entity_id: media_player.homepod
+          volume: 1
+
+
+# {{ state_attr('media_player.homepod', 'volume_level') }}
