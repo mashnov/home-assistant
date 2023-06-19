@@ -41,9 +41,8 @@ notification_homepod:
       mode: 'queued'
       sequence:
       - service: media_player.volume_set
-        target:
+        data_template:
           entity_id: media_player.homepod
           volume_level: 1
-
 
 # {{ state_attr('media_player.homepod', 'volume_level') }}
