@@ -23,7 +23,7 @@ notification_homepod:
         {% set isNightMode = is_state('binary_sensor.night_mode_hall', 'on') %}
         {% set nightValue = states('input_number.notification_homepod_volume_night') %}
         {% set dayValue = states('input_number.notification_homepod_volume_day') %}
-        {{ iif(isNightMode, nightValue, dayValue) | int(0) }}
+        {{ iif(isNightMode, nightValue, dayValue) | float(0) }}
 
   script:
     notification_homepod:
@@ -32,23 +32,23 @@ notification_homepod:
       - service: media_player.media_stop
         data_template:
           entity_id: media_player.homepod
-      - delay: '00:00:00.001'
+      # - delay: '00:00:00.001'
       - service: input_number.set_value
         data_template:
           entity_id: input_number.notification_homepod_volume_current
           value: "{{ state_attr('media_player.homepod', 'volume_level') }}"
-      - delay: '00:00:00.001'
+      # - delay: '00:00:00.001'
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
           volume_level: "{{ states('sensor.notification_homepod_volume') }}"
-      - delay: '00:00:00.001'
+      # - delay: '00:00:00.001'
       - service: tts.sveta_say
         data:
           entity_id: media_player.homepod
           message: "{{ message }}"
           cache: false
-      - delay: '00:00:00.001'
+      # - delay: '00:00:00.001'
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
