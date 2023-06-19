@@ -25,8 +25,8 @@ notification_telegramm:
         data_template:
           message: "{{ message }}"
           data:
-          inline_keyboard: 
-          - 'Закрыть :/hide_menu'
+            inline_keyboard: 
+            - 'Закрыть :/hide_menu'
 
   automation:
   - alias: notification_telegramm_remove'
