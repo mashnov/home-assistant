@@ -43,7 +43,7 @@ notification_homepod:
       - service: media_player.volume_set
         target:
           entity_id: media_player.homepod
-          volume: 1
+          volume_level: 1
 
 
 # {{ state_attr('media_player.homepod', 'volume_level') }}
