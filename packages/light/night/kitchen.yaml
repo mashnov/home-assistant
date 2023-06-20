@@ -1,4 +1,4 @@
-# todo: turn on switch | switch_kitchen_right
+# todo turn on switch fix
 # todo refactor button to occupancy
 night_light_kitchen:
   light:
@@ -15,8 +15,19 @@ night_light_kitchen:
     night_light_kitchen_turn_on:
       mode: 'queued'
       sequence:
-      - service: switch.turn_on
-        entity_id: switch.relay_kitchen_l1
+      - if:
+        - condition: state
+          entity_id: switch.switch_kitchen_right
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: 
+          - switch.switch_kitchen_right
+          - switch.relay_kitchen_l1
+        else:
+        - service: switch.turn_on
+          entity_id: switch.relay_kitchen_l1
+
     night_light_kitchen_turn_off:
       mode: 'queued'
       sequence:
