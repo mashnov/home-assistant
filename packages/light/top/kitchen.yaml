@@ -1,7 +1,7 @@
-# todo: turn on switch | switch_kitchen_left
 # - delay: '{{ states("sensor.light_connect_delay") }}'
 # todo add top_light_illuminance
 # todo refactor button to occupancy
+
 top_light_kitchen:
   input_boolean:
     top_light_kitchen_button:
@@ -10,13 +10,32 @@ top_light_kitchen:
     top_light_kitchen_turn_on:
       mode: 'queued'
       sequence:
-      - service: light.turn_on
-        entity_id: light.bulb_light_kitchen
+      - if:
+        - condition: state
+          entity_id: switch.switch_kitchen_left
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_kitchen_left
+        else:
+        - service: light.turn_on
+          entity_id: 
+          - light.bulb_light_kitchen_1
+          - light.bulb_light_kitchen_2
+          - light.bulb_light_kitchen_3
+          - light.bulb_light_kitchen_4
+          - light.bulb_light_kitchen_5
+
     top_light_kitchen_turn_off:
       mode: 'queued'
       sequence:
       - service: light.turn_off
-        entity_id: light.bulb_light_kitchen
+        entity_id: 
+        - light.bulb_light_kitchen_5
+        - light.bulb_light_kitchen_4
+        - light.bulb_light_kitchen_3
+        - light.bulb_light_kitchen_2
+        - light.bulb_light_kitchen_1
 
   automation:
   - alias: 'top_light_kitchen_button'
