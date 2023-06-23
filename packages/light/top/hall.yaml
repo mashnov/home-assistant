@@ -1,4 +1,3 @@
-# todo refactor button to occupancy
 top_light_hall:
   input_boolean:
     top_light_hall_button:
@@ -94,6 +93,9 @@ top_light_hall:
         - condition: state
           entity_id: binary_sensor.night_mode_hall
           state: 'off'
+        - condition: state
+          entity_id: binary_sensor.top_light_illuminance
+          state: 'on'
         sequence:
         - service: script.top_light_hall_turn_on
       - conditions:

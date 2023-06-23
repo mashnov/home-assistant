@@ -1,5 +1,4 @@
-# todo turn on switch fix
-# todo refactor button to occupancy
+# todo turn on switch fix (use delay)
 night_light_kitchen:
   light:
   - platform: template

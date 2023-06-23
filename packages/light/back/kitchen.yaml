@@ -1,5 +1,4 @@
-# todo turn on switch fix
-# todo refactor button to occupancy
+# todo turn on switch fix (use delay)
 back_light_kitchen:
   input_boolean:
     back_light_kitchen_button:
