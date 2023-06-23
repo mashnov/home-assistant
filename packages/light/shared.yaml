@@ -8,10 +8,6 @@ light_shared:
       max: 9000
       min: 0
 
-    top_light_illuminance: # 2500
-      max: 9000
-      min: 0
-
   sensor:
   - name: light_max_illuminance
     platform: statistics
@@ -58,13 +54,5 @@ light_shared:
       delay_off: '00:00:30'
       state: > 
         {% set target = states('input_number.back_light_illuminance') | int(0) %}
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
-        {{ sensor < target }}
-
-    - name: 'top_light_illuminance'
-      delay_on: '00:00:15'
-      delay_off: '00:00:30'
-      state: > 
-        {% set target = states('input_number.top_light_illuminance') | int(0) %}
         {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
         {{ sensor < target }}
