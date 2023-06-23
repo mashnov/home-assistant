@@ -20,9 +20,7 @@ night_light_kitchen:
           state: 'off'
         then:
         - service: switch.turn_on
-          entity_id: 
-          - switch.switch_kitchen_right
-          - switch.relay_kitchen_l1
+          entity_id: switch.switch_kitchen_right
         else:
         - service: switch.turn_on
           entity_id: switch.relay_kitchen_l1
