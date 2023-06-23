@@ -71,6 +71,10 @@ top_light_kitchen:
   - alias: 'top_light_kitchen_auto'
     mode: 'queued'
     trigger:
+    - id: 'auto_on'
+      condition: state
+      entity_id: binary_sensor.top_light_illuminance
+      state: 'on'
     - id: 'turn_on'
       platform: state
       entity_id: 'binary_sensor.occupancy_kitchen'
@@ -93,6 +97,17 @@ top_light_kitchen:
           state: 'off'
         - condition: state
           entity_id: binary_sensor.top_light_illuminance
+          state: 'on'
+        sequence:
+        - service: script.top_light_kitchen_turn_on
+      - conditions:
+        - condition: trigger
+          id: 'auto_on'
+        - condition: state
+          entity_id: binary_sensor.night_mode_hall
+          state: 'off'
+        - condition: state
+          entity_id: binary_sensor.occupancy_kitchen
           state: 'on'
         sequence:
         - service: script.top_light_kitchen_turn_on
