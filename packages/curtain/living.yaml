@@ -1,15 +1,15 @@
 curtain_living:
   input_number:
-    curtain_living_ventilation: # 30
+    curtain_living_ventilation: # 70
       max: 100
       min: 0
-    curtain_living_night: # 85
+    curtain_living_night: # 15
       max: 100
       min: 0
-    curtain_living_sun: # 35
+    curtain_living_sun: # 65
       max: 100
       min: 0
-    curtain_living_open: # 10
+    curtain_living_open: # 90
       max: 100
       min: 0
     curtain_living_close: # 0
@@ -50,18 +50,14 @@ curtain_living:
       sequence:
       - service: script.curtain_living_set_position
         data_template:
-          position: >
-            {% set position = states('input_number.curtain_living_open') | int(0) %}
-            {{ 100 - position }}
+          position: "{{ states('input_number.curtain_living_open') | int(0) }}"
 
     curtain_living_close:
       mode: 'queued'
       sequence:
       - service: script.curtain_living_set_position
         data_template:
-          position: >
-            {% set position = states('input_number.curtain_living_close') | int(0) %}
-            {{ 100 - position }}
+          position: "{{ states('input_number.curtain_living_close') | int(0) }}"
 
   automation:
   - alias: 'curtain_living_sunny'
