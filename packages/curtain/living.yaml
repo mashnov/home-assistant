@@ -48,14 +48,18 @@ curtain_living:
       sequence:
       - service: script.curtain_living_set_position
         data_template:
-          position: "{{ states('input_number.curtain_living_open') | int(0) }}"
+          position: >
+            {% set position = states('input_number.curtain_living_open') | int(0) %}
+            {{ 100 - position }}
 
     curtain_living_close:
       mode: 'queued'
       sequence:
       - service: script.curtain_living_set_position
         data_template:
-          position: "{{ states('input_number.curtain_living_close') | int(0) }}"
+          position: >
+            {% set position = states('input_number.curtain_living_close') | int(0) %}
+            {{ 100 - position }}
 
   automation:
   - alias: 'curtain_living_sunny'
