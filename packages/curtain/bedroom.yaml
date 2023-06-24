@@ -1,15 +1,15 @@
 curtain_bedroom:
   input_number:
-    curtain_bedroom_ventilation: # 30
+    curtain_bedroom_ventilation: # 70
       max: 100
       min: 0
-    curtain_bedroom_night: # 85
+    curtain_bedroom_night: # 15
       max: 100
       min: 0
     curtain_bedroom_sun: # 35
       max: 100
       min: 0
-    curtain_bedroom_open: # 10
+    curtain_bedroom_open: # 90
       max: 100
       min: 0
     curtain_bedroom_close: # 10
@@ -21,9 +21,7 @@ curtain_bedroom:
     covers:
       curtain_bedroom:
         device_class: curtain
-        position_template: >
-          {% set position = state_attr('cover.shade_bedroom', 'position') | int(0) %}
-          {{ 100 - position }}
+        position_template: "{{ state_attr('cover.shade_bedroom', 'position') | int(0) }}"
         open_cover:
           service: script.curtain_bedroom_open
         close_cover:
