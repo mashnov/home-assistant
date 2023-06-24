@@ -12,15 +12,53 @@ curtain_living:
     curtain_living_open: # 10
       max: 100
       min: 0
+    curtain_living_close: # 0
+      max: 100
+      min: 0
+
+  cover:
+  - platform: template
+    covers:
+      curtain_living:
+        device_class: curtain
+        position_template: >
+          {% set position = state_attr('cover.shade_living', 'position') | int(0) %}
+          {{ 100 - position }}
+        value_template: >
+          {% set position = state_attr('cover.shade_living', 'position') | int(0) %}
+          {{ position > 0 }}
+        set_cover_position: 
+          service: script.curtain_living_set_position
+        open_cover:
+          service: script.curtain_living_open
+        close_cover:
+          service: script.curtain_living_close
 
   script:
     curtain_living_set_position:
       mode: 'queued'
       sequence:
-      - service: cover.set_cover_position
-        entity_id: cover.curtain_living
+      - service: script.notification_telegramm_send
         data_template:
-          position: '{{ position }}'
+          message: 'position {{ position }}'
+      # - service: cover.set_cover_position
+      #   entity_id: cover.shade_living
+      #   data_template:
+      #     position: '{{ position }}'
+    
+    curtain_living_open:
+      mode: 'queued'
+      sequence:
+      - service: script.curtain_living_set_position
+        data_template:
+          position: "{{ states('input_number.curtain_living_open') | int(0) }}"
+
+    curtain_living_close:
+      mode: 'queued'
+      sequence:
+      - service: script.curtain_living_set_position
+        data_template:
+          position: "{{ states('input_number.curtain_living_close') | int(0) }}"
 
   automation:
   - alias: 'curtain_living_sunny'

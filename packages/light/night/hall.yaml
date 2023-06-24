@@ -1,6 +1,6 @@
 night_light_hall:
   input_number:
-    night_light_hall_hue: # 30
+    night_light_hall_hue: # 24
       max: 30
       min: 0
     
