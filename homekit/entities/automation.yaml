@@ -11,3 +11,13 @@
 - automation.curtain_living_night
 - automation.curtain_living_ventilation
 - automation.back_light_living_auto
+
+
+- name: Автоматизации
+  entities:
+  - automation.curtain_living_sunny
+  - automation.curtain_living_night
+  - automation.curtain_living_ventilation
+  - automation.back_light_living_auto
+  type: switch
+  multi: true
