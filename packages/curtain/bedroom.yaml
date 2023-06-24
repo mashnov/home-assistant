@@ -1,12 +1,12 @@
 curtain_bedroom:
   input_number:
-    curtain_bedroom_ventilation: # 70
+    curtain_bedroom_ventilation: # 40
       max: 100
       min: 0
-    curtain_bedroom_night: # 15
+    curtain_bedroom_night: # 20
       max: 100
       min: 0
-    curtain_bedroom_sun: # 35
+    curtain_bedroom_sun: # 65
       max: 100
       min: 0
     curtain_bedroom_open: # 90

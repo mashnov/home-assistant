@@ -1,3 +1,5 @@
+### todo: test curtain_kitchen_set_position
+
 curtain_kitchen:
   input_number:
     curtain_kitchen_ventilation: # 30
@@ -12,15 +14,49 @@ curtain_kitchen:
     curtain_kitchen_open: # 10
       max: 100
       min: 0
+    curtain_kitchen_close: # 10
+      max: 100
+      min: 0
+
+  cover:
+  - platform: template
+    covers:
+      curtain_kitchen:
+        device_class: curtain
+        position_template: >
+          {% set position = state_attr('cover.shade_kitchen', 'position') | int(0) %}
+          {{ 100 - position }}
+        open_cover:
+          service: script.curtain_kitchen_open
+        close_cover:
+          service: script.curtain_kitchen_close
+        set_cover_position: 
+          service: script.curtain_kitchen_set_position
+          data_template:
+            position: '{{ position }}'
 
   script:
     curtain_kitchen_set_position:
       mode: 'queued'
       sequence:
       - service: cover.set_cover_position
-        entity_id: cover.curtain_kitchen
+        entity_id: cover.shade_kitchen
         data_template:
-          position: '{{ position }}'
+          position: '{{ 100 - (position | int(0)) }}'
+    
+    curtain_kitchen_open:
+      mode: 'queued'
+      sequence:
+      - service: script.curtain_bedroom_set_position
+        data_template:
+          position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
+
+    curtain_kitchen_close:
+      mode: 'queued'
+      sequence:
+      - service: script.curtain_bedroom_set_position
+        data_template:
+          position: "{{ states('input_number.curtain_kitchen_close') | int(0) }}"
 
   automation:
   - alias: 'curtain_kitchen_sunny'
