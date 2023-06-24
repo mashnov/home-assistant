@@ -12,6 +12,9 @@ curtain_bedroom:
     curtain_bedroom_open: # 10
       max: 100
       min: 0
+    curtain_bedroom_close: # 10
+      max: 100
+      min: 0
 
   cover:
   - platform: template
@@ -42,16 +45,16 @@ curtain_bedroom:
     curtain_bedroom_open:
       mode: 'queued'
       sequence:
-      - service: script.curtain_living_set_position
+      - service: script.curtain_bedroom_set_position
         data_template:
-          position: "{{ states('input_number.curtain_living_open') | int(0) }}"
+          position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
 
     curtain_bedroom_close:
       mode: 'queued'
       sequence:
-      - service: script.curtain_living_set_position
+      - service: script.curtain_bedroom_set_position
         data_template:
-          position: "{{ states('input_number.curtain_living_close') | int(0) }}"
+          position: "{{ states('input_number.curtain_bedroom_close') | int(0) }}"
 
   automation:
   - alias: 'curtain_bedroom_sunny'
