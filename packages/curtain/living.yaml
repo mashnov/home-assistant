@@ -27,12 +27,14 @@ curtain_living:
         value_template: >
           {% set position = state_attr('cover.shade_living', 'position') | int(0) %}
           {{ position > 0 }}
-        set_cover_position: 
-          service: script.curtain_living_set_position
         open_cover:
           service: script.curtain_living_open
         close_cover:
           service: script.curtain_living_close
+        set_cover_position: 
+          service: script.curtain_living_set_position
+          data_template:
+            position: '{{ position }}'
 
   script:
     curtain_living_set_position:
