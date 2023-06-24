@@ -38,8 +38,17 @@ curtain_bedroom:
       - service: cover.set_cover_position
         entity_id: cover.shade_bedroom
         data_template:
-          position: '{{ position }}'
-    
+          position: >
+            {% set minValue = states('input_number.curtain_bedroom_close') | int(0) %}
+            {% set maxValue = states('input_number.curtain_bedroom_open') | int(0) %}
+            {% if (position < minValue) %}
+              {{ minValue }}
+            {% elif (position > maxValue) %}
+              {{ maxValue }}
+            {% else %}
+              {{ position }}
+            {% endif %}
+   
     curtain_bedroom_open:
       mode: 'queued'
       sequence:

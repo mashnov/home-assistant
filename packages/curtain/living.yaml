@@ -38,7 +38,16 @@ curtain_living:
       - service: cover.set_cover_position
         entity_id: cover.shade_living
         data_template:
-          position: '{{ position }}'
+          position: >
+            {% set minValue = states('input_number.curtain_living_close') | int(0) %}
+            {% set maxValue = states('input_number.curtain_living_open') | int(0) %}
+            {% if (position < minValue) %}
+              {{ minValue }}
+            {% elif (position > maxValue) %}
+              {{ maxValue }}
+            {% else %}
+              {{ position }}
+            {% endif %}
     
     curtain_living_open:
       mode: 'queued'

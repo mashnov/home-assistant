@@ -1,17 +1,18 @@
 ### todo: test curtain_kitchen_set_position
+### todo: set values
 
 curtain_kitchen:
   input_number:
-    curtain_kitchen_ventilation: # 30
+    curtain_kitchen_ventilation: # 70
       max: 100
       min: 0
-    curtain_kitchen_night: # 85
+    curtain_kitchen_night: # 15
       max: 100
       min: 0
-    curtain_kitchen_sun: # 35
+    curtain_kitchen_sun: # 65
       max: 100
       min: 0
-    curtain_kitchen_open: # 10
+    curtain_kitchen_open: # 90
       max: 100
       min: 0
     curtain_kitchen_close: # 10
@@ -33,7 +34,16 @@ curtain_kitchen:
         set_cover_position: 
           service: script.curtain_kitchen_set_position
           data_template:
-            position: '{{ position }}'
+            position: >
+              {% set minValue = states('input_number.curtain_kitchen_close') | int(0) %}
+              {% set maxValue = states('input_number.curtain_kitchen_open') | int(0) %}
+              {% if (position < minValue) %}
+                {{ minValue }}
+              {% elif (position > maxValue) %}
+                {{ maxValue }}
+              {% else %}
+                {{ position }}
+              {% endif %}
 
   script:
     curtain_kitchen_set_position:
