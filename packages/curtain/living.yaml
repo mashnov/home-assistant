@@ -20,10 +20,6 @@ curtain_living:
   - platform: template
     covers:
       curtain_living:
-        device_class: curtain
-        value_template: >
-          {% set position = state_attr('cover.shade_living', 'position') | int(0) %}
-          {{ position > 0 }}
         position_template: "{{ state_attr('cover.shade_living', 'position') | int(0) }}"
         open_cover:
           service: script.curtain_living_open
