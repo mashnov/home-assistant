@@ -38,13 +38,10 @@ curtain_living:
     curtain_living_set_position:
       mode: 'queued'
       sequence:
-      - service: script.notification_telegramm_send
+      - service: cover.set_cover_position
+        entity_id: cover.shade_living
         data_template:
-          message: 'position {{ position }}'
-      # - service: cover.set_cover_position
-      #   entity_id: cover.shade_living
-      #   data_template:
-      #     position: '{{ position }}'
+          position: '{{ position }}'
     
     curtain_living_open:
       mode: 'queued'
