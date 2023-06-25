@@ -1,0 +1,14 @@
+doorbell_hall:
+  input_text:
+    doorbell_hall_outside:
+      initial: 'Нажата кнопка звонка у лифта'
+    doorbell_hall_inside:
+      initial: 'Нажата кнопка звонка в кооидоре'
+  
+  template:
+  - binary_sensor:
+    - name: 'doorbell_hall'
+      device_class: 'sound'
+      state: "off"
+
+  
