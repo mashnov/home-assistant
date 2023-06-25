@@ -1,14 +1,89 @@
 doorbell_hall:
+  input_boolean:
+    doorbell_hall:
+
+  timer:
+    doorbell_hall:
+      duration: '00:00:15'
+
   input_text:
-    doorbell_hall_outside:
-      initial: 'Нажата кнопка звонка у лифта'
     doorbell_hall_inside:
       initial: 'Нажата кнопка звонка в кооидоре'
-  
+    doorbell_hall_outside:
+      initial: 'Нажата кнопка звонка у лифта'
+
+  automation:
+  - alias: 'doorbell_hall_inside_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.doorbell_inside_action
+      to: 'single'
+    - platform: state
+      entity_id: sensor.doorbell_inside_action
+      to: 'double'
+    - platform: state
+      entity_id: sensor.doorbell_inside_action
+      to: 'hold'
+    condition:
+    - condition: state
+      entity_id: input_boolean.doorbell_hall
+      state: 'off'
+    action:
+    - service: timer.start
+      entity_id: timer.doorbell_hall
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.doorbell_hall
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.doorbell_hall_inside') }}"
+    - service: script.notification_homepod
+      data_template:
+        message: "{{ states('input_text.doorbell_hall_inside') }}"
+
+  - alias: 'doorbell_hall_outside_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.doorbell_outside_action
+      to: 'single'
+    - platform: state
+      entity_id: sensor.doorbell_outside_action
+      to: 'double'
+    - platform: state
+      entity_id: sensor.doorbell_outside_action
+      to: 'hold'
+    condition:
+    - condition: state
+      entity_id: input_boolean.doorbell_hall
+      state: 'off'
+    action:
+    - service: timer.start
+      entity_id: timer.doorbell_hall
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.doorbell_hall
+    - service: script.notification_telegramm_send
+      data_template:
+        message: "{{ states('input_text.doorbell_hall_outside') }}"
+    - service: script.notification_homepod
+      data_template:
+        message: "{{ states('input_text.doorbell_hall_outside') }}"
+
+  - alias: 'doorbell_hall_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.doorbell_hall
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.doorbell_hall
+
   template:
   - binary_sensor:
     - name: 'doorbell_hall'
       device_class: 'sound'
-      state: "off"
+      state: "{{ is_state('input_boolean.doorbell_hall', 'on') }}"
 
   
