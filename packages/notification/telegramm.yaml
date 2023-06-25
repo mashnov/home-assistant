@@ -45,11 +45,13 @@ notification_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
+          message: "{{ message }}"
           data:
             photo:
             - file: "{{ link }}"
+              caption: "{{ caption }}"
             inline_keyboard: 
-            - 'Удалить :/hide_menu'
+            - 'Закрыть :/hide_menu'
 
   automation:
   - alias: notification_telegramm_remove'
