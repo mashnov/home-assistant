@@ -25,13 +25,13 @@ door_balcony:
         - condition: trigger
           id: 'open'
         sequence:
-        - service: script.notification_telegramm_send
+        - service: script.notification_telegramm_text
           data_template:
             message: "{{ states('input_text.door_balcony_open_text') }}"
       - conditions:
         - condition: trigger
           id: 'close'
         sequence:
-        - service: script.notification_telegramm_send
+        - service: script.notification_telegramm_text
           data_template:
             message: "{{ states('input_text.door_balcony_closed_text') }}"

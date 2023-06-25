@@ -30,13 +30,26 @@ notification_telegramm:
           message_id: '{{ message_id }}'
           chat_id: '{{ chat_id }}'
 
-    notification_telegramm_send:
+    notification_telegramm_text:
       mode: 'queued'
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
           message: "{{ message }}"
           data:
+            inline_keyboard: 
+            - 'Закрыть :/hide_menu'
+
+    notification_telegramm_photo:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: "{{ message }}"
+          data:
+            photo:
+            - file: "{{ link }}"
+              caption: "{{ caption }}"
             inline_keyboard: 
             - 'Закрыть :/hide_menu'
 
@@ -58,7 +71,7 @@ notification_telegramm:
     - platform: homeassistant
       event: shutdown
     action:
-    - service: script.notification_telegramm_send
+    - service: script.notification_telegramm_text
       data_template:
         message: "{{ states('input_text.notification_system_shutdown_text') }}"
 
@@ -68,7 +81,7 @@ notification_telegramm:
     - platform: homeassistant
       event: start
     action:
-    - service: script.notification_telegramm_send
+    - service: script.notification_telegramm_text
       data_template:
         message: "{{ states('input_text.notification_system_start_text') }}"
 
@@ -79,7 +92,7 @@ notification_telegramm:
       entity_id: 'binary_sensor.rpi_power_status'
       to: 'on'
     action:
-    - service: script.notification_telegramm_send
+    - service: script.notification_telegramm_text
       data_template:
         message: "{{ states('input_text.notification_system_power_text') }}"
 
@@ -114,6 +127,6 @@ notification_telegramm:
       entity_id: 'update.terminal_ssh_update'
       to: 'on'
     action:
-    - service: script.notification_telegramm_send
+    - service: script.notification_telegramm_text
       data_template:
         message: "{{ states('input_text.notification_system_update_text') }}"
