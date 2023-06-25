@@ -24,9 +24,7 @@ curtain_kitchen:
     covers:
       curtain_kitchen:
         device_class: curtain
-        position_template: >
-          {% set position = state_attr('cover.shade_kitchen', 'position') | int(0) %}
-          {{ 100 - position }}
+        position_template: "{{ state_attr('cover.shade_kitchen', 'position') | int(0) }}"
         open_cover:
           service: script.curtain_kitchen_open
         close_cover:
@@ -52,7 +50,7 @@ curtain_kitchen:
       - service: cover.set_cover_position
         entity_id: cover.shade_kitchen
         data_template:
-          position: '{{ 100 - (position | int(0)) }}'
+          position: '{{ position }}'
     
     curtain_kitchen_open:
       mode: 'queued'
