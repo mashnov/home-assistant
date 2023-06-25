@@ -2,7 +2,7 @@ bulb_light_living:
   light:
   - platform: template
     lights:
-      bulb_light_bedroom_1:
+      bulb_light_living_1:
         value_template: "{{ is_state('light.xiaomi_light_living_1', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_1', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_1', 'color_temp') | int(0) }}"
@@ -27,7 +27,7 @@ bulb_light_living:
           data:
             value: "{{ color_temp }}"
 
-      bulb_light_bedroom_2:
+      bulb_light_living_2:
         value_template: "{{ is_state('light.xiaomi_light_living_2', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_2', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_2', 'color_temp') | int(0) }}"
@@ -52,7 +52,7 @@ bulb_light_living:
           data:
             value: "{{ color_temp }}"
 
-      bulb_light_bedroom_3:
+      bulb_light_living_3:
         value_template: "{{ is_state('light.xiaomi_light_living_3', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_3', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_3', 'color_temp') | int(0) }}"
@@ -77,7 +77,7 @@ bulb_light_living:
           data:
             value: "{{ color_temp }}"
 
-      bulb_light_bedroom_4:
+      bulb_light_living_4:
         value_template: "{{ is_state('light.xiaomi_light_living_4', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_4', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_4', 'color_temp') | int(0) }}"
@@ -102,7 +102,7 @@ bulb_light_living:
           data:
             value: "{{ color_temp }}"
 
-      bulb_light_bedroom_5:
+      bulb_light_living_5:
         value_template: "{{ is_state('light.xiaomi_light_living_5', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_5', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_5', 'color_temp') | int(0) }}"
@@ -127,7 +127,7 @@ bulb_light_living:
           data:
             value: "{{ color_temp }}"
 
-      bulb_light_bedroom_6:
+      bulb_light_living_6:
         value_template: "{{ is_state('light.xiaomi_light_living_6', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_living_6', 'brightness') | int(0) }}"
         temperature_template: "{{ state_attr('light.xiaomi_light_living_6', 'color_temp') | int(0) }}"
