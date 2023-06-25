@@ -1,4 +1,4 @@
-dormell_inside:
+doorbell_inside:
   camera:
   - platform: generic
     name: doorbell_inside

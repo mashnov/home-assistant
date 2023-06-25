@@ -1,4 +1,4 @@
-dormell_outside:
+doorbell_outside:
   camera:
   - platform: generic
     name: doorbell_outside
