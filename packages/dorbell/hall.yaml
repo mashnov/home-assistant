@@ -14,19 +14,8 @@ doorbell_hall:
       initial: 'Кто-то нажал кнопку звонка в кооидоре'
     doorbell_hall_outside:
       initial: 'Кто-то нажал кнопку звонка у лифта'
-    doorbell_hall_photo_caption:
-      initial: 'Камера в гостиной'
-    doorbell_hall_photo_name:
-      initial: 'snapshot.jpg'
 
   template:
-  - sensor:
-    - name: 'doorbell_hall_photo_link'
-      state: >
-        {% set path = '/tmp/' %}
-        {% set name = states('input_text.doorbell_hall_photo_name') %}
-        {{ path + name }}
-
   - binary_sensor:
     - name: 'doorbell_hall'
       device_class: 'sound'
@@ -84,7 +73,6 @@ doorbell_hall:
         message: "{{ states('input_text.doorbell_hall_inside') }}"
 
 
-
   - alias: 'doorbell_hall_outside_on'
     mode: 'queued'
     trigger:
@@ -131,23 +119,3 @@ doorbell_hall:
     - service: script.notification_homepod
       data_template:
         message: "{{ states('input_text.doorbell_hall_outside') }}"
-
-
-  - alias: 'doorbell_hall_outside_photo'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: input_boolean.doorbell_hall_outside
-      to: 'on'
-    action:
-    - service: camera.snapshot
-      entity_id: camera.living
-      data:
-        filename: "{{ states('sensor.doorbell_hall_photo_link') }}"
-    - service: script.notification_telegramm_photo
-      data_template:
-        link: "{{ states('sensor.doorbell_hall_photo_link') }}"
-
-
-
-
