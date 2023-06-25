@@ -146,8 +146,6 @@ doorbell_hall:
         filename: "{{ states('sensor.doorbell_hall_photo_link') }}"
     - service: script.notification_telegramm_photo
       data_template:
-        message: "{{ states('input_text.doorbell_hall_outside') }}"
-        caption: "{{ states('input_text.doorbell_hall_photo_caption') }}"
         link: "{{ states('sensor.doorbell_hall_photo_link') }}"
 
 
