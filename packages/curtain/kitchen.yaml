@@ -1,47 +1,20 @@
-### todo: test curtain_kitchen_set_position
-### todo: set values
-
 curtain_kitchen:
   input_number:
     curtain_kitchen_ventilation: # 70
       max: 100
       min: 0
-    curtain_kitchen_night: # 15
+    curtain_kitchen_night: # 25
       max: 100
       min: 0
-    curtain_kitchen_sun: # 65
+    curtain_kitchen_sun: # 50
       max: 100
       min: 0
-    curtain_kitchen_open: # 90
+    curtain_kitchen_open: # 100
       max: 100
       min: 0
-    curtain_kitchen_close: # 10
+    curtain_kitchen_close: # 8
       max: 100
       min: 0
-
-  cover:
-  - platform: template
-    covers:
-      curtain_kitchen:
-        device_class: curtain
-        position_template: "{{ state_attr('cover.shade_kitchen', 'position') | int(0) }}"
-        open_cover:
-          service: script.curtain_kitchen_open
-        close_cover:
-          service: script.curtain_kitchen_close
-        set_cover_position: 
-          service: script.curtain_kitchen_set_position
-          data_template:
-            position: >
-              {% set minValue = states('input_number.curtain_kitchen_close') | int(0) %}
-              {% set maxValue = states('input_number.curtain_kitchen_open') | int(0) %}
-              {% if (position < minValue) %}
-                {{ minValue }}
-              {% elif (position > maxValue) %}
-                {{ maxValue }}
-              {% else %}
-                {{ position }}
-              {% endif %}
 
   script:
     curtain_kitchen_set_position:
@@ -51,20 +24,6 @@ curtain_kitchen:
         entity_id: cover.shade_kitchen
         data_template:
           position: '{{ position }}'
-    
-    curtain_kitchen_open:
-      mode: 'queued'
-      sequence:
-      - service: script.curtain_kitchen_set_position
-        data_template:
-          position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
-
-    curtain_kitchen_close:
-      mode: 'queued'
-      sequence:
-      - service: script.curtain_kitchen_set_position
-        data_template:
-          position: "{{ states('input_number.curtain_kitchen_close') | int(0) }}"
 
   automation:
   - alias: 'curtain_kitchen_sunny'

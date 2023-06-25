@@ -16,21 +16,6 @@ curtain_bedroom:
       max: 100
       min: 0
 
-  cover:
-  - platform: template
-    covers:
-      curtain_bedroom:
-        device_class: curtain
-        position_template: "{{ state_attr('cover.shade_bedroom', 'position') | int(0) }}"
-        open_cover:
-          service: script.curtain_bedroom_open
-        close_cover:
-          service: script.curtain_bedroom_close
-        set_cover_position: 
-          service: script.curtain_bedroom_set_position
-          data_template:
-            position: '{{ position }}'
-
   script:
     curtain_bedroom_set_position:
       mode: 'queued'
@@ -38,30 +23,7 @@ curtain_bedroom:
       - service: cover.set_cover_position
         entity_id: cover.shade_bedroom
         data_template:
-          position: >
-            {% set minValue = states('input_number.curtain_bedroom_close') | int(0) %}
-            {% set maxValue = states('input_number.curtain_bedroom_open') | int(0) %}
-            {% if (position < minValue) %}
-              {{ minValue }}
-            {% elif (position > maxValue) %}
-              {{ maxValue }}
-            {% else %}
-              {{ position }}
-            {% endif %}
-   
-    curtain_bedroom_open:
-      mode: 'queued'
-      sequence:
-      - service: script.curtain_bedroom_set_position
-        data_template:
-          position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
-
-    curtain_bedroom_close:
-      mode: 'queued'
-      sequence:
-      - service: script.curtain_bedroom_set_position
-        data_template:
-          position: "{{ states('input_number.curtain_bedroom_close') | int(0) }}"
+          position: "{{ position }}"
 
   automation:
   - alias: 'curtain_bedroom_sunny'
