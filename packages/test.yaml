@@ -8,8 +8,8 @@ test:
       max: 1000
       min: 0
     test_temperature:
-      max: 1000
-      min: 0
+      max: 333
+      min: 175
 
   light:
   - platform: template
@@ -18,7 +18,9 @@ test:
         value_template: "{{ is_state('input_boolean.test', 'on') }}"
         level_template: "{{ states('input_number.test_brightness') }}"
         temperature_template: "{{ states('input_number.test_temperature') }}"
-        supports_transition_template: true
+        supports_transition_template: "{{ true }}"
+        min_mireds: 175
+        max_mireds: 333
         turn_on:
         - service: input_boolean.turn_on
           entity_id: input_boolean.test
@@ -30,8 +32,14 @@ test:
           entity_id: input_number.test_brightness
           data:
             value: "{{ brightness }}"
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "brightness: {{ brightness }}"
         set_temperature:
         - service: input_number.set_value
-          entity_id: input_number.test_brightness
+          entity_id: input_number.test_temperature
           data:
-            value: "{{ transition }}"
+            value: "{{ color_temp }}"
+        - service: script.notification_telegramm_send
+          data_template:
+            message: "color_temp: {{ color_temp }}"
