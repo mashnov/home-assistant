@@ -2,11 +2,11 @@ dormell_hall:
   camera:
   - platform: generic
     name: doorbell_outside
-    still_image_url: null
+    still_image_url: '#'
 
   - platform: generic
     name: doorbell_inside
-    still_image_url: null
+    still_image_url: '#'
 
   template:
   - binary_sensor:
