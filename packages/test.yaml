@@ -19,8 +19,8 @@ test:
         level_template: "{{ states('input_number.test_brightness') }}"
         temperature_template: "{{ states('input_number.test_temperature') }}"
         supports_transition_template: "{{ true }}"
-        min_mireds: 175
-        max_mireds: 333
+        min_mireds_template: 175
+        max_mireds_template: 333
         turn_on:
         - service: input_boolean.turn_on
           entity_id: input_boolean.test
