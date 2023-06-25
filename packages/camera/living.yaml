@@ -18,7 +18,7 @@ camera_living:
       - service: camera.snapshot
         entity_id: camera.living
         data:
-          filename: "{{ states('sensor.doorbell_hall_photo_link') }}"
+          filename: "{{ states('sensor.camera_living_photo_link') }}"
       - service: script.notification_telegramm_photo
         data_template:
-          link: "{{ states('sensor.doorbell_hall_photo_link') }}"
+          link: "{{ states('sensor.camera_living_photo_link') }}"
