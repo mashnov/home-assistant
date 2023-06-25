@@ -20,12 +20,12 @@ bulb_light_kitchen:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_1
           data:
-            value: "{{ iif(brightness | int(0) > 255, 255, brightness | int(0)) }}"
+            value: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_1
           data:
-            value: "{{ iif(color_temp | int(0) < 175, 175, iif(color_temp | int(0) > 333, 333, color_temp | int(0))) }}"
+            value: "{{ color_temp }}"
 
       bulb_light_kitchen_2:
         value_template: "{{ is_state('light.xiaomi_light_kitchen_2', 'on') }}"
@@ -45,12 +45,12 @@ bulb_light_kitchen:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_2
           data:
-            value: "{{ iif(brightness | int(0) > 255, 255, brightness | int(0)) }}"
+            value: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_2
           data:
-            value: "{{ iif(color_temp | int(0) < 175, 175, iif(color_temp | int(0) > 333, 333, color_temp | int(0))) }}"
+            value: "{{ color_temp }}"
 
       bulb_light_kitchen_3:
         value_template: "{{ is_state('light.xiaomi_light_kitchen_3', 'on') }}"
@@ -70,12 +70,12 @@ bulb_light_kitchen:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_3
           data:
-            value: "{{ iif(brightness | int(0) > 255, 255, brightness | int(0)) }}"
+            value: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_3
           data:
-            value: "{{ iif(color_temp | int(0) < 175, 175, iif(color_temp | int(0) > 333, 333, color_temp | int(0))) }}"
+            value: "{{ color_temp }}"
 
       bulb_light_kitchen_4:
         value_template: "{{ is_state('light.xiaomi_light_kitchen_4', 'on') }}"
@@ -95,12 +95,12 @@ bulb_light_kitchen:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_4
           data:
-            value: "{{ iif(brightness | int(0) > 255, 255, brightness | int(0)) }}"
+            value: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_4
           data:
-            value: "{{ iif(color_temp | int(0) < 175, 175, iif(color_temp | int(0) > 333, 333, color_temp | int(0))) }}"
+            value: "{{ color_temp }}"
 
       bulb_light_kitchen_5:
         value_template: "{{ is_state('light.xiaomi_light_kitchen_5', 'on') }}"
@@ -120,12 +120,12 @@ bulb_light_kitchen:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_5
           data:
-            value: "{{ iif(brightness | int(0) > 255, 255, brightness | int(0)) }}"
+            value: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen_5
           data:
-            value: "{{ iif(color_temp | int(0) < 175, 175, iif(color_temp | int(0) > 333, 333, color_temp | int(0))) }}"
+            value: "{{ color_temp }}"
 
   script:
     bulb_light_kitchen_on:
