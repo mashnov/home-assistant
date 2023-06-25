@@ -31,3 +31,13 @@ camera_living:
         data_template:
           message: "{{ states('sensor.camera_living_photo_caption') }}"
           link: "{{ states('sensor.camera_living_photo_link') }}"
+  
+  automation:
+  - alias: 'camera_living_action'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'camera.living'
+      to: 'active'
+    action:
+    - service: script.camera_living_take_photo
