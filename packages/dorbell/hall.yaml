@@ -20,6 +20,13 @@ doorbell_hall:
       initial: 'snapshot.jpg'
 
   template:
+  - sensor:
+    - name: 'doorbell_hall_photo_link'
+      state: >
+        {% set path = '/tmp/' %}
+        {% set name = states('input_text.doorbell_hall_photo_name') %}
+        {{ path + name }}
+
   - binary_sensor:
     - name: 'doorbell_hall'
       device_class: 'sound'
@@ -27,13 +34,6 @@ doorbell_hall:
         {% set inside = is_state('input_boolean.doorbell_hall', 'on') %}
         {% set outside = is_state('input_boolean.doorbell_hall', 'on') %}
         {{ inside or outside }}
-
-    - sensor:
-      - name: 'doorbell_hall_photo_link'
-        state: >
-          {% set path = '/tmp/' %}
-          {% set name = states('input_text.doorbell_hall_photo_caption') %}
-          {{ path + name }}
 
   automation:
   - alias: 'doorbell_hall_inside_on'
