@@ -1,7 +1,4 @@
 doorbell_hall:
-  allowlist_external_dirs:
-    - /tmp
-
   input_boolean:
     doorbell_hall_inside:
     doorbell_hall_outside:
