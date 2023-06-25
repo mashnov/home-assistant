@@ -12,8 +12,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_1
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_1
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_1
@@ -38,8 +37,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_2
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_2
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_2
@@ -64,8 +62,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_3
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_3
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_3
@@ -90,8 +87,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_4
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_4
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_4
@@ -116,8 +112,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_5
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_5
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_5
@@ -142,8 +137,7 @@ bulb_light_bedroom:
         turn_on:
         - service: script.bulb_light_bedroom_on
           data:
-            light: light.xiaomi_light_bedroom_6
-            switch: switch.switch_bedroom
+            entity_id: light.xiaomi_light_bedroom_6
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom_6
@@ -160,11 +154,12 @@ bulb_light_bedroom:
 
   script:
     bulb_light_bedroom_on:
+      mode: 'queued'
       sequence:
       - if:
         - condition: state
-          entity_id: switch.switch_bedroom
           state: 'off'
+          entity_id: switch.switch_bedroom
         then:
         - service: switch.turn_on
           entity_id: switch.switch_bedroom

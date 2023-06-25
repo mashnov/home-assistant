@@ -10,10 +10,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_1
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_1
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_1
@@ -36,10 +35,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_2
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_2
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_2
@@ -62,10 +60,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_3
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_3
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_3
@@ -88,10 +85,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_4
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_4
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_4
@@ -114,10 +110,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_5
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_5
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_5
@@ -140,10 +135,9 @@ bulb_light_hall:
         min_mireds_template: 175
         max_mireds_template: 333
         turn_on:
-        - service: script.bulb_light_on
+        - service: script.bulb_light_hall_on
           data:
-            light: light.xiaomi_light_hall_6
-            switch: switch.switch_hall
+            entity_id: light.xiaomi_light_hall_6
         turn_off:
         - service: light.turn_off
           entity_id: light.xiaomi_light_hall_6
@@ -157,6 +151,22 @@ bulb_light_hall:
           entity_id: light.xiaomi_light_hall_6
           data:
             value: "{{ color_temp }}"
+
+  script:
+    bulb_light_hall_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          state: 'off'
+          entity_id: switch.switch_hall
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_hall
+        else:
+        - service: light.turn_on
+          data_template:
+            entity_id: "{{ entity_id }}"
 
   automation:
   - alias: 'bulb_light_hall_1'
