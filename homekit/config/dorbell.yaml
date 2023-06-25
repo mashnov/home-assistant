@@ -1,11 +1,9 @@
 camera.doorbell_outside:
-  name: Doorbell Outside
-  support_video: false
+  name: Внешний Звонок
   support_audio: false
   linked_doorbell_sensor: binary_sensor.doorbell_outside
 
 camera.doorbell_inside:
-  name: Doorbell Inside
-  support_video: false
+  name: Внутренний Звонок
   support_audio: false
   linked_doorbell_sensor: binary_sensor.doorbell_inside
