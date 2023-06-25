@@ -1,0 +1,9 @@
+camera.doorbell_outside:
+  name: Doorbell Outside
+  support_audio: false
+  linked_doorbell_sensor: binary_sensor.doorbell_outside
+
+camera.doorbell_inside:
+  name: Doorbell Outside
+  support_audio: false
+  linked_doorbell_sensor: binary_sensor.doorbell_inside

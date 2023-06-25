@@ -1,0 +1,15 @@
+dormell_hall:
+  camera:
+  - platform: generic
+    name: doorbell_outside
+
+  - platform: generic
+    name: doorbell_inside
+
+  template:
+  - binary_sensor:
+    - name: 'doorbell_outside'
+      state: "off"
+
+    - name: 'doorbell_inside'
+      state: "off"
