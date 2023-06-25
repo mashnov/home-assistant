@@ -25,7 +25,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_1
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
       bulb_light_hall_2:
         value_template: "{{ is_state('light.xiaomi_light_hall_2', 'on') }}"
@@ -50,7 +50,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_2
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
       bulb_light_hall_3:
         value_template: "{{ is_state('light.xiaomi_light_hall_3', 'on') }}"
@@ -75,7 +75,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_3
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
       bulb_light_hall_4:
         value_template: "{{ is_state('light.xiaomi_light_hall_4', 'on') }}"
@@ -100,7 +100,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_4
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
       bulb_light_hall_5:
         value_template: "{{ is_state('light.xiaomi_light_hall_5', 'on') }}"
@@ -125,7 +125,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_5
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
       bulb_light_hall_6:
         value_template: "{{ is_state('light.xiaomi_light_hall_6', 'on') }}"
@@ -150,7 +150,7 @@ bulb_light_hall:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall_6
           data:
-            value: "{{ color_temp | int(333) }}"
+            value: "{{ max(color_temp, 333) }}"
 
   script:
     bulb_light_hall_on:
