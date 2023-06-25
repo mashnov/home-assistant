@@ -3,22 +3,14 @@ top_light_bedroom:
     top_light_bedroom_turn_on:
       mode: 'queued'
       sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_bedroom
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_bedroom
-        else:
-        - service: light.turn_on
-          entity_id: 
-          - light.bulb_light_bedroom_1
-          - light.bulb_light_bedroom_2
-          - light.bulb_light_bedroom_3
-          - light.bulb_light_bedroom_4
-          - light.bulb_light_bedroom_5
-          - light.bulb_light_bedroom_6
+      - service: light.turn_on
+        entity_id: 
+        - light.bulb_light_bedroom_1
+        - light.bulb_light_bedroom_2
+        - light.bulb_light_bedroom_3
+        - light.bulb_light_bedroom_4
+        - light.bulb_light_bedroom_5
+        - light.bulb_light_bedroom_6
 
     top_light_bedroom_turn_off:
       mode: 'queued'
@@ -31,6 +23,17 @@ top_light_bedroom:
         - light.bulb_light_bedroom_3
         - light.bulb_light_bedroom_2
         - light.bulb_light_bedroom_1
+
+  light:
+  - platform: group
+    name: top_light_bedroom
+    entities:
+    - light.bulb_light_bedroom_1
+    - light.bulb_light_bedroom_2
+    - light.bulb_light_bedroom_3
+    - light.bulb_light_bedroom_4
+    - light.bulb_light_bedroom_5
+    - light.bulb_light_bedroom_6
 
   automation:
   - alias: 'top_light_bedroom_action'

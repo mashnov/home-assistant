@@ -1,0 +1,17 @@
+bulb_light_shared:
+  script:
+    bulb_light_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          entity_id: "{{ switch }}"
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          data_template:
+            entity_id: "{{ switch }}"
+        else:
+        - service: light.turn_on
+          data_template:
+            entity_id: "{{ light }}"

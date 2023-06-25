@@ -6,21 +6,13 @@ top_light_kitchen:
     top_light_kitchen_turn_on:
       mode: 'queued'
       sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_kitchen_left
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_kitchen_left
-        else:
-        - service: light.turn_on
-          entity_id: 
-          - light.bulb_light_kitchen_1
-          - light.bulb_light_kitchen_2
-          - light.bulb_light_kitchen_3
-          - light.bulb_light_kitchen_4
-          - light.bulb_light_kitchen_5
+      - service: light.turn_on
+        entity_id: 
+        - light.bulb_light_kitchen_1
+        - light.bulb_light_kitchen_2
+        - light.bulb_light_kitchen_3
+        - light.bulb_light_kitchen_4
+        - light.bulb_light_kitchen_5
 
     top_light_kitchen_turn_off:
       mode: 'queued'
@@ -32,6 +24,16 @@ top_light_kitchen:
         - light.bulb_light_kitchen_3
         - light.bulb_light_kitchen_2
         - light.bulb_light_kitchen_1
+
+  light:
+  - platform: group
+    name: top_light_kitchen
+    entities:
+    - light.bulb_light_kitchen_1
+    - light.bulb_light_kitchen_2
+    - light.bulb_light_kitchen_3
+    - light.bulb_light_kitchen_4
+    - light.bulb_light_kitchen_5
 
   automation:
   - alias: 'top_light_kitchen_button'

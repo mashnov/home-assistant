@@ -1,39 +1,136 @@
 bulb_light_kitchen:
   light:
-  - name: bulb_light_kitchen_1
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_1_host
-    token: !secret kitchen_lamp_1_token
-  - name: bulb_light_kitchen_2
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_2_host
-    token: !secret kitchen_lamp_2_token
-  - name: bulb_light_kitchen_3
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_3_host
-    token: !secret kitchen_lamp_3_token
-  - name: bulb_light_kitchen_4
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_4_host
-    token: !secret kitchen_lamp_4_token
-  - name: bulb_light_kitchen_5
-    platform: xiaomi_miio_philipslight
-    model: philips.light.downlight
-    host: !secret kitchen_lamp_5_host
-    token: !secret kitchen_lamp_5_token
+  - platform: template
+    lights:
+      bulb_light_kitchen_1:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_1', 'on') }}"
+        level_template: "{{ state_attr('light.xiaomi_light_kitchen_1', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen_1', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
+        min_mireds_template: 175
+        max_mireds_template: 333
+        turn_on:
+        - service: script.bulb_light_on
+          data:
+            light: light.xiaomi_light_kitchen_1
+            switch: switch.switch_kitchen_left
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen_1
+        set_level:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_1
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_1
+          data:
+            value: "{{ color_temp }}"
 
-  - platform: group
-    name: bulb_light_kitchen
-    entities:
-    - light.bulb_light_kitchen_1
-    - light.bulb_light_kitchen_2
-    - light.bulb_light_kitchen_3
-    - light.bulb_light_kitchen_4
-    - light.bulb_light_kitchen_5
+      bulb_light_kitchen_2:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_2', 'on') }}"
+        level_template: "{{ state_attr('light.xiaomi_light_kitchen_2', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen_2', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
+        min_mireds_template: 175
+        max_mireds_template: 333
+        turn_on:
+        - service: script.bulb_light_on
+          data:
+            light: light.xiaomi_light_kitchen_2
+            switch: switch.switch_kitchen_left
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen_2
+        set_level:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_2
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_2
+          data:
+            value: "{{ color_temp }}"
+
+      bulb_light_kitchen_3:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_3', 'on') }}"
+        level_template: "{{ state_attr('light.xiaomi_light_kitchen_3', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen_3', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
+        min_mireds_template: 175
+        max_mireds_template: 333
+        turn_on:
+        - service: script.bulb_light_on
+          data:
+            light: light.xiaomi_light_kitchen_3
+            switch: switch.switch_kitchen_left
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen_3
+        set_level:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_3
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_3
+          data:
+            value: "{{ color_temp }}"
+
+      bulb_light_kitchen_4:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_4', 'on') }}"
+        level_template: "{{ state_attr('light.xiaomi_light_kitchen_4', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen_4', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
+        min_mireds_template: 175
+        max_mireds_template: 333
+        turn_on:
+        - service: script.bulb_light_on
+          data:
+            light: light.xiaomi_light_kitchen_4
+            switch: switch.switch_kitchen_left
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen_4
+        set_level:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_4
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_4
+          data:
+            value: "{{ color_temp }}"
+
+      bulb_light_kitchen_5:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_5', 'on') }}"
+        level_template: "{{ state_attr('light.xiaomi_light_kitchen_5', 'brightness') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen_5', 'color_temp') | int(0) }}"
+        supports_transition_template: "{{ true }}"
+        min_mireds_template: 175
+        max_mireds_template: 333
+        turn_on:
+        - service: script.bulb_light_on
+          data:
+            light: light.xiaomi_light_kitchen_5
+            switch: switch.switch_kitchen_left
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen_5
+        set_level:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_5
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen_5
+          data:
+            value: "{{ color_temp }}"
 
   automation:
   - alias: 'bulb_light_kitchen_1'

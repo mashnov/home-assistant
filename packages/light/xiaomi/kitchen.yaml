@@ -1,0 +1,27 @@
+xiaomi_light_kitchen:
+  light:
+  - name: xiaomi_light_kitchen_1
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret kitchen_lamp_1_host
+    token: !secret kitchen_lamp_1_token
+  - name: xiaomi_light_kitchen_2
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret kitchen_lamp_2_host
+    token: !secret kitchen_lamp_2_token
+  - name: xiaomi_light_kitchen_3
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret kitchen_lamp_3_host
+    token: !secret kitchen_lamp_3_token
+  - name: xiaomi_light_kitchen_4
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret kitchen_lamp_4_host
+    token: !secret kitchen_lamp_4_token
+  - name: xiaomi_light_kitchen_5
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret kitchen_lamp_5_host
+    token: !secret kitchen_lamp_5_token
