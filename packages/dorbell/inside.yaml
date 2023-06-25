@@ -1,17 +1,10 @@
-dormell_hall:
+dormell_inside:
   camera:
-  - platform: generic
-    name: doorbell_outside
-    still_image_url: '#'
-
   - platform: generic
     name: doorbell_inside
     still_image_url: '#'
 
   template:
   - binary_sensor:
-    - name: 'doorbell_outside'
-      state: "off"
-
     - name: 'doorbell_inside'
       state: "off"

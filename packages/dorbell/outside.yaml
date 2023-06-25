@@ -1,0 +1,10 @@
+dormell_outside:
+  camera:
+  - platform: generic
+    name: doorbell_outside
+    still_image_url: '#'
+
+  template:
+  - binary_sensor:
+    - name: 'doorbell_outside'
+      state: "off"
