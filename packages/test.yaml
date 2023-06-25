@@ -3,14 +3,35 @@ test:
   input_boolean:
     test:
 
+  input_number:
+    test_brightness:
+      max: 1000
+      min: 0
+    test_temperature:
+      max: 1000
+      min: 0
+
   light:
   - platform: template
     lights:
       test:
         value_template: "{{ is_state('input_boolean.test', 'on') }}"
+        level_template: "{{ states('input_number.test_brightness') }}"
+        temperature_template: "{{ states('input_number.test_temperature') }}"
+        supports_transition_template: true
         turn_on:
         - service: input_boolean.turn_on
           entity_id: input_boolean.test
         turn_off:
         - service: input_boolean.turn_off
           entity_id: input_boolean.test
+        set_level:
+        - service: input_number.set_value
+          entity_id: input_number.test_brightness
+          data:
+            value: "{{ brightness }}"
+        set_temperature:
+        - service: input_number.set_value
+          entity_id: input_number.test_brightness
+          data:
+            value: "{{ transition }}"
