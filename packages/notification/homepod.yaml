@@ -9,10 +9,10 @@ notification_homepod:
     notification_homepod_volume_current:
       max: 1
       min: 0
-    notification_homepod_volume_night: # 0.1
+    notification_homepod_volume_night: # 0.4
       max: 1
       min: 0
-    notification_homepod_volume_day: # 0.4
+    notification_homepod_volume_day: # 0.8
       max: 1
       min: 0
 
