@@ -72,7 +72,6 @@ doorbell_hall:
       data_template:
         message: "{{ states('input_text.doorbell_hall_inside') }}"
 
-
   - alias: 'doorbell_hall_outside_on'
     mode: 'queued'
     trigger:

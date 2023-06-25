@@ -49,9 +49,8 @@ notification_telegramm:
           data:
             photo:
             - file: "{{ link }}"
-              caption: "{{ caption }}"
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Удалить :/hide_menu'
 
   automation:
   - alias: notification_telegramm_remove'
