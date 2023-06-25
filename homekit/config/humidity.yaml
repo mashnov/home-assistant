@@ -1,5 +1,17 @@
 sensor.humidity_kitchen:
   name: Влажность
 
+sensor.humidity_bath:
+  name: Влажность
+
+sensor.humidity_hall:
+  name: Влажность
+
+sensor.humidity_bedroom:
+  name: Влажность
+
+sensor.humidity_living:
+  name: Влажность
+
 sensor.humidity_balcony:
   name: Влажность
