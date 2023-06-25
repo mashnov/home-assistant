@@ -86,4 +86,3 @@ doorbell_hall:
       device_class: 'sound'
       state: "{{ is_state('input_boolean.doorbell_hall', 'on') }}"
 
-  
