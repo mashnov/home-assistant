@@ -1,0 +1,51 @@
+automation_kitchen:
+  switch:
+  - platform: template
+    switches:
+      automation_kitchen:
+        value_template: >
+          {% set channel_1 = automation.curtain_kitchen_sunny  %}
+          {% set channel_2 = automation.curtain_kitchen_night  %}
+          {% set channel_3 = automation.curtain_kitchen_ventilation  %}
+          {{ channel_1 or channel_2 or channel_3 }}
+        turn_on:
+          service: switch.turn_on
+          data_template:
+            entity_id: >
+              {% if switch == 'channel_1' %}
+                automation.curtain_kitchen_sunny
+              {% elif switch == 'channel_2' %}
+                automation.curtain_kitchen_night
+              {% elif switch == 'channel_3' %}
+                automation.curtain_kitchen_ventilation
+              {% endif %}
+          target:
+            entity_id: >
+              {% if switch == 'channel_1' %}
+                automation.curtain_kitchen_sunny
+              {% elif switch == 'channel_2' %}
+                automation.curtain_kitchen_night
+              {% elif switch == 'channel_3' %}
+                automation.curtain_kitchen_ventilation
+              {% endif %}
+        turn_off:
+          service: switch.turn_off
+          data_template:
+            entity_id: >
+              {% if switch == 'channel_1' %}
+                automation.curtain_kitchen_sunny
+              {% elif switch == 'channel_2' %}
+                automation.curtain_kitchen_night
+              {% elif switch == 'channel_3' %}
+                automation.curtain_kitchen_ventilation
+              {% endif %}
+          target:
+            entity_id: >
+              {% if switch == 'channel_1' %}
+                automation.curtain_kitchen_sunny
+              {% elif switch == 'channel_2' %}
+                automation.curtain_kitchen_night
+              {% elif switch == 'channel_3' %}
+                automation.curtain_kitchen_ventilation
+              {% endif %}
+
