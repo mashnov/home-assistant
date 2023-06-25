@@ -8,9 +8,9 @@ doorbell_hall:
 
   input_text:
     doorbell_hall_inside:
-      initial: 'Нажата кнопка звонка в кооидоре'
+      initial: 'Кто-то нажал кнопку звонка в кооидоре'
     doorbell_hall_outside:
-      initial: 'Нажата кнопка звонка у лифта'
+      initial: 'Кто-то нажал кнопку звонка у лифта'
 
   automation:
   - alias: 'doorbell_hall_inside_button'
