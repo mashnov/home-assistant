@@ -4,9 +4,9 @@ automation_kitchen:
     switches:
       automation_kitchen:
         value_template: >
-          {% set channel_1 = automation.curtain_kitchen_sunny  %}
-          {% set channel_2 = automation.curtain_kitchen_night  %}
-          {% set channel_3 = automation.curtain_kitchen_ventilation  %}
+          {% set channel_1 = is_state('automation.curtain_kitchen_sunny', 'on') %}
+          {% set channel_2 = is_state('automation.curtain_kitchen_night', 'on') %}
+          {% set channel_3 = is_state('automation.curtain_kitchen_ventilation', 'on') %}
           {{ channel_1 or channel_2 or channel_3 }}
         turn_on:
           service: switch.turn_on
