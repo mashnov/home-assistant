@@ -1,6 +1,6 @@
 notification_gateway:
   script:
-    notification_homepod:
+    notification_gateway:
       mode: 'queued'
       sequence:
       - service: xiaomi_aqara.play_ringtone
