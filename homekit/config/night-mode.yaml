@@ -1,5 +1,5 @@
 input_boolean.night_mode_bedroom:
-  name: Ночной режим
+  name: Спящий режим
 
 input_boolean.night_mode_living:
-  name: Ночной режим
+  name: Спящий режим
