@@ -5,8 +5,9 @@ bulb_light_shared:
       sequence:
       - if:
         - condition: state
-          entity_id: "{{ switch }}"
           state: 'off'
+          data_template:
+            entity_id: "{{ switch }}"
         then:
         - service: switch.turn_on
           data_template:
