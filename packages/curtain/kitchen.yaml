@@ -57,14 +57,14 @@ curtain_kitchen:
     curtain_kitchen_open:
       mode: 'queued'
       sequence:
-      - service: script.curtain_bedroom_set_position
+      - service: script.curtain_kitchen_set_position
         data_template:
           position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
 
     curtain_kitchen_close:
       mode: 'queued'
       sequence:
-      - service: script.curtain_bedroom_set_position
+      - service: script.curtain_kitchen_set_position
         data_template:
           position: "{{ states('input_number.curtain_kitchen_close') | int(0) }}"
 
