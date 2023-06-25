@@ -1,4 +1,7 @@
 doorbell_hall:
+  allowlist_external_dirs:
+    - /tmp
+
   input_boolean:
     doorbell_hall_inside:
     doorbell_hall_outside:
@@ -16,8 +19,8 @@ doorbell_hall:
       initial: 'Кто-то нажал кнопку звонка у лифта'
     doorbell_hall_photo_caption:
       initial: 'Камера в гостиной'
-    doorbell_hall_photo_link:
-      initial: '/tmp/snapshot.jpg'
+    doorbell_hall_photo_name:
+      initial: 'snapshot.jpg'
 
   template:
   - binary_sensor:
@@ -27,6 +30,13 @@ doorbell_hall:
         {% set inside = is_state('input_boolean.doorbell_hall', 'on') %}
         {% set outside = is_state('input_boolean.doorbell_hall', 'on') %}
         {{ inside or outside }}
+
+    - sensor:
+      - name: 'doorbell_hall_photo_link'
+        state: >
+          {% set path = '/tmp/' %}
+          {% set name = states('input_text.doorbell_hall_photo_caption') %}
+          {{ path + name }}
 
   automation:
   - alias: 'doorbell_hall_inside_on'
@@ -136,12 +146,12 @@ doorbell_hall:
     - service: camera.snapshot
       entity_id: camera.living
       data:
-        filename: "{{ states('input_text.doorbell_hall_photo_link') }}"
+        filename: "{{ states('sensor.doorbell_hall_photo_link') }}"
     - service: script.notification_telegramm_photo
       data_template:
         message: "{{ states('input_text.doorbell_hall_outside') }}"
         caption: "{{ states('input_text.doorbell_hall_photo_caption') }}"
-        link: "{{ states('input_text.doorbell_hall_photo_link') }}"
+        link: "{{ states('sensor.doorbell_hall_photo_link') }}"
 
 
 
