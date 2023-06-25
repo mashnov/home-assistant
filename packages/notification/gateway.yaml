@@ -1,9 +1,0 @@
-notification_gateway:
-  script:
-    notification_gateway:
-      mode: 'queued'
-      sequence:
-      - service: xiaomi_aqara.play_ringtone
-        data:
-          gw_mac: '50:ec:50:ed:c1:f0'
-          ringtone_id: '1'
