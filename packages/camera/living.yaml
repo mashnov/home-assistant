@@ -2,10 +2,18 @@ camera_living:
   input_text:
     camera_living_photo_name:
       initial: 'snapshot.jpg'
+    camera_living_photo_caption:
+      initial: 'Камера в гостиной'
 
   template:
   - sensor:
     - name: 'camera_living_photo_link'
+      state: >
+        {% set path = '/tmp/' %}
+        {% set name = states('input_text.camera_living_photo_name') %}
+        {{ path + name }}
+
+    - name: 'camera_living_photo_message'
       state: >
         {% set path = '/tmp/' %}
         {% set name = states('input_text.camera_living_photo_name') %}
@@ -21,4 +29,6 @@ camera_living:
           filename: "{{ states('sensor.camera_living_photo_link') }}"
       - service: script.notification_telegramm_photo
         data_template:
+          message: "{{ now() | as_timestamp | timestamp_custom('%H:%M', true) }}"
+          caption: "{{ states('sensor.camera_living_photo_caption') }}"
           link: "{{ states('sensor.camera_living_photo_link') }}"
