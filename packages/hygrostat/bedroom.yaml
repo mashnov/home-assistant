@@ -12,7 +12,7 @@ hygrostat_bedroom:
   - name: humidifier_bedroom
     device_class: 'humidifier'
     humidifier: switch.relay_bedroom_l2
-    target_sensor: sensor.humidity_bedroom
+    target_sensor: sensor.dehumidifier_bedroom_humidity
     min_humidity: 20
     max_humidity: 80
 
@@ -30,6 +30,9 @@ hygrostat_bedroom:
         {{ humidifier and (sensor <= 0) }}
 
   - sensor:
+    - name: 'dehumidifier_bedroom_humidity'
+      state: "{{ states('sensor.humidity_bedroom') | float(100) }}"
+
     - name: 'humidifier_bedroom_water_level'
       unit_of_measurement: "%"
       device_class: battery

@@ -3,7 +3,11 @@ hygrostat_bath:
   - name: dehumidifier_bath
     device_class: 'dehumidifier'
     humidifier: switch.relay_toilet_l1
-    target_sensor: sensor.humidity_bath
+    target_sensor: sensor.dehumidifier_bath_humidity
     min_humidity: 40
     max_humidity: 80
   
+  template:
+  - sensor:
+    - name: 'dehumidifier_bath_humidity'
+      state: "{{ states('sensor.humidity_bath') | float(0) }}"
