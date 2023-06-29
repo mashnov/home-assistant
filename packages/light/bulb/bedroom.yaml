@@ -5,7 +5,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_1:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_1', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_1', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_1', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_1', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
@@ -30,7 +30,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_2:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_2', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_2', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_2', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_2', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
@@ -55,7 +55,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_3:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_3', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_3', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_3', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_3', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
@@ -80,7 +80,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_4:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_4', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_4', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_4', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_4', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
@@ -105,7 +105,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_5:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_5', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_5', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_5', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_5', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
@@ -130,7 +130,7 @@ bulb_light_bedroom:
       bulb_light_bedroom_6:
         value_template: "{{ is_state('light.xiaomi_light_bedroom_6', 'on') }}"
         level_template: "{{ state_attr('light.xiaomi_light_bedroom_6', 'brightness') | int(0) }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_6', 'color_temp') | int(0) }}"
+        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom_6', 'color_temp') | int(333) }}"
         supports_transition_template: "{{ true }}"
         min_mireds_template: 175
         max_mireds_template: 333
