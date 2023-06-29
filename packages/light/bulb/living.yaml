@@ -20,12 +20,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_1
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_1
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
       bulb_light_living_2:
         value_template: "{{ is_state('light.xiaomi_light_living_2', 'on') }}"
@@ -45,12 +45,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_2
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_2
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
       bulb_light_living_3:
         value_template: "{{ is_state('light.xiaomi_light_living_3', 'on') }}"
@@ -70,12 +70,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_3
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_3
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
       bulb_light_living_4:
         value_template: "{{ is_state('light.xiaomi_light_living_4', 'on') }}"
@@ -95,12 +95,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_4
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_4
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
       bulb_light_living_5:
         value_template: "{{ is_state('light.xiaomi_light_living_5', 'on') }}"
@@ -120,12 +120,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_5
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_5
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
       bulb_light_living_6:
         value_template: "{{ is_state('light.xiaomi_light_living_6', 'on') }}"
@@ -145,12 +145,12 @@ bulb_light_living:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_6
           data_template:
-            value: "{{ brightness }}"
+            brightness: "{{ brightness }}"
         set_temperature:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living_6
           data_template:
-            value: "{{ color_temp }}"
+            color_temp: "{{ color_temp }}"
 
   script:
     bulb_light_living_on:
