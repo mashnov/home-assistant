@@ -5,7 +5,11 @@ pressure_balcony:
     type: mean
     round_digits: 0
     entity_ids:
-    - sensor.temperature_sensor1
+    - sensor.pressure_kitchen
+    - sensor.pressure_bath
+    - sensor.pressure_hall
+    - sensor.pressure_bedroom
+    - sensor.pressure_living
 
   template:
   - sensor:
