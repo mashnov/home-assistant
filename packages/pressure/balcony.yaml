@@ -1,0 +1,13 @@
+pressure_balcony:
+  sensor:
+  - platform: min_max
+    name: pressure_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.temperature_sensor1
+    
+  template:
+    - name: 'pressure_balcony'
+      device_class: illuminance
+      state: '{{ states("sensor.pressure_average") }}'
