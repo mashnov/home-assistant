@@ -6,8 +6,9 @@ pressure_balcony:
     round_digits: 0
     entity_ids:
     - sensor.temperature_sensor1
-    
+
   template:
+  - sensor:
     - name: 'pressure_balcony'
       device_class: illuminance
       state: '{{ states("sensor.pressure_average") }}'
