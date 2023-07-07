@@ -15,4 +15,5 @@ pressure_balcony:
   - sensor:
     - name: 'pressure_balcony'
       device_class: illuminance
+      unit_of_measurement: "mm"
       state: '{{ states("sensor.pressure_average") }}'
