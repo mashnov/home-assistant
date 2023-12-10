@@ -79,7 +79,16 @@ navigation_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "Балкон"
+          message: >
+            - Light Top
+            - Light Back
+            - Sprinkler
+            - Outlet
+            - Door
+            - Illuminance
+            - Temperature
+            - Humidity
+            - Pressure
           data:
             inline_keyboard: 
             - 'Назад :/main, Закрыть :/hide_menu'
