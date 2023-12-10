@@ -23,5 +23,6 @@ navigation_telegramm:
       event_data:
         command: '/menu'
     action:
-    - service: script.navigation_telegramm_main
-
+    - service: script.notification_telegramm_text
+      data_template:
+        message: "{{ states('input_text.notification_system_shutdown_text') }}"
