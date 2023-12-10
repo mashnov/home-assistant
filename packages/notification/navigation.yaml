@@ -1,0 +1,26 @@
+navigation_telegramm:
+  script:
+    navigation_telegramm_main:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: "Главное меню"
+          data:
+            inline_keyboard: 
+            - 'Кухня :/kitchen_menu, Коридор :/hall_menu'
+            - 'Ванная :/bath_menu, Туалет :/toilet_menu'
+            - 'Спальня :/bedroom_menu, Гостиная :/living_menu'
+            - 'Балкон :/balcony_menu'
+            - 'Закрыть :/hide_menu'
+
+    automation:
+    - alias: navigation_telegramm_main'
+      mode: 'queued'
+      trigger:
+      - platform: event
+        event_type: telegram_callback
+        event_data:
+          command: "/menu"
+      action:
+      - service: script.navigation_telegramm_main

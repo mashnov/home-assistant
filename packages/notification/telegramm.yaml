@@ -84,7 +84,7 @@ notification_telegramm:
       data_template:
         message: "{{ states('input_text.notification_system_start_text') }}"
 
-  - alias: 'notification_system_зщцук'
+  - alias: 'notification_power'
     mode: 'queued'
     trigger:
     - platform: state
