@@ -12,7 +12,7 @@ navigation_telegramm:
             - 'Ванная :/bath, Туалет :/toilet'
             - 'Спальня :/bedroom, Гостиная :/living'
             - 'Балкон :/balcony, Система :/system'
-            - 'Закрыть :/hide_menu'
+            - '❌ :/hide_menu'
 
     navigation_telegramm_kitchen:
       mode: 'queued'
@@ -33,7 +33,7 @@ navigation_telegramm:
             - 'Подсветка :/kitchen_toggle_back_light'
             - 'Ночник :/kitchen_toggle_night_light'
             - 'Шторы :/kitchen_toggle_curtain'
-            - 'Назад :/main, Обновить :/kitchen, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/kitchen, ❌ :/hide_menu'
 
     navigation_telegramm_hall:
       mode: 'queued'
@@ -52,7 +52,7 @@ navigation_telegramm:
             - 'Подсветка :/hall_toggle_back_light'
             - 'Ночник :/hall_toggle_night_light'
             - 'Увлажнитель :/hall_toggle_humidifier'
-            - 'Назад :/main, Обновить :/hall, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/hall, ❌ :/hide_menu'
 
     navigation_telegramm_bath:
       mode: 'queued'
@@ -70,7 +70,7 @@ navigation_telegramm:
             - 'Освещение :/bath_toggle_top_light'
             - 'Ночник :/bath_toggle_night_light'
             - 'Осушитель :/bath_toggle_dehumidifier'
-            - 'Назад :/main, Обновить :/bath, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/bath, ❌ :/hide_menu'
 
     navigation_telegramm_toilet:
       mode: 'queued'
