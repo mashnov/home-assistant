@@ -12,7 +12,7 @@ navigation_telegramm:
             - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
             - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
             - '🪴 Балкон :/balcony, Система :/system'
-            - '❌ :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
 
     navigation_telegramm_kitchen:
       mode: 'queued'
@@ -137,7 +137,7 @@ navigation_telegramm:
             🪴 Балкон
             Температура: {{ states('sensor.temperature_balcony') }}
             Влажность: {{ states('sensor.humidity_balcony') }}
-            Давление: {{ states('sensor.pressure_balcony') }}
+            Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
             Освещенность: {{ states('sensor.illuminance_balcony') }}
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_balcony', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
           data:
