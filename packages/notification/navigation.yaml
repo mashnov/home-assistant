@@ -25,10 +25,10 @@ navigation_telegramm:
             Температура {{ states('sensor.temperature_kitchen') }}
             Влажность {{ states('sensor.humidity_kitchen') }}
             -----
-            Левое окно {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), 'открыто', 'закрыто') }}
-            Правое окно {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), 'открыто', 'закрыто') }}
+            {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠', '🟢', '❔') }} Правое окно {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             -----
-            Присутствие {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), 'обнаружено', 'не обнаружено') }}
+            {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠', '🟢', '❔') Присутствие {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
             inline_keyboard: 
             - 'Потолок :/kitchen_toggle_party_light'
@@ -49,9 +49,9 @@ navigation_telegramm:
             Температура {{ states('sensor.temperature_hall') }}
             Влажность {{ states('sensor.humidity_hall') }}
             -----
-            Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта') }}
+            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
             -----
-            Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено') }}
+            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
             inline_keyboard: 
             - 'Освещение :/hall_toggle_top_light'
@@ -67,17 +67,19 @@ navigation_telegramm:
         data_template:
           message: |
             Ванная
-            - Light Top
-            - Light Night
-            - Dehumidifier
-            - Door
-            - Motion
-            - Temperature
-            - Humidity
-            - Pressure
+            -----
+            Температура {{ states('sensor.temperature_bath') }}
+            Влажность {{ states('sensor.humidity_bath') }}
+            -----
+            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bath', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
+            -----
+            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - 'Освещение :/bath_toggle_top_light'
+            - 'Ночник :/bath_toggle_night_light'
+            - 'Осушитель :/bath_toggle_dehumidifier'
+            - 'Назад :/main, Обновить :/bath, Закрыть :/hide_menu'
 
     navigation_telegramm_toilet:
       mode: 'queued'
