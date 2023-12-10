@@ -22,7 +22,7 @@ navigation_telegramm:
           message: "Кухня"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_hall:
       mode: 'queued'
@@ -32,7 +32,7 @@ navigation_telegramm:
           message: "Коридор"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_bath:
       mode: 'queued'
@@ -42,7 +42,7 @@ navigation_telegramm:
           message: "Ванная"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_toilet:
       mode: 'queued'
@@ -52,7 +52,7 @@ navigation_telegramm:
           message: "Туалет"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_bedroom:
       mode: 'queued'
@@ -62,7 +62,7 @@ navigation_telegramm:
           message: "Спальня"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_living:
       mode: 'queued'
@@ -72,7 +72,7 @@ navigation_telegramm:
           message: "Гостиная"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_balcony:
       mode: 'queued'
@@ -82,7 +82,7 @@ navigation_telegramm:
           message: "Балкон"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_system:
       mode: 'queued'
@@ -92,54 +92,74 @@ navigation_telegramm:
           message: "Система"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - 'Назад :/main, Закрыть :/hide_menu'
 
   automation:
-  - alias: navigation_telegramm'
+  - alias: navigation_telegramm
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
       event_data:
         command: '/main'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/main'
     action:
     - service: script.navigation_telegramm
 
-  - alias: navigation_telegramm_kitchen'
+  - alias: navigation_telegramm_kitchen
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
       event_data:
         command: '/kitchen'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/kitchen'
     action:
     - service: script.navigation_telegramm_kitchen
 
-  - alias: navigation_telegramm_hall'
+  - alias: navigation_telegramm_hall
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
       event_data:
         command: '/hall'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/hall'
     action:
     - service: script.navigation_telegramm_hall
 
-  - alias: navigation_telegramm_bath'
+  - alias: navigation_telegramm_bath
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
       event_data:
         command: '/bath'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/bath'
     action:
     - service: script.navigation_telegramm_bath
 
-  - alias: navigation_telegramm_toilet'
+  - alias: navigation_telegramm_toilet
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
+      event_data:
+        command: '/toilet'
+    - platform: event
+      event_type: telegram_callback
       event_data:
         command: '/toilet'
     action:
@@ -152,24 +172,36 @@ navigation_telegramm:
       event_type: telegram_command
       event_data:
         command: '/bedroom'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/bedroom'
     action:
     - service: script.navigation_telegramm_bedroom
 
-  - alias: navigation_telegramm_living'
+  - alias: navigation_telegramm_living
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
       event_data:
         command: '/living'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/living'
     action:
     - service: script.navigation_telegramm_living
 
-  - alias: navigation_telegramm_balcony'
+  - alias: navigation_telegramm_balcony
     mode: 'queued'
     trigger:
     - platform: event
       event_type: telegram_command
+      event_data:
+        command: '/balcony'
+    - platform: event
+      event_type: telegram_callback
       event_data:
         command: '/balcony'
     action:
@@ -180,6 +212,10 @@ navigation_telegramm:
     trigger:
     - platform: event
       event_type: telegram_command
+      event_data:
+        command: '/system'
+    - platform: event
+      event_type: telegram_callback
       event_data:
         command: '/system'
     action:
