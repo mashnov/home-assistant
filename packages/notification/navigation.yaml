@@ -25,7 +25,7 @@ navigation_telegramm:
             Правое окно {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), 'открыто', 'закрыто') }}
             Присутствие {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), 'обнаружено', 'не обнаружено') }}
             Температура {{ states('sensor.temperature_kitchen') }}
-            Влажность {{ sensor.humidity_kitchen }}
+            Влажность {{ states('sensor.humidity_kitchen') }}
           data:
             inline_keyboard: 
             - 'Потолок :/kitchen_toggle_party_light'
