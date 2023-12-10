@@ -5,7 +5,11 @@ navigation_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "🏠 Главное меню"
+          message: |
+            🏠 Главное меню
+            Температура: {{ states('sensor.temperature_balcony') }}
+            Влажность: {{ states('sensor.humidity_balcony') }}
+            Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
           data:
             inline_keyboard: 
             - '🍽️ Кухня :/kitchen, 🧥 Коридор :/hall'
