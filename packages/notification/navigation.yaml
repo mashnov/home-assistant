@@ -5,13 +5,13 @@ navigation_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "Главное меню"
+          message: "🏠 Главное меню"
           data:
             inline_keyboard: 
             - '🍽️ Кухня :/kitchen, 🧥 Коридор :/hall'
             - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
             - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
-            - '🪴 Балкон :/balcony, Система :/system'
+            - '🪴 Балкон :/balcony, 🖲️ Система :/system'
             - '❌ Закрыть :/hide_menu'
 
     navigation_telegramm_kitchen:
@@ -44,6 +44,7 @@ navigation_telegramm:
             🧥 Коридор
             Температура: {{ states('sensor.temperature_hall') }}
             Влажность: {{ states('sensor.humidity_hall') }}
+            {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '⚠️', '🟢', '❔') }} Увлажнитель: {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), 'пуст', 'работает', 'неизвестно') }} 
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
@@ -97,6 +98,7 @@ navigation_telegramm:
             🛏️ Спальня
             Температура: {{ states('sensor.temperature_bedroom') }}
             Влажность: {{ states('sensor.humidity_bedroom') }}
+            {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '⚠️', '🟢', '❔') }} Увлажнитель: {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), 'пуст', 'работает', 'неизвестно') }} 
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠', '🟢', '❔') }} Правое окно {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bedroom', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
@@ -117,6 +119,7 @@ navigation_telegramm:
             🛋️ Гостиная
             Температура: {{ states('sensor.temperature_living') }}
             Влажность: {{ states('sensor.humidity_living') }}
+            {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '⚠️', '🟢', '❔') }} Увлажнитель: {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), 'пуст', 'работает', 'неизвестно') }} 
             {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠', '🟢', '❔') }} Окно {{ iif(is_state('binary_sensor.window_living', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_living', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
           data:
@@ -153,10 +156,11 @@ navigation_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "Система"
+          message: "🖲️ Система"
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - "⚠️ Перезагрузка :/restart"
+            - "⬅️ :/main, 🔄 :/system, ❌ :/hide_menu"
 
   automation:
   - alias: navigation_telegramm
