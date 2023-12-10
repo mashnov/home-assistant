@@ -8,10 +8,10 @@ navigation_telegramm:
           message: "Главное меню"
           data:
             inline_keyboard: 
-            - 'Кухня :/kitchen, Коридор :/hall'
-            - 'Ванная :/bath, Туалет :/toilet'
-            - 'Спальня :/bedroom, Гостиная :/living'
-            - 'Балкон :/balcony, Система :/system'
+            - '🍽️ Кухня :/kitchen, 🧥 Коридор :/hall'
+            - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
+            - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
+            - '🪴 Балкон :/balcony, Система :/system'
             - '❌ :/hide_menu'
 
     navigation_telegramm_kitchen:
@@ -20,7 +20,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Кухня
+            🍽️ Кухня
             Температура {{ states('sensor.temperature_kitchen') }}
             Влажность {{ states('sensor.humidity_kitchen') }}
             {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
@@ -41,7 +41,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Коридор
+            🧥 Коридор
             Температура {{ states('sensor.temperature_hall') }}
             Влажность {{ states('sensor.humidity_hall') }}
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
@@ -60,7 +60,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Ванная
+            🛁 Ванная
             Температура {{ states('sensor.temperature_bath') }}
             Влажность {{ states('sensor.humidity_bath') }}
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bath', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
@@ -78,13 +78,15 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Туалет
-            - Light Top
-            - Light Night
-            - Door
+            🚽 Туалет
+            {{ iif(is_state('binary_sensor.door_toilet', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_toilet', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - 'Освещение :/toilet_toggle_top_light'
+            - 'Ночник :/toilet_toggle_night_light'
+            - 'Вытяжка :/toilet_toggle_dehumidifier'
+            - '⬅️ :/main, 🔄 :/toilet, ❌ :/hide_menu'
 
     navigation_telegramm_bedroom:
       mode: 'queued'
@@ -92,7 +94,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Спальня
+            🛏️ Спальня
             - Light Top
             - Light Back
             - Humidifier
@@ -105,7 +107,7 @@ navigation_telegramm:
             - Pressure
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/bedroom, ❌ :/hide_menu'
 
     navigation_telegramm_living:
       mode: 'queued'
@@ -113,7 +115,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Гостиная
+            🛋️ Гостиная
             - Light Top
             - Light Back
             - Camera
@@ -126,7 +128,7 @@ navigation_telegramm:
             - Pressure
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/living, ❌ :/hide_menu'
 
     navigation_telegramm_balcony:
       mode: 'queued'
@@ -134,7 +136,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            Балкон
+            🪴 Балкон
             - Light Top 
             - Light Back 
             - Sprinkler 
@@ -146,7 +148,7 @@ navigation_telegramm:
             - Pressure 
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - '⬅️ :/main, 🔄 :/balcony, ❌ :/hide_menu'
 
     navigation_telegramm_system:
       mode: 'queued'
