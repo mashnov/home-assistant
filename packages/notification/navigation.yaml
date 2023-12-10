@@ -19,10 +19,9 @@ navigation_telegramm:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/menu'
     action:
-    - service: script.notification_telegramm_text
-      data_template:
-        message: "{{ states('input_text.notification_system_shutdown_text') }}"
+    - service: script.navigation_telegramm_main
+
