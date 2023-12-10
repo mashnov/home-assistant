@@ -21,19 +21,18 @@ navigation_telegramm:
         data_template:
           message: |
             Кухня
-            - Light Party
-            - Light Top
-            - Light Back
-            - Light Night
-            - Curtain
-            - Window Left
-            - Window Right
-            - Motion
-            - Temperature
-            - Humidity
-            - Pressure
+            Левое окно {{ iif('binary_sensor.window_kitchen_left', 'открыто', 'закрыто') }}
+            Правое окно {{ iif('binary_sensor.window_kitchen_right', 'открыто', 'закрыто') }}
+            Присутствие {{ iif('binary_sensor.occupancy_kitchen', 'обнаружено', 'не обнаружено') }}
+            Температура {{ sensor.temperature_kitchen }}
+            Влажность {{ sensor.humidity_kitchen }}
           data:
             inline_keyboard: 
+            - 'Потолок :/kitchen_toggle_party_light'
+            - 'Освещение :/kitchen_toggle_top_light'
+            - 'Подсветка :/kitchen_toggle_back_light'
+            - 'Ночник :/kitchen_toggle_night_light'
+            - 'Шторы :/kitchen_toggle_curtain'
             - 'Назад :/main, Закрыть :/hide_menu'
 
     navigation_telegramm_hall:
