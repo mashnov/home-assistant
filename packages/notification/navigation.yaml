@@ -15,12 +15,11 @@ navigation_telegramm:
             - 'Закрыть :/hide_menu'
 
     automation:
-    - alias: navigation_telegramm_main'
-      mode: 'queued'
+    - alias: 'navigation_telegramm_main'
       trigger:
-      - platform: event
+        platform: event
         event_type: telegram_callback
         event_data:
-          command: "/menu"
+          command: '/menu'
       action:
       - service: script.navigation_telegramm_main
