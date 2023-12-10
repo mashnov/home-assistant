@@ -21,10 +21,10 @@ navigation_telegramm:
         data_template:
           message: |
             Кухня
-            Левое окно {{ iif('binary_sensor.window_kitchen_left', 'открыто', 'закрыто') }}
-            Правое окно {{ iif('binary_sensor.window_kitchen_right', 'открыто', 'закрыто') }}
-            Присутствие {{ iif('binary_sensor.occupancy_kitchen', 'обнаружено', 'не обнаружено') }}
-            Температура {{ sensor.temperature_kitchen }}
+            Левое окно {{ iif(is_state('binary_sensor.window_kitchen_left'), 'открыто', 'закрыто') }}
+            Правое окно {{ iif(is_state('binary_sensor.window_kitchen_right'), 'открыто', 'закрыто') }}
+            Присутствие {{ iif(is_state('binary_sensor.occupancy_kitchen'), 'обнаружено', 'не обнаружено') }}
+            Температура {{ states('sensor.temperature_kitchen') }}
             Влажность {{ sensor.humidity_kitchen }}
           data:
             inline_keyboard: 
