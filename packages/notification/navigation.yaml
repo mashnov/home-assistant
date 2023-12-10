@@ -14,12 +14,12 @@ navigation_telegramm:
             - 'Балкон :/balcony_menu'
             - 'Закрыть :/hide_menu'
 
-    automation:
-    - alias: 'navigation_telegramm_main'
-      trigger:
-        platform: event
-        event_type: telegram_callback
-        event_data:
-          command: '/menu'
-      action:
-      - service: script.navigation_telegramm_main
+  automation:
+  - alias: 'navigation_telegramm_main'
+    trigger:
+      platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/menu'
+    action:
+    - service: script.navigation_telegramm_main
