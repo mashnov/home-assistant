@@ -45,18 +45,20 @@ navigation_telegramm:
         data_template:
           message: |
             Коридор
-            - Light Top
-            - Light Back
-            - Light Night
-            - Humidifier
-            - Door
-            - Motion
-            - Temperature
-            - Humidity
-            - Pressure
+            -----
+            Температура {{ states('sensor.temperature_hall') }}
+            Влажность {{ states('sensor.humidity_hall') }}
+            -----
+            Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта') }}
+            -----
+            Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено') }}
           data:
             inline_keyboard: 
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - 'Освещение :/hall_toggle_top_light'
+            - 'Подсветка :/hall_toggle_back_light'
+            - 'Ночник :/hall_toggle_night_light'
+            - 'Увлажнитель :/hall_toggle_humidifier'
+            - 'Назад :/main, Обновить :/hall, Закрыть :/hide_menu'
 
     navigation_telegramm_bath:
       mode: 'queued'
