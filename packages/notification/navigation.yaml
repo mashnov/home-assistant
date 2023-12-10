@@ -36,7 +36,7 @@ navigation_telegramm:
             - 'Подсветка :/kitchen_toggle_back_light'
             - 'Ночник :/kitchen_toggle_night_light'
             - 'Шторы :/kitchen_toggle_curtain'
-            - 'Назад :/main, Закрыть :/hide_menu'
+            - 'Назад :/main, Обновить :/kitchen, Закрыть :/hide_menu'
 
     navigation_telegramm_hall:
       mode: 'queued'
