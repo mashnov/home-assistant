@@ -1,8 +1,4 @@
 hygrostat_hall:
-  input_text:
-    hygrostat_hall_empty_text:
-      initial: 'Коридор. Закончилась вода в увлажнителе'
-
   input_number:
     hygrostat_hall_power_offset: # 12
       max: 60
@@ -90,16 +86,5 @@ hygrostat_hall:
       state: 'off'
     action:
     - service: script.notification_homepod
-      data_template:
-        message: "{{ states('input_text.hygrostat_hall_empty_text') }}"
-
-  - alias: 'hygrostat_hall_message'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.hygrostat_hall_is_empty
-      to: 'on'
-    action:
-    - service: script.telegramm_send_text
       data_template:
         message: "{{ states('input_text.hygrostat_hall_empty_text') }}"

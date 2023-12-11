@@ -9,12 +9,6 @@ doorbell_hall:
     doorbell_hall_outside:
       duration: '00:00:15'
 
-  input_text:
-    doorbell_hall_inside:
-      initial: 'Кто-то нажал кнопку звонка в кооидоре'
-    doorbell_hall_outside:
-      initial: 'Кто-то нажал кнопку звонка у лифта'
-
   template:
   - binary_sensor:
     - name: 'doorbell_hall'
@@ -58,20 +52,6 @@ doorbell_hall:
     - service: input_boolean.turn_off
       entity_id: input_boolean.doorbell_hall_inside
 
-  - alias: 'doorbell_hall_inside_notification'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: input_boolean.doorbell_hall_inside
-      to: 'on'
-    action:
-    - service: script.telegramm_send_text
-      data_template:
-        message: "{{ states('input_text.doorbell_hall_inside') }}"
-    - service: script.notification_homepod
-      data_template:
-        message: "{{ states('input_text.doorbell_hall_inside') }}"
-
   - alias: 'doorbell_hall_outside_on'
     mode: 'queued'
     trigger:
@@ -104,17 +84,3 @@ doorbell_hall:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.doorbell_hall_outside
-
-  - alias: 'doorbell_hall_outside_notification'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: input_boolean.doorbell_hall_outside
-      to: 'on'
-    action:
-    - service: script.telegramm_send_text
-      data_template:
-        message: "{{ states('input_text.doorbell_hall_outside') }}"
-    - service: script.notification_homepod
-      data_template:
-        message: "{{ states('input_text.doorbell_hall_outside') }}"

@@ -1,21 +1,31 @@
 telegramm_notifications:
   input_text:
-    notification_system_shutdown_text:
+    telegramm_system_shutdown_text:
       initial: 'Завершение работы'
-    notification_system_start_text:
+    telegramm_system_start_text:
       initial: 'Старт системы'
-    notification_system_power_text:
+    telegramm_system_power_text:
       initial: 'Проблемы с питанием'
-    notification_system_update_text:
+    telegramm_system_update_text:
       initial: 'Доступно обновление'
-    notification_door_balcony_open_text:
+    telegramm_door_balcony_open_text:
       initial: 'Балкон. Дверь открыта'
-    notification_door_balcony_closed_text:
+    telegramm_door_balcony_closed_text:
       initial: 'Балкон. Дверь закрыта'
-    notification_door_hall_open_text:
+    telegramm_door_hall_open_text:
       initial: 'Коридор. Входная дверь открыта'
-    notification_door_hall_closed_text:
+    telegramm_door_hall_closed_text:
       initial: 'Коридор. Входная дверь закрыта'
+    telegramm_doorbell_inside:
+      initial: 'Кто-то нажал кнопку звонка в кооидоре'
+    telegramm_doorbell_outside:
+      initial: 'Кто-то нажал кнопку звонка у лифта'
+    telegramm_hygrostat_hall_empty_text:
+      initial: 'Коридор. Закончилась вода в увлажнителе'
+    telegramm_hygrostat_bedroom_empty_text:
+      initial: 'Спальня. Закончилась вода в увлажнителе'
+    telegramm_hygrostat_living_empty_text:
+      initial: 'Гостиная. Закончилась вода в увлажнителе'
 
   automation:
 
@@ -27,7 +37,7 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_system_shutdown_text') }}"
+        message: "{{ states('input_text.telegramm_system_shutdown_text') }}"
 
   - alias: 'notification_system_start'
     mode: 'queued'
@@ -37,7 +47,7 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_system_start_text') }}"
+        message: "{{ states('input_text.telegramm_system_start_text') }}"
 
   - alias: 'notification_power'
     mode: 'queued'
@@ -48,7 +58,7 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_system_power_text') }}"
+        message: "{{ states('input_text.telegramm_system_power_text') }}"
 
   - alias: 'system_update_message'
     mode: 'queued'
@@ -83,7 +93,7 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_system_update_text') }}"
+        message: "{{ states('input_text.telegramm_system_update_text') }}"
 
   - alias: 'notification_balcony_door_open'
     mode: 'queued'
@@ -96,7 +106,7 @@ telegramm_notifications:
     - service: script.camera_living_take_photo
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_door_balcony_open_text') }}"
+        message: "{{ states('input_text.telegramm_door_balcony_open_text') }}"
 
   - alias: 'notification_balcony_door_close'
     mode: 'queued'
@@ -108,7 +118,7 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_door_balcony_closed_text') }}"
+        message: "{{ states('input_text.telegramm_door_balcony_closed_text') }}"
 
   - alias: 'notification_hall_door_open'
     mode: 'queued'
@@ -121,7 +131,7 @@ telegramm_notifications:
     - service: script.camera_living_take_photo
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_door_hall_open_text') }}"
+        message: "{{ states('input_text.telegramm_door_hall_open_text') }}"
 
   - alias: 'notification_hall_door_close'
     mode: 'queued'
@@ -133,4 +143,64 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.notification_door_hall_closed_text') }}"
+        message: "{{ states('input_text.telegramm_door_hall_closed_text') }}"
+
+  - alias: 'notification_doorbell_inside'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.doorbell_hall_inside'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: "{{ states('input_text.telegramm_doorbell_inside') }}"
+
+  - alias: 'notification_doorbell_outside'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.doorbell_hall_outside'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: "{{ states('input_text.telegramm_doorbell_outside') }}"
+
+  - alias: 'notification_hygrostat_hall_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_hall_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: "{{ states('input_text.telegramm_hygrostat_hall_empty_text') }}"
+
+  - alias: 'notification_hygrostat_bedroom_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_bedroom_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: "{{ states('input_text.telegramm_hygrostat_bedroom_empty_text') }}"
+
+  - alias: 'notification_hygrostat_living_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_living_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: "{{ states('input_text.telegramm_hygrostat_living_empty_text') }}"

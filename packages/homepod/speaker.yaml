@@ -1,4 +1,4 @@
-notification_homepod:
+homepod_speaker:
   tts: 
   - platform: edge_tts
     service_name: sveta_say
@@ -6,40 +6,47 @@ notification_homepod:
     cache: false
 
   input_number:
-    notification_homepod_volume_current:
+    homepod_volume_current:
       max: 1
       min: 0
-    notification_homepod_volume_night: # 0.4
+    homepod_volume_night: # 0.4
       max: 1
       min: 0
-    notification_homepod_volume_day: # 0.8
+    homepod_volume_day: # 0.8
       max: 1
       min: 0
+
+  input_boolean:
+    homepod_is_playing:
 
   template:
   - sensor:
-    - name: 'notification_homepod_volume'
+    - name: 'homepod_volume'
       state: >
         {% set isNightMode = is_state('binary_sensor.night_mode_hall', 'on') %}
-        {% set nightValue = states('input_number.notification_homepod_volume_night') %}
-        {% set dayValue = states('input_number.notification_homepod_volume_day') %}
+        {% set nightValue = states('input_number.homepod_volume_night') %}
+        {% set dayValue = states('input_number.homepod_volume_day') %}
         {{ iif(isNightMode, nightValue, dayValue) | float(0) }}
 
   script:
-    notification_homepod:
+    homepod_message:
       mode: 'queued'
       sequence:
+      - service: input_boolean.set_value
+        data_template:
+          entity_id: input_boolean.homepod_is_playing
+          value: "{{ is_state('media_player.homepod', 'playing') }}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.homepod_volume_current
+          value: "{{ state_attr('media_player.homepod', 'volume_level') }}"
       - service: media_player.media_stop
         data_template:
           entity_id: media_player.homepod
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.notification_homepod_volume_current
-          value: "{{ state_attr('media_player.homepod', 'volume_level') }}"
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
-          volume_level: "{{ states('sensor.notification_homepod_volume') }}"
+          volume_level: "{{ states('sensor.homepod_volume') }}"
       - service: tts.sveta_say
         data:
           entity_id: media_player.homepod
@@ -48,4 +55,4 @@ notification_homepod:
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.homepod
-          volume_level: "{{ states('input_number.notification_homepod_volume_current') }}"
+          volume_level: "{{ states('input_number.homepod_volume_current') }}"

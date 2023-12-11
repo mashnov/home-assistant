@@ -1,0 +1,74 @@
+homepod_notification:
+  input_text:
+    homepod_doorbell_inside:
+      initial: 'Кто-то нажал кнопку звонка в кооидоре'
+    homepod_doorbell_outside:
+      initial: 'Кто-то нажал кнопку звонка у лифта'
+    homepod_hygrostat_hall_empty_text:
+      initial: 'Коридор. Закончилась вода в увлажнителе'
+    homepod_hygrostat_bedroom_empty_text:
+      initial: 'Спальня. Закончилась вода в увлажнителе'
+    homepod_hygrostat_living_empty_text:
+      initial: 'Гостиная. Закончилась вода в увлажнителе'
+
+automation:
+
+  - alias: 'notification_doorbell_inside'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.doorbell_hall_inside'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.homepod_doorbell_inside') }}"
+
+  - alias: 'notification_doorbell_outside'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.doorbell_hall_outside'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.homepod_doorbell_outside') }}"
+
+  - alias: 'notification_hygrostat_hall_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_hall_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.homepod_hygrostat_hall_empty_text') }}"
+
+  - alias: 'notification_hygrostat_bedroom_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_bedroom_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.homepod_hygrostat_bedroom_empty_text') }}"
+
+  - alias: 'notification_hygrostat_living_empty'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_living_is_empty'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "{{ states('input_text.homepod_hygrostat_living_empty_text') }}"
