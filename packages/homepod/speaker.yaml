@@ -32,10 +32,8 @@ homepod_speaker:
     homepod_message:
       mode: 'queued'
       sequence:
-      - service: input_boolean.set_value
-        data_template:
-          entity_id: input_boolean.homepod_is_playing
-          value: "{{ is_state('media_player.homepod', 'playing') }}"
+      - service_template: "input_boolean.turn_{{ is_state('media_player.homepod', 'playing') }}"
+        entity_id: input_boolean.homepod_is_playing
       - service: input_number.set_value
         data_template:
           entity_id: input_number.homepod_volume_current
