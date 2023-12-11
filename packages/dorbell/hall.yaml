@@ -65,7 +65,7 @@ doorbell_hall:
       entity_id: input_boolean.doorbell_hall_inside
       to: 'on'
     action:
-    - service: script.notification_telegramm_text
+    - service: script.telegramm_send_text
       data_template:
         message: "{{ states('input_text.doorbell_hall_inside') }}"
     - service: script.notification_homepod
@@ -112,7 +112,7 @@ doorbell_hall:
       entity_id: input_boolean.doorbell_hall_outside
       to: 'on'
     action:
-    - service: script.notification_telegramm_text
+    - service: script.telegramm_send_text
       data_template:
         message: "{{ states('input_text.doorbell_hall_outside') }}"
     - service: script.notification_homepod

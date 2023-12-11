@@ -100,6 +100,6 @@ hygrostat_living:
       entity_id: binary_sensor.hygrostat_living_is_empty
       to: 'on'
     action:
-    - service: script.notification_telegramm_text
+    - service: script.telegramm_send_text
       data_template:
         message: "{{ states('input_text.hygrostat_living_empty_text') }}"

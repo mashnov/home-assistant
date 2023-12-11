@@ -27,7 +27,7 @@ camera_living:
         entity_id: camera.living
         data:
           filename: "{{ states('sensor.camera_living_photo_link') }}"
-      - service: script.notification_telegramm_photo
+      - service: script.telegramm_send_photo
         data_template:
           message: "{{ states('sensor.camera_living_photo_caption') }}"
           link: "{{ states('sensor.camera_living_photo_link') }}"

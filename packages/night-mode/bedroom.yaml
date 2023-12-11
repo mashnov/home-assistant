@@ -28,7 +28,7 @@ night_mode_bedroom:
         - condition: trigger
           id: 'button_action'
         sequence:
-        - service: script.notification_telegramm_text
+        - service: script.telegramm_send_text
           data_template:
             message: "{{ states('input_text.night_mode_bedroom_on_text') }}"
         - service: script.notification_homepod

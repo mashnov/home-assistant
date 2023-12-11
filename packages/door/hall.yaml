@@ -26,7 +26,7 @@ door_hall:
           id: 'open'
         sequence:
         - service: script.camera_living_take_photo
-        - service: script.notification_telegramm_text
+        - service: script.telegramm_send_text
           data_template:
             message: "{{ states('input_text.door_hall_open_text') }}"
       - conditions:
@@ -34,6 +34,6 @@ door_hall:
           id: 'close'
         sequence:
         - service: script.camera_living_take_photo
-        - service: script.notification_telegramm_text
+        - service: script.telegramm_send_text
           data_template:
             message: "{{ states('input_text.door_hall_closed_text') }}"
