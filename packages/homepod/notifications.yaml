@@ -13,7 +13,7 @@ homepod_notification:
 
   automation:
 
-  - alias: 'notification_doorbell_inside'
+  - alias: 'homepod_message_doorbell_inside'
     mode: 'queued'
     trigger:
       platform: state
@@ -25,7 +25,7 @@ homepod_notification:
       data_template:
         message: "{{ states('input_text.homepod_doorbell_inside') }}"
 
-  - alias: 'notification_doorbell_outside'
+  - alias: 'homepod_message_doorbell_outside'
     mode: 'queued'
     trigger:
       platform: state
@@ -37,7 +37,7 @@ homepod_notification:
       data_template:
         message: "{{ states('input_text.homepod_doorbell_outside') }}"
 
-  - alias: 'notification_hygrostat_hall_empty'
+  - alias: 'homepod_message_hygrostat_hall_empty'
     mode: 'queued'
     trigger:
       platform: state
@@ -49,7 +49,7 @@ homepod_notification:
       data_template:
         message: "{{ states('input_text.homepod_hygrostat_hall_empty_text') }}"
 
-  - alias: 'notification_hygrostat_bedroom_empty'
+  - alias: 'homepod_message_hygrostat_bedroom_empty'
     mode: 'queued'
     trigger:
       platform: state
@@ -61,7 +61,7 @@ homepod_notification:
       data_template:
         message: "{{ states('input_text.homepod_hygrostat_bedroom_empty_text') }}"
 
-  - alias: 'notification_hygrostat_living_empty'
+  - alias: 'homepod_message_hygrostat_living_empty'
     mode: 'queued'
     trigger:
       platform: state
