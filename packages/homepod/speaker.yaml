@@ -59,6 +59,6 @@ homepod_speaker:
           entity_id: input_boolean.homepod_is_playing
           state: 'on'
         sequence:
-      - service: media_player.media_play
-        data_template:
-          entity_id: media_player.homepod
+        - service: media_player.media_play
+          data_template:
+            entity_id: media_player.homepod
