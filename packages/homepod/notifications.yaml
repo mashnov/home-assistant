@@ -11,7 +11,7 @@ homepod_notification:
     homepod_hygrostat_living_empty_text:
       initial: 'Гостиная. Закончилась вода в увлажнителе'
 
-automation:
+  automation:
 
   - alias: 'notification_doorbell_inside'
     mode: 'queued'
