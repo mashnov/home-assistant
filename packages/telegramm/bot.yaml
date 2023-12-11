@@ -53,15 +53,3 @@ telegramm_bot:
       data_template:
         message_id: '{{ trigger.event.data.message.message_id }}'
         chat_id: '{{ trigger.event.data.chat_id }}'
-
-  - alias: navigation_remove_command'
-    mode: 'queued'
-    trigger:
-    - platform: event
-      event_type: telegram_command
-    action:
-    - service: script.telegramm_remove_message
-      data_template:
-        message_id: '{{ trigger.event.data.message.message_id }}'
-        chat_id: '{{ trigger.event.data.chat_id }}'
-
