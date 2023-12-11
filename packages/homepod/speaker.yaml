@@ -54,11 +54,5 @@ homepod_speaker:
         data_template:
           entity_id: media_player.homepod
           volume_level: "{{ states('input_number.homepod_volume_current') }}"
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.homepod_is_playing
-          state: 'on'
-        sequence:
-        - service: media_player.media_play
-          data_template:
-            entity_id: media_player.homepod
+      - service_template: "input_boolean.turn_{{ iif(is_state('input_boolean.homepod_is_playing', 'on'), 'media_play', 'media_pause', 'media_pause') }}"
+        entity_id: media_player.homepod
