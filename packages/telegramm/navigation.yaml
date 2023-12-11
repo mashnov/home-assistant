@@ -48,9 +48,9 @@ navigation_telegramm:
             🧥 Коридор
             Температура: {{ states('sensor.temperature_hall') }}
             Влажность: {{ states('sensor.humidity_hall') }}
+            🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢', '❔') }} 
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢', '🔴', '❔') }} Освещение :/hall_toggle_top_light"
@@ -102,10 +102,10 @@ navigation_telegramm:
             🛏️ Спальня
             Температура: {{ states('sensor.temperature_bedroom') }}
             Влажность: {{ states('sensor.humidity_bedroom') }}
+            🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢', '❔') }}
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠', '🟢', '❔') }} Правое окно {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢', '🟠', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bedroom', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢', '🔴', '❔') }} Освещение :/bedroom_toggle_top_light"
@@ -123,9 +123,9 @@ navigation_telegramm:
             🛋️ Гостиная
             Температура: {{ states('sensor.temperature_living') }}
             Влажность: {{ states('sensor.humidity_living') }}
+            🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢', '❔') }}
             {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠', '🟢', '❔') }} Окно {{ iif(is_state('binary_sensor.window_living', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢', '🟠', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_living', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе 
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢', '🔴', '❔') }} Освещение :/living_toggle_top_light"
