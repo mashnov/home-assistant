@@ -175,6 +175,10 @@ navigation_telegramm:
       event_data:
         command: '/main'
     - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/main@casa_d_amore_bot'
+    - platform: event
       event_type: telegram_callback
       event_data:
         command: '/main'
@@ -188,6 +192,10 @@ navigation_telegramm:
       event_type: telegram_command
       event_data:
         command: '/kitchen'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/kitchen@casa_d_amore_bot'
     - platform: event
       event_type: telegram_callback
       event_data:
@@ -203,6 +211,10 @@ navigation_telegramm:
       event_data:
         command: '/hall'
     - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/hall@casa_d_amore_bot'
+    - platform: event
       event_type: telegram_callback
       event_data:
         command: '/hall'
@@ -216,6 +228,10 @@ navigation_telegramm:
       event_type: telegram_command
       event_data:
         command: '/bath'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bath@casa_d_amore_bot'
     - platform: event
       event_type: telegram_callback
       event_data:
@@ -231,6 +247,10 @@ navigation_telegramm:
       event_data:
         command: '/toilet'
     - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/toilet@casa_d_amore_bot'
+    - platform: event
       event_type: telegram_callback
       event_data:
         command: '/toilet'
@@ -244,6 +264,10 @@ navigation_telegramm:
       event_type: telegram_command
       event_data:
         command: '/bedroom'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bedroom@casa_d_amore_bot'
     - platform: event
       event_type: telegram_callback
       event_data:
@@ -259,6 +283,10 @@ navigation_telegramm:
       event_data:
         command: '/living'
     - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/living@casa_d_amore_bot'
+    - platform: event
       event_type: telegram_callback
       event_data:
         command: '/living'
@@ -273,6 +301,10 @@ navigation_telegramm:
       event_data:
         command: '/balcony'
     - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/balcony@casa_d_amore_bot'
+    - platform: event
       event_type: telegram_callback
       event_data:
         command: '/balcony'
@@ -286,6 +318,10 @@ navigation_telegramm:
       event_type: telegram_command
       event_data:
         command: '/system'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/system@casa_d_amore_bot'
     - platform: event
       event_type: telegram_callback
       event_data:
