@@ -37,7 +37,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_system_shutdown_text') }}"
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_shutdown_text') }}
 
   - alias: 'telegramm_message_system_start'
     mode: 'queued'
@@ -47,7 +49,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_system_start_text') }}"
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_start_text') }}
 
   - alias: 'telegramm_message_power'
     mode: 'queued'
@@ -58,9 +62,11 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_system_power_text') }}"
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_power_text') }}
 
-  - alias: 'telegramm_messagee_message'
+  - alias: 'telegramm_messagee_update'
     mode: 'queued'
     trigger:
     - platform: state
@@ -93,7 +99,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_system_update_text') }}"
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_update_text') }}
 
   - alias: 'telegramm_message_balcony_door_open'
     mode: 'queued'
@@ -106,7 +114,9 @@ telegramm_notifications:
     - service: script.camera_living_take_photo
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_door_balcony_open_text') }}"
+        message: |
+          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_door_balcony_open_text') }}
 
   - alias: 'telegramm_message_balcony_door_close'
     mode: 'queued'
@@ -118,7 +128,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_door_balcony_closed_text') }}"
+        message: |
+          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_door_balcony_closed_text') }}
 
   - alias: 'telegramm_message_hall_door_open'
     mode: 'queued'
@@ -131,7 +143,9 @@ telegramm_notifications:
     - service: script.camera_living_take_photo
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_door_hall_open_text') }}"
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_door_hall_open_text') }}
 
   - alias: 'telegramm_message_hall_door_close'
     mode: 'queued'
@@ -143,7 +157,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_door_hall_closed_text') }}"
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_door_hall_closed_text') }}
 
   - alias: 'telegramm_message_doorbell_inside'
     mode: 'queued'
@@ -155,7 +171,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_doorbell_inside') }}"
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_doorbell_inside') }}
 
   - alias: 'telegramm_message_doorbell_outside'
     mode: 'queued'
@@ -167,7 +185,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_doorbell_outside') }}"
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_doorbell_outside') }}
 
   - alias: 'telegramm_message_hygrostat_hall_empty'
     mode: 'queued'
@@ -179,7 +199,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_hygrostat_hall_empty_text') }}"
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_hygrostat_hall_empty_text') }}
 
   - alias: 'telegramm_message_hygrostat_bedroom_empty'
     mode: 'queued'
@@ -191,7 +213,9 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_hygrostat_bedroom_empty_text') }}"
+        message: |
+          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_hygrostat_bedroom_empty_text') }}
 
   - alias: 'telegramm_message_hygrostat_living_empty'
     mode: 'queued'
@@ -203,4 +227,6 @@ telegramm_notifications:
     action:
     - service: script.telegramm_send_text
       data_template:
-        message: "{{ states('input_text.telegramm_hygrostat_living_empty_text') }}"
+        message: |
+          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_hygrostat_living_empty_text') }}

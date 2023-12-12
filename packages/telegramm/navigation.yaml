@@ -7,17 +7,20 @@ navigation_telegramm:
         data_template:
           message: |
             🏠 Главное меню
-            🗓️ Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
             ⏱️ Давление: {{ states('sensor.pressure_average') }} мм рт.ст.
           data:
             inline_keyboard: 
-            - '🥣 Кухня :/kitchen, 🧥 Коридор :/hall'
-            - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
-            - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
-            - '🪴 Балкон :/balcony, ⚙️ Система :/system'
+            - '🥣 Кухня :/kitchen'
+            - '🧥 Коридор :/hall'
+            - '🛁 Ванная :/bath'
+            - '🚽 Туалет :/toilet'
+            - '🛏️ Спальня :/bedroom'
+            - '🛋️ Гостиная :/living'
+            - '🪴 Балкон :/balcony'
+            - '⚙️ Система :/system'
             - '❌ Закрыть :/hide_menu'
 
     navigation_telegramm_kitchen:
@@ -177,7 +180,9 @@ navigation_telegramm:
         data_template:
           message: |
             ⚙️ Система
-            Запуск: {{ as_timestamp(states('sensor.last_boot')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            
+            Время запуска: {{ as_timestamp(states('sensor.last_boot')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             
             Температура процессора: {{ states('sensor.processor_temperature') }} °C
             Загрузка процессора: {{ states('sensor.load_1m') }} %
