@@ -53,6 +53,7 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_hall') }} %
             
             {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
+            
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта') }}
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
           data:
@@ -90,7 +91,6 @@ navigation_telegramm:
           message: |
             🚽 Туалет
 
-            {{ iif(is_state('binary_sensor.door_toilet', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠 Занято', '🟢 Свободно') }}
           data:
             inline_keyboard: 
@@ -111,9 +111,10 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_bedroom') }} %
             
             {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
+            
+            {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
-            {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bedroom_toggle_top_light"
@@ -134,8 +135,9 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_living') }} %
 
             {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
-            {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто') }}
+            
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
+            {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто') }}
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/living_toggle_top_light"
