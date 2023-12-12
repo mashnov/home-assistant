@@ -11,7 +11,6 @@ navigation_telegramm:
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
             ⏱️ Давление: {{ states('sensor.pressure_average') }} мм рт.ст.
-
           data:
             inline_keyboard: 
             - '🥣 Кухня :/kitchen'
@@ -39,14 +38,13 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
 
             {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_kitchen', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/kitchen_toggle_top_light"
             - "{{ iif(is_state('light.back_light_kitchen', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/kitchen_toggle_back_light"
             - "{{ iif(is_state('light.night_light_kitchen', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/kitchen_toggle_night_light"
             - "Шторы :/kitchen_toggle_curtain"
-            - "🔼 :/main, 🔄 :/kitchen, ➡️ :/hall"
+            - "🔼 Главная :/main, 🔄 Обновить :/kitchen"
 
     navigation_telegramm_hall:
       mode: 'queued'
@@ -63,14 +61,13 @@ navigation_telegramm:
             
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта') }}
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/hall_toggle_top_light"
             - "{{ iif(is_state('light.back_light_hall', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/hall_toggle_back_light"
             - "{{ iif(is_state('light.night_light_hall', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/hall_toggle_night_light"
             - "{{ iif(is_state('switch.relay_hall_l2', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/hall_toggle_humidifier"
-            - "⬅️ :/kitchen, 🔼 :/main, 🔄 :/hall, ➡️ :/bath"
+            - "🔼 Главная :/main, 🔄 Обновить :/hall"
 
     navigation_telegramm_bath:
       mode: 'queued'
@@ -84,13 +81,12 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_bath') }} %
 
             {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), '🟠 Занято', '🟢 Свободно') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bath', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bath_toggle_top_light"
             - "{{ iif(is_state('light.night_light_bath', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/bath_toggle_night_light"
             - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢 Выключить осушитель', '🔴 Включить осушитель') }} :/bath_toggle_dehumidifier"
-            - "⬅️ :/hall, 🔼 :/main, 🔄 :/bath, ➡️ :/toilet"
+            - "🔼 Главная :/main, 🔄 Обновить :/bath"
 
     navigation_telegramm_toilet:
       mode: 'queued'
@@ -101,13 +97,12 @@ navigation_telegramm:
             🚽 Туалет
 
             {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠 Занято', '🟢 Свободно') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_toilet', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/toilet_toggle_top_light"
             - "{{ iif(is_state('light.night_light_toilet', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/toilet_toggle_night_light"
             - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢 Выключить вытяжку', '🔴 Включить вытяжку') }} :/toilet_toggle_dehumidifier"
-            - "⬅️ :/bath, 🔼 :/main, 🔄 :/toilet, ➡️ :/bedroom"
+            - "🔼 Главная :/main, 🔄 Обновить :/toilet"
 
     navigation_telegramm_bedroom:
       mode: 'queued'
@@ -125,14 +120,13 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bedroom_toggle_top_light"
             - "{{ iif(is_state('light.back_light_bedroom', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/bedroom_toggle_night_light"
             - "{{ iif(is_state('switch.relay_bedroom_l2', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/bedroom_toggle_humidifier"
             - "Шторы :/bedroom_toggle_curtain"
-            - "⬅️ :/toilet, 🔼 :/main, 🔄 :/bedroom, ➡️ :/living"
+            - "🔼 Главная :/main, 🔄 Обновить :/bedroom"
 
     navigation_telegramm_living:
       mode: 'queued'
@@ -149,7 +143,6 @@ navigation_telegramm:
             
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто') }}
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/living_toggle_top_light"
@@ -157,7 +150,7 @@ navigation_telegramm:
             - "{{ iif(is_state('switch.relay_living_l1', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/living_toggle_humidifier"
             - "📷 Камера :/living_get_camera_image"
             - "Шторы :/living_toggle_curtain"
-            - "⬅️ :/bedroom, 🔼 :/main, 🔄 :/living, ➡️ :/balcony"
+            - "🔼 Главная :/main, 🔄 Обновить :/living"
 
     navigation_telegramm_balcony:
       mode: 'queued'
@@ -172,14 +165,13 @@ navigation_telegramm:
             🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }} lux
 
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта') }} 
-
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢 Выключить подсветку', '🔴 Включить пдсветку') }} :/balcony_toggle_top_light"
             - "{{ iif(is_state('light.night_light_balcony', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/balcony_toggle_night_light"
             - "{{ iif(is_state('switch.relay_balcony_l4', 'on'), '🟢 Выключить розетку', '🔴 Включить розетку') }} :/balcony_toggle_outlet"
             - "{{ iif(is_state('switch.relay_balcony_l3', 'on'), '🟢 Выключить фонтан', '🔴 Включить фонтан') }} :/balcony_toggle_sprinkler"
-            - "⬅️ :/living, 🔼 :/main, 🔄 :/balcony"
+            - "🔼 Главная :/main, 🔄 Обновить :/balcony"
 
     navigation_telegramm_system:
       mode: 'queued'
@@ -196,11 +188,10 @@ navigation_telegramm:
             Загрузка процессора: {{ states('sensor.load_1m') }} %
             Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
             Использовано памяти: {{ states('sensor.disk_use_percent') }} %
-
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
-            - "🔼 :/main, 🔄 :/system"
+            - "🔼 Главная :/main, 🔄 Обновить :/system"
 
   automation:
   - alias: navigation_telegramm
