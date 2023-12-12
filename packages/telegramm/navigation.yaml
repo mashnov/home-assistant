@@ -16,7 +16,7 @@ navigation_telegramm:
             - '🥣 Кухня :/kitchen, 🧥 Коридор :/hall'
             - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
             - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
-            - '🪴 Балкон :/balcony, 🕸️ Система :/system'
+            - '🪴 Балкон :/balcony, ⚙️ Система :/system'
             - '❌ Закрыть :/hide_menu'
 
     navigation_telegramm_kitchen:
@@ -174,7 +174,12 @@ navigation_telegramm:
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "🕸️ Система"
+          message: |
+            ⚙️ Система
+            🌡️ Температура процессора: {{ states('sensor.processor_temperature') }} °C
+            ⚙️ Загрузка процессора: {{ states('sensor.load_1m') }}
+            ⚙️ Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
+            ⚙️ Использовано памяти: {{ states('sensor.disk_use_percent') }}
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
