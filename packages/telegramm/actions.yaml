@@ -1,4 +1,4 @@
-telegramm_notifications:
+telegramm_actions:
   automation:
 
   - alias: telegramm_action_kitchen_toggle_top_light
