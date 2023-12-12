@@ -1,0 +1,252 @@
+telegramm_notifications:
+  automation:
+
+  - alias: telegramm_action_kitchen_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/kitchen_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_kitchen
+
+  - alias: telegramm_action_kitchen_toggle_back_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/kitchen_toggle_back_light'
+    action:
+    - service: script.navigation_telegramm_kitchen
+
+  - alias: telegramm_action_kitchen_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/kitchen_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_kitchen
+
+  - alias: telegramm_action_hall_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/hall_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_hall
+
+  - alias: telegramm_action_hall_toggle_back_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/hall_toggle_back_light'
+    action:
+    - service: script.navigation_telegramm_hall
+
+  - alias: telegramm_action_hall_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/hall_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_hall
+
+  - alias: telegramm_action_hall_toggle_humidifier
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/hall_toggle_humidifier'
+    action:
+    - service: script.navigation_telegramm_hall
+
+  - alias: telegramm_action_bath_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bath_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_bath
+
+  - alias: telegramm_action_bath_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bath_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_bath
+
+  - alias: telegramm_action_bath_toggle_dehumidifier
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bath_toggle_dehumidifier'
+    action:
+    - service: script.navigation_telegramm_bath
+
+  - alias: telegramm_action_toilet_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/toilet_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_toilet
+
+  - alias: telegramm_action_toilet_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/toilet_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_toilet
+
+  - alias: telegramm_action_toilet_toggle_dehumidifier
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/toilet_toggle_dehumidifier'
+    action:
+    - service: script.navigation_telegramm_toilet
+
+  - alias: telegramm_action_bedroom_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bedroom_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_bedroom
+
+  - alias: telegramm_action_bedroom_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bedroom_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_bedroom
+
+  - alias: telegramm_action_bedroom_toggle_humidifier
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/bedroom_toggle_humidifier'
+    action:
+    - service: script.navigation_telegramm_bedroom
+
+  - alias: telegramm_action_living_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/living_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_living
+
+  - alias: telegramm_action_living_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/living_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_living
+
+  - alias: telegramm_action_living_toggle_humidifier
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/living_toggle_humidifier'
+    action:
+    - service: script.navigation_telegramm_living
+
+  - alias: telegramm_action_living_get_camera_image
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/living_get_camera_image'
+    action:
+    - service: script.navigation_telegramm_living
+
+  - alias: telegramm_action_balcony_toggle_top_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/balcony_toggle_top_light'
+    action:
+    - service: script.navigation_telegramm_balcony
+
+  - alias: telegramm_action_balcony_toggle_night_light
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/balcony_toggle_night_light'
+    action:
+    - service: script.navigation_telegramm_balcony
+
+  - alias: telegramm_action_balcony_toggle_outlet
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/balcony_toggle_outlet'
+    action:
+    - service: script.navigation_telegramm_balcony
+
+  - alias: telegramm_action_balcony_toggle_sprinkler
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/balcony_toggle_sprinkler'
+    action:
+    - service: script.navigation_telegramm_balcony
+
+  - alias: telegramm_action_restart
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/restart'
+    action:
+    - service: script.navigation_telegramm_system

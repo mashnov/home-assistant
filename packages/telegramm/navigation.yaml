@@ -12,7 +12,7 @@ navigation_telegramm:
             Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
           data:
             inline_keyboard: 
-            - '🍽️ Кухня :/kitchen, 🧥 Коридор :/hall'
+            - '🥣 Кухня :/kitchen, 🧥 Коридор :/hall'
             - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
             - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
             - '🪴 Балкон :/balcony, 🖲️ Система :/system'
