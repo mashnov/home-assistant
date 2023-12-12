@@ -5,7 +5,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/kitchen_toggle_top_light'
     action:
@@ -15,7 +15,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/kitchen_toggle_back_light'
     action:
@@ -25,7 +25,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/kitchen_toggle_night_light'
     action:
@@ -35,7 +35,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/hall_toggle_top_light'
     action:
@@ -45,7 +45,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/hall_toggle_back_light'
     action:
@@ -55,7 +55,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/hall_toggle_night_light'
     action:
@@ -65,7 +65,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/hall_toggle_humidifier'
     action:
@@ -75,7 +75,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bath_toggle_top_light'
     action:
@@ -85,7 +85,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bath_toggle_night_light'
     action:
@@ -95,7 +95,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bath_toggle_dehumidifier'
     action:
@@ -105,7 +105,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/toilet_toggle_top_light'
     action:
@@ -115,7 +115,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/toilet_toggle_night_light'
     action:
@@ -125,7 +125,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/toilet_toggle_dehumidifier'
     action:
@@ -135,7 +135,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bedroom_toggle_top_light'
     action:
@@ -145,7 +145,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bedroom_toggle_night_light'
     action:
@@ -155,7 +155,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/bedroom_toggle_humidifier'
     action:
@@ -165,7 +165,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/living_toggle_top_light'
     action:
@@ -175,7 +175,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/living_toggle_night_light'
     action:
@@ -185,7 +185,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/living_toggle_humidifier'
     action:
@@ -195,7 +195,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/living_get_camera_image'
     action:
@@ -205,7 +205,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/balcony_toggle_top_light'
     action:
@@ -215,7 +215,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/balcony_toggle_night_light'
     action:
@@ -225,7 +225,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/balcony_toggle_outlet'
     action:
@@ -235,7 +235,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/balcony_toggle_sprinkler'
     action:
@@ -245,7 +245,7 @@ telegramm_actions:
     mode: 'queued'
     trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/restart'
     action:
