@@ -6,8 +6,9 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🏠 Главное меню ({{ now().timestamp() | timestamp_custom('%H:%M (%Z)') }})
-
+            🏠 Главное меню
+            🗓️ Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
             ⏱️ Давление: {{ states('sensor.pressure_average') }} мм рт.ст.
