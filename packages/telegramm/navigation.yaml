@@ -32,6 +32,7 @@ navigation_telegramm:
             
             {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто') }}
             {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
+
             {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
           data:
             inline_keyboard: 
@@ -55,6 +56,7 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
             
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта') }}
+
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
           data:
             inline_keyboard: 
