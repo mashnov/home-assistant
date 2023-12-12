@@ -45,6 +45,11 @@ hygrostat_hall:
       sequence:
       - service: humidifier.turn_off
         entity_id: humidifier.humidifier_hall
+    hygrostat_hall_toggle:
+      mode: 'queued'
+      sequence:
+      - service: humidifier.toggle
+        entity_id: humidifier.humidifier_hall
 
   automation:
   - alias: 'hygrostat_hall'
@@ -73,18 +78,3 @@ hygrostat_hall:
           state: 'off'
         sequence:
         - service: script.hygrostat_hall_turn_on
-
-  - alias: 'hygrostat_hall_notification'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.hygrostat_hall_is_empty
-      to: 'on'
-    condition:
-    - condition: state
-      entity_id: 'binary_sensor.night_mode_hall'
-      state: 'off'
-    action:
-    - service: script.notification_homepod
-      data_template:
-        message: "{{ states('input_text.hygrostat_hall_empty_text') }}"

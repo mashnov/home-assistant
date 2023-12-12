@@ -37,6 +37,12 @@ fan_toilet:
       - service: switch.turn_off
         entity_id: 
         - switch.relay_toilet_l1
+    fan_toilet_toggle:
+      mode: 'queued'
+      sequence:
+      - service: switch.toggle
+        entity_id: 
+        - switch.relay_toilet_l1
 
   template:
   - sensor:

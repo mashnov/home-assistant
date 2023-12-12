@@ -24,18 +24,17 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🍽️ Кухня
-            Температура: {{ states('sensor.temperature_kitchen') }}
-            Влажность: {{ states('sensor.humidity_kitchen') }}
-            {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠', '🟢', '❔') }} Правое окно {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
+            🥣 Кухня
+            🌡️ Температура: {{ states('sensor.temperature_kitchen') }}
+            💧 Влажность: {{ states('sensor.humidity_kitchen') }}
+            {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто', '❔ Левое окно: нет ответа') }}
+            {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто', '❔ Правое окно: нет ответа') }}
+            {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено', '❔ Присутствие: нет ответа') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.party_light_kitchen', 'on'), '🟢', '🔴', '❔') }} Потолок :/kitchen_toggle_party_light"
-            - "{{ iif(is_state('light.top_light_kitchen', 'on'), '🟢', '🔴', '❔') }} Освещение :/kitchen_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_kitchen', 'on'), '🟢', '🔴', '❔') }} Подсветка :/kitchen_toggle_back_light"
-            - "{{ iif(is_state('light.night_light_kitchen', 'on'), '🟢', '🔴', '❔') }} Ночник :/kitchen_toggle_night_light"
+            - "{{ iif(is_state('light.top_light_kitchen', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение', '❔ Ошибка освещения') }} :/kitchen_toggle_top_light"
+            - "{{ iif(is_state('light.back_light_kitchen', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку', '❔ Ошибка подсветки') }} :/kitchen_toggle_back_light"
+            - "{{ iif(is_state('light.night_light_kitchen', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник', '❔ Ошибка ночника') }} :/kitchen_toggle_night_light"
             - "Шторы :/kitchen_toggle_curtain"
             - "⬅️ :/main, 🔄 :/kitchen, ❌ :/hide_menu"
 
@@ -46,17 +45,17 @@ navigation_telegramm:
         data_template:
           message: |
             🧥 Коридор
-            Температура: {{ states('sensor.temperature_hall') }}
-            Влажность: {{ states('sensor.humidity_hall') }}
+            🌡️ Температура: {{ states('sensor.temperature_hall') }}
+            💧 Влажность: {{ states('sensor.humidity_hall') }}
             🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢', '❔') }} 
-            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Входная дверь {{ iif(is_state('binary_sensor.door_hall', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта', '❔ Входная дверь: нет ответа') }}
+            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено', '❔ Присутствие: нет ответа') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢', '🔴', '❔') }} Освещение :/hall_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_hall', 'on'), '🟢', '🔴', '❔') }} Подсветка :/hall_toggle_back_light"
-            - "{{ iif(is_state('light.night_light_hall', 'on'), '🟢', '🔴', '❔') }} Ночник :/hall_toggle_night_light"
-            - "{{ iif(is_state('switch.relay_hall_l2', 'on'), '🟢', '🔴', '❔') }} Увлажнитель :/hall_toggle_humidifier"
+            - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢 Выключить освещение', '🔴 Выключить освещение', '❔ Ошибка освещения') }} :/hall_toggle_top_light"
+            - "{{ iif(is_state('light.back_light_hall', 'on'), '🟢 Выключить подсветку', '🔴 Выключить подсветку', '❔ Ошибка подсветки') }} :/hall_toggle_back_light"
+            - "{{ iif(is_state('light.night_light_hall', 'on'), '🟢 Выключить ночник', '🔴 Выключить ночник', '❔ Ошибка ночника') }} :/hall_toggle_night_light"
+            - "{{ iif(is_state('switch.relay_hall_l2', 'on'), '🟢 Выключить увлажнитель', '🔴 Выключить увлажнитель', '❔ Ошибка увлажнителя') }} :/hall_toggle_humidifier"
             - "⬅️ :/main, 🔄 :/hall, ❌ :/hide_menu"
 
     navigation_telegramm_bath:
@@ -66,15 +65,15 @@ navigation_telegramm:
         data_template:
           message: |
             🛁 Ванная
-            Температура: {{ states('sensor.temperature_bath') }}
-            Влажность: {{ states('sensor.humidity_bath') }}
-            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bath', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
+            🌡️ Температура: {{ states('sensor.temperature_bath') }}
+            💧 Влажность: {{ states('sensor.humidity_bath') }}
+            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }}
+            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Занято', '🟢 Свободно', '❔ Присутствие: нет ответа') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.top_light_bath', 'on'), '🟢', '🔴', '❔') }} Освещение :/bath_toggle_top_light"
-            - "{{ iif(is_state('light.night_light_bath', 'on'), '🟢', '🔴', '❔') }} Ночник :/bath_toggle_night_light"
-            - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢', '🔴', '❔') }} Осушитель :/bath_toggle_dehumidifier"
+            - "{{ iif(is_state('light.top_light_bath', 'on'), '🟢 Выключить освещение', '🔴 Выключить освещение', '❔ Ошибка освещения') }} :/bath_toggle_top_light"
+            - "{{ iif(is_state('light.night_light_bath', 'on'), '🟢 Выключить ночник', '🔴 Выключить ночник', '❔ Ошибка ночника') }} :/bath_toggle_night_light"
+            - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢 Выключить осушитель', '🔴 Выключить осушитель', '❔ Ошибка осушителя') }} :/bath_toggle_dehumidifier"
             - "⬅️ :/main, 🔄 :/bath, ❌ :/hide_menu"
 
     navigation_telegramm_toilet:
@@ -84,13 +83,13 @@ navigation_telegramm:
         data_template:
           message: |
             🚽 Туалет
-            {{ iif(is_state('binary_sensor.door_toilet', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_toilet', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠', '🟢', '❔') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.door_toilet', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }}
+            {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠 Занято', '🟢 Свободно', '❔ Присутствие: нет ответа') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.top_light_toilet', 'on'), '🟢', '🔴', '❔') }} Освещение :/toilet_toggle_top_light"
-            - "{{ iif(is_state('light.night_light_toilet', 'on'), '🟢', '🔴', '❔') }} Ночник :/toilet_toggle_night_light"
-            - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢', '🔴', '❔') }} Вытяжка :/toilet_toggle_dehumidifier"
+            - "{{ iif(is_state('light.top_light_toilet', 'on'), '🟢 Выключить освещение', '🔴 Выключить освещение', '❔ Ошибка освещения') }} :/toilet_toggle_top_light"
+            - "{{ iif(is_state('light.night_light_toilet', 'on'), '🟢 Выключить ночник', '🔴 Выключить ночник', '❔ Ошибка ночника') }} :/toilet_toggle_night_light"
+            - "{{ iif(is_state('fan.fan_toilet', 'on'), '🟢 Выключить вытяжку', '🔴 Выключить вытяжку', '❔ Ошибка вытяжки') }} :/toilet_toggle_dehumidifier"
             - "⬅️ :/main, 🔄 :/toilet, ❌ :/hide_menu"
 
     navigation_telegramm_bedroom:
@@ -100,17 +99,17 @@ navigation_telegramm:
         data_template:
           message: |
             🛏️ Спальня
-            Температура: {{ states('sensor.temperature_bedroom') }}
-            Влажность: {{ states('sensor.humidity_bedroom') }}
+            🌡️ Температура: {{ states('sensor.temperature_bedroom') }}
+            💧 Влажность: {{ states('sensor.humidity_bedroom') }}
             🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢', '❔') }}
-            {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠', '🟢', '❔') }} Левое окно {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠', '🟢', '❔') }} Правое окно {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢', '🟠', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_bedroom', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто', '❔ Левое окно: нет ответа') }}
+            {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто', '❔ Правое окно: нет ответа') }}
+            {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта', '❔ Дверь: нет ответа') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢', '🔴', '❔') }} Освещение :/bedroom_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_bedroom', 'on'), '🟢', '🔴', '❔') }} Подсветка :/bedroom_toggle_night_light"
-            - "{{ iif(is_state('switch.relay_bedroom_l2', 'on'), '🟢', '🔴', '❔') }} Увлажнитель :/bedroom_toggle_humidifier"
+            - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение', '❔ Ошибка освещения') }} :/bedroom_toggle_top_light"
+            - "{{ iif(is_state('light.back_light_bedroom', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку', '❔ Ошибка подсветки') }} :/bedroom_toggle_night_light"
+            - "{{ iif(is_state('switch.relay_bedroom_l2', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель', '❔ Ошибка увлажнителя') }} :/bedroom_toggle_humidifier"
             - "Шторы :/bedroom_toggle_curtain"
             - "⬅️ :/main, 🔄 :/bedroom, ❌ :/hide_menu"
 
@@ -121,16 +120,16 @@ navigation_telegramm:
         data_template:
           message: |
             🛋️ Гостиная
-            Температура: {{ states('sensor.temperature_living') }}
-            Влажность: {{ states('sensor.humidity_living') }}
+            🌡️ Температура: {{ states('sensor.temperature_living') }}
+            💧 Влажность: {{ states('sensor.humidity_living') }}
             🫧 Вода в увлажнителе {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢', '❔') }}
-            {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠', '🟢', '❔') }} Окно {{ iif(is_state('binary_sensor.window_living', 'on'), 'открыто', 'закрыто', 'неизвестно') }}
-            {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢', '🟠', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_living', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто', '❔ Окно: нет ответа') }}
+            {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта', '❔ Дверь: нет ответа') }}
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.top_light_living', 'on'), '🟢', '🔴', '❔') }} Освещение :/living_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_living', 'on'), '🟢', '🔴', '❔') }} Подсветка :/living_toggle_night_light"
-            - "{{ iif(is_state('switch.relay_living_l1', 'on'), '🟢', '🔴', '❔') }} Увлажнитель :/living_toggle_humidifier"
+            - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение', '❔ Ошибка освещения') }} :/living_toggle_top_light"
+            - "{{ iif(is_state('light.back_light_living', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку', '❔ Ошибка подсветки') }} :/living_toggle_night_light"
+            - "{{ iif(is_state('switch.relay_living_l1', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель', '❔ Ошибка увлажнителя') }} :/living_toggle_humidifier"
             - "📷 Камера :/living_get_camera_image"
             - "Шторы :/living_toggle_curtain"
             - "⬅️ :/main, 🔄 :/living, ❌ :/hide_menu"
@@ -142,17 +141,17 @@ navigation_telegramm:
         data_template:
           message: |
             🪴 Балкон
-            Температура: {{ states('sensor.temperature_balcony') }}
-            Влажность: {{ states('sensor.humidity_balcony') }}
-            Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
-            Освещенность: {{ states('sensor.illuminance_balcony') }}
-            {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠', '🟢', '❔') }} Дверь {{ iif(is_state('binary_sensor.door_balcony', 'on'), 'открыта', 'закрыта', 'неизвестно') }}
+            🌡️ Температура: {{ states('sensor.temperature_balcony') }}
+            💧 Влажность: {{ states('sensor.humidity_balcony') }}
+            ⏱️ Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
+            🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }}
+            {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }} 
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢', '🔴', '❔') }} Подсветка :/balcony_toggle_top_light"
-            - "{{ iif(is_state('light.night_light_balcony', 'on'), '🟢', '🔴', '❔') }} Ночник :/balcony_toggle_night_light"
-            - "{{ iif(is_state('switch.relay_balcony_l4', 'on'), '🟢', '🔴', '❔') }} Розетка :/balcony_toggle_outlet"
-            - "{{ iif(is_state('switch.relay_balcony_l3', 'on'), '🟢', '🔴', '❔') }} Фонтан :/balcony_toggle_sprinkler"
+            - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢 Выключить подсветку', '🔴 Выключить пдсветку', '❔ Ошибка подсветки') }} :/balcony_toggle_top_light"
+            - "{{ iif(is_state('light.night_light_balcony', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник', '❔ Ошибка ночника') }} :/balcony_toggle_night_light"
+            - "{{ iif(is_state('switch.relay_balcony_l4', 'on'), '🟢 Выключить розетку', '🔴 Включить розетку', '❔ Ошибка розетки') }} :/balcony_toggle_outlet"
+            - "{{ iif(is_state('switch.relay_balcony_l3', 'on'), '🟢 Выключить фонтан', '🔴 Включить фонтан', '❔ Ошибка фонтана') }} :/balcony_toggle_sprinkler"
             - "⬅️ :/main, 🔄 :/balcony, ❌ :/hide_menu"
 
     navigation_telegramm_system:
