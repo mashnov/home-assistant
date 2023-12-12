@@ -16,7 +16,7 @@ navigation_telegramm:
             - '🥣 Кухня :/kitchen, 🧥 Коридор :/hall'
             - '🛁 Ванная :/bath, 🚽 Туалет :/toilet'
             - '🛏️ Спальня :/bedroom, 🛋️ Гостиная :/living'
-            - '🪴 Балкон :/balcony, 🖲️ Система :/system'
+            - '🪴 Балкон :/balcony, 🕸️ Система :/system'
             - '❌ Закрыть :/hide_menu'
 
     navigation_telegramm_kitchen:
@@ -167,18 +167,18 @@ navigation_telegramm:
             - "{{ iif(is_state('light.night_light_balcony', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/balcony_toggle_night_light"
             - "{{ iif(is_state('switch.relay_balcony_l4', 'on'), '🟢 Выключить розетку', '🔴 Включить розетку') }} :/balcony_toggle_outlet"
             - "{{ iif(is_state('switch.relay_balcony_l3', 'on'), '🟢 Выключить фонтан', '🔴 Включить фонтан') }} :/balcony_toggle_sprinkler"
-            - "⬅️ :/living, 🔼 :/main, 🔄 :/balcony, ➡️ :/system"
+            - "⬅️ :/living, 🔼 :/main, 🔄 :/balcony"
 
     navigation_telegramm_system:
       mode: 'queued'
       sequence:
       - service: notify.telegram_home_group_id
         data_template:
-          message: "🖲️ Система"
+          message: "🕸️ Система"
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
-            - "⬅️ :/balcony, 🔼 :/main, 🔄 :/system"
+            - "🔼 :/main, 🔄 :/system"
 
   automation:
   - alias: navigation_telegramm
