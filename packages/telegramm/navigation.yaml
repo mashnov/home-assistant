@@ -52,9 +52,9 @@ navigation_telegramm:
             🌡️ Температура: {{ states('sensor.temperature_hall') }} °C
             💧 Влажность: {{ states('sensor.humidity_hall') }} %
             
-            {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢', '❔') }}  Вода в увлажнителе
+            {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта', '❔ Входная дверь: нет ответа') }}
-            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено', '❔ Присутствие: нет ответа') }} Присутствие {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), 'обнаружено', 'не обнаружено', 'неизвестно') }}
+            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено', '❔ Присутствие: нет ответа') }}
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение', '❔ Ошибка освещения') }} :/hall_toggle_top_light"
@@ -74,8 +74,8 @@ navigation_telegramm:
             🌡️ Температура: {{ states('sensor.temperature_bath') }} °C
             💧 Влажность: {{ states('sensor.humidity_bath') }} %
 
-            {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }}
-            {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Занято', '🟢 Свободно', '❔ Присутствие: нет ответа') }}
+            {{ iif(is_state('binary_sensor.door_bath', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }}
+            {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), '🟠 Занято', '🟢 Свободно', '❔ Присутствие: нет ответа') }}
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bath', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение', '❔ Ошибка освещения') }} :/bath_toggle_top_light"
@@ -111,7 +111,7 @@ navigation_telegramm:
             🌡️ Температура: {{ states('sensor.temperature_bedroom') }} °C
             💧 Влажность: {{ states('sensor.humidity_bedroom') }} %
             
-            {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢', '❔') }}  Вода в увлажнителе
+            {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто', '❔ Левое окно: нет ответа') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто', '❔ Правое окно: нет ответа') }}
             {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта', '❔ Дверь: нет ответа') }}
@@ -134,7 +134,7 @@ navigation_telegramm:
             🌡️ Температура: {{ states('sensor.temperature_living') }} °C
             💧 Влажность: {{ states('sensor.humidity_living') }} %
 
-            {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢', '❔') }}  Вода в увлажнителе
+            {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢', '❔') }} Вода в увлажнителе
             {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто', '❔ Окно: нет ответа') }}
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта', '❔ Дверь: нет ответа') }}
           data:
