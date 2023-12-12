@@ -6,7 +6,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🏠 Главное меню
+            🏠 Главное меню ({{ now().timestamp() | timestamp_custom('%H:%M (%Z)') }})
 
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
@@ -176,10 +176,12 @@ navigation_telegramm:
         data_template:
           message: |
             ⚙️ Система
-            🌡️ Температура процессора: {{ states('sensor.processor_temperature') }} °C
-            ⚙️ Загрузка процессора: {{ states('sensor.load_1m') }}
-            ⚙️ Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
-            ⚙️ Использовано памяти: {{ states('sensor.disk_use_percent') }}
+            Запуск: {{ as_timestamp(states('sensor.last_boot')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            
+            Температура процессора: {{ states('sensor.processor_temperature') }} °C
+            Загрузка процессора: {{ states('sensor.load_1m') }} %
+            Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
+            Использовано памяти: {{ states('sensor.disk_use_percent') }} %
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
