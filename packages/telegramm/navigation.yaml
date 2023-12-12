@@ -11,6 +11,7 @@ navigation_telegramm:
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
             ⏱️ Давление: {{ states('sensor.pressure_average') }} мм рт.ст.
+
           data:
             inline_keyboard: 
             - '🥣 Кухня :/kitchen'
@@ -38,6 +39,7 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
 
             {{ iif(is_state('binary_sensor.occupancy_kitchen', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_kitchen', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/kitchen_toggle_top_light"
@@ -61,6 +63,7 @@ navigation_telegramm:
             
             {{ iif(is_state('binary_sensor.door_hall', 'on'), '🟠 Входная дверь открыта', '🟢 Входная дверь закрыта') }}
             {{ iif(is_state('binary_sensor.occupancy_hall', 'on'), '🟠 Присутствие обнаружено', '🟢 Присутствие не обнаружено') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_hall', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/hall_toggle_top_light"
@@ -81,6 +84,7 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_bath') }} %
 
             {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), '🟠 Занято', '🟢 Свободно') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bath', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bath_toggle_top_light"
@@ -97,6 +101,7 @@ navigation_telegramm:
             🚽 Туалет
 
             {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠 Занято', '🟢 Свободно') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_toilet', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/toilet_toggle_top_light"
@@ -120,6 +125,7 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.door_bedroom', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.window_bedroom_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто') }}
             {{ iif(is_state('binary_sensor.window_bedroom_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bedroom_toggle_top_light"
@@ -143,6 +149,7 @@ navigation_telegramm:
             
             {{ iif(is_state('binary_sensor.door_living', 'on'), '🟢 Дверь открыта', '🟠 Дверь закрыта') }}
             {{ iif(is_state('binary_sensor.window_living', 'on'), '🟠 Окно открыто', '🟢 Окно закрыто') }}
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/living_toggle_top_light"
@@ -165,6 +172,7 @@ navigation_telegramm:
             🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }} lux
 
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта') }} 
+
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢 Выключить подсветку', '🔴 Включить пдсветку') }} :/balcony_toggle_top_light"
@@ -188,6 +196,7 @@ navigation_telegramm:
             Загрузка процессора: {{ states('sensor.load_1m') }} %
             Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
             Использовано памяти: {{ states('sensor.disk_use_percent') }} %
+
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
