@@ -1,4 +1,4 @@
-pressure_balcony:
+pressure_average:
   sensor:
   - platform: min_max
     name: pressure_average
@@ -13,6 +13,6 @@ pressure_balcony:
 
   template:
   - sensor:
-    - name: 'pressure_balcony'
+    - name: 'pressure_average'
       device_class: illuminance
       state: '{{ states("sensor.pressure_average") }}'

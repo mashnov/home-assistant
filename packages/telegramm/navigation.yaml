@@ -7,9 +7,9 @@ navigation_telegramm:
         data_template:
           message: |
             🏠 Главное меню
-            Температура: {{ states('sensor.temperature_balcony') }} °C
-            Влажность: {{ states('sensor.humidity_balcony') }} %
-            Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
+            Температура: {{ states('sensor.temperature_average') }} °C
+            Влажность: {{ states('sensor.humidity_average') }} %
+            Давление: {{ states('sensor.pressure_average') }} мм рт.ст.
           data:
             inline_keyboard: 
             - '🥣 Кухня :/kitchen, 🧥 Коридор :/hall'
@@ -143,7 +143,6 @@ navigation_telegramm:
             🪴 Балкон
             🌡️ Температура: {{ states('sensor.temperature_balcony') }} °C
             💧 Влажность: {{ states('sensor.humidity_balcony') }} %
-            ⏱️ Давление: {{ states('sensor.pressure_balcony') }} мм рт.ст.
             🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }} lux
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта', '❔ Дверь: нет ответа') }} 
           data:
