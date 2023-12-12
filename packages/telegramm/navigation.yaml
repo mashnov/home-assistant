@@ -22,7 +22,7 @@ navigation_telegramm:
             - '🛋️ Гостиная :/living'
             - '🪴 Балкон :/balcony'
             - '⚙️ Система :/system'
-            - '❌ Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu, 🔄 Обновить :/main'
 
     navigation_telegramm_kitchen:
       mode: 'queued'
