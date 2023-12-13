@@ -1,6 +1,5 @@
 system_sensors:
   sensor:
-  - platform: version
   - platform: systemmonitor
     resources:
     - type: disk_use_percent
