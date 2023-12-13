@@ -30,6 +30,12 @@ night_light_kitchen:
       - service: switch.turn_off
         entity_id: switch.relay_kitchen_l1
 
+    night_light_kitchen_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: light.night_light_kitchen
+
   automation:
   - alias: 'night_light_kitchen_auto'
     mode: 'queued'

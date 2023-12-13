@@ -123,7 +123,7 @@ navigation_telegramm:
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_bedroom', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/bedroom_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_bedroom', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/bedroom_toggle_night_light"
+            - "{{ iif(is_state('light.back_light_bedroom', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/bedroom_toggle_back_light"
             - "{{ iif(is_state('switch.relay_bedroom_l2', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/bedroom_toggle_humidifier"
             - "Шторы :/bedroom_toggle_curtain"
             - "⬅️ Назад :/main, 🔄 Обновить :/bedroom"
@@ -146,7 +146,7 @@ navigation_telegramm:
           data:
             inline_keyboard: 
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/living_toggle_top_light"
-            - "{{ iif(is_state('light.back_light_living', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/living_toggle_night_light"
+            - "{{ iif(is_state('light.back_light_living', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/living_toggle_back_light"
             - "{{ iif(is_state('switch.relay_living_l1', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/living_toggle_humidifier"
             - "📷 Камера :/living_get_camera_image"
             - "Шторы :/living_toggle_curtain"
@@ -167,10 +167,9 @@ navigation_telegramm:
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта') }} 
           data:
             inline_keyboard: 
-            - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢 Выключить подсветку', '🔴 Включить пдсветку') }} :/balcony_toggle_top_light"
+            - "{{ iif(is_state('light.back_light_balcony', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/balcony_toggle_back_light"
             - "{{ iif(is_state('light.night_light_balcony', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/balcony_toggle_night_light"
             - "{{ iif(is_state('switch.relay_balcony_l4', 'on'), '🟢 Выключить розетку', '🔴 Включить розетку') }} :/balcony_toggle_outlet"
-            - "{{ iif(is_state('switch.relay_balcony_l3', 'on'), '🟢 Выключить фонтан', '🔴 Включить фонтан') }} :/balcony_toggle_sprinkler"
             - "⬅️ Назад :/main, 🔄 Обновить :/balcony"
 
     navigation_telegramm_system:

@@ -25,6 +25,17 @@ top_light_kitchen:
         - light.bulb_light_kitchen_2
         - light.bulb_light_kitchen_1
 
+    top_light_kitchen_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: 
+        - light.bulb_light_kitchen_5
+        - light.bulb_light_kitchen_4
+        - light.bulb_light_kitchen_3
+        - light.bulb_light_kitchen_2
+        - light.bulb_light_kitchen_1
+
   light:
   - platform: group
     name: top_light_kitchen

@@ -20,6 +20,11 @@ night_light_toilet:
       sequence:
       - service: switch.turn_off
         entity_id: switch.relay_toilet_l2
+    night_light_toilet_toggle:
+      mode: 'queued'
+      sequence:
+      - service: lights.toggle
+        entity_id: lights.night_light_toilet
 
   automation:
   - alias: 'night_light_toilet_auto'

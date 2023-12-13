@@ -24,6 +24,18 @@ top_light_living:
         - light.bulb_light_living_2
         - light.bulb_light_living_1
 
+    top_light_living_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: 
+        - light.bulb_light_living_6
+        - light.bulb_light_living_5
+        - light.bulb_light_living_4
+        - light.bulb_light_living_3
+        - light.bulb_light_living_2
+        - light.bulb_light_living_1
+
   light:
   - platform: group
     name: top_light_living

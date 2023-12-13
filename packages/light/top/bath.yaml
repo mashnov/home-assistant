@@ -23,6 +23,11 @@ top_light_bath:
       sequence:
       - service: switch.turn_off
         entity_id: switch.switch_restroom_right
+    top_light_bath_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: light.top_light_bath
 
   automation:
   - alias: 'top_light_bath_button'

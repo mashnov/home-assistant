@@ -20,6 +20,11 @@ back_light_living:
       sequence:
       - service: switch.turn_off
         entity_id: switch.relay_living_l2
+    back_light_living_toggle:
+      mode: 'queued'
+      sequence:
+      - service: lights.toggle
+        entity_id: lights.back_light_living
 
   automation:
   - alias: 'back_light_living_auto'

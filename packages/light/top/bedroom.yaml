@@ -24,6 +24,18 @@ top_light_bedroom:
         - light.bulb_light_bedroom_2
         - light.bulb_light_bedroom_1
 
+    top_light_bedroom_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: 
+        - light.bulb_light_bedroom_6
+        - light.bulb_light_bedroom_5
+        - light.bulb_light_bedroom_4
+        - light.bulb_light_bedroom_3
+        - light.bulb_light_bedroom_2
+        - light.bulb_light_bedroom_1
+
   light:
   - platform: group
     name: top_light_bedroom

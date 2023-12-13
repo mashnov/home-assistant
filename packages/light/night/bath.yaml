@@ -23,6 +23,11 @@ night_light_bath:
       sequence:
       - service: switch.turn_off
         entity_id: switch.relay_bath_l1
+    night_light_bath_toggle:
+      mode: 'queued'
+      sequence:
+      - service: lights.toggle
+        entity_id: lights.night_light_bath
 
   automation:
   - alias: 'night_light_bath_button'

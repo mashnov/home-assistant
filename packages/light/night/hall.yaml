@@ -29,6 +29,13 @@ night_light_hall:
         {% set duration = states('input_number.light_connect_delay') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
+  script:
+    night_light_hall_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: light.night_light_hall
+
   automation:
   - alias: 'night_light_hall'
     mode: 'queued'

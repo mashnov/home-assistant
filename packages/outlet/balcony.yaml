@@ -7,5 +7,12 @@ outlet_balcony:
       entity_id: sensor.button_balcony_action
       to: 'shake'
     action:
-    - service: switch.toggle
-      entity_id: switch.relay_balcony_l4
+    - service: script.outlet_balcony_toggle
+
+  script:
+    outlet_balcony_toggle:
+      mode: 'queued'
+      sequence:
+      - service: switch.toggle
+        entity_id: switch.relay_balcony_l4
+

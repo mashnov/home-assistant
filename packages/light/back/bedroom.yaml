@@ -26,6 +26,12 @@ back_light_bedroom:
         entity_id:
         - switch.relay_bedroom_l1
         - switch.switch_bedroom_wall
+    back_light_bedroom_toggle:
+      mode: 'queued'
+      sequence:
+      - service: lights.toggle
+        entity_id:
+        - lights.back_light_bedroom
 
   automation:
   - alias: 'back_light_bedroom_auto'

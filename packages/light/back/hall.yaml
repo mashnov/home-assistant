@@ -20,6 +20,11 @@ back_light_hall:
       sequence:
       - service: switch.turn_off
         entity_id: switch.relay_hall_l1
+    back_light_hall_toggle:
+      mode: 'queued'
+      sequence:
+      - service: light.toggle
+        entity_id: light.back_light_hall
 
   automation:
   - alias: 'back_light_hall_auto'

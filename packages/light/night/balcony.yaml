@@ -20,6 +20,11 @@ night_light_balcony:
       sequence:
       - service: switch.turn_off
         entity_id: switch.relay_balcony_l1
+    night_light_balcony_toggle:
+      mode: 'queued'
+      sequence:
+      - service: lights.toggle
+        entity_id: lights.night_light_balcony
 
   automation:
   - alias: 'night_light_balcony'
