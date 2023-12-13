@@ -180,7 +180,7 @@ navigation_telegramm:
           message: |
             ⚙️ Система
             
-            Последеняя перезагрузкв: as_timestamp(states('sensor.uptime')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            Последеняя перезагрузкв: {{ as_timestamp(states('sensor.uptime')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             
             Актуальная версия системы: {{ states('sensor.current_version') }}
