@@ -186,8 +186,8 @@ telegramm_notifications:
     trigger:
       platform: state
       entity_id: 'binary_sensor.hygrostat_hall_is_empty'
-      from: 'on'
-      to: 'off'
+      from: 'off'
+      to: 'on'
     action:
     - service: script.telegramm_send_text
       data_template:
@@ -200,8 +200,8 @@ telegramm_notifications:
     trigger:
       platform: state
       entity_id: 'binary_sensor.hygrostat_bedroom_is_empty'
-      from: 'on'
-      to: 'off'
+      from: 'off'
+      to: 'on'
     action:
     - service: script.telegramm_send_text
       data_template:
@@ -214,8 +214,8 @@ telegramm_notifications:
     trigger:
       platform: state
       entity_id: 'binary_sensor.hygrostat_living_is_empty'
-      from: 'on'
-      to: 'off'
+      from: 'off'
+      to: 'on'
     action:
     - service: script.telegramm_send_text
       data_template:
