@@ -132,7 +132,6 @@ telegramm_notifications:
       from: 'off'
       to: 'on'
     action:
-    - service: script.camera_living_take_photo
     - service: script.telegramm_send_text
       data_template:
         message: |
