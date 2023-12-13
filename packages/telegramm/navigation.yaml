@@ -6,7 +6,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🏠 Главное меню
+            🏠 Главное меню ({{ now().timestamp() | timestamp_custom('%H:%M') }})
             
             🌡️ Средняя температура: {{ states('sensor.temperature_average') }} °C
             💧 Средняя влажность: {{ states('sensor.humidity_average') }} %
@@ -29,7 +29,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🥣 Кухня
+            🥣 Кухня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
             
             🌡️ Температура: {{ states('sensor.temperature_kitchen') }} °C
             💧 Влажность: {{ states('sensor.humidity_kitchen') }} %
@@ -52,7 +52,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🧥 Коридор
+            🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
             
             🌡️ Температура: {{ states('sensor.temperature_hall') }} °C
             💧 Влажность: {{ states('sensor.humidity_hall') }} %
@@ -75,7 +75,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🛁 Ванная
+            🛁 Ванная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
             🌡️ Температура: {{ states('sensor.temperature_bath') }} °C
             💧 Влажность: {{ states('sensor.humidity_bath') }} %
@@ -94,7 +94,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🚽 Туалет
+            🚽 Туалет ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
             {{ iif(is_state('binary_sensor.occupancy_toilet', 'on'), '🟠 Занято', '🟢 Свободно') }}
           data:
@@ -110,7 +110,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🛏️ Спальня
+            🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
             🌡️ Температура: {{ states('sensor.temperature_bedroom') }} °C
             💧 Влажность: {{ states('sensor.humidity_bedroom') }} %
@@ -134,7 +134,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🛋️ Гостиная
+            🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
             🌡️ Температура: {{ states('sensor.temperature_living') }} °C
             💧 Влажность: {{ states('sensor.humidity_living') }} %
@@ -158,7 +158,7 @@ navigation_telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: |
-            🪴 Балкон
+            🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
             🌡️ Температура: {{ states('sensor.temperature_balcony') }} °C
             💧 Влажность: {{ states('sensor.humidity_balcony') }} %
