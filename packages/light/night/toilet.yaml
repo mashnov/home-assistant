@@ -23,8 +23,8 @@ night_light_toilet:
     night_light_toilet_toggle:
       mode: 'queued'
       sequence:
-      - service: lights.toggle
-        entity_id: lights.night_light_toilet
+      - service: light.toggle
+        entity_id: light.night_light_toilet
 
   automation:
   - alias: 'night_light_toilet_auto'

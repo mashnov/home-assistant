@@ -26,8 +26,8 @@ night_light_bath:
     night_light_bath_toggle:
       mode: 'queued'
       sequence:
-      - service: lights.toggle
-        entity_id: lights.night_light_bath
+      - service: light.toggle
+        entity_id: light.night_light_bath
 
   automation:
   - alias: 'night_light_bath_button'

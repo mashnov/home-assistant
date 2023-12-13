@@ -23,8 +23,8 @@ night_light_balcony:
     night_light_balcony_toggle:
       mode: 'queued'
       sequence:
-      - service: lights.toggle
-        entity_id: lights.night_light_balcony
+      - service: light.toggle
+        entity_id: light.night_light_balcony
 
   automation:
   - alias: 'night_light_balcony'

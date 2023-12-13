@@ -10,6 +10,7 @@ telegramm_actions:
         command: '/kitchen_toggle_top_light'
     action:
     - service: script.top_light_kitchen_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_kitchen
 
   - alias: telegramm_action_kitchen_toggle_back_light
@@ -21,6 +22,7 @@ telegramm_actions:
         command: '/kitchen_toggle_back_light'
     action:
     - service: script.back_light_kitchen_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_kitchen
 
   - alias: telegramm_action_kitchen_toggle_night_light
@@ -32,6 +34,7 @@ telegramm_actions:
         command: '/kitchen_toggle_night_light'
     action:
     - service: script.night_light_kitchen_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_kitchen
 
   - alias: telegramm_action_hall_toggle_top_light
@@ -43,6 +46,7 @@ telegramm_actions:
         command: '/hall_toggle_top_light'
     action:
     - service: script.top_light_hall_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_hall
 
   - alias: telegramm_action_hall_toggle_back_light
@@ -54,6 +58,7 @@ telegramm_actions:
         command: '/hall_toggle_back_light'
     action:
     - service: script.back_light_hall_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_hall
 
   - alias: telegramm_action_hall_toggle_night_light
@@ -65,6 +70,7 @@ telegramm_actions:
         command: '/hall_toggle_night_light'
     action:
     - service: script.night_light_hall_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_hall
 
   - alias: telegramm_action_hall_toggle_humidifier
@@ -76,6 +82,7 @@ telegramm_actions:
         command: '/hall_toggle_humidifier'
     action:
     - service: script.hygrostat_hall_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_hall
 
   - alias: telegramm_action_bath_toggle_top_light
@@ -87,6 +94,7 @@ telegramm_actions:
         command: '/bath_toggle_top_light'
     action:
     - service: script.top_light_bath_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bath
 
   - alias: telegramm_action_bath_toggle_night_light
@@ -98,6 +106,7 @@ telegramm_actions:
         command: '/bath_toggle_night_light'
     action:
     - service: script.night_light_bath_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bath
 
   - alias: telegramm_action_bath_toggle_dehumidifier
@@ -109,6 +118,7 @@ telegramm_actions:
         command: '/bath_toggle_dehumidifier'
     action:
     - service: script.fan_toilet_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bath
 
   - alias: telegramm_action_toilet_toggle_top_light
@@ -120,6 +130,7 @@ telegramm_actions:
         command: '/toilet_toggle_top_light'
     action:
     - service: script.top_light_toilet_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_toilet
 
   - alias: telegramm_action_toilet_toggle_night_light
@@ -131,6 +142,7 @@ telegramm_actions:
         command: '/toilet_toggle_night_light'
     action:
     - service: script.night_light_toilet_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_toilet
 
   - alias: telegramm_action_toilet_toggle_dehumidifier
@@ -142,6 +154,7 @@ telegramm_actions:
         command: '/toilet_toggle_dehumidifier'
     action:
     - service: script.fan_toilet_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_toilet
 
   - alias: telegramm_action_bedroom_toggle_top_light
@@ -153,6 +166,7 @@ telegramm_actions:
         command: '/bedroom_toggle_top_light'
     action:
     - service: script.top_light_bedroom_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bedroom
 
   - alias: telegramm_action_bedroom_toggle_back_light
@@ -164,6 +178,7 @@ telegramm_actions:
         command: '/bedroom_toggle_back_light'
     action:
     - service: script.back_light_bedroom_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bedroom
 
   - alias: telegramm_action_bedroom_toggle_humidifier
@@ -175,6 +190,7 @@ telegramm_actions:
         command: '/bedroom_toggle_humidifier'
     action:
     - service: script.hygrostat_bedroom_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_bedroom
 
   - alias: telegramm_action_living_toggle_top_light
@@ -186,6 +202,7 @@ telegramm_actions:
         command: '/living_toggle_top_light'
     action:
     - service: script.top_light_living_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_living
 
   - alias: telegramm_action_living_toggle_back_light
@@ -197,6 +214,7 @@ telegramm_actions:
         command: '/living_toggle_back_light'
     action:
     - service: script.back_light_living_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_living
 
   - alias: telegramm_action_living_toggle_humidifier
@@ -208,6 +226,7 @@ telegramm_actions:
         command: '/living_toggle_humidifier'
     action:
     - service: script.hygrostat_living_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_living
 
   - alias: telegramm_action_living_get_camera_image
@@ -219,6 +238,7 @@ telegramm_actions:
         command: '/living_get_camera_image'
     action:
     - service: script.camera_living_take_photo
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_living
 
   - alias: telegramm_action_balcony_toggle_back_light
@@ -230,6 +250,7 @@ telegramm_actions:
         command: '/balcony_toggle_back_light'
     action:
     - service: script.back_light_balcony_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_balcony
 
   - alias: telegramm_action_balcony_toggle_night_light
@@ -241,6 +262,7 @@ telegramm_actions:
         command: '/balcony_toggle_night_light'
     action:
     - service: script.night_light_balcony_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_balcony
 
   - alias: telegramm_action_balcony_toggle_outlet
@@ -252,6 +274,7 @@ telegramm_actions:
         command: '/balcony_toggle_outlet'
     action:
     - service: script.outlet_balcony_toggle
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_balcony
 
   - alias: telegramm_action_restart
@@ -262,4 +285,5 @@ telegramm_actions:
       event_data:
         command: '/restart'
     action:
+    - delay: '00:00:02'
     - service: script.navigation_telegramm_system

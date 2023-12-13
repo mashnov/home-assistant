@@ -29,9 +29,9 @@ back_light_bedroom:
     back_light_bedroom_toggle:
       mode: 'queued'
       sequence:
-      - service: lights.toggle
+      - service: light.toggle
         entity_id:
-        - lights.back_light_bedroom
+        - light.back_light_bedroom
 
   automation:
   - alias: 'back_light_bedroom_auto'

@@ -23,8 +23,8 @@ top_light_toilet:
     top_light_toilet_toggle:
       mode: 'queued'
       sequence:
-      - service: lights.toggle
-        entity_id: lights.top_light_toilet
+      - service: light.toggle
+        entity_id: light.top_light_toilet
 
   automation:
   - alias: 'top_light_toilet_auto'
