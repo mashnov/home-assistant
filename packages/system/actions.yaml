@@ -1,0 +1,7 @@
+system_actions:
+
+  script:
+    system_action_restart:
+      mode: 'queued'
+      sequence:
+      - service: homeassistant.restart

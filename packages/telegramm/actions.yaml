@@ -285,4 +285,4 @@ telegramm_actions:
       event_data:
         command: '/restart'
     action:
-    - service: script.navigation_telegramm_system
+    - service: script.system_action_restart
