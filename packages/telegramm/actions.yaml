@@ -274,7 +274,7 @@ telegramm_actions:
         command: '/balcony_toggle_outlet'
     action:
     - service: script.outlet_balcony_toggle
-    - delay: '00:00:02'
+    - delay: '00:00:01'
     - service: script.navigation_telegramm_balcony
 
   - alias: telegramm_action_restart
@@ -285,5 +285,4 @@ telegramm_actions:
       event_data:
         command: '/restart'
     action:
-    - delay: '00:00:02'
     - service: script.navigation_telegramm_system

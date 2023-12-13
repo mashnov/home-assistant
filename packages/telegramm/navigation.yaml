@@ -148,7 +148,7 @@ navigation_telegramm:
             - "{{ iif(is_state('light.top_light_living', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/living_toggle_top_light"
             - "{{ iif(is_state('light.back_light_living', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/living_toggle_back_light"
             - "{{ iif(is_state('switch.relay_living_l1', 'on'), '🟢 Выключить увлажнитель', '🔴 Включить увлажнитель') }} :/living_toggle_humidifier"
-            - "📷 Камера :/living_get_camera_image"
+            - "📷 Получить изображение :/living_get_camera_image"
             - "Шторы :/living_toggle_curtain"
             - "⬅️ Назад :/main, 🔄 Обновить :/living"
 
