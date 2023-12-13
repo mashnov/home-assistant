@@ -1,6 +1,6 @@
 system_sensors:
   sensor:
-  - platform: uptime
+  - platform: version
   - platform: systemmonitor
     resources:
     - type: disk_use_percent
