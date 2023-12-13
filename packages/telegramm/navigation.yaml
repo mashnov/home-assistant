@@ -180,13 +180,24 @@ navigation_telegramm:
           message: |
             ⚙️ Система
             
-            Время запуска: {{ as_timestamp(states('sensor.last_boot')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            Последеняя перезагрузкв: as_timestamp(states('sensor.uptime')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             
+            Актуальная версия системы: {{ states('sensor.current_version') }}
+            Установленная версия: {{ states('sensor.current_version') }}
+
             Температура процессора: {{ states('sensor.processor_temperature') }} °C
             Загрузка процессора: {{ states('sensor.load_1m') }} %
             Использовано ОЗУ: {{ states('sensor.memory_use_percent') }} %
             Использовано памяти: {{ states('sensor.disk_use_percent') }} %
+            
+            Локальный ip-адрес: {{ states('sensor.local_ip') }}
+            Внешний ip-адрес: {{ states('sensor.myip') }}
+
+            Скорость загрузки: {{ states('sensor.speedtest_download') }} Mbit/s
+            Скорость отдачи: {{ states('sensor.speedtest_upload') }} Mbit/s
+            Пинг: {{ states('sensor.speedtest_ping') }} мс
+            
           data:
             inline_keyboard: 
             - "⚠️ Перезагрузка :/restart"
