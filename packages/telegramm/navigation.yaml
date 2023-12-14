@@ -43,6 +43,7 @@ navigation_telegramm:
             - "{{ iif(is_state('light.top_light_kitchen', 'on'), '🟢 Выключить освещение', '🔴 Включить освещение') }} :/kitchen_toggle_top_light"
             - "{{ iif(is_state('light.back_light_kitchen', 'on'), '🟢 Выключить подсветку', '🔴 Включить подсветку') }} :/kitchen_toggle_back_light"
             - "{{ iif(is_state('light.night_light_kitchen', 'on'), '🟢 Выключить ночник', '🔴 Включить ночник') }} :/kitchen_toggle_night_light"
+            - "{{ iif(is_state('media_player.homepod', 'playing'), '🔇 Выключить музыку', '🔊 Включить музыку') }} :/kitchen_toggle_player"
             - "Шторы :/kitchen_toggle_curtain"
             - "⬅️ Назад :/main, 🔄 Обновить :/kitchen"
 
@@ -180,11 +181,10 @@ navigation_telegramm:
           message: |
             ⚙️ Система
             
-            Последеняя перезагрузкв: {{ as_timestamp(states('sensor.uptime')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
-            Местное время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            Время: {{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
+            Перезагрузкв: {{ as_timestamp(states('sensor.uptime')) | timestamp_custom('%Y-%m-%d %H:%M (%Z)') }}
             
-            Актуальная версия системы: {{ states('sensor.current_version') }}
-            Установленная версия: {{ states('sensor.current_version') }}
+            Версия ОС: {{ states('sensor.current_version') }}
 
             Температура процессора: {{ states('sensor.processor_temperature') }} °C
             Загрузка процессора: {{ states('sensor.load_1m') }} %
