@@ -45,7 +45,7 @@ telegramm_actions:
       event_data:
         command: '/kitchen_toggle_player'
     action:
-    - service: script.homepod_kitchen_toggle
+    - service: script.homepod_toggle
     - delay: '00:00:01'
     - service: script.navigation_telegramm_kitchen
 
