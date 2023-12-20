@@ -15,4 +15,5 @@ pressure_average:
   - sensor:
     - name: 'pressure_homekit'
       device_class: illuminance
+      unit_of_measurement: "lx"
       state: '{{ states("sensor.pressure_average") | int(0) }}'
