@@ -51,7 +51,7 @@ telegramm_notifications:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.last_backup'
+      entity_id: 'sensor.last_backup'
     action:
     - service: script.telegramm_send_text
       data_template:
