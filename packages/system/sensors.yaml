@@ -12,6 +12,6 @@ system_sensors:
   - binary_sensor:
     - name: 'is_backed_up'
       state: >
-        {% set nowTime = now().timestamp() %}
+        {% set nowTime = now().timestamp() - 60 %}
         {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime - 60) %}
-        {{ nowTime == lastBackUp }}
+        {{ nowTime | timestamp_custom('%H:%M') == lastBackUp | timestamp_custom('%H:%M') }}
