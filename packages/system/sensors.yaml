@@ -9,6 +9,10 @@ system_sensors:
     - type: last_boot
 
   template:
-  - sensor:
-    - name: 'last_backup'
-      state: '{{ state_attr("sensor.backup_state", "last_backup") }}'
+  - binary_sensor:
+    - name: 'is_backed_up'
+      device_class: 'sound'
+      state: >
+        {% set nowTime = now() | as_timestamp - (5 * 60) %}
+        {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp %}
+        {{ nowTime > lastBackUp }}
