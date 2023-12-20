@@ -9,9 +9,9 @@ telegramm_notifications:
     telegramm_system_update_text:
       initial: 'Доступно обновление'
     telegramm_door_open_text:
-      initial: 'Коридор. Входная дверь открыта'
+      initial: 'Входная дверь открыта'
     telegramm_door_closed_text:
-      initial: 'Коридор. Входная дверь закрыта'
+      initial: 'Входная дверь закрыта'
     telegramm_doorbell_inside:
       initial: 'Кто-то нажал кнопку звонка в кооидоре'
     telegramm_doorbell_outside:
