@@ -6,6 +6,8 @@ telegramm_notifications:
       initial: 'Старт системы'
     telegramm_system_backup_text:
       initial: 'Резервное копирование'
+    telegramm_system_backup_error_text:
+      initial: 'Ошибка резервного копирования'
     telegramm_system_power_text:
       initial: 'Проблемы с питанием'
     telegramm_system_update_text:
@@ -51,7 +53,22 @@ telegramm_notifications:
     mode: 'queued'
     trigger:
       platform: state
+      entity_id: 'sensor.backup_state'
+      to: 'error'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_backup_error_text') }}
+
+  - alias: 'telegramm_message_system_backup'
+    mode: 'queued'
+    trigger:
+      platform: state
       entity_id: 'binary_sensor.is_backed_up'
+      from: 'off'
+      to: 'on'
     action:
     - service: script.telegramm_send_text
       data_template:
