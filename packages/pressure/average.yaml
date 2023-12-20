@@ -13,6 +13,6 @@ pressure_average:
 
   template:
   - sensor:
-    - name: 'pressure_average'
+    - name: 'pressure_homekit'
       device_class: illuminance
-      state: '{{ states("sensor.pressure_average") }}'
+      state: '{{ states("sensor.pressure_average") | int(0) }}'
