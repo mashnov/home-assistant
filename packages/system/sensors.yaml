@@ -7,3 +7,8 @@ system_sensors:
     - type: load_1m
     - type: processor_temperature
     - type: last_boot
+
+  template:
+  - sensor:
+    - name: 'last_backup'
+      state: '{{ state_attr("sensor.backup_state", "last_backup") }}'

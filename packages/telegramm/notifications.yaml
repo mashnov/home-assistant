@@ -4,6 +4,8 @@ telegramm_notifications:
       initial: 'Завершение работы'
     telegramm_system_start_text:
       initial: 'Старт системы'
+    telegramm_system_backup_text:
+      initial: 'Резервное копирование'
     telegramm_system_power_text:
       initial: 'Проблемы с питанием'
     telegramm_system_update_text:
@@ -44,6 +46,18 @@ telegramm_notifications:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
           {{ states('input_text.telegramm_system_start_text') }}
+
+  - alias: 'telegramm_message_system_backup'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.last_backup'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          {{ states('input_text.telegramm_system_backup_text') }}
 
   - alias: 'telegramm_message_power'
     mode: 'queued'
