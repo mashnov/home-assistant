@@ -14,5 +14,5 @@ system_sensors:
       device_class: 'sound'
       state: >
         {% set nowTime = now() | as_timestamp - (5 * 60) %}
-        {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp %}
+        {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime) %}
         {{ nowTime > lastBackUp }}
