@@ -222,10 +222,10 @@ telegramm_notifications:
         message: |
           🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
           
-          🌡️ Температура: {{ states('sensor.temperature_hall') }} °C
-          💧 Влажность: {{ states('sensor.humidity_hall') }} %
+          Закончилась вода в увлажнителе
 
-          🔴 Закончилась вода в увлажнителе
+          Температура: {{ states('sensor.temperature_hall') }} °C
+          Влажность: {{ states('sensor.humidity_hall') }} %
 
   - alias: 'telegramm_message_hygrostat_bedroom_empty'
     mode: 'queued'
@@ -240,10 +240,10 @@ telegramm_notifications:
         message: |
           🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
-          🌡️ Температура: {{ states('sensor.temperature_bedroom') }} °C
-          💧 Влажность: {{ states('sensor.humidity_bedroom') }} %
+          Закончилась вода в увлажнителе
 
-          🔴 Закончилась вода в увлажнителе
+          Температура: {{ states('sensor.temperature_bedroom') }} °C
+          Влажность: {{ states('sensor.humidity_bedroom') }} %
 
   - alias: 'telegramm_message_hygrostat_living_empty'
     mode: 'queued'
@@ -258,7 +258,7 @@ telegramm_notifications:
         message: |
           🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
 
-          🌡️ Температура: {{ states('sensor.temperature_living') }} °C
-          💧 Влажность: {{ states('sensor.humidity_living') }} %
+          Закончилась вода в увлажнителе
 
-          🔴 Закончилась вода в увлажнителе
+          Температура: {{ states('sensor.temperature_living') }} °C
+          Влажность: {{ states('sensor.humidity_living') }} %
