@@ -1,0 +1,11 @@
+transport_bus:
+  sensor:
+  - platform: yandex_transport
+    stop_id: stop__10068691
+    name: bus_to_parent
+
+  - platform: yandex_transport
+    stop_id: stop__10073144
+    name: bus_from_parent
+
+    

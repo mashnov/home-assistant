@@ -1,0 +1,11 @@
+transport_tram:
+  sensor:
+  - platform: yandex_transport
+    stop_id: 3313274405
+    name: tram_to_parent
+
+  - platform: yandex_transport
+    stop_id: stop__10068685
+    name: tram_from_parent
+
+    
