@@ -117,6 +117,12 @@ telegramm_notifications:
     - platform: state
       entity_id: 'update.terminal_ssh_update'
       to: 'on'
+    - platform: state
+      entity_id: 'update.matter_server_update'
+      to: 'on'
+    - platform: numeric_state
+      entity_id: sensor.hacs
+      above: 0
     action:
     - service: script.telegramm_send_text
       data_template:
