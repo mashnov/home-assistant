@@ -1,17 +1,10 @@
 camera_living:
-  camera:
-  - platform: proxy
-    name: 'living_propxy'
-    entity_id: camera.living
-    max_stream_width: 360
-    max_image_width: 640
-
   script:
     camera_living_take_photo:
       mode: 'queued'
       sequence:
       - service: camera.snapshot
-        entity_id: camera.living_propxy
+        entity_id: camera.living
         data:
           filename: '/tmp/snapshot.jpg'
       - service: script.telegramm_send_photo
