@@ -19,12 +19,19 @@ camera_living:
         {% set name = states('input_text.camera_living_photo_name') %}
         {{ path + name }}
 
+  camera:
+  - platform: proxy
+    name: 'camera_living_propxy'
+    entity_id: camera.living
+    max_stream_width: 360
+    max_image_width: 640
+
   script:
     camera_living_take_photo:
       mode: 'queued'
       sequence:
       - service: camera.snapshot
-        entity_id: camera.living
+        entity_id: camera_living_propxy
         data:
           filename: "{{ states('sensor.camera_living_photo_link') }}"
       - service: script.telegramm_send_photo
