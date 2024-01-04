@@ -164,6 +164,10 @@ navigation_telegramm:
             🌡️ Температура: {{ states('sensor.temperature_balcony') }} °C
             💧 Влажность: {{ states('sensor.humidity_balcony') }} %
             🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }} lux
+            
+            💨 Индекс качества воздуха: {{ states('sensor.teppanala_imatra_finland_air_quality_index') }}
+            💨 Количество частиц PM10: {{ states('sensor.teppanala_imatra_finland_pm10') }}
+            💨 Количество частиц PM2.5: {{ states('sensor.teppanala_imatra_finland_pm2_5') }}
 
             {{ iif(is_state('binary_sensor.door_balcony', 'on'), '🟠 Дверь открыта', '🟢 Дверь закрыта') }} 
           data:
