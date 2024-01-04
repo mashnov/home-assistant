@@ -16,7 +16,7 @@ hygrostat_hall:
   - binary_sensor:
     - name: 'hygrostat_hall_is_empty'
       device_class: 'moisture'
-      delay_on: '00:00:04'
+      delay_on: '00:00:10'
       state: >
         {% set humidifier = is_state('switch.relay_hall_l2', 'on') %}
         {% set backlight = is_state('light.back_light_hall', 'on') %}
