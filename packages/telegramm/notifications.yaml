@@ -268,3 +268,17 @@ telegramm_notifications:
 
           Температура: {{ states('sensor.temperature_living') }} °C
           Влажность: {{ states('sensor.humidity_living') }} %
+
+  - alias: 'telegramm_message_zodiak'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'sensor.zodiac'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          ✨ Зодиак ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+
+          Пришло время нового знака.
+          Новый знак: {{ states('sensor.zodiac') }}
