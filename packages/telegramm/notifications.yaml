@@ -1,26 +1,4 @@
 telegramm_notifications:
-  input_text:
-    telegramm_system_shutdown_text:
-      initial: 'Завершение работы'
-    telegramm_system_start_text:
-      initial: 'Старт системы'
-    telegramm_system_backup_text:
-      initial: 'Резервное копирование'
-    telegramm_system_backup_error_text:
-      initial: 'Ошибка резервного копирования'
-    telegramm_system_power_text:
-      initial: 'Проблемы с питанием'
-    telegramm_system_update_text:
-      initial: 'Доступно обновление'
-    telegramm_door_open_text:
-      initial: 'Входная дверь открыта'
-    telegramm_door_closed_text:
-      initial: 'Входная дверь закрыта'
-    telegramm_doorbell_inside:
-      initial: 'Кто-то нажал кнопку звонка в кооидоре'
-    telegramm_doorbell_outside:
-      initial: 'Кто-то нажал кнопку звонка у лифта'
-
   automation:
 
   - alias: 'telegramm_message_system_shutdown'
@@ -33,7 +11,7 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_shutdown_text') }}
+          Завершение работы
 
   - alias: 'telegramm_message_system_start'
     mode: 'queued'
@@ -45,7 +23,7 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_start_text') }}
+          Старт системы
 
   - alias: 'telegramm_message_system_backup'
     mode: 'queued'
@@ -58,7 +36,7 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_backup_error_text') }}
+          Ошибка резервного копирования
 
   - alias: 'telegramm_message_system_backup'
     mode: 'queued'
@@ -72,7 +50,7 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_backup_text') }}
+          Резервное копирование
 
   - alias: 'telegramm_message_power'
     mode: 'queued'
@@ -85,9 +63,9 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_power_text') }}
+          Проблемы с питанием
 
-  - alias: 'telegramm_messagee_update'
+  - alias: 'telegramm_messagee_system_update'
     mode: 'queued'
     trigger:
     - platform: state
@@ -99,6 +77,16 @@ telegramm_notifications:
     - platform: state
       entity_id: 'update.home_assistant_supervisor_update'
       to: 'on'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Доступно обновление системы
+
+  - alias: 'telegramm_messagee_plugin_update'
+    mode: 'queued'
+    trigger:
     - platform: state
       entity_id: 'update.tailscale_update'
       to: 'on'
@@ -120,6 +108,16 @@ telegramm_notifications:
     - platform: state
       entity_id: 'update.matter_server_update'
       to: 'on'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Доступно обновление расширений
+
+  - alias: 'telegramm_messagee_hacs_update'
+    mode: 'queued'
+    trigger:
     - platform: numeric_state
       entity_id: sensor.hacs
       above: 0
@@ -128,7 +126,7 @@ telegramm_notifications:
       data_template:
         message: |
           ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_system_update_text') }}
+          Доступно обновление HACS
 
   - alias: 'telegramm_message_balcony_door_open'
     mode: 'queued'
@@ -143,7 +141,7 @@ telegramm_notifications:
       data_template:
         message: |
           🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_door_open_text') }}
+          Дверь открыта
 
   - alias: 'telegramm_message_balcony_door_close'
     mode: 'queued'
@@ -157,7 +155,7 @@ telegramm_notifications:
       data_template:
         message: |
           🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_door_closed_text') }}
+          Дверь закрыта
 
   - alias: 'telegramm_message_hall_door_open'
     mode: 'queued'
@@ -199,7 +197,7 @@ telegramm_notifications:
       data_template:
         message: |
           🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_doorbell_inside') }}
+          Кто-то нажал кнопку звонка в кооидоре
 
   - alias: 'telegramm_message_doorbell_outside'
     mode: 'queued'
@@ -213,7 +211,7 @@ telegramm_notifications:
       data_template:
         message: |
           🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_doorbell_outside') }}
+          Кто-то нажал кнопку звонка у лифта
 
   - alias: 'telegramm_message_hygrostat_hall_empty'
     mode: 'queued'
