@@ -277,9 +277,19 @@ telegramm_notifications:
       data_template:
         message: |
           ✨ Зодиак ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Новый знак зодиака: {{ states('sensor.zodiac') }}
 
-          Пришло время нового знака.
-          Новый знак: {{ states('sensor.zodiac') }}
+  - alias: 'telegramm_message_season'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'sensor.season'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🌏 Время года ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Новый сезон: {{ states('sensor.season') }}
 
   - alias: 'telegramm_messagee_mold_kitchen'
     mode: 'queued'
