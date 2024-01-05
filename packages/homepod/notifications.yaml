@@ -1,16 +1,4 @@
 homepod_notification:
-  input_text:
-    homepod_doorbell_inside:
-      initial: 'Кто-то нажал кнопку звонка в кооидоре'
-    homepod_doorbell_outside:
-      initial: 'Кто-то нажал кнопку звонка у лифта'
-    homepod_hygrostat_hall_empty_text:
-      initial: 'Коридор. Закончилась вода в увлажнителе'
-    homepod_hygrostat_bedroom_empty_text:
-      initial: 'Спальня. Закончилась вода в увлажнителе'
-    homepod_hygrostat_living_empty_text:
-      initial: 'Гостиная. Закончилась вода в увлажнителе'
-
   automation:
 
   - alias: 'homepod_message_doorbell_inside'
@@ -23,7 +11,7 @@ homepod_notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "{{ states('input_text.homepod_doorbell_inside') }}"
+        message: 'Кто-то нажал кнопку звонка в кооидоре'
 
   - alias: 'homepod_message_doorbell_outside'
     mode: 'queued'
@@ -35,7 +23,7 @@ homepod_notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "{{ states('input_text.homepod_doorbell_outside') }}"
+        message: 'Кто-то нажал кнопку звонка у лифта'
 
   - alias: 'homepod_message_hygrostat_hall_empty'
     mode: 'queued'
@@ -47,7 +35,7 @@ homepod_notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "{{ states('input_text.homepod_hygrostat_hall_empty_text') }}"
+        message: 'Коридор. Закончилась вода в увлажнителе'
 
   - alias: 'homepod_message_hygrostat_bedroom_empty'
     mode: 'queued'
@@ -59,7 +47,7 @@ homepod_notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "{{ states('input_text.homepod_hygrostat_bedroom_empty_text') }}"
+        message: 'Спальня. Закончилась вода в увлажнителе'
 
   - alias: 'homepod_message_hygrostat_living_empty'
     mode: 'queued'
@@ -71,4 +59,4 @@ homepod_notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "{{ states('input_text.homepod_hygrostat_living_empty_text') }}"
+        message: 'Гостиная. Закончилась вода в увлажнителе'
