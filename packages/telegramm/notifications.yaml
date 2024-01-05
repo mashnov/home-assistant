@@ -291,6 +291,18 @@ telegramm_notifications:
           🌏 Время года ({{ now().timestamp() | timestamp_custom('%H:%M') }})
           Новый сезон: {{ states('sensor.season') }}
 
+  - alias: 'telegramm_message_moon_phase'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'sensor.moon_phase'
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🌖 Луна ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Новая фаза: {{ states('sensor.moon_phase') }}
+
   - alias: 'telegramm_messagee_mold_kitchen'
     mode: 'queued'
     trigger:
