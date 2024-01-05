@@ -280,3 +280,68 @@ telegramm_notifications:
 
           Пришло время нового знака.
           Новый знак: {{ states('sensor.zodiac') }}
+
+  - alias: 'telegramm_messagee_mold_kitchen'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_kitchen
+      above: 70
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🥣 Кухня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_kitchen') }} %
+
+  - alias: 'telegramm_messagee_mold_hall'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_hall
+      above: 70
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_hall') }} %
+
+  - alias: 'telegramm_messagee_mold_bath'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_bath
+      above: 70
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🛁 Ванная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_bath') }} %
+
+  - alias: 'telegramm_messagee_mold_bedroom'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_bedroom
+      above: 70
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_bedroom') }} %
+
+  - alias: 'telegramm_messagee_mold_living'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_living
+      above: 70
+    action:
+    - service: script.telegramm_send_text
+      data_template:
+        message: |
+          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_living') }} %

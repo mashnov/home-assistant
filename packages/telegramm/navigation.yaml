@@ -33,6 +33,7 @@ navigation_telegramm:
             
             🌡️ Температура: {{ states('sensor.temperature_kitchen') }} °C
             💧 Влажность: {{ states('sensor.humidity_kitchen') }} %
+            🦠 Плесень: {{ states('sensor.sensor.mold_kitchen') }} %
             
             {{ iif(is_state('binary_sensor.window_kitchen_left', 'on'), '🟠 Левое окно открыто', '🟢 Левое окно закрыто') }}
             {{ iif(is_state('binary_sensor.window_kitchen_right', 'on'), '🟠 Правое окно открыто', '🟢 Правое окно закрыто') }}
@@ -57,6 +58,7 @@ navigation_telegramm:
             
             🌡️ Температура: {{ states('sensor.temperature_hall') }} °C
             💧 Влажность: {{ states('sensor.humidity_hall') }} %
+            🦠 Плесень: {{ states('sensor.sensor.mold_hall') }} %
             
             {{ iif(is_state('binary_sensor.hygrostat_hall_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
             
@@ -80,6 +82,7 @@ navigation_telegramm:
 
             🌡️ Температура: {{ states('sensor.temperature_bath') }} °C
             💧 Влажность: {{ states('sensor.humidity_bath') }} %
+            🦠 Воздух: {{ states('sensor.sensor.mold_bath') }} %
 
             {{ iif(is_state('binary_sensor.occupancy_bath', 'on'), '🟠 Занято', '🟢 Свободно') }}
           data:
@@ -115,6 +118,7 @@ navigation_telegramm:
 
             🌡️ Температура: {{ states('sensor.temperature_bedroom') }} °C
             💧 Влажность: {{ states('sensor.humidity_bedroom') }} %
+            🦠 Плесень: {{ states('sensor.sensor.mold_bedroom') }} %
             
             {{ iif(is_state('binary_sensor.hygrostat_bedroom_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
             
@@ -139,6 +143,7 @@ navigation_telegramm:
 
             🌡️ Температура: {{ states('sensor.temperature_living') }} °C
             💧 Влажность: {{ states('sensor.humidity_living') }} %
+            🦠 Плесень: {{ states('sensor.sensor.mold_living') }} %
 
             {{ iif(is_state('binary_sensor.hygrostat_living_is_empty', 'on'), '🔴', '🟢') }} Вода в увлажнителе
             
@@ -165,7 +170,6 @@ navigation_telegramm:
             💧 Влажность: {{ states('sensor.humidity_balcony') }} %
             🌤️ Освещенность: {{ states('sensor.illuminance_balcony') }} lux
             
-            💨 Индекс качества воздуха: {{ states('sensor.teppanala_imatra_finland_air_quality_index') }}
             💨 Количество частиц PM10: {{ states('sensor.teppanala_imatra_finland_pm10') }}
             💨 Количество частиц PM2.5: {{ states('sensor.teppanala_imatra_finland_pm2_5') }}
 
