@@ -1,0 +1,7 @@
+mold_kitchen:
+  sensor:
+  - platform: mold_kitchen
+    indoor_temp_sensor: sensor.temperature_kitchen
+    indoor_humidity_sensor: sensor.humidity_kitchen
+    outdoor_temp_sensor: sensor.temperature_balcony
+    calibration_factor: 1.1
