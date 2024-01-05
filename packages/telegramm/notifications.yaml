@@ -292,7 +292,7 @@ telegramm_notifications:
       data_template:
         message: |
           🥣 Кухня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_kitchen') }} %
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.mold_kitchen') }} %
 
   - alias: 'telegramm_messagee_mold_hall'
     mode: 'queued'
@@ -305,7 +305,7 @@ telegramm_notifications:
       data_template:
         message: |
           🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_hall') }} %
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.mold_hall') }} %
 
   - alias: 'telegramm_messagee_mold_bath'
     mode: 'queued'
@@ -318,7 +318,7 @@ telegramm_notifications:
       data_template:
         message: |
           🛁 Ванная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_bath') }} %
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.mold_bath') }} %
 
   - alias: 'telegramm_messagee_mold_bedroom'
     mode: 'queued'
@@ -331,7 +331,7 @@ telegramm_notifications:
       data_template:
         message: |
           🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_bedroom') }} %
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.mold_bedroom') }} %
 
   - alias: 'telegramm_messagee_mold_living'
     mode: 'queued'
@@ -344,4 +344,4 @@ telegramm_notifications:
       data_template:
         message: |
           🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. Риск возникновения плесени {{ states('sensor.sensor.mold_living') }} %
+          Требуется проветривание. Риск возникновения плесени {{ states('sensor.mold_living') }} %
