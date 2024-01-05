@@ -1,6 +1,7 @@
 mold_bath:
   sensor:
-  - platform: mold_bath
+  - platform: mold_indicator
+    name: mold_bath
     indoor_temp_sensor: sensor.temperature_bath
     indoor_humidity_sensor: sensor.humidity_bath
     outdoor_temp_sensor: sensor.temperature_balcony

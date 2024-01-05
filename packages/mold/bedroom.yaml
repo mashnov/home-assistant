@@ -1,6 +1,7 @@
 mold_bedroom:
   sensor:
-  - platform: mold_bedroom
+  - platform: mold_indicator
+    name: mold_bedroom
     indoor_temp_sensor: sensor.temperature_bedroom
     indoor_humidity_sensor: sensor.humidity_bedroom
     outdoor_temp_sensor: sensor.temperature_balcony
