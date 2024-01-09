@@ -169,7 +169,7 @@ telegramm_notifications:
       data_template:
         message: |
           🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_door_open_text') }}
+          Дверь открыта
 
   - alias: 'telegramm_message_hall_door_close'
     mode: 'queued'
@@ -183,7 +183,7 @@ telegramm_notifications:
       data_template:
         message: |
           🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          {{ states('input_text.telegramm_door_closed_text') }}
+          Дверь закрта
 
   - alias: 'telegramm_message_doorbell_inside'
     mode: 'queued'
