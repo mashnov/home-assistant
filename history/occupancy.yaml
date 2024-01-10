@@ -1,0 +1,6 @@
+- binary_sensor.occupancy_kitchen
+- binary_sensor.occupancy_bath
+- binary_sensor.occupancy_toilet
+- binary_sensor.occupancy_hall
+- binary_sensor.occupancy_bedroom
+- binary_sensor.occupancy_living
