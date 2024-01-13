@@ -1,0 +1,29 @@
+switch_kitchen:
+  switch:
+  - platform: template
+    switches:
+      switch_kitchen:
+        value_template: >
+          {% set left = is_state('switch.switch_kitchen_left', 'on') %}
+          {% set right = is_state('switch.switch_kitchen_right', 'on') %}    
+          {{ left and right }}
+        turn_on:
+        - service: script.switch_kitchen_turn_on
+        turn_off:
+        - service: script.switch_kitchen_turn_off
+
+  script:
+    switch_kitchen_turn_on:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_on
+        entity_id: 
+        - switch.switch_kitchen_left 
+        - switch.switch_kitchen_right
+    switch_kitchen_turn_off:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_off
+        entity_id: 
+        - switch.switch_kitchen_left 
+        - switch.switch_kitchen_right
