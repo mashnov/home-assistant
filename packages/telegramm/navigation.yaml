@@ -307,7 +307,7 @@ navigation_telegramm:
     action:
     - service: script.navigation_telegramm_toilet
 
-  - alias: navigation_telegramm_bedroom'
+  - alias: navigation_telegramm_bedroom
     mode: 'queued'
     trigger:
     - platform: event
@@ -361,7 +361,7 @@ navigation_telegramm:
     action:
     - service: script.navigation_telegramm_balcony
 
-  - alias: navigation_telegramm_system'
+  - alias: navigation_telegramm_system
     mode: 'queued'
     trigger:
     - platform: event

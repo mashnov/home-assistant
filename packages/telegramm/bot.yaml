@@ -43,7 +43,7 @@ telegramm_bot:
             - 'Удалить :/hide_menu'
 
   automation:
-  - alias: telegramm_remove_callback'
+  - alias: telegramm_remove_callback
     mode: 'queued'
     trigger:
     - platform: event
