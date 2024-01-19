@@ -1,3 +1,4 @@
+- sensor.humidity_average
 - sensor.humidity_kitchen
 - sensor.humidity_bath
 - sensor.humidity_hall

@@ -1,3 +1,4 @@
+- sensor.temperature_average
 - sensor.temperature_kitchen
 - sensor.temperature_bath
 - sensor.temperature_hall
