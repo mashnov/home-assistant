@@ -1,0 +1,6 @@
+- sensor.openweathermap_cloud_coverage
+- sensor.openweathermap_wind_speed
+- sensor.openweathermap_rain
+- sensor.openweathermap_snow
+- sensor.teppanala_imatra_finland_pm10
+- sensor.teppanala_imatra_finland_pm2_5
