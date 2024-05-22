@@ -269,42 +269,6 @@ telegramm_notifications:
           Температура: {{ states('sensor.temperature_living') }} °C
           Влажность: {{ states('sensor.humidity_living') }} %
 
-  - alias: 'telegramm_message_zodiak'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'sensor.zodiac'
-    action:
-    - service: script.telegramm_send_text
-      data_template:
-        message: |
-          ✨ Зодиак ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Новый знак зодиака: {{ states('sensor.zodiac') }}
-
-  - alias: 'telegramm_message_season'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'sensor.season'
-    action:
-    - service: script.telegramm_send_text
-      data_template:
-        message: |
-          🌏 Время года ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Новый сезон: {{ states('sensor.season') }}
-
-  - alias: 'telegramm_message_moon_phase'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'sensor.moon_phase'
-    action:
-    - service: script.telegramm_send_text
-      data_template:
-        message: |
-          🌕 Луна ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Новая фаза: {{ states('sensor.moon_phase') }}
-
   - alias: 'telegramm_messagee_mold_kitchen'
     mode: 'queued'
     trigger:
