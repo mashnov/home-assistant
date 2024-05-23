@@ -21,7 +21,8 @@ doorbell_hall:
   automation:
 
 
-  - alias: 'doorbell_hall_inside_on__TEST'
+  - alias: 'doorbell_hall_inside_on'
+    mode: 'queued'
     trigger:
     - platform: state
       entity_id: event.doorbell_inside_action
@@ -50,14 +51,7 @@ doorbell_hall:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: sensor.doorbell_outside_action
-      to: 'single'
-    - platform: state
-      entity_id: sensor.doorbell_outside_action
-      to: 'double'
-    - platform: state
-      entity_id: sensor.doorbell_outside_action
-      to: 'hold'
+      entity_id: event.doorbell_outside_action
     condition:
     - condition: state
       entity_id: input_boolean.doorbell_hall_outside
