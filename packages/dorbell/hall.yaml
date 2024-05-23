@@ -11,16 +11,15 @@ doorbell_hall:
 
   template:
   - binary_sensor:
-    - name: 'doorbell_hall'
+    - name: 'doorbell_hall_inside'
       device_class: 'sound'
-      state: >
-        {% set inside = is_state('input_boolean.doorbell_hall', 'on') %}
-        {% set outside = is_state('input_boolean.doorbell_hall', 'on') %}
-        {{ inside or outside }}
+      state: '{{ is_state("input_boolean.doorbell_hall_inside", "on") }}'
+
+    - name: 'doorbell_hall_outside'
+      device_class: 'sound'
+      state: '{{ is_state("input_boolean.doorbell_hall_outside", "on") }}'
 
   automation:
-
-
   - alias: 'doorbell_hall_inside_on'
     mode: 'queued'
     trigger:
