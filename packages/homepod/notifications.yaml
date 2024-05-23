@@ -1,30 +1,6 @@
 homepod_notification:
   automation:
 
-  - alias: 'homepod_message_doorbell_inside'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'binary_sensor.doorbell_hall_inside'
-      from: 'on'
-      to: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: 'Кто-то нажал кнопку звонка в кооидоре'
-
-  - alias: 'homepod_message_doorbell_outside'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'binary_sensor.doorbell_hall_outside'
-      from: 'on'
-      to: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: 'Кто-то нажал кнопку звонка у лифта'
-
   - alias: 'homepod_message_hygrostat_hall_empty'
     mode: 'queued'
     trigger:
