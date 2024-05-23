@@ -2,8 +2,7 @@ ventilation_bedroom:
   template:
   - binary_sensor:
     - name: 'ventilation_bedroom'
-      delay_on: '00:00:10'
-      delay_off: '00:00:10'
+      delay_on: '00:00:05'
       state: >
         {% set left = is_state('binary_sensor.window_bedroom_left', 'on') %}
         {% set right = is_state('binary_sensor.window_bedroom_right', 'on') %}
