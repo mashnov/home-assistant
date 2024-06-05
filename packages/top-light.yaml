@@ -150,6 +150,10 @@ top_light:
       platform: state
       entity_id: 'input_boolean.occupancy_bath'
       to: 'off'
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_bath_blocker'
+      to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.top_light_bath_blocker'
@@ -215,6 +219,10 @@ top_light:
       platform: state
       entity_id: 'input_boolean.occupancy_hall'
       to: 'off'
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_hall_blocker'
+      to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.top_light_hall_blocker'

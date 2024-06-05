@@ -121,6 +121,10 @@ night_light:
       platform: state
       entity_id: 'input_boolean.occupancy_bath'
       to: 'off'
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.night_light_bath_blocker'
+      to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.night_light_bath_blocker'
