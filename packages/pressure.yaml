@@ -1,6 +1,6 @@
 pressure:
   sensor:
-  - platform: min_max
+  - platform: s
     name: pressure_average
     type: mean
     round_digits: 0
@@ -14,18 +14,23 @@ pressure:
   template:
   - sensor:
     - name: 'pressure_kitchen_virtual'
+      unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_kitchen') | float(0) }}"
 
     - name: 'pressure_bath_virtual'
+      unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_bath') | float(0) }}"
 
     - name: 'pressure_hall_virtual'
+      unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_hall') | float(0) }}"
 
     - name: 'pressure_bedroom_virtual'
+      unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_bedroom') | float(0) }}"
 
     - name: 'pressure_living_virtual'
+      unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_living') | float(0) }}"
 
     - name: 'pressure_homekit'
