@@ -3,6 +3,7 @@ ventilation:
   - binary_sensor:
     - name: 'is_ventilation_kitchen'
       delay_on: '00:00:05'
+      delay_off: '00:00:05'
       state: >
         {% set left = is_state('binary_sensor.window_kitchen_left', 'on') %}
         {% set right = is_state('binary_sensor.window_kitchen_right', 'on') %}
@@ -10,6 +11,7 @@ ventilation:
     
     - name: 'is_ventilation_bedroom'
       delay_on: '00:00:05'
+      delay_off: '00:00:05'
       state: >
         {% set left = is_state('binary_sensor.window_bedroom_left', 'on') %}
         {% set right = is_state('binary_sensor.window_bedroom_right', 'on') %}
@@ -17,4 +19,5 @@ ventilation:
     
     - name: 'is_ventilation_living'
       delay_on: '00:00:05'
+      delay_off: '00:00:05'
       state: "{{ is_state('binary_sensor.window_living', 'on') }}"
