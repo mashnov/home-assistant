@@ -31,10 +31,11 @@ blocker:
       entity_id: sensor.switch_restroom_action
       to: 'single_right'
     action:
-    - service: input_boolean.toggle
-      entity_id: 
-      - input_boolean.top_light_bath_blocker
-      - input_boolean.night_light_bath_blocker
+    - parallel:
+      - service: input_boolean.toggle
+        entity_id: input_boolean.top_light_bath_blocker
+      - service: input_boolean.toggle
+        entity_id: input_boolean.night_light_bath_blocker
 
   - alias: 'blocker_top_light_bath_button'
     mode: 'queued'
