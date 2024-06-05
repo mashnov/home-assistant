@@ -25,6 +25,30 @@ notification:
       data_template:
         message: "Кто-то нажал кнопку звонка у лифта"
 
+  - alias: 'notification_home_homepod_night_mode_on'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Ночной режим включен. Спокойной ночи."
+
+  - alias: 'notification_home_homepod_night_mode_off'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Ночной режим выключен. Доброе утро!"
+
 ###
 ## HOME TELEGRAMM
 ###
@@ -52,6 +76,34 @@ notification:
         message: |
           🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
           Кто-то нажал кнопку звонка у лифта
+
+  - alias: 'notification_home_telegramm_night_mode_on'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Ночной режим включен. Спокойной ночи.
+
+  - alias: 'notification_home_telegramm_night_mode_off'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Ночной режим выключен.
 
 ###
 ## CLIMAT HOMEPOD
