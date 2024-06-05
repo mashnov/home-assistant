@@ -48,10 +48,12 @@ curtain:
     - id: 'close'
       platform: state
       entity_id: 'binary_sensor.kitchen_curtain_close' 
+      from: 'off'
       to: 'on'
     - id: 'open'
       platform: state
       entity_id: 'binary_sensor.kitchen_curtain_close' 
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -78,10 +80,12 @@ curtain:
     - id: 'close'
       platform: state
       entity_id: 'input_boolean.is_night_mode' 
+      from: 'off'
       to: 'on'
     - id: 'open'
       platform: state
       entity_id: 'input_boolean.is_night_mode' 
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -108,10 +112,12 @@ curtain:
     - id: 'close'
       platform: state
       entity_id: 'binary_sensor.living_curtain_close' 
+      from: 'off'
       to: 'on'
     - id: 'open'
       platform: state
       entity_id: 'binary_sensor.living_curtain_close' 
+      from: 'on'
       to: 'off'
     action:
     - choose:

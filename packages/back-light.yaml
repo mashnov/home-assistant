@@ -79,18 +79,22 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.occupancy_kitchen'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.occupancy_kitchen'
+      from: 'on'
       to: 'off'
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.back_light_kitchen_blocker'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.back_light_kitchen_blocker'
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -119,10 +123,12 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
       to: 'off'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
       to: 'on'
     action:
     - choose:
@@ -145,18 +151,22 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'binary_sensor.bedroom_back_ligh_is_dark'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'binary_sensor.bedroom_back_ligh_is_dark'
+      from: 'on'
       to: 'off'
     - id: 'turn_on'
       platform: state
       entity_id: input_boolean.is_night_mode
+      from: 'on'
       to: 'off'
     - id: 'turn_off'
       platform: state
       entity_id: input_boolean.is_night_mode
+      from: 'off'
       to: 'on'
     action:
     - choose:
@@ -185,18 +195,22 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'binary_sensor.living_back_lighis_dark'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'binary_sensor.living_back_lighis_dark'
+      from: 'on'
       to: 'off'
     - id: 'turn_on'
       platform: state
       entity_id: input_boolean.is_night_mode
+      from: 'on'
       to: 'off'
     - id: 'turn_off'
       platform: state
       entity_id: input_boolean.is_night_mode
+      from: 'off'
       to: 'on'
     action:
     - choose:
@@ -225,10 +239,12 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.back_light_balcony_blocker'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.back_light_balcony_blocker'
+      from: 'on'
       to: 'off'
     action:
     - choose:

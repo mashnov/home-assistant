@@ -405,6 +405,7 @@ notification:
     trigger:
     - platform: state
       entity_id: 'binary_sensor.rpi_power_status'
+      from: 'off'
       to: 'on'
       for:
         seconds: 5
@@ -420,12 +421,15 @@ notification:
     trigger:
     - platform: state
       entity_id: 'update.home_assistant_core_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.home_assistant_operating_system_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.home_assistant_supervisor_update'
+      from: 'off'
       to: 'on'
     action:
     - service: script.telegramm_send_system_text
@@ -439,21 +443,27 @@ notification:
     trigger:
     - platform: state
       entity_id: 'update.tailscale_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.zigbee2mqtt_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.mosquitto_broker_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.home_assistant_google_drive_backup_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.file_editor_update'
+      from: 'off'
       to: 'on'
     - platform: state
       entity_id: 'update.terminal_ssh_update'
+      from: 'off'
       to: 'on'
     action:
     - service: script.telegramm_send_system_text

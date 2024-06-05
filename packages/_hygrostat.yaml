@@ -78,10 +78,12 @@ hygrostat:
     - id: 'humidifier_hall_on'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_kitchen'
+      from: 'on'
       to: 'off'
     - id: 'humidifier_hall_off'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_kitchen'
+      from: 'off'
       to: 'on'
     action:
     - choose:
@@ -104,18 +106,22 @@ hygrostat:
     - id: 'humidifier_bedroom_on'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_bedroom'
+      from: 'on'
       to: 'off'
     - id: 'humidifier_bedroom_on'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
       to: 'off'
     - id: 'humidifier_bedroom_off'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_bedroom'
+      from: 'off'
       to: 'on'
     - id: 'humidifier_bedroom_off'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
       to: 'on'
     action:
     - choose:
@@ -141,10 +147,12 @@ hygrostat:
     - id: 'humidifier_living_on'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_living'
+      from: 'on'
       to: 'off'
     - id: 'humidifier_living_off'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_living'
+      from: 'off'
       to: 'on'
     action:
     - choose:

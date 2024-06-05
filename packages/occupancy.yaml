@@ -77,10 +77,12 @@ occupancy:
     - id: 'occupancy_on'
       platform: state
       entity_id: 'binary_sensor.motion_kitchen'
+      from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_kitchen'
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -119,10 +121,12 @@ occupancy:
     - id: 'occupancy_on'
       platform: state
       entity_id: 'binary_sensor.motion_bath'
+      from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_bath'
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -161,10 +165,12 @@ occupancy:
     - id: 'occupancy_on'
       platform: state
       entity_id: 'binary_sensor.motion_hall'
+      from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_hall'
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -203,10 +209,12 @@ occupancy:
     - id: 'door_open'
       platform: state
       entity_id: binary_sensor.door_toilet
+      from: 'off'
       to: 'on'
     - id: 'door_close'
       platform: state
       entity_id: binary_sensor.door_toilet
+      from: 'on'
       to: 'off'
     action:
     - choose:

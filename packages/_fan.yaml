@@ -46,9 +46,11 @@ fan:
       - conditions:
         - condition: state
           entity_id: input_boolean.occupancy_toilet
+          from: 'off'
           state: 'on'
         - condition: state
           entity_id: fan.fan_toilet
+          from: 'on'
           state: 'off'
         sequence:
         - parallel:
@@ -82,10 +84,12 @@ fan:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.fan_toilet_blocker'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.fan_toilet_blocker'
+      from: 'on'
       to: 'off'
     action:
     - choose:

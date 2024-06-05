@@ -31,11 +31,13 @@ night_mode:
     - id: 'night_mode_on'
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
+      from: 'off'
       to: 'on'
     - id: 'night_mode_off'
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
-      to: 'off'    
+      from: 'on'
+      to: 'off'
     - id: 'night_mode_toggle'
       platform: state
       entity_id: sensor.switch_bedroom_action

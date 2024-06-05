@@ -6,10 +6,12 @@ outlet:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      from: 'on'
       to: 'off'
     action:
     - choose:
@@ -32,10 +34,12 @@ outlet:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      from: 'on'
       to: 'off'
     action:
     - choose:
