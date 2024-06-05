@@ -4,10 +4,6 @@ top_light:
     lights:
       top_light_kitchen:
         value_template: "{{ is_state('light.xiaomi_light_kitchen', 'on') }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_kitchen', 'brightness') | int(0) }}"
-        level_template: "{{ state_attr('light.xiaomi_light_kitchen', 'color_temp') | int(175) }}"
-        max_mireds_template: "175"
-        min_mireds_template: "333"
         turn_on:
         - service: script.top_light_kitchen_turn_on
         turn_off:
@@ -34,10 +30,6 @@ top_light:
 
       top_light_hall:
         value_template: "{{ is_state('light.xiaomi_light_hall', 'on') }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_hall', 'brightness') | int(0) }}"
-        level_template: "{{ state_attr('light.xiaomi_light_hall', 'color_temp') | int(175) }}"
-        max_mireds_template: "175"
-        min_mireds_template: "333"
         turn_on:
         - service: script.top_light_hall_turn_on
         turn_off:
@@ -46,10 +38,6 @@ top_light:
 
       top_light_bedroom:
         value_template: "{{ is_state('light.xiaomi_light_bedroom', 'on') }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_bedroom', 'brightness') | int(0) }}"
-        level_template: "{{ state_attr('light.xiaomi_light_bedroom', 'color_temp') | int(175) }}"
-        max_mireds_template: "175"
-        min_mireds_template: "333"
         turn_on:
         - service: script.top_light_bedroom_turn_on
         turn_off:
@@ -58,10 +46,6 @@ top_light:
 
       top_light_living:
         value_template: "{{ is_state('light.xiaomi_light_living', 'on') }}"
-        temperature_template: "{{ state_attr('light.xiaomi_light_living', 'brightness') | int(0) }}"
-        level_template: "{{ state_attr('light.xiaomi_light_living', 'color_temp') | int(175) }}"
-        max_mireds_template: "175"
-        min_mireds_template: "333"
         turn_on:
         - service: script.top_light_living_turn_on
         turn_off:
