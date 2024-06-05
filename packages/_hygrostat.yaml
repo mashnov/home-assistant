@@ -32,7 +32,7 @@ hygrostat:
       max: 60
       min: 0
     
-    hygrostat_living_power_offset: # 12
+    hygrostat_living_power_offset: # 10
       max: 60
       min: 0
 

@@ -16,7 +16,7 @@ fan:
       duration: '00:00:10'
 
   input_number:
-    fan_toilet_night: # 00:00:10
+    fan_toilet_night: # 00:00:50
       max: 120
       min: 5
     
