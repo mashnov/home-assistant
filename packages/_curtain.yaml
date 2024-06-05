@@ -1,0 +1,133 @@
+### 
+# SET INPUT_NUMBER
+### 
+curtain:
+  input_number:
+    curtain_kitchen_open: # 100
+      max: 100
+      min: 0
+    
+    curtain_kitchen_sun: # 60
+      max: 100
+      min: 0
+    
+    curtain_bedroom_open: # 10
+      max: 100
+      min: 0
+    
+    curtain_bedroom_night: # 50
+      max: 100
+      min: 0
+    
+    curtain_living_open: # 10
+      max: 100
+      min: 0
+    
+    curtain_living_sun: # 50
+      max: 100
+      min: 0
+
+  template:
+  - binary_sensor:
+    - name: 'kitchen_curtain_close'
+      state: >
+        {% set sunny = is_state('binary_sensor.kitchen_is_sunny', 'on') %}
+        {% set dark = is_state('binary_sensor.kitchen_curtain_is_dark', 'on') %}
+        {{ sunny and not(dark) }}
+
+    - name: 'living_curtain_close'
+      state: >
+        {% set sunny = is_state('binary_sensor.living_is_sunny', 'on') %}
+        {% set dark = is_state('binary_sensor.living_curtain_is_dark', 'on') %}
+        {{ sunny and not(dark) }}
+
+  automation:
+  - alias: 'curtain_kitchen'
+    mode: 'queued'
+    trigger:
+    - id: 'close'
+      platform: state
+      entity_id: 'binary_sensor.kitchen_curtain_close' 
+      to: 'on'
+    - id: 'open'
+      platform: state
+      entity_id: 'binary_sensor.kitchen_curtain_close' 
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_kitchen_sun') | int(0) }}"
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
+
+  - alias: 'curtain_bedroom'
+    mode: 'queued'
+    trigger:
+    - id: 'close'
+      platform: state
+      entity_id: 'input_boolean.is_night_mode' 
+      to: 'on'
+    - id: 'open'
+      platform: state
+      entity_id: 'input_boolean.is_night_mode' 
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_bedroom_night') | int(0) }}"
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
+
+  - alias: 'curtain_living'
+    mode: 'queued'
+    trigger:
+    - id: 'close'
+      platform: state
+      entity_id: 'binary_sensor.living_curtain_close' 
+      to: 'on'
+    - id: 'open'
+      platform: state
+      entity_id: 'binary_sensor.living_curtain_close' 
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_living_open') | int(0) }}"
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.shade_kitchen
+          data_template:
+            position: "{{ states('input_number.curtain_living_sun') | int(0) }}"

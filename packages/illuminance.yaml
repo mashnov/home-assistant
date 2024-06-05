@@ -1,0 +1,55 @@
+illuminance:
+  input_number:
+    min_illuminance_kitchen_curtain: # 3000
+      max: 8000
+      min: 1
+    
+    min_illuminance_bedroom_back_ligh: # 3000
+      max: 8000
+      min: 1
+    
+    min_illuminance_living_back_ligh: # 3000
+      max: 8000
+      min: 1
+    
+    min_illuminance_living_curtain: # 3000
+      max: 8000
+      min: 1
+
+  sensor:
+  - name: illuminance_max
+    platform: statistics
+    entity_id: sensor.illuminance_balcony
+    state_characteristic: value_max
+    max_age:
+      hours: 24 
+
+  template:
+  - binary_sensor:    
+    - name: 'kitchen_curtain_is_dark'
+      delay_off: '00:00:15'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set minValue = states('input_number.min_illuminance_kitchen_curtain') | int(0) %}
+        {{ sensor < minValue }}
+    
+    - name: 'bedroom_back_ligh_is_dark'
+      delay_off: '00:00:15'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set minValue = states('input_number.min_illuminance_bedroom_back_ligh') | int(0) %}
+        {{ sensor < minValue }}
+    
+    - name: 'living_back_lighis_dark'
+      delay_off: '00:00:15'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set minValue = states('input_number.min_illuminance_living_back_ligh') | int(0) %}
+        {{ sensor < minValue }}
+    
+    - name: 'living_curtain_is_dark'
+      delay_off: '00:00:15'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set minValue = states('input_number.min_illuminance_living_curtain') | int(0) %}
+        {{ sensor < minValue }}

@@ -1,0 +1,53 @@
+outlet:
+  automation:
+  - alias: 'outlet_balcony_sprinkler'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: switch.turn_on
+          entity_id: switch.relay_balcony_l3
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: switch.turn_off
+          entity_id: switch.relay_balcony_l3
+
+  - alias: 'outlet_balcony_socket'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: switch.turn_on
+          entity_id: switch.relay_balcony_l4
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: switch.turn_off
+          entity_id: switch.relay_balcony_l4

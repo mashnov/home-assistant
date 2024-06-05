@@ -1,0 +1,285 @@
+top_light:
+  light:
+  - platform: template
+    lights:
+      top_light_kitchen:
+        value_template: "{{ is_state('light.xiaomi_light_kitchen_1', 'on') }}"
+        turn_on:
+        - service: script.top_light_kitchen_turn_on
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_kitchen
+
+      top_light_bath:
+        value_template: "{{ is_state('switch.switch_restroom_right', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          entity_id: switch.switch_restroom_right
+        turn_off:
+        - service: switch.turn_off
+          entity_id: switch.switch_restroom_right
+
+      top_light_toilet:
+        value_template: "{{ is_state('switch.switch_restroom_left', 'on') }}"
+        turn_on:
+        - service: switch.turn_on
+          entity_id: switch.switch_restroom_left
+        turn_off:
+        - service: switch.turn_off
+          entity_id: switch.switch_restroom_left
+
+      top_light_hall:
+        value_template: "{{ is_state('light.xiaomi_light_hall_1', 'on') }}"
+        turn_on:
+        - service: script.top_light_hall_turn_on
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_hall
+
+      top_light_bedroom:
+        value_template: "{{ is_state('light.xiaomi_light_bedroom_1', 'on') }}"
+        turn_on:
+        - service: script.top_light_bedroom_turn_on
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_bedroom
+
+      top_light_living:
+        value_template: "{{ is_state('light.xiaomi_light_living_1', 'on') }}"
+        turn_on:
+        - service: script.top_light_living_turn_on
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_living
+
+  script:
+    top_light_kitchen_turn_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          entity_id: switch.switch_kitchen_left
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_kitchen_left
+        else:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_kitchen
+
+    top_light_hall_turn_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          entity_id: switch.switch_hall
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_hall
+        else:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_hall
+
+    top_light_bedroom_turn_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          entity_id: switch.switch_bedroom
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_bedroom
+        else:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_bedroom
+
+    top_light_living_turn_on:
+      mode: 'queued'
+      sequence:
+      - if:
+        - condition: state
+          entity_id: switch.switch_living
+          state: 'off'
+        then:
+        - service: switch.turn_on
+          entity_id: switch.switch_living
+        else:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_living
+
+  automation:
+  - alias: 'top_light_kitchen'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_kitchen
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_kitchen
+
+  - alias: 'top_light_bath'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.occupancy_bath'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.occupancy_bath'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_bath
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        - condition: state
+          entity_id: input_boolean.top_light_bath_blocker
+          state: 'off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_bath
+
+  - alias: 'top_light_toilet'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.occupancy_toilet'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.occupancy_toilet'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_toilet
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_toilet
+
+  - alias: 'top_light_hall'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.occupancy_hall'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.occupancy_hall'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_hall
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        - condition: state
+          entity_id: input_boolean.top_light_hall_blocker
+          state: 'off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_hall
+
+  - alias: 'top_light_bedroom'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_bedroom
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_bedroom
+
+  - alias: 'top_light_living'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_living_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.top_light_living_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_living
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_living

@@ -1,0 +1,60 @@
+night_mode:
+  input_datetime:
+    night_mode_on_time: # 01:30:00
+      has_date: false
+      has_time: true
+    
+    night_mode_off_time: # 11:30:00
+      has_date: false
+      has_time: true
+
+  input_boolean:
+    is_night_mode:
+
+  template:
+  - binary_sensor:    
+    - name: 'is_night_mode'
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.night_mode_on_time'), "%H:%M:%S").time() %}
+        {% set till = strptime(states('input_datetime.night_mode_off_time'), "%H:%M:%S").time() %}
+        {% if from > till %}
+          {{ (from <= current) or (current <= till) }}
+        {% else %}
+          {{ (from <= current) and (current <= till) }}
+        {% endif %}
+
+  automation:
+  - alias: 'night_mode'
+    mode: 'queued'
+    trigger:
+    - id: 'night_mode_on'
+      platform: state
+      entity_id: 'binary_sensor.is_night_mode'
+      to: 'on'
+    - id: 'night_mode_on'
+      platform: state
+      entity_id: 'input_boolean.night_mode_blocker'
+      to: 'on'
+    - id: 'night_mode_off'
+      platform: state
+      entity_id: 'binary_sensor.is_night_mode'
+      to: 'off'
+    - id: 'night_mode_off'
+      platform: state
+      entity_id: 'input_boolean.night_mode_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'night_mode_on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.is_night_mode
+      - conditions:
+        - condition: trigger
+          id: 'night_mode_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.is_night_mode

@@ -1,0 +1,34 @@
+pressure:
+  sensor:
+  - platform: min_max
+    name: pressure_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.pressure_kitchen_virtual
+    - sensor.pressure_bath_virtual
+    - sensor.pressure_hall_virtual
+    - sensor.pressure_bedroom_virtual
+    - sensor.pressure_living_virtual
+
+  template:
+  - sensor:
+    - name: 'pressure_kitchen_virtual'
+      state: "{{ states('sensor.pressure_kitchen') | float(0) }}"
+
+    - name: 'pressure_bath_virtual'
+      state: "{{ states('sensor.pressure_bath') | float(0) }}"
+
+    - name: 'pressure_hall_virtual'
+      state: "{{ states('sensor.pressure_hall') | float(0) }}"
+
+    - name: 'pressure_bedroom_virtual'
+      state: "{{ states('sensor.pressure_bedroom') | float(0) }}"
+
+    - name: 'pressure_living_virtual'
+      state: "{{ states('sensor.pressure_living') | float(0) }}"
+
+    - name: 'pressure_homekit'
+      device_class: illuminance
+      unit_of_measurement: "lx"
+      state: '{{ states("sensor.pressure_average") | int(0) }}'

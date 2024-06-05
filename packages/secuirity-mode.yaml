@@ -1,0 +1,31 @@
+secuirity_mode:
+  input_boolean:
+    secuirity_mode:
+
+automation:
+  - alias: 'secuirity_mode'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.secuirity_mode_blocker'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.secuirity_mode_blocker'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.secuirity_mode
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.secuirity_mode
+

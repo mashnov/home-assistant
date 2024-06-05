@@ -1,0 +1,35 @@
+switch:
+  switch:
+  - platform: template
+    switches:
+      switch_bedroom:
+        value_template: >
+          {% set left = is_state('switch.switch_bedroom_left', 'on') %}
+          {% set right = is_state('switch.switch_bedroom_right', 'on') %}    
+          {{ left and right }}
+        turn_on:
+        - service: switch.turn_on
+          entity_id: 
+          - switch.switch_bedroom_left 
+          - switch.switch_bedroom_right
+        turn_off:
+        - service: switch.turn_off
+          entity_id: 
+          - switch.switch_bedroom_left 
+          - switch.switch_bedroom_right
+
+      switch_living:
+        value_template: >
+          {% set left = is_state('switch.switch_living_left', 'on') %}
+          {% set right = is_state('switch.switch_living_right', 'on') %}    
+          {{ left and right }}
+        turn_on:
+        - service: switch.turn_on
+          entity_id: 
+          - switch.switch_living_left 
+          - switch.switch_living_right
+        turn_off:
+        - service: switch.turn_off
+          entity_id: 
+          - switch.switch_living_left 
+          - switch.switch_living_right

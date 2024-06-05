@@ -1,0 +1,509 @@
+notification:
+  automation:
+
+###
+## HOME HOMEPOD
+###
+
+  - alias: 'notification_home_homepod_doorbell_inside'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: event.doorbell_inside_action
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Кто-то нажал кнопку звонка в кооидоре"
+
+  - alias: 'notification_home_homepod_doorbell_outside'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: event.doorbell_outside_action
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Кто-то нажал кнопку звонка у лифта"
+
+###
+## HOME TELEGRAMM
+###
+
+  - alias: 'notification_home_telegramm_doorbell_inside'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: event.doorbell_inside_action
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Кто-то нажал кнопку звонка в кооидоре
+
+  - alias: 'notification_home_telegramm_doorbell_outside'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: event.doorbell_outside_action
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Кто-то нажал кнопку звонка у лифта
+
+###
+## CLIMAT HOMEPOD
+###
+
+  - alias: 'notification_climat_homepod_hygrostat_empty_hall'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_hall_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Коридор. Закончилась вода в увлажнителе"
+
+  - alias: 'notification_climat_homepod_hygrostat_empty_bedroom'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_bedroom_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Спальня. Закончилась вода в увлажнителе"
+
+  - alias: 'notification_climat_homepod_hygrostat_empty_living'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_living_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Гостиная. Закончилась вода в увлажнителе"
+
+  - alias: 'notification_climat_homepod_mold_kitchen'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_kitchen
+      above: 70
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Кухня. Требуется проветривание."
+
+  - alias: 'notification_climat_homepod_mold_hall'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_hall
+      above: 70
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Коридор. Требуется проветривание."
+
+  - alias: 'notification_climat_homepod_mold_bedroom'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_bedroom
+      above: 70
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Спальня. Требуется проветривание."
+
+  - alias: 'notification_climat_homepod_mold_living'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_living
+      above: 70
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.is_night_mode
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Гостиная. Требуется проветривание."
+
+###
+## CLIMAT TELEGRAMM
+###
+
+  - alias: 'notification_climat_telegrammhygrostat_empty_hall'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_hall_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+              
+          Закончилась вода в увлажнителе
+
+          Температура: {{ states('sensor.temperature_hall') }} °C
+          Влажность: {{ states('sensor.humidity_hall') }} %
+
+  - alias: 'notification_climat_telegrammhygrostat_empty_bedroom'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_bedroom_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+
+          Закончилась вода в увлажнителе
+
+          Температура: {{ states('sensor.temperature_bedroom') }} °C
+          Влажность: {{ states('sensor.humidity_bedroom') }} %
+
+  - alias: 'notification_climat_telegrammhygrostat_empty_living'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.hygrostat_living_is_empty'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+
+          Закончилась вода в увлажнителе
+
+          Температура: {{ states('sensor.temperature_living') }} °C
+          Влажность: {{ states('sensor.humidity_living') }} %
+
+  - alias: 'notification_climat_telegramm_mold_kitchen'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_kitchen
+      above: 70
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🥣 Кухня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. 
+          Риск возникновения плесени {{ states('sensor.mold_kitchen') }} %
+
+  - alias: 'notification_climat_telegramm_mold_hall'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_hall
+      above: 70
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. 
+          Риск возникновения плесени {{ states('sensor.mold_hall') }} %
+
+  - alias: 'notification_climat_telegramm_mold_bedroom'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_bedroom
+      above: 70
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. 
+          Риск возникновения плесени {{ states('sensor.mold_bedroom') }} %
+
+  - alias: 'notification_climat_telegramm_mold_living'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.mold_living
+      above: 70
+    action:
+    - service: script.telegramm_send_climat_text
+      data_template:
+        message: |
+          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Требуется проветривание. 
+          Риск возникновения плесени {{ states('sensor.mold_living') }} %
+
+###
+## SYSTEM
+###
+
+  - alias: 'notification_system_shutdown'
+    mode: 'queued'
+    trigger:
+    - platform: homeassistant
+      event: shutdown
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Завершение работы
+
+  - alias: 'notification_system_start'
+    mode: 'queued'
+    trigger:
+    - platform: homeassistant
+      event: start
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Старт системы
+
+  - alias: 'notification_system_backup'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.is_backed_up'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Резервное копирование
+
+  - alias: 'notification_system_backup_error'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'sensor.backup_state'
+      to: 'error'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Ошибка резервного копирования
+
+  - alias: 'notification_power_error'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'binary_sensor.rpi_power_status'
+      to: 'on'
+      for:
+        seconds: 5
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Проблемы с питанием
+
+  - alias: 'notification_system_update'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.home_assistant_core_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_operating_system_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_supervisor_update'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Доступно обновление системы
+
+  - alias: 'notification_system_plugin_update'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.tailscale_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.zigbee2mqtt_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.mosquitto_broker_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.home_assistant_google_drive_backup_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.file_editor_update'
+      to: 'on'
+    - platform: state
+      entity_id: 'update.terminal_ssh_update'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Доступно обновление расширений
+
+  - alias: 'notification_system_hacs_update'
+    mode: 'queued'
+    trigger:
+    - platform: numeric_state
+      entity_id: sensor.hacs
+      above: 0
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: |
+          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Доступно обновление HACS
+
+###
+## SECURITY
+###
+
+  - alias: 'notification_secuirity_balcony_door_open'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.door_balcony'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.secuirity_mode
+          state: 'on'
+        sequence:
+        - service: script.camera_living_take_photo
+        - service: script.telegramm_send_secuirity_text
+          data_template:
+            message: |
+              🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+              Дверь открыта
+
+  - alias: 'notification_secuirity_door_close'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.door_balcony'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.secuirity_mode
+          state: 'on'
+        sequence:
+        - service: script.telegramm_send_secuirity_text
+          data_template:
+            message: |
+              🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+              Дверь закрыта
+
+  - alias: 'notification_secuirity_hall_door_open'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.door_hall'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.secuirity_mode
+          state: 'on'
+        sequence:
+        - service: script.telegramm_send_secuirity_text
+          data_template:
+            message: |
+              🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+              Дверь открыта
+
+  - alias: 'notification_secuirity_hall_door_close'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.door_hall'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.secuirity_mode
+          state: 'on'
+        sequence:
+        - service: script.telegramm_send_secuirity_text
+          data_template:
+            message: |
+              🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+              Дверь закрта

@@ -1,0 +1,250 @@
+occupancy:
+  input_boolean:
+    occupancy_kitchen:
+    occupancy_bath:
+    occupancy_hall:
+    occupancy_toilet:
+
+  timer:
+    occupancy_kitchen:
+      duration: '00:00:10'
+    
+    occupancy_bath:
+      duration: '00:00:10'
+    
+    occupancy_hall:
+      duration: '00:00:10'
+    
+    occupancy_toilet:
+      duration: '00:00:10'
+
+  input_number:
+    occupancy_kitchen: # 00:10:00
+      max: 240
+      min: 1
+    
+    occupancy_bath: # 00:15:00
+      max: 240
+      min: 1
+    
+    occupancy_hall: # 00:02:00
+      max: 240
+      min: 1
+    
+    occupancy_toilet: # 00:00:15
+      max: 60
+      min: 1
+    
+    occupancy_night: # 00:00:10
+      max: 240
+      min: 0
+
+  template:
+  - sensor:
+    - name: 'occupancy_kitchen_duration'
+      state: >
+        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set nightValue = states('input_number.occupancy_night') | int(0) %}
+        {% set dayValue = states('input_number.occupancy_kitchen') | int(0) %}
+        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+    
+    - name: 'occupancy_bath_duration'
+      state: >
+        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set nightValue = states('input_number.occupancy_night') | int(0) %}
+        {% set dayValue = states('input_number.occupancy_bath') | int(0) %}
+        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+    
+    - name: 'occupancy_hall_duration'
+      state: >
+        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set nightValue = states('input_number.occupancy_night') | int(0) %}
+        {% set dayValue = states('input_number.occupancy_hall') | int(0) %}
+        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+    
+    - name: 'occupancy_toilet_duration'
+      state: >
+        {% set duration = states('input_number.occupancy_toilet') | int(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  automation:
+  - alias: 'occupancy_kitchen_on'
+    mode: 'queued'
+    trigger:
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'on'
+    - id: 'occupancy_off'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_on'
+        sequence:
+        - parallel:
+          - service: timer.cancel
+            entity_id: timer.occupancy_kitchen
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_kitchen
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_off'
+        sequence:
+        - service: timer.start
+          entity_id: timer.occupancy_kitchen
+          data_template:
+            duration: "{{ states('sensor.occupancy_kitchen') }}"
+
+  - alias: 'occupancy_kitchen_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.occupancy_kitchen
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_kitchen
+
+  - alias: 'occupancy_bath_on'
+    mode: 'queued'
+    trigger:
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'on'
+    - id: 'occupancy_off'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_on'
+        sequence:
+        - parallel:
+          - service: timer.cancel
+            entity_id: timer.occupancy_bath
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_bath
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_off'
+        sequence:
+        - service: timer.start
+          entity_id: timer.occupancy_bath
+          data_template:
+            duration: "{{ states('sensor.occupancy_bath') }}"
+
+  - alias: 'occupancy_bath_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.occupancy_bath
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_bath
+
+  - alias: 'occupancy_hall_on'
+    mode: 'queued'
+    trigger:
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'on'
+    - id: 'occupancy_off'
+      platform: state
+      entity_id: 'binary_sensor.motion_kitchen'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_on'
+        sequence:
+        - parallel:
+          - service: timer.cancel
+            entity_id: timer.occupancy_hall
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_hall
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_off'
+        sequence:
+        - service: timer.start
+          entity_id: timer.occupancy_hall
+          data_template:
+            duration: "{{ states('sensor.occupancy_hall') }}"
+
+  - alias: 'occupancy_hall_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.occupancy_hall
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_hall
+
+  - alias: 'occupancy_toilet'
+    mode: 'queued'
+    trigger:
+    - id: 'door_open'
+      platform: state
+      entity_id: binary_sensor.door_toilet
+      to: 'on'
+    - id: 'door_close'
+      platform: state
+      entity_id: binary_sensor.door_toilet
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'door_open'
+        - condition: state
+          entity_id: input_boolean.occupancy_toilet
+          state: 'off'
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_toilet
+          - service: timer.start
+            entity_id: timer.occupancy_toilet
+            data_template:
+              duration: "{{ states('sensor.occupancy_toilet') }}"
+      - conditions:
+        - condition: trigger
+          id: 'door_close'
+        - condition: state
+          entity_id: input_boolean.occupancy_toilet
+          state: 'on'
+        - condition: state
+          entity_id: timer.occupancy_toilet
+          state: 'active'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_toilet
+      - conditions:
+        - condition: trigger
+          id: 'door_close'
+        - condition: state
+          entity_id: input_boolean.occupancy_toilet
+          state: 'on'
+        - condition: state
+          entity_id: timer.occupancy_toilet
+          state: 'idle'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.occupancy_toilet

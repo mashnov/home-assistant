@@ -1,0 +1,32 @@
+temperature:
+  sensor:
+  - platform: min_max
+    name: temperature_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.temperature_kitchen_virtual
+    - sensor.temperature_bath_virtual
+    - sensor.temperature_hall_virtual
+    - sensor.temperature_bedroom_virtual
+    - sensor.temperature_living_virtual
+
+  template:
+  - sensor:
+    - name: 'temperature_kitchen_virtual'
+      state: "{{ states('sensor.temperature_kitchen') | float(0) }}"
+
+    - name: 'temperature_bath_virtual'
+      state: "{{ states('sensor.temperature_bath') | float(0) }}"
+
+    - name: 'temperature_hall_virtual'
+      state: "{{ states('sensor.temperature_hall') | float(0) }}"
+
+    - name: 'temperature_bedroom_virtual'
+      state: "{{ states('sensor.temperature_bedroom') | float(0) }}"
+
+    - name: 'temperature_living_virtual'
+      state: "{{ states('sensor.temperature_living') | float(0) }}"
+
+    - name: 'temperature_balcony_virtual'
+      state: "{{ states('sensor.temperature_balcony') | float(0) }}"

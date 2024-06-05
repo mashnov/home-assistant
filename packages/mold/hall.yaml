@@ -1,8 +1,0 @@
-mold_hall:
-  sensor:
-  - platform: mold_indicator
-    name: mold_hall
-    indoor_temp_sensor: sensor.temperature_hall
-    indoor_humidity_sensor: sensor.humidity_hall
-    outdoor_temp_sensor: sensor.temperature_balcony
-    calibration_factor: 1.1

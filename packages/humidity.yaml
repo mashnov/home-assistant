@@ -1,0 +1,29 @@
+humidity:
+  sensor:
+  - platform: min_max
+    name: humidity_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.humidity_kitchen_virtual
+    - sensor.humidity_bath_virtual
+    - sensor.humidity_hall_virtual
+    - sensor.humidity_bedroom_virtual
+    - sensor.humidity_living_virtual
+
+  template:
+  - sensor:
+    - name: 'humidity_kitchen_virtual'
+      state: "{{ states('sensor.humidity_kitchen') | float(100) }}"
+
+    - name: 'humidity_bath_virtual'
+      state: "{{ states('sensor.humidity_bath') | float(0) }}"
+
+    - name: 'humidity_hall_virtual'
+      state: "{{ states('sensor.humidity_hall') | float(100) }}"
+
+    - name: 'humidity_bedroom_virtual'
+      state: "{{ states('sensor.humidity_bedroom') | float(100) }}"
+
+    - name: 'humidity_living_virtual'
+      state: "{{ states('sensor.humidity_living') | float(100) }}"

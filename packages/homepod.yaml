@@ -1,0 +1,38 @@
+homepod:
+  tts: 
+  - platform: edge_tts
+    service_name: sveta_say
+    language: ru-RU-SvetlanaNeural
+    cache: false
+
+  input_number:
+    homepod_volume_night: # 0.4
+      max: 1
+      min: 0
+    
+    homepod_volume_day: # 0.8
+      max: 1
+      min: 0
+
+  template:
+  - sensor:
+    - name: 'homepod_volume'
+      state: >
+        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set nightValue = states('input_number.homepod_volume_night') | int(0) %}
+        {% set dayValue = states('input_number.homepod_volume_day') | int(0) %}
+        {{ iif(isNightMode, nightValue, dayValue) }}
+
+  script:
+    homepod_message:
+      mode: 'queued'
+      sequence:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.homepod
+          volume_level: "{{ states('sensor.homepod_volume') }}"
+      - service: tts.sveta_say
+        data:
+          entity_id: media_player.homepod
+          message: "{{ message }}"
+          cache: false

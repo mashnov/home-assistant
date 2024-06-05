@@ -1,0 +1,66 @@
+### 
+# ADD GROUPS: HOME, CLIMAT, SECURITY, SYSTEM
+### 
+telegramm:
+  telegram_bot: 
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+    - !secret telegram_home_group_id
+    - !secret telegram_own_id
+
+  notify:
+  - platform: telegram
+    name: telegram_home_group_id
+    chat_id: !secret telegram_home_group_id
+
+  - platform: telegram
+    name: telegram_climat_group_id
+    chat_id: !secret telegram_home_group_id
+
+  - platform: telegram
+    name: telegram_secuirity_group_id
+    chat_id: !secret telegram_home_group_id
+
+  - platform: telegram
+    name: telegram_system_group_id
+    chat_id: !secret telegram_home_group_id
+
+  script:
+    telegramm_send_home_text:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: "{{ message }}"
+
+    telegramm_send_climat_text:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_climat_group_id
+        data_template:
+          message: "{{ message }}"
+
+    telegramm_send_secuirity_text:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_secuirity_group_id
+        data_template:
+          message: "{{ message }}"
+
+    telegramm_send_system_text:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_system_group_id
+        data_template:
+          message: "{{ message }}"
+
+    telegramm_send_photo:
+      mode: 'queued'
+      sequence:
+      - service: notify.telegram_home_group_id
+        data_template:
+          message: "{{ message }}"
+          data:
+            photo:
+            - file: "{{ link }}"

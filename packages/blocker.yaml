@@ -1,0 +1,182 @@
+blocker:
+  input_boolean:
+    top_light_kitchen_blocker:
+    top_light_bath_blocker:
+    top_light_hall_blocker:
+    top_light_bedroom_blocker:
+    top_light_living_blocker:
+    back_light_kitchen_blocker:
+    back_light_balcony_blocker:
+    night_light_bath_blocker:
+    night_light_balcony_blocker:
+    fan_toilet_blocker:
+    outlet_balcony_sprinkler_blocker:
+    outlet_balcony_socket_blocker:
+    secuirity_mode_blocker:
+    night_mode_blocker:
+
+automation:
+  - alias: 'blocker_top_light_kitchen'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_kitchen_action
+      to: 'single_left'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.top_light_kitchen_blocker
+
+  - alias: 'blocker_top_light_bath_switch'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_restroom_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: 
+      - input_boolean.top_light_bath_blocker
+      - input_boolean.night_light_bath_blocker
+
+  - alias: 'blocker_top_light_bath_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_bath_action
+      to: 'double'
+    action:
+    - service: input_boolean.toggle
+      entity_id: 
+      - input_boolean.top_light_bath_blocker
+
+  - alias: 'blocker_top_light_hall'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_hall_action
+      to: 'single'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.top_light_hall_blocker
+
+  - alias: 'blocker_top_light_bedroom'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_bedroom_action
+      to: 'single_left'
+    - platform: state
+      entity_id: sensor.switch_bedroom_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.top_light_bedroom_blocker
+
+  - alias: 'blocker_top_light_living'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_left'
+    - platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.top_light_living_blocker
+
+  - alias: 'blocker_back_light_kitchen'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_kitchen_action
+      to: 'single_right'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.back_light_kitchen_blocker
+
+  - alias: 'blocker_back_light_balcony'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'double'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.back_light_balcony_blocker
+
+  - alias: 'blocker_night_light_bath_button'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_bath_action
+      to: 'single'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.night_light_bath_blocker
+
+  - alias: 'blocker_night_light_balcony'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'single'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.night_light_balcony_blocker'
+
+  - alias: 'blocker_fan_toilet'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_toilet_action
+      to: 'hold'
+    - platform: state
+      entity_id: sensor.button_bath_action
+      to: 'hold'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.fan_toilet_blocker'
+
+  - alias: 'blocker_outlet_balcony_sprinkler'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'hold'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+
+  - alias: 'blocker_outlet_balcony_socket'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.button_balcony_action
+      to: 'shake'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.outlet_balcony_socket_blocker
+
+  - alias: 'blocker_secuirity_mode'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: sensor.switch_restroom_action
+      to: 'single_both'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.secuirity_mode_blocker
+
+  - alias: 'blocker_night_mode'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.switch_bedroom_action
+      to: 'single_both'
+    - platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_both'
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.night_mode_blocker

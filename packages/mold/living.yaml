@@ -1,8 +1,0 @@
-mold_living:
-  sensor:
-  - platform: mold_indicator
-    name: mold_living
-    indoor_temp_sensor: sensor.temperature_living
-    indoor_humidity_sensor: sensor.humidity_living
-    outdoor_temp_sensor: sensor.temperature_balcony
-    calibration_factor: 1.1
