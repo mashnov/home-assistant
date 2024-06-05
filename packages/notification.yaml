@@ -489,6 +489,34 @@ notification:
 ## SECURITY
 ###
 
+  - alias: 'notification_secuirity_mode_on'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.secuirity_mode'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Режим охраны включен.
+
+  - alias: 'notification_secuirity_mode_off'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.secuirity_mode'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Режим охраны выключен.
+
   - alias: 'notification_secuirity_balcony_door_open'
     mode: 'queued'
     trigger:
