@@ -1,6 +1,3 @@
-### 
-# SET INPUT_NUMBER
-### 
 curtain:
   input_number:
     curtain_kitchen_open: # 100
