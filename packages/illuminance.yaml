@@ -1,5 +1,9 @@
 illuminance:
   input_number:
+    min_illuminance_kitchen_top_light: # 3000
+      max: 8000
+      min: 1
+
     min_illuminance_kitchen_curtain: # 3000
       max: 8000
       min: 1
@@ -25,7 +29,14 @@ illuminance:
       hours: 24 
 
   template:
-  - binary_sensor:    
+  - binary_sensor:
+    - name: 'kitchen_top_light_is_dark'
+      delay_off: '00:00:15'
+      state: >
+        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set minValue = states('input_number.min_illuminance_kitchen_top_light') | int(0) %}
+        {{ sensor < minValue }}
+    
     - name: 'kitchen_curtain_is_dark'
       delay_off: '00:00:15'
       state: >
