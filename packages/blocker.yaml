@@ -15,7 +15,7 @@ blocker:
     secuirity_mode_blocker:
     night_mode_blocker:
 
-automation:
+  automation:
   - alias: 'blocker_top_light_kitchen'
     mode: 'queued'
     trigger:

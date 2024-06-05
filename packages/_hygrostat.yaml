@@ -71,7 +71,7 @@ hygrostat:
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
 
-automation:
+  automation:
   - alias: 'humidifier_hall'
     mode: 'queued'
     trigger:
