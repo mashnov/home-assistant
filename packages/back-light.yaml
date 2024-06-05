@@ -63,7 +63,9 @@ back_light:
           state: 'off'
         then:
         - service: switch.turn_on
-          entity_id: switch.switch_kitchen_right
+          entity_id: 
+          - switch.switch_kitchen_right
+          - switch.relay_kitchen_l2
         else:
         - service: switch.turn_on
           entity_id: switch.relay_kitchen_l2
