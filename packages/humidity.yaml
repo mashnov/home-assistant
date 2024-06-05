@@ -32,3 +32,8 @@ humidity:
     - name: 'humidity_living_virtual'
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_living') | float(100) }}"
+
+    - name: 'humidity_balcony_virtual'
+      unit_of_measurement: "%"
+      state: "{{ states('sensor.humidity_balcony') | float(0) }}"
+
