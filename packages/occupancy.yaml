@@ -118,11 +118,11 @@ occupancy:
     trigger:
     - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_bath'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_bath'
       to: 'off'
     action:
     - choose:
@@ -160,11 +160,11 @@ occupancy:
     trigger:
     - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_hall'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_hall'
       to: 'off'
     action:
     - choose:
