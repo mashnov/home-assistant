@@ -111,11 +111,11 @@ back_light:
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      to: 'on'
+      to: 'off'
     - id: 'turn_off'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      to: 'off'
+      to: 'on'
     action:
     - choose:
       - conditions:
@@ -141,6 +141,10 @@ back_light:
     - id: 'turn_off'
       platform: state
       entity_id: 'binary_sensor.bedroom_back_ligh_is_dark'
+      to: 'off'
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.is_night_mode
       to: 'off'
     - id: 'turn_off'
       platform: state
@@ -174,6 +178,10 @@ back_light:
     - id: 'turn_off'
       platform: state
       entity_id: 'binary_sensor.living_back_lighis_dark'
+      to: 'off'
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.is_night_mode
       to: 'off'
     - id: 'turn_off'
       platform: state
