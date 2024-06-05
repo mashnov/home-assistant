@@ -1,6 +1,6 @@
 pressure:
   sensor:
-  - platform: s
+  - platform: min_max
     name: pressure_average
     type: mean
     round_digits: 0
