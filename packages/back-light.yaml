@@ -156,6 +156,9 @@ back_light:
         - condition: trigger
           id: 'turn_on'
         - condition: state
+          entity_id: binary_sensor.bedroom_back_ligh_is_dark
+          state: 'on'
+        - condition: state
           entity_id: input_boolean.is_night_mode
           state: 'off'
         sequence:
@@ -192,6 +195,9 @@ back_light:
       - conditions:
         - condition: trigger
           id: 'turn_on'
+        - condition: state
+          entity_id: binary_sensor.living_back_lighis_dark
+          state: 'on'
         - condition: state
           entity_id: input_boolean.is_night_mode
           state: 'off'
