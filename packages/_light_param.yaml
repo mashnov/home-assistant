@@ -1,6 +1,3 @@
-### 
-# SET INPUT_NUMBER
-### 
 light_param:
   input_number:
     light_param_shi_hue: # 24
