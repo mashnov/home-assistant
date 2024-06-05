@@ -137,7 +137,7 @@ blocker:
     - service: input_boolean.toggle
       entity_id: input_boolean.fan_toilet_blocker
 
-  - alias: 'blocker_outlet_balcony_sprinkler'
+  - alias: 'blocker_outlet_balcony_socket'
     mode: 'queued'
     trigger:
     - platform: state
@@ -145,9 +145,9 @@ blocker:
       to: 'hold'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+      entity_id: input_boolean.outlet_balcony_socket_blocker
 
-  - alias: 'blocker_outlet_balcony_socket'
+  - alias: 'blocker_outlet_balcony_sprinkler'
     mode: 'queued'
     trigger:
     - platform: state
@@ -155,4 +155,4 @@ blocker:
       to: 'shake'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.outlet_balcony_socket_blocker
+      entity_id: input_boolean.outlet_balcony_sprinkler_blocker
