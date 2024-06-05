@@ -60,7 +60,7 @@ curtain:
           id: 'close'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_kitchen
           data_template:
             position: "{{ states('input_number.curtain_kitchen_sun') | int(0) }}"
       - conditions:
@@ -68,7 +68,7 @@ curtain:
           id: 'open'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_kitchen
           data_template:
             position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
 
@@ -90,7 +90,7 @@ curtain:
           id: 'close'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_bedroom
           data_template:
             position: "{{ states('input_number.curtain_bedroom_night') | int(0) }}"
       - conditions:
@@ -98,7 +98,7 @@ curtain:
           id: 'open'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_bedroom
           data_template:
             position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
 
@@ -120,7 +120,7 @@ curtain:
           id: 'close'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_living
           data_template:
             position: "{{ states('input_number.curtain_living_open') | int(0) }}"
       - conditions:
@@ -128,6 +128,6 @@ curtain:
           id: 'open'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.shade_kitchen
+          entity_id: cover.curtain_living
           data_template:
             position: "{{ states('input_number.curtain_living_sun') | int(0) }}"
