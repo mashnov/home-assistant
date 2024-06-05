@@ -6,26 +6,10 @@ secuirity_mode:
   - alias: 'secuirity_mode'
     mode: 'queued'
     trigger:
-    - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.secuirity_mode_blocker'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.secuirity_mode_blocker'
-      to: 'off'
+      entity_id: sensor.switch_restroom_action
+      to: 'single_both'
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.secuirity_mode
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.secuirity_mode
+    - service: input_boolean.toggle
+      entity_id: input_boolean.secuirity_mode
 

@@ -32,18 +32,18 @@ night_mode:
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
       to: 'on'
-    - id: 'night_mode_on'
-      platform: state
-      entity_id: 'input_boolean.night_mode_blocker'
-      to: 'on'
     - id: 'night_mode_off'
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
-      to: 'off'
-    - id: 'night_mode_off'
+      to: 'off'    
+    - id: 'night_mode_toggle'
       platform: state
-      entity_id: 'input_boolean.night_mode_blocker'
-      to: 'off'
+      entity_id: sensor.switch_bedroom_action
+      to: 'single_both'
+    - id: 'night_mode_toggle'
+      platform: state
+      entity_id: sensor.switch_living_action
+      to: 'single_both'
     action:
     - choose:
       - conditions:
@@ -57,4 +57,10 @@ night_mode:
           id: 'night_mode_off'
         sequence:
         - service: input_boolean.turn_off
+          entity_id: input_boolean.is_night_mode
+      - conditions:
+        - condition: trigger
+          id: 'night_mode_toggle'
+        sequence:
+        - service: input_boolean.toggle
           entity_id: input_boolean.is_night_mode

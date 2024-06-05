@@ -12,8 +12,6 @@ blocker:
     fan_toilet_blocker:
     outlet_balcony_sprinkler_blocker:
     outlet_balcony_socket_blocker:
-    secuirity_mode_blocker:
-    night_mode_blocker:
 
   automation:
   - alias: 'blocker_top_light_kitchen'
@@ -157,26 +155,3 @@ blocker:
     action:
     - service: input_boolean.toggle
       entity_id: input_boolean.outlet_balcony_socket_blocker
-
-  - alias: 'blocker_secuirity_mode'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: sensor.switch_restroom_action
-      to: 'single_both'
-    action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.secuirity_mode_blocker
-
-  - alias: 'blocker_night_mode'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: sensor.switch_bedroom_action
-      to: 'single_both'
-    - platform: state
-      entity_id: sensor.switch_living_action
-      to: 'single_both'
-    action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.night_mode_blocker
