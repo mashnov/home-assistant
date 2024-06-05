@@ -123,7 +123,7 @@ blocker:
       to: 'single'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.night_light_balcony_blocker'
+      entity_id: input_boolean.night_light_balcony_blocker
 
   - alias: 'blocker_fan_toilet'
     mode: 'queued'
@@ -136,7 +136,7 @@ blocker:
       to: 'hold'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.fan_toilet_blocker'
+      entity_id: input_boolean.fan_toilet_blocker
 
   - alias: 'blocker_outlet_balcony_sprinkler'
     mode: 'queued'

@@ -100,7 +100,7 @@ occupancy:
         - service: timer.start
           entity_id: timer.occupancy_kitchen
           data_template:
-            duration: "{{ states('sensor.occupancy_kitchen') }}"
+            duration: "{{ states('sensor.occupancy_kitchen_duration') }}"
 
   - alias: 'occupancy_kitchen_off'
     mode: 'queued'
@@ -142,7 +142,7 @@ occupancy:
         - service: timer.start
           entity_id: timer.occupancy_bath
           data_template:
-            duration: "{{ states('sensor.occupancy_bath') }}"
+            duration: "{{ states('sensor.occupancy_bath_duration') }}"
 
   - alias: 'occupancy_bath_off'
     mode: 'queued'
@@ -184,7 +184,7 @@ occupancy:
         - service: timer.start
           entity_id: timer.occupancy_hall
           data_template:
-            duration: "{{ states('sensor.occupancy_hall') }}"
+            duration: "{{ states('sensor.occupancy_hall_duration') }}"
 
   - alias: 'occupancy_hall_off'
     mode: 'queued'
@@ -223,7 +223,7 @@ occupancy:
           - service: timer.start
             entity_id: timer.occupancy_toilet
             data_template:
-              duration: "{{ states('sensor.occupancy_toilet') }}"
+              duration: "{{ states('sensor.occupancy_toilet_duration') }}"
       - conditions:
         - condition: trigger
           id: 'door_close'
