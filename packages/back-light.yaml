@@ -84,6 +84,10 @@ back_light:
       platform: state
       entity_id: 'input_boolean.occupancy_kitchen'
       to: 'off'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.back_light_kitchen_blocker'
+      to: 'off'
     action:
     - choose:
       - conditions:
