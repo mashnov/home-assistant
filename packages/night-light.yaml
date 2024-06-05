@@ -52,7 +52,7 @@ night_light:
         - service: switch.turn_on
           entity_id: switch.relay_kitchen_l1
 
-automation:
+  automation:
   - alias: 'night_light_kitchen'
     mode: 'queued'
     trigger:
