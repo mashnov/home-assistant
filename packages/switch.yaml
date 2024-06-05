@@ -8,15 +8,17 @@ switch:
           {% set right = is_state('switch.switch_bedroom_right', 'on') %}    
           {{ left and right }}
         turn_on:
-        - service: switch.turn_on
-          entity_id: 
-          - switch.switch_bedroom_left 
-          - switch.switch_bedroom_right
+        - parallel:
+          - service: switch.turn_on
+            entity_id: 
+            - switch.switch_bedroom_left 
+            - switch.switch_bedroom_right
         turn_off:
-        - service: switch.turn_off
-          entity_id: 
-          - switch.switch_bedroom_left 
-          - switch.switch_bedroom_right
+        - parallel:
+          - service: switch.turn_off
+            entity_id: 
+            - switch.switch_bedroom_left 
+            - switch.switch_bedroom_right
 
       switch_living:
         value_template: >
