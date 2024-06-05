@@ -10,15 +10,15 @@ switch:
         turn_on:
         - parallel:
           - service: switch.turn_on
-            entity_id: 
-            - switch.switch_bedroom_left 
-            - switch.switch_bedroom_right
+            entity_id: switch.switch_bedroom_left 
+          - service: switch.turn_on
+            entity_id: switch.switch_bedroom_right
         turn_off:
         - parallel:
           - service: switch.turn_off
-            entity_id: 
-            - switch.switch_bedroom_left 
-            - switch.switch_bedroom_right
+            entity_id: switch.switch_bedroom_left 
+          - service: switch.turn_off
+            entity_id: switch.switch_bedroom_right
 
       switch_living:
         value_template: >
@@ -28,12 +28,12 @@ switch:
         turn_on:
         - parallel:
           - service: switch.turn_on
-            entity_id: 
-            - switch.switch_living_left 
-            - switch.switch_living_right
+            entity_id: switch.switch_living_left 
+          - service: switch.turn_on
+            entity_id: switch.switch_living_right
         turn_off:
         - parallel:
           - service: switch.turn_off
-            entity_id: 
-            - switch.switch_living_left 
-            - switch.switch_living_right
+            entity_id: switch.switch_living_left 
+          - service: switch.turn_off
+            entity_id: switch.switch_living_right
