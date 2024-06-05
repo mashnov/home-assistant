@@ -89,7 +89,7 @@ notification:
       data_template:
         message: |
           🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Ночной режим включен. Спокойной ночи.
+          Ночной режим включен.
 
   - alias: 'notification_home_telegramm_night_mode_off'
     mode: 'queued'
