@@ -2,7 +2,7 @@ secuirity_mode:
   input_boolean:
     secuirity_mode:
 
-automation:
+  automation:
   - alias: 'secuirity_mode'
     mode: 'queued'
     trigger:
