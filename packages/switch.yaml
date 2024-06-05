@@ -29,7 +29,8 @@ switch:
             entity_id: 
             - switch.switch_living_left 
             - switch.switch_living_right
-          turn_off:
+        turn_off:
+        - parallel:
           - service: switch.turn_off
             entity_id: 
             - switch.switch_living_left 
