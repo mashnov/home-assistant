@@ -56,6 +56,7 @@ light_param:
     trigger:
     - platform: state
       entity_id: 'light.xiaomi_light_kitchen'
+      to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_temperature'
     - platform: state
@@ -78,6 +79,7 @@ light_param:
     trigger:
     - platform: state
       entity_id: 'light.xiaomi_light_hall'
+      to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_brightness'
     - platform: state
@@ -100,6 +102,7 @@ light_param:
     trigger:
     - platform: state
       entity_id: 'light.xiaomi_light_bedroom'
+      to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_brightness'
     - platform: state
@@ -122,6 +125,7 @@ light_param:
     trigger:
     - platform: state
       entity_id: 'light.xiaomi_light_living'
+      to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_brightness'
     - platform: state
@@ -144,6 +148,7 @@ light_param:
     trigger:
     - platform: state
       entity_id: 'light.night_light_hall'
+      to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_shi_brightness'
     - platform: state
