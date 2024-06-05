@@ -128,7 +128,7 @@ curtain:
         - service: cover.set_cover_position
           entity_id: cover.curtain_living
           data_template:
-            position: "{{ states('input_number.curtain_living_open') | int(0) }}"
+            position: "{{ states('input_number.curtain_living_sun') | int(0) }}"
       - conditions:
         - condition: trigger
           id: 'open'
@@ -136,4 +136,4 @@ curtain:
         - service: cover.set_cover_position
           entity_id: cover.curtain_living
           data_template:
-            position: "{{ states('input_number.curtain_living_sun') | int(0) }}"
+            position: "{{ states('input_number.curtain_living_open') | int(0) }}"
