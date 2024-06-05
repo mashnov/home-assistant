@@ -52,9 +52,6 @@ back_light:
         turn_off:
         - service: switch.turn_off
           entity_id: switch.relay_balcony_l2
-        toggle:
-        - service: switch.toggle
-          entity_id: switch.relay_balcony_l2
 
   script:
     back_light_kitchen_turn_on:
