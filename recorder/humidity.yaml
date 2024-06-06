@@ -1,7 +1,6 @@
-- sensor.humidity_average
-- sensor.humidity_kitchen
-- sensor.humidity_bath
-- sensor.humidity_hall
-- sensor.humidity_bedroom
-- sensor.humidity_living
-- sensor.humidity_balcony
+- sensor.humidity_kitchen_virtual
+- sensor.humidity_bath_virtual
+- sensor.humidity_hall_virtual
+- sensor.humidity_bedroom_virtual
+- sensor.humidity_living_virtual
+- sensor.humidity_balcony_virtual
