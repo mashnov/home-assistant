@@ -1,17 +1,17 @@
-sensor.temperature_kitchen:
+sensor.temperature_kitchen_virtual:
   name: Температура
 
-sensor.temperature_bath:
+sensor.temperature_bath_virtual:
   name: Температура
 
-sensor.temperature_hall:
+sensor.temperature_hall_virtual:
   name: Температура
 
-sensor.temperature_bedroom:
+sensor.temperature_bedroom_virtual:
   name: Температура
 
-sensor.temperature_living:
+sensor.temperature_living_virtual:
   name: Температура
 
-sensor.temperature_balcony:
+sensor.temperature_balcony_virtual:
   name: Температура

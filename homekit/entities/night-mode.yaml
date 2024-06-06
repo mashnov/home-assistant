@@ -1,2 +1,1 @@
-- input_boolean.night_mode_bedroom
-- input_boolean.night_mode_living
+- input_boolean.is_night_mode

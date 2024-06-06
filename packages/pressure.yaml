@@ -32,8 +32,3 @@ pressure:
     - name: 'pressure_living_virtual'
       unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_living') | float(0) }}"
-
-    - name: 'pressure_homekit'
-      device_class: illuminance
-      unit_of_measurement: "lx"
-      state: '{{ states("sensor.pressure_average") | int(0) }}'

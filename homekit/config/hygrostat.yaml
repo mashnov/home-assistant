@@ -1,0 +1,15 @@
+humidifier.dehumidifier_bath:
+  name: Осушитель
+  linked_humidity_sensor: sensor.humidity_bath_virtual
+
+humidifier.humidifier_hall:
+  name: Увлажнитель
+  linked_humidity_sensor: sensor.humidity_hall_virtual
+
+humidifier.humidifier_bedroom:
+  name: Увлажнитель
+  linked_humidity_sensor: sensor.humidity_bedroom_virtual
+
+humidifier.humidifier_living:
+  name: Увлажнитель
+  linked_humidity_sensor: sensor.humidity_living_virtual

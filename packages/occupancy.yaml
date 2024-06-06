@@ -40,6 +40,24 @@ occupancy:
       min: 1
 
   template:
+
+  - binary_sensor:
+    - name: 'occupancy_kitchen'
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_kitchen", "on") }}'
+
+    - name: 'occupancy_bath'
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_bath", "on") }}'
+
+    - name: 'occupancy_toilet'
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
+
+    - name: 'occupancy_hall'
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_toilet", "on") }}'
+
   - sensor:
     - name: 'occupancy_kitchen_duration'
       state: >
