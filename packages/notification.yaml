@@ -489,34 +489,6 @@ notification:
 ## SECURITY
 ###
 
-  - alias: 'notification_secuirity_mode_on'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.secuirity_mode'
-      from: 'off'
-      to: 'on'
-    action:
-    - service: script.telegramm_send_secuirity_text
-      data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Режим охраны включен.
-
-  - alias: 'notification_secuirity_mode_off'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.secuirity_mode'
-      from: 'on'
-      to: 'off'
-    action:
-    - service: script.telegramm_send_secuirity_text
-      data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Режим охраны выключен.
-
   - alias: 'notification_secuirity_balcony_door_open'
     mode: 'queued'
     trigger:
@@ -525,18 +497,12 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.secuirity_mode
-          state: 'on'
-        sequence:
-        - service: script.camera_living_take_photo
-        - service: script.telegramm_send_secuirity_text
-          data_template:
-            message: |
-              🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-              Дверь открыта
+    - service: script.camera_living_take_photo
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Дверь открыта
 
   - alias: 'notification_secuirity_door_close'
     mode: 'queued'
@@ -546,17 +512,11 @@ notification:
       from: 'on'
       to: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.secuirity_mode
-          state: 'on'
-        sequence:
-        - service: script.telegramm_send_secuirity_text
-          data_template:
-            message: |
-              🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-              Дверь закрыта
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Дверь закрыта
 
   - alias: 'notification_secuirity_hall_door_open'
     mode: 'queued'
@@ -566,17 +526,11 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.secuirity_mode
-          state: 'on'
-        sequence:
-        - service: script.telegramm_send_secuirity_text
-          data_template:
-            message: |
-              🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-              Дверь открыта
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Дверь открыта
 
   - alias: 'notification_secuirity_hall_door_close'
     mode: 'queued'
@@ -586,14 +540,8 @@ notification:
       from: 'on'
       to: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.secuirity_mode
-          state: 'on'
-        sequence:
-        - service: script.telegramm_send_secuirity_text
-          data_template:
-            message: |
-              🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-              Дверь закрта
+    - service: script.telegramm_send_secuirity_text
+      data_template:
+        message: |
+          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
+          Дверь закрта
