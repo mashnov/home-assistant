@@ -377,7 +377,7 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.is_backed_up'
+      entity_id: 'binary_sensor.system_is_backed_up'
       from: 'off'
       to: 'on'
     action:
