@@ -12,15 +12,15 @@ light_param:
       max: 255
       min: 0
 
-    light_param_shi_saturation: # 97
+    light_param_shi_saturation: # 95
       max: 100
       min: 95
     
-    light_param_shi_brightness_day: # 80
+    light_param_shi_brightness_day: # 255
       max: 100
       min: 0
 
-    light_param_shi_brightness_night: # 30
+    light_param_shi_brightness_night: # 50
       max: 30
       min: 0
 
