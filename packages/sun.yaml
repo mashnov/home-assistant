@@ -1,6 +1,3 @@
-### 
-# SET INPUT_NUMBER
-### 
 sun:
   input_number:
     kitchen_azimuth_target: # 160

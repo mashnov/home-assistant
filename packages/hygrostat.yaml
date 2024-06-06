@@ -1,6 +1,3 @@
-### 
-# BEDROOM NIGTH AUTOMATION
-### 
 hygrostat:
   generic_hygrostat:
   - name: dehumidifier_bath
