@@ -52,11 +52,11 @@ occupancy:
 
     - name: 'occupancy_toilet'
       device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
+      state: '{{ is_state("input_boolean.occupancy_toilet", "on") }}'
 
     - name: 'occupancy_hall'
       device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.occupancy_toilet", "on") }}'
+      state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
 
   - sensor:
     - name: 'occupancy_kitchen_duration'
