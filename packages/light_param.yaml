@@ -8,7 +8,7 @@ light_param:
       max: 255
       min: 0
 
-    light_param_brightness_night: # 100
+    light_param_brightness_night: # 50
       max: 255
       min: 0
 

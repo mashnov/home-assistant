@@ -19,15 +19,15 @@ occupancy:
       duration: '00:00:10'
 
   input_number:
-    occupancy_kitchen: # 00:10:00 (600)
+    occupancy_kitchen: # 00:05:00 (300)
       max: 1000
       min: 1
     
-    occupancy_bath: # 00:15:00 (900)
+    occupancy_bath: # 00:10:00 (600)
       max: 1000
       min: 1
     
-    occupancy_hall: # 00:05:00 (300)
+    occupancy_hall: # 00:03:00 (180)
       max: 1000
       min: 1
     
