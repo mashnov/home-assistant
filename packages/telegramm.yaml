@@ -1,12 +1,12 @@
-### 
-# ADD GROUPS: HOME, CLIMAT, SECURITY, SYSTEM
-### 
 telegramm:
   telegram_bot: 
   - platform: polling
     api_key: !secret telegram_bot_api_key
     allowed_chat_ids:
     - !secret telegram_home_group_id
+    - !secret telegram_climat_group_id
+    - !secret telegram_system_group_id
+    - !secret telegram_secuirity_group_id
     - !secret telegram_own_id
 
   notify:
@@ -16,15 +16,15 @@ telegramm:
 
   - platform: telegram
     name: telegram_climat_group_id
-    chat_id: !secret telegram_home_group_id
+    chat_id: !secret telegram_climat_group_id
 
   - platform: telegram
     name: telegram_secuirity_group_id
-    chat_id: !secret telegram_home_group_id
+    chat_id: !secret telegram_secuirity_group_id
 
   - platform: telegram
     name: telegram_system_group_id
-    chat_id: !secret telegram_home_group_id
+    chat_id: !secret telegram_system_group_id
 
   script:
     telegramm_send_home_text:
