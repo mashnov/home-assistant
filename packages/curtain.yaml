@@ -4,7 +4,7 @@ curtain:
       max: 100
       min: 0
     
-    curtain_kitchen_sun: # 60
+    curtain_kitchen_sun: # 50
       max: 100
       min: 0
     
@@ -16,11 +16,11 @@ curtain:
       max: 100
       min: 0
     
-    curtain_living_open: # 10
+    curtain_living_open: # 90
       max: 100
       min: 0
     
-    curtain_living_sun: # 50
+    curtain_living_sun: # 65
       max: 100
       min: 0
 
