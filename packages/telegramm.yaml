@@ -58,7 +58,7 @@ telegramm:
     telegramm_send_photo:
       mode: 'queued'
       sequence:
-      - service: notify.telegram_home_group_id
+      - service: notify.telegram_secuirity_group_id
         data_template:
           message: "{{ message }}"
           data:
