@@ -52,7 +52,7 @@ blocker:
       to: 'double'
     action:
     - service: input_boolean.toggle
-      entity_id: input_boolean.night_light_bath_blocker
+      entity_id: input_boolean.top_light_bath_blocker
 
   - alias: 'blocker_night_light_bath'
     mode: 'queued'
