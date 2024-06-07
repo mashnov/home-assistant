@@ -30,24 +30,24 @@ notification:
     trigger:
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      from: 'on'
-      to: 'off'
+      from: 'off'
+      to: 'on'
     action:
     - service: script.homepod_message
       data_template:
-        message: "Ночной режим включен. Спокойной ночи."
+        message: "Спокойной ночи."
 
   - alias: 'notification_home_homepod_night_mode_off'
     mode: 'queued'
     trigger:
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
+      from: 'on'
+      to: 'off'
     action:
     - service: script.homepod_message
       data_template:
-        message: "Ночной режим выключен. Доброе утро!"
+        message: "Доброе утро!"
 
 ###
 ## HOME TELEGRAMM
@@ -61,9 +61,7 @@ notification:
     action:
     - service: script.telegramm_send_home_text
       data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Кто-то нажал кнопку звонка в кооидоре
+        message: "🏠 Кто-то нажал кнопку звонка в кооидоре ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_home_telegramm_doorbell_outside'
     mode: 'queued'
@@ -73,25 +71,9 @@ notification:
     action:
     - service: script.telegramm_send_home_text
       data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Кто-то нажал кнопку звонка у лифта
+        message: "🏠 Кто-то нажал кнопку звонка у лифта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_home_telegramm_night_mode_on'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'on'
-      to: 'off'
-    action:
-    - service: script.telegramm_send_home_text
-      data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Ночной режим включен.
-
-  - alias: 'notification_home_telegramm_night_mode_off'
     mode: 'queued'
     trigger:
       platform: state
@@ -101,9 +83,19 @@ notification:
     action:
     - service: script.telegramm_send_home_text
       data_template:
-        message: |
-          🏠 Дом ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Ночной режим выключен.
+        message: "🏠 Ночной режим включен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_home_telegramm_night_mode_off'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: "🏠 Ночной режим выключен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
 ###
 ## CLIMAT HOMEPOD
@@ -245,13 +237,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-              
-          Закончилась вода в увлажнителе
-
-          Температура: {{ states('sensor.temperature_hall') }} °C
-          Влажность: {{ states('sensor.humidity_hall') }} %
+        message: "🧥 Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegrammhygrostat_empty_bedroom'
     mode: 'queued'
@@ -263,13 +249,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-
-          Закончилась вода в увлажнителе
-
-          Температура: {{ states('sensor.temperature_bedroom') }} °C
-          Влажность: {{ states('sensor.humidity_bedroom') }} %
+        message: "🛏️ Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegrammhygrostat_empty_living'
     mode: 'queued'
@@ -281,13 +261,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-
-          Закончилась вода в увлажнителе
-
-          Температура: {{ states('sensor.temperature_living') }} °C
-          Влажность: {{ states('sensor.humidity_living') }} %
+        message: "🛋️ Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegramm_mold_kitchen'
     mode: 'queued'
@@ -298,10 +272,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🥣 Кухня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. 
-          Риск возникновения плесени {{ states('sensor.mold_kitchen') }} %
+        message: "🥣 Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegramm_mold_hall'
     mode: 'queued'
@@ -312,10 +283,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. 
-          Риск возникновения плесени {{ states('sensor.mold_hall') }} %
+        message: "🧥 Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegramm_mold_bedroom'
     mode: 'queued'
@@ -326,10 +294,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🛏️ Спальня ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. 
-          Риск возникновения плесени {{ states('sensor.mold_bedroom') }} %
+        message: "🛏️ Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegramm_mold_living'
     mode: 'queued'
@@ -340,10 +305,7 @@ notification:
     action:
     - service: script.telegramm_send_climat_text
       data_template:
-        message: |
-          🛋️ Гостиная ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Требуется проветривание. 
-          Риск возникновения плесени {{ states('sensor.mold_living') }} %
+        message: "🛋️ Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
 ###
 ## SYSTEM
@@ -369,9 +331,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Старт системы
+        message: "⚙️ Старт системы ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_backup'
     mode: 'queued'
@@ -383,9 +343,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Резервное копирование
+        message: "⚙️ Резервное копирование ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_backup_error'
     mode: 'queued'
@@ -396,9 +354,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Ошибка резервного копирования
+        message: "⚙️ Ошибка резервного копирования ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_power_error'
     mode: 'queued'
@@ -412,9 +368,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Проблемы с питанием
+        message: "⚙️ Проблемы с питанием ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_update'
     mode: 'queued'
@@ -434,9 +388,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Доступно обновление системы
+        message: "⚙️ Доступно обновление системы ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_plugin_update'
     mode: 'queued'
@@ -468,9 +420,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Доступно обновление расширений
+        message: "⚙️ Доступно обновление расширений ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_hacs_update'
     mode: 'queued'
@@ -481,9 +431,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Доступно обновление HACS
+        message: "⚙️ Доступно обновление HACS ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
 ###
 ## SECURITY
@@ -500,9 +448,7 @@ notification:
     - service: script.camera_living_take_photo
     - service: script.telegramm_send_secuirity_text
       data_template:
-        message: |
-          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Дверь открыта
+        message: "🪴 Дверь открыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_secuirity_door_close'
     mode: 'queued'
@@ -514,9 +460,7 @@ notification:
     action:
     - service: script.telegramm_send_secuirity_text
       data_template:
-        message: |
-          🪴 Балкон ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Дверь закрыта
+        message: "🪴 Дверь закрыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_secuirity_hall_door_open'
     mode: 'queued'
@@ -528,9 +472,7 @@ notification:
     action:
     - service: script.telegramm_send_secuirity_text
       data_template:
-        message: |
-          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Дверь открыта
+        message: "🧥 Дверь открыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_secuirity_hall_door_close'
     mode: 'queued'
@@ -542,6 +484,4 @@ notification:
     action:
     - service: script.telegramm_send_secuirity_text
       data_template:
-        message: |
-          🧥 Коридор ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Дверь закрта
+        message: "🧥 Дверь закрта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
