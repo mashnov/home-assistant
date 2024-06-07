@@ -1,4 +1,4 @@
-light.back_light_kitchen:
+input_boolean.back_light_kitchen_blocker:
   name: Подсветка
 
 light.back_light_hall:

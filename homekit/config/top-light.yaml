@@ -1,13 +1,13 @@
-light.top_light_kitchen:
+input_boolean.top_light_kitchen_blocker:
   name: Освещение
 
-light.top_light_bath:
+input_boolean.top_light_bath_blocker:
   name: Освещение
 
 light.top_light_toilet:
   name: Освещение
 
-light.top_light_hall:
+input_boolean.top_light_hall_blocker:
   name: Освещение
 
 light.top_light_bedroom:

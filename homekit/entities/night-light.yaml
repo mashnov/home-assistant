@@ -1,5 +1,5 @@
 - light.night_light_kitchen
-- light.night_light_bath
+- input_boolean.night_light_bath_blocker
 - light.night_light_toilet
 - light.night_light_hall
 - light.night_light_balcony

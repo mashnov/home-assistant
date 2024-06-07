@@ -1,4 +1,4 @@
-- light.back_light_kitchen
+- input_boolean.back_light_kitchen_blocker
 - light.back_light_hall
 - light.back_light_bedroom
 - light.back_light_living
