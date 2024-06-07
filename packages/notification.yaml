@@ -319,9 +319,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: |
-          ⚙️ Система ({{ now().timestamp() | timestamp_custom('%H:%M') }})
-          Завершение работы
+        message: "⚙️ Завершение работы ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_start'
     mode: 'queued'
