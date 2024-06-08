@@ -67,28 +67,31 @@ back_light:
           entity_id: switch.switch_kitchen_right
           state: 'off'
         then:
-        - service: switch.turn_on
-          entity_id: 
-          - switch.switch_kitchen_right
-          - switch.relay_kitchen_l2
+        - if:
+          - condition: state
+            entity_id: input_boolean.is_night_mode
+            state: 'off'
+          then:
+          - service: switch.turn_on
+            entity_id: 
+            - switch.switch_kitchen_right
+            - switch.relay_kitchen_l1
+          else:
+          - service: switch.turn_on
+            entity_id: 
+            - switch.switch_kitchen_right
+            - switch.relay_kitchen_l2
         else:
-        - service: switch.turn_on
-          entity_id: switch.relay_kitchen_l2
-
-
-        ### Ночной режим
-        # - condition: state
-        #   entity_id: input_boolean.is_night_mode
-        #   state: 'off'
-
-        ### Подсветка        
-        # - service: switch.turn_on
-        #   entity_id: switch.relay_kitchen_l2
-
-        ### Ночник 
-        # - service: switch.turn_on
-        #   entity_id: switch.relay_kitchen_l1
-
+        - if:
+          - condition: state
+            entity_id: input_boolean.is_night_mode
+            state: 'off'
+          then:
+          - service: switch.turn_on
+            entity_id: switch.relay_kitchen_l1
+          else:
+          - service: switch.turn_on
+            entity_id: switch.relay_kitchen_l2
 
   automation:
   - alias: 'back_light_kitchen'
