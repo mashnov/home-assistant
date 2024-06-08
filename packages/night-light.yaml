@@ -2,14 +2,6 @@ night_light:
   light:
   - platform: template
     lights:
-      night_light_kitchen:
-        value_template: "{{ is_state('switch.relay_kitchen_l1', 'on') }}"
-        turn_on:
-        - service: script.night_light_kitchen_turn_on
-        turn_off:
-        - service: switch.turn_off
-          entity_id: switch.relay_kitchen_l1
-
       night_light_bath:
         value_template: "{{ is_state('switch.relay_bath_l1', 'on') }}"
         turn_on:
@@ -37,55 +29,7 @@ night_light:
         - service: switch.turn_off
           entity_id: switch.relay_balcony_l1
 
-  script:
-    night_light_kitchen_turn_on:
-      mode: 'queued'
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_kitchen_right
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: 
-          - switch.switch_kitchen_right
-          - switch.relay_kitchen_l1
-        else:
-        - service: switch.turn_on
-          entity_id: switch.relay_kitchen_l1
-
   automation:
-  - alias: 'night_light_kitchen'
-    mode: 'queued'
-    trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'input_boolean.occupancy_kitchen'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.occupancy_kitchen'
-      from: 'on'
-      to: 'off'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.night_light_kitchen
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.night_light_kitchen
-
   - alias: 'night_light_hall'
     mode: 'queued'
     trigger:

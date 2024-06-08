@@ -1,17 +1,17 @@
 input_boolean.top_light_kitchen_blocker:
-  name: Освещение
+  name: Свет
 
 input_boolean.top_light_bath_blocker:
-  name: Освещение
+  name: Свет
 
 light.top_light_toilet:
-  name: Освещение
+  name: Свет
 
 input_boolean.top_light_hall_blocker:
-  name: Освещение
+  name: Свет
 
 light.top_light_bedroom:
-  name: Освещение
+  name: Свет
 
 light.top_light_living:
-  name: Освещение
+  name: Свет

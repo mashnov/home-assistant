@@ -1,11 +1,8 @@
-light.night_light_kitchen:
-  name: Ночник
-
 input_boolean.night_light_bath_blocker:
-  name: Ночник
+  name: Зеркало
 
 light.night_light_toilet:
-  name: Ночник
+  name: Лампочка
 
 light.night_light_hall:
   name: Ночник

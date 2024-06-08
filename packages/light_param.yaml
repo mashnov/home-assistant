@@ -65,7 +65,7 @@ light_param:
     - choose:
       - conditions:
         - condition: state
-          entity_id: light.night_light_hall
+          entity_id: light.xiaomi_light_kitchen
           state: 'on'
         sequence:
         - service: light.turn_on
@@ -88,7 +88,7 @@ light_param:
     - choose:
       - conditions:
         - condition: state
-          entity_id: light.night_light_hall
+          entity_id: light.xiaomi_light_hall
           state: 'on'
         sequence:
         - service: light.turn_on
@@ -111,7 +111,7 @@ light_param:
     - choose:
       - conditions:
         - condition: state
-          entity_id: light.night_light_hall
+          entity_id: light.xiaomi_light_bedroom
           state: 'on'
         sequence:
         - service: light.turn_on
@@ -134,7 +134,7 @@ light_param:
     - choose:
       - conditions:
         - condition: state
-          entity_id: light.night_light_hall
+          entity_id: light.xiaomi_light_living
           state: 'on'
         sequence:
         - service: light.turn_on

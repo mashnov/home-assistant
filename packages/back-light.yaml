@@ -7,8 +7,11 @@ back_light:
         turn_on:
         - service: script.back_light_kitchen_turn_on
         turn_off:
-        - service: switch.turn_off
-          entity_id: switch.relay_kitchen_l2
+        - parallel:
+          - service: switch.turn_off
+            entity_id: switch.relay_kitchen_l1
+          - service: switch.turn_off
+            entity_id: switch.relay_kitchen_l2
 
       back_light_hall:
         value_template: "{{ is_state('switch.relay_hall_l1', 'on') }}"
@@ -72,6 +75,21 @@ back_light:
         - service: switch.turn_on
           entity_id: switch.relay_kitchen_l2
 
+
+        ### Ночной режим
+        # - condition: state
+        #   entity_id: input_boolean.is_night_mode
+        #   state: 'off'
+
+        ### Подсветка        
+        # - service: switch.turn_on
+        #   entity_id: switch.relay_kitchen_l2
+
+        ### Ночник 
+        # - service: switch.turn_on
+        #   entity_id: switch.relay_kitchen_l1
+
+
   automation:
   - alias: 'back_light_kitchen'
     mode: 'queued'
@@ -101,9 +119,6 @@ back_light:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
         sequence:
         - service: light.turn_on
           entity_id: light.back_light_kitchen
