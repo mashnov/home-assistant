@@ -443,7 +443,7 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - service: script.camera_living_take_photo
+    # - service: script.camera_living_take_photo
     - service: script.telegramm_send_secuirity_text
       data_template:
         message: "🪴 Дверь открыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
