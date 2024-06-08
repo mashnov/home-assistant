@@ -40,7 +40,6 @@ occupancy:
       min: 1
 
   template:
-
   - binary_sensor:
     - name: 'occupancy_kitchen'
       device_class: 'occupancy'

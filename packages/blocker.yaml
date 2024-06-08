@@ -13,6 +13,130 @@ blocker:
     outlet_balcony_sprinkler_blocker:
     outlet_balcony_socket_blocker:
 
+  timer:
+    top_light_kitchen_blocker:
+      duration: '00:20:00'
+
+    back_light_kitchen_blocker:
+      duration: '00:20:00' 
+
+    top_light_hall_blocker:
+      duration: '00:20:00'
+
+    top_light_bath_blocker:
+      duration: '00:20:00'
+
+    night_light_bath_blocker:
+      duration: '00:20:00'
+
+    top_light_bedroom_blocker:
+      duration: '00:20:00'
+
+    top_light_living_blocker:
+      duration: '00:20:00'
+
+    back_light_balcony_blocker:
+      duration: '00:20:00'
+
+    night_light_balcony_blocker:
+      duration: '00:20:00'
+
+    fan_toilet_blocker:
+      duration: '00:20:00'
+
+    outlet_balcony_sprinkler_blocker:
+      duration: '00:20:00'
+
+    outlet_balcony_socket_blocker:
+      duration: '00:20:00'
+
+  input_number:
+    top_light_kitchen_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    back_light_kitchen_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    top_light_hall_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    top_light_bath_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    night_light_bath_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    top_light_bedroom_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    top_light_living_blocker: # 00:40:00 (2400)
+      max: 5000
+      min: 1
+
+    back_light_balcony_blocker: # 00:20:00 (1200)
+      max: 5000
+      min: 1
+
+    night_light_balcony_blocker: # 00:20:00 (1200)
+      max: 5000
+      min: 1
+
+    fan_toilet_blocker: # 00:10:00 (600)
+      max: 5000
+      min: 1
+
+    outlet_balcony_sprinkler_blocker: # 00:20:00 (1200)
+      max: 5000
+      min: 1
+
+    outlet_balcony_socket_blocker: # 00:20:00 (1200)
+      max: 5000
+      min: 1
+
+  template:
+  - sensor:
+    - name: 'top_light_kitchen_blocker'
+      state: "{{ states('input_number.top_light_kitchen_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'back_light_kitchen_blocker'
+      state: "{{ states('input_number.back_light_kitchen_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'top_light_hall_blocker'
+      state: "{{ states('input_number.top_light_hall_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'top_light_bath_blocker'
+      state: "{{ states('input_number.top_light_bath_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'night_light_bath_blocker'
+      state: "{{ states('input_number.night_light_bath_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'top_light_bedroom_blocker'
+      state: "{{ states('input_number.top_light_bedroom_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'top_light_living_blocker'
+      state: "{{ states('input_number.top_light_living_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'back_light_balcony_blocker'
+      state: "{{ states('input_number.back_light_balcony_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'night_light_balcony_blocker'
+      state: "{{ states('input_number.night_light_balcony_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'fan_toilet_blocker'
+      state: "{{ states('input_number.fan_toilet_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'outlet_balcony_sprinkler_blocker'
+      state: "{{ states('input_number.outlet_balcony_sprinkler_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
+    - name: 'outlet_balcony_socket_blocker'
+      state: "{{ states('input_number.outlet_balcony_socket_blocker') | int(0) | timestamp_custom('%H:%M:%S', false) }}"
+
   automation:
   - alias: 'blocker_top_light_kitchen'
     mode: 'queued'
@@ -87,7 +211,12 @@ blocker:
     - service: input_boolean.toggle
       entity_id: input_boolean.top_light_bedroom_blocker
 
-  - alias: 'blocker_top_light_living'
+
+
+
+
+
+  - alias: 'blocker_top_light_living_toggle'
     mode: 'queued'
     trigger:
     - platform: state
@@ -97,8 +226,45 @@ blocker:
       entity_id: sensor.switch_living_action
       to: 'single_right'
     action:
-    - service: input_boolean.toggle
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.top_light_living_blocker
+          state: 'off'
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.top_light_living_blocker
+          - service: timer.start
+            entity_id: timer.top_light_living_blocker
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.top_light_living_blocker
+          state: 'on'
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.top_light_living_blocker
+          - service: timer.cancel
+            entity_id: timer.top_light_living_blocker
+
+  - alias: 'blocker_top_light_living_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.top_light_living_blocker
+    action:
+    - service: input_boolean.turn_off
       entity_id: input_boolean.top_light_living_blocker
+
+
+
+
+
+
+
 
   - alias: 'blocker_back_light_balcony'
     mode: 'queued'
@@ -152,3 +318,4 @@ blocker:
     action:
     - service: input_boolean.toggle
       entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+
