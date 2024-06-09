@@ -3,7 +3,13 @@ top_light:
   - platform: template
     lights:
       top_light_kitchen:
-        value_template: "{{ is_state('light.xiaomi_light_kitchen', 'on') }}"
+        value_template: >
+          {% set light1 = is_state('light.xiaomi_light_kitchen_1', 'on') %}
+          {% set light2 = is_state('light.xiaomi_light_kitchen_2', 'on') %}
+          {% set light3 = is_state('light.xiaomi_light_kitchen_3', 'on') %}
+          {% set light4 = is_state('light.xiaomi_light_kitchen_4', 'on') %}
+          {% set light5 = is_state('light.xiaomi_light_kitchen_5', 'on') %}
+          {{ light1 or light2 or light3 or light4 or light5 }}
         turn_on:
         - service: script.top_light_kitchen_turn_on
         turn_off:
@@ -29,7 +35,14 @@ top_light:
           entity_id: switch.switch_restroom_left
 
       top_light_hall:
-        value_template: "{{ is_state('light.xiaomi_light_hall', 'on') }}"
+        value_template: >
+          {% set light1 = is_state('light.xiaomi_light_hall_1', 'on') %}
+          {% set light2 = is_state('light.xiaomi_light_hall_2', 'on') %}
+          {% set light3 = is_state('light.xiaomi_light_hall_3', 'on') %}
+          {% set light4 = is_state('light.xiaomi_light_hall_4', 'on') %}
+          {% set light5 = is_state('light.xiaomi_light_hall_5', 'on') %}
+          {% set light6 = is_state('light.xiaomi_light_hall_6', 'on') %}
+          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
         turn_on:
         - service: script.top_light_hall_turn_on
         turn_off:
@@ -37,7 +50,14 @@ top_light:
           entity_id: light.xiaomi_light_hall
 
       top_light_bedroom:
-        value_template: "{{ is_state('light.xiaomi_light_bedroom', 'on') }}"
+        value_template: >
+          {% set light1 = is_state('light.xiaomi_light_bedroom_1', 'on') %}
+          {% set light2 = is_state('light.xiaomi_light_bedroom_2', 'on') %}
+          {% set light3 = is_state('light.xiaomi_light_bedroom_3', 'on') %}
+          {% set light4 = is_state('light.xiaomi_light_bedroom_4', 'on') %}
+          {% set light5 = is_state('light.xiaomi_light_bedroom_5', 'on') %}
+          {% set light6 = is_state('light.xiaomi_light_bedroom_6', 'on') %}
+          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
         turn_on:
         - service: script.top_light_bedroom_turn_on
         turn_off:
@@ -45,7 +65,14 @@ top_light:
           entity_id: light.xiaomi_light_bedroom
 
       top_light_living:
-        value_template: "{{ is_state('light.xiaomi_light_living', 'on') }}"
+        value_template: >
+          {% set light1 = is_state('light.xiaomi_light_living_1', 'on') %}
+          {% set light2 = is_state('light.xiaomi_light_living_2', 'on') %}
+          {% set light3 = is_state('light.xiaomi_light_living_3', 'on') %}
+          {% set light4 = is_state('light.xiaomi_light_living_4', 'on') %}
+          {% set light5 = is_state('light.xiaomi_light_living_5', 'on') %}
+          {% set light6 = is_state('light.xiaomi_light_living_6', 'on') %}
+          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
         turn_on:
         - service: script.top_light_living_turn_on
         turn_off:

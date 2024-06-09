@@ -3,7 +3,10 @@ back_light:
   - platform: template
     lights:
       back_light_kitchen:
-        value_template: "{{ is_state('switch.relay_kitchen_l2', 'on') }}"
+        value_template: >
+          {% set back = is_state('switch.relay_kitchen_l2', 'on') %}
+          {% set bottom = is_state('switch.relay_kitchen_l1', 'on') %}
+          {{ back or bottom }}
         turn_on:
         - service: script.back_light_kitchen_turn_on
         turn_off:

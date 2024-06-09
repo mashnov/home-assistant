@@ -8,11 +8,11 @@ illuminance:
       max: 8000
       min: 1
     
-    min_illuminance_bedroom_back_ligh: # 3000
+    min_illuminance_bedroom_back_ligh: # 4000
       max: 8000
       min: 1
     
-    min_illuminance_living_back_ligh: # 3000
+    min_illuminance_living_back_ligh: # 4000
       max: 8000
       min: 1
     
