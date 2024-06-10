@@ -33,39 +33,46 @@ illuminance:
     max_age:
       hours: 24 
 
+  - name: illuminance_average
+    platform: statistics
+    entity_id: sensor.illuminance_balcony
+    state_characteristic: average_timeless
+    max_age:
+      minutes: 5 
+
   template:
   - binary_sensor:
     - name: 'kitchen_top_light_is_dark'
       delay_off: '00:00:15'
       state: >
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set minValue = states('input_number.min_illuminance_kitchen_top_light') | int(0) %}
         {{ sensor < minValue }}
     
     - name: 'kitchen_curtain_is_dark'
       delay_off: '00:00:15'
       state: >
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set minValue = states('input_number.min_illuminance_kitchen_curtain') | int(0) %}
         {{ sensor < minValue }}
     
     - name: 'bedroom_back_ligh_is_dark'
       delay_off: '00:00:15'
       state: >
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set minValue = states('input_number.min_illuminance_bedroom_back_ligh') | int(0) %}
         {{ sensor < minValue }}
     
     - name: 'living_back_lighis_dark'
       delay_off: '00:00:15'
       state: >
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set minValue = states('input_number.min_illuminance_living_back_ligh') | int(0) %}
         {{ sensor < minValue }}
     
     - name: 'living_curtain_is_dark'
       delay_off: '00:00:15'
       state: >
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set minValue = states('input_number.min_illuminance_living_curtain') | int(0) %}
         {{ sensor < minValue }}
