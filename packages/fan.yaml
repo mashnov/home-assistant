@@ -17,10 +17,12 @@ fan:
 
   input_number:
     fan_toilet_night: # 00:00:15
+      initial: 15
       max: 120
       min: 5
     
     fan_toilet_day: # 00:00:45
+      initial: 45
       max: 120
       min: 5
 

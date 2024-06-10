@@ -1,26 +1,32 @@
 curtain:
   input_number:
     curtain_kitchen_open: # 100
+      initial: 100
       max: 100
       min: 0
     
     curtain_kitchen_sun: # 50
+      initial: 50
       max: 100
       min: 0
     
     curtain_bedroom_open: # 5
+      initial: 5
       max: 100
       min: 0
     
     curtain_bedroom_night: # 50
+      initial: 50
       max: 100
       min: 0
     
     curtain_living_open: # 90
+      initial: 90
       max: 100
       min: 0
     
     curtain_living_sun: # 65
+      initial: 65
       max: 100
       min: 0
 

@@ -1,34 +1,42 @@
 sun:
   input_number:
     kitchen_azimuth_target: # 160
+      initial: 160
       max: 360
       min: 0
     
     kitchen_azimuth_offset: # 15
+      initial: 15
       max: 50
       min: 0
     
     kitchen_elevation_target: # 30
+      initial: 30
       max: 90
       min: 0
     
     kitchen_elevation_offset: # 5
+      initial: 5
       max: 20
       min: 0
     
     living_azimuth_target: # 160
+      initial: 160
       max: 360
       min: 0
     
     living_azimuth_offset: # 15
+      initial: 15
       max: 50
       min: 0
     
     living_elevation_target: # 30
+      initial: 30
       max: 90
       min: 0
     
     living_elevation_offset: # 5
+      initial: 5
       max: 20
       min: 0
 

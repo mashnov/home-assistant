@@ -7,10 +7,12 @@ homepod:
 
   input_number:
     homepod_volume_night: # 0.5
+      initial: 0.5
       max: 1
       min: 0
     
-    homepod_volume_day: # 0.8
+    homepod_volume_day: # 0.9
+      initial: 0.9
       max: 1
       min: 0
 

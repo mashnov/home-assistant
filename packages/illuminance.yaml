@@ -1,22 +1,27 @@
 illuminance:
   input_number:
     min_illuminance_kitchen_top_light: # 3000
+      initial: 3000
       max: 8000
       min: 1
 
     min_illuminance_kitchen_curtain: # 3000
+      initial: 3000
       max: 8000
       min: 1
     
-    min_illuminance_bedroom_back_ligh: # 4000
+    min_illuminance_bedroom_back_ligh: # 6000
+      initial: 6000
       max: 8000
       min: 1
     
-    min_illuminance_living_back_ligh: # 4000
+    min_illuminance_living_back_ligh: # 6000
+      initial: 6000
       max: 8000
       min: 1
     
     min_illuminance_living_curtain: # 3000
+      initial: 3000
       max: 8000
       min: 1
 
