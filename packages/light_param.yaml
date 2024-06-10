@@ -22,12 +22,12 @@ light_param:
     
     light_param_shi_brightness_day: # 255
       initial: 255
-      max: 100
+      max: 255
       min: 0
 
     light_param_shi_brightness_night: # 50
       initial: 50
-      max: 30
+      max: 100
       min: 0
 
   template:
