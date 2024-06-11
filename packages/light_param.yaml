@@ -37,7 +37,7 @@ light_param:
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
         {% set target = states('sensor.illuminance_max') | int(1) %}
-        {% set sensor = states('sensor.illuminance_balcony') | int(0) %}
+        {% set sensor = states('sensor.illuminance_average') | int(0) %}
         {% set percent = min((sensor / max(1, target) ) * 100, 100) | round %}
         {% set temperature = (maxValue / 100 * (100 - percent)) | round %}
         {{ max(minValue, temperature) }}

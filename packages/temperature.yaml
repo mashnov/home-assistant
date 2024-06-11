@@ -15,24 +15,24 @@ temperature:
   - sensor:
     - name: 'temperature_kitchen_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_kitchen') | float(0) }}"
+      state: "{{ states('sensor.temperature_kitchen') | float(0) | round(1) }}"
 
     - name: 'temperature_bath_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_bath') | float(0) }}"
+      state: "{{ states('sensor.temperature_bath') | float(0) | round(1) }}"
 
     - name: 'temperature_hall_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_hall') | float(0) }}"
+      state: "{{ states('sensor.temperature_hall') | float(0) | round(1) }}"
 
     - name: 'temperature_bedroom_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_bedroom') | float(0) }}"
+      state: "{{ states('sensor.temperature_bedroom') | float(0) | round(1) }}"
 
     - name: 'temperature_living_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_living') | float(0) }}"
+      state: "{{ states('sensor.temperature_living') | float(0) | round(1) }}"
 
     - name: 'temperature_balcony_virtual'
       unit_of_measurement: "°C"
-      state: "{{ states('sensor.temperature_balcony') | float(0) }}"
+      state: "{{ states('sensor.temperature_balcony') | float(0) | round(1) }}"
