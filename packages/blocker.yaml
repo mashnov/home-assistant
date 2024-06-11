@@ -44,8 +44,6 @@ blocker:
     - service: input_boolean.toggle
       entity_id: input_boolean.top_light_hall_blocker
 
-
-
   - alias: 'blocker_top_light_bath'
     mode: 'queued'
     trigger:
@@ -73,13 +71,24 @@ blocker:
       entity_id: sensor.switch_restroom_action
       to: 'single_right'
     action:
-    - service: input_boolean.toggle
-      entity_id: 
-      - input_boolean.night_light_bath_blocker
-      - input_boolean.top_light_bath_blocker
-
-
-
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.night_light_bath_blocker
+          state: 'off'
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.night_light_bath_blocker
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.night_light_bath_blocker
+          state: 'off'
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.night_light_bath_blocker
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.top_light_bath_blocker
 
   - alias: 'blocker_top_light_bedroom'
     mode: 'queued'

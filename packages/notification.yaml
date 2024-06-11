@@ -482,4 +482,4 @@ notification:
     action:
     - service: script.telegramm_send_secuirity_text
       data_template:
-        message: "🧥 Дверь закрта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        message: "🧥 Дверь закрыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
