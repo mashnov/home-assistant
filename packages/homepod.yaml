@@ -5,6 +5,11 @@ homepod:
     language: ru-RU-SvetlanaNeural
     cache: false
 
+  - platform: edge_tts
+    service_name: sveta_say
+    language: ru-RU-SvetlanaNeural
+    cache: false
+
   input_number:
     homepod_volume_night: # 0.5
       initial: 0.5
@@ -34,6 +39,11 @@ homepod:
           entity_id: media_player.homepod
           volume_level: "{{ states('sensor.homepod_volume') }}"
       - service: tts.sveta_say
+        data:
+          entity_id: media_player.homepod
+          message: "{{ message }}"
+          cache: false
+      - service: tts.piper
         data:
           entity_id: media_player.homepod
           message: "{{ message }}"
