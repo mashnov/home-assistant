@@ -82,7 +82,7 @@ blocker:
       - conditions:
         - condition: state
           entity_id: input_boolean.night_light_bath_blocker
-          state: 'off'
+          state: 'on'
         sequence:
         - parallel:
           - service: input_boolean.turn_off
