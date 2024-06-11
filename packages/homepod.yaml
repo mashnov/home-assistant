@@ -1,12 +1,7 @@
 homepod:
   tts: 
   - platform: edge_tts
-    service_name: sveta_say
-    language: ru-RU-SvetlanaNeural
-    cache: false
-
-  - platform: edge_tts
-    service_name: sveta_say
+    service_name: edge_say
     language: ru-RU-SvetlanaNeural
     cache: false
 
@@ -38,12 +33,7 @@ homepod:
         data_template:
           entity_id: media_player.homepod
           volume_level: "{{ states('sensor.homepod_volume') }}"
-      - service: tts.sveta_say
-        data:
-          entity_id: media_player.homepod
-          message: "{{ message }}"
-          cache: false
-      - service: tts.piper
+      - service: tts.edge_say
         data:
           entity_id: media_player.homepod
           message: "{{ message }}"
