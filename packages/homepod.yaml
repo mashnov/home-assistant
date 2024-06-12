@@ -21,8 +21,8 @@ homepod:
     - name: 'homepod_volume'
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
-        {% set nightValue = states('input_number.homepod_volume_night') | int(0) %}
-        {% set dayValue = states('input_number.homepod_volume_day') | int(0) %}
+        {% set nightValue = states('input_number.homepod_volume_night') | float(0) %}
+        {% set dayValue = states('input_number.homepod_volume_day') | float(0) %}
         {{ iif(isNightMode, nightValue, dayValue) }}
 
   script:
