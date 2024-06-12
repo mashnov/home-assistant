@@ -96,7 +96,8 @@ blocker:
           - service: input_boolean.turn_on
             entity_id: input_boolean.top_light_bath_blocker
       - conditions:
-        - or:
+        - condition: or
+          conditions:
           - condition: state
             entity_id: input_boolean.night_light_bath_blocker
             state: 'on'
