@@ -40,6 +40,7 @@ curtain:
 
     - name: 'living_curtain_close'
       state: >
+        {% set open = is_state('binary_sensor.door_balcony', 'on') %}
         {% set sunny = is_state('binary_sensor.sun_is_sunny', 'on') %}
         {% set dark = is_state('binary_sensor.living_curtain_is_dark', 'on') %}
         {{ sunny and not(dark) }}
