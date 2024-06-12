@@ -98,9 +98,9 @@ blocker:
       - conditions:
         - condition: template
           value_template: >
-            {% set isNightLight = is_state("input_boolean.night_light_bath_blocker", "on") %}
-            {% set isTopLight = is_state("input_boolean.top_light_bath_blocker", "on") %}
-            {{ isNightLight or isTopLight }}
+            {% set isNightLightBlocker = is_state("input_boolean.night_light_bath_blocker", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.top_light_bath_blocker", "on") %}
+            {{ isNightLightBlocker or isTopLightBlocker }}
         sequence:
         - parallel:
           - service: input_boolean.turn_off
