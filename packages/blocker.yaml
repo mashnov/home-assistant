@@ -96,20 +96,19 @@ blocker:
           - service: input_boolean.turn_on
             entity_id: input_boolean.top_light_bath_blocker
       - conditions:
-        - condition: or
-          conditions:
-          - condition: state
-            entity_id: input_boolean.night_light_bath_blocker
-            state: 'on'
-          - condition: state
-            entity_id: input_boolean.top_light_bath_blocker
-            state: 'on'
-          sequence:
-          - parallel:
-            - service: input_boolean.turn_off
-              entity_id: input_boolean.night_light_bath_blocker
-            - service: input_boolean.turn_off
-              entity_id: input_boolean.top_light_bath_blocker
+        - condition: state
+          entity_id: input_boolean.night_light_bath_blocker
+          state: 'on'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.night_light_bath_blocker
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.top_light_bath_blocker
+          state: 'on'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.top_light_bath_blocker
 
   - alias: 'blocker_top_light_bedroom'
     mode: 'queued'
