@@ -11,8 +11,8 @@ homepod:
       max: 1
       min: 0
     
-    homepod_volume_day: # 0.9
-      initial: 0.9
+    homepod_volume_day: # 0.7
+      initial: 0.7
       max: 1
       min: 0
 
