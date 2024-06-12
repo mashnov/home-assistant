@@ -1,74 +1,38 @@
 sun:
   input_number:
-    kitchen_azimuth_target: # 160
+    sun_azimuth_target: # 160
       initial: 160
       max: 360
       min: 0
     
-    kitchen_azimuth_offset: # 15
+    sun_azimuth_offset: # 15
       initial: 15
       max: 50
       min: 0
     
-    kitchen_elevation_target: # 30
+    sun_elevation_target: # 30
       initial: 30
       max: 90
       min: 0
     
-    kitchen_elevation_offset: # 5
-      initial: 5
-      max: 20
-      min: 0
-    
-    living_azimuth_target: # 160
-      initial: 160
-      max: 360
-      min: 0
-    
-    living_azimuth_offset: # 15
-      initial: 15
-      max: 50
-      min: 0
-    
-    living_elevation_target: # 30
-      initial: 30
-      max: 90
-      min: 0
-    
-    living_elevation_offset: # 5
+    sun_elevation_offset: # 5
       initial: 5
       max: 20
       min: 0
 
   template:
   - binary_sensor:
-    - name: 'kitchen_is_sunny'
+    - name: 'sun_is_sunny'
       state: >
         {% set azimuthSensor = state_attr('sun.sun', 'azimuth') | int(0) %}
-        {% set azimuthTarget = states('input_number.kitchen_azimuth_target') | int(0) %}
-        {% set azimuthOffset = states('input_number.kitchen_azimuth_offset') | int(0) %}
+        {% set azimuthTarget = states('input_number.sun_azimuth_target') | int(0) %}
+        {% set azimuthOffset = states('input_number.sun_azimuth_offset') | int(0) %}
         {% set azimuthMin = azimuthTarget - azimuthOffset %}
         {% set azimuthMax = azimuthTarget + azimuthOffset %}
         {% set azimuthValue = (azimuthMin <= azimuthSensor) and (azimuthSensor <= azimuthMax) %}
         {% set elevationSensor = state_attr('sun.sun', 'elevation') | int(0) %}
-        {% set elevationTarget = states('input_number.kitchen_elevation_target') | int(0) %}
-        {% set elevationOffset = states('input_number.kitchen_elevation_offset') | int(0) %}
-        {% set elevationMin = elevationTarget - elevationOffset %}
-        {% set elevationMax = elevationTarget + elevationOffset %}
-        {% set elevationValue = (elevationMin <= elevationSensor) and (elevationSensor <= elevationMax) %}
-        {{ azimuthValue and elevationValue }}
-
-    - name: 'living_is_sunny'
-      state: >
-        {% set azimuthSensor = state_attr('sun.sun', 'azimuth') | int(0) %}
-        {% set azimuthTarget = states('input_number.living_azimuth_target') | int(0) %}
-        {% set azimuthOffset = states('input_number.living_azimuth_offset') | int(0) %}
-        {% set azimuthMin = azimuthTarget - azimuthOffset %}
-        {% set azimuthMax = azimuthTarget + azimuthOffset %}
-        {% set azimuthValue = (azimuthMin <= azimuthSensor) and (azimuthSensor <= azimuthMax) %}
-        {% set elevationSensor = state_attr('sun.sun', 'elevation') | int(0) %}
-        {% set elevationTarget = states('input_number.living_elevation_target') | int(0) %}
-        {% set elevationOffset = states('input_number.living_elevation_offset') | int(0) %}
+        {% set elevationTarget = states('input_number.sun_elevation_target') | int(0) %}
+        {% set elevationOffset = states('input_number.sun_elevation_offset') | int(0) %}
         {% set elevationMin = elevationTarget - elevationOffset %}
         {% set elevationMax = elevationTarget + elevationOffset %}
         {% set elevationValue = (elevationMin <= elevationSensor) and (elevationSensor <= elevationMax) %}
