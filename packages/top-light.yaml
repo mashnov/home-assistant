@@ -201,7 +201,7 @@ top_light:
           value_template: >
             {% set isNightMode = is_state("input_boolean.is_night_mode", "on") %}
             {% set isTopLightBlocker = is_state("input_boolean.top_light_bath_blocker", "on") %}
-            {{ Not(isNightMode) or isTopLightBlocker }}
+            {{ not(isNightMode) or isTopLightBlocker }}
         sequence:
         - service: light.turn_on
           entity_id: light.top_light_bath
