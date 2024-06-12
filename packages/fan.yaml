@@ -21,8 +21,8 @@ fan:
       max: 120
       min: 5
     
-    fan_toilet_day: # 00:00:45
-      initial: 45
+    fan_toilet_day: # 00:00:30
+      initial: 30
       max: 120
       min: 5
 
