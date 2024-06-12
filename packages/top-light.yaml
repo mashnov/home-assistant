@@ -196,7 +196,6 @@ top_light:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-
         - condition: template
           value_template: >
             {% set isNightMode = is_state("input_boolean.is_night_mode", "on") %}
@@ -274,9 +273,11 @@ top_light:
       - conditions:
         - condition: trigger
           id: 'turn_on'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
+        - condition: template
+          value_template: >
+            {% set isNightMode = is_state("input_boolean.is_night_mode", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.top_light_hall_blocker", "on") %}
+            {{ not(isNightMode) or isTopLightBlocker }}
         sequence:
         - service: light.turn_on
           entity_id: light.top_light_hall
