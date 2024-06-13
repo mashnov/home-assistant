@@ -26,6 +26,61 @@ telegramm:
     name: telegram_system_group_id
     chat_id: !secret telegram_system_group_id
 
+  automation:
+  - alias: telegram_restart_command
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/restart'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/restart'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/restart@casa_d_amore_bot'
+    action:
+    - service: script.system_restart
+
+  - alias: telegram_reboot_command
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/reboot'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/reboot'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/reboot@casa_d_amore_bot'
+    action:
+    - service: script.system_reboot
+
+  - alias: telegram_rebuild_command
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/rebuild'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rebuild'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rebuild@casa_d_amore_bot'
+    action:
+    - service: script.system_rebuild
+
   script:
     telegramm_send_home_text:
       mode: 'queued'
