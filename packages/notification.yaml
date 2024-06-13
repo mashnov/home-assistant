@@ -13,7 +13,7 @@ notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "Кто-то нажал кнопку звонка в кооидоре"
+        message: "Кто-то нажал кнопку звонка в коридоре"
 
   - alias: 'notification_home_homepod_doorbell_outside'
     mode: 'queued'
@@ -61,7 +61,7 @@ notification:
     action:
     - service: script.telegramm_send_home_text
       data_template:
-        message: "🏠 Кто-то нажал кнопку звонка в кооидоре ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        message: "🏠 Кто-то нажал кнопку звонка в коридоре ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_home_telegramm_doorbell_outside'
     mode: 'queued'
