@@ -108,19 +108,9 @@ hygrostat:
       entity_id: 'binary_sensor.is_ventilation_bedroom'
       from: 'on'
       to: 'off'
-    - id: 'humidifier_bedroom_on'
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'on'
-      to: 'off'
     - id: 'humidifier_bedroom_off'
       platform: state
       entity_id: 'binary_sensor.is_ventilation_bedroom'
-      from: 'off'
-      to: 'on'
-    - id: 'humidifier_bedroom_off'
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
       from: 'off'
       to: 'on'
     action:
@@ -128,9 +118,6 @@ hygrostat:
       - conditions:
         - condition: trigger
           id: 'humidifier_bedroom_on'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
         sequence:
         - service: humidifier.turn_on
           entity_id: humidifier.humidifier_bedroom
