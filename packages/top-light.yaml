@@ -227,11 +227,6 @@ top_light:
       entity_id: 'input_boolean.occupancy_toilet'
       from: 'on'
       to: 'off'
-    - id: 'night_mode_off'
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
     action:
     - choose:
       - conditions:
@@ -240,15 +235,6 @@ top_light:
         - condition: state
           entity_id: input_boolean.is_night_mode
           state: 'off'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.top_light_toilet      
-      - conditions:
-        - condition: trigger
-          id: 'night_mode_off'
-        - condition: state
-          entity_id: input_boolean.occupancy_toilet
-          state: 'on'
         sequence:
         - service: light.turn_on
           entity_id: light.top_light_toilet
@@ -346,6 +332,10 @@ top_light:
       entity_id: 'input_boolean.top_light_living_blocker'
       from: 'on'
       to: 'off'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.button_toilet_action
+      to: 'double'
     action:
     - choose:
       - conditions:
@@ -359,4 +349,10 @@ top_light:
           id: 'turn_off'
         sequence:
         - service: light.turn_off
+          entity_id: light.top_light_living
+      - conditions:
+        - condition: trigger
+          id: 'toggle'
+        sequence:
+        - service: light.toggle
           entity_id: light.top_light_living
