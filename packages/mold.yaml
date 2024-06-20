@@ -15,6 +15,13 @@ mold:
     calibration_factor: 1.1
 
   - platform: mold_indicator
+    name: mold_toilet
+    indoor_temp_sensor: sensor.temperature_toilet_virtual
+    indoor_humidity_sensor: sensor.humidity_toilet_virtual
+    outdoor_temp_sensor: sensor.temperature_balcony_virtual
+    calibration_factor: 1.1
+
+  - platform: mold_indicator
     name: mold_hall
     indoor_temp_sensor: sensor.temperature_hall_virtual
     indoor_humidity_sensor: sensor.humidity_hall_virtual
