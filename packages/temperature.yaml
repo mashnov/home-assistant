@@ -6,7 +6,6 @@ temperature:
     round_digits: 0
     entity_ids:
     - sensor.temperature_kitchen_virtual
-    - sensor.temperature_bath_virtual
     - sensor.temperature_hall_virtual
     - sensor.temperature_bedroom_virtual
     - sensor.temperature_living_virtual
@@ -18,6 +17,10 @@ temperature:
       state: "{{ states('sensor.temperature_kitchen') | float(0) | round(1) }}"
 
     - name: 'temperature_bath_virtual'
+      unit_of_measurement: "°C"
+      state: "{{ states('sensor.temperature_bath') | float(0) | round(1) }}"
+
+    - name: 'temperature_toilet_virtual'
       unit_of_measurement: "°C"
       state: "{{ states('sensor.temperature_bath') | float(0) | round(1) }}"
 
