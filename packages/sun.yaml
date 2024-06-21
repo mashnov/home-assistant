@@ -23,10 +23,10 @@ sun:
   template:
   - sensor:
     - name: 'sun_azimuth_virtual'
-      state: "state_attr('sun.sun', 'azimuth') | int(0)"
+      state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
 
     - name: 'sun_elevation_virtual'
-      state: "state_attr('sun.sun', 'elevation') | int(0)"
+      state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
 
   - binary_sensor:
     - name: 'sun_is_sunny'
