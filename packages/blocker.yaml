@@ -16,9 +16,9 @@ blocker:
   timer:
     blocker_top_light_kitchen:
       duration: '01:00:00'
-    blocker_top_light_hall:
-      duration: '01:00:00'
     blocker_top_light_bath:
+      duration: '01:00:00'
+    blocker_top_light_hall:
       duration: '01:00:00'
     blocker_top_light_bedroom:
       duration: '01:00:00'
@@ -40,15 +40,78 @@ blocker:
       duration: '01:00:00'
 
   automation:
-  - alias: 'blocker_top_light_kitchen'
+  - alias: 'blocker_top_light_kitchen_boolean'
     mode: 'queued'
     trigger:
-    - platform: state
+    - id: 'boolean_toggle'
+      platform: state
       entity_id: sensor.switch_kitchen_action
       to: 'single_left'
+    - id: 'boolean_off'
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_top_light_kitchen
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.top_light_kitchen_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.top_light_kitchen_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.top_light_kitchen_blocker
+
+  - alias: 'blocker_top_light_kitchen_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_top_light_kitchen
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_top_light_kitchen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   - alias: 'blocker_back_light_kitchen'
     mode: 'queued'
