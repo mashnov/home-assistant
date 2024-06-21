@@ -16,7 +16,7 @@ blocker:
   timer:
     blocker_top_light_kitchen:
       duration: '01:00:00'
-    blocker_top_light_bath:
+    blocker_top_light_bath: ### - !!!
       duration: '01:00:00'
     blocker_top_light_hall:
       duration: '01:00:00'
@@ -28,15 +28,12 @@ blocker:
       duration: '01:00:00'
     blocker_back_light_balcony:
       duration: '00:10:00'
-
-    blocker_night_light_bath:
+    blocker_night_light_bath: ### - !!!
       duration: '01:00:00'
     blocker_night_light_balcony:
       duration: '00:10:00'
-
     blocker_fan_toilet:
       duration: '00:10:00'
-
     blocker_outlet_balcony_sprinkler:
       duration: '00:10:00'
     blocker_outlet_balcony_socket:
@@ -510,15 +507,7 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_night_light_balcony
 
-
-
-
-
-
-
-
-
-
+  ### TOILET FAN
   - alias: 'blocker_fan_toilet_boolean'
     mode: 'queued'
     trigger:
@@ -534,11 +523,51 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_top_light_living
+        entity_id: timer.blocker_fan_toilet
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.fan_toilet_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.fan_toilet_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.fan_toilet_blocker
 
+  - alias: 'blocker_fan_toilet_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.fan_toilet_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.fan_toilet_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_fan_toilet
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_fan_toilet
+
+  ### BALCONY SOCKET
   - alias: 'blocker_outlet_balcony_socket_boolean'
     mode: 'queued'
     trigger:
@@ -550,11 +579,51 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_top_light_living
+        entity_id: timer.blocker_outlet_balcony_socket
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.outlet_balcony_socket_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.outlet_balcony_socket_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.outlet_balcony_socket_blocker
 
+  - alias: 'blocker_fan_toilet_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_outlet_balcony_socket
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_outlet_balcony_socket
+
+  ### BALCONY SPRINKLER
   - alias: 'blocker_outlet_balcony_sprinkler_boolean'
     mode: 'queued'
     trigger:
@@ -566,8 +635,46 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_top_light_living
+        entity_id: timer.blocker_outlet_balcony_sprinkler
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.outlet_balcony_sprinkler_blocker
 
+  - alias: 'blocker_fan_toilet_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_outlet_balcony_sprinkler
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_outlet_balcony_sprinkler
