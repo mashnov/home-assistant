@@ -1,2 +1,5 @@
+- binary_sensor.door_toilet
 - binary_sensor.door_hall
+- binary_sensor.door_bedroom
+- binary_sensor.door_living
 - binary_sensor.door_balcony

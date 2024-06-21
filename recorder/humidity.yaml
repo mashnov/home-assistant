@@ -1,3 +1,6 @@
+- sensor.humidity_kitchen_virtual
+- sensor.humidity_bath_virtual
+- sensor.humidity_toilet_virtual
 - sensor.humidity_hall_virtual
 - sensor.humidity_bedroom_virtual
 - sensor.humidity_living_virtual

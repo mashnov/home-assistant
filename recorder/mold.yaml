@@ -1,0 +1,6 @@
+- sensor.mold_kitchen
+- sensor.mold_bath
+- sensor.mold_toilet
+- sensor.mold_hall
+- sensor.mold_bedroom
+- sensor.mold_living
