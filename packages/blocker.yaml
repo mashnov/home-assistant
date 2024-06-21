@@ -1,17 +1,43 @@
 blocker:
   input_boolean:
     top_light_kitchen_blocker:
-    back_light_kitchen_blocker:
     top_light_hall_blocker:
     top_light_bath_blocker:
-    night_light_bath_blocker:
     top_light_bedroom_blocker:
     top_light_living_blocker:
+    back_light_kitchen_blocker:
     back_light_balcony_blocker:
+    night_light_bath_blocker:
     night_light_balcony_blocker:
     fan_toilet_blocker:
     outlet_balcony_sprinkler_blocker:
     outlet_balcony_socket_blocker:
+
+  timer:
+    blocker_top_light_kitchen:
+      duration: '01:00:00'
+    blocker_top_light_hall:
+      duration: '01:00:00'
+    blocker_top_light_bath:
+      duration: '01:00:00'
+    blocker_top_light_bedroom:
+      duration: '01:00:00'
+    blocker_top_light_living:
+      duration: '01:00:00'
+    blocker_back_light_kitchen:
+      duration: '01:00:00'
+    blocker_back_light_balcony:
+      duration: '00:10:00'
+    blocker_night_light_bath:
+      duration: '01:00:00'
+    blocker_night_light_balcony:
+      duration: '00:10:00'
+    blocker_fan_toilet:
+      duration: '00:10:00'
+    blocker_outlet_balcony_sprinkler:
+      duration: '00:10:00'
+    blocker_outlet_balcony_socket:
+      duration: '01:00:00'
 
   automation:
   - alias: 'blocker_top_light_kitchen'
