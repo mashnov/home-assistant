@@ -595,7 +595,7 @@ blocker:
         - service: input_boolean.turn_off
           entity_id: input_boolean.outlet_balcony_socket_blocker
 
-  - alias: 'blocker_fan_toilet_timer'
+  - alias: 'blocker_outlet_balcony_socket_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
@@ -651,7 +651,7 @@ blocker:
         - service: input_boolean.turn_off
           entity_id: input_boolean.outlet_balcony_sprinkler_blocker
 
-  - alias: 'blocker_fan_toilet_timer'
+  - alias: 'blocker_outlet_balcony_sprinkler_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
