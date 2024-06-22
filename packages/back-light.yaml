@@ -112,12 +112,12 @@ back_light:
       to: 'off'
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.back_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_back_light_kitchen'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.back_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_back_light_kitchen'
       from: 'on'
       to: 'off'
     action:
@@ -132,7 +132,7 @@ back_light:
         - condition: trigger
           id: 'turn_off'
         - condition: state
-          entity_id: input_boolean.back_light_kitchen_blocker
+          entity_id: input_boolean.blocker_back_light_kitchen
           state: 'off'
         sequence:
         - service: light.turn_off
@@ -259,12 +259,12 @@ back_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.back_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_back_light_balcony'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.back_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_back_light_balcony'
       from: 'on'
       to: 'off'
     action:

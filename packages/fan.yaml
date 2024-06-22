@@ -86,12 +86,12 @@ fan:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.fan_toilet_blocker'
+      entity_id: 'input_boolean.blocker_fan_toilet'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.fan_toilet_blocker'
+      entity_id: 'input_boolean.blocker_fan_toilet'
       from: 'on'
       to: 'off'
     action:

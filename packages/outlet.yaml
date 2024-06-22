@@ -5,12 +5,12 @@ outlet:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      entity_id: 'input_boolean.blocker_balcony_sprinkler'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      entity_id: 'input_boolean.blocker_balcony_sprinkler'
       from: 'on'
       to: 'off'
     action:
@@ -33,12 +33,12 @@ outlet:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      entity_id: 'input_boolean.blocker_balcony_socket'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      entity_id: 'input_boolean.blocker_balcony_socket'
       from: 'on'
       to: 'off'
     action:

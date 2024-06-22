@@ -1,17 +1,17 @@
 blocker:
   input_boolean:
-    top_light_kitchen_blocker:
-    top_light_hall_blocker:
-    top_light_bath_blocker:
-    top_light_bedroom_blocker:
-    top_light_living_blocker:
-    back_light_kitchen_blocker:
-    back_light_balcony_blocker:
-    night_light_bath_blocker:
-    night_light_balcony_blocker:
-    fan_toilet_blocker:
-    outlet_balcony_sprinkler_blocker:
-    outlet_balcony_socket_blocker:
+    blocker_top_light_kitchen:
+    blocker_top_light_hall:
+    blocker_top_light_bath:
+    blocker_top_light_bedroom:
+    blocker_top_light_living:
+    blocker_back_light_kitchen:
+    blocker_back_light_balcony:
+    blocker_night_light_bath:
+    blocker_night_light_balcony:
+    blocker_fan_toilet:
+    blocker_balcony_sprinkler:
+    blocker_balcony_socket:
 
   timer:
     blocker_top_light_kitchen:
@@ -60,25 +60,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.top_light_kitchen_blocker
+          entity_id: input_boolean.blocker_top_light_kitchen
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.top_light_kitchen_blocker
+          entity_id: input_boolean.blocker_top_light_kitchen
 
   - alias: 'blocker_top_light_kitchen_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_top_light_kitchen'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_top_light_kitchen'
       from: 'on'
       to: 'off'
     action:
@@ -116,25 +116,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.back_light_kitchen_blocker
+          entity_id: input_boolean.blocker_back_light_kitchen
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.back_light_kitchen_blocker
+          entity_id: input_boolean.blocker_back_light_kitchen
 
   - alias: 'blocker_back_light_kitchen_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.back_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_back_light_kitchen'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.back_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_back_light_kitchen'
       from: 'on'
       to: 'off'
     action:
@@ -172,25 +172,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.top_light_bath_blocker
+          entity_id: input_boolean.blocker_top_light_bath
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.top_light_bath_blocker
+          entity_id: input_boolean.blocker_top_light_bath
 
   - alias: 'blocker_top_light_bath_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.top_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bath'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.top_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bath'
       from: 'on'
       to: 'off'
     action:
@@ -228,25 +228,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.night_light_bath_blocker
+          entity_id: input_boolean.blocker_night_light_bath
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.night_light_bath_blocker
+          entity_id: input_boolean.blocker_night_light_bath
 
   - alias: 'blocker_night_light_bath_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.night_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_night_light_bath'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.night_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_night_light_bath'
       from: 'on'
       to: 'off'
     action:
@@ -276,28 +276,28 @@ blocker:
       - conditions:
         - condition: template
           value_template: >
-            {% set isNightLightBlocker = is_state("input_boolean.night_light_bath_blocker", "on") %}
-            {% set isTopLightBlocker = is_state("input_boolean.top_light_bath_blocker", "on") %}
+            {% set isNightLightBlocker = is_state("input_boolean.blocker_night_light_bath", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.blocker_top_light_bath", "on") %}
             {{ isNightLightBlocker or isTopLightBlocker }}
         sequence:
         - parallel:
           - service: input_boolean.turn_off
-            entity_id: input_boolean.night_light_bath_blocker
+            entity_id: input_boolean.blocker_night_light_bath
           - service: input_boolean.turn_off
-            entity_id: input_boolean.top_light_bath_blocker
+            entity_id: input_boolean.blocker_top_light_bath
       - conditions:
         - condition: state
-          entity_id: input_boolean.night_light_bath_blocker
+          entity_id: input_boolean.blocker_night_light_bath
           state: 'off'
         - condition: state
           entity_id: input_boolean.is_night_mode
           state: 'on'
         sequence:
         - service: input_boolean.turn_on
-          entity_id: input_boolean.night_light_bath_blocker
+          entity_id: input_boolean.blocker_night_light_bath
       - conditions:
         - condition: state
-          entity_id: input_boolean.night_light_bath_blocker
+          entity_id: input_boolean.blocker_night_light_bath
           state: 'off'
         - condition: state
           entity_id: input_boolean.is_night_mode
@@ -305,9 +305,9 @@ blocker:
         sequence:
         - parallel:
           - service: input_boolean.turn_on
-            entity_id: input_boolean.night_light_bath_blocker
+            entity_id: input_boolean.blocker_night_light_bath
           - service: input_boolean.turn_on
-            entity_id: input_boolean.top_light_bath_blocker
+            entity_id: input_boolean.blocker_top_light_bath
 
   ### HALL TOP LIGHT
   - alias: 'blocker_top_light_hall_boolean'
@@ -329,25 +329,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.top_light_hall_blocker
+          entity_id: input_boolean.blocker_top_light_hall
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.top_light_hall_blocker
+          entity_id: input_boolean.blocker_top_light_hall
 
   - alias: 'blocker_top_light_hall_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.top_light_hall_blocker'
+      entity_id: 'input_boolean.blocker_top_light_hall'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.top_light_hall_blocker'
+      entity_id: 'input_boolean.blocker_top_light_hall'
       from: 'on'
       to: 'off'
     action:
@@ -389,25 +389,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.top_light_bedroom_blocker
+          entity_id: input_boolean.blocker_top_light_bedroom
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.top_light_bedroom_blocker
+          entity_id: input_boolean.blocker_top_light_bedroom
 
   - alias: 'blocker_top_light_bedroom_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bedroom'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bedroom'
       from: 'on'
       to: 'off'
     action:
@@ -449,25 +449,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.top_light_living_blocker
+          entity_id: input_boolean.blocker_top_light_living
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.top_light_living_blocker
+          entity_id: input_boolean.blocker_top_light_living
 
   - alias: 'blocker_top_light_living_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.top_light_living_blocker'
+      entity_id: 'input_boolean.blocker_top_light_living'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.top_light_living_blocker'
+      entity_id: 'input_boolean.blocker_top_light_living'
       from: 'on'
       to: 'off'
     action:
@@ -505,25 +505,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.back_light_balcony_blocker
+          entity_id: input_boolean.blocker_back_light_balcony
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.back_light_balcony_blocker    
+          entity_id: input_boolean.blocker_back_light_balcony    
     
   - alias: 'blocker_back_light_balcony_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.back_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_back_light_balcony'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.back_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_back_light_balcony'
       from: 'on'
       to: 'off'
     action:
@@ -561,25 +561,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.night_light_balcony_blocker
+          entity_id: input_boolean.blocker_night_light_balcony
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.night_light_balcony_blocker
+          entity_id: input_boolean.blocker_night_light_balcony
 
   - alias: 'blocker_night_light_balcony_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.night_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_night_light_balcony'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.night_light_balcony_blocker'
+      entity_id: 'input_boolean.blocker_night_light_balcony'
       from: 'on'
       to: 'off'
     action:
@@ -621,25 +621,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.fan_toilet_blocker
+          entity_id: input_boolean.blocker_fan_toilet
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.fan_toilet_blocker
+          entity_id: input_boolean.blocker_fan_toilet
 
   - alias: 'blocker_fan_toilet_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.fan_toilet_blocker'
+      entity_id: 'input_boolean.blocker_fan_toilet'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.fan_toilet_blocker'
+      entity_id: 'input_boolean.blocker_fan_toilet'
       from: 'on'
       to: 'off'
     action:
@@ -677,25 +677,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.outlet_balcony_socket_blocker
+          entity_id: input_boolean.blocker_balcony_socket
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.outlet_balcony_socket_blocker
+          entity_id: input_boolean.blocker_balcony_socket
 
   - alias: 'blocker_balcony_socket_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      entity_id: 'input_boolean.blocker_balcony_socket'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_socket_blocker'
+      entity_id: 'input_boolean.blocker_balcony_socket'
       from: 'on'
       to: 'off'
     action:
@@ -733,25 +733,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+          entity_id: input_boolean.blocker_balcony_sprinkler
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.outlet_balcony_sprinkler_blocker
+          entity_id: input_boolean.blocker_balcony_sprinkler
 
   - alias: 'blocker_balcony_sprinkler_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      entity_id: 'input_boolean.blocker_balcony_sprinkler'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.outlet_balcony_sprinkler_blocker'
+      entity_id: 'input_boolean.blocker_balcony_sprinkler'
       from: 'on'
       to: 'off'
     action:

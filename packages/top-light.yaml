@@ -142,12 +142,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_top_light_kitchen'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.top_light_kitchen_blocker'
+      entity_id: 'input_boolean.blocker_top_light_kitchen'
       from: 'on'
       to: 'off'
     action:
@@ -183,12 +183,12 @@ top_light:
       to: 'off'
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.top_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bath'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.top_light_bath_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bath'
       from: 'on'
       to: 'off'
     action:
@@ -199,7 +199,7 @@ top_light:
         - condition: template
           value_template: >
             {% set isNightMode = is_state("input_boolean.is_night_mode", "on") %}
-            {% set isTopLightBlocker = is_state("input_boolean.top_light_bath_blocker", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.blocker_top_light_bath", "on") %}
             {{ not(isNightMode) or isTopLightBlocker }}
         sequence:
         - service: light.turn_on
@@ -208,7 +208,7 @@ top_light:
         - condition: trigger
           id: 'turn_off'
         - condition: state
-          entity_id: input_boolean.top_light_bath_blocker
+          entity_id: input_boolean.blocker_top_light_bath
           state: 'off'
         sequence:
         - service: light.turn_off
@@ -270,12 +270,12 @@ top_light:
       to: 'off'
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.top_light_hall_blocker'
+      entity_id: 'input_boolean.blocker_top_light_hall'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.top_light_hall_blocker'
+      entity_id: 'input_boolean.blocker_top_light_hall'
       from: 'on'
       to: 'off'
     action:
@@ -286,7 +286,7 @@ top_light:
         - condition: template
           value_template: >
             {% set isNightMode = is_state("input_boolean.is_night_mode", "on") %}
-            {% set isTopLightBlocker = is_state("input_boolean.top_light_hall_blocker", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.blocker_top_light_hall", "on") %}
             {{ not(isNightMode) or isTopLightBlocker }}
         sequence:
         - service: light.turn_on
@@ -295,7 +295,7 @@ top_light:
         - condition: trigger
           id: 'turn_off'
         - condition: state
-          entity_id: input_boolean.top_light_hall_blocker
+          entity_id: input_boolean.blocker_top_light_hall
           state: 'off'
         sequence:
         - service: light.turn_off
@@ -306,12 +306,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bedroom'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.top_light_bedroom_blocker'
+      entity_id: 'input_boolean.blocker_top_light_bedroom'
       from: 'on'
       to: 'off'
     action:
@@ -334,12 +334,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.top_light_living_blocker'
+      entity_id: 'input_boolean.blocker_top_light_living'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.top_light_living_blocker'
+      entity_id: 'input_boolean.blocker_top_light_living'
       from: 'on'
       to: 'off'
     action:
