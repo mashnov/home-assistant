@@ -34,9 +34,9 @@ blocker:
       duration: '00:10:00'
     blocker_fan_toilet:
       duration: '00:10:00'
-    blocker_outlet_balcony_sprinkler:
+    blocker_balcony_sprinkler:
       duration: '00:10:00'
-    blocker_outlet_balcony_socket:
+    blocker_balcony_socket:
       duration: '01:00:00'
 
   automation:
@@ -669,7 +669,7 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_outlet_balcony_socket
+        entity_id: timer.blocker_balcony_socket
     action:
     - choose:
       - conditions:
@@ -705,13 +705,13 @@ blocker:
           id: 'timer_on'
         sequence:
         - service: timer.start
-          entity_id: timer.blocker_outlet_balcony_socket
+          entity_id: timer.blocker_balcony_socket
       - conditions:
         - condition: trigger
           id: 'timer_off'
         sequence:
         - service: timer.cancel
-          entity_id: timer.blocker_outlet_balcony_socket
+          entity_id: timer.blocker_balcony_socket
 
   ### BALCONY SPRINKLER
   - alias: 'blocker_balcony_sprinkler_boolean'
@@ -725,7 +725,7 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_outlet_balcony_sprinkler
+        entity_id: timer.blocker_balcony_sprinkler
     action:
     - choose:
       - conditions:
@@ -761,10 +761,10 @@ blocker:
           id: 'timer_on'
         sequence:
         - service: timer.start
-          entity_id: timer.blocker_outlet_balcony_sprinkler
+          entity_id: timer.blocker_balcony_sprinkler
       - conditions:
         - condition: trigger
           id: 'timer_off'
         sequence:
         - service: timer.cancel
-          entity_id: timer.blocker_outlet_balcony_sprinkler
+          entity_id: timer.blocker_balcony_sprinkler
