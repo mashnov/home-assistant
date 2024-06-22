@@ -2,7 +2,6 @@ mold:
   sensor:
   - platform: mold_indicator
     name: mold_kitchen
-    unique_id: mold_kitchen
     indoor_temp_sensor: sensor.temperature_kitchen_virtual
     indoor_humidity_sensor: sensor.humidity_kitchen_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
@@ -10,7 +9,6 @@ mold:
 
   - platform: mold_indicator
     name: mold_bath
-    unique_id: mold_bath
     indoor_temp_sensor: sensor.temperature_bath_virtual
     indoor_humidity_sensor: sensor.humidity_bath_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
@@ -18,7 +16,6 @@ mold:
 
   - platform: mold_indicator
     name: mold_toilet
-    unique_id: mold_toilet
     indoor_temp_sensor: sensor.temperature_toilet_virtual
     indoor_humidity_sensor: sensor.humidity_toilet_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
@@ -26,7 +23,6 @@ mold:
 
   - platform: mold_indicator
     name: mold_hall
-    unique_id: mold_hall
     indoor_temp_sensor: sensor.temperature_hall_virtual
     indoor_humidity_sensor: sensor.humidity_hall_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
@@ -34,7 +30,6 @@ mold:
 
   - platform: mold_indicator
     name: mold_bedroom
-    unique_id: mold_bedroom
     indoor_temp_sensor: sensor.temperature_bedroom_virtual
     indoor_humidity_sensor: sensor.humidity_bedroom_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
@@ -42,7 +37,6 @@ mold:
 
   - platform: mold_indicator
     name: mold_living
-    unique_id: mold_living
     indoor_temp_sensor: sensor.temperature_living_virtual
     indoor_humidity_sensor: sensor.humidity_living_virtual
     outdoor_temp_sensor: sensor.temperature_balcony_virtual
