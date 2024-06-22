@@ -264,7 +264,7 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_night_light_bath
 
-  ### BATH LIGHT - !!!
+  ### BATH LIGHT 
   - alias: 'blocker_light_bath'
     mode: 'queued'
     trigger:
