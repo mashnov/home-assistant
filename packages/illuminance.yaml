@@ -31,14 +31,14 @@ illuminance:
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: value_max
     max_age:
-      hours: 24 
+      hours: 6
 
   - name: illuminance_balcony_average
     platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: average_timeless
     max_age:
-      minutes: 5 
+      minutes: 1 
 
   template:
   - sensor:
