@@ -368,17 +368,69 @@ notification:
       data_template:
         message: "⚙️ Проблемы с питанием ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
-  - alias: 'notification_system_update'
+  - alias: 'notification_system_update_file_editor'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.file_editor_update'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление FILE EDITOR ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_file_editor'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.file_editor_update'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление FILE EDITOR ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_home_assistant_core'
     mode: 'queued'
     trigger:
     - platform: state
       entity_id: 'update.home_assistant_core_update'
       from: 'off'
       to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление HOME ASSISTANT CORE ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_google_drive_backup'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.home_assistant_google_drive_backup_update'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление GOOGLE DRIVE BACKUP ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_home_assistant'
+    mode: 'queued'
+    trigger:
     - platform: state
       entity_id: 'update.home_assistant_operating_system_update'
       from: 'off'
       to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление HOME ASSISTANT ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_supervisor'
+    mode: 'queued'
+    trigger:
     - platform: state
       entity_id: 'update.home_assistant_supervisor_update'
       from: 'off'
@@ -386,31 +438,47 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: "⚙️ Доступно обновление системы ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        message: "⚙️ Доступно обновление SUPERVISOR ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
-  - alias: 'notification_system_plugin_update'
+  - alias: 'notification_system_update_mosquitto_broker'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.mosquitto_broker_update'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление MOSQUITO BROCKER ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_tailscale'
     mode: 'queued'
     trigger:
     - platform: state
       entity_id: 'update.tailscale_update'
       from: 'off'
       to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление TAILSCALE ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_zigbee2mqtt'
+    mode: 'queued'
+    trigger:
     - platform: state
       entity_id: 'update.zigbee2mqtt_update'
       from: 'off'
       to: 'on'
-    - platform: state
-      entity_id: 'update.mosquitto_broker_update'
-      from: 'off'
-      to: 'on'
-    - platform: state
-      entity_id: 'update.home_assistant_google_drive_backup_update'
-      from: 'off'
-      to: 'on'
-    - platform: state
-      entity_id: 'update.file_editor_update'
-      from: 'off'
-      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление ZIGBEE 2 MQTT ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_system_update_terminal_ssh'
+    mode: 'queued'
+    trigger:
     - platform: state
       entity_id: 'update.terminal_ssh_update'
       from: 'off'
@@ -418,7 +486,7 @@ notification:
     action:
     - service: script.telegramm_send_system_text
       data_template:
-        message: "⚙️ Доступно обновление расширений ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        message: "⚙️ Доступно обновление TERMINAL & SSH ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_system_hacs_update'
     mode: 'queued'
