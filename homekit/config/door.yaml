@@ -1,3 +1,6 @@
+binary_sensor.door_bath:
+  name: Дверь
+
 binary_sensor.door_toilet:
   name: Дверь
 

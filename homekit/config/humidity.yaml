@@ -4,6 +4,9 @@ sensor.humidity_kitchen_virtual:
 sensor.humidity_bath_virtual:
   name: Влажность
 
+sensor.humidity_toilet_virtual:
+  name: Влажность
+
 sensor.humidity_hall_virtual:
   name: Влажность
 

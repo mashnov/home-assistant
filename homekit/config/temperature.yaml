@@ -4,6 +4,9 @@ sensor.temperature_kitchen_virtual:
 sensor.temperature_bath_virtual:
   name: Температура
 
+sensor.temperature_toilet_virtual:
+  name: Температура
+
 sensor.temperature_hall_virtual:
   name: Температура
 
