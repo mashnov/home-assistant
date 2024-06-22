@@ -30,6 +30,7 @@ illuminance:
     platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: value_max
+    force_update: true
     max_age:
       hours: 6
 
@@ -37,6 +38,7 @@ illuminance:
     platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: average_timeless
+    force_update: true
     max_age:
       minutes: 1 
 
