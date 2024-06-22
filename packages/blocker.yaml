@@ -16,7 +16,7 @@ blocker:
   timer:
     blocker_top_light_kitchen:
       duration: '01:00:00'
-    blocker_top_light_bath: ### - !!!
+    blocker_top_light_bath:
       duration: '01:00:00'
     blocker_top_light_hall:
       duration: '01:00:00'
@@ -28,7 +28,7 @@ blocker:
       duration: '01:00:00'
     blocker_back_light_balcony:
       duration: '00:10:00'
-    blocker_night_light_bath: ### - !!!
+    blocker_night_light_bath:
       duration: '01:00:00'
     blocker_night_light_balcony:
       duration: '00:10:00'
@@ -152,27 +152,117 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_back_light_kitchen
 
-  ### BATH TOP LIGHT - !!!
-  - alias: 'blocker_top_light_bath'
+  ### BATH TOP LIGHT
+  - alias: 'blocker_top_light_bath_boolean'
     mode: 'queued'
     trigger:
-    - platform: state
+    - id: 'boolean_toggle'
+      platform: state
       entity_id: sensor.button_bath_action
       to: 'double'
+    - id: 'boolean_off'
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_top_light_bath
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.top_light_bath_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.top_light_bath_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.top_light_bath_blocker
 
-  ### BATH NIGHT LIGHT - !!!
-  - alias: 'blocker_night_light_bath_button'
+  - alias: 'blocker_top_light_bath_timer'
     mode: 'queued'
     trigger:
-    - platform: state
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.top_light_bath_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.top_light_bath_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_top_light_bath
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_top_light_bath
+
+  ### BATH NIGHT LIGHT 
+  - alias: 'blocker_night_light_bath_boolean'
+    mode: 'queued'
+    trigger:
+    - id: 'boolean_toggle'
+      platform: state
       entity_id: sensor.button_bath_action
       to: 'single'
+    - id: 'boolean_off'
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_night_light_bath
     action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.night_light_bath_blocker
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'boolean_toggle'
+        sequence:
+        - service: input_boolean.toggle
+          entity_id: input_boolean.night_light_bath_blocker
+      - conditions:
+        - condition: trigger
+          id: 'boolean_off'
+        sequence:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.night_light_bath_blocker
+
+  - alias: 'blocker_night_light_bath_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.night_light_bath_blocker'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.night_light_bath_blocker'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'timer_on'
+        sequence:
+        - service: timer.start
+          entity_id: timer.blocker_night_light_bath
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.blocker_night_light_bath
 
   ### BATH LIGHT - !!!
   - alias: 'blocker_light_bath'
@@ -367,7 +457,7 @@ blocker:
         - service: input_boolean.turn_off
           entity_id: input_boolean.top_light_living_blocker
 
-  - alias: 'blocker_top_light_living_boolean_timer'
+  - alias: 'blocker_top_light_living_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
@@ -568,7 +658,7 @@ blocker:
           entity_id: timer.blocker_fan_toilet
 
   ### BALCONY SOCKET
-  - alias: 'blocker_outlet_balcony_socket_boolean'
+  - alias: 'blocker_balcony_socket_boolean'
     mode: 'queued'
     trigger:
     - id: 'boolean_toggle'
@@ -595,7 +685,7 @@ blocker:
         - service: input_boolean.turn_off
           entity_id: input_boolean.outlet_balcony_socket_blocker
 
-  - alias: 'blocker_outlet_balcony_socket_timer'
+  - alias: 'blocker_balcony_socket_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
@@ -624,7 +714,7 @@ blocker:
           entity_id: timer.blocker_outlet_balcony_socket
 
   ### BALCONY SPRINKLER
-  - alias: 'blocker_outlet_balcony_sprinkler_boolean'
+  - alias: 'blocker_balcony_sprinkler_boolean'
     mode: 'queued'
     trigger:
     - id: 'boolean_toggle'
@@ -651,7 +741,7 @@ blocker:
         - service: input_boolean.turn_off
           entity_id: input_boolean.outlet_balcony_sprinkler_blocker
 
-  - alias: 'blocker_outlet_balcony_sprinkler_timer'
+  - alias: 'blocker_balcony_sprinkler_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
