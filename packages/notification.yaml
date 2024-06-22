@@ -380,18 +380,6 @@ notification:
       data_template:
         message: "⚙️ Доступно обновление FILE EDITOR ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
-  - alias: 'notification_system_update_file_editor'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: 'update.file_editor_update'
-      from: 'off'
-      to: 'on'
-    action:
-    - service: script.telegramm_send_system_text
-      data_template:
-        message: "⚙️ Доступно обновление FILE EDITOR ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
   - alias: 'notification_system_update_home_assistant_core'
     mode: 'queued'
     trigger:
