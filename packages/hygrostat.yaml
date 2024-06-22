@@ -39,6 +39,7 @@ hygrostat:
   template:
   - binary_sensor:
     - name: 'hygrostat_hall_is_empty'
+      unique_id: hygrostat_hall_is_empty
       device_class: 'moisture'
       delay_on: '00:00:10'
       state: >
@@ -50,6 +51,7 @@ hygrostat:
         {{ humidifier and (sensor <= 0) }}
     
     - name: 'hygrostat_bedroom_is_empty'
+      unique_id: hygrostat_bedroom_is_empty
       device_class: 'moisture'
       delay_on: '00:00:10'
       state: >
@@ -61,6 +63,7 @@ hygrostat:
         {{ humidifier and (sensor <= 0) }}
     
     - name: 'hygrostat_living_is_empty'
+      unique_id: hygrostat_living_is_empty
       device_class: 'moisture'
       delay_on: '00:00:10'
       state: >

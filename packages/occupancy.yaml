@@ -47,23 +47,28 @@ occupancy:
   template:
   - binary_sensor:
     - name: 'occupancy_kitchen'
+      unique_id: occupancy_kitchen
       device_class: 'occupancy'
       state: '{{ is_state("input_boolean.occupancy_kitchen", "on") }}'
 
     - name: 'occupancy_bath'
+      unique_id: occupancy_bath
       device_class: 'occupancy'
       state: '{{ is_state("input_boolean.occupancy_bath", "on") }}'
 
     - name: 'occupancy_toilet'
+      unique_id: occupancy_toilet
       device_class: 'occupancy'
       state: '{{ is_state("input_boolean.occupancy_toilet", "on") }}'
 
     - name: 'occupancy_hall'
+      unique_id: occupancy_hall
       device_class: 'occupancy'
       state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
 
   - sensor:
     - name: 'occupancy_kitchen_duration'
+      unique_id: occupancy_kitchen_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
@@ -72,6 +77,7 @@ occupancy:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
     
     - name: 'occupancy_bath_duration'
+      unique_id: occupancy_bath_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
@@ -80,6 +86,7 @@ occupancy:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
     
     - name: 'occupancy_hall_duration'
+      unique_id: occupancy_hall_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
@@ -88,6 +95,7 @@ occupancy:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
     
     - name: 'occupancy_toilet_duration'
+      unique_id: occupancy_toilet_duration
       state: >
         {% set duration = states('input_number.occupancy_toilet') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}

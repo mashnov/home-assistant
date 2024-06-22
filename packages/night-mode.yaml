@@ -14,6 +14,7 @@ night_mode:
   template:
   - binary_sensor:    
     - name: 'is_night_mode'
+      unique_id: is_night_mode
       state: >
         {% set current = now().time() %}
         {% set from = strptime(states('input_datetime.night_mode_on_time'), "%H:%M:%S").time() %}

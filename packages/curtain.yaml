@@ -33,12 +33,14 @@ curtain:
   template:
   - binary_sensor:
     - name: 'kitchen_curtain_close'
+      unique_id: kitchen_curtain_close
       state: >
         {% set sunny = is_state('binary_sensor.sun_is_sunny', 'on') %}
         {% set dark = is_state('binary_sensor.kitchen_curtain_is_dark', 'on') %}
         {{ sunny and not(dark) }}
 
     - name: 'living_curtain_close'
+      unique_id: living_curtain_close
       state: >
         {% set sunny = is_state('binary_sensor.sun_is_sunny', 'on') %}
         {% set dark = is_state('binary_sensor.living_curtain_is_dark', 'on') %}

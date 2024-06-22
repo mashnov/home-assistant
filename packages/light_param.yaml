@@ -33,6 +33,7 @@ light_param:
   template:
   - sensor:      
     - name: 'light_param_temperature'
+      unique_id: light_param_temperature
       state: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
@@ -43,6 +44,7 @@ light_param:
         {{ max(minValue, temperature) }}
 
     - name: 'light_param_brightness'
+      unique_id: light_param_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.light_param_brightness_night') | int(0) %}
@@ -50,6 +52,7 @@ light_param:
         {{ iif(isNightMode, nightValue, dayValue) }}
 
     - name: 'light_param_shi_brightness'
+      unique_id: light_param_shi_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.light_param_shi_brightness_night') | int(0) %}

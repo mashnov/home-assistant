@@ -2,6 +2,7 @@ humidity:
   sensor:
   - platform: min_max
     name: humidity_average
+    unique_id: humidity_average
     type: mean
     round_digits: 0
     entity_ids:
@@ -13,30 +14,37 @@ humidity:
   template:
   - sensor:
     - name: 'humidity_kitchen_virtual'
+      unique_id: humidity_kitchen_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_kitchen') | float(100) | round(1) }}"
 
     - name: 'humidity_bath_virtual'
+      unique_id: humidity_bath_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_bath') | float(0) | round(1) }}"
 
     - name: 'humidity_toilet_virtual'
+      unique_id: humidity_toilet_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_bath') | float(0) | round(1) }}"
 
     - name: 'humidity_hall_virtual'
+      unique_id: humidity_hall_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_hall') | float(100) | round(1) }}"
 
     - name: 'humidity_bedroom_virtual'
+      unique_id: humidity_bedroom_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_bedroom') | float(100) | round(1) }}"
 
     - name: 'humidity_living_virtual'
+      unique_id: humidity_living_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_living') | float(100) | round(1) }}"
 
     - name: 'humidity_balcony_virtual'
+      unique_id: humidity_balcony_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_balcony') | float(0) | round(1) }}"
 

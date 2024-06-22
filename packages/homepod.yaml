@@ -19,6 +19,7 @@ homepod:
   template:
   - sensor:
     - name: 'homepod_volume'
+      unique_id: homepod_volume
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.homepod_volume_night') | float(0) %}

@@ -2,6 +2,7 @@ system:
   template:
   - binary_sensor:
     - name: 'system_is_backed_up'
+      unique_id: system_is_backed_up
       state: >
         {% set nowTime = now().timestamp() - 60 %}
         {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime - 60) %}

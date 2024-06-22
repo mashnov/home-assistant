@@ -29,6 +29,7 @@ fan:
   template:
   - sensor:
     - name: 'fan_toilet_duration'
+      unique_id: fan_toilet_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.fan_toilet_night') | int(0) %}

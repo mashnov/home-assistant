@@ -23,15 +23,18 @@ sun:
   template:
   - sensor:
     - name: 'sun_azimuth_virtual'
+      unique_id: sun_azimuth_virtual
       unit_of_measurement: "°"
       state: "{{ state_attr('sun.sun', 'azimuth') | int(0) }}"
 
     - name: 'sun_elevation_virtual'
+      unique_id: sun_elevation_virtual
       unit_of_measurement: "°"
       state: "{{ state_attr('sun.sun', 'elevation') | int(0) }}"
 
   - binary_sensor:
     - name: 'sun_is_azimuth_target'
+      unique_id: sun_is_azimuth_target
       state: >
         {% set azimuthSensor = states('sensor.sun_azimuth_virtual') | int(0) %}
         {% set azimuthTarget = states('input_number.sun_azimuth_target') | int(0) %}
@@ -41,6 +44,7 @@ sun:
         {{ (azimuthMin <= azimuthSensor) and (azimuthSensor <= azimuthMax) }}
 
     - name: 'sun_is_elevation_target'
+      unique_id: sun_is_elevation_target
       state: >
         {% set elevationSensor = states('sensor.sun_elevation_virtual') | int(0) %}
         {% set elevationTarget = states('input_number.sun_elevation_target') | int(0) %}
@@ -50,6 +54,7 @@ sun:
         {{ (elevationMin <= elevationSensor) and (elevationSensor <= elevationMax) }}
 
     - name: 'sun_is_sunny'
+      unique_id: sun_is_sunny
       state: >
         {% set azimuthValue = is_state('binary_sensor.sun_is_azimuth_target', 'on') %}
         {% set elevationValue = is_state('binary_sensor.sun_is_elevation_target', 'on') %}
