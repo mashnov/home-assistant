@@ -27,6 +27,7 @@ illuminance:
 
   sensor:
   - name: illuminance_balcony_max
+    unique_id: illuminance_balcony_max
     platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: value_max
@@ -34,6 +35,7 @@ illuminance:
       hours: 6
 
   - name: illuminance_balcony_average
+    unique_id: illuminance_balcony_average
     platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: average_timeless
