@@ -495,7 +495,7 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.door_balcony'
+      entity_id: 'binary_sensor.door_balcony_virtual'
       from: 'off'
       to: 'on'
     action:
@@ -508,7 +508,7 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.door_balcony'
+      entity_id: 'binary_sensor.door_balcony_virtual'
       from: 'on'
       to: 'off'
     action:
@@ -520,7 +520,7 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.door_hall'
+      entity_id: 'binary_sensor.door_hall_virtual'
       from: 'off'
       to: 'on'
     action:
@@ -532,7 +532,7 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.door_hall'
+      entity_id: 'binary_sensor.door_hall_virtual'
       from: 'on'
       to: 'off'
     action:

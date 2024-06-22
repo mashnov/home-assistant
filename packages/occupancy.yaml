@@ -106,12 +106,12 @@ occupancy:
     trigger:
     - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_kitchen_virtual'
       from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen'
+      entity_id: 'binary_sensor.motion_kitchen_virtual'
       from: 'on'
       to: 'off'
     action:
@@ -150,12 +150,12 @@ occupancy:
     trigger:
     - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_bath'
+      entity_id: 'binary_sensor.motion_bath_virtual'
       from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
-      entity_id: 'binary_sensor.motion_bath'
+      entity_id: 'binary_sensor.motion_bath_virtual'
       from: 'on'
       to: 'off'
     action:
@@ -194,12 +194,12 @@ occupancy:
     trigger:
     - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_hall'
+      entity_id: 'binary_sensor.motion_hall_virtual'
       from: 'off'
       to: 'on'
     - id: 'occupancy_off'
       platform: state
-      entity_id: 'binary_sensor.motion_hall'
+      entity_id: 'binary_sensor.motion_hall_virtual'
       from: 'on'
       to: 'off'
     action:
@@ -238,12 +238,12 @@ occupancy:
     trigger:
     - id: 'door_open'
       platform: state
-      entity_id: binary_sensor.door_toilet
+      entity_id: binary_sensor.door_toilet_virtual
       from: 'off'
       to: 'on'
     - id: 'door_close'
       platform: state
-      entity_id: binary_sensor.door_toilet
+      entity_id: binary_sensor.door_toilet_virtual
       from: 'on'
       to: 'off'
     action:

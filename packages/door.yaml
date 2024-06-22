@@ -1,0 +1,40 @@
+door:
+  template:
+  - binary_sensor:
+    - name: 'door_bath_virtual'
+      unique_id: door_bath_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_bath', 'on') }}"
+
+    - name: 'door_toilet_virtual'
+      unique_id: door_toilet_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_toilet', 'on') }}"
+
+    - name: 'door_hall_virtual'
+      unique_id: door_hall_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_hall', 'on') }}"
+
+    - name: 'door_bedroom_virtual'
+      unique_id: door_bedroom_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_bedroom', 'on') }}"
+  
+    - name: 'door_living_virtual'
+      unique_id: door_living_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_living', 'on') }}"
+
+    - name: 'door_balcony_virtual'
+      unique_id: door_balcony_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.door_balcony', 'on') }}"
+
+
+  
+  
+  
+  
+  
+  

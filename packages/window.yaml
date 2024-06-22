@@ -1,0 +1,27 @@
+window:
+  template:
+  - binary_sensor:
+    - name: 'window_kitchen_left_virtual'
+      unique_id: window_kitchen_left_virtual
+      device_class: window
+      state: "{{ is_state('binary_sensor.window_kitchen_left', 'on') }}"
+
+    - name: 'window_kitchen_right_virtual'
+      unique_id: window_kitchen_right_virtual
+      device_class: window
+      state: "{{ is_state('binary_sensor.window_kitchen_right', 'on') }}"
+
+    - name: 'window_bedroom_left_virtual'
+      unique_id: window_bedroom_left_virtual
+      device_class: window
+      state: "{{ is_state('binary_sensor.window_bedroom_left', 'on') }}"
+
+    - name: 'window_bedroom_right_virtual'
+      unique_id: window_bedroom_right_virtual
+      device_class: window
+      state: "{{ is_state('binary_sensor.window_bedroom_right', 'on') }}"
+  
+    - name: 'window_living_virtual'
+      unique_id: window_living_virtual
+      device_class: window
+      state: "{{ is_state('binary_sensor.window_living', 'on') }}"

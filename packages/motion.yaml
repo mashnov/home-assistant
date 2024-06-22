@@ -1,0 +1,20 @@
+motion:
+  template:
+  - binary_sensor:
+    - name: 'motion_kitchen_virtual'
+      unique_id: motion_kitchen_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.motion_kitchen', 'on') }}"
+
+    - name: 'motion_bath_virtual'
+      unique_id: motion_bath_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.motion_bath', 'on') }}"
+
+    - name: 'motion_hall_virtual'
+      unique_id: motion_hall_virtual
+      device_class: door
+      state: "{{ is_state('binary_sensor.motion_hall', 'on') }}"
+  
+  
+  

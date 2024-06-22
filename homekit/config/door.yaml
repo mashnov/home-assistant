@@ -1,17 +1,17 @@
-binary_sensor.door_bath:
+binary_sensor.door_bath_virtual:
   name: Дверь
 
-binary_sensor.door_toilet:
+binary_sensor.door_toilet_virtual:
   name: Дверь
 
-binary_sensor.door_hall:
+binary_sensor.door_hall_virtual:
   name: Дверь
 
-binary_sensor.door_bedroom:
+binary_sensor.door_bedroom_virtual:
   name: Дверь
 
-binary_sensor.door_living:
+binary_sensor.door_living_virtual:
   name: Дверь
 
-binary_sensor.door_balcony:
+binary_sensor.door_balcony_virtual:
   name: Дверь
