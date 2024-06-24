@@ -26,13 +26,13 @@ illuminance:
       min: 1
 
   sensor:
-  - platform: filter
-    name: illuminance_balcony_average
+  - name: illuminance_balcony_average
     unique_id: illuminance_balcony_average
+    platform: statistics
     entity_id: sensor.illuminance_balcony_virtual
-    filters:
-      - filter: outlier
-      - filter: lowpass
+    state_characteristic: average_timeless
+    max_age:
+      minutes: 15
 
   - name: illuminance_balcony_max
     unique_id: illuminance_balcony_max
