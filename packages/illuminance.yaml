@@ -40,7 +40,7 @@ illuminance:
     entity_id: sensor.illuminance_balcony_virtual
     state_characteristic: average_timeless
     max_age:
-      minutes: 30
+      minutes: 60
 
   template:
   - sensor:
