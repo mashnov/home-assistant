@@ -32,11 +32,7 @@ illuminance:
     entity_id: sensor.illuminance_balcony_virtual
     filters:
       - filter: outlier
-        window_size: 4
-        radius: 4.0
       - filter: lowpass
-        time_constant: 10
-        precision: 2
 
   - name: illuminance_balcony_max
     unique_id: illuminance_balcony_max
