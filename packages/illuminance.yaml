@@ -50,7 +50,7 @@ illuminance:
   - sensor:
     - name: 'illuminance_balcony_virtual'
       unique_id: illuminance_balcony_virtual
-      # unit_of_measurement: "lx"
+      unit_of_measurement: "lx"
       state: "{{ states('sensor.illuminance_balcony') | float(0) | round(1) }}"
 
   - binary_sensor:
