@@ -1,0 +1,21 @@
+xiaomi_light:
+  sensor:
+  - platform: mitemp_bt
+    mac: 'A4:C1:38:2A:5D:F8'
+    name: ble_living_clock
+    force_update: true
+    median: 3
+    monitored_conditions:
+      - temperature
+      - humidity
+      - battery
+
+  - platform: mitemp_bt
+    mac: 'A4:C1:38:9F:B2:98'
+    name: ble_balcony_termometr
+    force_update: true
+    median: 3
+    monitored_conditions:
+      - temperature
+      - humidity
+      - battery
