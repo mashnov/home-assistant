@@ -13,7 +13,7 @@ notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "Кто-то нажал кнопку звонка в коридоре"
+        message: "Кто-то нажал кнопку звонка в коридоре!"
 
   - alias: 'notification_home_homepod_doorbell_outside'
     mode: 'queued'
@@ -23,7 +23,7 @@ notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "Кто-то нажал кнопку звонка у лифта"
+        message: "Кто-то нажал кнопку звонка у лифта!"
 
   - alias: 'notification_home_homepod_night_mode_on'
     mode: 'queued'
@@ -35,7 +35,7 @@ notification:
     action:
     - service: script.homepod_message
       data_template:
-        message: "Спокойной ночи."
+        message: "Спокойной ночи!"
 
   - alias: 'notification_home_homepod_night_mode_off'
     mode: 'queued'
@@ -117,7 +117,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Коридор. Закончилась вода в увлажнителе"
+            message: "Закончилась вода в увлажнителе в коридоре!"
 
   - alias: 'notification_climat_homepod_hygrostat_empty_bedroom'
     mode: 'queued'
@@ -135,7 +135,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Спальня. Закончилась вода в увлажнителе"
+            message: "Закончилась вода в увлажнителе в спальне!"
 
   - alias: 'notification_climat_homepod_hygrostat_empty_living'
     mode: 'queued'
@@ -153,7 +153,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Гостиная. Закончилась вода в увлажнителе"
+            message: "Закончилась вода в увлажнителе в гостиной!"
 
   - alias: 'notification_climat_homepod_mold_kitchen'
     mode: 'queued'
@@ -170,7 +170,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Кухня. Требуется проветривание."
+            message: "Требуется проветривание на кухне!"
 
   - alias: 'notification_climat_homepod_mold_hall'
     mode: 'queued'
@@ -187,7 +187,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Коридор. Требуется проветривание."
+            message: "Требуется проветривание в коридоре!"
 
   - alias: 'notification_climat_homepod_mold_bedroom'
     mode: 'queued'
@@ -204,7 +204,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Спальня. Требуется проветривание."
+            message: "Требуется проветривание в спальне!"
 
   - alias: 'notification_climat_homepod_mold_living'
     mode: 'queued'
@@ -221,7 +221,7 @@ notification:
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Гостиная. Требуется проветривание."
+            message: "Требуется проветривание в гостиной!"
 
 ###
 ## CLIMAT TELEGRAMM
