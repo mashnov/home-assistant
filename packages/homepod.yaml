@@ -6,8 +6,8 @@ homepod:
     cache: false
 
   input_number:
-    homepod_volume_night: # 0.3
-      initial: 0.3
+    homepod_volume_night: # 0.4
+      initial: 0.4
       max: 1
       min: 0
     
