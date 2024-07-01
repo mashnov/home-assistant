@@ -139,3 +139,11 @@ telegramm:
           data:
             photo:
             - file: "{{ link }}"
+
+    telegramm_remove_message:
+      mode: 'queued'
+      sequence:
+      - service: telegram_bot.delete_message
+        data_template:
+          message_id: '{{ message_id }}'
+          chat_id: '{{ chat_id }}'
