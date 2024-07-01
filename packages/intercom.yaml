@@ -17,9 +17,8 @@ intercom:
     intercom_hall_open:
       mode: 'queued'
       sequence:
-      - service: persistent_notification.create
+      - service: script.intercom_hall_open
         data:
-          title: 'УВЕДОМЛЕНИЕ'
           message: 'ДОМОФОН'
 
 

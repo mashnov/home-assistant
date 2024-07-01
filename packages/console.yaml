@@ -1,0 +1,9 @@
+persistent_notification:
+  script:
+    console:
+      mode: 'queued'
+      sequence:
+      - service: persistent_notification.create
+        data:
+          title: 'УВЕДОМЛЕНИЕ'
+          message: "{{ message }}"
