@@ -17,7 +17,7 @@ intercom:
     intercom_hall_open:
       mode: 'queued'
       sequence:
-      - service: script.intercom_hall_open
+      - service: script.console
         data:
           message: 'ДОМОФОН'
 
