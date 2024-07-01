@@ -12,3 +12,7 @@ intercom:
     - delay: 00:00:10
     - service: switch.turn_off
       entity_id: switch.intercom_hall
+
+  input_boolean:
+    intercom_hall:
+    intercom_hall_auto_on:
