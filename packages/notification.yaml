@@ -111,7 +111,7 @@ notification:
           entity_id: input_boolean.intercom_hall_auto_on
           state: 'off'
         sequence:
-        - service: script.telegramm_send_home_text
+        - service: script.telegramm_send_home_text_custom_menu
           data_template:
             message: "🏠 Кто-то звонит в домофон. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
             data:
