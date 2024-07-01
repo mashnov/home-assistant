@@ -97,6 +97,28 @@ notification:
       data_template:
         message: "🏠 Ночной режим выключен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
+  - alias: 'notification_home_telegramm_intercon'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.intercom_hall'
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.intercom_hall_auto_on
+          state: 'off'
+        sequence:
+        - service: script.telegramm_send_home_text
+          data_template:
+            message: "🏠 Ночной режим выключен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+            data:
+              inline_keyboard: 
+              - '🔓 Открыть :/intercom_hall_open'
+              - '🔒 Закрыть :/hide_menu'
+
 ###
 ## CLIMAT HOMEPOD
 ###
