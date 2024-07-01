@@ -81,6 +81,16 @@ telegramm:
     action:
     - service: script.system_rebuild
 
+  - alias: telegram_intercom_hall_open_command
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/intercom_hall_open'
+    action:
+    - service: script.intercom_hall_open
+
   - alias: telegramm_remove_callback'
     mode: 'queued'
     trigger:
