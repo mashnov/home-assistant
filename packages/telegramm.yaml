@@ -89,7 +89,7 @@ telegramm:
         data_template:
           message: "{{ message }}"
           data:
-            inline_keyboard: "{{ menu }}"
+            inline_keyboard: "{{ navigation }}"
 
     telegramm_send_home_text:
       mode: 'queued'
