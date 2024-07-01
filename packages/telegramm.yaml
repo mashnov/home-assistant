@@ -99,7 +99,7 @@ telegramm:
           message: "{{ message }}"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_climat_text:
       mode: 'queued'
@@ -109,7 +109,7 @@ telegramm:
           message: "{{ message }}"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_secuirity_text:
       mode: 'queued'
@@ -119,7 +119,7 @@ telegramm:
           message: "{{ message }}"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_system_text:
       mode: 'queued'
@@ -129,7 +129,7 @@ telegramm:
           message: "{{ message }}"
           data:
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_photo:
       mode: 'queued'
@@ -141,4 +141,4 @@ telegramm:
             photo:
             - file: "{{ link }}"
             inline_keyboard: 
-            - 'Закрыть :/hide_menu'
+            - '❌ Закрыть :/hide_menu'
