@@ -108,6 +108,9 @@ telegramm:
       - service: notify.telegram_home_group_id
         data_template:
           message: "{{ message }}"
+          data:
+            inline_keyboard: 
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_climat_text:
       mode: 'queued'
@@ -115,6 +118,9 @@ telegramm:
       - service: notify.telegram_climat_group_id
         data_template:
           message: "{{ message }}"
+          data:
+            inline_keyboard: 
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_secuirity_text:
       mode: 'queued'
@@ -122,6 +128,9 @@ telegramm:
       - service: notify.telegram_secuirity_group_id
         data_template:
           message: "{{ message }}"
+          data:
+            inline_keyboard: 
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_system_text:
       mode: 'queued'
@@ -129,6 +138,9 @@ telegramm:
       - service: notify.telegram_system_group_id
         data_template:
           message: "{{ message }}"
+          data:
+            inline_keyboard: 
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_send_photo:
       mode: 'queued'
@@ -139,6 +151,8 @@ telegramm:
           data:
             photo:
             - file: "{{ link }}"
+            inline_keyboard: 
+            - '❌ Закрыть :/hide_menu'
 
     telegramm_remove_message:
       mode: 'queued'

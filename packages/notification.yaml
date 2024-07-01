@@ -115,7 +115,7 @@ notification:
           data_template:
             message: "🏠 Кто-то звонит в домофон. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
             navigation: 
-            - '🔓 Открыть :/intercom_hall_open, ❌ Закрыть :/hide_home_menu'
+            - '🔓 Открыть :/intercom_hall_open, ❌ Закрыть :/hide_menu'
 
 ###
 ## CLIMAT HOMEPOD
