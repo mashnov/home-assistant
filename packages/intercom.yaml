@@ -3,16 +3,9 @@ intercom:
   - platform: template
     name: hall_intercom
     value_template: "{{ is_state('switch.intercom_hall', 'on') }}"
-    unlock:
-    - service: script.hall_intercom_lock
     lock:
     - service: switch.turn_off
       entity_id: switch.intercom_hall
-
-  script:
-    hall_intercom_lock:
-      mode: 'queued'
-      sequence:
-      - service: script.telegramm_send_home_text
-        data_template:
-          message: "🏠 Домофон. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+    unlock:
+    - service: switch.turn_on
+      entity_id: switch.intercom_hall
