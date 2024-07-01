@@ -26,7 +26,7 @@ humidity:
     - name: 'humidity_toilet_virtual'
       unique_id: humidity_toilet_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_bath') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_toilet') | float(100) | round(1) }}"
 
     - name: 'humidity_hall_virtual'
       unique_id: humidity_hall_virtual
