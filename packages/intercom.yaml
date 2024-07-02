@@ -3,6 +3,21 @@ intercom:
     intercom_hall:
     intercom_hall_auto_on:
 
+  template:
+  - trigger:
+    - platform: state
+      entity_id: switch.intercom_hall
+    sensor:
+    - name: intercom_hall_type
+      state: >
+        {% set userId = trigger.to_state.context.user_id %}
+        {% set parentId = trigger.to_state.context.parent_id %}
+        {% if userId == none and parentId == none %}
+          {{ call }}
+        {% else %}
+          {{ open }}
+        {% endif %}
+
   automation:
     alias: 'intercom_hall_type_detect'
     initial_state: true
@@ -12,8 +27,7 @@ intercom:
     action:
     - service: script.console
       data:
-        message: "Parent_ID: {{ trigger.to_state.context.parent_id }} User_ID: {{ trigger.to_state.context.user_id }}"
-
+        message: "{{ intercom_hall_type }}"
 
   script:
     intercom_hall_open:
