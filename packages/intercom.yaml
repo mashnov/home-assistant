@@ -67,4 +67,4 @@ intercom:
       - service: switch.turn_off
         entity_id: switch.intercom_hall
       - service: input_boolean.turn_off
-      entity_id: input_boolean.intercom_hall_open
+        entity_id: input_boolean.intercom_hall_open
