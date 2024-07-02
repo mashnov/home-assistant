@@ -80,8 +80,8 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') }}"
-            color_temp: "{{ states('sensor.light_param_temperature') }}"
+            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_hall'
     mode: 'queued'
@@ -103,8 +103,8 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') }}"
-            color_temp: "{{ states('sensor.light_param_temperature') }}"
+            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_bedroom'
     mode: 'queued'
@@ -126,8 +126,8 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_bedroom
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') }}"
-            color_temp: "{{ states('sensor.light_param_temperature') }}"
+            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_living'
     mode: 'queued'
@@ -149,8 +149,8 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') }}"
-            color_temp: "{{ states('sensor.light_param_temperature') }}"
+            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_param_night_light_hall'
     mode: 'queued'
@@ -174,5 +174,5 @@ light_param:
         - service: light.turn_on
           entity_id: light.night_light_hall
           data_template:
-            brightness: "{{ states('sensor.light_param_shi_brightness') }}"
-            hs_color: ["{{ states('input_number.light_param_shi_hue') | int(0) }}", "{{ states('input_number.light_param_shi_saturation') | int(0) }}"]
+            brightness: "{{ states('sensor.light_param_shi_brightness') | int(50) }}"
+            hs_color: ["{{ states('input_number.light_param_shi_hue') | int(24) }}", "{{ states('input_number.light_param_shi_saturation') | int(95) }}"]
