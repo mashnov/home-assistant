@@ -27,7 +27,7 @@ intercom:
     action:
     - service: script.console
       data:
-        message: "{{ intercom_hall_type }}"
+        message: "{{ sensor.intercom_hall_type }}"
 
   script:
     intercom_hall_open:
