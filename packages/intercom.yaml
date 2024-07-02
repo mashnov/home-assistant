@@ -13,9 +13,9 @@ intercom:
         {% set userId = trigger.to_state.context.user_id %}
         {% set parentId = trigger.to_state.context.parent_id %}
         {% if userId == none and parentId == none %}
-          {{ call }}
+          {{ 'call' }}
         {% else %}
-          {{ open }}
+          {{ 'open' }}
         {% endif %}
 
   automation:
