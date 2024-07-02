@@ -7,8 +7,8 @@ pressure:
     round_digits: 0
     entity_ids:
     - sensor.pressure_kitchen_virtual
+    - sensor.pressure_bath_virtual
     - sensor.pressure_toilet_virtual
-    - sensor.pressure_hall_virtual
     - sensor.pressure_bedroom_virtual
     - sensor.pressure_living_virtual
 
@@ -19,15 +19,15 @@ pressure:
       unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_kitchen') | float(0) }}"
 
+    - name: 'pressure_bath_virtual'
+      unique_id: pressure_bath_virtual
+      unit_of_measurement: "mmHg"
+      state: "{{ states('sensor.pressure_bath') | float(0) }}"
+
     - name: 'pressure_toilet_virtual'
       unique_id: pressure_toilet_virtual
       unit_of_measurement: "mmHg"
       state: "{{ states('sensor.pressure_toilet') | float(0) }}"
-
-    - name: 'pressure_hall_virtual'
-      unique_id: pressure_hall_virtual
-      unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_hall') | float(0) }}"
 
     - name: 'pressure_bedroom_virtual'
       unique_id: pressure_bedroom_virtual
