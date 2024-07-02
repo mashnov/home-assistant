@@ -24,10 +24,11 @@ intercom:
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
+      to: 'on'
     action:
     - service: script.console
       data:
-        message: "{{ states('sensor.intercom_hall_type') }}"
+        message: "type: {{ states('sensor.intercom_hall_type') }}"
 
   script:
     intercom_hall_open:
