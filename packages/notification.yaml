@@ -69,7 +69,7 @@ notification:
     action:
     - service: script.homepod_message
       data_template:
-      message: "Я открыла домофон! Кто-то идет в гости!"
+        message: "Я открыла домофон! Кто-то идет в гости!"
 
 ###
 ## HOME TELEGRAMM
