@@ -21,20 +21,18 @@ intercom:
     - platform: state
       entity_id: switch.intercom_hall
       to: 'off'
+    condition:
+    - condition: template
+      value_template: >
+        {% set userId = trigger.to_state.context.user_id %}
+        {% set parentId = trigger.to_state.context.parent_id %}
+        {{ userId == none and parentId == none }}
     action:
-    - choose:
-      - conditions:
-        - condition: template
-          value_template: >
-            {% set userId = trigger.to_state.context.user_id %}
-            {% set parentId = trigger.to_state.context.parent_id %}
-            {{ userId == none and parentId == none }}
-        sequence:
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.intercom_hall_call
-        - delay: 00:00:01
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.intercom_hall_call
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.intercom_hall_call
+    - delay: 00:00:01
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.intercom_hall_call
 
   - alias: 'intercom_hall_auto_open'
     initial_state: true
@@ -42,15 +40,13 @@ intercom:
     - platform: state
       entity_id: input_boolean.intercom_hall_call
       to: 'on'
+    condition:
+    - condition: state
+      entity_id: input_boolean.intercom_hall_enabled
+      state: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.intercom_hall_enabled
-          state: 'off'
-        sequence:
-        - delay: 00:00:10
-        - service: script.intercom_hall_open
+    - delay: 00:00:10
+    - service: script.intercom_hall_open
 
   script:
     intercom_hall_open:
