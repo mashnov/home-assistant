@@ -16,35 +16,35 @@ humidity:
     - name: 'humidity_kitchen_virtual'
       unique_id: humidity_kitchen_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_kitchen') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_kitchen') | round(1, default = 0) | float }}"
 
     - name: 'humidity_bath_virtual'
       unique_id: humidity_bath_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_bath') | float(0) | round(1) }}"
+      state: "{{ states('sensor.humidity_bath') | round(1, default = 0) | float }}"
 
     - name: 'humidity_toilet_virtual'
       unique_id: humidity_toilet_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_toilet') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_toilet') | round(1, default = 0) | float }}"
 
     - name: 'humidity_hall_virtual'
       unique_id: humidity_hall_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_hall') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_hall') | round(1, default = 100) | float }}"
 
     - name: 'humidity_bedroom_virtual'
       unique_id: humidity_bedroom_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_bedroom') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_bedroom') | round(1, default = 100) | float }}"
 
     - name: 'humidity_living_virtual'
       unique_id: humidity_living_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_living') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_living') | round(1, default = 100) | float }}"
 
     - name: 'humidity_balcony_virtual'
       unique_id: humidity_balcony_virtual
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_balcony') | float(100) | round(1) }}"
+      state: "{{ states('sensor.humidity_balcony') | round(1, default = 0) | float }}"
 

@@ -17,24 +17,24 @@ pressure:
     - name: 'pressure_kitchen_virtual'
       unique_id: pressure_kitchen_virtual
       unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_kitchen') | float(0) }}"
+      state: "{{ states('sensor.pressure_kitchen') | round(1, default = 0) | float }}"
 
     - name: 'pressure_bath_virtual'
       unique_id: pressure_bath_virtual
       unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_bath') | float(0) }}"
+      state: "{{ states('sensor.pressure_bath') | round(1, default = 0) | float }}"
 
     - name: 'pressure_toilet_virtual'
       unique_id: pressure_toilet_virtual
       unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_toilet') | float(0) }}"
+      state: "{{ states('sensor.pressure_toilet') | round(1, default = 0) | float }}"
 
     - name: 'pressure_bedroom_virtual'
       unique_id: pressure_bedroom_virtual
       unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_bedroom') | float(0) }}"
+      state: "{{ states('sensor.pressure_bedroom') | round(1, default = 0) | float }}"
 
     - name: 'pressure_living_virtual'
       unique_id: pressure_living_virtual
       unit_of_measurement: "mmHg"
-      state: "{{ states('sensor.pressure_living') | float(0) }}"
+      state: "{{ states('sensor.pressure_living') | round(1, default = 0) | float }}"

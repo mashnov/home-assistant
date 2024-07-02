@@ -47,7 +47,7 @@ illuminance:
     - name: 'illuminance_balcony_virtual'
       unique_id: illuminance_balcony_virtual
       unit_of_measurement: "lx"
-      state: "{{ states('sensor.illuminance_balcony') | float(0) | round(1) }}"
+      state: "{{ states('sensor.illuminance_balcony') | round(1, default = 0) | float }}"
 
   - binary_sensor:
     - name: 'kitchen_top_light_is_dark'
