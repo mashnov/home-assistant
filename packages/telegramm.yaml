@@ -27,7 +27,7 @@ telegramm:
     chat_id: !secret telegram_system_group_id
 
   automation:
-  - alias: telegram_restart_command
+  - alias: telegram_command_restart
     mode: 'queued'
     trigger:
     - platform: event
@@ -45,7 +45,7 @@ telegramm:
     action:
     - service: script.system_restart
 
-  - alias: telegram_reboot_command
+  - alias: telegram_command_reboot
     mode: 'queued'
     trigger:
     - platform: event
@@ -63,7 +63,7 @@ telegramm:
     action:
     - service: script.system_reboot
 
-  - alias: telegram_rebuild_command
+  - alias: telegram_command_rebuild
     mode: 'queued'
     trigger:
     - platform: event
@@ -81,7 +81,7 @@ telegramm:
     action:
     - service: script.system_rebuild
 
-  - alias: telegram_intercom_hall_open_command
+  - alias: telegram_command_intercom_hall_open
     mode: 'queued'
     trigger:
     - platform: event
@@ -91,7 +91,7 @@ telegramm:
     action:
     - service: script.intercom_hall_open
 
-  - alias: telegramm_remove_callback'
+  - alias: telegramm_callback_remove'
     mode: 'queued'
     trigger:
     - platform: event

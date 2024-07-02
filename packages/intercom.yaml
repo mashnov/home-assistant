@@ -1,57 +1,60 @@
 intercom:
   input_boolean:
-    intercom_hall:
+    intercom_hall_call:
+    intercom_hall_open:
     intercom_hall_auto_on:
 
   automation:
-    alias: 'intercom_hall_type_detect'
+  - alias: 'intercom_hall_on'
     initial_state: true
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
       to: 'on'
+    condition:
+    - condition: template
+      value_template: >
+        {% set userId = trigger.to_state.context.user_id %}
+        {% set parentId = trigger.to_state.context.parent_id %}
+        {{ userId == none and parentId == none }}
     action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.intercom_hall_call
     - choose:
       - conditions:
-        - condition: template
-          value_template: >
-            {% set userId = trigger.to_state.context.user_id %}
-            {% set parentId = trigger.to_state.context.parent_id %}
-            {{ userId == none and parentId == none }}
+        - condition: state
+          entity_id: input_boolean.intercom_hall_auto_on
+          state: 'on'
         sequence:
-        - service: script.console
-          data:
-            message: "type: 'call'"
-      - conditions:
-        - condition: template
-          value_template: >
-            {% set userId = trigger.to_state.context.user_id %}
-            {% set parentId = trigger.to_state.context.parent_id %}
-            {{ userId != none or parentId != none }}
-        sequence:
-        - service: script.console
-          data:
-            message: "type: 'open'"
+        - delay: 00:00:05
+        - service: script.intercom_hall_open
 
+  - alias: 'intercom_hall_off'
+    initial_state: true
+    trigger: 
+    - platform: state
+      entity_id: switch.intercom_hall
+      to: 'off'
+    condition:
+    - condition: template
+      value_template: >
+        {% set userId = trigger.to_state.context.user_id %}
+        {% set parentId = trigger.to_state.context.parent_id %}
+        {{ userId == none and parentId == none }}
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.intercom_hall_call
 
-
-
-
-
-
-
-# - service: switch.turn_on
-#   entity_id: switch.intercom_hall
-# - delay: 00:00:15
-# - service: switch.turn_off
-#   entity_id: switch.intercom_hall
-
-    
-# Звоню в кв:
-# - авто вкл
-# - ждем 3 сек
-# - авто выкл
-
-# Если включен автоответ:
-# - вкл - ответ
-# - выкл - открытие
+  script:
+    intercom_hall_open:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.intercom_hall
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.intercom_hall_open
+      - delay: 00:00:15
+      - service: switch.turn_off
+        entity_id: switch.intercom_hall
+      - service: input_boolean.turn_off
+      entity_id: input_boolean.intercom_hall_open

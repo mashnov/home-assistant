@@ -107,21 +107,15 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'input_boolean.intercom_hall'
+      entity_id: 'input_boolean.intercom_hall_call'
       from: 'off'
       to: 'on'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.intercom_hall_auto_on
-          state: 'off'
-        sequence:
-        - service: script.telegramm_send_home_text_custom_menu
-          data_template:
-            message: "🏠 Кто-то звонит в домофон. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-            navigation: 
-            - '🔓 Открыть :/intercom_hall_open, ❌ Закрыть :/hide_menu'
+    - service: script.telegramm_send_home_text_custom_menu
+      data_template:
+        message: "🏠 Кто-то звонит в домофон. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        navigation: 
+        - '🔓 Открыть :/intercom_hall_open, ❌ Закрыть :/hide_menu'
 
 ###
 ## CLIMAT HOMEPOD
