@@ -3,21 +3,6 @@ intercom:
     intercom_hall:
     intercom_hall_auto_on:
 
-  template:
-  - trigger:
-    - platform: state
-      entity_id: switch.intercom_hall
-    sensor:
-    - name: intercom_hall_type
-      state: >
-        {% set userId = trigger.to_state.context.user_id %}
-        {% set parentId = trigger.to_state.context.parent_id %}
-        {% if userId == none and parentId == none %}
-          {{ 'call' }}
-        {% else %}
-          {{ 'open' }}
-        {% endif %}
-
   automation:
     alias: 'intercom_hall_type_detect'
     initial_state: true
@@ -26,24 +11,40 @@ intercom:
       entity_id: switch.intercom_hall
       to: 'on'
     action:
-    - service: script.console
-      data:
-        message: "type: {{ states('sensor.intercom_hall_type') }}"
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: >
+            {% set userId = trigger.to_state.context.user_id %}
+            {% set parentId = trigger.to_state.context.parent_id %}
+            {{ userId == none and parentId == none }}
+        sequence:
+        - service: script.console
+          data:
+            message: "type: 'call'"
+      - conditions:
+        - condition: template
+          value_template: >
+            {% set userId = trigger.to_state.context.user_id %}
+            {% set parentId = trigger.to_state.context.parent_id %}
+            {{ userId != none or parentId != none }}
+        sequence:
+        - service: script.console
+          data:
+            message: "type: 'open'"
 
-  script:
-    intercom_hall_open:
-      mode: 'queued'
-      sequence:
-      - service: script.console
-        data:
-          message: 'ДОМОФОН'
 
 
-      # - service: switch.turn_on
-      #   entity_id: switch.intercom_hall
-      # - delay: 00:00:15
-      # - service: switch.turn_off
-      #   entity_id: switch.intercom_hall
+
+
+
+
+
+# - service: switch.turn_on
+#   entity_id: switch.intercom_hall
+# - delay: 00:00:15
+# - service: switch.turn_off
+#   entity_id: switch.intercom_hall
 
     
 # Звоню в кв:
