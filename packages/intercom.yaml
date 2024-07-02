@@ -49,7 +49,7 @@ intercom:
           entity_id: input_boolean.intercom_hall_enabled
           state: 'off'
         sequence:
-        - delay: 00:00:20
+        - delay: 00:00:10
         - service: script.intercom_hall_open
 
   script:
@@ -60,7 +60,7 @@ intercom:
         entity_id: switch.intercom_hall
       - service: input_boolean.turn_on
         entity_id: input_boolean.intercom_hall_open
-      - delay: 00:00:15
+      - delay: 00:00:10
       - service: input_boolean.turn_off
         entity_id: input_boolean.intercom_hall_open
       - service: switch.turn_off
