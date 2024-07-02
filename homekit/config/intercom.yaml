@@ -1,2 +1,5 @@
 input_boolean.intercom_hall_enabled:
   name: Домофон
+
+lock.hall_intercom:
+  name: Домофон
