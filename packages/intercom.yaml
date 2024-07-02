@@ -12,7 +12,7 @@ intercom:
     action:
     - service: script.console
       data:
-        message: "{{ trigger.to_state.context }}"
+        message: "Parent_ID: {{ trigger.to_state.context.parent_id }} User_ID: {{ trigger.to_state.context.user_id }}"
 
 
   script:
