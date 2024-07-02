@@ -2,7 +2,7 @@ intercom:
   input_boolean:
     intercom_hall_call:
     intercom_hall_open:
-    intercom_hall_auto_on:
+    intercom_hall_enabled:
 
   automation:
   - alias: 'intercom_hall_on'
@@ -23,8 +23,8 @@ intercom:
     - choose:
       - conditions:
         - condition: state
-          entity_id: input_boolean.intercom_hall_auto_on
-          state: 'on'
+          entity_id: input_boolean.intercom_hall_enabled
+          state: 'off'
         sequence:
         - delay: 00:00:05
         - service: script.intercom_hall_open
