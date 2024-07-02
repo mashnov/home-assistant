@@ -4,7 +4,9 @@ intercom:
     name: hall_intercom
     value_template: "{{ is_state('input_boolean.intercom_hall_open', 'on') }}"
     unlock:
-    - service: script.intercom_hall_open
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.intercom_hall_open
+    # - service: script.intercom_hall_open
     lock:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_open
