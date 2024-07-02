@@ -29,12 +29,12 @@ intercom:
             {% set userId = trigger.to_state.context.user_id %}
             {% set parentId = trigger.to_state.context.parent_id %}
             {{ userId == none and parentId == none }}
-          sequence:
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.intercom_hall_call
-          - delay: 00:00:01
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.intercom_hall_call
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.intercom_hall_call
+        - delay: 00:00:01
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.intercom_hall_call
 
 
 
