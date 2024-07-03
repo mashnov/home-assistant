@@ -14,6 +14,12 @@ intercom:
     intercom_hall_open:
     intercom_hall_enabled:
 
+  template:
+  - binary_sensor:
+    - name: 'intercom_hall_call'
+      unique_id: hall_intercom_call
+      state: "{{ is_state('input_boolean.intercom_hall_call', 'on') }}"
+
   automation:
   - alias: 'intercom_hall_call'
     initial_state: true

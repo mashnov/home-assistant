@@ -1,2 +1,3 @@
 lock.hall_intercom:
   name: Домофон
+  linked_doorbell_sensor: binary_sensor.intercom_hall_call
