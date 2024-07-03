@@ -1,2 +1,8 @@
 sensor.illuminance_balcony_virtual:
   name: Освещенность
+
+sensor.illuminance_balcony_max:
+  name: Максимальная
+
+sensor.illuminance_balcony_average:
+  name: Средняя
