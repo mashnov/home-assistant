@@ -42,37 +42,6 @@ illuminance:
     max_age:
       days: 1
 
-
-  - platform: filter
-    name: illuminance_balcony_both_filter
-    entity_id: sensor.illuminance_balcony_virtual
-    filters:
-    - filter: lowpass
-      time_constant: 10
-      precision: 2
-    - filter: time_simple_moving_average
-      window_size: "00:20"
-      precision: 2
-
-  - platform: filter
-    name: illuminance_balcony_time_filter
-    entity_id: sensor.illuminance_balcony_virtual
-    filters:
-    - filter: time_simple_moving_average
-      window_size: "00:20"
-      precision: 2
-
-  - platform: filter
-    name: illuminance_balcony_lp_filter
-    entity_id: sensor.illuminance_balcony_virtual
-    filters:
-    - filter: lowpass
-      time_constant: 10
-      precision: 0
-
-
-
-
   template:
   - sensor:
     - name: 'illuminance_balcony_virtual'
