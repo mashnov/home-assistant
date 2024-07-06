@@ -67,7 +67,7 @@ back_light:
       sequence:
       - if:
         - condition: state
-          entity_id: switch.switch_kitchen_right
+          entity_id: switch.switch_kitchen_left
           state: 'off'
         then:
         - if:
@@ -77,12 +77,12 @@ back_light:
           then:
           - service: switch.turn_on
             entity_id: 
-            - switch.switch_kitchen_right
+            - switch.switch_kitchen_left
             - switch.relay_kitchen_l2
           else:
           - service: switch.turn_on
             entity_id: 
-            - switch.switch_kitchen_right
+            - switch.switch_kitchen_left
             - switch.relay_kitchen_l1
         else:
         - if:
