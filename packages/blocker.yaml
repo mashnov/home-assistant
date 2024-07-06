@@ -46,7 +46,7 @@ blocker:
     trigger:
     - id: 'boolean_toggle'
       platform: state
-      entity_id: sensor.switch_kitchen_action
+      entity_id: sensor.kitchen_switch_action
       to: 'single_left'
     - id: 'boolean_off'
       platform: event
@@ -102,7 +102,7 @@ blocker:
     trigger:
     - id: 'boolean_toggle'
       platform: state
-      entity_id: sensor.switch_kitchen_action
+      entity_id: sensor.kitchen_switch_action
       to: 'single_right'
     - id: 'boolean_off'
       platform: event
@@ -269,7 +269,7 @@ blocker:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: sensor.switch_restroom_action
+      entity_id: sensor.hall_switch_restroom_action
       to: 'single_right'
     action:
     - choose:
@@ -315,7 +315,7 @@ blocker:
     trigger:
     - id: 'boolean_toggle'
       platform: state
-      entity_id: sensor.switch_hall_action
+      entity_id: sensor.hall_switch_action
       to: 'single'
     - id: 'boolean_off'
       platform: event
@@ -371,7 +371,7 @@ blocker:
     trigger:
     - id: 'boolean_toggle'
       platform: state
-      entity_id: sensor.switch_bedroom_action
+      entity_id: sensor.bedroom_switch_action
       to: 'single'
     - id: 'boolean_off'
       platform: event
@@ -427,7 +427,7 @@ blocker:
     trigger:
     - id: 'boolean_toggle'
       platform: state
-      entity_id: sensor.switch_living_action
+      entity_id: sensor.living_switch_action
       to: 'single'
     - id: 'boolean_off'
       platform: event

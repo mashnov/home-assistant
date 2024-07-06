@@ -41,8 +41,12 @@ night_mode:
       to: 'off'
     - id: 'night_mode_toggle'
       platform: state
-      entity_id: sensor.switch_restroom_action
+      entity_id: sensor.hall_switch_restroom_action
       to: 'single_both'
+    - id: 'night_mode_toggle'
+      platform: state
+      entity_id: sensor.bedroom_wall_switch_action
+      to: 'single'
     action:
     - choose:
       - conditions:
