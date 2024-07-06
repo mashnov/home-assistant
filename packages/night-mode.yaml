@@ -41,14 +41,6 @@ night_mode:
       to: 'off'
     - id: 'night_mode_toggle'
       platform: state
-      entity_id: sensor.switch_bedroom_action
-      to: 'single_both'
-    - id: 'night_mode_toggle'
-      platform: state
-      entity_id: sensor.switch_living_action
-      to: 'single_both'
-    - id: 'night_mode_toggle'
-      platform: state
       entity_id: sensor.switch_restroom_action
       to: 'single_both'
     action:

@@ -372,11 +372,7 @@ blocker:
     - id: 'boolean_toggle'
       platform: state
       entity_id: sensor.switch_bedroom_action
-      to: 'single_left'
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.switch_bedroom_action
-      to: 'single_right'
+      to: 'single'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
@@ -432,11 +428,7 @@ blocker:
     - id: 'boolean_toggle'
       platform: state
       entity_id: sensor.switch_living_action
-      to: 'single_left'
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.switch_living_action
-      to: 'single_right'
+      to: 'single'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
