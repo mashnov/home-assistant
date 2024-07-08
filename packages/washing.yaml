@@ -1,0 +1,7 @@
+washing:
+  template:
+  - binary_sensor:
+    - name: 'washing_is_washing'
+      unique_id: washing_is_washing
+      device_class: vibration
+      state: "{{ is_state('binary_sensor.bath_washing_vibration', 'on') }}"
