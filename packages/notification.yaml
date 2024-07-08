@@ -55,6 +55,18 @@ notification:
       data_template:
         message: "Доброе утро!"
 
+  - alias: 'notification_home_homepod_washing_finish'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.washing_is_washing'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Стирка завершена!"
+
   - alias: 'notification_home_homepod_intercom'
     mode: 'queued'
     trigger:
@@ -224,33 +236,17 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_kitchen
       above: 70
+    condition:
+    - condition: state
+      entity_id: input_boolean.is_night_mode
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_kitchen
+      state: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
-        sequence:
-        - service: script.homepod_message
-          data_template:
-            message: "Требуется проветривание на кухне!"
-
-  - alias: 'notification_climat_homepod_mold_hall'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_hall
-      above: 70
-    action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
-        sequence:
-        - service: script.homepod_message
-          data_template:
-            message: "Требуется проветривание в коридоре!"
+    - service: script.homepod_message
+      data_template:
+        message: "Требуется проветривание на кухне!"
 
   - alias: 'notification_climat_homepod_mold_bedroom'
     mode: 'queued'
@@ -258,16 +254,17 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_bedroom
       above: 70
+    condition:
+    - condition: state
+      entity_id: input_boolean.is_night_mode
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_bedroom
+      state: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
-        sequence:
-        - service: script.homepod_message
-          data_template:
-            message: "Требуется проветривание в спальне!"
+    - service: script.homepod_message
+      data_template:
+        message: "Требуется проветривание в спальне!"
 
   - alias: 'notification_climat_homepod_mold_living'
     mode: 'queued'
@@ -275,16 +272,17 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_living
       above: 70
+    condition:
+    - condition: state
+      entity_id: input_boolean.is_night_mode
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_living
+      state: 'off'
     action:
-    - choose:
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
-        sequence:
-        - service: script.homepod_message
-          data_template:
-            message: "Требуется проветривание в гостиной!"
+    - service: script.homepod_message
+      data_template:
+        message: "Требуется проветривание в гостиной!"
 
 ###
 ## CLIMAT TELEGRAMM
@@ -332,21 +330,14 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_kitchen
       above: 70
+    condition:
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_kitchen
+      state: 'off'
     action:
     - service: script.telegramm_send_climat_text
       data_template:
         message: "🥣 Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_climat_telegramm_mold_hall'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_hall
-      above: 70
-    action:
-    - service: script.telegramm_send_climat_text
-      data_template:
-        message: "🧥 Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_climat_telegramm_mold_bedroom'
     mode: 'queued'
@@ -354,6 +345,10 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_bedroom
       above: 70
+    condition:
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_bedroom
+      state: 'off'
     action:
     - service: script.telegramm_send_climat_text
       data_template:
@@ -365,6 +360,10 @@ notification:
     - platform: numeric_state
       entity_id: sensor.mold_living
       above: 70
+    condition:
+    - condition: state
+      entity_id: binary_sensor.is_ventilation_living
+      state: 'off'
     action:
     - service: script.telegramm_send_climat_text
       data_template:
