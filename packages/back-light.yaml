@@ -28,20 +28,20 @@ back_light:
       back_light_bedroom:
         value_template: >
           {% set back = is_state('switch.relay_bedroom_l1', 'on') %}
-          {% set wall = is_state('switch.switch_bedroom_wall', 'on') %}
+          {% set wall = is_state('switch.bedroom_wall_switch', 'on') %}
           {{ back and wall }}
         turn_on:
         - parallel:
           - service: switch.turn_on
             entity_id: switch.relay_bedroom_l1
           - service: switch.turn_on
-            entity_id: switch.switch_bedroom_wall
+            entity_id: switch.bedroom_wall_switch
         turn_off:
         - parallel:
           - service: switch.turn_off
             entity_id: switch.relay_bedroom_l1
           - service: switch.turn_off
-            entity_id: switch.switch_bedroom_wall
+            entity_id: switch.bedroom_wall_switch
 
       back_light_living:
         value_template: "{{ is_state('switch.relay_living_l2', 'on') }}"
