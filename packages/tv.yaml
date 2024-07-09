@@ -1,3 +1,5 @@
-top_light:
+tv:
   media_player:
   - platform: xiaomi_tv
+    host: 10.0.1.5
+    name: tv_living
