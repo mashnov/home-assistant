@@ -2,6 +2,6 @@
 - input_boolean.blocker_top_light_bath
 - light.top_light_toilet
 - input_boolean.blocker_top_light_hall
-- light.top_light_bedroom
-- light.top_light_living
-- light.top_light_balcony
+- input_boolean.blocker_top_light_bedroom
+- input_boolean.blocker_top_light_living
+- input_boolean.blocker_top_light_balcony
