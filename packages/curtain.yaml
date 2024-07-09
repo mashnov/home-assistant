@@ -1,15 +1,5 @@
 curtain:
   input_number:
-    curtain_kitchen_open: # 100
-      initial: 100
-      max: 100
-      min: 0
-    
-    curtain_kitchen_sun: # 50
-      initial: 50
-      max: 100
-      min: 0
-    
     curtain_bedroom_open: # 5
       initial: 5
       max: 100
@@ -19,67 +9,8 @@ curtain:
       initial: 50
       max: 100
       min: 0
-    
-    curtain_living_open: # 90
-      initial: 90
-      max: 100
-      min: 0
-    
-    curtain_living_sun: # 65
-      initial: 65
-      max: 100
-      min: 0
-
-  template:
-  - binary_sensor:
-    - name: 'kitchen_curtain_close'
-      unique_id: kitchen_curtain_close
-      state: >
-        {% set sunny = is_state('binary_sensor.sun_is_sunny', 'on') %}
-        {% set dark = is_state('binary_sensor.kitchen_curtain_is_dark', 'on') %}
-        {{ sunny and not(dark) }}
-
-    - name: 'living_curtain_close'
-      unique_id: living_curtain_close
-      state: >
-        {% set sunny = is_state('binary_sensor.sun_is_sunny', 'on') %}
-        {% set dark = is_state('binary_sensor.living_curtain_is_dark', 'on') %}
-        {% set open = is_state('binary_sensor.door_balcony_virtual', 'on') %}
-        {{ sunny and not(dark) and not(open) }}
-
+  
   automation:
-  - alias: 'curtain_kitchen'
-    mode: 'queued'
-    trigger:
-    - id: 'close'
-      platform: state
-      entity_id: 'binary_sensor.kitchen_curtain_close' 
-      from: 'off'
-      to: 'on'
-    - id: 'open'
-      platform: state
-      entity_id: 'binary_sensor.kitchen_curtain_close' 
-      from: 'on'
-      to: 'off'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'close'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_kitchen
-          data_template:
-            position: "{{ states('input_number.curtain_kitchen_sun') | int(0) }}"
-      - conditions:
-        - condition: trigger
-          id: 'open'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_kitchen
-          data_template:
-            position: "{{ states('input_number.curtain_kitchen_open') | int(0) }}"
-
   - alias: 'curtain_bedroom'
     mode: 'queued'
     trigger:
@@ -111,35 +42,3 @@ curtain:
           entity_id: cover.curtain_bedroom
           data_template:
             position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
-
-  - alias: 'curtain_living'
-    mode: 'queued'
-    trigger:
-    - id: 'close'
-      platform: state
-      entity_id: 'binary_sensor.living_curtain_close' 
-      from: 'off'
-      to: 'on'
-    - id: 'open'
-      platform: state
-      entity_id: 'binary_sensor.living_curtain_close' 
-      from: 'on'
-      to: 'off'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'close'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_living
-          data_template:
-            position: "{{ states('input_number.curtain_living_sun') | int(0) }}"
-      - conditions:
-        - condition: trigger
-          id: 'open'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_living
-          data_template:
-            position: "{{ states('input_number.curtain_living_open') | int(0) }}"

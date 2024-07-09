@@ -15,3 +15,6 @@ light.top_light_bedroom:
 
 light.top_light_living:
   name: Свет
+
+light.top_light_balcony:
+  name: Свет

@@ -6,7 +6,7 @@ blocker:
     blocker_top_light_bedroom:
     blocker_top_light_living:
     blocker_back_light_kitchen:
-    blocker_back_light_balcony:
+    blocker_top_light_balcony:
     blocker_night_light_bath:
     blocker_night_light_balcony:
     blocker_fan_toilet:
@@ -26,7 +26,7 @@ blocker:
       duration: '01:00:00'
     blocker_back_light_kitchen:
       duration: '01:00:00'
-    blocker_back_light_balcony:
+    blocker_top_light_balcony:
       duration: '00:10:00'
     blocker_night_light_bath:
       duration: '01:00:00'
@@ -477,8 +477,8 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_top_light_living
   
-  ### BALCONY BACK LIGHT
-  - alias: 'blocker_back_light_balcony_boolean'
+  ### BALCONY TOP LIGHT
+  - alias: 'blocker_top_light_balcony_boolean'
     mode: 'queued'
     trigger:
     - id: 'boolean_toggle'
@@ -489,7 +489,7 @@ blocker:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_back_light_balcony
+        entity_id: timer.blocker_top_light_balcony
     action:
     - choose:
       - conditions:
@@ -497,25 +497,25 @@ blocker:
           id: 'boolean_toggle'
         sequence:
         - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_back_light_balcony
+          entity_id: input_boolean.blocker_top_light_balcony
       - conditions:
         - condition: trigger
           id: 'boolean_off'
         sequence:
         - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_back_light_balcony    
+          entity_id: input_boolean.blocker_top_light_balcony    
     
-  - alias: 'blocker_back_light_balcony_timer'
+  - alias: 'blocker_top_light_balcony_timer'
     mode: 'queued'
     trigger:
     - id: 'timer_on'
       platform: state
-      entity_id: 'input_boolean.blocker_back_light_balcony'
+      entity_id: 'input_boolean.blocker_top_light_balcony'
       from: 'off'
       to: 'on'
     - id: 'timer_off'
       platform: state
-      entity_id: 'input_boolean.blocker_back_light_balcony'
+      entity_id: 'input_boolean.blocker_top_light_balcony'
       from: 'on'
       to: 'off'
     action:
@@ -525,13 +525,13 @@ blocker:
           id: 'timer_on'
         sequence:
         - service: timer.start
-          entity_id: timer.blocker_back_light_balcony
+          entity_id: timer.blocker_top_light_balcony
       - conditions:
         - condition: trigger
           id: 'timer_off'
         sequence:
         - service: timer.cancel
-          entity_id: timer.blocker_back_light_balcony
+          entity_id: timer.blocker_top_light_balcony
 
   ### BALCONY NIGHT LIGHT
   - alias: 'blocker_night_light_balcony_boolean'

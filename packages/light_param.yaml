@@ -1,44 +1,27 @@
 light_param:
-  input_number:
-    light_param_shi_hue: # 24
-      initial: 24
-      max: 30
-      min: 0
-
-    light_param_brightness_day: # 255
-      initial: 255
-      max: 255
-      min: 0
-
-    light_param_brightness_night: # 50
-      initial: 50
-      max: 255
-      min: 0
-
-    light_param_shi_saturation: # 95
-      initial: 95
-      max: 100
-      min: 95
-    
-    light_param_shi_brightness_day: # 255
-      initial: 255
-      max: 255
-      min: 0
-
-    light_param_shi_brightness_night: # 50
-      initial: 50
-      max: 100
-      min: 0
+  sensor:
+  - name: light_param_illuminance_max
+    unique_id: light_param_illuminance_max
+    platform: statistics
+    entity_id: sensor.light_param_illuminance_virtual
+    state_characteristic: value_max
+    max_age:
+      days: 1
 
   template:
   - sensor:      
+    - name: 'light_param_illuminance_virtual'
+      unique_id: light_param_illuminance_virtual
+      unit_of_measurement: "lx"
+      state: "{{ states('sensor.illuminance_balcony') | round(1, default = 0) | float }}"
+
     - name: 'light_param_temperature'
       unique_id: light_param_temperature
       state: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
-        {% set target = states('sensor.illuminance_balcony_max') | int(1) %}
-        {% set sensor = states('sensor.sensor.illuminance_balcony_virtual') | int(0) %}
+        {% set target = states('sensor.light_param_illuminance_max') | int(1) %}
+        {% set sensor = states('sensor.sensor.light_param_illuminance_virtual') | int(0) %}
         {% set percent = min((sensor / max(1, target) ) * 100, 100) | round %}
         {% set temperature = (maxValue / 100 * (100 - percent)) | round %}
         {{ max(minValue, temperature) }}
@@ -47,16 +30,16 @@ light_param:
       unique_id: light_param_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
-        {% set nightValue = states('input_number.light_param_brightness_night') | int(0) %}
-        {% set dayValue = states('input_number.light_param_brightness_day') | int(0) %}
+        {% set nightValue = 50 %}
+        {% set dayValue = 255 %}
         {{ iif(isNightMode, nightValue, dayValue) }}
 
     - name: 'light_param_shi_brightness'
       unique_id: light_param_shi_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
-        {% set nightValue = states('input_number.light_param_shi_brightness_night') | int(0) %}
-        {% set dayValue = states('input_number.light_param_shi_brightness_day') | int(0) %}
+        {% set nightValue = 50 %}
+        {% set dayValue = 255 %}
         {{ iif(isNightMode, nightValue, dayValue) }}
 
   automation:
@@ -161,8 +144,6 @@ light_param:
     - platform: state
       entity_id: 'sensor.light_param_shi_brightness'
     - platform: state
-      entity_id: 'input_number.light_param_shi_hue'
-    - platform: state
       entity_id: 'sensor.light_param_shi_saturation'
     action:
     - choose:
@@ -175,4 +156,4 @@ light_param:
           entity_id: light.night_light_hall
           data_template:
             brightness: "{{ states('sensor.light_param_shi_brightness') | int(50) }}"
-            hs_color: ["{{ states('input_number.light_param_shi_hue') | int(24) }}", "{{ states('input_number.light_param_shi_saturation') | int(95) }}"]
+            hs_color: [24, 95]

@@ -1,0 +1,7 @@
+vibration:
+  template:
+  - binary_sensor:
+    - name: 'vibration_bath'
+      unique_id: vibration_bath
+      device_class: vibration
+      state: "{{ is_state('binary_sensor.bath_vibration', 'on') }}"

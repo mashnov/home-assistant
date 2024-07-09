@@ -152,7 +152,7 @@ telegramm:
             inline_keyboard: 
             - '❌ Закрыть :/hide_menu'
 
-    telegramm_send_photo:
+    telegramm_send_file:
       mode: 'queued'
       sequence:
       - service: notify.telegram_secuirity_group_id

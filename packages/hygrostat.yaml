@@ -80,12 +80,12 @@ hygrostat:
     trigger:
     - id: 'humidifier_hall_on'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_kitchen'
+      entity_id: 'binary_sensor.window_kitchen_is_open'
       from: 'on'
       to: 'off'
     - id: 'humidifier_hall_off'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_kitchen'
+      entity_id: 'binary_sensor.window_kitchen_is_open'
       from: 'off'
       to: 'on'
     action:
@@ -108,12 +108,12 @@ hygrostat:
     trigger:
     - id: 'humidifier_bedroom_on'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_bedroom'
+      entity_id: 'binary_sensor.window_bedroom_is_open'
       from: 'on'
       to: 'off'
     - id: 'humidifier_bedroom_off'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_bedroom'
+      entity_id: 'binary_sensor.window_bedroom_is_open'
       from: 'off'
       to: 'on'
     action:
@@ -136,12 +136,12 @@ hygrostat:
     trigger:
     - id: 'humidifier_living_on'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_living'
+      entity_id: 'binary_sensor.window_living_is_open'
       from: 'on'
       to: 'off'
     - id: 'humidifier_living_off'
       platform: state
-      entity_id: 'binary_sensor.is_ventilation_living'
+      entity_id: 'binary_sensor.window_living_is_open'
       from: 'off'
       to: 'on'
     action:

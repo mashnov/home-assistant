@@ -1,16 +1,4 @@
 temperature:
-  sensor:
-  - platform: min_max
-    name: temperature_average
-    unique_id: temperature_average
-    type: mean
-    round_digits: 0
-    entity_ids:
-    - sensor.temperature_kitchen_virtual
-    - sensor.temperature_hall_virtual
-    - sensor.temperature_bedroom_virtual
-    - sensor.temperature_living_virtual
-
   template:
   - sensor:
     - name: 'temperature_kitchen_virtual'

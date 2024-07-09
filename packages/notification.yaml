@@ -31,6 +31,38 @@ notification:
       data:
         message: "Parent_ID: {{ trigger.to_state.context.parent_id }} User_ID: {{ trigger.to_state.context.user_id }}"
 
+  - alias: 'notification_home_homepod_intercom'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.intercom_hall_open'
+      from: 'off'
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: input_boolean.intercom_hall_enabled
+      state: 'on'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Кто-то звогнит в домофон!"
+
+  - alias: 'notification_home_homepod_intercom'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.intercom_hall_open'
+      from: 'off'
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: input_boolean.intercom_hall_enabled
+      state: 'off'
+    action:
+    - service: script.homepod_message
+      data_template:
+        message: "Я открыла домофон! Кто-то идет в гости!"
+
   - alias: 'notification_home_homepod_night_mode_on'
     mode: 'queued'
     trigger:
@@ -59,29 +91,13 @@ notification:
     mode: 'queued'
     trigger:
       platform: state
-      entity_id: 'binary_sensor.washing_is_washing'
-      from: 'off'
-      to: 'on'
+      entity_id: 'binary_sensor.vibration_bath'
+      from: 'on'
+      to: 'off'
     action:
     - service: script.homepod_message
       data_template:
         message: "Стирка завершена!"
-
-  - alias: 'notification_home_homepod_intercom'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.intercom_hall_open'
-      from: 'off'
-      to: 'on'
-    condition:
-    - condition: state
-      entity_id: input_boolean.intercom_hall_enabled
-      state: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: "Я открыла домофон! Кто-то идет в гости!"
 
 ###
 ## HOME TELEGRAMM
@@ -106,42 +122,6 @@ notification:
     - service: script.telegramm_send_home_text
       data_template:
         message: "🏠 Кто-то нажал кнопку звонка у лифта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_home_telegramm_night_mode_on'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
-    action:
-    - service: script.telegramm_send_home_text
-      data_template:
-        message: "🏠 Ночной режим включен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_home_telegramm_night_mode_off'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'on'
-      to: 'off'
-    action:
-    - service: script.telegramm_send_home_text
-      data_template:
-        message: "🏠 Ночной режим выключен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_home_telegramm_washing_finish'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'binary_sensor.washing_is_washing'
-      from: 'off'
-      to: 'on'
-    action:
-    - service: script.telegramm_send_home_text
-      data_template:
-        message: "🛁 Стирка завершена. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
   - alias: 'notification_home_telegramm_intercom'
     mode: 'queued'
@@ -171,6 +151,42 @@ notification:
         - service: script.telegramm_send_home_text
           data_template:
             message: "🏠 Домофон открыт. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_home_telegramm_night_mode_on'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: "🏠 Ночной режим включен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_home_telegramm_night_mode_off'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: "🏠 Ночной режим выключен. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
+  - alias: 'notification_home_telegramm_washing_finish'
+    mode: 'queued'
+    trigger:
+      platform: state
+      entity_id: 'binary_sensor.vibration_bath'
+      from: 'on'
+      to: 'off'
+    action:
+    - service: script.telegramm_send_home_text
+      data_template:
+        message: "🛁 Стирка завершена. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
 ###
 ## CLIMAT HOMEPOD
@@ -230,60 +246,6 @@ notification:
           data_template:
             message: "Закончилась вода в увлажнителе в гостиной!"
 
-  - alias: 'notification_climat_homepod_mold_kitchen'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_kitchen
-      above: 70
-    condition:
-    - condition: state
-      entity_id: input_boolean.is_night_mode
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_kitchen
-      state: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: "Требуется проветривание на кухне!"
-
-  - alias: 'notification_climat_homepod_mold_bedroom'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_bedroom
-      above: 70
-    condition:
-    - condition: state
-      entity_id: input_boolean.is_night_mode
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_bedroom
-      state: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: "Требуется проветривание в спальне!"
-
-  - alias: 'notification_climat_homepod_mold_living'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_living
-      above: 70
-    condition:
-    - condition: state
-      entity_id: input_boolean.is_night_mode
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_living
-      state: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: "Требуется проветривание в гостиной!"
-
 ###
 ## CLIMAT TELEGRAMM
 ###
@@ -323,51 +285,6 @@ notification:
     - service: script.telegramm_send_climat_text
       data_template:
         message: "🛋️ Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_climat_telegramm_mold_kitchen'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_kitchen
-      above: 70
-    condition:
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_kitchen
-      state: 'off'
-    action:
-    - service: script.telegramm_send_climat_text
-      data_template:
-        message: "🥣 Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_climat_telegramm_mold_bedroom'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_bedroom
-      above: 70
-    condition:
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_bedroom
-      state: 'off'
-    action:
-    - service: script.telegramm_send_climat_text
-      data_template:
-        message: "🛏️ Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
-  - alias: 'notification_climat_telegramm_mold_living'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.mold_living
-      above: 70
-    condition:
-    - condition: state
-      entity_id: binary_sensor.is_ventilation_living
-      state: 'off'
-    action:
-    - service: script.telegramm_send_climat_text
-      data_template:
-        message: "🛋️ Требуется проветривание. ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
 ###
 ## SYSTEM
@@ -561,7 +478,6 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    # - service: script.camera_living_take_photo
     - service: script.telegramm_send_secuirity_text
       data_template:
         message: "🪴 Дверь открыта ({{ now().timestamp() | timestamp_custom('%H:%M') }})"

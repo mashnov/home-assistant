@@ -2,20 +2,6 @@ top_light:
   light:
   - platform: template
     lights:
-      top_light_kitchen:
-        value_template: >
-          {% set light1 = is_state('light.xiaomi_light_kitchen_1', 'on') %}
-          {% set light2 = is_state('light.xiaomi_light_kitchen_2', 'on') %}
-          {% set light3 = is_state('light.xiaomi_light_kitchen_3', 'on') %}
-          {% set light4 = is_state('light.xiaomi_light_kitchen_4', 'on') %}
-          {% set light5 = is_state('light.xiaomi_light_kitchen_5', 'on') %}
-          {{ light1 or light2 or light3 or light4 or light5 }}
-        turn_on:
-        - service: script.top_light_kitchen_turn_on
-        turn_off:
-        - service: light.turn_off
-          entity_id: light.xiaomi_light_kitchen
-
       top_light_bath:
         value_template: "{{ is_state('switch.switch_restroom_left', 'on') }}"
         turn_on:
@@ -34,107 +20,14 @@ top_light:
         - service: switch.turn_off
           entity_id: switch.switch_restroom_right
 
-      top_light_hall:
-        value_template: >
-          {% set light1 = is_state('light.xiaomi_light_hall_1', 'on') %}
-          {% set light2 = is_state('light.xiaomi_light_hall_2', 'on') %}
-          {% set light3 = is_state('light.xiaomi_light_hall_3', 'on') %}
-          {% set light4 = is_state('light.xiaomi_light_hall_4', 'on') %}
-          {% set light5 = is_state('light.xiaomi_light_hall_5', 'on') %}
-          {% set light6 = is_state('light.xiaomi_light_hall_6', 'on') %}
-          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
+      top_light_balcony:
+        value_template: "{{ is_state('switch.relay_balcony_l2', 'on') }}"
         turn_on:
-        - service: script.top_light_hall_turn_on
+        - service: switch.turn_on
+          entity_id: switch.relay_balcony_l2
         turn_off:
-        - service: light.turn_off
-          entity_id: light.xiaomi_light_hall
-
-      top_light_bedroom:
-        value_template: >
-          {% set light1 = is_state('light.xiaomi_light_bedroom_1', 'on') %}
-          {% set light2 = is_state('light.xiaomi_light_bedroom_2', 'on') %}
-          {% set light3 = is_state('light.xiaomi_light_bedroom_3', 'on') %}
-          {% set light4 = is_state('light.xiaomi_light_bedroom_4', 'on') %}
-          {% set light5 = is_state('light.xiaomi_light_bedroom_5', 'on') %}
-          {% set light6 = is_state('light.xiaomi_light_bedroom_6', 'on') %}
-          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
-        turn_on:
-        - service: script.top_light_bedroom_turn_on
-        turn_off:
-        - service: light.turn_off
-          entity_id: light.xiaomi_light_bedroom
-
-      top_light_living:
-        value_template: >
-          {% set light1 = is_state('light.xiaomi_light_living_1', 'on') %}
-          {% set light2 = is_state('light.xiaomi_light_living_2', 'on') %}
-          {% set light3 = is_state('light.xiaomi_light_living_3', 'on') %}
-          {% set light4 = is_state('light.xiaomi_light_living_4', 'on') %}
-          {% set light5 = is_state('light.xiaomi_light_living_5', 'on') %}
-          {% set light6 = is_state('light.xiaomi_light_living_6', 'on') %}
-          {{ light1 or light2 or light3 or light4 or light5 or light6 }}
-        turn_on:
-        - service: script.top_light_living_turn_on
-        turn_off:
-        - service: light.turn_off
-          entity_id: light.xiaomi_light_living
-
-  script:
-    top_light_kitchen_turn_on:
-      mode: 'queued'
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_kitchen_right
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_kitchen_right
-        else:
-        - service: light.turn_on
-          entity_id: light.xiaomi_light_kitchen
-
-    top_light_hall_turn_on:
-      mode: 'queued'
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_hall
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_hall
-        else:
-        - service: light.turn_on
-          entity_id: light.xiaomi_light_hall
-
-    top_light_bedroom_turn_on:
-      mode: 'queued'
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_bedroom
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_bedroom
-        else:
-        - service: light.turn_on
-          entity_id: light.xiaomi_light_bedroom
-
-    top_light_living_turn_on:
-      mode: 'queued'
-      sequence:
-      - if:
-        - condition: state
-          entity_id: switch.switch_living
-          state: 'off'
-        then:
-        - service: switch.turn_on
-          entity_id: switch.switch_living
-        else:
-        - service: light.turn_on
-          entity_id: light.xiaomi_light_living
+        - service: switch.turn_off
+          entity_id: switch.relay_balcony_l2
 
   automation:
   - alias: 'top_light_kitchen'
@@ -160,13 +53,13 @@ top_light:
           state: 'off'
         sequence:
         - service: light.turn_on
-          entity_id: light.top_light_kitchen
+          entity_id: light.xiaomi_light_kitchen
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
         - service: light.turn_off
-          entity_id: light.top_light_kitchen
+          entity_id: light.xiaomi_light_kitchen
 
   - alias: 'top_light_bath'
     mode: 'queued'
@@ -290,7 +183,7 @@ top_light:
             {{ not(isNightMode) or isTopLightBlocker }}
         sequence:
         - service: light.turn_on
-          entity_id: light.top_light_hall
+          entity_id: light.xiaomi_light_hall
       - conditions:
         - condition: trigger
           id: 'turn_off'
@@ -299,7 +192,7 @@ top_light:
           state: 'off'
         sequence:
         - service: light.turn_off
-          entity_id: light.top_light_hall
+          entity_id: light.xiaomi_light_hall
 
   - alias: 'top_light_bedroom'
     mode: 'queued'
@@ -321,13 +214,13 @@ top_light:
           id: 'turn_on'
         sequence:
         - service: light.turn_on
-          entity_id: light.top_light_bedroom
+          entity_id: light.xiaomi_light_bedroom
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
         - service: light.turn_off
-          entity_id: light.top_light_bedroom
+          entity_id: light.xiaomi_light_bedroom
 
   - alias: 'top_light_living'
     mode: 'queued'
@@ -349,10 +242,38 @@ top_light:
           id: 'turn_on'
         sequence:
         - service: light.turn_on
-          entity_id: light.top_light_living
+          entity_id: light.xiaomi_light_living
       - conditions:
         - condition: trigger
           id: 'turn_off'
         sequence:
         - service: light.turn_off
-          entity_id: light.top_light_living
+          entity_id: light.xiaomi_light_living
+
+  - alias: 'top_light_balcony'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.blocker_top_light_balcony'
+      from: 'off'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.blocker_top_light_balcony'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.top_light_balcony
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.top_light_balcony

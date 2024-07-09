@@ -9,6 +9,3 @@ light.back_light_bedroom:
 
 light.back_light_living:
   name: Подсветка
-
-light.back_light_balcony:
-  name: Подсветка

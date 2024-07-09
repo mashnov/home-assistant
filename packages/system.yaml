@@ -1,4 +1,7 @@
 system:
+  shell_command:
+    rebuild: ha core rebuild
+
   template:
   - binary_sensor:
     - name: 'system_is_backed_up'
@@ -7,9 +10,6 @@ system:
         {% set nowTime = now().timestamp() - 60 %}
         {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime - 60) %}
         {{ nowTime | timestamp_custom('%H:%M') == lastBackUp | timestamp_custom('%H:%M') }}
-
-  shell_command:
-    rebuild: ha core rebuild
 
   script:
     system_restart:

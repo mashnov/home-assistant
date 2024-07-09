@@ -1,3 +1,1 @@
-- sensor.illuminance_balcony_virtual
-- sensor.illuminance_balcony_max
-- sensor.illuminance_balcony_average
+- sensor.light_param_illuminance_virtual
