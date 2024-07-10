@@ -9,27 +9,37 @@ notification:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: event.doorbell_inside_action
+      entity_id: event.hall_button_inside
     action:
     - service: script.homepod_message
       data_template:
         message: "Кто-то нажал кнопку звонка в коридоре!"
     - service: script.console
       data:
-        message: "Parent_ID: {{ trigger.to_state.context.parent_id }} User_ID: {{ trigger.to_state.context.user_id }}"
+        message: |
+          ID. | Parent | user
+          to_state: {{ trigger.to_state }}
+          id: {{ trigger.to_state.context.id }}
+          parent_id: {{ trigger.to_state.context.parent_id }}
+          user_id: {{ trigger.to_state.context.user_id }}
 
   - alias: 'notification_home_homepod_doorbell_outside'
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: event.doorbell_outside_action
+      entity_id: event.hall_button_outside
     action:
     - service: script.homepod_message
       data_template:
         message: "Кто-то нажал кнопку звонка у лифта!"
     - service: script.console
       data:
-        message: "Parent_ID: {{ trigger.to_state.context.parent_id }} User_ID: {{ trigger.to_state.context.user_id }}"
+        message: |
+          ID. | Parent | user
+          to_state: {{ trigger.to_state }}
+          id: {{ trigger.to_state.context.id }}
+          parent_id: {{ trigger.to_state.context.parent_id }}
+          user_id: {{ trigger.to_state.context.user_id }}
 
   - alias: 'notification_home_homepod_intercom'
     mode: 'queued'
@@ -107,7 +117,7 @@ notification:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: event.doorbell_inside_action
+      entity_id: event.hall_button_inside
     action:
     - service: script.telegramm_send_home_text
       data_template:
@@ -117,7 +127,7 @@ notification:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: event.doorbell_outside_action
+      entity_id: event.hall_button_outside
     action:
     - service: script.telegramm_send_home_text
       data_template:
