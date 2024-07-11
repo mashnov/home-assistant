@@ -269,7 +269,7 @@ blocker:
     mode: 'queued'
     trigger:
     - platform: state
-      entity_id: sensor.hall_switch_restroom_action
+      entity_id: sensor.restroom_switch_action
       to: 'single_left'
     action:
     - choose:

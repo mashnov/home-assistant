@@ -3,22 +3,22 @@ top_light:
   - platform: template
     lights:
       top_light_bath:
-        value_template: "{{ is_state('switch.switch_restroom_left', 'on') }}"
+        value_template: "{{ is_state('switch.restroom_switch_left', 'on') }}"
         turn_on:
         - service: switch.turn_on
-          entity_id: switch.switch_restroom_left
+          entity_id: switch.restroom_switch_left
         turn_off:
         - service: switch.turn_off
-          entity_id: switch.switch_restroom_left
+          entity_id: switch.restroom_switch_left
 
       top_light_toilet:
-        value_template: "{{ is_state('switch.switch_restroom_right', 'on') }}"
+        value_template: "{{ is_state('switch.restroom_switch_right', 'on') }}"
         turn_on:
         - service: switch.turn_on
-          entity_id: switch.switch_restroom_right
+          entity_id: switch.restroom_switch_right
         turn_off:
         - service: switch.turn_off
-          entity_id: switch.switch_restroom_right
+          entity_id: switch.restroom_switch_right
 
       top_light_balcony:
         value_template: "{{ is_state('switch.relay_balcony_l2', 'on') }}"
