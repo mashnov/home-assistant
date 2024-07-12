@@ -75,34 +75,6 @@ hygrostat:
         {{ humidifier and (sensor <= 0) }}
 
   automation:
-  - alias: 'humidifier_hall'
-    mode: 'queued'
-    trigger:
-    - id: 'humidifier_hall_on'
-      platform: state
-      entity_id: 'binary_sensor.window_kitchen_is_open'
-      from: 'on'
-      to: 'off'
-    - id: 'humidifier_hall_off'
-      platform: state
-      entity_id: 'binary_sensor.window_kitchen_is_open'
-      from: 'off'
-      to: 'on'
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'humidifier_hall_on'
-        sequence:
-        - service: humidifier.turn_on
-          entity_id: humidifier.humidifier_hall
-      - conditions:
-        - condition: trigger
-          id: 'humidifier_hall_off'
-        sequence:
-        - service: humidifier.turn_off
-          entity_id: humidifier.humidifier_hall
-
   - alias: 'humidifier_bedroom'
     mode: 'queued'
     trigger:
