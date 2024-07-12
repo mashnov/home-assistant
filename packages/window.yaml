@@ -11,15 +11,6 @@ window:
       device_class: window
       state: "{{ is_state('binary_sensor.window_kitchen_right', 'on') }}"
 
-    - name: 'window_kitchen_is_open'
-      unique_id: window_kitchen_is_open
-      delay_on: '00:00:05'
-      delay_off: '00:00:05'
-      state: >
-        {% set left = is_state('binary_sensor.window_kitchen_left_virtual', 'on') %}
-        {% set right = is_state('binary_sensor.window_kitchen_right_virtual', 'on') %}
-        {{ left or right }}
-
     - name: 'window_bedroom_left_virtual'
       unique_id: window_bedroom_left_virtual
       device_class: window
