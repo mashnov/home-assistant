@@ -4,4 +4,5 @@
 - sensor.temperature_hall_virtual
 - sensor.temperature_bedroom_virtual
 - sensor.temperature_living_virtual
+- sensor.ble_temperature_clock_living
 - sensor.temperature_balcony_virtual
