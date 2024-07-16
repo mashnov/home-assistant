@@ -20,27 +20,22 @@ occupancy:
 
   input_number:
     occupancy_kitchen: # 00:03:00 (180)
-      initial: 180
       max: 1000
       min: 1
     
     occupancy_bath: # 00:03:00 (180)
-      initial: 180
       max: 1000
       min: 1
     
     occupancy_hall: # 00:00:30 (30)
-      initial: 30
       max: 1000
       min: 1
     
     occupancy_night: # 00:00:05 (5)
-      initial: 5
       max: 1000
       min: 0
 
-    occupancy_toilet: # 00:00:15 (15)
-      initial: 15
+    occupancy_toilet: # 00:00:10 (10)
       max: 100
       min: 1
 
