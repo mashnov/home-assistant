@@ -19,24 +19,24 @@ occupancy:
       duration: '00:00:10'
 
   input_number:
-    occupancy_kitchen: # 00:03:00 (180)
-      max: 1000
+    occupancy_kitchen: # 00:03:00
+      max: 300
       min: 1
     
-    occupancy_bath: # 00:03:00 (180)
-      max: 1000
+    occupancy_bath: # 00:03:00
+      max: 300
       min: 1
     
-    occupancy_hall: # 00:00:30 (30)
-      max: 1000
+    occupancy_hall: # 00:00:30
+      max: 300
       min: 1
     
-    occupancy_night: # 00:00:05 (5)
-      max: 1000
+    occupancy_night: # 00:00:05
+      max: 120
       min: 0
 
-    occupancy_toilet: # 00:00:10 (10)
-      max: 100
+    occupancy_toilet: # 00:00:05
+      max: 20
       min: 1
 
   template:
