@@ -57,10 +57,7 @@ occupancy:
     - name: 'motion_bath_virtual'
       unique_id: motion_bath_virtual
       device_class: motion
-      state: >
-        {% set left = is_state("binary_sensor.bath_motion_left_occupancy", "on") %}
-        {% set right = is_state("binary_sensor.bath_motion_right_occupancy", "on") %}
-        {{ left or right }}
+      state: "{{ is_state('binary_sensor.bath_motion_occupancy', 'on') }}"
 
     - name: 'motion_hall_virtual'
       unique_id: motion_hall_virtual
@@ -95,7 +92,7 @@ occupancy:
     - name: 'occupancy_balcony'
       unique_id: occupancy_balcony
       device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.occupancy_balcony", "on") }}'
+      state: '{{ is_state("input_boolean.balcony_motion_occupancy", "on") }}'
 
   - sensor:
     - name: 'occupancy_kitchen_duration'
