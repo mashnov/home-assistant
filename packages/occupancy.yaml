@@ -68,7 +68,7 @@ occupancy:
       state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
 
     - name: 'motion_balcony_virtual'
-      unique_id: motion_hall_virtual
+      unique_id: motion_balcony_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.balcony_motion_occupancy', 'on') }}"
   
