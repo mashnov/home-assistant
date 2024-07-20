@@ -44,17 +44,20 @@ occupancy:
     - name: 'motion_kitchen_virtual'
       unique_id: motion_kitchen_virtual
       device_class: motion
-      state: "{{ is_state('binary_sensor.motion_kitchen', 'on') }}"
+      state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
 
     - name: 'motion_bath_virtual'
       unique_id: motion_bath_virtual
       device_class: motion
-      state: "{{ is_state('binary_sensor.motion_bath', 'on') }}"
+      state: >
+        {% set left = is_state("binary_sensor.bath_motion_left_occupancy", "on") %}
+        {% set right = is_state("binary_sensor.bath_motion_right_occupancy", "on") %}
+        {{ left or right }}
 
     - name: 'motion_hall_virtual'
       unique_id: motion_hall_virtual
       device_class: motion
-      state: "{{ is_state('binary_sensor.motion_hall', 'on') }}"
+      state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
   
     - name: 'occupancy_kitchen'
       unique_id: occupancy_kitchen
