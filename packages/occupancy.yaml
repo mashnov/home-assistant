@@ -4,6 +4,7 @@ occupancy:
     occupancy_bath:
     occupancy_hall:
     occupancy_toilet:
+    occupancy_balcony:
 
   timer:
     occupancy_kitchen:
@@ -16,6 +17,9 @@ occupancy:
       duration: '00:00:10'
     
     occupancy_toilet:
+      duration: '00:00:10'
+
+    occupancy_balcony:
       duration: '00:00:10'
 
   input_number:
@@ -39,6 +43,10 @@ occupancy:
       max: 20
       min: 1
 
+    occupancy_balcony: # 00:00:05
+      max: 20
+      min: 1
+
   template:
   - binary_sensor:
     - name: 'motion_kitchen_virtual'
@@ -58,6 +66,11 @@ occupancy:
       unique_id: motion_hall_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
+
+    - name: 'motion_balcony_virtual'
+      unique_id: motion_hall_virtual
+      device_class: motion
+      state: "{{ is_state('binary_sensor.balcony_motion_occupancy', 'on') }}"
   
     - name: 'occupancy_kitchen'
       unique_id: occupancy_kitchen
@@ -78,6 +91,11 @@ occupancy:
       unique_id: occupancy_hall
       device_class: 'occupancy'
       state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
+
+    - name: 'occupancy_balcony'
+      unique_id: occupancy_balcony
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_balcony", "on") }}'
 
   - sensor:
     - name: 'occupancy_kitchen_duration'
@@ -106,7 +124,13 @@ occupancy:
         {% set dayValue = states('input_number.occupancy_hall') | int(0) %}
         {% set duration = iif(isNightMode, nightValue, dayValue) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
-    
+
+    - name: 'occupancy_balcony_duration'
+      unique_id: occupancy_toilet_duration
+      state: >
+        {% set duration = states('input_number.occupancy_balcony') | int(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
     - name: 'occupancy_toilet_duration'
       unique_id: occupancy_toilet_duration
       state: >
@@ -245,6 +269,51 @@ occupancy:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_hall
+
+  - alias: 'occupancy_balcony_on'
+    mode: 'queued'
+    trigger:
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: 'binary_sensor.motion_balcony_virtual'
+      from: 'off'
+      to: 'on'
+    - id: 'occupancy_off'
+      platform: state
+      entity_id: 'binary_sensor.motion_balcony_virtual'
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_on'
+        sequence:
+        - parallel:
+          - service: timer.cancel
+            entity_id: timer.occupancy_balcony
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_balcony
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_off'
+        sequence:
+        - service: timer.start
+          entity_id: timer.occupancy_balcony
+          data_template:
+            duration: "{{ states('sensor.occupancy_balcony_duration') }}"
+
+  - alias: 'occupancy_balcony_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.occupancy_balcony
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_balcony
+
 
   - alias: 'occupancy_toilet'
     mode: 'queued'
