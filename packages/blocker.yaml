@@ -156,10 +156,6 @@ blocker:
   - alias: 'blocker_top_light_bath_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.button_bath_action
-      to: 'double'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
@@ -167,12 +163,6 @@ blocker:
         entity_id: timer.blocker_top_light_bath
     action:
     - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_top_light_bath
       - conditions:
         - condition: trigger
           id: 'boolean_off'
@@ -212,10 +202,6 @@ blocker:
   - alias: 'blocker_night_light_bath_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.button_bath_action
-      to: 'single'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
@@ -223,12 +209,6 @@ blocker:
         entity_id: timer.blocker_night_light_bath
     action:
     - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_night_light_bath
       - conditions:
         - condition: trigger
           id: 'boolean_off'
@@ -593,14 +573,6 @@ blocker:
   - alias: 'blocker_fan_toilet_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.button_toilet_action
-      to: 'single'
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.button_bath_action
-      to: 'hold'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
@@ -608,12 +580,6 @@ blocker:
         entity_id: timer.blocker_fan_toilet
     action:
     - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_fan_toilet
       - conditions:
         - condition: trigger
           id: 'boolean_off'
