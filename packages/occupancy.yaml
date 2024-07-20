@@ -125,16 +125,16 @@ occupancy:
         {% set duration = iif(isNightMode, nightValue, dayValue) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
-    - name: 'occupancy_balcony_duration'
-      unique_id: occupancy_toilet_duration
-      state: >
-        {% set duration = states('input_number.occupancy_balcony') | int(0) %}
-        {{ duration | timestamp_custom('%H:%M:%S', false) }}
-
     - name: 'occupancy_toilet_duration'
       unique_id: occupancy_toilet_duration
       state: >
         {% set duration = states('input_number.occupancy_toilet') | int(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'occupancy_balcony_duration'
+      unique_id: occupancy_balcony_duration
+      state: >
+        {% set duration = states('input_number.occupancy_balcony') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
