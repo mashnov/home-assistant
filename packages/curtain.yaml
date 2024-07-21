@@ -41,6 +41,37 @@ curtain:
           data_template:
             position: "{{ states('input_number.curtain_bedroom_open') | int(0) }}"
 
+  - alias: 'curtain_bedroom_controll'
+    mode: 'queued'
+    trigger:
+    - id: 'close'
+      platform: state
+      entity_id: sensor.living_cube_action
+      to: 'rotate_right'
+    - id: 'open'
+      platform: state
+      entity_id: sensor.living_cube_action
+      to: 'rotate_left'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.curtain_bedroom
+          data_template:
+            position: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) + 33 }}"
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.curtain_bedroom
+          data_template:
+            position: "{{ state_attr('cover.curtain_bedroom', 'position')| int(0) - 33 }}"
+
+
   - alias: 'curtain_living_controll'
     mode: 'queued'
     trigger:
@@ -67,6 +98,6 @@ curtain:
           id: 'open'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.clivingbedroom
+          entity_id: cover.curtain_living
           data_template:
             position: "{{ state_attr('cover.curtain_living', 'position')| int(0) - 33 }}"
