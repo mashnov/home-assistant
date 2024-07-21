@@ -46,7 +46,7 @@ night_mode:
     - id: 'toggle'
       platform: state
       entity_id: sensor.cube_bedroom_action
-      to: 'shake'
+      to: 'throw'
     action:
     - choose:
       - conditions:
