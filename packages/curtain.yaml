@@ -84,16 +84,35 @@ curtain:
   - alias: 'curtain_living_controll'
     mode: 'queued'
     trigger:
-    - platform: state
+    - id: 'open'
+      platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_right'
-    - platform: state
+    - id: 'close'
+      platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
-    - service: cover.set_cover_position
-      entity_id: cover.curtain_living
-      data_template:
-        position: >
-          {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
-          {{ angle / 360 * 100 }}
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'close'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.curtain_living
+          data_template:
+            position: >
+              {% set step = states('input_number.curtain_cube_step') | int(0) %}
+              {% set position = state_attr('cover.curtain_living', 'position') | int(0) + step %}
+              {{ [[0 , position] | max, [100, position] | min] | min }}
+      - conditions:
+        - condition: trigger
+          id: 'open'
+        sequence:
+        - service: cover.set_cover_position
+          entity_id: cover.curtain_living
+          data_template:
+            position: > 
+              {% set step = states('input_number.curtain_cube_step') | int(0) %}
+              {% set position = state_attr('cover.curtain_living', 'position') | int(0) - step %}
+              {{ [[0 , position] | max, [100, position] | min] | max }}
