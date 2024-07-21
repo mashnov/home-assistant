@@ -53,6 +53,14 @@ curtain:
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
+    - service: script.console
+      data:
+        message: |
+          ID. | Parent | user
+          to_state: {{ trigger.to_state }}
+          id: {{ trigger.to_state.context.id }}
+          parent_id: {{ trigger.to_state.context.parent_id }}
+          user_id: {{ trigger.to_state.context.user_id }}
     - choose:
       - conditions:
         - condition: trigger
