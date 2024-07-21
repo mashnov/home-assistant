@@ -96,10 +96,12 @@ curtain:
         message: |
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
           {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
+          {% set positive = angle > 0 %}
           {% set destination = position + angle %}
           position: {{ position }}
           angle: {{ angle }}
           destination: {{ destination }}
+          positive: {{ positive }}
 
     - service: cover.set_cover_position
       entity_id: cover.curtain_living
