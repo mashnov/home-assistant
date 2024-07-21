@@ -212,6 +212,21 @@ top_light:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom
 
+  - alias: 'bedroom_cube'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.cube_bedroom_action
+    action:
+    - service: script.console
+      data:
+        message: |
+          ID. | Parent | user
+          to_state: {{ trigger.to_state }}
+          id: {{ trigger.to_state.context.id }}
+          parent_id: {{ trigger.to_state.context.parent_id }}
+          user_id: {{ trigger.to_state.context.user_id }}
+
   - alias: 'top_light_living'
     mode: 'queued'
     trigger:
