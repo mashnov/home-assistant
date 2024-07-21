@@ -96,7 +96,7 @@ curtain:
     - service: script.console
       data:
         message: |
-          to_state: {{ trigger.to_state }}
+          to_state: {{ trigger.to_state.action_angle }}
     - choose:
       - conditions:
         - condition: trigger
