@@ -237,7 +237,7 @@ top_light:
       to: 'off'
     - id: 'toggle'
       platform: state
-      entity_id: sensor.cube_living_action
+      entity_id: sensor.living_cube_action
       to: 'flip90'
     action:
     - choose:
