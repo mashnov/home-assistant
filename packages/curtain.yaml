@@ -110,10 +110,8 @@ curtain:
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
           {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
           {% set destination = position + angle %}
-          {{ destination }}
-          # {% if angle > 0 %}
-          #   {{ [[0 , destination] | max, [100, destination] | min] | min }}
-          # {% else %}
-          #   # OPEN
-          #   {{ [[0 , destination] | max, [100, destination] | min] | max }}
-          # {% endif %}
+          {% if angle > 0 %}
+            {{ [[0 , destination] | max, [100, destination] | min] | max }}
+          {% else %}
+            {{ [[0 , destination] | max, [100, destination] | min] | min }}
+          {% endif %}
