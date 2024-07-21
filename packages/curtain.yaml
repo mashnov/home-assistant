@@ -51,11 +51,11 @@ curtain:
     - id: 'open'
       platform: state
       entity_id: sensor.cube_bedroom_action
-      to: 'rotate_left'
+      to: 'rotate_right'
     - id: 'close'
       platform: state
       entity_id: sensor.cube_bedroom_action
-      to: 'rotate_right'
+      to: 'rotate_left'
     action:
     - choose:
       - conditions:
@@ -68,7 +68,7 @@ curtain:
             position: >
               {% set step = states('input_number.curtain_cube_step') | int(0) %}
               {% set position = state_attr('cover.curtain_bedroom', 'position') | int(0) + step %}
-              {{ [[0 , position] | max, [100, position] | min] | min }}
+              {{ [[0 , position] | max, [100, position] | min] | max }}
       - conditions:
         - condition: trigger
           id: 'open'
@@ -79,7 +79,7 @@ curtain:
             position: > 
               {% set step = states('input_number.curtain_cube_step') | int(0) %}
               {% set position = state_attr('cover.curtain_bedroom', 'position') | int(0) - step %}
-              {{ [[0 , position] | max, [100, position] | min] | max }}
+              {{ [[0 , position] | max, [100, position] | min] | min }}
 
   - alias: 'curtain_living_controll'
     mode: 'queued'
