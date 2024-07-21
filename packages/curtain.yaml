@@ -93,6 +93,10 @@ curtain:
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
+    - service: script.console
+      data:
+        message: |
+          to_state: {{ trigger.to_state }}
     - choose:
       - conditions:
         - condition: trigger
