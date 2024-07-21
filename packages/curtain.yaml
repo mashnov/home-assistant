@@ -9,7 +9,7 @@ curtain:
       min: 0
 
     curtain_cube_step: # 5
-      max: 100
+      max: 25
       min: 0
 
   automation:
@@ -51,11 +51,11 @@ curtain:
     - id: 'open'
       platform: state
       entity_id: sensor.cube_bedroom_action
-      to: 'rotate_right'
+      to: 'rotate_left'
     - id: 'close'
       platform: state
       entity_id: sensor.cube_bedroom_action
-      to: 'rotate_left'
+      to: 'rotate_right'
     action:
     - choose:
       - conditions:
