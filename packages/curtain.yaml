@@ -53,25 +53,20 @@ curtain:
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
-    - service: script.console
-      data:
-        message: |
-          position: {{ state_attr('cover.curtain_bedroom', 'position') | int(0) }}
-          destination: {{ state_attr('cover.curtain_bedroom', 'position') | int(0) + 20 }}
     - choose:
       - conditions:
         - condition: trigger
           id: 'close'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.curtain_bedroom
+          entity_id: cover.curtain_living
           data_template:
-            position: "{{ state_attr('cover.curtain_bedroom', 'position') | int(0) + 20 }}"
+            position: "{{ state_attr('cover.curtain_living', 'position') | int(0) + 33 }}"
       - conditions:
         - condition: trigger
           id: 'open'
         sequence:
         - service: cover.set_cover_position
-          entity_id: cover.curtain_bedroom
+          entity_id: cover.clivingbedroom
           data_template:
-            position: "{{ state_attr('cover.curtain_bedroom', 'position')| int(0) - 20 }}"
+            position: "{{ state_attr('cover.curtain_living', 'position')| int(0) - 33 }}"
