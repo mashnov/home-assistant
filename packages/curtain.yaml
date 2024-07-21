@@ -95,7 +95,7 @@ curtain:
     action:
     - service: script.console
       data:
-        message: {{  trigger.to_state.attributes }}
+        message: "{{  trigger.to_state.attributes }}"
     - choose:
       - conditions:
         - condition: trigger
