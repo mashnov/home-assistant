@@ -29,37 +29,41 @@ night_mode:
   - alias: 'night_mode'
     mode: 'queued'
     trigger:
-    - id: 'night_mode_on'
+    - id: 'on'
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
       from: 'off'
       to: 'on'
-    - id: 'night_mode_off'
+    - id: 'off'
       platform: state
       entity_id: 'binary_sensor.is_night_mode'
       from: 'on'
       to: 'off'
-    - id: 'night_mode_toggle'
+    - id: 'toggle'
       platform: state
       entity_id: sensor.restroom_switch_action
       to: 'single_both'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.cube_bedroom_action
+      to: 'shake'
     action:
     - choose:
       - conditions:
         - condition: trigger
-          id: 'night_mode_on'
+          id: 'on'
         sequence:
         - service: input_boolean.turn_on
           entity_id: input_boolean.is_night_mode
       - conditions:
         - condition: trigger
-          id: 'night_mode_off'
+          id: 'off'
         sequence:
         - service: input_boolean.turn_off
           entity_id: input_boolean.is_night_mode
       - conditions:
         - condition: trigger
-          id: 'night_mode_toggle'
+          id: 'toggle'
         sequence:
         - service: input_boolean.toggle
           entity_id: input_boolean.is_night_mode
