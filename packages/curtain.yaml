@@ -91,29 +91,9 @@ curtain:
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
-    - service: script.console
-      data:
-        message: |
-          {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
-          {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
-          {% set percent = angle / 360 * 100 %}
-          {% set destination = position + percent %}
-          {% if angle > 0 %}
-            {{ [[0 , destination] | max, [100, destination] | min] | max }}
-          {% else %}
-            {{ [[0 , destination] | max, [100, destination] | min] | min }}
-          {% endif %}
-
     - service: cover.set_cover_position
       entity_id: cover.curtain_living
       data_template:
         position: >
-          {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
           {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
-          {% set percent = angle / 360 * 100 %}
-          {% set destination = position + percent %}
-          {% if angle > 0 %}
-            {{ [[0 , destination] | max, [100, destination] | min] | max }}
-          {% else %}
-            {{ [[0 , destination] | max, [100, destination] | min] | min }}
-          {% endif %}
+          {{ angle / 360 * 100 }}
