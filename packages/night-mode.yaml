@@ -47,6 +47,18 @@ night_mode:
       platform: state
       entity_id: sensor.cube_bedroom_action
       to: 'fall'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.cube_bedroom_action
+      to: 'shake'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.cube_living_action
+      to: 'fall'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.cube_living_action
+      to: 'shake'
     action:
     - choose:
       - conditions:
