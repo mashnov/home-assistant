@@ -96,7 +96,8 @@ curtain:
         message: |
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
           {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
-          {% set destination = position + angle %}
+          {% set percent = angle / 360 * 100 %}
+          {% set destination = position + percent %}
           {% if angle > 0 %}
             {{ [[0 , destination] | max, [100, destination] | min] | max }}
           {% else %}
@@ -109,7 +110,8 @@ curtain:
         position: >
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
           {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
-          {% set destination = position + angle %}
+          {% set percent = angle / 360 * 100 %}
+          {% set destination = position + percent %}
           {% if angle > 0 %}
             {{ [[0 , destination] | max, [100, destination] | min] | max }}
           {% else %}
