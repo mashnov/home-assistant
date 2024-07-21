@@ -95,11 +95,7 @@ curtain:
     action:
     - service: script.console
       data:
-        message: |
-          event: '{{  trigger.payload_json }}'
-          action: '{{  trigger.payload_json.action }}'
-          side: '{{  trigger.payload_json.side }}'
-          action_angle: '{{  trigger.payload_json.action_angle }}'
+        message: {{  trigger.to_state.attributes }}
     - choose:
       - conditions:
         - condition: trigger
