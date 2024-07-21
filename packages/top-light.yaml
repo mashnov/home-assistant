@@ -212,16 +212,6 @@ top_light:
         - service: light.turn_off
           entity_id: light.xiaomi_light_bedroom
 
-  - alias: 'bedroom_cube'
-    mode: 'queued'
-    trigger:
-    - platform: state
-      entity_id: sensor.cube_bedroom_action
-    action:
-    - service: script.console
-      data:
-        message: "{{ trigger.to_state }}"
-
   - alias: 'top_light_living'
     mode: 'queued'
     trigger:
@@ -235,6 +225,10 @@ top_light:
       entity_id: 'input_boolean.blocker_top_light_living'
       from: 'on'
       to: 'off'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.cube_bedroom_action
+      to: 'flip90'
     action:
     - choose:
       - conditions:
@@ -248,6 +242,12 @@ top_light:
           id: 'turn_off'
         sequence:
         - service: light.turn_off
+          entity_id: light.xiaomi_light_living
+      - conditions:
+        - condition: trigger
+          id: 'toggle'
+        sequence:
+        - service: light.toggle
           entity_id: light.xiaomi_light_living
 
   - alias: 'top_light_balcony'
