@@ -84,38 +84,23 @@ curtain:
   - alias: 'curtain_living_controll'
     mode: 'queued'
     trigger:
-    - id: 'open'
-      platform: state
+    - platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_right'
-    - id: 'close'
-      platform: state
+    - platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
     action:
-    - service: script.console
-      data:
-        message: "{{  trigger.to_state.attributes.action_angle }}"
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'close'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_living
-          data_template:
-            position: >
-              {% set step = states('input_number.curtain_cube_step') | int(0) %}
-              {% set position = state_attr('cover.curtain_living', 'position') | int(0) + step %}
-              {{ [[0 , position] | max, [100, position] | min] | min }}
-      - conditions:
-        - condition: trigger
-          id: 'open'
-        sequence:
-        - service: cover.set_cover_position
-          entity_id: cover.curtain_living
-          data_template:
-            position: > 
-              {% set step = states('input_number.curtain_cube_step') | int(0) %}
-              {% set position = state_attr('cover.curtain_living', 'position') | int(0) - step %}
-              {{ [[0 , position] | max, [100, position] | min] | max }}
+    - service: cover.set_cover_position
+      entity_id: cover.curtain_living
+      data_template:
+        position: >
+          {% set position = state_attr('cover.curtain_living', 'position') | int(0) %}
+          {% set angle = trigger.to_state.attributes.action_angle | int(0) %}
+          {% set destination = position + angle %}
+          {% if angle > 0 %}
+            {{ [[0 , destination] | max, [100, destination] | min] | min }}
+          {% else %}
+            # OPEN
+            {{ [[0 , destination] | max, [100, destination] | min] | max }}
+          {% endif %}
