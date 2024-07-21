@@ -44,11 +44,11 @@ curtain:
   - alias: 'curtain_bedroom_controll'
     mode: 'queued'
     trigger:
-    - id: 'close'
+    - id: 'open'
       platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_right'
-    - id: 'open'
+    - id: 'close'
       platform: state
       entity_id: sensor.living_cube_action
       to: 'rotate_left'
