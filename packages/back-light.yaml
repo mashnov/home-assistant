@@ -205,6 +205,16 @@ back_light:
   - alias: 'back_light_balcony'
     mode: 'queued'
     trigger:
+    - id: 'turn_on_motion'
+      platform: state
+      entity_id: 'input_boolean.occupancy_balcony'
+      from: 'off'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.occupancy_balcony'
+      from: 'on'
+      to: 'off'
     - id: 'turn_on'
       platform: state
       entity_id: 'input_boolean.blocker_back_light_balcony'
@@ -219,6 +229,15 @@ back_light:
     - choose:
       - conditions:
         - condition: trigger
+          id: 'turn_on_motion'
+        - condition: numeric_state
+          entity_id: sensor.light_param_illuminance_virtual
+          below: 100
+        sequence:
+        - service: light.turn_on
+          entity_id: light.back_light_balcony
+      - conditions:
+        - condition: trigger
           id: 'turn_on'
         sequence:
         - service: light.turn_on
@@ -226,6 +245,10 @@ back_light:
       - conditions:
         - condition: trigger
           id: 'turn_off'
+        - condition: state
+          entity_id: input_boolean.blocker_back_light_balcony
+          state: 'off'
         sequence:
         - service: light.turn_off
           entity_id: light.back_light_balcony
+

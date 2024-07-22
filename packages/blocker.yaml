@@ -464,7 +464,7 @@ blocker:
     - id: 'boolean_toggle'
       platform: state
       entity_id: sensor.balcony_button_action
-      to: 'double'
+      to: 'single'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
@@ -520,7 +520,7 @@ blocker:
     - id: 'boolean_toggle'
       platform: state
       entity_id: sensor.balcony_button_action
-      to: 'single'
+      to: 'double'
     - id: 'boolean_off'
       platform: event
       event_type: timer.finished
