@@ -4,7 +4,7 @@ curtain:
       max: 100
       min: 0
     
-    curtain_bedroom_night: # 85
+    curtain_bedroom_night: # 60
       max: 100
       min: 0
 

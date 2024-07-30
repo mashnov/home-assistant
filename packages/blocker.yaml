@@ -152,23 +152,28 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_back_light_kitchen
 
-  ### BATH TOP LIGHT
+  ### BATH LIGHT
   - alias: 'blocker_top_light_bath_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
         entity_id: timer.blocker_top_light_bath
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_top_light_bath
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_top_light_bath
+
+  - alias: 'blocker_night_light_bath_boolean'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_night_light_bath
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_night_light_bath
 
   - alias: 'blocker_top_light_bath_timer'
     mode: 'queued'
@@ -198,24 +203,6 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_top_light_bath
 
-  ### BATH NIGHT LIGHT 
-  - alias: 'blocker_night_light_bath_boolean'
-    mode: 'queued'
-    trigger:
-    - id: 'boolean_off'
-      platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.blocker_night_light_bath
-    action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_night_light_bath
-
   - alias: 'blocker_night_light_bath_timer'
     mode: 'queued'
     trigger:
@@ -244,7 +231,6 @@ blocker:
         - service: timer.cancel
           entity_id: timer.blocker_night_light_bath
 
-  ### BATH LIGHT 
   - alias: 'blocker_light_bath'
     mode: 'queued'
     trigger:
@@ -264,23 +250,10 @@ blocker:
           - service: input_boolean.turn_off
             entity_id: input_boolean.blocker_night_light_bath
           - service: input_boolean.turn_off
-            entity_id: input_boolean.blocker_top_light_bath
+            entity_id: input_boolean.blocker_top_light_bath      
       - conditions:
         - condition: state
           entity_id: input_boolean.blocker_night_light_bath
-          state: 'off'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'on'
-        sequence:
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.blocker_night_light_bath
-      - conditions:
-        - condition: state
-          entity_id: input_boolean.blocker_night_light_bath
-          state: 'off'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
           state: 'off'
         sequence:
         - parallel:
