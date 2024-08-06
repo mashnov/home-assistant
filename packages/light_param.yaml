@@ -26,14 +26,6 @@ light_param:
         {% set temperature = (maxValue / 100 * (100 - percent)) | round %}
         {{ max(minValue, temperature) }}
 
-    - name: 'light_param_brightness'
-      unique_id: light_param_brightness
-      state: >
-        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
-        {% set nightValue = 50 %}
-        {% set dayValue = 255 %}
-        {{ iif(isNightMode, nightValue, dayValue) }}
-
     - name: 'light_param_shi_brightness'
       unique_id: light_param_shi_brightness
       state: >
@@ -51,8 +43,6 @@ light_param:
       to: 'on'
     - platform: state
       entity_id: 'sensor.light_param_temperature'
-    - platform: state
-      entity_id: 'sensor.light_param_brightness'
     action:
     - choose:
       - conditions:
@@ -63,7 +53,7 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_kitchen
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            brightness: "255"
             color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_hall'
@@ -73,8 +63,6 @@ light_param:
       entity_id: 'light.xiaomi_light_hall'
       to: 'on'
     - platform: state
-      entity_id: 'sensor.light_param_brightness'
-    - platform: state
       entity_id: 'sensor.light_param_temperature'
     action:
     - choose:
@@ -86,7 +74,7 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_hall
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            brightness: "255"
             color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_bedroom'
@@ -96,8 +84,6 @@ light_param:
       entity_id: 'light.xiaomi_light_bedroom'
       to: 'on'
     - platform: state
-      entity_id: 'sensor.light_param_brightness'
-    - platform: state
       entity_id: 'sensor.light_param_temperature'
     action:
     - choose:
@@ -109,7 +95,7 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_bedroom
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            brightness: "255"
             color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_params_living'
@@ -119,8 +105,6 @@ light_param:
       entity_id: 'light.xiaomi_light_living'
       to: 'on'
     - platform: state
-      entity_id: 'sensor.light_param_brightness'
-    - platform: state
       entity_id: 'sensor.light_param_temperature'
     action:
     - choose:
@@ -132,7 +116,7 @@ light_param:
         - service: light.turn_on
           entity_id: light.xiaomi_light_living
           data_template:
-            brightness: "{{ states('sensor.light_param_brightness') | int(50) }}"
+            brightness: "255"
             color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
 
   - alias: 'light_param_night_light_hall'
