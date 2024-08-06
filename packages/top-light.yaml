@@ -120,6 +120,11 @@ top_light:
       entity_id: 'input_boolean.occupancy_toilet'
       from: 'on'
       to: 'off'
+    - id: 'day_start'
+      platform: state
+      entity_id: 'input_boolean.is_night_mode'
+      from: 'off'
+      to: 'on'
     action:
     - choose:
       - conditions:
@@ -136,6 +141,15 @@ top_light:
           id: 'turn_off'
         sequence:
         - service: light.turn_off
+          entity_id: light.top_light_toilet
+      - conditions:
+        - condition: trigger
+          id: 'day_start'
+        - condition: state
+          entity_id: input_boolean.occupancy_toilet
+          state: 'on'
+        sequence:
+        - service: light.turn_on
           entity_id: light.top_light_toilet
 
   - alias: 'top_light_hall'
