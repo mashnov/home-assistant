@@ -213,6 +213,8 @@ blocker:
         sequence:
         - service: timer.start
           entity_id: timer.blocker_top_light_kitchen
+          data:
+            duration: "{{ states('sensor.blocker_top_light_kitchen') }}"
       - conditions:
         - condition: trigger
           id: 'timer_off'
