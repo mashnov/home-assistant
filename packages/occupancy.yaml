@@ -23,7 +23,7 @@ occupancy:
       duration: '00:00:10'
 
   input_number:
-    occupancy_kitchen: # 00:03:00
+    occupancy_kitchen: # 00:04:00
       max: 60
       min: 1
     
@@ -31,11 +31,11 @@ occupancy:
       max: 60
       min: 1
     
-    occupancy_hall: # 00:00:30
+    occupancy_hall: # 00:02:00
       max: 60
       min: 1
     
-    occupancy_night: # 00:00:05
+    occupancy_night: # 00:01:00
       max: 60
       min: 0
 
@@ -43,7 +43,7 @@ occupancy:
       max: 60
       min: 1
 
-    occupancy_balcony: # 00:00:05
+    occupancy_balcony: # 00:01:00
       max: 60
       min: 1
 
