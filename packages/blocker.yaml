@@ -17,37 +17,37 @@ blocker:
     blocker_top_light_kitchen: # 01:00:00
       max: 120
       min: 1
-    blocker_top_light_bath: # 01:00:00
+    blocker_top_light_bath: # 00:30:00
       max: 120
       min: 1
-    blocker_top_light_hall: # 01:00:00
+    blocker_top_light_hall: # 00:30:00
       max: 120
       min: 1
-    blocker_top_light_bedroom: # 01:00:00
+    blocker_top_light_bedroom: # 00:30:00
       max: 120
       min: 1
-    blocker_top_light_living: # 01:00:00
+    blocker_top_light_living: # 00:30:00
       max: 120
       min: 1
     blocker_back_light_kitchen: # 01:00:00
       max: 120
       min: 1
-    blocker_top_light_balcony: # 01:00:00
+    blocker_top_light_balcony: # 00:15:00
       max: 120
       min: 1
-    blocker_night_light_bath: # 01:00:00
+    blocker_night_light_bath: # 00:30:00
       max: 120
       min: 1
-    blocker_back_light_balcony: # 00:10:00
+    blocker_back_light_balcony: # 00:15:00
       max: 120
       min: 1
     blocker_fan_toilet: # 00:10:00
       max: 120
       min: 1
-    blocker_balcony_sprinkler: # 00:10:00
+    blocker_balcony_sprinkler: # 00:15:00
       max: 120
       min: 1
-    blocker_balcony_socket: # 01:00:00
+    blocker_balcony_socket: # 00:30:00
       max: 120
       min: 1
 
