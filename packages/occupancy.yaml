@@ -24,27 +24,27 @@ occupancy:
 
   input_number:
     occupancy_kitchen: # 00:03:00
-      max: 300
+      max: 600
       min: 1
     
     occupancy_bath: # 00:03:00
-      max: 300
+      max: 600
       min: 1
     
     occupancy_hall: # 00:00:30
-      max: 300
+      max: 600
       min: 1
     
     occupancy_night: # 00:00:05
-      max: 120
+      max: 600
       min: 0
 
-    occupancy_toilet: # 00:00:05
-      max: 20
+    occupancy_toilet: # 00:00:10
+      max: 60
       min: 1
 
     occupancy_balcony: # 00:00:05
-      max: 20
+      max: 600
       min: 1
 
   template:
