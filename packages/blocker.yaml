@@ -13,31 +13,155 @@ blocker:
     blocker_balcony_sprinkler:
     blocker_balcony_socket:
 
+  input_number:
+    blocker_top_light_kitchen: # 01:00:00
+      max: 120
+      min: 1
+    blocker_top_light_bath: # 01:00:00
+      max: 120
+      min: 1
+    blocker_top_light_hall: # 01:00:00
+      max: 120
+      min: 1
+    blocker_top_light_bedroom: # 01:00:00
+      max: 120
+      min: 1
+    blocker_top_light_living: # 01:00:00
+      max: 120
+      min: 1
+    blocker_back_light_kitchen: # 01:00:00
+      max: 120
+      min: 1
+    blocker_top_light_balcony: # 01:00:00
+      max: 120
+      min: 1
+    blocker_night_light_bath: # 01:00:00
+      max: 120
+      min: 1
+    blocker_back_light_balcony: # 00:10:00
+      max: 120
+      min: 1
+    blocker_fan_toilet: # 00:10:00
+      max: 120
+      min: 1
+    blocker_balcony_sprinkler: # 00:10:00
+      max: 120
+      min: 1
+    blocker_balcony_socket: # 01:00:00
+      max: 120
+      min: 1
+
   timer:
     blocker_top_light_kitchen:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_top_light_bath:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_top_light_hall:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_top_light_bedroom:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_top_light_living:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_back_light_kitchen:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_top_light_balcony:
-      duration: '00:10:00'
+      duration: '00:00:10'
     blocker_night_light_bath:
-      duration: '01:00:00'
+      duration: '00:00:10'
     blocker_back_light_balcony:
-      duration: '00:10:00'
+      duration: '00:00:10'
     blocker_fan_toilet:
-      duration: '00:10:00'
+      duration: '00:00:10'
     blocker_balcony_sprinkler:
-      duration: '00:10:00'
+      duration: '00:00:10'
     blocker_balcony_socket:
-      duration: '01:00:00'
+      duration: '00:00:10'
+  
+  template:
+  - sensor:
+    - name: 'blocker_top_light_kitchen'
+      unique_id: blocker_top_light_kitchen
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_kitchen') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_top_light_bath'
+      unique_id: blocker_top_light_bath
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_bath') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_top_light_hall'
+      unique_id: blocker_top_light_hall
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_hall') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_top_light_bedroom'
+      unique_id: blocker_top_light_bedroom
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_bedroom') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_top_light_living'
+      unique_id: blocker_top_light_living
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_living') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_back_light_kitchen'
+      unique_id: blocker_back_light_kitchen
+      state: >
+        {% set minutes = states('input_number.blocker_back_light_kitchen') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_top_light_balcony'
+      unique_id: blocker_top_light_balcony
+      state: >
+        {% set minutes = states('input_number.blocker_top_light_balcony') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_night_light_bath'
+      unique_id: blocker_night_light_bath
+      state: >
+        {% set minutes = states('input_number.blocker_night_light_bath') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_back_light_balcony'
+      unique_id: blocker_back_light_balcony
+      state: >
+        {% set minutes = states('input_number.blocker_back_light_balcony') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_fan_toilet'
+      unique_id: blocker_fan_toilet
+      state: >
+        {% set minutes = states('input_number.blocker_fan_toilet') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_balcony_sprinkler'
+      unique_id: blocker_balcony_sprinkler
+      state: >
+        {% set minutes = states('input_number.blocker_balcony_sprinkler') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'blocker_balcony_socket'
+      unique_id: blocker_balcony_socket
+      state: >
+        {% set minutes = states('input_number.blocker_balcony_socket') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
   ### KITCHEN TOP LIGHT

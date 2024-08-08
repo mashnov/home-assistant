@@ -24,19 +24,19 @@ occupancy:
 
   input_number:
     occupancy_kitchen: # 00:03:00
-      max: 600
+      max: 60
       min: 1
     
     occupancy_bath: # 00:03:00
-      max: 600
+      max: 60
       min: 1
     
     occupancy_hall: # 00:00:30
-      max: 600
+      max: 60
       min: 1
     
     occupancy_night: # 00:00:05
-      max: 600
+      max: 60
       min: 0
 
     occupancy_toilet: # 00:00:10
@@ -44,7 +44,7 @@ occupancy:
       min: 1
 
     occupancy_balcony: # 00:00:05
-      max: 600
+      max: 60
       min: 1
 
   template:
@@ -101,7 +101,8 @@ occupancy:
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
         {% set dayValue = states('input_number.occupancy_kitchen') | int(0) %}
-        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {% set value = iif(isNightMode, nightValue, dayValue) %}
+        {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
     
     - name: 'occupancy_bath_duration'
@@ -110,7 +111,8 @@ occupancy:
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
         {% set dayValue = states('input_number.occupancy_bath') | int(0) %}
-        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {% set value = iif(isNightMode, nightValue, dayValue) %}
+        {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
     
     - name: 'occupancy_hall_duration'
@@ -119,19 +121,21 @@ occupancy:
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
         {% set nightValue = states('input_number.occupancy_night') | int(0) %}
         {% set dayValue = states('input_number.occupancy_hall') | int(0) %}
-        {% set duration = iif(isNightMode, nightValue, dayValue) %}
+        {% set value = iif(isNightMode, nightValue, dayValue) %}
+        {% set duration = value * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+    - name: 'occupancy_balcony_duration'
+      unique_id: occupancy_balcony_duration
+      state: >
+        {% set value = states('input_number.occupancy_balcony') | int(0) %}
+        {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
     - name: 'occupancy_toilet_duration'
       unique_id: occupancy_toilet_duration
       state: >
         {% set duration = states('input_number.occupancy_toilet') | int(0) %}
-        {{ duration | timestamp_custom('%H:%M:%S', false) }}
-
-    - name: 'occupancy_balcony_duration'
-      unique_id: occupancy_balcony_duration
-      state: >
-        {% set duration = states('input_number.occupancy_balcony') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
