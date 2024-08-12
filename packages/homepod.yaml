@@ -29,10 +29,6 @@ homepod:
     homepod_message:
       mode: 'queued'
       sequence:
-      - service: media_player.volume_set
-        data_template:
-          entity_id: media_player.homepod
-          volume_level: "{{ states('sensor.homepod_volume') }}"
       - service: tts.edge_say
         data:
           entity_id: media_player.homepod
