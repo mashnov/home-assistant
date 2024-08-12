@@ -20,6 +20,7 @@ intercom:
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
+      from: 'on'
       to: 'off'
     condition:
     - condition: template
