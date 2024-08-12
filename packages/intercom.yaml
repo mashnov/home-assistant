@@ -45,7 +45,7 @@ intercom:
       entity_id: input_boolean.intercom_hall_enabled
       state: 'off'
     action:
-    - delay: '00:00:00.3'
+    - delay: '00:00:01.5'
     - service: lock.unlock
       entity_id: lock.hall_intercom
 
@@ -57,7 +57,7 @@ intercom:
         entity_id: switch.intercom_hall
       - service: input_boolean.turn_on
         entity_id: input_boolean.intercom_hall_open
-      - delay: '00:00:00.5'
+      - delay: '00:00:02'
       - service: input_boolean.turn_off
         entity_id: input_boolean.intercom_hall_open
       - service: switch.turn_off
