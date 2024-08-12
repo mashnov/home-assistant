@@ -31,7 +31,7 @@ intercom:
     action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.intercom_hall_call
-    - delay: '00:00:00.5'
+    - delay: '00:00:00.1'
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
 
@@ -40,6 +40,7 @@ intercom:
     trigger: 
     - platform: state
       entity_id: input_boolean.intercom_hall_call
+      from: 'off'
       to: 'on'
     condition:
     - condition: state
