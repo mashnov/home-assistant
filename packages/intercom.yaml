@@ -30,6 +30,7 @@ intercom:
     action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.intercom_hall_call
+    - delay: '00:00:00.1'
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
 
@@ -44,7 +45,7 @@ intercom:
       entity_id: input_boolean.intercom_hall_enabled
       state: 'off'
     action:
-    - delay: '00:00:00.1'
+    - delay: '00:00:00.2'
     - service: script.intercom_hall_open
 
   script:
@@ -55,7 +56,7 @@ intercom:
         entity_id: switch.intercom_hall
       - service: input_boolean.turn_on
         entity_id: input_boolean.intercom_hall_open
-      - delay: '00:00:01'
+      - delay: '00:00:00.3'
       - service: input_boolean.turn_off
         entity_id: input_boolean.intercom_hall_open
       - service: switch.turn_off
