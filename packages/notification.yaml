@@ -48,30 +48,24 @@ notification:
       entity_id: 'input_boolean.intercom_hall_open'
       from: 'off'
       to: 'on'
-    condition:
-    - condition: state
-      entity_id: input_boolean.intercom_hall_enabled
-      state: 'on'
     action:
-    - service: script.homepod_message
-      data_template:
-        message: "Кто-то звогнит в домофон!"
-
-  - alias: 'notification_home_homepod_intercom'
-    mode: 'queued'
-    trigger:
-      platform: state
-      entity_id: 'input_boolean.intercom_hall_open'
-      from: 'off'
-      to: 'on'
-    condition:
-    - condition: state
-      entity_id: input_boolean.intercom_hall_enabled
-      state: 'off'
-    action:
-    - service: script.homepod_message
-      data_template:
-        message: "Я открыла домофон!"
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.intercom_hall_enabled
+          state: 'off'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Кто-то звонит в домофон!"
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.intercom_hall_enabled
+          state: 'on'
+        sequence:
+        - service: script.homepod_message
+          data_template:
+            message: "Я открыла домофон!"
 
   - alias: 'notification_home_homepod_night_mode_on'
     mode: 'queued'
