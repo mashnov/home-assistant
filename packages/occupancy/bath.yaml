@@ -47,8 +47,8 @@ occupancy_bath:
     trigger:
       platform: state
       entity_id: binary_sensor.occupancy_bath_virtual
-      from: off
-      to: on
+      from: "off"
+      to: "on"
     action:
     - parallel:
       - service: timer.cancel
@@ -61,8 +61,8 @@ occupancy_bath:
     trigger:
       platform: state
       entity_id: binary_sensor.occupancy_bath_virtual
-      from: on
-      to: off
+      from: "on"
+      to: "off"
     action:
     - service: timer.start
       entity_id: timer.occupancy_bath
