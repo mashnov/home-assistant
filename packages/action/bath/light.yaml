@@ -1,0 +1,32 @@
+action_bath_light:
+  automation:
+  - alias: 'blocker_light_bath'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: sensor.restroom_switch_action
+      to: 'single_left'
+    action:
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: >
+            {% set isNightLightBlocker = is_state("input_boolean.blocker_bath_night_light", "on") %}
+            {% set isTopLightBlocker = is_state("input_boolean.blocker_bath_top_light", "on") %}
+            {{ isNightLightBlocker or isTopLightBlocker }}
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.blocker_bath_night_light
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.blocker_bath_top_light      
+      - conditions:
+        - condition: state
+          entity_id: input_boolean.blocker_bath_night_light
+          state: 'off'
+        sequence:
+        - parallel:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.blocker_bath_night_light
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.blocker_bath_top_light

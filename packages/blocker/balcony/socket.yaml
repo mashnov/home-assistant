@@ -1,0 +1,58 @@
+blocker_balcony_socket:
+  input_boolean:
+    blocker_balcony_socket:
+
+  input_number:
+    blocker_balcony_socket: 
+      max: 120
+      min: 1
+      # 30
+
+  timer:
+    blocker_balcony_socket:
+      duration: 00:00:10
+  
+  template:
+  - sensor:
+    - name: blocker_balcony_socket_duration
+      unique_id: blocker_balcony_socket_duration
+      state: >
+        {% set minutes = states('input_number.blocker_balcony_socket') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  automation:
+  - alias: blocker_balcony_socket_timer_start
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.blocker_balcony_socket
+      from: "off"
+      to: "on"
+    action:
+    - service: timer.start
+      entity_id: timer.blocker_balcony_socket
+      data:
+        duration: "{{ states('sensor.blocker_balcony_socket_duration') }}"
+
+  - alias: blocker_balcony_socket_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.blocker_balcony_socket
+      from: "on"
+      to: "off"
+    action:
+    - service: timer.cancel
+      entity_id: timer.blocker_balcony_socket
+
+  - alias: blocker_balcony_socket_turn_off
+    mode: queued
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_balcony_socket
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_balcony_socket
