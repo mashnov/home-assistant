@@ -14,8 +14,8 @@ blocker_balcony_top_light:
   
   template:
   - sensor:
-    - name: blocker_top_light_balcony_duration
-      unique_id: blocker_top_light_balcony_duration
+    - name: blocker_balcony_top_light_duration
+      unique_id: blocker_balcony_top_light_duration
       state: >
         {% set minutes = states('input_number.blocker_top_light_balcony') | int(0) %}
         {% set duration = minutes * 60 %}
