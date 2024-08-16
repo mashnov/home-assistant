@@ -19,16 +19,16 @@ occupancy_hall:
     - name: occupancy_hall_virtual
       unique_id: occupancy_hall_virtual
       device_class: motion
-      state: >
-        {% set sensor = is_state('binary_sensor.hall_motion_occupancy', 'on') %}
-        {% set boolean = is_state('input_boolean.occupancy_hall', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
+      delay_off: "{{ states('sensor.occupancy_hall_duration') }}"
 
     - name: occupancy_hall
       unique_id: occupancy_hall
       device_class: occupancy
-      state: "{{ is_state('binary_sensor.occupancy_hall_virtual', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_hall_duration') }}"
+      state: >
+        {% set sensor = is_state('binary_sensor.occupancy_hall_virtual', 'on') %}
+        {% set boolean = is_state('input_boolean.occupancy_hall', 'on') %}
+        {{ sensor or boolean }}      
 
   - sensor:    
     - name: occupancy_hall_duration

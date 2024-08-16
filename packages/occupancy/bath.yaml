@@ -19,16 +19,16 @@ occupancy_bath:
     - name: occupancy_bath_virtual
       unique_id: occupancy_bath_virtual
       device_class: motion
-      state: >
-        {% set sensor = is_state('binary_sensor.bath_motion_occupancy', 'on') %}
-        {% set boolean = is_state('input_boolean.occupancy_bath', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.bath_motion_occupancy', 'on') }}"
+      delay_off: "{{ states('sensor.occupancy_bath_duration') }}"
 
     - name: occupancy_bath
       unique_id: occupancy_bath
       device_class: occupancy
-      state: "{{ is_state('binary_sensor.occupancy_bath_virtual', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_bath_duration') }}"
+      state: >
+        {% set sensor = is_state('binary_sensor.occupancy_bath_virtual', 'on') %}
+        {% set boolean = is_state('input_boolean.occupancy_bath', 'on') %}
+        {{ sensor or boolean }}
 
   - sensor:
     - name: occupancy_bath_duration

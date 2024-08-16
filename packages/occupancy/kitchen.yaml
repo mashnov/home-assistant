@@ -19,16 +19,16 @@ occupancy_kicthen:
     - name: occupancy_kitchen_virtual
       unique_id: occupancy_kitchen_virtual
       device_class: motion
-      state: >
-        {% set sensor = is_state('binary_sensor.kitchen_motion_occupancy', 'on') %}
-        {% set boolean = is_state('input_boolean.occupancy_kitchen', 'on') %}
-        {{ sensor or boolean }}
-
+      state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
+      delay_off: "{{ states('sensor.occupancy_kitchen_duration') }}"
+      
     - name: occupancy_kitchen
       unique_id: occupancy_kitchen
       device_class: occupancy
-      state: "{{ is_state('binary_sensor.occupancy_kitchen_virtual', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_kitchen_duration') }}"
+      state: >
+        {% set sensor = is_state('binary_sensor.occupancy_kitchen_virtual', 'on') %}
+        {% set boolean = is_state('input_boolean.occupancy_kitchen', 'on') %}
+        {{ sensor or boolean }}
 
   - sensor:
     - name: occupancy_kitchen_duration

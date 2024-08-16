@@ -13,16 +13,16 @@ occupancy_balcony:
     - name: occupancy_balcony_virtual
       unique_id: occupancy_balcony_virtual
       device_class: motion
-      state: >
-        {% set sensor = is_state('binary_sensor.balcony_motion_occupancy', 'on') %}
-        {% set boolean = is_state('input_boolean.occupancy_balcony', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.balcony_motion_occupancy', 'on') }}"
+      delay_off: "{{ states('sensor.occupancy_balcony_duration') }}"
 
     - name: occupancy_balcony
       unique_id: occupancy_balcony
       device_class: occupancy
-      state: "{{ is_state('binary_sensor.occupancy_balcony_virtual', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_balcony_duration') }}"
+      state: >
+        {% set sensor = is_state('binary_sensor.occupancy_balcony_virtual', 'on') %}
+        {% set boolean = is_state('input_boolean.occupancy_balcony', 'on') %}
+        {{ sensor or boolean }}
 
   - sensor:
     - name: occupancy_balcony_duration
