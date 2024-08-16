@@ -66,12 +66,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.occupancy_bath'
+      entity_id: 'binary_sensor.occupancy_bath'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.occupancy_bath'
+      entity_id: 'binary_sensor.occupancy_bath'
       from: 'on'
       to: 'off'
     - id: 'turn_on'
@@ -112,12 +112,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.occupancy_toilet'
+      entity_id: 'binary_sensor.occupancy_toilet'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.occupancy_toilet'
+      entity_id: 'binary_sensor.occupancy_toilet'
       from: 'on'
       to: 'off'
     - id: 'day_start'
@@ -157,12 +157,12 @@ top_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.occupancy_hall'
+      entity_id: 'binary_sensor.occupancy_hall'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.occupancy_hall'
+      entity_id: 'binary_sensor.occupancy_hall'
       from: 'on'
       to: 'off'
     - id: 'turn_on'

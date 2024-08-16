@@ -82,12 +82,12 @@ back_light:
     trigger:
     - id: 'turn_on'
       platform: state
-      entity_id: 'input_boolean.occupancy_kitchen'
+      entity_id: 'binary_sensor.occupancy_kitchen'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.occupancy_kitchen'
+      entity_id: 'binary_sensor.occupancy_kitchen'
       from: 'on'
       to: 'off'
     - id: 'turn_on'
@@ -207,12 +207,12 @@ back_light:
     trigger:
     - id: 'turn_on_motion'
       platform: state
-      entity_id: 'input_boolean.occupancy_balcony'
+      entity_id: 'binary_sensor.occupancy_balcony'
       from: 'off'
       to: 'on'
     - id: 'turn_off'
       platform: state
-      entity_id: 'input_boolean.occupancy_balcony'
+      entity_id: 'binary_sensor.occupancy_balcony'
       from: 'on'
       to: 'off'
     - id: 'turn_on'
