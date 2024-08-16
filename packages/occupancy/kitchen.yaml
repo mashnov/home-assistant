@@ -42,7 +42,7 @@ occupancy_kicthen:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: occupancy_kitchen_motion_on
+  - alias: occupancy_kitchen_turn_on
     mode: queued
     trigger:
     - platform: state
@@ -56,7 +56,7 @@ occupancy_kicthen:
       - service: input_boolean.turn_on
         entity_id: input_boolean.occupancy_kitchen
 
-  - alias: occupancy_kitchen_motion_off
+  - alias: occupancy_kitchen_timer_start
     mode: queued
     trigger:
     - platform: state
@@ -69,7 +69,7 @@ occupancy_kicthen:
       data_template:
         duration: "{{ states('sensor.occupancy_kitchen_duration') }}"
 
-  - alias: occupancy_kitchen_timer_finish
+  - alias: occupancy_kitchen_turn_off
     mode: queued
     trigger:
     - platform: event

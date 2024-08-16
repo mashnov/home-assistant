@@ -42,7 +42,7 @@ occupancy_bath:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: occupancy_bath_motion_on
+  - alias: occupancy_bath_turn_on
     mode: queued
     trigger:
     - platform: state
@@ -56,7 +56,7 @@ occupancy_bath:
       - service: input_boolean.turn_on
         entity_id: input_boolean.occupancy_bath
 
-  - alias: occupancy_bath_motion_off
+  - alias: occupancy_bath_timer_start
     mode: queued
     trigger:
     - platform: state
@@ -69,7 +69,7 @@ occupancy_bath:
       data_template:
         duration: "{{ states('sensor.occupancy_bath_duration') }}"
 
-  - alias: occupancy_bath_timer_finish
+  - alias: occupancy_bath_turn_off
     mode: queued
     trigger:
     - platform: event

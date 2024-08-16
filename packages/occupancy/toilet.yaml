@@ -27,56 +27,58 @@ occupancy_toilet:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: occupancy_toilet
+  - alias: occupancy_toilet_turn_on
     mode: queued
     trigger:
-    - id: door_open
-      platform: state
+    - platform: state
       entity_id: binary_sensor.door_toilet_virtual
       from: "off"
       to: "on"
-    - id: door_close
-      platform: state
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: "off"
+    action:
+    - parallel:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.occupancy_toilet
+      - service: timer.start
+        entity_id: timer.occupancy_toilet
+        data_template:
+          duration: "{{ states('sensor.occupancy_toilet_duration') }}"
+
+  - alias: occupancy_toilet_turn_off
+    mode: queued
+    trigger:
+    - platform: state
       entity_id: binary_sensor.door_toilet_virtual
       from: "on"
       to: "off"
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: "on"
+    - condition: state
+      entity_id: timer.occupancy_toilet
+      state: "idle"
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: door_open
-        - condition: state
-          entity_id: input_boolean.occupancy_toilet
-          state: "off"
-        sequence:
-        - parallel:
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.occupancy_toilet
-          - service: timer.start
-            entity_id: timer.occupancy_toilet
-            data_template:
-              duration: "{{ states('sensor.occupancy_toilet_duration') }}"
-      - conditions:
-        - condition: trigger
-          id: door_close
-        - condition: state
-          entity_id: input_boolean.occupancy_toilet
-          state: "on"
-        - condition: state
-          entity_id: timer.occupancy_toilet
-          state: "active"
-        sequence:
-        - service: timer.cancel
-          entity_id: timer.occupancy_toilet
-      - conditions:
-        - condition: trigger
-          id: door_close
-        - condition: state
-          entity_id: input_boolean.occupancy_toilet
-          state: "on"
-        - condition: state
-          entity_id: timer.occupancy_toilet
-          state: "idle"
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.occupancy_toilet
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_toilet
+
+  - alias: occupancy_toilet_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.door_toilet_virtual
+      from: "on"
+      to: "off"
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: "on"
+    - condition: state
+      entity_id: timer.occupancy_toilet
+      state: "active"
+    action:
+    - service: timer.cancel
+      entity_id: timer.occupancy_toilet

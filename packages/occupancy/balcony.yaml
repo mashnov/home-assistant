@@ -33,7 +33,7 @@ occupancy_balcony:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: occupancy_balcony_motion_on
+  - alias: occupancy_balcony_turn_on
     mode: queued
     trigger:
     - platform: state
@@ -47,7 +47,7 @@ occupancy_balcony:
       - service: input_boolean.turn_on
         entity_id: input_boolean.occupancy_balcony
 
-  - alias: occupancy_balcony_motion_off
+  - alias: occupancy_balcony_timer_start
     mode: queued
     trigger:
     - platform: state
@@ -60,7 +60,7 @@ occupancy_balcony:
       data_template:
         duration: "{{ states('sensor.occupancy_balcony_duration') }}"
 
-  - alias: occupancy_balcony_timer_finish
+  - alias: occupancy_balcony_turn_off
     mode: queued
     trigger:
     - platform: event
