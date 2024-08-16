@@ -1,0 +1,101 @@
+occupancy_hall:
+  input_boolean:
+    occupancy_hall:
+
+  timer:    
+    occupancy_hall:
+      duration: '00:00:10'
+
+  input_number:
+    occupancy_hall_day: # 00:02:00
+      max: 10
+      min: 1
+
+  occupancy_hall_night: # 00:00:30
+      step: 0.5
+      max: 10
+      min: 0
+
+  template:
+  - binary_sensor:
+    - name: 'motion_hall_virtual'
+      unique_id: motion_hall_virtual
+      device_class: motion
+      state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
+
+    - name: 'occupancy_hall'
+      unique_id: occupancy_hall
+      device_class: 'occupancy'
+      state: '{{ is_state("input_boolean.occupancy_hall", "on") }}'
+
+  - sensor:    
+    - name: 'occupancy_hall_duration'
+      unique_id: occupancy_hall_duration
+      state: >
+        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set nightValue = states('input_number.occupancy_hall_night') | int(0) %}
+        {% set dayValue = states('input_number.occupancy_hall_day') | int(0) %}
+        {% set value = iif(isNightMode, nightValue, dayValue) %}
+        {% set duration = value * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  automation:
+  - alias: 'occupancy_hall_on'
+    mode: 'queued'
+    trigger:
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: 'binary_sensor.motion_hall_virtual'
+      from: 'off'
+      to: 'on'
+    - id: 'occupancy_off'
+      platform: state
+      entity_id: 'binary_sensor.motion_hall_virtual'
+      from: 'on'
+      to: 'off'
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: input_boolean.occupancy_hall
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: input_boolean.occupancy_hall
+      from: 'on'
+      to: 'off'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_on'
+        sequence:
+        - parallel:
+          - service: timer.cancel
+            entity_id: timer.occupancy_hall
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.occupancy_hall
+      - conditions:
+        - condition: trigger
+          id: 'occupancy_off'
+        sequence:
+        - service: timer.start
+          entity_id: timer.occupancy_hall
+          data_template:
+            duration: "{{ states('sensor.occupancy_hall_duration') }}"
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_hall
+
+  - alias: 'occupancy_hall_off'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.occupancy_hall
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_hall
