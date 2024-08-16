@@ -45,7 +45,7 @@ occupancy_bath:
   - alias: occupancy_bath_motion_on
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_bath_virtual
       from: "off"
       to: "on"
@@ -59,7 +59,7 @@ occupancy_bath:
   - alias: occupancy_bath_motion_off
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_bath_virtual
       from: "on"
       to: "off"
@@ -79,3 +79,14 @@ occupancy_bath:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_bath
+
+  - alias: occupancy_bath_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_bath
+      from: "on"
+      to: "off"
+    action:
+    - service: timer.cancel
+      entity_id: timer.occupancy_bath

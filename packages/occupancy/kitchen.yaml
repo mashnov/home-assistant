@@ -45,7 +45,7 @@ occupancy_kicthen:
   - alias: occupancy_kitchen_motion_on
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_kitchen_virtual
       from: "off"
       to: "on"
@@ -59,7 +59,7 @@ occupancy_kicthen:
   - alias: occupancy_kitchen_motion_off
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_kitchen_virtual
       from: "on"
       to: "off"
@@ -79,3 +79,14 @@ occupancy_kicthen:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_kitchen
+
+  - alias: occupancy_kitchen_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_kitchen
+      from: "on"
+      to: "off"
+    action:
+    - service: timer.cancel
+      entity_id: timer.occupancy_kitchen

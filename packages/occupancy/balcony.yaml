@@ -36,7 +36,7 @@ occupancy_balcony:
   - alias: occupancy_balcony_motion_on
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_balcony_virtual
       from: "off"
       to: "on"
@@ -50,7 +50,7 @@ occupancy_balcony:
   - alias: occupancy_balcony_motion_off
     mode: queued
     trigger:
-      platform: state
+    - platform: state
       entity_id: binary_sensor.occupancy_balcony_virtual
       from: "on"
       to: "off"
@@ -70,3 +70,14 @@ occupancy_balcony:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_balcony
+
+  - alias: occupancy_balcony_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_balcony
+      from: "on"
+      to: "off"
+    action:
+    - service: timer.cancel
+      entity_id: timer.occupancy_balcony
