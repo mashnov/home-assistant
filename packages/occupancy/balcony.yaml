@@ -22,7 +22,7 @@ occupancy_balcony:
     - name: occupancy_balcony
       unique_id: occupancy_balcony
       device_class: occupancy
-      state: "{{ is_state('input_boolean.balcony_motion_occupancy', 'on') }}"
+      state: "{{ is_state('input_boolean.occupancy_balcony', 'on') }}"
 
   - sensor:
     - name: occupancy_balcony_duration
