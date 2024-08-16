@@ -75,7 +75,7 @@ occupancy_balcony:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupancy_balcony
+      entity_id: input_boolean.occupancy_balcony
       from: "on"
       to: "off"
     action:

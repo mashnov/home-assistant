@@ -84,7 +84,7 @@ occupancy_bath:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupancy_bath
+      entity_id: input_boolean.occupancy_bath
       from: "on"
       to: "off"
     action:

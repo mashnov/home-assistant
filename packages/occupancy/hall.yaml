@@ -84,7 +84,7 @@ occupancy_hall:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupancy_hall
+      entity_id: input_boolean.occupancy_hall
       from: "on"
       to: "off"
     action:

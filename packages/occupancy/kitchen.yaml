@@ -20,8 +20,8 @@ occupancy_kicthen:
 
   template:
   - binary_sensor:
-    - name: occupancy_kicthen_virtual
-      unique_id: occupancy_kicthen_virtual
+    - name: occupancy_kitchen_virtual
+      unique_id: occupancy_kitchen_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
 
@@ -84,7 +84,7 @@ occupancy_kicthen:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupancy_kitchen
+      entity_id: input_boolean.occupancy_kitchen
       from: "on"
       to: "off"
     action:
