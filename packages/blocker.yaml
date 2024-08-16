@@ -1,5 +1,6 @@
 blocker:
   input_boolean:
+    blocker_party_light_kitchen:
     blocker_top_light_kitchen:
     blocker_top_light_hall:
     blocker_top_light_bath:
@@ -14,6 +15,9 @@ blocker:
     blocker_balcony_socket:
 
   input_number:
+    blocker_party_light_kitchen: # 01:00:00
+      max: 120
+      min: 1
     blocker_top_light_kitchen: # 01:00:00
       max: 120
       min: 1
@@ -52,6 +56,8 @@ blocker:
       min: 1
 
   timer:
+    blocker_party_light_kitchen:
+      duration: '00:00:10'
     blocker_top_light_kitchen:
       duration: '00:00:10'
     blocker_top_light_bath:
@@ -79,6 +85,13 @@ blocker:
   
   template:
   - sensor:
+    - name: 'blocker_party_light_kitchen'
+      unique_id: blocker_party_light_kitchen
+      state: >
+        {% set minutes = states('input_number.blocker_party_light_kitchen') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
     - name: 'blocker_top_light_kitchen'
       unique_id: blocker_top_light_kitchen
       state: >
@@ -164,33 +177,59 @@ blocker:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  ### KITCHEN TOP LIGHT
-  - alias: 'blocker_top_light_kitchen_boolean'
+  ### KITCHEN PARTY LIGHT
+  - alias: 'blocker_party_light_kitchen_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.kitchen_switch_action
-      to: 'single_right'
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.blocker_top_light_kitchen
+        entity_id: timer.blocker_party_light_kitchen
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_party_light_kitchen
+
+  - alias: 'blocker_party_light_kitchen_timer'
+    mode: 'queued'
+    trigger:
+    - id: 'timer_on'
+      platform: state
+      entity_id: 'input_boolean.blocker_party_light_kitchen'
+      from: 'off'
+      to: 'on'
+    - id: 'timer_off'
+      platform: state
+      entity_id: 'input_boolean.blocker_party_light_kitchen'
+      from: 'on'
+      to: 'off'
     action:
     - choose:
       - conditions:
         - condition: trigger
-          id: 'boolean_toggle'
+          id: 'timer_on'
         sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_top_light_kitchen
+        - service: timer.start
+          entity_id: timer.blocker_party_light_kitchen
+          data:
+            duration: "{{ states('sensor.blocker_party_light_kitchen') }}"
       - conditions:
         - condition: trigger
-          id: 'boolean_off'
+          id: 'timer_off'
         sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_top_light_kitchen
+        - service: timer.cancel
+          entity_id: timer.blocker_party_light_kitchen
+
+  ### KITCHEN TOP LIGHT
+  - alias: 'blocker_top_light_kitchen_boolean'
+    mode: 'queued'
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_top_light_kitchen
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_top_light_kitchen
 
   - alias: 'blocker_top_light_kitchen_timer'
     mode: 'queued'
@@ -226,29 +265,13 @@ blocker:
   - alias: 'blocker_back_light_kitchen_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.kitchen_switch_action
-      to: 'single_left'
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
         entity_id: timer.blocker_back_light_kitchen
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_back_light_kitchen
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_back_light_kitchen
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_back_light_kitchen
 
   - alias: 'blocker_back_light_kitchen_timer'
     mode: 'queued'
@@ -398,29 +421,13 @@ blocker:
   - alias: 'blocker_top_light_hall_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.hall_switch_action
-      to: 'single'
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
         entity_id: timer.blocker_top_light_hall
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_top_light_hall
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_top_light_hall
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_top_light_hall
 
   - alias: 'blocker_top_light_hall_timer'
     mode: 'queued'
@@ -456,29 +463,13 @@ blocker:
   - alias: 'blocker_top_light_bedroom_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.bedroom_switch_action
-      to: 'single'
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
         entity_id: timer.blocker_top_light_bedroom
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_top_light_bedroom
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_top_light_bedroom
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_top_light_bedroom
 
   - alias: 'blocker_top_light_bedroom_timer'
     mode: 'queued'
@@ -514,29 +505,13 @@ blocker:
   - alias: 'blocker_top_light_living_boolean'
     mode: 'queued'
     trigger:
-    - id: 'boolean_toggle'
-      platform: state
-      entity_id: sensor.living_switch_action
-      to: 'single'
-    - id: 'boolean_off'
-      platform: event
+    - platform: event
       event_type: timer.finished
       event_data:
         entity_id: timer.blocker_top_light_living
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'boolean_toggle'
-        sequence:
-        - service: input_boolean.toggle
-          entity_id: input_boolean.blocker_top_light_living
-      - conditions:
-        - condition: trigger
-          id: 'boolean_off'
-        sequence:
-        - service: input_boolean.turn_off
-          entity_id: input_boolean.blocker_top_light_living
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_top_light_living
 
   - alias: 'blocker_top_light_living_timer'
     mode: 'queued'
