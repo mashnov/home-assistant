@@ -4,27 +4,28 @@ occupancy_balcony:
 
   timer:
     occupancy_balcony:
-      duration: '00:00:10'
+      duration: 00:00:10
 
   input_number:
-    occupancy_balcony: # 00:01:00
+    occupancy_balcony: 
+      # 00:02:00
       max: 10
       min: 1
 
   template:
   - binary_sensor:
-    - name: 'motion_balcony_virtual'
-      unique_id: motion_balcony_virtual
+    - name: occupancy_balcony_virtual
+      unique_id: occupancy_balcony_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.balcony_motion_occupancy', 'on') }}"
 
-    - name: 'occupancy_balcony'
+    - name: occupancy_balcony
       unique_id: occupancy_balcony
-      device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.balcony_motion_occupancy", "on") }}'
+      device_class: occupancy
+      state: "{{ is_state('input_boolean.balcony_motion_occupancy', 'on') }}"
 
   - sensor:
-    - name: 'occupancy_balcony_duration'
+    - name: occupancy_balcony_duration
       unique_id: occupancy_balcony_duration
       state: >
         {% set value = states('input_number.occupancy_balcony') | int(0) %}
@@ -32,57 +33,35 @@ occupancy_balcony:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: 'occupancy_balcony_on'
-    mode: 'queued'
+  - alias: occupancy_balcony_motion_on
+    mode: queued
     trigger:
-    - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_balcony_virtual'
-      from: 'off'
-      to: 'on'
-    - id: 'occupancy_off'
-      platform: state
-      entity_id: 'binary_sensor.motion_balcony_virtual'
-      from: 'on'
-      to: 'off'
-    - id: 'occupancy_on'
-      platform: state
-      entity_id: input_boolean.occupancy_balcony
-      from: 'off'
-      to: 'on'
-    - id: 'timer_off'
-      platform: state
-      entity_id: input_boolean.occupancy_balcony
-      from: 'on'
-      to: 'off'
+      entity_id: binary_sensor.occupancy_balcony_virtual
+      from: off
+      to: on
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'occupancy_on'
-        sequence:
-        - parallel:
-          - service: timer.cancel
-            entity_id: timer.occupancy_balcony
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.occupancy_balcony
-      - conditions:
-        - condition: trigger
-          id: 'occupancy_off'
-        sequence:
-        - service: timer.start
-          entity_id: timer.occupancy_balcony
-          data_template:
-            duration: "{{ states('sensor.occupancy_balcony_duration') }}"
-      - conditions:
-        - condition: trigger
-          id: 'timer_off'
-        sequence:
-        - service: timer.cancel
-          entity_id: timer.occupancy_balcony
+    - parallel:
+      - service: timer.cancel
+        entity_id: timer.occupancy_balcony
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.occupancy_balcony
 
-  - alias: 'occupancy_balcony_off'
-    mode: 'queued'
+  - alias: occupancy_balcony_motion_off
+    mode: queued
+    trigger:
+      platform: state
+      entity_id: binary_sensor.occupancy_balcony_virtual
+      from: on
+      to: off
+    action:
+    - service: timer.start
+      entity_id: timer.occupancy_balcony
+      data_template:
+        duration: "{{ states('sensor.occupancy_balcony_duration') }}"
+
+  - alias: occupancy_balcony_timer_finish
+    mode: queued
     trigger:
     - platform: event
       event_type: timer.finished

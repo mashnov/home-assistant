@@ -4,50 +4,50 @@ occupancy_toilet:
 
   timer:    
     occupancy_toilet:
-      duration: '00:00:10'
+      duration: 00:00:10
 
   input_number:
-    occupancy_toilet: # 00:00:10
+    occupancy_toilet: 
+      # 00:00:10
       max: 30
       min: 1
 
   template:
   - binary_sensor:
-    - name: 'occupancy_toilet'
+    - name: occupancy_toilet
       unique_id: occupancy_toilet
-      device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.occupancy_toilet", "on") }}'
+      device_class: occupancy
+      state: "{{ is_state('input_boolean.occupancy_toilet', 'on') }}"
 
   - sensor:
-    - name: 'occupancy_toilet_duration'
+    - name: occupancy_toilet_duration
       unique_id: occupancy_toilet_duration
       state: >
         {% set duration = states('input_number.occupancy_toilet') | int(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  ### TOILET
-  - alias: 'occupancy_toilet'
-    mode: 'queued'
+  - alias: occupancy_toilet
+    mode: queued
     trigger:
-    - id: 'door_open'
+    - id: door_open
       platform: state
       entity_id: binary_sensor.door_toilet_virtual
-      from: 'off'
-      to: 'on'
-    - id: 'door_close'
+      from: off
+      to: on
+    - id: door_close
       platform: state
       entity_id: binary_sensor.door_toilet_virtual
-      from: 'on'
-      to: 'off'
+      from: on
+      to: off
     action:
     - choose:
       - conditions:
         - condition: trigger
-          id: 'door_open'
+          id: door_open
         - condition: state
           entity_id: input_boolean.occupancy_toilet
-          state: 'off'
+          state: off
         sequence:
         - parallel:
           - service: input_boolean.turn_on
@@ -58,25 +58,25 @@ occupancy_toilet:
               duration: "{{ states('sensor.occupancy_toilet_duration') }}"
       - conditions:
         - condition: trigger
-          id: 'door_close'
+          id: door_close
         - condition: state
           entity_id: input_boolean.occupancy_toilet
-          state: 'on'
+          state: on
         - condition: state
           entity_id: timer.occupancy_toilet
-          state: 'active'
+          state: active
         sequence:
         - service: timer.cancel
           entity_id: timer.occupancy_toilet
       - conditions:
         - condition: trigger
-          id: 'door_close'
+          id: door_close
         - condition: state
           entity_id: input_boolean.occupancy_toilet
-          state: 'on'
+          state: on
         - condition: state
           entity_id: timer.occupancy_toilet
-          state: 'idle'
+          state: idle
         sequence:
         - service: input_boolean.turn_off
           entity_id: input_boolean.occupancy_toilet

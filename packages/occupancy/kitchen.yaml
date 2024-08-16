@@ -4,32 +4,34 @@ occupancy_kicthen:
 
   timer:
     occupancy_kitchen:
-      duration: '00:00:10'
+      duration: 00:00:10
     
   input_number:
-    occupancy_kitchen_day: # 00:04:00
+    occupancy_kitchen_day:
+      # 00:04:00
       max: 10
       min: 1
 
-    occupancy_kitchen_night: # 00:00:30
-        step: 0.5
-        max: 10
-        min: 0
+    occupancy_kitchen_night: 
+      # 00:00:30
+      step: 0.5
+      max: 10
+      min: 0
 
   template:
   - binary_sensor:
-    - name: 'motion_kitchen_virtual'
-      unique_id: motion_kitchen_virtual
+    - name: occupancy_kicthen_virtual
+      unique_id: occupancy_kicthen_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
 
-    - name: 'occupancy_kitchen'
+    - name: occupancy_kitchen
       unique_id: occupancy_kitchen
-      device_class: 'occupancy'
-      state: '{{ is_state("input_boolean.occupancy_kitchen", "on") }}'
+      device_class: occupancy
+      state: "{{ is_state('input_boolean.occupancy_kitchen', 'on') }}"
 
   - sensor:
-    - name: 'occupancy_kitchen_duration'
+    - name: occupancy_kitchen_duration
       unique_id: occupancy_kitchen_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
@@ -40,57 +42,35 @@ occupancy_kicthen:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: 'occupancy_kitchen_on'
-    mode: 'queued'
+  - alias: occupancy_kitchen_motion_on
+    mode: queued
     trigger:
-    - id: 'occupancy_on'
       platform: state
-      entity_id: 'binary_sensor.motion_kitchen_virtual'
-      from: 'off'
-      to: 'on'
-    - id: 'occupancy_off'
-      platform: state
-      entity_id: 'binary_sensor.motion_kitchen_virtual'
-      from: 'on'
-      to: 'off'
-    - id: 'occupancy_on'
-      platform: state
-      entity_id: input_boolean.occupancy_kitchen
-      from: 'off'
-      to: 'on'
-    - id: 'timer_off'
-      platform: state
-      entity_id: input_boolean.occupancy_kitchen
-      from: 'on'
-      to: 'off'
+      entity_id: binary_sensor.occupancy_kitchen_virtual
+      from: off
+      to: on
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'occupancy_on'
-        sequence:
-        - parallel:
-          - service: timer.cancel
-            entity_id: timer.occupancy_kitchen
-          - service: input_boolean.turn_on
-            entity_id: input_boolean.occupancy_kitchen
-      - conditions:
-        - condition: trigger
-          id: 'occupancy_off'
-        sequence:
-        - service: timer.start
-          entity_id: timer.occupancy_kitchen
-          data_template:
-            duration: "{{ states('sensor.occupancy_kitchen_duration') }}"
-      - conditions:
-        - condition: trigger
-          id: 'timer_off'
-        sequence:
-        - service: timer.cancel
-          entity_id: timer.occupancy_kitchen
+    - parallel:
+      - service: timer.cancel
+        entity_id: timer.occupancy_kitchen
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.occupancy_kitchen
 
-  - alias: 'occupancy_kitchen_off'
-    mode: 'queued'
+  - alias: occupancy_kitchen_motion_off
+    mode: queued
+    trigger:
+      platform: state
+      entity_id: binary_sensor.occupancy_kitchen_virtual
+      from: on
+      to: off
+    action:
+    - service: timer.start
+      entity_id: timer.occupancy_kitchen
+      data_template:
+        duration: "{{ states('sensor.occupancy_kitchen_duration') }}"
+
+  - alias: occupancy_kitchen_timer_finish
+    mode: queued
     trigger:
     - platform: event
       event_type: timer.finished
@@ -99,4 +79,3 @@ occupancy_kicthen:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_kitchen
-  
