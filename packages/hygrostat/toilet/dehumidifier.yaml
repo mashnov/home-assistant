@@ -43,11 +43,11 @@ hygrostat_toilet_dehumidifier:
       to: "on"
     condition:
     - condition: state
-      entity_id: fan.fan_toilet
+      entity_id: fan.hygrostat_toilet_dehumidifier
       state: "off"
     action:
     - service: fan.turn_on
-      entity_id: fan.fan_toilet
+      entity_id: fan.hygrostat_toilet_dehumidifier
     - delay: "{{ states('sensor.hygrostat_toilet_dehumidifier_duration') }}"
     - service: fan.turn_off
-      entity_id: fan.fan_toilet
+      entity_id: fan.hygrostat_toilet_dehumidifier
