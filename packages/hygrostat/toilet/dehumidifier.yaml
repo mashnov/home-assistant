@@ -34,11 +34,11 @@ hygrostat_toilet_dehumidifier:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
-  - alias: hygrostat_toilet_dehumidifier_on
+  - alias: hygrostat_toilet_dehumidifier
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.contact_toilet_door_virtual
+      entity_id: binary_sensor.occupancy_toilet
       from: "off"
       to: "on"
     condition:
