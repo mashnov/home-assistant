@@ -154,6 +154,11 @@ occupancy:
       entity_id: 'binary_sensor.motion_kitchen_virtual'
       from: 'on'
       to: 'off'
+    - id: 'timer_off'
+      platform: state
+      entity_id: input_boolean.occupancy_kitchen
+      from: 'on'
+      to: 'off'
     action:
     - choose:
       - conditions:
@@ -173,6 +178,12 @@ occupancy:
           entity_id: timer.occupancy_kitchen
           data_template:
             duration: "{{ states('sensor.occupancy_kitchen_duration') }}"
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_kitchen
 
   - alias: 'occupancy_kitchen_off'
     mode: 'queued'
@@ -181,10 +192,6 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_kitchen
-    - platform: state
-      entity_id: input_boolean.occupancy_kitchen
-      from: 'on'
-      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_kitchen
@@ -201,6 +208,11 @@ occupancy:
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_bath_virtual'
+      from: 'on'
+      to: 'off'
+    - id: 'timer_off'
+      platform: state
+      entity_id: input_boolean.occupancy_bath
       from: 'on'
       to: 'off'
     action:
@@ -222,6 +234,12 @@ occupancy:
           entity_id: timer.occupancy_bath
           data_template:
             duration: "{{ states('sensor.occupancy_bath_duration') }}"
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_bath
 
   - alias: 'occupancy_bath_off'
     mode: 'queued'
@@ -230,10 +248,6 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_bath
-    - platform: state
-      entity_id: input_boolean.occupancy_bath
-      from: 'on'
-      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_bath
@@ -250,6 +264,11 @@ occupancy:
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_hall_virtual'
+      from: 'on'
+      to: 'off'
+    - id: 'timer_off'
+      platform: state
+      entity_id: input_boolean.occupancy_hall
       from: 'on'
       to: 'off'
     action:
@@ -271,6 +290,12 @@ occupancy:
           entity_id: timer.occupancy_hall
           data_template:
             duration: "{{ states('sensor.occupancy_hall_duration') }}"
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_hall
 
   - alias: 'occupancy_hall_off'
     mode: 'queued'
@@ -279,10 +304,6 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_hall
-    - platform: state
-      entity_id: input_boolean.occupancy_hall
-      from: 'on'
-      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_hall
@@ -299,6 +320,11 @@ occupancy:
     - id: 'occupancy_off'
       platform: state
       entity_id: 'binary_sensor.motion_balcony_virtual'
+      from: 'on'
+      to: 'off'
+    - id: 'timer_off'
+      platform: state
+      entity_id: input_boolean.occupancy_balcony
       from: 'on'
       to: 'off'
     action:
@@ -320,6 +346,12 @@ occupancy:
           entity_id: timer.occupancy_balcony
           data_template:
             duration: "{{ states('sensor.occupancy_balcony_duration') }}"
+      - conditions:
+        - condition: trigger
+          id: 'timer_off'
+        sequence:
+        - service: timer.cancel
+          entity_id: timer.occupancy_balcony
 
   - alias: 'occupancy_balcony_off'
     mode: 'queued'
@@ -328,10 +360,6 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_balcony
-    - platform: state
-      entity_id: input_boolean.occupancy_balcony
-      from: 'on'
-      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_balcony
