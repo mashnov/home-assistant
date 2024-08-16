@@ -154,6 +154,11 @@ occupancy:
       entity_id: 'binary_sensor.motion_kitchen_virtual'
       from: 'on'
       to: 'off'
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: input_boolean.occupancy_kitchen
+      from: 'off'
+      to: 'on'
     - id: 'timer_off'
       platform: state
       entity_id: input_boolean.occupancy_kitchen
@@ -210,6 +215,11 @@ occupancy:
       entity_id: 'binary_sensor.motion_bath_virtual'
       from: 'on'
       to: 'off'
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: input_boolean.occupancy_bath
+      from: 'off'
+      to: 'on'
     - id: 'timer_off'
       platform: state
       entity_id: input_boolean.occupancy_bath
@@ -266,6 +276,11 @@ occupancy:
       entity_id: 'binary_sensor.motion_hall_virtual'
       from: 'on'
       to: 'off'
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: input_boolean.occupancy_hall
+      from: 'off'
+      to: 'on'
     - id: 'timer_off'
       platform: state
       entity_id: input_boolean.occupancy_hall
@@ -322,6 +337,11 @@ occupancy:
       entity_id: 'binary_sensor.motion_balcony_virtual'
       from: 'on'
       to: 'off'
+    - id: 'occupancy_on'
+      platform: state
+      entity_id: input_boolean.occupancy_balcony
+      from: 'off'
+      to: 'on'
     - id: 'timer_off'
       platform: state
       entity_id: input_boolean.occupancy_balcony
