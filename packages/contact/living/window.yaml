@@ -1,0 +1,19 @@
+contact_living_window:
+  input_boolean:
+    contact_living_window:
+
+  template:
+  - binary_sensor:
+    - name: contact_living_window_virtual
+      unique_id: contact_living_window_virtual
+      device_class: window
+      state: >
+        {% set sensor = is_state('binary_sensor.window_living', 'on') %}
+        {% set boolean = is_state('input_boolean.contact_living_window', 'on') %}
+        {{ sensor or boolean }}
+   
+    - name: contact_living_window_is_open
+      unique_id: contact_living_window_is_open
+      delay_on: '00:00:05'
+      delay_off: '00:00:05'
+      state: "{{ is_state('binary_sensor.contact_living_window_virtual', 'on') }}"

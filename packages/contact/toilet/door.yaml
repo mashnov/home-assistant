@@ -1,0 +1,13 @@
+contact_toilet_door:
+  input_boolean:
+    contact_toilet_door:
+
+  template:
+  - binary_sensor:
+    - name: contact_toilet_door_virtual
+      unique_id: contact_toilet_door_virtual
+      device_class: door
+      state: >
+        {% set sensor = is_state('binary_sensor.door_toilet', 'on') %}
+        {% set boolean = is_state('input_boolean.contact_toilet_door', 'on') %}
+        {{ sensor or boolean }}

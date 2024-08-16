@@ -1,0 +1,31 @@
+contact_kitchen_window:
+  input_boolean:
+    contact_kitchen_window_left:
+    contact_kitchen_window_right:
+
+  template:
+  - binary_sensor:
+    - name: contact_kitchen_window_left_virtual
+      unique_id: contact_kitchen_window_left_virtual
+      device_class: window
+      state: >
+        {% set sensor = is_state('binary_sensor.window_kitchen_left', 'on') %}
+        {% set boolean = is_state('input_boolean.contact_kitchen_window_left', 'on') %}
+        {{ sensor or boolean }}
+
+    - name: contact_kitchen_window_right_virtual
+      unique_id: contact_kitchen_window_right_virtual
+      device_class: window
+      state: >
+        {% set sensor = is_state('binary_sensor.window_kitchen_right', 'on') %}
+        {% set boolean = is_state('input_boolean.contact_kitchen_window_right', 'on') %}
+        {{ sensor or boolean }}
+
+    - name: contact_kitchen_window_is_open
+      unique_id: contact_kitchen_window_is_open
+      delay_on: '00:00:05'
+      delay_off: '00:00:05'
+      state: >
+        {% set left = is_state('binary_sensor.contact_kitchen_window_left_virtual', 'on') %}
+        {% set right = is_state('binary_sensor.contact_kitchen_window_right_virtual', 'on') %}
+        {{ left or right }}
