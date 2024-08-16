@@ -140,6 +140,7 @@ occupancy:
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
+  ### KITCHEN
   - alias: 'occupancy_kitchen_on'
     mode: 'queued'
     trigger:
@@ -180,10 +181,15 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_kitchen
+    - platform: state
+      entity_id: input_boolean.occupancy_kitchen
+      from: 'on'
+      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_kitchen
-
+  
+  ### BATH
   - alias: 'occupancy_bath_on'
     mode: 'queued'
     trigger:
@@ -224,10 +230,15 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_bath
+    - platform: state
+      entity_id: input_boolean.occupancy_bath
+      from: 'on'
+      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_bath
-
+  
+  ### HALL
   - alias: 'occupancy_hall_on'
     mode: 'queued'
     trigger:
@@ -268,10 +279,15 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_hall
+    - platform: state
+      entity_id: input_boolean.occupancy_hall
+      from: 'on'
+      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_hall
 
+  ### BALCONY
   - alias: 'occupancy_balcony_on'
     mode: 'queued'
     trigger:
@@ -312,11 +328,15 @@ occupancy:
       event_type: timer.finished
       event_data:
         entity_id: timer.occupancy_balcony
+    - platform: state
+      entity_id: input_boolean.occupancy_balcony
+      from: 'on'
+      to: 'off'
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_balcony
 
-
+  ### TOILET
   - alias: 'occupancy_toilet'
     mode: 'queued'
     trigger:
