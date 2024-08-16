@@ -14,8 +14,8 @@ blocker_kitchen_back_light:
   
   template:
   - sensor:
-    - name: blocker_kitchen_back_light_duraion
-      unique_id: blocker_kitchen_back_light_duraion
+    - name: blocker_kitchen_back_light_duration
+      unique_id: blocker_kitchen_back_light_duration
       state: >
         {% set minutes = states('input_number.blocker_kitchen_back_light') | int(0) %}
         {% set duration = minutes * 60 %}
