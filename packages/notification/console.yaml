@@ -1,4 +1,4 @@
-persistent_notification:
+notification_console:
   script:
     console:
       mode: 'queued'

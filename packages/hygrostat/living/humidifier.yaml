@@ -1,0 +1,49 @@
+hygrostat_living_humidifier:
+  generic_hygrostat:
+  - name: hygrostat_living_humidifier
+    device_class: humidifier
+    humidifier: switch.relay_living_l1
+    target_sensor: sensor.humidity_living_virtual
+
+  input_number:    
+    hygrostat_living_power_offset: 
+      max: 60
+      min: 0
+      # 10
+
+  template:
+  - binary_sensor:    
+    - name: hygrostat_living_humidifier_is_empty
+      unique_id: hygrostat_living_humidifier_is_empty
+      device_class: moisture
+      delay_on: 00:00:05
+      state: >
+        {% set humidifier = is_state('switch.relay_living_l1', 'on') %}
+        {% set backlight = is_state('light.back_light_living', 'on') %}
+        {% set offset = states('input_number.hygrostat_living_power_offset') | int(0) %}
+        {% set power = states('sensor.relay_living_power') | float(0) | round(0) %}
+        {% set sensor = iif(backlight, power - offset, power) %}
+        {{ humidifier and (sensor <= 0) }}
+
+  automation:
+  - alias: hygrostat_living_humidifier_on
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.contact_living_window_is_open
+      from: "on"
+      to: "off"
+    action:
+    - service: humidifier.turn_on
+      entity_id: humidifier.hygrostat_living_humidifier
+
+  - alias: hygrostat_living_humidifier_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.contact_living_window_is_open
+      from: "off"
+      to: "on"
+    action:
+    - service: humidifier.turn_off
+      entity_id: humidifier.hygrostat_living_humidifier

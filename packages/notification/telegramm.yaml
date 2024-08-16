@@ -1,4 +1,4 @@
-telegramm:
+notification_telegramm:
   telegram_bot: 
   - platform: polling
     api_key: !secret telegram_bot_api_key

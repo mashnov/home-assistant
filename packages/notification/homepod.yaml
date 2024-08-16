@@ -1,4 +1,4 @@
-homepod:
+notification_homepod:
   tts: 
   - platform: edge_tts
     service_name: edge_say
