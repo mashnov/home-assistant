@@ -8,9 +8,9 @@ occupancy_balcony:
 
   input_number:
     occupancy_balcony: 
-      # 00:02:00
       max: 10
       min: 1
+      # 2
 
   template:
   - binary_sensor:

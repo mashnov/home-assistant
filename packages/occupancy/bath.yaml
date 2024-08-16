@@ -8,15 +8,15 @@ occupancy_bath:
 
   input_number:
     occupancy_bath_day: 
-      # 00:03:00
       max: 10
       min: 1
+      # 3
 
     occupancy_bath_night: 
-      # 00:00:30
       step: 0.5
       max: 10
       min: 0
+      # 0.5
 
   template:
   - binary_sensor:

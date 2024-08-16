@@ -8,15 +8,15 @@ occupancy_kicthen:
     
   input_number:
     occupancy_kitchen_day:
-      # 00:04:00
       max: 10
       min: 1
+      # 4
 
     occupancy_kitchen_night: 
-      # 00:00:30
       step: 0.5
       max: 10
       min: 0
+      # 0.5
 
   template:
   - binary_sensor:

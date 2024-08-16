@@ -8,9 +8,9 @@ occupancy_toilet:
 
   input_number:
     occupancy_toilet: 
-      # 00:00:10
       max: 30
       min: 1
+      # 10
 
   template:
   - binary_sensor:
