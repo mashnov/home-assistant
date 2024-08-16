@@ -2,10 +2,6 @@ occupancy_bath:
   input_boolean:
     occupancy_bath:
 
-  timer:
-    occupancy_bath:
-      duration: 00:00:10
-
   input_number:
     occupancy_bath_day: 
       max: 10
@@ -23,12 +19,16 @@ occupancy_bath:
     - name: occupancy_bath_virtual
       unique_id: occupancy_bath_virtual
       device_class: motion
-      state: "{{ is_state('binary_sensor.bath_motion_occupancy', 'on') }}"
+      state: >
+        {% set sensor = is_state('binary_sensor.bath_motion_occupancy', 'on') %}
+        {% set boolean = is_state('input_boolean.occupancy_bath', 'on') %}
+        {{ sensor or boolean }}
 
     - name: occupancy_bath
       unique_id: occupancy_bath
       device_class: occupancy
-      state: "{{ is_state('input_boolean.occupancy_bath', 'on') }}"
+      state: "{{ is_state('binary_sensor.occupancy_bath_virtual', 'on') }}"
+      delay_off: "{{ states('sensor.occupancy_bath_duration') }}"
 
   - sensor:
     - name: occupancy_bath_duration
@@ -40,53 +40,3 @@ occupancy_bath:
         {% set value = iif(isNightMode, nightValue, dayValue) %}
         {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
-
-  automation:
-  - alias: occupancy_bath_turn_on
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.occupancy_bath_virtual
-      from: "off"
-      to: "on"
-    action:
-    - parallel:
-      - service: timer.cancel
-        entity_id: timer.occupancy_bath
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.occupancy_bath
-
-  - alias: occupancy_bath_timer_start
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.occupancy_bath_virtual
-      from: "on"
-      to: "off"
-    action:
-    - service: timer.start
-      entity_id: timer.occupancy_bath
-      data_template:
-        duration: "{{ states('sensor.occupancy_bath_duration') }}"
-
-  - alias: occupancy_bath_turn_off
-    mode: queued
-    trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.occupancy_bath
-    action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.occupancy_bath
-
-  - alias: occupancy_bath_timer_cancel
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: input_boolean.occupancy_bath
-      from: "on"
-      to: "off"
-    action:
-    - service: timer.cancel
-      entity_id: timer.occupancy_bath
