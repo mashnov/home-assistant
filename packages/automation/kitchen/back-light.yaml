@@ -36,5 +36,6 @@ automation_kitchen_back_light:
     action:
     - service: light.turn_off
       entity_id: light.light_back_kitchen
+    - delay: '00:00:00.5'
     - service: light.turn_on
       entity_id: light.light_back_kitchen
