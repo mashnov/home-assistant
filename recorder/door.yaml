@@ -1,5 +1,2 @@
-- binary_sensor.contact_toilet_door_virtual
 - binary_sensor.contact_hall_door_virtual
-- binary_sensor.contact_bedroom_door_virtual
-- binary_sensor.contact_living_door_virtual
 - binary_sensor.contact_balcony_door_virtual
