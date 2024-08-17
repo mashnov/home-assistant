@@ -1,29 +1,29 @@
 automation_hall_night_light:
   automation:
-  - alias: 'night_light_hall'
-    mode: 'queued'
+  - alias: automation_hall_night_light
+    mode: queued
     trigger:
-    - id: 'turn_on'
+    - id: turn_on
       platform: state
-      entity_id: 'binary_sensor.occupancy_hall'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
+      entity_id: binary_sensor.occupancy_hall
+      from: "off"
+      to: "on"
+    - id: turn_off
       platform: state
-      entity_id: 'binary_sensor.occupancy_hall'
-      from: 'on'
-      to: 'off'
+      entity_id: binary_sensor.occupancy_hall
+      from: "on"
+      to: "off"
     action:
     - choose:
       - conditions:
         - condition: trigger
-          id: 'turn_on'
+          id: turn_on
         sequence:
         - service: light.turn_on
           entity_id: light.night_light_hall
       - conditions:
         - condition: trigger
-          id: 'turn_off'
+          id: turn_off
         sequence:
         - service: light.turn_off
           entity_id: light.night_light_hall
