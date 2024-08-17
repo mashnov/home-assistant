@@ -1,4 +1,4 @@
-- humidifier.dehumidifier_bath
-- humidifier.humidifier_hall
-- humidifier.humidifier_bedroom
-- humidifier.humidifier_living
+- humidifier.hygrostat_bath
+- humidifier.hygrostat_hall
+- humidifier.hygrostat_bedroom
+- humidifier.hygrostat_living
