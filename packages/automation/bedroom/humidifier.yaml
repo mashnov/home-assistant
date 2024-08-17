@@ -9,7 +9,7 @@ automation_bedroom_humidifier:
       to: "off"
     action:
     - service: humidifier.turn_on
-      entity_id: humidifier.hygrostat_bedroom_humidifier
+      entity_id: humidifier.hygrostat_bedroom
 
   - alias: hygrostat_bedroom_humidifier_off
     mode: queued
@@ -20,4 +20,4 @@ automation_bedroom_humidifier:
       to: "on"
     action:
     - service: humidifier.turn_off
-      entity_id: humidifier.hygrostat_bedroom_humidifier
+      entity_id: humidifier.hygrostat_bedroom

@@ -9,7 +9,7 @@ automation_hall_humidifier:
       to: "off"
     action:
     - service: humidifier.turn_on
-      entity_id: humidifier.hygrostat_hall_humidifier
+      entity_id: humidifier.hygrostat_hall
 
   - alias: hygrostat_hall_humidifier_off
     mode: queued
@@ -20,4 +20,4 @@ automation_hall_humidifier:
       to: "on"
     action:
     - service: humidifier.turn_off
-      entity_id: humidifier.hygrostat_hall_humidifier
+      entity_id: humidifier.hygrostat_hall
