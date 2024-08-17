@@ -11,6 +11,9 @@ automation_kitchen_top_light:
     - condition: state
       entity_id: input_boolean.is_night_mode
       state: "off"
+    - condition: numeric_state
+      entity_id: sensor.light_param_illuminance_virtual
+      below: 1000
     action:
     - service: light.turn_on
       entity_id: light.light_top_kitchen

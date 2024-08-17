@@ -8,4 +8,4 @@ automation_bedroom_top_light:
       to: 'flip90'
     action:
     - service: light.toggle
-      entity_id: light.xiaomi_light_bedroom
+      entity_id: light.light_top_bedroom

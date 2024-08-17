@@ -1,29 +1,28 @@
 automation_balcony_top_light:
   automation:
-  - alias: 'top_light_balcony'
-    mode: 'queued'
+  - alias: automation_balcony_top_light_on
+    mode: queued
     trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'input_boolean.blocker_top_light_balcony'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.blocker_top_light_balcony'
-      from: 'on'
-      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.occupancy_balcony
+      from: "off"
+      to: "on"
+    condition:
+    - condition: numeric_state
+      entity_id: sensor.light_param_illuminance_virtual
+      below: 50
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.top_light_balcony
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.top_light_balcony
+    - service: light.turn_on
+      entity_id: light.light_top_balcony
+
+  - alias: automation_balcony_top_light_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_balcony
+      from: "on"
+      to: "off"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_top_balcony
+
