@@ -1,14 +1,14 @@
-binary_sensor.window_kitchen_left_virtual:
+binary_sensor.contact_kitchen_window_left_virtual:
   name: Левое Окно
 
-binary_sensor.window_kitchen_right_virtual:
+binary_sensor.contact_kitchen_window_right_virtual:
   name: Правое Окно 
 
-binary_sensor.window_bedroom_left_virtual:
+binary_sensor.contact_bedroom_window_left_virtual:
   name: Левое Окно
 
-binary_sensor.window_bedroom_right_virtual:
+binary_sensor.contact_bedroom_window_right_virtual:
   name: Правое Окно
 
-binary_sensor.window_living_virtual:
+binary_sensor.contact_living_window_virtual:
   name: Окно
