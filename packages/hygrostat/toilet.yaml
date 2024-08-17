@@ -1,8 +1,8 @@
-hygrostat_toilet_dehumidifier:
+hygrostat_toilet:
   fan:
   - platform: template
     fans:
-      hygrostat_toilet_dehumidifier:
+      hygrostat_toilet:
         value_template: "{{ is_state('switch.relay_toilet_l1', 'on') }}"
         turn_on:
         - service: switch.turn_on
@@ -12,23 +12,23 @@ hygrostat_toilet_dehumidifier:
           entity_id: switch.relay_toilet_l1
 
   input_number:
-    hygrostat_toilet_dehumidifier_night: 
+    hygrostat_toilet_night: 
       max: 120
       min: 5
       # 15
     
-    hygrostat_toilet_dehumidifier_day: 
+    hygrostat_toilet_day: 
       max: 120
       min: 5
       # 30
 
   template:
   - sensor:
-    - name: hygrostat_toilet_dehumidifier_duration
-      unique_id: hygrostat_toilet_dehumidifier_duration
+    - name: hygrostat_toilet_duration
+      unique_id: hygrostat_toilet_duration
       state: >
         {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
-        {% set nightValue = states('input_number.hygrostat_toilet_dehumidifier_night') | int(0) %}
-        {% set dayValue = states('input_number.hygrostat_toilet_dehumidifier_day') | int(0) %}
+        {% set nightValue = states('input_number.hygrostat_toilet_night') | int(0) %}
+        {% set dayValue = states('input_number.hygrostat_toilet_day') | int(0) %}
         {% set duration = iif(isNightMode, nightValue, dayValue) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}

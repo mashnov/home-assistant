@@ -1,26 +1,26 @@
-hygrostat_living_humidifier:
+hygrostat_living:
   generic_hygrostat:
-  - name: hygrostat_living_humidifier
+  - name: hygrostat_living
     device_class: humidifier
     humidifier: switch.relay_living_l1
     target_sensor: sensor.humidity_living_virtual
 
   input_number:    
-    hygrostat_living_humidifier_power_offset: 
+    hygrostat_living_power_offset: 
       max: 60
       min: 0
       # 10
 
   template:
   - binary_sensor:    
-    - name: hygrostat_living_humidifier_is_empty
-      unique_id: hygrostat_living_humidifier_is_empty
+    - name: hygrostat_living_is_empty
+      unique_id: hygrostat_living_is_empty
       device_class: moisture
       delay_on: 00:00:05
       state: >
         {% set humidifier = is_state('switch.relay_living_l1', 'on') %}
         {% set backlight = is_state('light.back_light_living', 'on') %}
-        {% set offset = states('input_number.hygrostat_living_humidifier_power_offset') | int(0) %}
+        {% set offset = states('input_number.hygrostat_living_power_offset') | int(0) %}
         {% set power = states('sensor.relay_living_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}

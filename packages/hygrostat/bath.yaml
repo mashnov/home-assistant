@@ -1,6 +1,6 @@
-hygrostat_bath_dehumidifier:
+hygrostat_bath:
   generic_hygrostat:
-  - name: hygrostat_bath_dehumidifier
+  - name: hygrostat_bath
     device_class: dehumidifier
     humidifier: switch.relay_toilet_l1
     target_sensor: sensor.humidity_bath_virtual
