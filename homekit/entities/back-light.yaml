@@ -1,5 +1,7 @@
-- input_boolean.blocker_back_light_kitchen
-- light.back_light_hall
-- light.back_light_bedroom
-- light.back_light_living
-- input_boolean.blocker_back_light_balcony
+- light.light_back_kitchen
+- light.light_back_bath
+- light.light_back_toilet
+- light.light_back_hall
+- light.light_back_bedroom
+- light.light_back_living
+- light.light_back_balcony

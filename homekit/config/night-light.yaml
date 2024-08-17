@@ -1,8 +1,2 @@
-input_boolean.blocker_night_light_bath:
-  name: Зеркало
-
-light.night_light_toilet:
-  name: Лампочка
-
 light.night_light_hall:
   name: Ночник

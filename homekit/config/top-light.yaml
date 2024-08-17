@@ -1,20 +1,20 @@
-input_boolean.blocker_top_light_kitchen:
+light.light_top_kitchen:
   name: Свет
 
-input_boolean.blocker_top_light_bath:
+light.light_top_bath:
   name: Свет
 
-light.top_light_toilet:
+light.light_top_toilet:
   name: Свет
 
-input_boolean.blocker_top_light_hall:
+light.light_top_hall:
   name: Свет
 
-light.top_light_bedroom:
+light.light_top_bedroom:
   name: Свет
 
-light.top_light_living:
+light.light_top_living:
   name: Свет
 
-light.top_light_balcony:
+light.light_top_balcony:
   name: Свет

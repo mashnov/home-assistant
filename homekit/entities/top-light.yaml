@@ -1,7 +1,7 @@
-- input_boolean.blocker_top_light_kitchen
-- input_boolean.blocker_top_light_bath
-- light.top_light_toilet
-- input_boolean.blocker_top_light_hall
-- input_boolean.blocker_top_light_bedroom
-- input_boolean.blocker_top_light_living
-- input_boolean.blocker_top_light_balcony
+- light.light_top_kitchen
+- light.light_top_bath
+- light.light_top_toilet
+- light.light_top_hall
+- light.light_top_bedroom
+- light.light_top_living
+- light.light_top_balcony
