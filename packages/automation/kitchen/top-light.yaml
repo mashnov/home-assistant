@@ -1,32 +1,27 @@
 automation_kitchen_top_light:
   automation:
-  - alias: 'top_light_kitchen'
-    mode: 'queued'
+  - alias: automation_kitchen_top_light_on
+    mode: queued
     trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'input_boolean.blocker_top_light_kitchen'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.blocker_top_light_kitchen'
-      from: 'on'
-      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.occupancy_kitchen
+      from: "off"
+      to: "on"
+    condition:
+    - condition: state
+      entity_id: input_boolean.is_night_mode
+      state: "off"
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        - condition: state
-          entity_id: input_boolean.is_night_mode
-          state: 'off'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.xiaomi_light_kitchen
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.xiaomi_light_kitchen
+    - service: light.turn_on
+      entity_id: light.light_top_kitchen
+
+  - alias: automation_kitchen_top_light_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_kitchen
+      from: "on"
+      to: "off"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_top_kitchen

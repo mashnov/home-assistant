@@ -1,29 +1,23 @@
 automation_hall_back_light:
   automation:
-  - alias: 'back_light_hall'
-    mode: 'queued'
+  - alias: automation_hall_back_light_on
+    mode: queued
     trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'on'
-      to: 'off'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
+    - platform: state
+      entity_id: input_boolean.is_night_mode
+      from: "off"
+      to: "on"
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.back_light_hall
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.back_light_hall
+    - service: light.turn_on
+      entity_id: light.light_back_hall
+
+  - alias: automation_hall_back_light_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.is_night_mode
+      from: "on"
+      to: "off"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_back_hall

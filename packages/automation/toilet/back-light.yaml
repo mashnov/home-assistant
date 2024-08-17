@@ -1,29 +1,23 @@
 automation_toilet_back_light:
   automation:
-  - alias: 'back_light_toilet'
-    mode: 'queued'
+  - alias: automation_toilet_back_light_on
+    mode: queued
     trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'binary_sensor.occupancy_toilet'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'binary_sensor.occupancy_toilet'
-      from: 'on'
-      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.occupancy_toilet
+      from: "off"
+      to: "on"
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.night_light_toilet
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.night_light_toilet
+    - service: light.turn_on
+      entity_id: light.light_back_toilet
+
+  - alias: automation_toilet_back_light_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_toilet
+      from: "on"
+      to: "off"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_back_toilet

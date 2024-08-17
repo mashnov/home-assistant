@@ -1,42 +1,40 @@
 automation_kitchen_back_light:
   automation:
-  - alias: 'back_light_kitchen'
-    mode: 'queued'
+  - alias: automation_kitchen_back_light_on
+    mode: queued
     trigger:
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'binary_sensor.occupancy_kitchen'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'binary_sensor.occupancy_kitchen'
-      from: 'on'
-      to: 'off'
-    - id: 'turn_on'
-      platform: state
-      entity_id: 'input_boolean.blocker_back_light_kitchen'
-      from: 'off'
-      to: 'on'
-    - id: 'turn_off'
-      platform: state
-      entity_id: 'input_boolean.blocker_back_light_kitchen'
-      from: 'on'
-      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.occupancy_kitchen
+      from: "off"
+      to: "on"
     action:
-    - choose:
-      - conditions:
-        - condition: trigger
-          id: 'turn_on'
-        sequence:
-        - service: light.turn_on
-          entity_id: light.back_light_kitchen
-      - conditions:
-        - condition: trigger
-          id: 'turn_off'
-        - condition: state
-          entity_id: input_boolean.blocker_back_light_kitchen
-          state: 'off'
-        sequence:
-        - service: light.turn_off
-          entity_id: light.back_light_kitchen
+    - service: light.turn_on
+      entity_id: light.light_back_kitchen
+
+  - alias: automation_kitchen_back_light_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_kitchen
+      from: "on"
+      to: "off"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_back_kitchen
+
+  - alias: automation_kitchen_back_light_night_mode
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.is_night_mode
+      from: "on"
+      to: "off"
+    condition:
+    - condition: state
+      entity_id: binary_sensor.occupancy_kitchen
+      state: "on"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_back_kitchen
+    - service: light.turn_on
+      entity_id: light.light_back_kitchen
