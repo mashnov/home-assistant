@@ -21,3 +21,14 @@ automation_living_humidifier:
     action:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_living
+
+  - alias: hygrostat_living_humidifier_empty
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hygrostat_living_is_empty
+      from: "off"
+      to: "on"
+    action:
+    - service: humidifier.turn_off
+      entity_id: humidifier.hygrostat_living
