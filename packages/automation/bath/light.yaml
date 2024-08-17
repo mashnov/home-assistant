@@ -1,4 +1,4 @@
-action_bath_light:
+automation_balcony_light:
   automation:
   - alias: 'blocker_light_bath'
     mode: 'queued'

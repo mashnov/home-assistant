@@ -32,25 +32,3 @@ hygrostat_toilet_dehumidifier:
         {% set dayValue = states('input_number.hygrostat_toilet_dehumidifier_day') | int(0) %}
         {% set duration = iif(isNightMode, nightValue, dayValue) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
-
-  automation:
-  - alias: hygrostat_toilet_dehumidifier
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.contact_toilet_door_virtual
-      from: "off"
-      to: "on"
-    condition:
-    - condition: state
-      entity_id: fan.hygrostat_toilet_dehumidifier
-      state: "off"
-    - condition: state
-      entity_id: binary_sensor.occupancy_toilet
-      state: "on"
-    action:
-    - service: fan.turn_on
-      entity_id: fan.hygrostat_toilet_dehumidifier
-    - delay: "{{ states('sensor.hygrostat_toilet_dehumidifier_duration') }}"
-    - service: fan.turn_off
-      entity_id: fan.hygrostat_toilet_dehumidifier

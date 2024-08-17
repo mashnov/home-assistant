@@ -1,0 +1,33 @@
+light_xiaomi_bedroom:
+  light:
+  - name: light_xiaomi_bedroom_1
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_1_host
+    token: !secret bedroom_lamp_1_token
+  - name: light_xiaomi_bedroom_2
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_2_host
+    token: !secret bedroom_lamp_2_token
+  - name: light_xiaomi_bedroom_3
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_3_host
+    token: !secret bedroom_lamp_3_token
+  - name: light_xiaomi_bedroom_4
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_4_host
+    token: !secret bedroom_lamp_4_token
+  - name: light_xiaomi_bedroom_5
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_5_host
+    token: !secret bedroom_lamp_5_token
+  - name: light_xiaomi_bedroom_6
+    platform: xiaomi_miio_philipslight
+    model: philips.light.downlight
+    host: !secret bedroom_lamp_6_host
+    token: !secret bedroom_lamp_6_token
+  

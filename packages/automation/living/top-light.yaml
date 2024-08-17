@@ -1,0 +1,39 @@
+automation_living_top_light:
+  automation:
+  - alias: 'top_light_living'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: 'input_boolean.blocker_top_light_living'
+      from: 'off'
+      to: 'on'
+    - id: 'turn_off'
+      platform: state
+      entity_id: 'input_boolean.blocker_top_light_living'
+      from: 'on'
+      to: 'off'
+    - id: 'toggle'
+      platform: state
+      entity_id: sensor.living_cube_action
+      to: 'flip90'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.xiaomi_light_living
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.xiaomi_light_living
+      - conditions:
+        - condition: trigger
+          id: 'toggle'
+        sequence:
+        - service: light.toggle
+          entity_id: light.xiaomi_light_living

@@ -1,0 +1,10 @@
+light_top_kitchen:
+  light:
+  - platform: group
+    name: light_top_kitchen
+    entities:
+    - light.light_xiaomi_kitchen_1
+    - light.light_xiaomi_kitchen_2
+    - light.light_xiaomi_kitchen_3
+    - light.light_xiaomi_kitchen_4
+    - light.light_xiaomi_kitchen_5

@@ -1,0 +1,12 @@
+light_top_hall:
+  light:
+  - platform: group
+    name: light_top_hall
+    entities:
+    - light.light_xiaomi_hall_1
+    - light.light_xiaomi_hall_2
+    - light.light_xiaomi_hall_3
+    - light.light_xiaomi_hall_4
+    - light.light_xiaomi_hall_5
+    - light.light_xiaomi_hall_6
+  

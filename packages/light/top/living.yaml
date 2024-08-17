@@ -1,0 +1,11 @@
+light_top_living:
+  light:
+  - platform: group
+    name: light_top_living
+    entities:
+    - light.light_xiaomi_living_1
+    - light.light_xiaomi_living_2
+    - light.light_xiaomi_living_3
+    - light.light_xiaomi_living_4
+    - light.light_xiaomi_living_5
+    - light.light_xiaomi_living_6

@@ -1,0 +1,21 @@
+light_back_bedroom:
+  light:
+  - platform: template
+    lights:
+      light_back_bedroom:
+        value_template: >
+          {% set switch = is_state('switch.bedroom_switch', 'on') %}
+          {% set relay = is_state('switch.relay_bedroom_l1', 'on') %}
+          {{ switch and relay }}
+        turn_on:
+        - parallel:
+          - service: switch.turn_on
+            entity_id: switch.bedroom_switch
+          - service: switch.turn_on
+            entity_id: switch.relay_bedroom_l1
+        turn_off:
+        - parallel:
+          - service: switch.turn_off
+            entity_id: switch.bedroom_switch
+          - service: switch.turn_off
+            entity_id: switch.relay_bedroom_l1

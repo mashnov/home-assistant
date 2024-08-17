@@ -1,0 +1,29 @@
+automation_bedroom_back_light:
+  automation:
+  - alias: 'back_light_bedroom'
+    mode: 'queued'
+    trigger:
+    - id: 'turn_on'
+      platform: state
+      entity_id: input_boolean.is_night_mode
+      from: 'on'
+      to: 'off'
+    - id: 'turn_off'
+      platform: state
+      entity_id: input_boolean.is_night_mode
+      from: 'off'
+      to: 'on'
+    action:
+    - choose:
+      - conditions:
+        - condition: trigger
+          id: 'turn_on'
+        sequence:
+        - service: light.turn_on
+          entity_id: light.back_light_bedroom
+      - conditions:
+        - condition: trigger
+          id: 'turn_off'
+        sequence:
+        - service: light.turn_off
+          entity_id: light.back_light_bedroom

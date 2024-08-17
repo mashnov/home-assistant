@@ -1,0 +1,23 @@
+automation_bedroom_humidifier:
+  automation:
+  - alias: hygrostat_bedroom_humidifier_on
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.contact_bedroom_window_is_open
+      from: "on"
+      to: "off"
+    action:
+    - service: humidifier.turn_on
+      entity_id: humidifier.hygrostat_bedroom_humidifier
+
+  - alias: hygrostat_bedroom_humidifier_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.contact_bedroom_window_is_open
+      from: "off"
+      to: "on"
+    action:
+    - service: humidifier.turn_off
+      entity_id: humidifier.hygrostat_bedroom_humidifier

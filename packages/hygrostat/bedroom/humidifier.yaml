@@ -24,26 +24,3 @@ hygrostat_bedroom_humidifier:
         {% set power = states('sensor.relay_bedroom_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
-
-  automation:
-  - alias: hygrostat_bedroom_humidifier_on
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.contact_bedroom_window_is_open
-      from: "on"
-      to: "off"
-    action:
-    - service: humidifier.turn_on
-      entity_id: humidifier.hygrostat_bedroom_humidifier
-
-  - alias: hygrostat_bedroom_humidifier_off
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.contact_bedroom_window_is_open
-      from: "off"
-      to: "on"
-    action:
-    - service: humidifier.turn_off
-      entity_id: humidifier.hygrostat_bedroom_humidifier

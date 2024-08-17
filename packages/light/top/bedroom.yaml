@@ -1,0 +1,11 @@
+light_top_bedroom:
+  light:
+  - platform: group
+    name: light_top_bedroom
+    entities:
+    - light.light_xiaomi_bedroom_1
+    - light.light_xiaomi_bedroom_2
+    - light.light_xiaomi_bedroom_3
+    - light.light_xiaomi_bedroom_4
+    - light.light_xiaomi_bedroom_5
+    - light.light_xiaomi_bedroom_6

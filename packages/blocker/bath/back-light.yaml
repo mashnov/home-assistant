@@ -1,0 +1,58 @@
+blocker_bath_back_light:
+  input_boolean:
+    blocker_bath_back_light:
+
+  input_number:
+    blocker_bath_back_light: 
+      max: 120
+      min: 1
+      # 30
+
+  timer:
+    blocker_bath_back_light:
+      duration: '00:00:10'
+  
+  template:
+  - sensor:
+    - name: blocker_bath_back_light_duration
+      unique_id: blocker_bath_back_light_duration
+      state: >
+        {% set minutes = states('input_number.blocker_bath_back_light') | int(0) %}
+        {% set duration = minutes * 60 %}
+        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+
+  automation:
+  - alias: blocker_bath_back_light_timer_start
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.blocker_bath_back_light
+      from: "off"
+      to: "on"
+    action:
+    - service: timer.start
+      entity_id: timer.blocker_bath_back_light
+      data:
+        duration: "{{ states('sensor.blocker_bath_back_light_duration') }}"
+
+  - alias: blocker_bath_back_light_timer_cancel
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.blocker_bath_back_light
+      from: "on"
+      to: "off"
+    action:
+    - service: timer.cancel
+      entity_id: timer.blocker_bath_back_light
+
+  - alias: blocker_bath_back_light_turn_off
+    mode: queued
+    trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.blocker_bath_back_light
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.blocker_bath_back_light
