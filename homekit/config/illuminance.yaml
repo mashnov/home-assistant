@@ -1,2 +1,2 @@
-sensor.light_param_illuminance_virtual:
+sensor.climat_illuminance_virtual:
   name: Освещенность

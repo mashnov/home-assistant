@@ -24,7 +24,6 @@ climat_illuminance:
         min_samples: 20
         invert: true
 
-
   template:
   - sensor:      
     - name: climat_illuminance_virtual
