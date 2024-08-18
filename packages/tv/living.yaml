@@ -5,7 +5,7 @@ tv_living:
     host: 10.0.1.5
 
   script:
-    tv_living__off:
+    tv_living_off:
       mode: queued
       sequence:
       - service: androidtv.adb_command
@@ -13,7 +13,7 @@ tv_living:
         data:
           command: POWER
 
-    tv_living__volume_up:
+    tv_living_volume_up:
       mode: queued
       sequence:
       - service: androidtv.adb_command
@@ -21,7 +21,7 @@ tv_living:
         data:
           command: VOLUME_UP
 
-    tv_living__volume_down:
+    tv_living_volume_down:
       mode: queued
       sequence:
       - service: androidtv.adb_command
@@ -29,7 +29,7 @@ tv_living:
         data:
           command: VOLUME_DOWN
 
-    tv_living__mute:
+    tv_living_mute:
       mode: queued
       sequence:
       - service: androidtv.adb_command
