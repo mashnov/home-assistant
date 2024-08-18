@@ -1,0 +1,46 @@
+tv_living:
+  switch:
+  - platform: wake_on_lan
+    mac: B4:C9:B9:97:F5:B9
+    host: 10.0.1.5
+
+  media_player:
+    name: tv_living
+    device_class: androidtv
+    host: 10.0.1.5
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037
+    get_sources: false
+
+  script:
+    tv_living__off:
+      mode: queued
+      sequence:
+      - service: androidtv.adb_command
+        entity_id: media_player.fire_tv
+        data:
+          command: POWER
+
+    tv_living__volume_up:
+      mode: queued
+      sequence:
+      - service: androidtv.adb_command
+        entity_id: media_player.fire_tv
+        data:
+          command: VOLUME_UP
+
+    tv_living__volume_down:
+      mode: queued
+      sequence:
+      - service: androidtv.adb_command
+        entity_id: media_player.fire_tv
+        data:
+          command: VOLUME_DOWN
+
+    tv_living__mute:
+      mode: queued
+      sequence:
+      - service: androidtv.adb_command
+        entity_id: media_player.fire_tv
+        data:
+          command: MUTE
