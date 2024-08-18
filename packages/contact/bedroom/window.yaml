@@ -22,7 +22,7 @@ contact_bedroom_window:
         {{ sensor or boolean }}
 
     - name: contact_bedroom_window_is_open
-      unique_id: window_bedroom_is_open
+      unique_id: contact_bedroom_window_is_open
       delay_on: '00:00:05'
       delay_off: '00:00:05'
       state: >
