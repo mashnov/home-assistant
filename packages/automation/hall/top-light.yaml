@@ -12,7 +12,7 @@ automation_hall_top_light:
       entity_id: input_boolean.is_night_mode
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.light_param_illuminance_virtual
+      entity_id: sensor.climat_illuminance_virtual
       below: 4000
     action:
     - service: light.turn_on
