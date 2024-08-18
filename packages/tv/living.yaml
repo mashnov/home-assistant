@@ -1,38 +1,27 @@
 tv_living:
   switch:
   - platform: wake_on_lan
+    name: tv_living_on
     mac: B4:C9:B9:97:F5:B9
     host: 10.0.1.5
 
   script:
+    tv_living_on:
+      mode: queued
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.tv_living_on
+      - delay: 00:01:00
+      - service: switch.turn_off
+        entity_id: switch.tv_living_on
+
     tv_living_off:
       mode: queued
       sequence:
-      - service: androidtv.adb_command
-        entity_id: media_player.mitv_mssp1
+      - action: remote.send_command
         data:
           command: POWER
+        target:
+          entity_id: remote.mitv_mssp1
 
-    tv_living_volume_up:
-      mode: queued
-      sequence:
-      - service: androidtv.adb_command
-        entity_id: media_player.mitv_mssp1
-        data:
-          command: VOLUME_UP
 
-    tv_living_volume_down:
-      mode: queued
-      sequence:
-      - service: androidtv.adb_command
-        entity_id: media_player.mitv_mssp1
-        data:
-          command: VOLUME_DOWN
-
-    tv_living_mute:
-      mode: queued
-      sequence:
-      - service: androidtv.adb_command
-        entity_id: media_player.mitv_mssp1
-        data:
-          command: MUTE
