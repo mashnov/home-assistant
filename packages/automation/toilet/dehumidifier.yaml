@@ -4,7 +4,7 @@ automation_toilet_dehumidifier:
     mode: queued
     trigger:
     - platform: time_pattern
-      minutes: /6
+      minutes: /5
     - platform: state
       entity_id: binary_sensor.contact_toilet_door_virtual
       from: "off"
