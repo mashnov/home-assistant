@@ -9,7 +9,7 @@ tv_living:
       mode: queued
       sequence:
       - service: androidtv.adb_command
-        entity_id: media_player.fire_tv
+        entity_id: media_player.mitv_mssp1
         data:
           command: POWER
 
@@ -17,7 +17,7 @@ tv_living:
       mode: queued
       sequence:
       - service: androidtv.adb_command
-        entity_id: media_player.fire_tv
+        entity_id: media_player.mitv_mssp1
         data:
           command: VOLUME_UP
 
@@ -25,7 +25,7 @@ tv_living:
       mode: queued
       sequence:
       - service: androidtv.adb_command
-        entity_id: media_player.fire_tv
+        entity_id: media_player.mitv_mssp1
         data:
           command: VOLUME_DOWN
 
@@ -33,6 +33,6 @@ tv_living:
       mode: queued
       sequence:
       - service: androidtv.adb_command
-        entity_id: media_player.fire_tv
+        entity_id: media_player.mitv_mssp1
         data:
           command: MUTE
