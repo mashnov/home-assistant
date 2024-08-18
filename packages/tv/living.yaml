@@ -9,6 +9,9 @@ tv_living:
     tv_living_on:
       mode: queued
       sequence:
+      - service: switch.turn_off
+        entity_id: switch.tv_living_on
+      - delay: 00:00:01
       - service: switch.turn_on
         entity_id: switch.tv_living_on
       - delay: 00:01:00
