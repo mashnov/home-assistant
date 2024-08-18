@@ -12,6 +12,12 @@ climat_pressure:
     - sensor.climat_pressure_bedroom_virtual
     - sensor.climat_pressure_living_virtual
 
+  binary_sensor:
+  - platform: trend
+    sensors:
+      climat_pressure_is_increasing:
+        entity_id: sensor.climat_pressure_average
+
   template:
   - sensor:
     - name: climat_pressure_kitchen_virtual
