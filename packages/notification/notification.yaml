@@ -78,8 +78,8 @@ notification:
     - id: 'off'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
+      from: 'on'
+      to: 'off'
     action:
     - choose:
       - conditions:
@@ -163,8 +163,8 @@ notification:
     - id: 'off'
       platform: state
       entity_id: 'input_boolean.is_night_mode'
-      from: 'off'
-      to: 'on'
+      from: 'on'
+      to: 'off'
     action:
     - choose:
       - conditions:
