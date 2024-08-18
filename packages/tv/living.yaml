@@ -4,15 +4,6 @@ tv_living:
     mac: B4:C9:B9:97:F5:B9
     host: 10.0.1.5
 
-  media_player:
-  - platform: androidtv
-    device_class: androidtv
-    name: tv_living
-    host: 10.0.1.5
-    adb_server_ip: 127.0.0.1
-    adb_server_port: 5037
-    get_sources: false
-
   script:
     tv_living__off:
       mode: queued
