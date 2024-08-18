@@ -3,4 +3,4 @@ hygrostat_bath:
   - name: hygrostat_bath
     device_class: dehumidifier
     humidifier: switch.relay_toilet_l1
-    target_sensor: sensor.humidity_bath_virtual
+    target_sensor: sensor.climat_humidity_bath_virtual

@@ -3,7 +3,7 @@ hygrostat_bedroom:
   - name: hygrostat_bedroom
     device_class: humidifier
     humidifier: switch.relay_bedroom_l2
-    target_sensor: sensor.humidity_bedroom_virtual
+    target_sensor: sensor.climat_humidity_bedroom_virtual
 
   input_boolean:
     hygrostat_bedroom_is_empty:
@@ -22,7 +22,7 @@ hygrostat_bedroom:
       delay_on: 00:00:05
       state: >
         {% set humidifier = is_state('switch.relay_bedroom_l2', 'on') %}
-        {% set backlight = is_state('light.back_light_bedroom', 'on') %}
+        {% set backlight = is_state('light.light_back_bedroom', 'on') %}
         {% set offset = states('input_number.hygrostat_bedroom_power_offset') | int(0) %}
         {% set power = states('sensor.relay_bedroom_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}

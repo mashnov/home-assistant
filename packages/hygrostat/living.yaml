@@ -3,7 +3,7 @@ hygrostat_living:
   - name: hygrostat_living
     device_class: humidifier
     humidifier: switch.relay_living_l1
-    target_sensor: sensor.humidity_living_virtual
+    target_sensor: sensor.climat_humidity_living_virtual
 
   input_boolean:
     hygrostat_living_is_empty:
@@ -22,7 +22,7 @@ hygrostat_living:
       delay_on: 00:00:05
       state: >
         {% set humidifier = is_state('switch.relay_living_l1', 'on') %}
-        {% set backlight = is_state('light.back_light_living', 'on') %}
+        {% set backlight = is_state('light.light_back_living', 'on') %}
         {% set offset = states('input_number.hygrostat_living_power_offset') | int(0) %}
         {% set power = states('sensor.relay_living_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
