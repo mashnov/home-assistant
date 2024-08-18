@@ -32,5 +32,3 @@ automation_bedroom_humidifier:
     action:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_bedroom
-    - service: switch.turn_off
-      entity_id: switch.relay_bedroom_l2
