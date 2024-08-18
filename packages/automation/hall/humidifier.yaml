@@ -32,5 +32,5 @@ automation_hall_humidifier:
     action:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_hall
-    - service: relay.turn_off
-      entity_id: relay.relay_hall_l2
+    - service: switch.turn_off
+      entity_id: switch.relay_hall_l2
