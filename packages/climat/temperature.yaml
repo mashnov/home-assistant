@@ -1,4 +1,32 @@
 climat_temperature:
+  sensor:
+  - platform: min_max
+    name: climat_temperature_average
+    unique_id: climat_pressure_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.climat_temperature_kitchen_virtual
+    - sensor.climat_temperature_hall_virtual
+    - sensor.climat_temperature_bedroom_virtual
+    - sensor.climat_temperature_living_virtual
+
+  binary_sensor:
+  - platform: trend
+    sensors:
+      climat_temperature_is_increasing:
+        entity_id: sensor.climat_temperature_average
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
+
+      climat_temperature_is_decreasing:
+        entity_id: sensor.climat_temperature_average
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
+        invert: true
+
   template:
   - sensor:
     - name: climat_temperature_kitchen_virtual

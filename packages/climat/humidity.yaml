@@ -1,4 +1,32 @@
 climat_humidity:
+  sensor:
+  - platform: min_max
+    name: climat_humidity_average
+    unique_id: climat_humidity_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.climat_humidity_kitchen_virtual
+    - sensor.climat_humidity_hall_virtual
+    - sensor.climat_humidity_bedroom_virtual
+    - sensor.climat_humidity_living_virtual
+
+  binary_sensor:
+  - platform: trend
+    sensors:
+      climat_humidity_is_increasing:
+        entity_id: sensor.climat_humidity_average
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
+
+      climat_humidity_is_decreasing:
+        entity_id: sensor.climat_humidity_average
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
+        invert: true
+
   template:
   - sensor:
     - name: climat_humidity_kitchen_virtual
