@@ -26,9 +26,11 @@ automation_bedroom_humidifier:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.hygrostat_bedroom_is_empty
+      entity_id: input_boolean.hygrostat_bedroom_is_empty
       from: "off"
       to: "on"
     action:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_bedroom
+    - service: relay.turn_off
+      entity_id: relay.relay_bedroom_l2

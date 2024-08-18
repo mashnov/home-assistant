@@ -5,6 +5,9 @@ hygrostat_hall:
     humidifier: switch.relay_hall_l2
     target_sensor: sensor.humidity_hall_virtual
 
+  input_boolean:
+    hygrostat_hall_is_empty:
+
   input_number:
     hygrostat_hall_power_offset: 
       max: 60
@@ -24,3 +27,15 @@ hygrostat_hall:
         {% set power = states('sensor.relay_hall_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
+
+  automation:
+  - alias: hygrostat_hall_is_empty
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hygrostat_hall_is_empty
+      from: "off"
+      to: "on"
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.hygrostat_hall_is_empty

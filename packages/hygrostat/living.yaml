@@ -5,6 +5,9 @@ hygrostat_living:
     humidifier: switch.relay_living_l1
     target_sensor: sensor.humidity_living_virtual
 
+  input_boolean:
+    hygrostat_living_is_empty:
+
   input_number:    
     hygrostat_living_power_offset: 
       max: 60
@@ -24,3 +27,15 @@ hygrostat_living:
         {% set power = states('sensor.relay_living_power') | float(0) | round(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
+
+  automation:
+  - alias: hygrostat_living_is_empty
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hygrostat_living_is_empty
+      from: "off"
+      to: "on"
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.hygrostat_living_is_empty
