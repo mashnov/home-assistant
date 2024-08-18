@@ -17,15 +17,15 @@ climat_pressure:
     sensors:
       climat_pressure_is_increasing:
         entity_id: sensor.climat_pressure_average
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
 
       climat_pressure_is_decreasing:
         entity_id: sensor.climat_pressure_average
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
+        sample_duration: 1800
+        max_samples: 30
+        min_samples: 5
         invert: true
 
   template:
