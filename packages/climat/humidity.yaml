@@ -17,7 +17,7 @@ climat_humidity:
       state: "{{ states('sensor.humidity_toilet') | round(1, default = 0) | float }}"
 
     - name: climat_humidity_hall_virtual
-      unique_id: humidity_hall_virtual
+      unique_id: climat_humidity_hall_virtual
       unit_of_measurement: "%"
       state: "{{ states('sensor.humidity_hall') | round(1, default = 100) | float }}"
 
