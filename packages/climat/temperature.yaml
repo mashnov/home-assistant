@@ -2,7 +2,7 @@ climat_temperature:
   sensor:
   - platform: min_max
     name: climat_temperature_average
-    unique_id: climat_pressure_average
+    unique_id: climat_temperature_average
     type: mean
     round_digits: 0
     entity_ids:
