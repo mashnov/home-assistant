@@ -1,6 +1,6 @@
 tv_living:
   script:
-    tv_living_off:
+    tv_living_toggle:
       mode: queued
       sequence:
       - action: remote.send_command
