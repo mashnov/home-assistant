@@ -1,0 +1,16 @@
+climat_illuminance:
+  sensor:
+  - name: climat_illuminance_max
+    unique_id: climat_illuminance_max
+    platform: statistics
+    entity_id: sensor.climat_illuminance_virtual
+    state_characteristic: value_max
+    max_age:
+      days: 1
+
+  template:
+  - sensor:      
+    - name: climat_illuminance_virtual
+      unique_id: climat_illuminance_virtual
+      unit_of_measurement: lx
+      state: "{{ states('sensor.illuminance_balcony') | round(1, default = 0) | float }}"

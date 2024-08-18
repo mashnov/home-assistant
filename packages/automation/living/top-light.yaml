@@ -1,11 +1,11 @@
 automation_living_top_light:
   automation:
   - alias: automation_living_top_light_toggle
-    mode: 'queued'
+    mode: queued
     trigger:
     - platform: state
       entity_id: sensor.living_cube_action
-      to: 'flip90'
+      to: flip90
     action:
     - service: light.toggle
       entity_id: light.light_top_living

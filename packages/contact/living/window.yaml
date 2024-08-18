@@ -14,6 +14,6 @@ contact_living_window:
    
     - name: contact_living_window_is_open
       unique_id: contact_living_window_is_open
-      delay_on: '00:00:05'
-      delay_off: '00:00:05'
+      delay_on: 00:00:05
+      delay_off: 00:00:05
       state: "{{ is_state('binary_sensor.contact_living_window_virtual', 'on') }}"

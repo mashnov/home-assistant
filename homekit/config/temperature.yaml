@@ -1,20 +1,20 @@
-sensor.temperature_kitchen_virtual:
+sensor.climat_temperature_kitchen_virtual:
   name: Температура
 
-sensor.temperature_bath_virtual:
+sensor.climat_temperature_bath_virtual:
   name: Температура
 
-sensor.temperature_toilet_virtual:
+sensor.climat_temperature_toilet_virtual:
   name: Температура
 
-sensor.temperature_hall_virtual:
+sensor.climat_temperature_hall_virtual:
   name: Температура
 
-sensor.temperature_bedroom_virtual:
+sensor.climat_temperature_bedroom_virtual:
   name: Температура
 
-sensor.temperature_living_virtual:
+sensor.climat_temperature_living_virtual:
   name: Температура
 
-sensor.temperature_balcony_virtual:
+sensor.climat_temperature_balcony_virtual:
   name: Температура

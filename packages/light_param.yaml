@@ -1,26 +1,12 @@
 light_param:
-  sensor:
-  - name: light_param_illuminance_max
-    unique_id: light_param_illuminance_max
-    platform: statistics
-    entity_id: sensor.light_param_illuminance_virtual
-    state_characteristic: value_max
-    max_age:
-      days: 1
-
   template:
   - sensor:      
-    - name: 'light_param_illuminance_virtual'
-      unique_id: light_param_illuminance_virtual
-      unit_of_measurement: "lx"
-      state: "{{ states('sensor.illuminance_balcony') | round(1, default = 0) | float }}"
-
     - name: 'light_param_temperature'
       unique_id: light_param_temperature
       state: >
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
-        {% set target = states('sensor.light_param_illuminance_max') | int(1) %}
+        {% set target = states('sensor.climat_illuminance_max') | int(1) %}
         {% set sensor = states('sensor.sensor.light_param_illuminance_virtual') | int(0) %}
         {% set percent = min((sensor / max(1, target) ) * 100, 100) | round %}
         {% set temperature = (maxValue / 100 * (100 - percent)) | round %}

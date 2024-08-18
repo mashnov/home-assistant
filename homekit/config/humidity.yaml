@@ -1,20 +1,20 @@
-sensor.humidity_kitchen_virtual:
+sensor.climat_humidity_kitchen_virtual:
   name: Влажность
 
-sensor.humidity_bath_virtual:
+sensor.climat_humidity_bath_virtual:
   name: Влажность
 
-sensor.humidity_toilet_virtual:
+sensor.climat_humidity_toilet_virtual:
   name: Влажность
 
-sensor.humidity_hall_virtual:
+sensor.climat_humidity_hall_virtual:
   name: Влажность
 
-sensor.humidity_bedroom_virtual:
+sensor.climat_humidity_bedroom_virtual:
   name: Влажность
 
-sensor.humidity_living_virtual:
+sensor.climat_humidity_living_virtual:
   name: Влажность
 
-sensor.humidity_balcony_virtual:
+sensor.climat_humidity_balcony_virtual:
   name: Влажность

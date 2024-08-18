@@ -1,0 +1,37 @@
+climat_temperature:
+  template:
+  - sensor:
+    - name: climat_temperature_kitchen_virtual
+      unique_id: climat_temperature_kitchen_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_kitchen') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_bath_virtual
+      unique_id: climat_temperature_bath_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_bath') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_toilet_virtual
+      unique_id: climat_temperature_toilet_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_toilet') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_hall_virtual
+      unique_id: climat_temperature_hall_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_hall') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_bedroom_virtual
+      unique_id: climat_temperature_bedroom_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_bedroom') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_living_virtual
+      unique_id: climat_temperature_living_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_living') | round(1, default = 0) | float }}"
+
+    - name: climat_temperature_balcony_virtual
+      unique_id: climat_temperature_balcony_virtual
+      unit_of_measurement: °C
+      state: "{{ states('sensor.temperature_balcony') | round(1, default = 0) | float }}"

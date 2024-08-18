@@ -1,7 +1,7 @@
-- sensor.temperature_kitchen_virtual
-- sensor.temperature_bath_virtual
-- sensor.temperature_toilet_virtual
-- sensor.temperature_hall_virtual
-- sensor.temperature_bedroom_virtual
-- sensor.temperature_living_virtual
-- sensor.temperature_balcony_virtual
+- sensor.climat_temperature_kitchen_virtual
+- sensor.climat_temperature_bath_virtual
+- sensor.climat_temperature_toilet_virtual
+- sensor.climat_temperature_hall_virtual
+- sensor.climat_temperature_bedroom_virtual
+- sensor.climat_temperature_living_virtual
+- sensor.climat_temperature_balcony_virtual
