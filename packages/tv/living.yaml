@@ -5,8 +5,9 @@ tv_living:
     host: 10.0.1.5
 
   media_player:
-    name: tv_living
+  - platform: androidtv
     device_class: androidtv
+    name: tv_living
     host: 10.0.1.5
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
