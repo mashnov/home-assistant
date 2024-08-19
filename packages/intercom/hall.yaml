@@ -9,6 +9,11 @@ intercom_hall:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_open
 
+  camera:
+  - platform: local_file
+    name: intercom_hall
+    file_path: https://thumb.ac-illust.com/93/936741c854be58c59c5e7910f595cdae_t.jpeg
+
   input_boolean:
     intercom_hall_call:
     intercom_hall_open:
