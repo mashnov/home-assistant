@@ -35,7 +35,7 @@ automation_hall_intercom:
     action:
     - delay: 00:00:02
     - service: lock.unlock
-      entity_id: lock.hall_intercom
+      entity_id: lock.intercom_hall
     - service: script.console
       data:
         message: "Открыто автоматически"
