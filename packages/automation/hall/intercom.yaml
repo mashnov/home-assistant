@@ -13,9 +13,15 @@ automation_hall_intercom:
         {% set parentId = trigger.to_state.context.parent_id %}
         {{ userId == none and parentId == none }}
     action:
+    - service: script.console
+      data:
+        message: "Вызов вкл"
     - service: input_boolean.turn_on
       entity_id: input_boolean.intercom_hall_call
     - delay: 00:00:05
+    - service: script.console
+      data:
+        message: "Вызов выкл"
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
 
