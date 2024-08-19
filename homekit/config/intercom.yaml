@@ -1,5 +1,8 @@
+lock.hall_intercom:
+  name: Домофон
+
 input_boolean.intercom_hall_enabled:
   name: Домофон
 
-lock.hall_intercom:
-  name: Домофон
+binary_sensor.intercom_hall_call:
+  name: Вызов
