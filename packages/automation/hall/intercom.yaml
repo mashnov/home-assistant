@@ -1,6 +1,6 @@
 automation_hall_intercom:
   automation:
-  - alias: automation_hall_night_light_call
+  - alias: automation_hall_intercom_call
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
@@ -19,7 +19,7 @@ automation_hall_intercom:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
 
-  - alias: automation_hall_night_light_auto_open
+  - alias: automation_hall_intercom_auto_open
     trigger: 
     - platform: state
       entity_id: input_boolean.intercom_hall_call
