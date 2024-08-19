@@ -10,7 +10,7 @@ automation_living_cover:
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.cube_living_action
+      entity_id: sensor.living_cube_action
       to: "rotate_right"
     action:
     - service: cover.set_cover_position
@@ -25,7 +25,7 @@ automation_living_cover:
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.cube_living_action
+      entity_id: sensor.living_cube_action
       to: "rotate_left"
     action:
     - service: cover.set_cover_position
