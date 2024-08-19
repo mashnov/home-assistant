@@ -16,8 +16,8 @@ intercom_hall:
 
   template:
   - binary_sensor:
-    - name: intercom_hall_motion
-      unique_id: intercom_hall_motion
+    - name: intercom_hall_call
+      unique_id: intercom_hall_call
       device_class: motion
       state: "{{ is_state('input_boolean.intercom_hall_call', 'on') }}"
 
