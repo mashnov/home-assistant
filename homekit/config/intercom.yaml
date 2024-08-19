@@ -3,8 +3,3 @@ lock.intercom_hall:
 
 input_boolean.intercom_hall_enabled:
   name: Домофон
-
-camera.intercom_hall:
-  support_audio: false
-  linked_doorbell_sensor: binary_sensor.intercom_hall_call
-  linked_motion_sensor: binary_sensor.intercom_hall_call

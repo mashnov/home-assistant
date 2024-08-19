@@ -9,11 +9,6 @@ intercom_hall:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_open
 
-  camera:
-  - platform: local_file
-    name: intercom_hall
-    file_path: /config/www/intercom/call.jpg
-
   input_boolean:
     intercom_hall_call:
     intercom_hall_open:
