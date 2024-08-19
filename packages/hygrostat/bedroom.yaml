@@ -37,5 +37,5 @@ hygrostat_bedroom:
       from: "off"
       to: "on"
     action:
-    - service: input_boolean.turn_off
+    - service: input_boolean.turn_on
       entity_id: input_boolean.hygrostat_bedroom_is_empty
