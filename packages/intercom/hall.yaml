@@ -12,7 +12,7 @@ intercom_hall:
   camera:
   - platform: local_file
     name: intercom_hall
-    file_path: https://thumb.ac-illust.com/93/936741c854be58c59c5e7910f595cdae_t.jpeg
+    file_path: /config/www/intercom/call.jpg
 
   input_boolean:
     intercom_hall_call:
