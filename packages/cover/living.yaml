@@ -7,20 +7,20 @@ cover_living:
         value_template: "{{ states('sensor.cover_living_position') | float > 0 }}"
         open_cover:
         - service: cover.open_cover
-          entity_id: cover.curtain_kitchen
+          entity_id: cover.curtain_living
         close_cover:
         - service: cover.close_cover
-          entity_id: cover.curtain_kitchen
+          entity_id: cover.curtain_living
         stop_cover:
         - service: cover.stop_cover
-          entity_id: cover.curtain_kitchen
+          entity_id: cover.curtain_living
         # set_cover_position:
         # - service: switch.turn_on
-        #   entity_id: cover.curtain_kitchen
+        #   entity_id: cover.curtain_living
 
   template:
   - sensor:
     - name: cover_living_position
       unique_id: cover_living_position
       unit_of_measurement: "%"
-      state: "{{ state_attr('cover.curtain_kitchen', 'position') }}"
+      state: "{{ state_attr('cover.curtain_living', 'position') }}"
