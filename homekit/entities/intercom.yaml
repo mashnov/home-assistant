@@ -1,2 +1,3 @@
-- input_boolean.intercom_hall_enabled
 - lock.hall_intercom
+- binary_sensor,intercom_hall_motion
+- input_boolean.intercom_hall_enabled
