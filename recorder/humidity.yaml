@@ -1,1 +1,4 @@
 - sensor.climat_humidity_average
+- sensor.climat_humidity_kitchen_virtual
+- sensor.climat_humidity_toilet_virtual
+- sensor.climat_humidity_balcony_virtual
