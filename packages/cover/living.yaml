@@ -4,7 +4,8 @@ cover_living:
     covers:
       cover_living:
         device_class: curtain
-        value_template: "{{ states('sensor.cover_living_position') | float > 0 }}"
+        value_template: "{{ state_attr('cover.curtain_living', 'position') | float > 0 }}"
+        position_template: "{{ state_attr('cover.curtain_living', 'position') }}"
         open_cover:
         - service: cover.open_cover
           entity_id: cover.curtain_living
@@ -19,10 +20,3 @@ cover_living:
           entity_id: cover.curtain_living
           data:
             position: "{{ position }}"
-
-  template:
-  - sensor:
-    - name: cover_living_position
-      unique_id: cover_living_position
-      unit_of_measurement: "%"
-      state: "{{ state_attr('cover.curtain_living', 'position') }}"
