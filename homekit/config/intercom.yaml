@@ -1,4 +1,4 @@
-lock.hall_intercom:
+lock.intercom_hall:
   name: Домофон
 
 input_boolean.intercom_hall_enabled:
