@@ -1,0 +1,37 @@
+automation_living_cover:
+  input_number:
+    automation_living_cover_step: 
+      max: 60
+      min: 0
+      # 4
+
+  automation:
+  - alias: automation_living_cover_controll_right
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.cube_living_action
+      to: "rotate_right"
+    action:
+    - service: cover.set_cover_position
+      entity_id: cover.curtain_living
+      data_template:
+        position: >
+          {% set step = states('input_number.automation_living_cover_step') | int(0) %}
+          {% set position = state_attr('cover.curtain_living', 'position') | int(0) + step %}
+          {{ [[0 , position] | max, [100, position] | min] | min }}
+
+  - alias: automation_living_cover_controll_left
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.cube_living_action
+      to: "rotate_right"
+    action:
+    - service: cover.set_cover_position
+      entity_id: cover.curtain_living
+      data_template:
+        position: >
+          {% set step = states('input_number.automation_living_cover_step') | int(0) %}
+          {% set position = state_attr('cover.curtain_living', 'position') | int(0) - step %}
+          {{ [[0 , position] | max, [100, position] | min] | min }}
