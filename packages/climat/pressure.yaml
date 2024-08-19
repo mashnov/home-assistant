@@ -32,25 +32,30 @@ climat_pressure:
   - sensor:
     - name: climat_pressure_kitchen_virtual
       unique_id: climat_pressure_kitchen_virtual
+      device_class: pressure
       unit_of_measurement: mmHg
       state: "{{ states('sensor.pressure_kitchen') | round(1, default = 0) | float }}"
 
     - name: climat_pressure_hall_virtual
       unique_id: climat_pressure_hall_virtual
+      device_class: pressure
       unit_of_measurement: mmHg
       state: "{{ states('sensor.pressure_hall') | round(1, default = 0) | float }}"
 
     - name: climat_pressure_toilet_virtual
       unique_id: climat_pressure_toilet_virtual
+      device_class: pressure
       unit_of_measurement: mmHg
       state: "{{ states('sensor.pressure_toilet') | round(1, default = 0) | float }}"
 
     - name: climat_pressure_bedroom_virtual
       unique_id: climat_pressure_bedroom_virtual
+      device_class: pressure
       unit_of_measurement: mmHg
       state: "{{ states('sensor.pressure_bedroom') | round(1, default = 0) | float }}"
 
     - name: climat_pressure_living_virtual
       unique_id: climat_pressure_living_virtual
+      device_class: pressure
       unit_of_measurement: mmHg
       state: "{{ states('sensor.pressure_living') | round(1, default = 0) | float }}"

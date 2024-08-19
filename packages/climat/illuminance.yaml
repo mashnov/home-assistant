@@ -28,5 +28,6 @@ climat_illuminance:
   - sensor:      
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
+      device_class: illuminance
       unit_of_measurement: lx
       state: "{{ states('sensor.illuminance_balcony') | round(1, default = 0) | float }}"
