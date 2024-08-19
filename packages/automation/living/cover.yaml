@@ -26,7 +26,7 @@ automation_living_cover:
     trigger:
     - platform: state
       entity_id: sensor.cube_living_action
-      to: "rotate_right"
+      to: "rotate_left"
     action:
     - service: cover.set_cover_position
       entity_id: cover.curtain_living
