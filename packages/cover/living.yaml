@@ -14,9 +14,11 @@ cover_living:
         stop_cover:
         - service: cover.stop_cover
           entity_id: cover.curtain_living
-        # set_cover_position:
-        # - service: switch.turn_on
-        #   entity_id: cover.curtain_living
+        set_cover_position:
+        - service: cover.set_cover_position
+          entity_id: cover.curtain_living
+          data:
+            position: {{ position }}
 
   template:
   - sensor:
