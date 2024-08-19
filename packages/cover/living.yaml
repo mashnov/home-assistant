@@ -18,7 +18,7 @@ cover_living:
         - service: cover.set_cover_position
           entity_id: cover.curtain_living
           data:
-            position: {{ position }}
+            position: "{{ position }}"
 
   template:
   - sensor:
