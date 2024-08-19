@@ -34,3 +34,6 @@ intercom_hall:
         entity_id: input_boolean.intercom_hall_open
       - service: switch.turn_off
         entity_id: switch.intercom_hall
+      - service: script.console
+        data:
+          message: "Замок открыт"
