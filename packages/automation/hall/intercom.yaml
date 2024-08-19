@@ -15,12 +15,9 @@ automation_hall_intercom:
     action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.intercom_hall_call
-    - delay: 00:00:05
+    - delay: 00:00:10
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
-    - service: script.console
-      data:
-        message: "Вызов"
 
   - alias: automation_hall_intercom_auto_open
     trigger: 
@@ -33,10 +30,6 @@ automation_hall_intercom:
       entity_id: input_boolean.intercom_hall_enabled
       state: "off"
     action:
-    - delay: 00:00:02
+    - delay: 00:00:01.6
     - service: lock.unlock
       entity_id: lock.intercom_hall
-    - service: script.console
-      data:
-        message: "Открыто автоматически"
-
