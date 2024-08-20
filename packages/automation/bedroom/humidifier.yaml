@@ -33,3 +33,13 @@ automation_bedroom_humidifier:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_bedroom
 
+  - alias: hygrostat_bedroom_humidifier_charged
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.hygrostat_bedroom_is_empty
+      from: "on"
+      to: "off"
+    action:
+    - service: humidifier.turn_on
+      entity_id: humidifier.hygrostat_bedroom

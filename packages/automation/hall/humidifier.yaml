@@ -32,3 +32,14 @@ automation_hall_humidifier:
     action:
     - service: humidifier.turn_off
       entity_id: humidifier.hygrostat_hall
+
+  - alias: hygrostat_hall_humidifier_charged
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.hygrostat_hall_is_empty
+      from: "on"
+      to: "off"
+    action:
+    - service: humidifier.turn_on
+      entity_id: humidifier.hygrostat_hall
