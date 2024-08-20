@@ -28,18 +28,3 @@ automation_kitchen_top_light:
     action:
     - service: light.turn_off
       entity_id: light.light_top_kitchen
-
-  - alias: automation_kitchen_top_light_night
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: input_boolean.is_night_mode
-      from: "off"
-      to: "on"
-    condition:
-    - condition: state
-      entity_id: light.light_top_kitchen
-      state: "on"
-    action:
-    - service: light.turn_off
-      entity_id: light.light_top_kitchen
