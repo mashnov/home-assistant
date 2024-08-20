@@ -9,7 +9,7 @@ automation_bath_top_light:
       to: "on"
     condition:
     - condition: state
-      entity_id: night_mode_hall.is_night_mode
+      entity_id: input_boolean.night_mode_hall
       state: "off"
     action:
     - service: light.turn_on
