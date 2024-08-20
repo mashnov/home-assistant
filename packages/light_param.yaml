@@ -15,7 +15,7 @@ light_param:
     - name: 'light_param_shi_brightness'
       unique_id: light_param_shi_brightness
       state: >
-        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
         {% set nightValue = 50 %}
         {% set dayValue = 255 %}
         {{ iif(isNightMode, nightValue, dayValue) }}

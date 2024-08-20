@@ -21,7 +21,7 @@ notification_homepod:
     - name: 'homepod_volume'
       unique_id: homepod_volume
       state: >
-        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
         {% set nightValue = states('input_number.homepod_volume_night') | float(0) %}
         {% set dayValue = states('input_number.homepod_volume_day') | float(0) %}
         {% set value = iif(isNightMode, nightValue, dayValue) %}

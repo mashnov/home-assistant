@@ -1,0 +1,14 @@
+automation_living_night_mode:
+  automation:
+  - alias: automation_hall_night_mode_toggle
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.living_cube_action
+      to: "fall"
+    - platform: state
+      entity_id: sensor.living_cube_action
+      to: "shake"
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.night_mode_hall

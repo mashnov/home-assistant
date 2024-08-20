@@ -34,7 +34,7 @@ occupancy_hall:
     - name: occupancy_hall_duration
       unique_id: occupancy_hall_duration
       state: >
-        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
         {% set nightValue = states('input_number.occupancy_hall_night') | int(0) %}
         {% set dayValue = states('input_number.occupancy_hall_day') | int(0) %}
         {% set value = iif(isNightMode, nightValue, dayValue) %}

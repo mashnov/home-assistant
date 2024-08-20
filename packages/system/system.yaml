@@ -1,6 +1,6 @@
 system:
   shell_command:
-    rebuild: ha core rebuild
+    system_rebuild: ha core rebuild
 
   template:
   - binary_sensor:
@@ -25,4 +25,4 @@ system:
     system_rebuild:
       mode: 'queued'
       sequence:
-      - service: shell_command.rebuild
+      - service: shell_command.system_rebuild

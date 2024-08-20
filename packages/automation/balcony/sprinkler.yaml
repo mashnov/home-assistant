@@ -1,0 +1,11 @@
+automation_balcony_sprinkler:
+  automation:
+  - alias: automation_balcony_sprinkler_toggle
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: "double"
+    action:
+    - service: switch.turn_on
+      entity_id: switch.relay_balcony_l3

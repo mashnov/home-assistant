@@ -27,7 +27,7 @@ hygrostat_toilet:
     - name: hygrostat_toilet_duration
       unique_id: hygrostat_toilet_duration
       state: >
-        {% set isNightMode = is_state('input_boolean.is_night_mode', 'on') %}
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
         {% set nightValue = states('input_number.hygrostat_toilet_night') | int(0) %}
         {% set dayValue = states('input_number.hygrostat_toilet_day') | int(0) %}
         {% set duration = iif(isNightMode, nightValue, dayValue) %}

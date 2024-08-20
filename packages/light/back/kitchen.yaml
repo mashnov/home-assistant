@@ -22,7 +22,7 @@ light_back_kitchen:
       sequence:
       - if:
         - condition: state
-          entity_id: input_boolean.is_night_mode
+          entity_id: input_boolean.night_mode_hall
           state: "off"
         then:
         - service: switch.turn_on

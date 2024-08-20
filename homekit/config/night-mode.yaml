@@ -1,2 +1,2 @@
-input_boolean.is_night_mode:
+input_boolean.night_mode_hall:
   name: Ночь

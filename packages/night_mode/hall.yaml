@@ -1,0 +1,29 @@
+night_mode_hall:
+  input_datetime:
+    night_mode_hall_on:
+      has_date: false
+      has_time: true
+       # 01:00:00
+    
+    night_mode_hall_off:
+      has_date: false
+      has_time: true
+      # 10:30:00
+
+  input_boolean:
+    night_mode_hall:
+
+  template:
+  - binary_sensor:    
+    - name: night_mode_hall
+      unique_id: night_mode_hall
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S").time() %}
+        {% set till = strptime(states('input_datetime.night_mode_hall_off'), "%H:%M:%S").time() %}
+        {% if from > till %}
+          {{ (from <= current) or (current <= till) }}
+        {% else %}
+          {{ (from <= current) and (current <= till) }}
+        {% endif %}
+
