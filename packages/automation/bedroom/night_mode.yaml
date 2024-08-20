@@ -1,6 +1,6 @@
-automation_living_night_mode:
+automation_bedroom_night_mode:
   automation:
-  - alias: automation_hall_night_mode_toggle
+  - alias: automation_bedroom_night_mode_toggle
     mode: queued
     trigger:
     - platform: state
