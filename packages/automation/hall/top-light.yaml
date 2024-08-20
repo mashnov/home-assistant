@@ -28,3 +28,18 @@ automation_hall_top_light:
     action:
     - service: light.turn_off
       entity_id: light.light_top_hall
+
+  - alias: automation_hall_top_light_night
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.is_night_mode
+      from: "off"
+      to: "on"
+    condition:
+    - condition: state
+      entity_id: light.light_top_hall
+      state: "on"
+    action:
+    - service: light.turn_off
+      entity_id: light.light_top_hall
