@@ -252,9 +252,12 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - service: script.telegramm_send_climat_text
+    - service: script.telegramm_send_home_text_custom_menu
       data_template:
         message: "🧥 Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        navigation: 
+        - '✔️ Запуск :/hygrostat_hall_start'
+        - '❌ Закрыть :/hide_menu'
 
   - alias: 'notification_climat_telegrammhygrostat_empty_bedroom'
     mode: 'queued'
@@ -264,9 +267,12 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - service: script.telegramm_send_climat_text
+    - service: script.telegramm_send_home_text_custom_menu
       data_template:
         message: "🛏️ Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        navigation: 
+        - '✔️ Запуск :/hygrostat_living_start'
+        - '❌ Закрыть :/hide_menu'
 
   - alias: 'notification_climat_telegrammhygrostat_empty_living'
     mode: 'queued'
@@ -276,9 +282,12 @@ notification:
       from: 'off'
       to: 'on'
     action:
-    - service: script.telegramm_send_climat_text
+    - service: script.telegramm_send_home_text_custom_menu
       data_template:
         message: "🛋️ Закончилась вода в увлажнителе ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+        navigation: 
+        - '✔️ Запуск :/hygrostat_living_start'
+        - '❌ Закрыть :/hide_menu'
 
 ###
 ## SYSTEM
