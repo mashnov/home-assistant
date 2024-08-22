@@ -4,7 +4,7 @@ automation_hall_night_mode:
     mode: queued
     trigger:
     - platform: state
-      entity_id: "binary_sensor.is_night_mode"
+      entity_id: "binary_sensor.night_mode_hall"
       from: "off"
       to: "on"
     action:
@@ -15,7 +15,7 @@ automation_hall_night_mode:
     mode: queued
     trigger:
     - platform: state
-      entity_id: "binary_sensor.is_night_mode"
+      entity_id: "binary_sensor.night_mode_hall"
       from: "on"
       to: "off"
     action:
