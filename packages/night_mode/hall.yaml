@@ -14,15 +14,6 @@ night_mode_hall:
     night_mode_hall:
 
   template:
-  - sensor:
-    - name: night_mode_hall_from
-      unique_id: night_mode_hall_from
-      state: "{{ strptime(states('input_datetime.night_mode_hall_on'), '%H:%M:%S').time() }}"
-
-    - name: night_mode_hall_till
-      unique_id: night_mode_hall_till
-      state: "{{ strptime(states('input_datetime.night_mode_hall_off'), '%H:%M:%S').time() }}"
-
   - binary_sensor:
     - name: night_mode_hall
       unique_id: night_mode_hall
