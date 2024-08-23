@@ -8,7 +8,7 @@ occupancy_toilet:
 
   input_number:
     occupancy_toilet: 
-      max: 30
+      max: 60
       min: 1
       # 10
 
