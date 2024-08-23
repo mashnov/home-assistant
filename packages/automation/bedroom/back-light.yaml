@@ -21,3 +21,13 @@ automation_bedroom_back_light:
     action:
     - service: light.turn_off
       entity_id: light.light_back_bedroom
+
+  - alias: automation_bedroom_back_light_toggle
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.cube_bedroom_action
+      to: flip90
+    action:
+    - service: light.toggle
+      entity_id: light.light_back_bedroom
