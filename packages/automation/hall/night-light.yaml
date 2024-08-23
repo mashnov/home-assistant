@@ -24,3 +24,18 @@ automation_hall_night_light:
     action:
     - service: light.turn_off
       entity_id: light.night_light_hall
+
+  - alias: automation_hall_night_light_param
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.light_night_hall_brightness
+    condition:
+    - condition: state
+      entity_id: light.night_light_hall
+      state: "on"
+    action:
+    - service: light.turn_off
+      entity_id: light.night_light_hall
+      data_template:
+        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
