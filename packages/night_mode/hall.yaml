@@ -35,4 +35,3 @@ night_mode_hall:
         {% else %}
           {{ (from <= current) and (current <= till) }}
         {% endif %}
-

@@ -31,3 +31,33 @@ automation_hall_night_mode:
     action:
     - service: input_boolean.toggle
       entity_id: input_boolean.night_mode_hall
+
+  - alias: automation_hall_night_mode_auto_on
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: "binary_sensor.occupancy_hall"
+      from: "on"
+      to: "off"
+    condition:
+    - condition: time
+      after: "{{ states('sensor.night_mode_hall_from') }}"
+    action:
+    - service: script.console
+      data:
+        message: "hall_night_mode_auto_on"
+
+  - alias: automation_hall_night_mode_auto_off
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: "binary_sensor.occupancy_hall"
+      from: "off"
+      to: "on"
+    condition:
+    - condition: time
+      after: "{{ states('sensor.night_mode_hall_till') }}"
+    action:
+    - service: script.console
+      data:
+        message: "automation_hall_night_mode_auto_off"
