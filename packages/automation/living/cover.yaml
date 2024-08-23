@@ -5,7 +5,43 @@ automation_living_cover:
       min: 0
       # 4
 
+    automation_living_cover_day: 
+      max: 100
+      min: 0
+      # 5
+
+    automation_living_cover_night: 
+      max: 100
+      min: 0
+      # 55
+
   automation:
+  - alias: automation_living_cover_day
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.night_mode_hall
+      from: "on"
+      to: "off"
+    action:
+    - service: cover.set_cover_position
+      entity_id: cover.curtain_living
+      data_template:
+        position: "{{ states('input_number.automation_living_cover_day') | int(0) }}"
+
+  - alias: automation_living_cover_night
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.night_mode_hall
+      from: "off"
+      to: "on"
+    action:
+    - service: cover.set_cover_position
+      entity_id: cover.curtain_living
+      data_template:
+        position: "{{ states('input_number.automation_living_cover_night') | int(0) }}"
+
   - alias: automation_living_cover_controll_right
     mode: queued
     trigger:
