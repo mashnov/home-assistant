@@ -69,4 +69,4 @@ climat_temperature:
       unique_id: climat_temperature_balcony_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_balcony') | round(1, default = 0) | float }}"
+      state: "{{ states('sensor.ble_temperature_thermometer_balcony') | round(1, default = 0) | float }}"
