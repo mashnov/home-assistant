@@ -14,6 +14,8 @@ automation_kitchen_top_light:
     - condition: numeric_state
       entity_id: sensor.climat_illuminance_virtual
       below: 1000
+    - condition: time
+      before: 22:00:00
     action:
     - service: light.turn_on
       entity_id: light.light_top_kitchen
