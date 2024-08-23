@@ -26,7 +26,7 @@ climat_illuminance:
         invert: true
 
   template:
-  - sensor:      
+  - sensor:
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
       device_class: illuminance

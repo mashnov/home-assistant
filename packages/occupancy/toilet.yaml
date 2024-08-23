@@ -2,7 +2,7 @@ occupancy_toilet:
   input_boolean:
     occupancy_toilet:
 
-  timer:    
+  timer:
     occupancy_toilet:
       duration: 00:00:10
 

@@ -1,5 +1,5 @@
 light_night_hall:
-  input_number:    
+  input_number:
     light_night_hall_night_brightness: 
       max: 255
       min: 1

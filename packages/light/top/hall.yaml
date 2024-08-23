@@ -10,7 +10,7 @@ light_top_hall:
     - light.light_xiaomi_hall_5
     - light.light_xiaomi_hall_6
   
-  input_number:    
+  input_number:
     light_top_hall_night_brightness: 
       max: 255
       min: 1

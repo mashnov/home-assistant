@@ -30,7 +30,7 @@ occupancy_hall:
         {% set boolean = is_state('input_boolean.occupancy_hall', 'on') %}
         {{ sensor or boolean }}      
 
-  - sensor:    
+  - sensor:
     - name: occupancy_hall_duration
       unique_id: occupancy_hall_duration
       state: >

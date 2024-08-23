@@ -8,14 +8,14 @@ hygrostat_living:
   input_boolean:
     hygrostat_living_is_empty:
 
-  input_number:    
+  input_number:
     hygrostat_living_power_offset: 
       max: 60
       min: 0
       # 10
 
   template:
-  - binary_sensor:    
+  - binary_sensor:
     - name: hygrostat_living_is_empty
       unique_id: hygrostat_living_is_empty
       device_class: moisture
