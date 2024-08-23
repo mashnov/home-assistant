@@ -16,15 +16,15 @@ climat_humidity:
     sensors:
       climat_humidity_is_increasing:
         entity_id: sensor.climat_humidity_average
-        sample_duration: 1800
-        max_samples: 30
-        min_samples: 5
-
+        sample_duration: 7200
+        max_samples: 120
+        min_samples: 20
+        
       climat_humidity_is_decreasing:
         entity_id: sensor.climat_humidity_average
-        sample_duration: 1800
-        max_samples: 30
-        min_samples: 5
+        sample_duration: 7200
+        max_samples: 120
+        min_samples: 20
         invert: true
 
   template:

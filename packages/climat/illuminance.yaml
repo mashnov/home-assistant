@@ -13,15 +13,16 @@ climat_illuminance:
     sensors:
       climat_illuminance_is_increasing:
         entity_id: sensor.climat_illuminance_virtual
-        sample_duration: 1800
-        max_samples: 30
-        min_samples: 5
+        sample_duration: 7200
+        max_samples: 120
+        min_samples: 20
+        
 
       climat_illuminance_is_decreasing:
         entity_id: sensor.climat_illuminance_virtual
-        sample_duration: 1800
-        max_samples: 30
-        min_samples: 5
+        sample_duration: 7200
+        max_samples: 120
+        min_samples: 20
         invert: true
 
   template:
