@@ -29,8 +29,8 @@ light_top_hall:
         {% set temperature = (maxValue / 100 * (100 - percent)) | round %}
         {{ max(minValue, temperature) }}
 
-    - name: 'light_night_hall_brightness'
-      unique_id: light_night_hall_brightness
+    - name: 'light_top_hall_brightness'
+      unique_id: light_top_hall_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
         {% set nightValue = states('sensor.light_top_hall_night_brightness') | int(1) %}

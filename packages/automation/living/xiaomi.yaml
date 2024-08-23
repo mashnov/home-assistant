@@ -4,7 +4,7 @@ automation_living_xiaomi:
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -19,14 +19,14 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_1
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
 
   - alias: automation_living_xiaomi_2_param
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -41,14 +41,14 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_2
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
 
   - alias: automation_living_xiaomi_3_param
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -63,14 +63,14 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_3
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
 
   - alias: automation_living_xiaomi_4_param
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -85,14 +85,14 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_4
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
 
   - alias: automation_living_xiaomi_5_param
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -107,14 +107,14 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_5
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
 
   - alias: automation_living_xiaomi_6_param
     mode: queued
     trigger:
     - platform: state
-      entity_id: sensor.light_night_hall_brightness
+      entity_id: sensor.light_top_hall_brightness
     - platform: state
       entity_id: sensor.light_top_hall_temperature
     - platform: state
@@ -129,5 +129,5 @@ automation_living_xiaomi:
     - service: light.turn_off
       entity_id: light.light_xiaomi_living_6
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_top_hall_brightness') }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') }}"
