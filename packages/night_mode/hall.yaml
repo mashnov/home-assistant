@@ -19,10 +19,38 @@ night_mode_hall:
       unique_id: night_mode_hall
       state: >
         {% set current = now().time() %}
-        {% set from = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S").time() %}
-        {% set till = strptime(states('input_datetime.night_mode_hall_off'), "%H:%M:%S").time() %}
-        {% if from > till %}
-          {{ (from <= current) or (current <= till) }}
+        {% set from_time = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S").time() %}
+        {% set till_time = strptime(states('input_datetime.night_mode_hall_off'), "%H:%M:%S").time() %}
+        {% if from_time > till_time %}
+          {{ (from_time <= current) or (current <= till_time) }}
         {% else %}
-          {{ (from <= current) and (current <= till) }}
+          {{ (from_time <= current) and (current <= till_time) }}
+        {% endif %}
+
+    - name: night_mode_hall_on_time
+      unique_id: night_mode_hall_on_time
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S") %}
+        {% set till = strptime(states('input_datetime.night_mode_hall_off'), "%H:%M:%S") %}
+        {% set from_time = (from - timedelta(hours=1)).time() %}
+        {% set till_time = till.time() %}
+        {% if from_time > till_time %}
+          {{ (from_time <= current) or (current <= till_time) }}
+        {% else %}
+          {{ (from_time <= current) and (current <= till_time) }}
+        {% endif %}
+
+    - name: night_mode_hall_off_time
+      unique_id: night_mode_hall_off_time
+      state: >
+        {% set current = now().time() %}
+        {% set from = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S") %}
+        {% set till = strptime(states('input_datetime.night_mode_hall_off'), "%H:%M:%S") %}
+        {% set from_time = from.time() %}
+        {% set till_time = (till + timedelta(hours=1)).time() %}
+        {% if from_time > till_time %}
+          {{ (from_time <= current) or (current <= till_time) }}
+        {% else %}
+          {{ (from_time <= current) and (current <= till_time) }}
         {% endif %}
