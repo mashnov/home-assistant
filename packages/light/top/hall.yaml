@@ -10,3 +10,29 @@ light_top_hall:
     - light.light_xiaomi_hall_5
     - light.light_xiaomi_hall_6
   
+  input_number:    
+    light_top_hall_night_brightness: 
+      max: 255
+      min: 1
+      # 50
+
+  template:
+  - sensor:
+    - name: 'light_top_hall_temperature'
+      unique_id: light_top_hall_temperature
+      state: >
+        {% set minValue = 175 %}
+        {% set maxValue = 333 %}
+        {% set target = states('sensor.climat_illuminance_max') | int(1) %}
+        {% set sensor = states('sensor.climat_illuminance_virtual') | int(0) %}
+        {% set percent = min((sensor / max(1, target) ) * 100, 100) | round %}
+        {% set temperature = (maxValue / 100 * (100 - percent)) | round %}
+        {{ max(minValue, temperature) }}
+
+    - name: 'light_night_hall_brightness'
+      unique_id: light_night_hall_brightness
+      state: >
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
+        {% set nightValue = states('sensor.light_top_hall_night_brightness') | int(1) %}
+        {% set dayValue = 255 %}
+        {{ iif(isNightMode, nightValue, dayValue) }}

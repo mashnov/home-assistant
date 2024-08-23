@@ -1,0 +1,22 @@
+light_night_hall:
+  input_number:    
+    light_night_hall_night_brightness: 
+      max: 255
+      min: 1
+      # 50
+
+  template:
+  - sensor:
+    - name: 'light_night_hall_brightness'
+      unique_id: light_night_hall_brightness
+      state: >
+        {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
+        {% set nightValue = states('sensor.light_night_hall_night_brightness') | int(1) %}
+        {% set dayValue = 255 %}
+        {{ iif(isNightMode, nightValue, dayValue) }}
+
+        # - service: light.turn_on
+        #   entity_id: light.xiaomi_light_kitchen
+        #   data_template:
+        #     brightness: "255"
+        #     color_temp: "{{ states('sensor.light_param_temperature') | int(333) }}"
