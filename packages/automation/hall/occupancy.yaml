@@ -1,29 +1,29 @@
-automation_bath_occupancy:
+automation_hall_occupancy:
   automation:
-  - alias: automation_bath_occupancy_on
+  - alias: automation_hall_occupancy_on
     mode: queued
     trigger:
     - platform: state
       entity_id: sensor.restroom_switch_action
-      to: "single_left"
+      to: "single_right"
     condition:
     - condition: state
-      entity_id: input_boolean.occupancy_bath
+      entity_id: input_boolean.occupancy_hall
       state: "off"
     action:
     - service: input_boolean.turn_on
-      entity_id: input_boolean.occupancy_bath
+      entity_id: input_boolean.occupancy_hall
 
-  - alias: automation_bath_occupancy_off
+  - alias: automation_hall_occupancy_off
     mode: queued
     trigger:
     - platform: state
       entity_id: sensor.restroom_switch_action
-      to: "single_left"
+      to: "single_right"
     condition:
     - condition: state
-      entity_id: input_boolean.occupancy_bath
+      entity_id: input_boolean.occupancy_hall
       state: "on"
     action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.occupancy_bath
+      entity_id: input_boolean.occupancy_hall
