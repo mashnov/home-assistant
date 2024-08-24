@@ -12,17 +12,10 @@ climat_illuminance:
   - platform: trend
     sensors:
       climat_illuminance_is_increasing:
-        entity_id: sensor.climat_illuminance_virtual
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
-        
+        entity_id: sensor.climat_illuminance_virtual        
 
       climat_illuminance_is_decreasing:
         entity_id: sensor.climat_illuminance_virtual
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
         invert: true
 
   template:

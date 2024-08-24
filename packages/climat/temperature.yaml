@@ -16,15 +16,9 @@ climat_temperature:
     sensors:
       climat_temperature_is_increasing:
         entity_id: sensor.climat_temperature_average
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
         
       climat_temperature_is_decreasing:
         entity_id: sensor.climat_temperature_average
-        sample_duration: 7200
-        max_samples: 120
-        min_samples: 20
         invert: true
 
   template:
