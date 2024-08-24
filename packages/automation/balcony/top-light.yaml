@@ -42,8 +42,8 @@ automation_balcony_top_light:
       to: "off"
     - platform: state
       entity_id: input_boolean.occupancy_balcony
-      from: "off"
-      to: "on"
+      from: "on"
+      to: "off"
     condition:
     - condition: state
       entity_id: light.light_top_balcony
