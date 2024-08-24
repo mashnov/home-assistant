@@ -1,25 +1,49 @@
 automation_bath_top_light:
   automation:
-  - alias: automation_bath_top_light_on
+  - alias: automation_bath_top_light_on_by_motion
     mode: queued
     trigger:
     - platform: state
       entity_id: binary_sensor.occupancy_bath
       from: "off"
       to: "on"
+    condition:
+    - condition: state
+      entity_id: light.light_top_bath
+      state: "off"
+    - condition: state
+      entity_id: input_boolean.night_mode_hall
+      state: "off"
+    action:
+    - service: light.turn_on
+      entity_id: light.light_top_bath
+
+  - alias: automation_bath_top_light_on_by_switch
+    mode: queued
+    trigger:
     - platform: state
       entity_id: input_boolean.occupancy_bath
       from: "off"
       to: "on"
     condition:
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: input_boolean.occupancy_bath
-        state: "on"
-      - condition: state
-        entity_id: input_boolean.night_mode_hall
-        state: "off"
+    - condition: state
+      entity_id: light.light_top_bath
+      state: "off"
+    action:
+    - service: light.turn_on
+      entity_id: light.light_top_bath
+
+  - alias: automation_bath_top_light_on_by_morning
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.night_mode_hall
+      from: "on"
+      to: "off"
+    condition:
+    - condition: state
+      entity_id: binary_sensor.occupancy_bath
+      state: "on"
     action:
     - service: light.turn_on
       entity_id: light.light_top_bath
@@ -35,21 +59,10 @@ automation_bath_top_light:
       entity_id: input_boolean.occupancy_bath
       from: "off"
       to: "on"
-    action:
-    - service: light.turn_off
-      entity_id: light.light_top_bath
-
-  - alias: automation_bath_top_light_night_mode
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: input_boolean.night_mode_hall
-      from: "on"
-      to: "off"
     condition:
     - condition: state
-      entity_id: binary_sensor.occupancy_bath
+      entity_id: light.light_top_bath
       state: "on"
     action:
-    - service: light.turn_on
+    - service: light.turn_off
       entity_id: light.light_top_bath
