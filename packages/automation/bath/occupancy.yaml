@@ -39,21 +39,19 @@ automation_bath_occupancy:
       entity_id: input_boolean.occupancy_bath
       state: "off"
     action:
-    - service: script.console
-      data:
-        message: "single_left"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.occupancy_bath
 
   - alias: automation_bath_occupancy_test_2
     mode: queued
     trigger:
     - platform: state
       entity_id: sensor.restroom_switch_action
-      to: "single_right"
+      to: "single_left"
     condition:
     - condition: state
       entity_id: input_boolean.occupancy_bath
-      state: "off"
+      state: "on"
     action:
-    - service: script.console
-      data:
-        message: "single_right"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_bath
