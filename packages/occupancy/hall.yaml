@@ -7,13 +7,13 @@ occupancy_hall:
       step: 0.5
       max: 10
       min: 1
-      # 2
+      # 2.5
 
     occupancy_hall_night: 
       step: 0.5
       max: 10
       min: 0
-      # 0.5
+      # 1.5
 
   template:
   - binary_sensor:
@@ -21,7 +21,7 @@ occupancy_hall:
       unique_id: occupancy_hall_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_hall_duration') }}"
+      delay_off: "{{ states('sensor.occupancy_hall_duration') | default('00:01:30') }}"
 
     - name: occupancy_hall
       unique_id: occupancy_hall

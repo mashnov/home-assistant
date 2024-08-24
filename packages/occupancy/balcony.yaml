@@ -7,7 +7,7 @@ occupancy_balcony:
       step: 0.5
       max: 10
       min: 1
-      # 2
+      # 2.5
 
   template:
   - binary_sensor:
@@ -15,7 +15,7 @@ occupancy_balcony:
       unique_id: occupancy_balcony_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.balcony_motion_occupancy', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_balcony_duration') }}"
+      delay_off: "{{ states('sensor.occupancy_balcony_duration') | default('00:02:30') }}"
 
     - name: occupancy_balcony
       unique_id: occupancy_balcony

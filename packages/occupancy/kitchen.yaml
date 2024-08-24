@@ -7,13 +7,13 @@ occupancy_kicthen:
       step: 0.5
       max: 10
       min: 1
-      # 4
+      # 4.5
 
     occupancy_kitchen_night: 
       step: 0.5
       max: 10
       min: 0
-      # 0.5
+      # 1.5
 
   template:
   - binary_sensor:
@@ -21,7 +21,7 @@ occupancy_kicthen:
       unique_id: occupancy_kitchen_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_kitchen_duration') }}"
+      delay_off: "{{ states('sensor.occupancy_kitchen_duration') | default('00:01:30') }}"
       
     - name: occupancy_kitchen
       unique_id: occupancy_kitchen
