@@ -33,6 +33,6 @@ light_top_hall:
       unique_id: light_top_hall_brightness
       state: >
         {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
-        {% set nightValue = states('sensor.light_top_hall_night_brightness') | int(1) %}
+        {% set nightValue = states('input_number.light_top_hall_night_brightness') | int(1) %}
         {% set dayValue = 255 %}
         {{ iif(isNightMode, nightValue, dayValue) }}
