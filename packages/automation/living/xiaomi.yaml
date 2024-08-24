@@ -16,7 +16,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_1
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_1
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
@@ -38,7 +38,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_2
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_2
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
@@ -60,7 +60,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_3
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_3
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
@@ -82,7 +82,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_4
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_4
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
@@ -104,7 +104,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_5
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_5
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
@@ -126,7 +126,7 @@ automation_living_xiaomi:
       entity_id: light.light_xiaomi_living_6
       state: "on"
     action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: light.light_xiaomi_living_6
       data_template:
         brightness: "{{ states('sensor.light_top_hall_brightness') }}"
