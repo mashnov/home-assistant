@@ -4,6 +4,7 @@ occupancy_kicthen:
    
   input_number:
     occupancy_kitchen_day:
+      step: 0.5
       max: 10
       min: 1
       # 4

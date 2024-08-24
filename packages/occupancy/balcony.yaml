@@ -4,6 +4,7 @@ occupancy_balcony:
 
   input_number:
     occupancy_balcony: 
+      step: 0.5
       max: 10
       min: 1
       # 2

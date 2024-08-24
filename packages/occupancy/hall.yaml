@@ -4,6 +4,7 @@ occupancy_hall:
 
   input_number:
     occupancy_hall_day: 
+      step: 0.5
       max: 10
       min: 1
       # 2

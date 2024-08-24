@@ -4,6 +4,7 @@ occupancy_bath:
 
   input_number:
     occupancy_bath_day: 
+      step: 0.5
       max: 10
       min: 1
       # 3
