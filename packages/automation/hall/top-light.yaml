@@ -31,6 +31,10 @@ automation_hall_top_light:
       entity_id: binary_sensor.occupancy_hall
       from: "on"
       to: "off"
+    - platform: state
+      entity_id: input_boolean.occupancy_hall
+      from: "off"
+      to: "on"
     action:
     - service: light.turn_off
       entity_id: light.light_top_hall
