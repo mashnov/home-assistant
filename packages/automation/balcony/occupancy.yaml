@@ -15,7 +15,11 @@ automation_balcony_occupancy:
         sequence:
         - service: input_boolean.turn_on
           entity_id: input_boolean.occupancy_balcony
-        - delay: 00:00:10
+        - service: light.turn_on
+          entity_id: light.light_back_bath
+        - service: light.turn_on
+          entity_id: light.light_top_bath
+        - delay: 00:15:00
         - service: input_boolean.turn_off
           entity_id: input_boolean.occupancy_balcony
       - conditions:
