@@ -1,0 +1,11 @@
+automation_balcony_occupancy:
+  automation:
+  - alias: automation_balcony_occupancy_toggle
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.balcony_button_action
+      to: "single"
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.occupancy_balcony
