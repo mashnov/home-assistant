@@ -1,6 +1,6 @@
 automation_bath_occupancy:
   automation:
-  - alias: automation_bath_occupancy_on
+  - alias: automation_bath_occupancy
     mode: queued
     trigger:
     - platform: state
