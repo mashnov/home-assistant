@@ -11,9 +11,6 @@ automation_hall_top_light:
     - condition: state
       entity_id: input_boolean.night_mode_hall
       state: "off"
-    - condition: numeric_state
-      entity_id: sensor.climat_illuminance_virtual
-      below: 4000
     action:
     - service: light.turn_on
       entity_id: light.light_top_hall
@@ -27,4 +24,19 @@ automation_hall_top_light:
       to: "off"
     action:
     - service: light.turn_off
+      entity_id: light.light_top_hall
+
+  - alias: automation_hall_top_light_night_mode
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: input_boolean.night_mode_hall
+      from: "on"
+      to: "off"
+    condition:
+    - condition: state
+      entity_id: binary_sensor.occupancy_hall
+      state: "on"
+    action:
+    - service: light.turn_on
       entity_id: light.light_top_hall
