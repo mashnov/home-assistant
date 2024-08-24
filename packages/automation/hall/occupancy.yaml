@@ -15,6 +15,9 @@ automation_hall_occupancy:
         sequence:
         - service: input_boolean.turn_on
           entity_id: input_boolean.occupancy_hall
+        - delay: 00:00:10
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.occupancy_hall
       - conditions:
         - condition: state
           entity_id: input_boolean.occupancy_hall
