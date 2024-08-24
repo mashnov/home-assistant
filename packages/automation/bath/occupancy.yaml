@@ -36,7 +36,7 @@ automation_bath_occupancy:
       to: "single_left"
     condition:
     - condition: state
-      entity_id: input_boolean.occupancy_toilet
+      entity_id: input_boolean.occupancy_bath
       state: "off"
     action:
     - service: script.console
@@ -51,7 +51,7 @@ automation_bath_occupancy:
       to: "single_right"
     condition:
     - condition: state
-      entity_id: input_boolean.occupancy_toilet
+      entity_id: input_boolean.occupancy_bath
       state: "off"
     action:
     - service: script.console
