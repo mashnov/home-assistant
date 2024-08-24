@@ -7,6 +7,10 @@ automation_balcony_top_light:
       entity_id: binary_sensor.occupancy_balcony
       from: "off"
       to: "on"
+    - platform: state
+      entity_id: input_boolean.occupancy_balcony
+      from: "off"
+      to: "on"
     condition:
     - condition: or
       conditions:
