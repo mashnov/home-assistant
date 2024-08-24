@@ -16,9 +16,11 @@ climat_humidity:
     sensors:
       climat_humidity_is_increasing:
         entity_id: sensor.climat_humidity_average
+        sample_duration: 3600
         
       climat_humidity_is_decreasing:
         entity_id: sensor.climat_humidity_average
+        sample_duration: 3600
         invert: true
 
   template:

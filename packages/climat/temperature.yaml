@@ -16,9 +16,11 @@ climat_temperature:
     sensors:
       climat_temperature_is_increasing:
         entity_id: sensor.climat_temperature_average
+        sample_duration: 3600
         
       climat_temperature_is_decreasing:
         entity_id: sensor.climat_temperature_average
+        sample_duration: 3600
         invert: true
 
   template:
