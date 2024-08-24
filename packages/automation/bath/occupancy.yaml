@@ -34,6 +34,10 @@ automation_bath_occupancy:
     - platform: state
       entity_id: sensor.restroom_switch_action
       to: "single_left"
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: "off"
     action:
     - service: script.console
       data:
@@ -45,6 +49,10 @@ automation_bath_occupancy:
     - platform: state
       entity_id: sensor.restroom_switch_action
       to: "single_right"
+    condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_toilet
+      state: "off"
     action:
     - service: script.console
       data:
