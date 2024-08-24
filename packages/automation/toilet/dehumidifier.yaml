@@ -4,13 +4,16 @@ automation_toilet_dehumidifier:
     mode: queued
     trigger:
     - platform: state
-      entity_id: binary_sensor.occupancy_toilet
-      from: "on"
-      to: "off"
+      entity_id: binary_sensor.contact_toilet_door_virtual
+      from: "off"
+      to: "on"
     condition:
     - condition: state
       entity_id: fan.hygrostat_toilet
       state: "off"
+    - condition: state
+      entity_id: binary_sensor.occupancy_toilet
+      state: "on"
     action:
     - service: fan.turn_on
       entity_id: fan.hygrostat_toilet
