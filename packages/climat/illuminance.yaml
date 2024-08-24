@@ -13,9 +13,11 @@ climat_illuminance:
     sensors:
       climat_illuminance_is_increasing:
         entity_id: sensor.climat_illuminance_virtual        
+        sample_duration: 600
 
       climat_illuminance_is_decreasing:
         entity_id: sensor.climat_illuminance_virtual
+        sample_duration: 600
         invert: true
 
   template:
