@@ -8,15 +8,23 @@ climat_illuminance:
     max_age:
       days: 1
 
+  - name: climat_illuminance_average
+    unique_id: climat_illuminance_average
+    platform: statistics
+    entity_id: sensor.climat_illuminance_virtual
+    state_characteristic: average_timeless
+    max_age:
+      minutes: 10
+
   binary_sensor:
   - platform: trend
     sensors:
       climat_illuminance_is_increasing:
-        entity_id: sensor.climat_illuminance_virtual        
+        entity_id: sensor.climat_illuminance_average        
         sample_duration: 600
 
       climat_illuminance_is_decreasing:
-        entity_id: sensor.climat_illuminance_virtual
+        entity_id: sensor.climat_illuminance_average
         sample_duration: 600
         invert: true
 
