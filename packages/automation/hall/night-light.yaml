@@ -38,4 +38,5 @@ automation_hall_night_light:
     - service: light.turn_on
       entity_id: light.night_light_hall
       data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') }}"
+        brightness: "{{ states('sensor.light_night_hall_brightness') | int(50) }}"
+        hs_color: [24, 95]
