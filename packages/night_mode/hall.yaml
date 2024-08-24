@@ -32,7 +32,7 @@ night_mode_hall:
       state: >
         {% set current = now().time() %}
         {% set till = strptime(states('input_datetime.night_mode_hall_on'), "%H:%M:%S") %}
-        {% set from_time = (till - timedelta(minutes = 60)).time() %}
+        {% set from_time = (till - timedelta(minutes = 30)).time() %}
         {% set till_time = till.time() %}
         {% if from_time > till_time %}
           {{ (from_time <= current) or (current <= till_time) }}

@@ -11,6 +11,25 @@ automation_hall_night_mode:
     - service: input_boolean.turn_on
       entity_id: input_boolean.night_mode_hall
 
+  - alias: automation_hall_night_mode_on_by_motion
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_hall
+      from: "on"
+      to: "off"
+      for: 00:15:00
+    condition:
+    - condition: state
+      entity_id: binary_sensor.night_mode_hall_on_time
+      state: "on"
+    - condition: state
+      entity_id: input_boolean.night_mode_hall
+      state: "off"
+    action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.night_mode_hall
+
   - alias: automation_hall_night_mode_off_by_time
     mode: queued
     trigger:
@@ -22,3 +41,30 @@ automation_hall_night_mode:
     - service: input_boolean.turn_off
       entity_id: input_boolean.night_mode_hall
 
+  - alias: automation_hall_night_mode_off_by_motion
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.occupancy_hall
+      from: "off"
+      to: "on"
+    condition:
+    - condition: state
+      entity_id: binary_sensor.night_mode_hall_off_time
+      state: "on"
+    - condition: state
+      entity_id: input_boolean.night_mode_hall
+      state: "on"
+    action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.night_mode_hall
+
+  - alias: automation_hall_night_mode_toggle
+    mode: queued
+    trigger:
+    - platform: state
+      entity_id: sensor.restroom_switch_action
+      to: "single_both"
+    action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.night_mode_hall
