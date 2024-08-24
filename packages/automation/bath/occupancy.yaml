@@ -13,6 +13,9 @@ automation_bath_occupancy:
     action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.occupancy_bath
+    - service: script.console
+      data:
+        message: 'on'
 
   - alias: automation_bath_occupancy_off
     mode: queued
@@ -27,31 +30,6 @@ automation_bath_occupancy:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_bath
-
-  - alias: automation_bath_occupancy_test
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: sensor.restroom_switch_action
-      to: "single_left"
-    condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_bath
-      state: "off"
-    action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.occupancy_bath
-
-  - alias: automation_bath_occupancy_test_2
-    mode: queued
-    trigger:
-    - platform: state
-      entity_id: sensor.restroom_switch_action
-      to: "single_left"
-    condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_bath
-      state: "on"
-    action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.occupancy_bath
+    - service: script.console
+      data:
+        message: 'off'
