@@ -30,7 +30,7 @@ automation_bath_occupancy:
       entity_id: input_boolean.occupancy_bath
       from: "off"
       to: "on"
-      for: 00:00:10
+      for: 00:30:00
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.occupancy_bath
