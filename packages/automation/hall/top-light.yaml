@@ -8,9 +8,14 @@ automation_hall_top_light:
       from: "off"
       to: "on"
     condition:
-    - condition: state
-      entity_id: input_boolean.night_mode_hall
-      state: "off"
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_hall
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.night_mode_hall
+        state: "off"
     action:
     - service: light.turn_on
       entity_id: light.light_top_hall

@@ -8,9 +8,14 @@ automation_balcony_top_light:
       from: "off"
       to: "on"
     condition:
-    - condition: numeric_state
-      entity_id: sensor.climat_illuminance_virtual
-      below: 50
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_balcony
+        state: "on"
+      - condition: numeric_state
+        entity_id: sensor.climat_illuminance_virtual
+        below: 50
     action:
     - service: light.turn_on
       entity_id: light.light_top_balcony
@@ -25,4 +30,3 @@ automation_balcony_top_light:
     action:
     - service: light.turn_off
       entity_id: light.light_top_balcony
-
