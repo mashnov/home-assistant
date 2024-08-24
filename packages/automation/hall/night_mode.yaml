@@ -21,3 +21,4 @@ automation_hall_night_mode:
     action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.night_mode_hall
+
