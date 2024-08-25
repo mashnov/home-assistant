@@ -19,5 +19,5 @@ sensor.climat_temperature_living_virtual:
 sensor.climat_temperature_balcony_virtual:
   name: Температура
 
-sensor.system_monitor_processor_temperature:
+sensor.processor_temperature:
   name: Процессор
