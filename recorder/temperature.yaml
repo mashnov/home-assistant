@@ -1,3 +1,4 @@
+- sensor.system_monitor_processor_temperature
 - sensor.climat_temperature_average
 - sensor.climat_temperature_kitchen_virtual
 - sensor.climat_temperature_bath_virtual
