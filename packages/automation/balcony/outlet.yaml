@@ -5,7 +5,7 @@ automation_balcony_outlet:
     trigger:
     - platform: state
       entity_id: sensor.balcony_button_action
-      to: "single"
+      to: "double"
     action:
     - service: switch.turn_on
       entity_id: switch.relay_balcony_l4
