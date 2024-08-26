@@ -1,28 +1,19 @@
 contact_bedroom_window:
-  input_boolean:
-    contact_bedroom_window_left:
-    contact_bedroom_window_right:
-
   template:
   - binary_sensor:
     - name: contact_bedroom_window_left_virtual
       unique_id: contact_bedroom_window_left_virtual
       device_class: window
-      state: >
-        {% set sensor = is_state('binary_sensor.window_bedroom_left', 'on') %}
-        {% set boolean = is_state('input_boolean.contact_bedroom_window_left', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.window_bedroom_left', 'on') }}"
 
     - name: contact_bedroom_window_right_virtual
       unique_id: contact_bedroom_window_right_virtual
       device_class: window
-      state: >
-        {% set sensor = is_state('binary_sensor.window_bedroom_right', 'on') %}
-        {% set boolean = is_state('input_boolean.contact_bedroom_window_right', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.window_bedroom_right', 'on') }}"
 
     - name: contact_bedroom_window_is_open
       unique_id: contact_bedroom_window_is_open
+      device_class: window
       delay_on: '00:00:05'
       delay_off: '00:00:05'
       state: >

@@ -1,13 +1,7 @@
 contact_bedroom_door:
-  input_boolean:
-    contact_bedroom_door:
-
   template:
   - binary_sensor:
     - name: contact_bedroom_door_virtual
       unique_id: contact_bedroom_door_virtual
       device_class: door
-      state: >
-        {% set sensor = is_state('binary_sensor.door_bedroom', 'on') %}
-        {% set boolean = is_state('input_boolean.contact_bedroom_door', 'on') %}
-        {{ sensor or boolean }}
+      state: "{{ is_state('binary_sensor.door_bedroom', 'on') }}"
