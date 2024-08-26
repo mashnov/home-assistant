@@ -1,4 +1,5 @@
 automation_hall_intercom:
+  automation:
   - alias: automation_hall_intercom_call
     trigger: 
     - platform: state
