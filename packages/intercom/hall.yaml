@@ -32,9 +32,6 @@ intercom_hall:
     - service: script.console
       data:
         message: |
-          ID. | Parent | user
-          to_state: {{ trigger.to_state }}
-          id: {{ trigger.to_state.context.id }}
           parent_id: {{ trigger.to_state.context.parent_id }}
           user_id: {{ trigger.to_state.context.user_id }}
 
