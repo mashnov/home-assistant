@@ -14,23 +14,16 @@ intercom_hall:
     intercom_hall_open:
     intercom_hall_enabled:
 
-  template:
-  - binary_sensor:
-    - name: intercom_hall_call
-      unique_id: intercom_hall_call
-      device_class: motion
-      state: "{{ is_state('input_boolean.intercom_hall_call', 'on') }}"
-
   script:
     intercom_hall_open:
       mode: 'queued'
       sequence:
-      - service: switch.turn_on
-        entity_id: switch.intercom_hall
       - service: input_boolean.turn_on
         entity_id: input_boolean.intercom_hall_open
-      - delay: '00:00:02'
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.intercom_hall_open
+      - service: switch.turn_on
+        entity_id: switch.intercom_hall
+      - delay: '00:00:03'
       - service: switch.turn_off
         entity_id: switch.intercom_hall
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.intercom_hall_open
