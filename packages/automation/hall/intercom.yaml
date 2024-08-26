@@ -4,8 +4,8 @@ automation_hall_intercom:
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
-      from: "on"
-      to: "off"
+      from: "off"
+      to: "on"
     condition:
     - condition: template
       value_template: >
@@ -23,13 +23,26 @@ automation_hall_intercom:
     trigger: 
     - platform: state
       entity_id: input_boolean.intercom_hall_call
-      from: "on"
-      to: "off"
+      from: "off"
+      to: "on"
     condition:
     - condition: state
       entity_id: input_boolean.intercom_hall_enabled
       state: "off"
     action:
-    - delay: 00:00:01.6
+    - delay: 00:00:3
     - service: lock.unlock
       entity_id: lock.intercom_hall
+
+  - alias: automation_hall_id
+    trigger: 
+    - platform: state
+      entity_id: switch.intercom_hall
+      from: "off"
+      to: "on"
+    action:
+    - service: script.console
+      data:
+        message: |
+          parent_id: {{ trigger.to_state.context.parent_id }}
+          user_id: {{ trigger.to_state.context.user_id }}

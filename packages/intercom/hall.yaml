@@ -21,20 +21,6 @@ intercom_hall:
       device_class: motion
       state: "{{ is_state('input_boolean.intercom_hall_call', 'on') }}"
 
-  automation:
-  - alias: intercom_hall_id
-    trigger: 
-    - platform: state
-      entity_id: switch.intercom_hall
-      from: "off"
-      to: "on"
-    action:
-    - service: script.console
-      data:
-        message: |
-          parent_id: {{ trigger.to_state.context.parent_id }}
-          user_id: {{ trigger.to_state.context.user_id }}
-
   script:
     intercom_hall_open:
       mode: 'queued'
