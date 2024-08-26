@@ -18,6 +18,7 @@ climat_pressure:
       climat_pressure_is_decreasing:
         entity_id: sensor.climat_pressure_average
         sample_duration: 3600
+        invert: true
 
   template:
   - sensor:

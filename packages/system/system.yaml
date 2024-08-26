@@ -3,6 +3,13 @@ system:
     system_rebuild: ha core rebuild
 
   template:
+  - sensor:
+    - name: sustem_temperature_virtual
+      unique_id: sustem_temperature_virtual
+      device_class: temperature
+      unit_of_measurement: °C
+      state: "{{ states('sensor.processor_temperature') | round(1, default = 0) | float }}"
+
   - binary_sensor:
     - name: 'system_is_backed_up'
       unique_id: system_is_backed_up
@@ -10,6 +17,13 @@ system:
         {% set nowTime = now().timestamp() - 60 %}
         {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime - 60) %}
         {{ nowTime | timestamp_custom('%H:%M') == lastBackUp | timestamp_custom('%H:%M') }}
+
+  - platform: trend
+    sensors:
+      sustem_temperature_is_decreasing:
+        entity_id: sensor.sustem_temperature_virtual
+        sample_duration: 3600
+        invert: true
 
   script:
     system_restart:
