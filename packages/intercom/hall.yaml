@@ -26,8 +26,8 @@ intercom_hall:
     trigger: 
     - platform: state
       entity_id: switch.intercom_hall
-      from: "on"
-      to: "off"
+      from: "off"
+      to: "on"
     action:
     - service: script.console
       data:

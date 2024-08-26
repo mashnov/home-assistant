@@ -16,7 +16,6 @@ climat_illuminance:
     max_age:
       minutes: 10
 
-
   binary_sensor:
   - platform: trend
     sensors:
