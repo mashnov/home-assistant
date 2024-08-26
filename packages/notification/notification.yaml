@@ -458,17 +458,6 @@ notification:
       data_template:
         message: "⚙️ Доступно обновление TERMINAL & SSH ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
-  - alias: 'notification_system_hacs_update'
-    mode: 'queued'
-    trigger:
-    - platform: numeric_state
-      entity_id: sensor.hacs
-      above: 0
-    action:
-    - service: script.telegramm_send_system_text
-      data_template:
-        message: "⚙️ Доступно обновление HACS ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
-
 ###
 ## SECURITY
 ###

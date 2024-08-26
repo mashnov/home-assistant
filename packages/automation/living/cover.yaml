@@ -55,7 +55,7 @@ automation_living_cover:
         position: >
           {% set step = states('input_number.automation_living_cover_step') | int(0) %}
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) + step %}
-          {{ [[0 , position] | max, [100, position] | min] | min }}
+          {{ 0 if position < 0 else (100 if position > 100 else position) }}
 
   - alias: automation_living_cover_controll_left
     mode: queued
@@ -70,4 +70,4 @@ automation_living_cover:
         position: >
           {% set step = states('input_number.automation_living_cover_step') | int(0) %}
           {% set position = state_attr('cover.curtain_living', 'position') | int(0) - step %}
-          {{ [[0 , position] | max, [100, position] | min] | min }}
+          {{ 0 if position < 0 else (100 if position > 100 else position) }}
