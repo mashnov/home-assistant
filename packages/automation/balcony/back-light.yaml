@@ -9,7 +9,7 @@ automation_balcony_back_light:
       to: "on"
     condition:
     - condition: numeric_state
-      entity_id: sensor.climat_illuminance_virtual
+      entity_id: sensor.climat_illuminance_average
       below: 200
     action:
     - service: light.turn_on

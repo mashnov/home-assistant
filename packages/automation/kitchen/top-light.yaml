@@ -12,7 +12,7 @@ automation_kitchen_top_light:
       entity_id: input_boolean.night_mode_hall
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.climat_illuminance_virtual
+      entity_id: sensor.climat_illuminance_average
       below: 1000
     - condition: time
       before: "22:00:00"
