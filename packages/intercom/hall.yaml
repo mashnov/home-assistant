@@ -37,51 +37,16 @@ intercom_hall:
         parent_id: {{ trigger.to_state.context.parent_id }}
         user_id: {{ trigger.to_state.context.user_id }}
 
-  # - alias: automation_hall_intercom_call
-  #   trigger: 
-  #   - platform: state
-  #     entity_id: switch.intercom_hall
-  #     from: "on"
-  #     to: "off"
-  #   condition:
-  #   - condition: template
-  #     value_template: >
-  #       {% set userId = trigger.to_state.context.user_id %}
-  #       {% set parentId = trigger.to_state.context.parent_id %}
-  #       {{ userId == none and parentId == none }}
-  #   action:
-  #   - service: input_boolean.turn_on
-  #     entity_id: input_boolean.intercom_hall_call
-  #   - delay: 00:00:10
-  #   - service: input_boolean.turn_off
-  #     entity_id: input_boolean.intercom_hall_call
-
-  # - alias: automation_hall_intercom_auto_open
-  #   trigger: 
-  #   - platform: state
-  #     entity_id: input_boolean.intercom_hall_call
-  #     from: "on"
-  #     to: "off"
-  #   condition:
-  #   - condition: state
-  #     entity_id: input_boolean.intercom_hall_enabled
-  #     state: "off"
-  #   action:
-  #   - delay: 00:00:01.6
-  #   - service: lock.unlock
-  #     entity_id: lock.intercom_hall
-
-
-  # script:
-  #   intercom_hall_open:
-  #     mode: 'queued'
-  #     sequence:
-  #     - service: switch.turn_on
-  #       entity_id: switch.intercom_hall
-  #     - service: input_boolean.turn_on
-  #       entity_id: input_boolean.intercom_hall_open
-  #     - delay: '00:00:02'
-  #     - service: input_boolean.turn_off
-  #       entity_id: input_boolean.intercom_hall_open
-  #     - service: switch.turn_off
-  #       entity_id: switch.intercom_hall
+  script:
+    intercom_hall_open:
+      mode: 'queued'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.intercom_hall
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.intercom_hall_open
+      - delay: '00:00:02'
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.intercom_hall_open
+      - service: switch.turn_off
+        entity_id: switch.intercom_hall
