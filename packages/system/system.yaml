@@ -5,15 +5,15 @@ system:
   binary_sensor:
   - platform: trend
     sensors:
-      sustem_temperature_is_decreasing:
-        entity_id: sensor.sustem_temperature_virtual
+      system_temperature_is_decreasing:
+        entity_id: sensor.system_temperature_virtual
         sample_duration: 3600
         invert: true
 
   template:
   - sensor:
-    - name: sustem_temperature_virtual
-      unique_id: sustem_temperature_virtual
+    - name: system_temperature_virtual
+      unique_id: system_temperature_virtual
       device_class: temperature
       unit_of_measurement: °C
       state: "{{ states('sensor.processor_temperature') | round(1, default = 0) | float }}"
