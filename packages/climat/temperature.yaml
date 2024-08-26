@@ -14,10 +14,6 @@ climat_temperature:
   binary_sensor:
   - platform: trend
     sensors:
-      climat_temperature_is_increasing:
-        entity_id: sensor.climat_temperature_average
-        sample_duration: 3600
-        
       climat_temperature_is_decreasing:
         entity_id: sensor.climat_temperature_average
         sample_duration: 3600
