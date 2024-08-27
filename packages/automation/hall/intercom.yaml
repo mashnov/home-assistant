@@ -26,9 +26,12 @@ automation_hall_intercom:
     condition:
     - condition: state
       entity_id: input_boolean.intercom_hall_enabled
-      state: "off"
+      state: "on"
     action:
     - delay: 00:00:03
+    - service: lock.unlock
+      entity_id: lock.intercom_hall
+    - delay: 00:00:01
     - service: lock.unlock
       entity_id: lock.intercom_hall
 

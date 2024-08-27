@@ -53,15 +53,15 @@ notification:
       - conditions:
         - condition: state
           entity_id: input_boolean.intercom_hall_enabled
-          state: 'off'
+          state: 'on'
         sequence:
         - service: script.homepod_message
           data_template:
-            message: "Я открыла домофон!"
+            message: "Я открыла домофон! Несут печеньки! Ура!"
       - conditions:
         - condition: state
           entity_id: input_boolean.intercom_hall_enabled
-          state: 'on'
+          state: 'off'
         sequence:
         - service: script.homepod_message
           data_template:
@@ -135,7 +135,7 @@ notification:
       - conditions:
         - condition: state
           entity_id: input_boolean.intercom_hall_enabled
-          state: 'on'
+          state: 'off'
         sequence:
         - service: script.telegramm_send_home_text_custom_menu
           data_template:
@@ -146,7 +146,7 @@ notification:
       - conditions:
         - condition: state
           entity_id: input_boolean.intercom_hall_enabled
-          state: 'off'
+          state: 'on'
         sequence:
         - service: script.telegramm_send_home_text
           data_template:

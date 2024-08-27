@@ -89,7 +89,8 @@ notification_telegramm:
       event_data:
         command: '/intercom_hall_open'
     action:
-    - service: script.intercom_hall_open
+    - service: lock.unlock
+      entity_id: lock.intercom_hall
 
   - alias: telegramm_callback_remove'
     mode: 'queued'
