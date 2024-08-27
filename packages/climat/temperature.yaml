@@ -11,14 +11,6 @@ climat_temperature:
     - sensor.climat_temperature_bedroom_virtual
     - sensor.climat_temperature_living_virtual
 
-  binary_sensor:
-  - platform: trend
-    sensors:
-      climat_temperature_is_decreasing:
-        entity_id: sensor.climat_temperature_average
-        sample_duration: 3600
-        invert: true
-
   template:
   - sensor:
     - name: climat_temperature_kitchen_virtual

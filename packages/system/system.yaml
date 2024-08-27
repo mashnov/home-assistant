@@ -2,14 +2,6 @@ system:
   shell_command:
     system_rebuild: ha core rebuild
 
-  binary_sensor:
-  - platform: trend
-    sensors:
-      system_temperature_is_decreasing:
-        entity_id: sensor.system_temperature_virtual
-        sample_duration: 3600
-        invert: true
-
   template:
   - sensor:
     - name: system_temperature_virtual

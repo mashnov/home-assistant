@@ -16,14 +16,6 @@ climat_illuminance:
     max_age:
       minutes: 10
 
-  binary_sensor:
-  - platform: trend
-    sensors:
-      climat_illuminance_is_decreasing:
-        entity_id: sensor.climat_illuminance_average
-        sample_duration: 3600
-        invert: true
-
   template:
   - sensor:
     - name: climat_illuminance_virtual
