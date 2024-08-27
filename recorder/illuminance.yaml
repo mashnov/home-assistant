@@ -1,5 +1,3 @@
 - sensor.climat_illuminance_virtual
 - sensor.climat_illuminance_max
 - sensor.climat_illuminance_average
-- binary_sensor.climat_illuminance_is_increasing
-- binary_sensor.climat_illuminance_is_decreasing

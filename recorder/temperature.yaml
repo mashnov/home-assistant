@@ -6,5 +6,3 @@
 - sensor.climat_temperature_bedroom_virtual
 - sensor.climat_temperature_living_virtual
 - sensor.climat_temperature_balcony_virtual
-- binary_sensor.climat_temperature_is_increasing
-- binary_sensor.climat_temperature_is_decreasing

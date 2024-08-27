@@ -4,5 +4,3 @@
 - sensor.climat_pressure_toilet_virtual
 - sensor.climat_pressure_bedroom_virtual
 - sensor.climat_pressure_living_virtual
-- binary_sensor.climat_pressure_is_increasing
-- binary_sensor.climat_pressure_is_decreasing
