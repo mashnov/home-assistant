@@ -458,6 +458,18 @@ notification:
       data_template:
         message: "⚙️ Доступно обновление TERMINAL & SSH ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
 
+  - alias: 'notification_system_update_battery_notes'
+    mode: 'queued'
+    trigger:
+    - platform: state
+      entity_id: 'update.battery_notes_update'
+      from: 'off'
+      to: 'on'
+    action:
+    - service: script.telegramm_send_system_text
+      data_template:
+        message: "⚙️ Доступно обновление BATTERY NOTES ({{ now().timestamp() | timestamp_custom('%H:%M') }})"
+
 ###
 ## SECURITY
 ###
