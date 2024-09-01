@@ -35,4 +35,4 @@ intercom_hall:
       unique_id: intercom_hall_duration
       state: >
         {% set duration = states('input_number.intercom_hall') | float(0) %}
-        {{ duration | timestamp_custom('%H:%M:%S', false) }}
+        {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
