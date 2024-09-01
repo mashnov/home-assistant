@@ -1,6 +1,12 @@
 gpio_hall:
+  switch:
+  - platform: remote_rpi_gpio
+    host: 10.0.1.2
+    ports:
+      17: GPIO 17
+
   binary_sensor:
   - platform: remote_rpi_gpio
     host: 10.0.1.2
     ports:
-    
+      17: GPIO 17
