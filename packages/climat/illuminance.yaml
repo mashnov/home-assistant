@@ -18,6 +18,12 @@ climat_illuminance:
 
   template:
   - sensor:
+    - name: climat_illuminance_maximum
+      unique_id: climat_illuminance_maximum
+      device_class: illuminance
+      unit_of_measurement: lx
+      state: "{{ [states('sensor.climat_illuminance_max') | int, 4000] | max }}"
+
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
       device_class: illuminance
