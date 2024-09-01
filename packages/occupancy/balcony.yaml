@@ -3,7 +3,7 @@ occupancy_balcony:
     occupancy_balcony:
 
   input_number:
-    occupancy_balcony: 
+    occupancy_balcony:
       step: 0.5
       max: 10
       min: 1
@@ -29,6 +29,6 @@ occupancy_balcony:
     - name: occupancy_balcony_duration
       unique_id: occupancy_balcony_duration
       state: >
-        {% set value = states('input_number.occupancy_balcony') | int(0) %}
+        {% set value = states('input_number.occupancy_balcony') | float(0) %}
         {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}

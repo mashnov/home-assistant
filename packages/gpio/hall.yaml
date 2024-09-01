@@ -1,0 +1,6 @@
+gpio_hall:
+  binary_sensor:
+  - platform: remote_rpi_gpio
+    host: 10.0.1.2
+    ports:
+    

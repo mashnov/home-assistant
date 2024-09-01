@@ -36,8 +36,8 @@ occupancy_kicthen:
       unique_id: occupancy_kitchen_duration
       state: >
         {% set isNightMode = is_state('input_boolean.night_mode_hall', 'on') %}
-        {% set nightValue = states('input_number.occupancy_kitchen_day') | int(0) %}
-        {% set dayValue = states('input_number.occupancy_kitchen_day') | int(0) %}
+        {% set nightValue = states('input_number.occupancy_kitchen_day') | float(0) %}
+        {% set dayValue = states('input_number.occupancy_kitchen_day') | float(0) %}
         {% set value = iif(isNightMode, nightValue, dayValue) %}
         {% set duration = value * 60 %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}

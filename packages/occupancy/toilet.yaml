@@ -23,7 +23,7 @@ occupancy_toilet:
     - name: occupancy_toilet_duration
       unique_id: occupancy_toilet_duration
       state: >
-        {% set duration = states('input_number.occupancy_toilet') | int(0) %}
+        {% set duration = states('input_number.occupancy_toilet') | float(0) %}
         {{ duration | timestamp_custom('%H:%M:%S', false) }}
 
   automation:
