@@ -11,7 +11,7 @@ intercom_hall:
       entity_id: input_boolean.intercom_hall_open
     - service: switch.turn_on
       entity_id: switch.intercom_hall
-    - delay: "{{ states('sensor.intercom_hall_delay') }}"
+    - delay: "{{ states('sensor.intercom_hall_lock_delay') }}"
     - service: switch.turn_off
       entity_id: switch.intercom_hall
     - service: input_boolean.turn_off
@@ -23,13 +23,19 @@ intercom_hall:
     intercom_hall_enabled:
 
   input_number:
-    intercom_hall_delay:
+    intercom_hall_call:
       step: 0.5
-      max: 10
+      max: 20
+      min: 0.5
+      # 10
+
+    intercom_hall_lock:
+      step: 0.5
+      max: 20
       min: 0.5
       # 2.5
 
-    intercom_hall_call:
+    intercom_hall_open:
       step: 0.5
       max: 20
       min: 0.5
@@ -37,14 +43,20 @@ intercom_hall:
 
   template:
   - sensor:
-    - name: intercom_hall_delay
-      unique_id: intercom_hall_delay
-      state: >
-        {% set duration = states('input_number.intercom_hall_delay') | float(0) %}
-        {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
-
     - name: intercom_hall_call_duration
       unique_id: intercom_hall_call_duration
       state: >
         {% set duration = states('input_number.intercom_hall_call') | float(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
+
+    - name: intercom_hall_lock_delay
+      unique_id: intercom_hall_lock_delay
+      state: >
+        {% set duration = states('input_number.intercom_hall_lock') | float(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
+
+    - name: intercom_hall_open_delay
+      unique_id: intercom_hall_open_delay
+      state: >
+        {% set duration = states('input_number.intercom_hall_open') | float(0) %}
         {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
