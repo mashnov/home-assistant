@@ -2,7 +2,7 @@ intercom_hall:
   lock:
   - platform: template
     name: intercom_hall
-    value_template: "{{ is_state('input_boolean.intercom_hall_open', 'off') }}"
+    value_template: "{{ is_state('input_boolean.intercom_hall_open', 'on') }}"
     lock:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_open
@@ -26,8 +26,14 @@ intercom_hall:
     intercom_hall:
       step: 0.5
       max: 10
-      min: 1
+      min: 0.5
       # 2.5
+
+    intercom_hall_call:
+      step: 0.5
+      max: 20
+      min: 0.5
+      # 10
 
   template:
   - sensor:
@@ -35,4 +41,10 @@ intercom_hall:
       unique_id: intercom_hall_duration
       state: >
         {% set duration = states('input_number.intercom_hall') | float(0) %}
+        {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
+
+    - name: intercom_hall_call_duration
+      unique_id: intercom_hall_call_duration
+      state: >
+        {% set duration = states('input_number.intercom_hall_call') | float(0) %}
         {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}

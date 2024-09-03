@@ -13,7 +13,7 @@ automation_hall_intercom:
     action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.intercom_hall_call
-    - delay: 00:00:10
+    - delay: "{{ states('sensor.intercom_hall_call_duration') }}"
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_call
 
@@ -28,10 +28,7 @@ automation_hall_intercom:
       entity_id: input_boolean.intercom_hall_enabled
       state: "on"
     action:
-    - delay: 00:00:03
-    - service: lock.unlock
-      entity_id: lock.intercom_hall
-    - delay: 00:00:01
+    - delay: "{{ states('sensor.intercom_hall_duration') }}"
     - service: lock.unlock
       entity_id: lock.intercom_hall
 
