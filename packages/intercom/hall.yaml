@@ -27,19 +27,19 @@ intercom_hall:
       step: 0.5
       max: 20
       min: 0.5
-      # 10
+      # 6
 
     intercom_hall_lock:
       step: 0.5
       max: 20
       min: 0.5
-      # 2.5
+      # 3
 
     intercom_hall_open:
       step: 0.5
       max: 20
       min: 0.5
-      # 10
+      # 2.5
 
   template:
   - sensor:
