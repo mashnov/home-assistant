@@ -2,7 +2,9 @@ intercom_hall:
   lock:
   - platform: template
     name: intercom_hall
-    value_template: "{{ is_state('input_boolean.intercom_hall_open', 'off') }}"
+    value_template: >
+      {% set isLocked = is_state('input_boolean.intercom_hall_open', 'off') %}
+      {{ isLocked }}
     lock:
     - service: input_boolean.turn_off
       entity_id: input_boolean.intercom_hall_open
@@ -60,3 +62,9 @@ intercom_hall:
       state: >
         {% set duration = states('input_number.intercom_hall_open') | float(0) %}
         {{ duration | timestamp_custom('%H:%M:%S.%f', false) }}
+
+  - binary_sensor:
+    - name: intercom_hall_is_call
+      unique_id: intercom_hall_is_call
+      device_class: sound
+      state: "{{ is_state('input_boolean.intercom_hall_call', 'on') }}"
