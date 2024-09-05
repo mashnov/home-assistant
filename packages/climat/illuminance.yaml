@@ -12,7 +12,6 @@ climat_illuminance:
     name: climat_illuminance_average
     unique_id: climat_illuminance_average
     entity_id: sensor.climat_illuminance_virtual
-    state_characteristic: average_timeless
     max_age:
       minutes: 10
 
