@@ -21,8 +21,11 @@ occupancy_kicthen:
       unique_id: occupancy_kitchen_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.kitchen_motion_occupancy', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_kitchen_duration') | default('00:01:30') }}"
-      
+      delay_off: > 
+        {% set sensor = states('sensor.occupancy_kitchen_duration') %}
+        {% set duration = iif(sensor not in ['unknown', 'unavailable'], sensor, '00:01:30') %}
+        {{ duration }}
+
     - name: occupancy_kitchen
       unique_id: occupancy_kitchen
       device_class: occupancy

@@ -21,7 +21,10 @@ occupancy_hall:
       unique_id: occupancy_hall_virtual
       device_class: motion
       state: "{{ is_state('binary_sensor.hall_motion_occupancy', 'on') }}"
-      delay_off: "{{ states('sensor.occupancy_hall_duration') | default('00:01:30') }}"
+      delay_off: > 
+        {% set sensor = states('sensor.occupancy_hall_duration') %}
+        {% set duration = iif(sensor not in ['unknown', 'unavailable'], sensor, '00:01:30') %}
+        {{ duration }}
 
     - name: occupancy_hall
       unique_id: occupancy_hall
