@@ -27,7 +27,7 @@ automation_bedroom_back_light:
     trigger:
     - platform: state
       entity_id: sensor.cube_bedroom_action
-      to: flip90
+      to: flip180
     action:
     - service: light.toggle
       entity_id: light.light_back_bedroom

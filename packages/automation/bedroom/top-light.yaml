@@ -5,7 +5,7 @@ automation_bedroom_top_light:
     trigger:
     - platform: state
       entity_id: sensor.cube_bedroom_action
-      to: flip180
+      to: flip90
     action:
     - service: light.toggle
       entity_id: light.light_top_bedroom
