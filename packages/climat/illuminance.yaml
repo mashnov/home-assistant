@@ -1,8 +1,8 @@
 climat_illuminance:
   sensor:
   - platform: statistics
-    name: climat_illuminance_max
-    unique_id: climat_illuminance_max
+    name: climat_illuminance_maximum
+    unique_id: climat_illuminance_maximum
     entity_id: sensor.climat_illuminance_average
     state_characteristic: value_max
     max_age:
@@ -18,14 +18,8 @@ climat_illuminance:
 
   template:
   - sensor:
-    - name: climat_illuminance_maximum
-      unique_id: climat_illuminance_maximum
-      device_class: illuminance
-      unit_of_measurement: lx
-      state: "{{ [states('sensor.climat_illuminance_max') | default(0) | int(0), 1] | max }}"
-
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
       device_class: illuminance
       unit_of_measurement: lx
-      state: "{{ states('sensor.illuminance_balcony') | default(0) | int(0) }}"
+      state: "{{ [states('sensor.illuminance_balcony') | default(0) | int(0), 1] | max }}"
