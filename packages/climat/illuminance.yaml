@@ -14,7 +14,7 @@ climat_illuminance:
     entity_id: sensor.climat_illuminance_virtual
     state_characteristic: average_step
     max_age:
-      minutes: 10
+      minutes: 7
 
   template:
   - sensor:
@@ -22,10 +22,10 @@ climat_illuminance:
       unique_id: climat_illuminance_maximum
       device_class: illuminance
       unit_of_measurement: lx
-      state: "{{ [states('sensor.climat_illuminance_max') | float(0), 4000] | max }}"
+      state: "{{ [states('sensor.climat_illuminance_max') | int(1), 4000] | max }}"
 
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
       device_class: illuminance
       unit_of_measurement: lx
-      state: "{{ states('sensor.illuminance_balcony') | float(0) | round(1, default = 0) }}"
+      state: "{{ states('sensor.illuminance_balcony') | int(1) }}"

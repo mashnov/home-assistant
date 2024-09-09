@@ -8,7 +8,7 @@ system:
       unique_id: system_temperature_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.processor_temperature') | float(0) | round(1, default = 0) }}"
+      state: "{{ states('sensor.processor_temperature') | int(1) }}"
 
   - binary_sensor:
     - name: 'system_is_backed_up'
