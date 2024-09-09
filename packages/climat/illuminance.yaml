@@ -22,7 +22,7 @@ climat_illuminance:
       unique_id: climat_illuminance_maximum
       device_class: illuminance
       unit_of_measurement: lx
-      state: "{{ [states('sensor.climat_illuminance_max') | default(0) | int(0), 4000] | max }}"
+      state: "{{ [0, states('sensor.climat_illuminance_max') | default(0) | int(0), 4000] | max }}"
 
     - name: climat_illuminance_virtual
       unique_id: climat_illuminance_virtual
