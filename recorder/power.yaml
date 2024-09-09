@@ -1,0 +1,9 @@
+
+- sensor.system_power_kitchen_virtual
+- sensor.system_power_bath_virtual
+- sensor.system_power_toilet_virtual
+- sensor.system_power_hall_virtual
+- sensor.system_power_bedroom_virtual
+- sensor.system_power_living_virtual
+- sensor.system_power_balcony_light_virtual
+- sensor.system_power_balcony_socket_virtual

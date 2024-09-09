@@ -1,0 +1,9 @@
+- sensor.system_voltage_average
+- sensor.system_voltage_kitchen_virtual
+- sensor.system_voltage_bath_virtual
+- sensor.system_voltage_toilet_virtual
+- sensor.system_voltage_hall_virtual
+- sensor.system_voltage_bedroom_virtual
+- sensor.system_voltage_living_virtual
+- sensor.system_voltage_balcony_light_virtual
+- sensor.system_voltage_balcony_socket_virtual
