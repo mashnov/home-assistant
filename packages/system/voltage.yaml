@@ -1,0 +1,66 @@
+system_voltage:
+  sensor:
+  - platform: min_max
+    name: system_voltage_average
+    unique_id: system_voltage_average
+    type: mean
+    round_digits: 0
+    entity_ids:
+    - sensor.system_voltage_kitchen_virtual
+    - sensor.system_voltage_bath_virtual
+    - sensor.system_voltage_toilet_virtual
+    - sensor.system_voltage_hall_virtual
+    - sensor.system_voltage_bedroom_virtual
+    - sensor.system_voltage_living_virtual
+    - sensor.system_voltage_balcony_light_virtual
+    - sensor.system_voltage_balcony_socket_virtual
+
+  template:
+  - sensor:
+    - name: system_voltage_kitchen_virtual
+      unique_id: system_voltage_kitchen_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_kitchen_voltage') | int(1) }}"
+
+    - name: system_voltage_bath_virtual
+      unique_id: system_voltage_bath_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_bath_voltage') | int(1) }}"
+
+    - name: system_voltage_toilet_virtual
+      unique_id: system_voltage_toilet_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_toilet_voltage') | int(1) }}"
+
+    - name: system_voltage_hall_virtual
+      unique_id: system_voltage_hall_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_hall_voltage') | int(1) }}"
+
+    - name: system_voltage_bedroom_virtual
+      unique_id: system_voltage_bedroom_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_bedroom_voltage') | int(1) }}"
+
+    - name: system_voltage_living_virtual
+      unique_id: system_voltage_living_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_living_voltage') | int(1) }}"
+
+    - name: system_voltage_balcony_light_virtual
+      unique_id: system_voltage_balcony_light_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_balcony_1_voltage') | int(1) }}"
+
+    - name: system_voltage_balcony_socket_virtual
+      unique_id: system_voltage_balcony_socket_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_balcony_2_voltage') | int(1) }}"

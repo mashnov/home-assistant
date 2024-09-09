@@ -15,6 +15,13 @@ hygrostat_living:
       # 10
 
   template:
+  - sensor:
+    - name: hygrostat_living_power
+      unique_id: hygrostat_living_power
+      device_class: power
+      unit_of_measurement: W
+      state: "{{ states('sensor.relay_living_power') | int(1) }}"
+
   - binary_sensor:
     - name: hygrostat_living_is_empty
       unique_id: hygrostat_living_is_empty
@@ -23,8 +30,8 @@ hygrostat_living:
       state: >
         {% set humidifier = is_state('switch.relay_living_l1', 'on') %}
         {% set backlight = is_state('light.light_back_living', 'on') %}
-        {% set offset = states('input_number.hygrostat_living_power_offset') | int(0) %}
-        {% set power = states('sensor.relay_living_power') | int(0) %}
+        {% set offset = states('input_number.system_power_living_virtual') | int(0) %}
+        {% set power = states('sensor.hygrostat_living_power') | int(0) %}
         {% set sensor = iif(backlight, power - offset, power) %}
         {{ humidifier and (sensor <= 0) }}
 
