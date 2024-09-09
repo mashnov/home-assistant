@@ -5,46 +5,46 @@ system_power:
       unique_id: system_power_kitchen_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.kitchen_relay_power') | default(0) | int }}"
+      state: "{{ states('sensor.kitchen_relay_power') | default(0) | int(0) }}"
 
     - name: system_power_bath_virtual
       unique_id: system_power_bath_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.bath_relay_power') | default(0) | int }}"
+      state: "{{ states('sensor.bath_relay_power') | default(0) | int(0) }}"
 
     - name: system_power_toilet_virtual
       unique_id: system_power_toilet_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.toilet_relay_power') | default(0) | int }}"
+      state: "{{ states('sensor.toilet_relay_power') | default(0) | int(0) }}"
 
     - name: system_power_hall_virtual
       unique_id: system_power_hall_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.relay_hall_power') | default(0) | int }}"
+      state: "{{ states('sensor.relay_hall_power') | default(0) | int(0) }}"
 
     - name: system_power_bedroom_virtual
       unique_id: system_power_bedroom_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.relay_bedroom_power') | default(0) | int }}"
+      state: "{{ states('sensor.relay_bedroom_power') | default(0) | int(0) }}"
 
     - name: system_power_living_virtual
       unique_id: system_power_living_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.relay_living_power') | default(0) | int }}"
+      state: "{{ states('sensor.relay_living_power') | default(0) | int(0) }}"
 
     - name: system_power_balcony_light_virtual
       unique_id: system_power_balcony_light_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.balcony_relay_1_power') | default(0) | int }}"
+      state: "{{ states('sensor.balcony_relay_1_power') | default(0) | int(0) }}"
 
     - name: system_power_balcony_socket_virtual
       unique_id: system_power_balcony_socket_virtual
       device_class: power
       unit_of_measurement: W
-      state: "{{ states('sensor.balcony_relay_2_power') | default(0) | int }}"
+      state: "{{ states('sensor.balcony_relay_2_power') | default(0) | int(0) }}"

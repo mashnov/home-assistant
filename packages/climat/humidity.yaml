@@ -25,41 +25,41 @@ climat_humidity:
       unique_id: climat_humidity_kitchen_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_kitchen') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_kitchen') | default(0) | int(0) }}"
 
     - name: climat_humidity_bath_virtual
       unique_id: climat_humidity_bath_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_bath') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_bath') | default(0) | int(0) }}"
 
     - name: climat_humidity_toilet_virtual
       unique_id: climat_humidity_toilet_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_toilet') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_toilet') | default(0) | int(0) }}"
 
     - name: climat_humidity_hall_virtual
       unique_id: climat_humidity_hall_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_hall') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_hall') | default(0) | int(0) }}"
 
     - name: climat_humidity_bedroom_virtual
       unique_id: climat_humidity_bedroom_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_bedroom') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_bedroom') | default(0) | int(0) }}"
 
     - name: climat_humidity_living_virtual
       unique_id: climat_humidity_living_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_living') | default(0) | int }}"
+      state: "{{ states('sensor.humidity_living') | default(0) | int(0) }}"
 
     - name: climat_humidity_balcony_virtual
       unique_id: climat_humidity_balcony_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.ble_humidity_thermometer_balcony') | default(0) | int }}"
+      state: "{{ states('sensor.ble_humidity_thermometer_balcony') | default(0) | int(0) }}"
 

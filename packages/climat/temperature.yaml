@@ -17,40 +17,40 @@ climat_temperature:
       unique_id: climat_temperature_kitchen_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_kitchen') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_kitchen') | default(0) | int(0) }}"
 
     - name: climat_temperature_bath_virtual
       unique_id: climat_temperature_bath_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_bath') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_bath') | default(0) | int(0) }}"
 
     - name: climat_temperature_toilet_virtual
       unique_id: climat_temperature_toilet_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_toilet') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_toilet') | default(0) | int(0) }}"
 
     - name: climat_temperature_hall_virtual
       unique_id: climat_temperature_hall_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_hall') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_hall') | default(0) | int(0) }}"
 
     - name: climat_temperature_bedroom_virtual
       unique_id: climat_temperature_bedroom_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_bedroom') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_bedroom') | default(0) | int(0) }}"
 
     - name: climat_temperature_living_virtual
       unique_id: climat_temperature_living_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.temperature_living') | default(0) | int }}"
+      state: "{{ states('sensor.temperature_living') | default(0) | int(0) }}"
 
     - name: climat_temperature_balcony_virtual
       unique_id: climat_temperature_balcony_virtual
       device_class: temperature
       unit_of_measurement: °C
-      state: "{{ states('sensor.ble_temperature_thermometer_balcony') | default(0) | int }}"
+      state: "{{ states('sensor.ble_temperature_thermometer_balcony') | default(0) | int(0) }}"
