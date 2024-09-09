@@ -21,46 +21,46 @@ system_voltage:
       unique_id: system_voltage_kitchen_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_kitchen_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_kitchen_voltage') | default(220) | int }}"
 
     - name: system_voltage_bath_virtual
       unique_id: system_voltage_bath_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_bath_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_bath_voltage') | default(220) | int }}"
 
     - name: system_voltage_toilet_virtual
       unique_id: system_voltage_toilet_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_toilet_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_toilet_voltage') | default(220) | int }}"
 
     - name: system_voltage_hall_virtual
       unique_id: system_voltage_hall_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_hall_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_hall_voltage') | default(220) | int }}"
 
     - name: system_voltage_bedroom_virtual
       unique_id: system_voltage_bedroom_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_bedroom_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_bedroom_voltage') | default(220) | int }}"
 
     - name: system_voltage_living_virtual
       unique_id: system_voltage_living_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_living_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_living_voltage') | default(220) | int }}"
 
     - name: system_voltage_balcony_light_virtual
       unique_id: system_voltage_balcony_light_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_balcony_1_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_balcony_1_voltage') | default(220) | int }}"
 
     - name: system_voltage_balcony_socket_virtual
       unique_id: system_voltage_balcony_socket_virtual
       device_class: voltage
       unit_of_measurement: "V"
-      state: "{{ states('sensor.relay_balcony_2_voltage') | int | default(220) }}"
+      state: "{{ states('sensor.relay_balcony_2_voltage') | default(220) | int }}"

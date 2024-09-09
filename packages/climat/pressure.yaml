@@ -18,28 +18,28 @@ climat_pressure:
       unique_id: climat_pressure_kitchen_virtual
       device_class: pressure
       unit_of_measurement: mmHg
-      state: "{{ states('sensor.pressure_kitchen') | int | default(758) }}"
+      state: "{{ states('sensor.pressure_kitchen') | default(758) | int }}"
 
     - name: climat_pressure_hall_virtual
       unique_id: climat_pressure_hall_virtual
       device_class: pressure
       unit_of_measurement: mmHg
-      state: "{{ states('sensor.pressure_hall') | int | default(758) }}"
+      state: "{{ states('sensor.pressure_hall') | default(758) | int }}"
 
     - name: climat_pressure_toilet_virtual
       unique_id: climat_pressure_toilet_virtual
       device_class: pressure
       unit_of_measurement: mmHg
-      state: "{{ states('sensor.pressure_toilet') | int | default(758) }}"
+      state: "{{ states('sensor.pressure_toilet') | default(758) | int }}"
 
     - name: climat_pressure_bedroom_virtual
       unique_id: climat_pressure_bedroom_virtual
       device_class: pressure
       unit_of_measurement: mmHg
-      state: "{{ states('sensor.pressure_bedroom') | int | default(758) }}"
+      state: "{{ states('sensor.pressure_bedroom') | default(758) | int }}"
 
     - name: climat_pressure_living_virtual
       unique_id: climat_pressure_living_virtual
       device_class: pressure
       unit_of_measurement: mmHg
-      state: "{{ states('sensor.pressure_living') | int | default(758) }}"
+      state: "{{ states('sensor.pressure_living') | default(758) | int }}"
