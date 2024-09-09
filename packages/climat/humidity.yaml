@@ -25,7 +25,7 @@ climat_humidity:
       unique_id: climat_humidity_kitchen_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.humidity_kitchen') | int(1) }}"
+      state: "{{ states('sensor.humidity_kitchen') | int | default(1) }}"
 
     - name: climat_humidity_bath_virtual
       unique_id: climat_humidity_bath_virtual
