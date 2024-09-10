@@ -1,6 +1,8 @@
 system:
   shell_command:
     system_rebuild: ha core rebuild
+    system_clear_data: cd /config/ && rm home-assistant_v2.db-wal home-assistant_v2.db-shm home-assistant_v2.db home-assistant.log.fault home-assistant.log.1 home-assistant.log
+    system_pull: cd /config/includes/ && git pull
 
   template:
   - sensor:
