@@ -12,7 +12,7 @@ automation_balcony_top_light:
       entity_id: light.light_top_balcony
       state: "off"
     - condition: numeric_state
-      entity_id: sensor.climat_illuminance_average
+      entity_id: sensor.climat_illuminance_virtual
       below: 50
     action:
     - service: light.turn_on

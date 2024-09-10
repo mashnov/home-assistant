@@ -3,18 +3,10 @@ climat_illuminance:
   - platform: statistics
     name: climat_illuminance_maximum
     unique_id: climat_illuminance_maximum
-    entity_id: sensor.climat_illuminance_average
+    entity_id: sensor.climat_illuminance_virtual
     state_characteristic: value_max
     max_age:
       days: 1
-
-  - platform: statistics
-    name: climat_illuminance_average
-    unique_id: climat_illuminance_average
-    entity_id: sensor.climat_illuminance_virtual
-    state_characteristic: average_step
-    max_age:
-      minutes: 7
 
   template:
   - sensor:

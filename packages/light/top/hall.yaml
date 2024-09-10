@@ -24,7 +24,7 @@ light_top_hall:
         {% set minValue = 175 %}
         {% set maxValue = 333 %}
         {% set target = states('sensor.climat_illuminance_maximum') | int(1) %}
-        {% set sensor = states('sensor.climat_illuminance_average') | int(0) %}
+        {% set sensor = states('sensor.climat_illuminance_virtual') | int(0) %}
         {% set percent = min((sensor / max(1, target) ) * 100, 100) | int(0) %}
         {% set temperature = (maxValue / 100 * (100 - percent)) | int(0) %}
         {{ max(minValue, temperature) }}
