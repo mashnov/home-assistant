@@ -14,4 +14,4 @@ climat_illuminance:
       unique_id: climat_illuminance_virtual
       device_class: illuminance
       unit_of_measurement: lx
-      state: "{{ [states('sensor.illuminance_balcony') | default(0) | int(0), 1] | max }}"
+      state: "{{ states('sensor.illuminance_balcony') | default(0) | int(0) }}"
