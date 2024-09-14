@@ -16,7 +16,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_1
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_1
       data_template:
@@ -39,7 +38,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_2
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_2
       data_template:
@@ -62,7 +60,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_3
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_3
       data_template:
@@ -85,7 +82,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_4
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_4
       data_template:
@@ -108,7 +104,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_5
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_5
       data_template:
@@ -131,7 +126,6 @@ automation_bedroom_xiaomi:
       entity_id: light.light_xiaomi_bedroom_6
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_xiaomi_bedroom_6
       data_template:

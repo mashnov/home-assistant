@@ -36,7 +36,6 @@ automation_hall_night_light:
       entity_id: light.light_night_hall
       state: "on"
     action:
-    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_night_hall
       data_template:
