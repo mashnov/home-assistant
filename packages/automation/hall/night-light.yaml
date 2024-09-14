@@ -1,6 +1,6 @@
 automation_hall_night_light:
   automation:
-  - alias: automation_hall_night_light_on
+  - alias: automation_hall_night_light_on_by_motion
     mode: queued
     trigger:
     - platform: state
@@ -10,9 +10,6 @@ automation_hall_night_light:
     action:
     - service: light.turn_on
       entity_id: light.light_night_hall
-      data_template:
-        brightness: "{{ states('sensor.light_night_hall_brightness') | int(50) }}"
-        hs_color: [24, 95]
 
   - alias: automation_hall_night_light_off
     mode: queued
@@ -30,11 +27,16 @@ automation_hall_night_light:
     trigger:
     - platform: state
       entity_id: sensor.light_night_hall_brightness
+    - platform: state
+      entity_id: light.light_night_hall
+      from: "off"
+      to: "on"
     condition:
     - condition: state
       entity_id: light.light_night_hall
       state: "on"
     action:
+    - delay: 00:00:00.5
     - service: light.turn_on
       entity_id: light.light_night_hall
       data_template:
