@@ -1,4 +1,17 @@
 light_night_hall:
+  light:
+  - platform: template
+    lights:
+      light_night_hall:
+        value_template: "{{ is_state('light.aqara_hub_m1s_7fcc_lightbulb', 'on') }}"
+        turn_on:
+        - service: light.turn_on
+          entity_id: light.aqara_hub_m1s_7fcc_lightbulb
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.aqara_hub_m1s_7fcc_lightbulb
+
+
   input_number:
     light_night_hall_night_brightness: 
       max: 255
