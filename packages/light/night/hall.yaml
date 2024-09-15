@@ -4,13 +4,24 @@ light_night_hall:
     lights:
       light_night_hall:
         value_template: "{{ is_state('light.aqara_hub_m1s_7fcc_lightbulb', 'on') }}"
+        level_template: "{{ state_attr('light.aqara_hub_m1s_7fcc_lightbulb', 'brightness') }}"
+        hs_template: "{{ state_attr('light.aqara_hub_m1s_7fcc_lightbulb', 'hs_color') }}"
         turn_on:
         - service: light.turn_on
           entity_id: light.aqara_hub_m1s_7fcc_lightbulb
         turn_off:
         - service: light.turn_off
           entity_id: light.aqara_hub_m1s_7fcc_lightbulb
-
+        set_level:
+        - action: light.turn_on
+          entity_id: light.aqara_hub_m1s_7fcc_lightbulb
+          data_template:
+            brightness: "{{ brightness | int(1) }}"
+        set_hs:
+        - action: light.turn_on
+          entity_id: light.aqara_hub_m1s_7fcc_lightbulb
+          data_template:
+            hs_color: "{{ hs_color | int(1) }}"
 
   input_number:
     light_night_hall_night_brightness: 
