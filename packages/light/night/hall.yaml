@@ -21,7 +21,7 @@ light_night_hall:
         - action: light.turn_on
           entity_id: light.aqara_hub_m1s_7fcc_lightbulb
           data_template:
-            hs_color: "[{{ hs[0] | int(1) }}, {{ hs[1] | int(1) }}]"
+            hs_color: "{{ hs }}"
 
   input_number:
     light_night_hall_night_brightness: 
