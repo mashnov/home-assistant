@@ -18,6 +18,9 @@ light_night_hall:
           data_template:
             brightness: "{{ brightness | int(1) }}"
         set_hs:
+        - service: script.console
+          data:
+            message: "hs_color: {{ hs_color }}"
         - action: light.turn_on
           entity_id: light.aqara_hub_m1s_7fcc_lightbulb
           data_template:
