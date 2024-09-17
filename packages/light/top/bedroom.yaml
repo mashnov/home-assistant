@@ -12,8 +12,8 @@ light_top_bedroom:
 
   - platform: template
     lights:
-      light_top_living:
-        unique_id: light_top_living
+      light_top_bedroom:
+        unique_id: light_top_bedroom
         value_template: "{{ is_state('light.light_top_bedroom_group', 'on') }}"
         level_template: "{{ state_attr('light.light_top_bedroom_group', 'brightness') }}"
         temperature_template: "{{ state_attr('light.light_top_bedroom_group', 'color_temp') }}"

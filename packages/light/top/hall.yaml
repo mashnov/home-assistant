@@ -12,8 +12,8 @@ light_top_hall:
 
   - platform: template
     lights:
-      light_top_living:
-        unique_id: light_top_living
+      light_top_hall:
+        unique_id: light_top_hall
         value_template: "{{ is_state('light.light_top_hall_group', 'on') }}"
         level_template: "{{ state_attr('light.light_top_hall_group', 'brightness') }}"
         temperature_template: "{{ state_attr('light.light_top_hall_group', 'color_temp') }}"
