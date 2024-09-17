@@ -14,8 +14,6 @@ light_top_living:
     lights:
       light_top_living:
         unique_id: light_top_living
-        min_mireds: 175
-        max_mireds: 333
         value_template: "{{ is_state('light.light_top_living_group', 'on') }}"
         level_template: "{{ state_attr('light.light_top_living_group', 'brightness') }}"
         temperature_template: "{{ state_attr('light.light_top_living_group', 'color_temp') }}"
