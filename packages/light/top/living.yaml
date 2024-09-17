@@ -54,12 +54,62 @@ light_top_living:
         - service: light.turn_off
           entity_id: light.light_xiaomi_living_1
         set_level:
-        - action: light.turn_on
-          entity_id: light.light_top_living_group
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_1
+          data_template:
+            brightness: "{{ brightness }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_2
+          data_template:
+            brightness: "{{ brightness }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_3
+          data_template:
+            brightness: "{{ brightness }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_4
+          data_template:
+            brightness: "{{ brightness }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_5
+          data_template:
+            brightness: "{{ brightness }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_6
           data_template:
             brightness: "{{ brightness }}"
         set_temperature:
-        - action: light.turn_on
-          entity_id: light.light_top_living_group
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_1
+          data_template:
+            color_temp: "{{ color_temp }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_2
+          data_template:
+            color_temp: "{{ color_temp }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_3
+          data_template:
+            color_temp: "{{ color_temp }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_4
+          data_template:
+            color_temp: "{{ color_temp }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_5
+          data_template:
+            color_temp: "{{ color_temp }}"
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_living_6
           data_template:
             color_temp: "{{ color_temp }}"
