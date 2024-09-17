@@ -9,7 +9,7 @@ automation_hall_xiaomi:
       entity_id: sensor.light_top_hall_temperature
     action:
     - service: light.turn_off
-      entity_id: "{{ states.light | selectattr('state', 'eq', 'on') | selectattr('entity_id', 'search', 'light_xiaomi') | map(attribute='entity_id') | list }}"
       data_template:
+        entity_id: "{{ states.light | selectattr('state', 'eq', 'on') | selectattr('entity_id', 'search', 'light_xiaomi') | map(attribute='entity_id') | list }}"
         brightness: "{{ states('sensor.light_top_hall_brightness') | int(50) }}"
         color_temp: "{{ states('sensor.light_top_hall_temperature') | int(333) }}"
