@@ -20,39 +20,39 @@ light_top_living:
         turn_on:
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_1
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_2
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_3
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_4
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_5
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_on
           entity_id: light.light_xiaomi_living_6
         turn_off:
         - service: light.turn_off
-          entity_id: light.light_xiaomi_living_1
-        - delay: 00:00:00.2
-        - service: light.turn_off
-          entity_id: light.light_xiaomi_living_2
-        - delay: 00:00:00.2
-        - service: light.turn_off
-          entity_id: light.light_xiaomi_living_3
-        - delay: 00:00:00.2
-        - service: light.turn_off
-          entity_id: light.light_xiaomi_living_4
-        - delay: 00:00:00.2
+          entity_id: light.light_xiaomi_living_6
+        - delay: 00:00:00.1
         - service: light.turn_off
           entity_id: light.light_xiaomi_living_5
-        - delay: 00:00:00.2
+        - delay: 00:00:00.1
         - service: light.turn_off
-          entity_id: light.light_xiaomi_living_6
+          entity_id: light.light_xiaomi_living_4
+        - delay: 00:00:00.1
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_living_3
+        - delay: 00:00:00.1
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_living_2
+        - delay: 00:00:00.1
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_living_1
         set_level:
         - action: light.turn_on
           entity_id: light.light_top_living_group
