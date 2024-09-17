@@ -1,7 +1,7 @@
 light_top_bedroom:
   light:
   - platform: group
-    name: light_top_bedroom
+    name: light_top_bedroom_group
     entities:
     - light.light_xiaomi_bedroom_1
     - light.light_xiaomi_bedroom_2
@@ -9,3 +9,57 @@ light_top_bedroom:
     - light.light_xiaomi_bedroom_4
     - light.light_xiaomi_bedroom_5
     - light.light_xiaomi_bedroom_6
+
+  - platform: template
+    lights:
+      light_top_living:
+        unique_id: light_top_living
+        value_template: "{{ is_state('light.light_top_bedroom_group', 'on') }}"
+        level_template: "{{ state_attr('light.light_top_bedroom_group', 'brightness') }}"
+        temperature_template: "{{ state_attr('light.light_top_bedroom_group', 'color_temp') }}"
+        turn_on:
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_1
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_2
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_3
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_4
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_5
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_bedroom_6
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_6
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_5
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_4
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_3
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_2
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_bedroom_1
+        set_level:
+        - action: light.turn_on
+          entity_id: light.light_top_bedroom_group
+          data_template:
+            brightness: "{{ brightness }}"
+        set_temperature:
+        - action: light.turn_on
+          entity_id: light.light_top_bedroom_group
+          data_template:
+            color_temp: "{{ color_temp }}"

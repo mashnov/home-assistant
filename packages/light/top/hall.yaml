@@ -1,7 +1,7 @@
 light_top_hall:
   light:
   - platform: group
-    name: light_top_hall
+    name: light_top_hall_group
     entities:
     - light.light_xiaomi_hall_1
     - light.light_xiaomi_hall_2
@@ -9,7 +9,61 @@ light_top_hall:
     - light.light_xiaomi_hall_4
     - light.light_xiaomi_hall_5
     - light.light_xiaomi_hall_6
-  
+
+  - platform: template
+    lights:
+      light_top_living:
+        unique_id: light_top_living
+        value_template: "{{ is_state('light.light_top_hall_group', 'on') }}"
+        level_template: "{{ state_attr('light.light_top_hall_group', 'brightness') }}"
+        temperature_template: "{{ state_attr('light.light_top_hall_group', 'color_temp') }}"
+        turn_on:
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_1
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_2
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_3
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_4
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_5
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_hall_6
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_6
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_5
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_4
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_3
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_2
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_hall_1
+        set_level:
+        - action: light.turn_on
+          entity_id: light.light_top_hall_group
+          data_template:
+            brightness: "{{ brightness }}"
+        set_temperature:
+        - action: light.turn_on
+          entity_id: light.light_top_hall_group
+          data_template:
+            color_temp: "{{ color_temp }}"
+
   input_number:
     light_top_hall_night_brightness: 
       max: 255

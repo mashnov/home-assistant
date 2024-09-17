@@ -1,10 +1,58 @@
 light_top_kitchen:
   light:
   - platform: group
-    name: light_top_kitchen
+    name: light_top_kitchen_group
     entities:
     - light.light_xiaomi_kitchen_1
     - light.light_xiaomi_kitchen_2
     - light.light_xiaomi_kitchen_3
     - light.light_xiaomi_kitchen_4
     - light.light_xiaomi_kitchen_5
+
+  - platform: template
+    lights:
+      light_top_kitchen:
+        unique_id: light_top_kitchen
+        value_template: "{{ is_state('light.light_top_kitchen_group', 'on') }}"
+        level_template: "{{ state_attr('light.light_top_kitchen_group', 'brightness') }}"
+        temperature_template: "{{ state_attr('light.light_top_kitchen_group', 'color_temp') }}"
+        turn_on:
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_kitchen_1
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_kitchen_2
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_kitchen_3
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_kitchen_4
+        - delay: 00:00:00.2
+        - service: light.turn_on
+          entity_id: light.light_xiaomi_kitchen_5
+        turn_off:
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_kitchen_5
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_kitchen_4
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_kitchen_3
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_kitchen_2
+        - delay: 00:00:00.2
+        - service: light.turn_off
+          entity_id: light.light_xiaomi_kitchen_1
+        set_level:
+        - action: light.turn_on
+          entity_id: light.light_top_kitchen_group
+          data_template:
+            brightness: "{{ brightness }}"
+        set_temperature:
+        - action: light.turn_on
+          entity_id: light.light_top_kitchen_group
+          data_template:
+            color_temp: "{{ color_temp }}"
