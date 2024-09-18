@@ -4,8 +4,6 @@ thermostat_living:
     name: thermostat_living
     heater: switch.thermostat_living
     target_sensor: sensor.climat_temperature_living_virtual
-    min_temp: 15
-    max_temp: 30
 
   switch:
   - platform: template
