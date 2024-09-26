@@ -2,6 +2,7 @@ light_top_kitchen:
   light:
   - platform: group
     name: light_top_kitchen
+    unique_id: light_top_kitchen
     entities:
     - light.light_xiaomi_kitchen_1
     - light.light_xiaomi_kitchen_2

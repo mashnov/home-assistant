@@ -2,6 +2,7 @@ light_top_living:
   light:
   - platform: group
     name: light_top_living
+    unique_id: light_top_living
     entities:
     - light.light_xiaomi_living_1
     - light.light_xiaomi_living_2

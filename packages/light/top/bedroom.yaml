@@ -2,6 +2,7 @@ light_top_bedroom:
   light:
   - platform: group
     name: light_top_bedroom
+    unique_id: light_top_bedroom
     entities:
     - light.light_xiaomi_bedroom_1
     - light.light_xiaomi_bedroom_2

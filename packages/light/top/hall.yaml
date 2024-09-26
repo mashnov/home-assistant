@@ -2,6 +2,7 @@ light_top_hall:
   light:
   - platform: group
     name: light_top_hall
+    unique_id: light_top_hall
     entities:
     - light.light_xiaomi_hall_1
     - light.light_xiaomi_hall_2
