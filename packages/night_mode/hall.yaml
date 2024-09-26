@@ -13,14 +13,6 @@ night_mode_hall:
   input_boolean:
     night_mode_hall:
 
-  input_select:
-    home_mode:
-      options:
-      - morning
-      - day
-      - evening
-      - night
-
   template:
   - binary_sensor:
     - name: night_mode_hall
