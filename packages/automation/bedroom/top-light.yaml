@@ -7,5 +7,21 @@ automation_bedroom_top_light:
       entity_id: sensor.cube_bedroom_action
       to: flip90
     action:
-    - service: light.toggle
-      entity_id: light.light_top_bedroom
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: light.light_top_bedroom
+          state: "on"
+        sequence:
+        - service: light.turn_off
+          entity_id: light.light_top_bedroom
+      - conditions:
+        - condition: state
+          entity_id: light.light_top_bedroom
+          state: "off"
+        sequence:
+        - service: light.turn_on
+          entity_id: light.light_top_bedroom
+          data_template:
+            brightness: "{{ states('sensor.light_top_hall_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_top_hall_temperature') | int(333) }}"

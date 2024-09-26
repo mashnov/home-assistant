@@ -7,5 +7,21 @@ automation_living_top_light:
       entity_id: sensor.living_cube_action
       to: flip90
     action:
-    - service: light.toggle
-      entity_id: light.light_top_living
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: light.light_top_living
+          state: "on"
+        sequence:
+        - service: light.turn_off
+          entity_id: light.light_top_living
+      - conditions:
+        - condition: state
+          entity_id: light.light_top_living
+          state: "off"
+        sequence:
+        - service: light.turn_on
+          entity_id: light.light_top_living
+          data_template:
+            brightness: "{{ states('sensor.light_top_hall_brightness') | int(50) }}"
+            color_temp: "{{ states('sensor.light_top_hall_temperature') | int(333) }}"

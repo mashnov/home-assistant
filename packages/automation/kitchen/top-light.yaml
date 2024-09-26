@@ -13,12 +13,15 @@ automation_kitchen_top_light:
       state: "off"
     - condition: numeric_state
       entity_id: sensor.climat_illuminance_virtual
-      below: 1000
+      below: 700
     - condition: time
-      before: "22:00:00"
+      before: "21:00:00"
     action:
     - service: light.turn_on
       entity_id: light.light_top_kitchen
+      data_template:
+        brightness: "{{ states('sensor.light_top_hall_brightness') | int(50) }}"
+        color_temp: "{{ states('sensor.light_top_hall_temperature') | int(333) }}"
 
   - alias: automation_kitchen_top_light_off
     mode: queued
