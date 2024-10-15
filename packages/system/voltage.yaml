@@ -8,7 +8,6 @@ system_voltage:
     entity_ids:
     - sensor.system_voltage_kitchen_virtual
     - sensor.system_voltage_bath_virtual
-    - sensor.system_voltage_toilet_virtual
     - sensor.system_voltage_hall_virtual
     - sensor.system_voltage_bedroom_virtual
     - sensor.system_voltage_living_virtual
