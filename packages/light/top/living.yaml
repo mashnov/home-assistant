@@ -11,7 +11,7 @@ light_top_living:
     - light.light_xiaomi_living_5
     - light.light_xiaomi_living_6
 
-  input_select:
+  select:
     light_top_living:
       name: living
       options:
@@ -21,3 +21,4 @@ light_top_living:
       - light.light_xiaomi_living_4
       - light.light_xiaomi_living_5
       - light.light_xiaomi_living_6
+      icon: mdi:lightbulb
