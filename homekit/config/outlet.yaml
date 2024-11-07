@@ -1,7 +1,8 @@
 switch.relay_balcony_l4:
-  name: Розетка
+  name: Портал
   type: outlet
 
 switch.relay_balcony_l3:
-  name: Фонтан
-  type: sprinkler
+  name: Розетка
+  type: outlet
+  # type: sprinkler
