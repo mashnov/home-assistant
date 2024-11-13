@@ -61,5 +61,5 @@ climat_humidity:
       unique_id: climat_humidity_balcony_virtual
       device_class: humidity
       unit_of_measurement: "%"
-      state: "{{ states('sensor.ble_humidity_thermometer_balcony') | default(0) | int(0) }}"
+      state: "{{ states('sensor.ble_humidity_a4c1389fb298') | default(0) | int(0) }}"
 
