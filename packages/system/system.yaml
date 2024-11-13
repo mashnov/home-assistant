@@ -12,14 +12,20 @@ system:
       unit_of_measurement: °C
       state: "{{ states('sensor.processor_temperature') | int(1) }}"
 
+    - name: system_voltage_virtual
+      unique_id: system_voltage_virtual
+      device_class: voltage
+      unit_of_measurement: "V"
+      state: "{{ states('sensor.relay_hall_voltage') | default(0) | int(0) }}"
+
   - binary_sensor:
     - name: 'system_is_backed_up'
       unique_id: system_is_backed_up
       state: >
         {% set nowTime = now().timestamp() - 60 %}
         {% set lastBackUp = state_attr('sensor.backup_state', 'last_backup') | as_timestamp(nowTime - 60) %}
-        {{ nowTime | timestamp_custom('%H:%M') == lastBackUp | timestamp_custom('%H:%M') }}
-  
+        {{ nowTime | timestamp_custom('%H:%M') == lastBackUp | timestamp_custom
+
   script:
     system_restart:
       mode: 'queued'
@@ -35,3 +41,13 @@ system:
       mode: 'queued'
       sequence:
       - service: shell_command.system_rebuild
+
+    system_clear_data:
+      mode: 'queued'
+      sequence:
+      - service: shell_command.system_clear_data
+
+    system_pull:
+      mode: 'queued'
+      sequence:
+      - service: shell_command.system_pull

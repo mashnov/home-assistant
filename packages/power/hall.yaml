@@ -1,0 +1,8 @@
+power_hall:
+  template:
+  - sensor:
+    - name: power_hall_virtual
+      unique_id: power_hall_virtual
+      device_class: power
+      unit_of_measurement: W
+      state: "{{ states('sensor.relay_hall_power') | default(0) | int(0) }}"

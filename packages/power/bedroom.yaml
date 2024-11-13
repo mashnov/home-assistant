@@ -1,0 +1,8 @@
+power_bedroom:
+  template:
+  - sensor:
+    - name: power_bedroom_virtual
+      unique_id: power_bedroom_virtual
+      device_class: power
+      unit_of_measurement: W
+      state: "{{ states('sensor.relay_bedroom_power') | default(0) | int(0) }}"
